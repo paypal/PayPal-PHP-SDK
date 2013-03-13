@@ -2,7 +2,7 @@
 
 namespace PayPal\Common;
 
-define('SDK_NAME', 'REST-SDK-PHP');
+define('SDK_NAME', 'rest-sdk-php');
 define('SDK_VERSION', '0.5.0');
 
 class UserAgent {
@@ -14,15 +14,15 @@ class UserAgent {
 	public static function getValue() {
 		
 		$featureList = array(
-				'Lang=PHP',
-				'V=' . PHP_VERSION,
-				'Bit=' . UserAgent::_getPHPBit(),
-				'OS=' . str_replace(' ' , '_', php_uname('s') . ' ' . php_uname('r')),
-				'Machine=' . php_uname('m')
+				'lang=PHP',
+				'v=' . PHP_VERSION,
+				'bit=' . UserAgent::_getPHPBit(),
+				'os=' . str_replace(' ' , '_', php_uname('s') . ' ' . php_uname('r')),
+				'machine=' . php_uname('m')
 		);
 		if(defined('OPENSSL_VERSION_TEXT')) {
 			$opensslVersion = explode(' ', OPENSSL_VERSION_TEXT);
-			$featureList[] = 'Openssl='. $opensslVersion[1];
+			$featureList[] = 'openssl='. $opensslVersion[1];
 		}
 		if(function_exists('curl_version')) {
 			$curlVersion = curl_version();
