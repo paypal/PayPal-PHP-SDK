@@ -1,0 +1,10 @@
+language: php
+jdk:
+  - 5.4
+  - 5.3
+before_script:
+  - composer install
+notifications:
+  recipients:
+    - prannamalai.x.com@gmail.com
+  on_success: always
