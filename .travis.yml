@@ -6,5 +6,5 @@ before_script:
   - composer install
 notifications:
   recipients:
-    - prannamalai.x.com@gmail.com
-  on_success: always
+    - DL-PP-Platform-PHP-SDK@ebay.com
+  on_success: change
