@@ -1,7 +1,7 @@
-REST API SDK for PHP  (V0.5.0)
+REST API SDK for PHP  (V0.5.0) [![Build Status](https://travis-ci.org/paypal/rest-api-sdk-php.png?branch=master)](https://travis-ci.org/paypal/rest-api-sdk-php)
 ==============================
 
-	PayPal's PHP SDK for the RESTful APIs
+This repository contains PayPal's PHP SDK and samples for REST API.
 
 
 Prerequisites
@@ -30,23 +30,27 @@ To write an app that uses the SDK
 dependencies
    * Copy the sample configuration file sdk_config.ini to a location of your choice and let the SDK know your config path using the following define directive
     
-       define('PP_SDK_CONFIG_PATH', /path/to/your/sdk_config.ini);
+    ```php
+    define('PP_SDK_CONFIG_PATH', /path/to/your/sdk_config.ini);
+    ```
     
    * Obtain your clientId and client secret from the developer portal and add them to your config file	
    * Now you are all set to make your first API call. Create a resource object as per your need and call the relevant operation or invoke one of the static methods on your resource class.
     
+    ```php
     $payment = new Payment();
 
     $payment->setIntent("Sale");
 
     ...
-    
+
     $payment->create();
-    
+
       *OR*
-    
-    $payment = Payment::get('payment_id');    
-    
+
+    $payment = Payment::get('payment_id');
+    ```
+  
     These examples pick the client id / secret automatically from your config file. You can also set API credentials dynamically. See the sample code for how you can do this.
 	
 
