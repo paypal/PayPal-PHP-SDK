@@ -1,0 +1,10 @@
+language: php
+php:
+  - 5.4
+  - 5.3
+before_script:
+  - composer install
+notifications:
+  recipients:
+    - DL-PP-Platform-PHP-SDK@ebay.com
+  on_success: change
