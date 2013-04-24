@@ -9,12 +9,13 @@ class OAuthTokenCredentialTest extends PHPUnit_Framework_TestCase {
 	
 	public function testGetAccessToken() {
 		$cred = new OAuthTokenCredential(Constants::CLIENT_ID, Constants::CLIENT_SECRET);
+		$config = \PPConfigManager::getInstance()->getConfigHashmap();
 		
-		$token = $cred->getAccessToken();		
+		$token = $cred->getAccessToken($config);		
 		$this->assertNotNull($token);
 		
 		// Check that we get the same token when issuing a new call before token expiry
-		$newToken = $cred->getAccessToken();
+		$newToken = $cred->getAccessToken($config);
 		$this->assertNotNull($newToken);
 		$this->assertEquals($token, $newToken);
 		
@@ -28,6 +29,6 @@ class OAuthTokenCredentialTest extends PHPUnit_Framework_TestCase {
 	public function testInvalidCredentials() {
 		$this->setExpectedException('\PPConnectionException');
 		$cred = new OAuthTokenCredential('dummy', 'secret');		
-		$this->assertNull($cred->getAccessToken());
+		$this->assertNull($cred->getAccessToken(\PPConfigManager::getInstance()->getConfigHashmap()));
 	}
 }

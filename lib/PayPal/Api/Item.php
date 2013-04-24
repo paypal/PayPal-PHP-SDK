@@ -18,6 +18,7 @@ class Item extends Resource {
 
 	/**
 	 * Getter for name
+	 * @return string
 	 */ 
 	public function getName() {
 		return $this->name;
@@ -33,6 +34,7 @@ class Item extends Resource {
 
 	/**
 	 * Getter for sku
+	 * @return string
 	 */ 
 	public function getSku() {
 		return $this->sku;
@@ -48,6 +50,7 @@ class Item extends Resource {
 
 	/**
 	 * Getter for price
+	 * @return string
 	 */ 
 	public function getPrice() {
 		return $this->price;
@@ -63,6 +66,7 @@ class Item extends Resource {
 
 	/**
 	 * Getter for currency
+	 * @return string
 	 */ 
 	public function getCurrency() {
 		return $this->currency;
@@ -78,6 +82,7 @@ class Item extends Resource {
 
 	/**
 	 * Getter for quantity
+	 * @return string
 	 */ 
 	public function getQuantity() {
 		return $this->quantity;

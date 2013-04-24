@@ -18,6 +18,7 @@ class AmountDetails extends Resource {
 
 	/**
 	 * Getter for subtotal
+	 * @return string
 	 */ 
 	public function getSubtotal() {
 		return $this->subtotal;
@@ -33,6 +34,7 @@ class AmountDetails extends Resource {
 
 	/**
 	 * Getter for tax
+	 * @return string
 	 */ 
 	public function getTax() {
 		return $this->tax;
@@ -48,6 +50,7 @@ class AmountDetails extends Resource {
 
 	/**
 	 * Getter for shipping
+	 * @return string
 	 */ 
 	public function getShipping() {
 		return $this->shipping;
@@ -63,6 +66,7 @@ class AmountDetails extends Resource {
 
 	/**
 	 * Getter for fee
+	 * @return string
 	 */ 
 	public function getFee() {
 		return $this->fee;

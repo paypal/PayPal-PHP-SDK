@@ -18,6 +18,7 @@ class Payee extends Resource {
 
 	/**
 	 * Getter for merchant_id
+	 * @return string
 	 */ 
 	public function getMerchant_id() {
 		return $this->merchant_id;
@@ -33,6 +34,7 @@ class Payee extends Resource {
 
 	/**
 	 * Getter for email
+	 * @return string
 	 */ 
 	public function getEmail() {
 		return $this->email;
@@ -48,6 +50,7 @@ class Payee extends Resource {
 
 	/**
 	 * Getter for phone
+	 * @return string
 	 */ 
 	public function getPhone() {
 		return $this->phone;

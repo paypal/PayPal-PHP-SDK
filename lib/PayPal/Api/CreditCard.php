@@ -26,6 +26,7 @@ class CreditCard extends Resource implements IResource {
 
 	/**
 	 * Getter for id
+	 * @return string
 	 */ 
 	public function getId() {
 		return $this->id;
@@ -41,6 +42,7 @@ class CreditCard extends Resource implements IResource {
 
 	/**
 	 * Getter for valid_until
+	 * @return string
 	 */ 
 	public function getValid_until() {
 		return $this->valid_until;
@@ -56,6 +58,7 @@ class CreditCard extends Resource implements IResource {
 
 	/**
 	 * Getter for state
+	 * @return string
 	 */ 
 	public function getState() {
 		return $this->state;
@@ -71,6 +74,7 @@ class CreditCard extends Resource implements IResource {
 
 	/**
 	 * Getter for payer_id
+	 * @return string
 	 */ 
 	public function getPayer_id() {
 		return $this->payer_id;
@@ -86,6 +90,7 @@ class CreditCard extends Resource implements IResource {
 
 	/**
 	 * Getter for type
+	 * @return string
 	 */ 
 	public function getType() {
 		return $this->type;
@@ -101,6 +106,7 @@ class CreditCard extends Resource implements IResource {
 
 	/**
 	 * Getter for number
+	 * @return string
 	 */ 
 	public function getNumber() {
 		return $this->number;
@@ -116,6 +122,7 @@ class CreditCard extends Resource implements IResource {
 
 	/**
 	 * Getter for expire_month
+	 * @return string
 	 */ 
 	public function getExpire_month() {
 		return $this->expire_month;
@@ -131,6 +138,7 @@ class CreditCard extends Resource implements IResource {
 
 	/**
 	 * Getter for expire_year
+	 * @return string
 	 */ 
 	public function getExpire_year() {
 		return $this->expire_year;
@@ -146,6 +154,7 @@ class CreditCard extends Resource implements IResource {
 
 	/**
 	 * Getter for cvv2
+	 * @return string
 	 */ 
 	public function getCvv2() {
 		return $this->cvv2;
@@ -161,6 +170,7 @@ class CreditCard extends Resource implements IResource {
 
 	/**
 	 * Getter for first_name
+	 * @return string
 	 */ 
 	public function getFirst_name() {
 		return $this->first_name;
@@ -176,6 +186,7 @@ class CreditCard extends Resource implements IResource {
 
 	/**
 	 * Getter for last_name
+	 * @return string
 	 */ 
 	public function getLast_name() {
 		return $this->last_name;
@@ -191,6 +202,7 @@ class CreditCard extends Resource implements IResource {
 
 	/**
 	 * Getter for billing_address
+	 * @return PayPal\Api\Address
 	 */ 
 	public function getBilling_address() {
 		return $this->billing_address;
@@ -206,6 +218,7 @@ class CreditCard extends Resource implements IResource {
 
 	/**
 	 * Getter for links
+	 * @return PayPal\Api\Link
 	 */ 
 	public function getLinks() {
 		return $this->links;
@@ -224,8 +237,10 @@ class CreditCard extends Resource implements IResource {
 		if($apiContext == null) {
 			$apiContext = new ApiContext(self::$credential);
 		}
-		$call = new Call();		
-		$json = $call->execute("/v1/vault/credit-card", "POST", $payLoad, $apiContext);
+		$call = new \PPRestCall();		
+		$json = $call->execute($apiContext, array('PayPal\Rest\RestHandler'),
+			"/v1/vault/credit-card", 
+			"POST", $payLoad);
 		$this->fromJson($json);
  		return $this; 		
  	}
@@ -241,8 +256,10 @@ class CreditCard extends Resource implements IResource {
 		}
 		$payLoad = "";
 		
-		$apiContext = new ApiContext(self::$credential);		$call = new Call();		
-		$json = $call->execute("/v1/vault/credit-card/$creditcardid", "GET", $payLoad, $apiContext);
+		$apiContext = new ApiContext(self::$credential);		$call = new \PPRestCall();		
+		$json = $call->execute($apiContext, array('PayPal\Rest\RestHandler'),
+			"/v1/vault/credit-card/$creditcardid", 
+			"GET", $payLoad);
 		$ret = new CreditCard();
 		$ret->fromJson($json);
 		return $ret;

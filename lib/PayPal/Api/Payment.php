@@ -26,6 +26,7 @@ class Payment extends Resource implements IResource {
 
 	/**
 	 * Getter for id
+	 * @return string
 	 */ 
 	public function getId() {
 		return $this->id;
@@ -41,6 +42,7 @@ class Payment extends Resource implements IResource {
 
 	/**
 	 * Getter for create_time
+	 * @return string
 	 */ 
 	public function getCreate_time() {
 		return $this->create_time;
@@ -56,6 +58,7 @@ class Payment extends Resource implements IResource {
 
 	/**
 	 * Getter for update_time
+	 * @return string
 	 */ 
 	public function getUpdate_time() {
 		return $this->update_time;
@@ -71,6 +74,7 @@ class Payment extends Resource implements IResource {
 
 	/**
 	 * Getter for state
+	 * @return string
 	 */ 
 	public function getState() {
 		return $this->state;
@@ -86,6 +90,7 @@ class Payment extends Resource implements IResource {
 
 	/**
 	 * Getter for intent
+	 * @return string
 	 */ 
 	public function getIntent() {
 		return $this->intent;
@@ -101,6 +106,7 @@ class Payment extends Resource implements IResource {
 
 	/**
 	 * Getter for payer
+	 * @return PayPal\Api\Payer
 	 */ 
 	public function getPayer() {
 		return $this->payer;
@@ -116,6 +122,7 @@ class Payment extends Resource implements IResource {
 
 	/**
 	 * Getter for transactions
+	 * @return PayPal\Api\Transaction
 	 */ 
 	public function getTransactions() {
 		return $this->transactions;
@@ -131,6 +138,7 @@ class Payment extends Resource implements IResource {
 
 	/**
 	 * Getter for redirect_urls
+	 * @return PayPal\Api\RedirectUrls
 	 */ 
 	public function getRedirect_urls() {
 		return $this->redirect_urls;
@@ -146,6 +154,7 @@ class Payment extends Resource implements IResource {
 
 	/**
 	 * Getter for links
+	 * @return PayPal\Api\Link
 	 */ 
 	public function getLinks() {
 		return $this->links;
@@ -173,8 +182,10 @@ class Payment extends Resource implements IResource {
 		$payLoad = "";
 		$allowedParams = array('count' => 1, 'start_id' => 1, 'start_index' => 1, 'start_time' => 1, 'end_time' => 1, 'payee_id' => 1, 'sort_by' => 1, 'sort_order' => 1, );		
 		
-		$apiContext = new ApiContext(self::$credential);		$call = new Call();		
-		$json = $call->execute("/v1/payments/payment?" . http_build_query(array_intersect_key($params, $allowedParams)), "GET", $payLoad, $apiContext);
+		$apiContext = new ApiContext(self::$credential);		$call = new \PPRestCall();		
+		$json = $call->execute($apiContext, array('PayPal\Rest\RestHandler'),
+			"/v1/payments/payment?" . http_build_query(array_intersect_key($params, $allowedParams)), 
+			"GET", $payLoad);
 		$ret = new PaymentHistory();
 		$ret->fromJson($json);
 		return $ret;
@@ -192,8 +203,10 @@ class Payment extends Resource implements IResource {
 		if($apiContext == null) {
 			$apiContext = new ApiContext(self::$credential);
 		}
-		$call = new Call();		
-		$json = $call->execute("/v1/payments/payment", "POST", $payLoad, $apiContext);
+		$call = new \PPRestCall();		
+		$json = $call->execute($apiContext, array('PayPal\Rest\RestHandler'),
+			"/v1/payments/payment", 
+			"POST", $payLoad);
 		$this->fromJson($json);
  		return $this; 		
  	}
@@ -209,8 +222,10 @@ class Payment extends Resource implements IResource {
 		}
 		$payLoad = "";
 		
-		$apiContext = new ApiContext(self::$credential);		$call = new Call();		
-		$json = $call->execute("/v1/payments/payment/$paymentid", "GET", $payLoad, $apiContext);
+		$apiContext = new ApiContext(self::$credential);		$call = new \PPRestCall();		
+		$json = $call->execute($apiContext, array('PayPal\Rest\RestHandler'),
+			"/v1/payments/payment/$paymentid", 
+			"GET", $payLoad);
 		$ret = new Payment();
 		$ret->fromJson($json);
 		return $ret;
@@ -234,8 +249,10 @@ class Payment extends Resource implements IResource {
 		if($apiContext == null) {
 			$apiContext = new ApiContext(self::$credential);
 		}
-		$call = new Call();		
-		$json = $call->execute("/v1/payments/payment/{$this->getId()}/execute", "POST", $payLoad, $apiContext);
+		$call = new \PPRestCall();		
+		$json = $call->execute($apiContext, array('PayPal\Rest\RestHandler'),
+			"/v1/payments/payment/{$this->getId()}/execute", 
+			"POST", $payLoad);
 		$this->fromJson($json);
  		return $this; 		
  	}

@@ -18,6 +18,7 @@ class Capture extends Resource {
 
 	/**
 	 * Getter for id
+	 * @return string
 	 */ 
 	public function getId() {
 		return $this->id;
@@ -33,6 +34,7 @@ class Capture extends Resource {
 
 	/**
 	 * Getter for create_time
+	 * @return string
 	 */ 
 	public function getCreate_time() {
 		return $this->create_time;
@@ -48,6 +50,7 @@ class Capture extends Resource {
 
 	/**
 	 * Getter for update_time
+	 * @return string
 	 */ 
 	public function getUpdate_time() {
 		return $this->update_time;
@@ -63,6 +66,7 @@ class Capture extends Resource {
 
 	/**
 	 * Getter for state
+	 * @return string
 	 */ 
 	public function getState() {
 		return $this->state;
@@ -78,6 +82,7 @@ class Capture extends Resource {
 
 	/**
 	 * Getter for amount
+	 * @return PayPal\Api\Amount
 	 */ 
 	public function getAmount() {
 		return $this->amount;
@@ -93,6 +98,7 @@ class Capture extends Resource {
 
 	/**
 	 * Getter for parent_payment
+	 * @return string
 	 */ 
 	public function getParent_payment() {
 		return $this->parent_payment;
@@ -108,6 +114,7 @@ class Capture extends Resource {
 
 	/**
 	 * Getter for authorization_id
+	 * @return string
 	 */ 
 	public function getAuthorization_id() {
 		return $this->authorization_id;
@@ -123,6 +130,7 @@ class Capture extends Resource {
 
 	/**
 	 * Getter for description
+	 * @return string
 	 */ 
 	public function getDescription() {
 		return $this->description;
@@ -138,6 +146,7 @@ class Capture extends Resource {
 
 	/**
 	 * Getter for links
+	 * @return PayPal\Api\Link
 	 */ 
 	public function getLinks() {
 		return $this->links;

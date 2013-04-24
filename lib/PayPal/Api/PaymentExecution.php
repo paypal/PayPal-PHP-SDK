@@ -18,6 +18,7 @@ class PaymentExecution extends Resource {
 
 	/**
 	 * Getter for payer_id
+	 * @return string
 	 */ 
 	public function getPayer_id() {
 		return $this->payer_id;
@@ -33,6 +34,7 @@ class PaymentExecution extends Resource {
 
 	/**
 	 * Getter for transactions
+	 * @return PayPal\Api\Amount
 	 */ 
 	public function getTransactions() {
 		return $this->transactions;

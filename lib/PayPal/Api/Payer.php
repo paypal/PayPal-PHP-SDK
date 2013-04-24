@@ -18,6 +18,7 @@ class Payer extends Resource {
 
 	/**
 	 * Getter for payment_method
+	 * @return string
 	 */ 
 	public function getPayment_method() {
 		return $this->payment_method;
@@ -33,6 +34,7 @@ class Payer extends Resource {
 
 	/**
 	 * Getter for payer_info
+	 * @return PayPal\Api\PayerInfo
 	 */ 
 	public function getPayer_info() {
 		return $this->payer_info;
@@ -48,6 +50,7 @@ class Payer extends Resource {
 
 	/**
 	 * Getter for funding_instruments
+	 * @return PayPal\Api\FundingInstrument
 	 */ 
 	public function getFunding_instruments() {
 		return $this->funding_instruments;

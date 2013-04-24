@@ -18,6 +18,7 @@ class RedirectUrls extends Resource {
 
 	/**
 	 * Getter for return_url
+	 * @return string
 	 */ 
 	public function getReturn_url() {
 		return $this->return_url;
@@ -33,6 +34,7 @@ class RedirectUrls extends Resource {
 
 	/**
 	 * Getter for cancel_url
+	 * @return string
 	 */ 
 	public function getCancel_url() {
 		return $this->cancel_url;

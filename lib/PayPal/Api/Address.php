@@ -18,6 +18,7 @@ class Address extends Resource {
 
 	/**
 	 * Getter for line1
+	 * @return string
 	 */ 
 	public function getLine1() {
 		return $this->line1;
@@ -33,6 +34,7 @@ class Address extends Resource {
 
 	/**
 	 * Getter for line2
+	 * @return string
 	 */ 
 	public function getLine2() {
 		return $this->line2;
@@ -48,6 +50,7 @@ class Address extends Resource {
 
 	/**
 	 * Getter for city
+	 * @return string
 	 */ 
 	public function getCity() {
 		return $this->city;
@@ -63,6 +66,7 @@ class Address extends Resource {
 
 	/**
 	 * Getter for state
+	 * @return string
 	 */ 
 	public function getState() {
 		return $this->state;
@@ -78,6 +82,7 @@ class Address extends Resource {
 
 	/**
 	 * Getter for postal_code
+	 * @return string
 	 */ 
 	public function getPostal_code() {
 		return $this->postal_code;
@@ -93,6 +98,7 @@ class Address extends Resource {
 
 	/**
 	 * Getter for country_code
+	 * @return string
 	 */ 
 	public function getCountry_code() {
 		return $this->country_code;
@@ -108,6 +114,7 @@ class Address extends Resource {
 
 	/**
 	 * Getter for type
+	 * @return string
 	 */ 
 	public function getType() {
 		return $this->type;
@@ -123,6 +130,7 @@ class Address extends Resource {
 
 	/**
 	 * Getter for phone
+	 * @return string
 	 */ 
 	public function getPhone() {
 		return $this->phone;

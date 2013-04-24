@@ -18,6 +18,7 @@ class Transaction extends Resource {
 
 	/**
 	 * Getter for amount
+	 * @return PayPal\Api\Amount
 	 */ 
 	public function getAmount() {
 		return $this->amount;
@@ -33,6 +34,7 @@ class Transaction extends Resource {
 
 	/**
 	 * Getter for payee
+	 * @return PayPal\Api\Payee
 	 */ 
 	public function getPayee() {
 		return $this->payee;
@@ -48,6 +50,7 @@ class Transaction extends Resource {
 
 	/**
 	 * Getter for description
+	 * @return string
 	 */ 
 	public function getDescription() {
 		return $this->description;
@@ -63,6 +66,7 @@ class Transaction extends Resource {
 
 	/**
 	 * Getter for item_list
+	 * @return PayPal\Api\ItemList
 	 */ 
 	public function getItem_list() {
 		return $this->item_list;
@@ -78,6 +82,7 @@ class Transaction extends Resource {
 
 	/**
 	 * Getter for related_resources
+	 * @return PayPal\Api\SubTransaction
 	 */ 
 	public function getRelated_resources() {
 		return $this->related_resources;

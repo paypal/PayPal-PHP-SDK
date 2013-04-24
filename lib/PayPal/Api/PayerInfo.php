@@ -18,6 +18,7 @@ class PayerInfo extends Resource {
 
 	/**
 	 * Getter for email
+	 * @return string
 	 */ 
 	public function getEmail() {
 		return $this->email;
@@ -33,6 +34,7 @@ class PayerInfo extends Resource {
 
 	/**
 	 * Getter for first_name
+	 * @return string
 	 */ 
 	public function getFirst_name() {
 		return $this->first_name;
@@ -48,6 +50,7 @@ class PayerInfo extends Resource {
 
 	/**
 	 * Getter for last_name
+	 * @return string
 	 */ 
 	public function getLast_name() {
 		return $this->last_name;
@@ -63,6 +66,7 @@ class PayerInfo extends Resource {
 
 	/**
 	 * Getter for payer_id
+	 * @return string
 	 */ 
 	public function getPayer_id() {
 		return $this->payer_id;
@@ -78,6 +82,7 @@ class PayerInfo extends Resource {
 
 	/**
 	 * Getter for shipping_address
+	 * @return PayPal\Api\Address
 	 */ 
 	public function getShipping_address() {
 		return $this->shipping_address;
@@ -93,6 +98,7 @@ class PayerInfo extends Resource {
 
 	/**
 	 * Getter for phone
+	 * @return string
 	 */ 
 	public function getPhone() {
 		return $this->phone;
