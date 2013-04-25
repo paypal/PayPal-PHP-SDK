@@ -181,15 +181,18 @@ class Refund extends Resource implements IResource {
 	/**
 	 * @path /v1/payments/refund/:refund-id
 	 * @method GET
-	 * @param string $refundid	  	 
+	 * @param string $refundid	  
+	 * @param PayPal\Rest\ApiContext $apiContext optional
 	 */
 	public static function get( $refundid) {
 		if (($refundid == null) || (strlen($refundid) <= 0)) {
 			throw new \InvalidArgumentException("refundid cannot be null or empty");
 		}
 		$payLoad = "";
-		
-		$apiContext = new ApiContext(self::$credential);		$call = new \PPRestCall();		
+		if($apiContext == null) {
+			$apiContext = new ApiContext(self::$credential);
+		}
+		$call = new \PPRestCall();		
 		$json = $call->execute($apiContext, array('PayPal\Rest\RestHandler'),
 			"/v1/payments/refund/$refundid", 
 			"GET", $payLoad);

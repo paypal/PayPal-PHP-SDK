@@ -176,13 +176,16 @@ class Payment extends Resource implements IResource {
 	 *			payee_id,
 	 *			sort_by,
 	 *			sort_order,
-	 *			All other keys in the map are ignored by the SDK	  	 
+	 *			All other keys in the map are ignored by the SDK	  
+	 * @param PayPal\Rest\ApiContext $apiContext optional
 	 */
 	public static function all($params) {
 		$payLoad = "";
 		$allowedParams = array('count' => 1, 'start_id' => 1, 'start_index' => 1, 'start_time' => 1, 'end_time' => 1, 'payee_id' => 1, 'sort_by' => 1, 'sort_order' => 1, );		
-		
-		$apiContext = new ApiContext(self::$credential);		$call = new \PPRestCall();		
+		if($apiContext == null) {
+			$apiContext = new ApiContext(self::$credential);
+		}
+		$call = new \PPRestCall();		
 		$json = $call->execute($apiContext, array('PayPal\Rest\RestHandler'),
 			"/v1/payments/payment?" . http_build_query(array_intersect_key($params, $allowedParams)), 
 			"GET", $payLoad);
@@ -196,7 +199,7 @@ class Payment extends Resource implements IResource {
 	 * @path /v1/payments/payment
 	 * @method POST
 	  
-	 * @param PayPal\Rest\ApiContext $apiContext optional	  	 
+	 * @param PayPal\Rest\ApiContext $apiContext optional
 	 */
 	public function create( $apiContext=null) {
 		$payLoad = $this->toJSON();	
@@ -214,15 +217,18 @@ class Payment extends Resource implements IResource {
 	/**
 	 * @path /v1/payments/payment/:payment-id
 	 * @method GET
-	 * @param string $paymentid	  	 
+	 * @param string $paymentid	  
+	 * @param PayPal\Rest\ApiContext $apiContext optional
 	 */
 	public static function get( $paymentid) {
 		if (($paymentid == null) || (strlen($paymentid) <= 0)) {
 			throw new \InvalidArgumentException("paymentid cannot be null or empty");
 		}
 		$payLoad = "";
-		
-		$apiContext = new ApiContext(self::$credential);		$call = new \PPRestCall();		
+		if($apiContext == null) {
+			$apiContext = new ApiContext(self::$credential);
+		}
+		$call = new \PPRestCall();		
 		$json = $call->execute($apiContext, array('PayPal\Rest\RestHandler'),
 			"/v1/payments/payment/$paymentid", 
 			"GET", $payLoad);
@@ -236,7 +242,7 @@ class Payment extends Resource implements IResource {
 	 * @path /v1/payments/payment/:payment-id/execute
 	 * @method POST
 	 * @param PaymentExecution $payment_execution	  
-	 * @param PayPal\Rest\ApiContext $apiContext optional	  	 
+	 * @param PayPal\Rest\ApiContext $apiContext optional
 	 */
 	public function execute( $payment_execution, $apiContext=null) {
 		if ($payment_execution == null) {

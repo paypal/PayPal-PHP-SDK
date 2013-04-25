@@ -230,7 +230,7 @@ class CreditCard extends Resource implements IResource {
 	 * @path /v1/vault/credit-card
 	 * @method POST
 	  
-	 * @param PayPal\Rest\ApiContext $apiContext optional	  	 
+	 * @param PayPal\Rest\ApiContext $apiContext optional
 	 */
 	public function create( $apiContext=null) {
 		$payLoad = $this->toJSON();	
@@ -248,15 +248,18 @@ class CreditCard extends Resource implements IResource {
 	/**
 	 * @path /v1/vault/credit-card/:credit-card-id
 	 * @method GET
-	 * @param string $creditcardid	  	 
+	 * @param string $creditcardid	  
+	 * @param PayPal\Rest\ApiContext $apiContext optional
 	 */
 	public static function get( $creditcardid) {
 		if (($creditcardid == null) || (strlen($creditcardid) <= 0)) {
 			throw new \InvalidArgumentException("creditcardid cannot be null or empty");
 		}
 		$payLoad = "";
-		
-		$apiContext = new ApiContext(self::$credential);		$call = new \PPRestCall();		
+		if($apiContext == null) {
+			$apiContext = new ApiContext(self::$credential);
+		}
+		$call = new \PPRestCall();		
 		$json = $call->execute($apiContext, array('PayPal\Rest\RestHandler'),
 			"/v1/vault/credit-card/$creditcardid", 
 			"GET", $payLoad);

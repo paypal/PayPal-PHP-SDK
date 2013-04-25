@@ -133,15 +133,18 @@ class Sale extends Resource implements IResource {
 	/**
 	 * @path /v1/payments/sale/:sale-id
 	 * @method GET
-	 * @param string $saleid	  	 
+	 * @param string $saleid	  
+	 * @param PayPal\Rest\ApiContext $apiContext optional
 	 */
 	public static function get( $saleid) {
 		if (($saleid == null) || (strlen($saleid) <= 0)) {
 			throw new \InvalidArgumentException("saleid cannot be null or empty");
 		}
 		$payLoad = "";
-		
-		$apiContext = new ApiContext(self::$credential);		$call = new \PPRestCall();		
+		if($apiContext == null) {
+			$apiContext = new ApiContext(self::$credential);
+		}
+		$call = new \PPRestCall();		
 		$json = $call->execute($apiContext, array('PayPal\Rest\RestHandler'),
 			"/v1/payments/sale/$saleid", 
 			"GET", $payLoad);
@@ -155,7 +158,7 @@ class Sale extends Resource implements IResource {
 	 * @path /v1/payments/sale/:sale-id/refund
 	 * @method POST
 	 * @param Refund $refund	  
-	 * @param PayPal\Rest\ApiContext $apiContext optional	  	 
+	 * @param PayPal\Rest\ApiContext $apiContext optional
 	 */
 	public function refund( $refund, $apiContext=null) {
 		if ($refund == null) {
