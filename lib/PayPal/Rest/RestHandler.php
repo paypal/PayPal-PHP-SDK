@@ -12,7 +12,7 @@ class RestHandler implements \IPPHandler {
 	private $apiContext;
 	
 	public static $sdkName = "rest-sdk-php";	
-	public static $sdkVersion = "0.5.0";
+	public static $sdkVersion = "0.6.0";
 	
 	public function __construct($apiContext) {
 		$this->apiContext = $apiContext;
