@@ -251,7 +251,7 @@ class CreditCard extends Resource implements IResource {
 	 * @param string $creditcardid	  
 	 * @param PayPal\Rest\ApiContext $apiContext optional
 	 */
-	public static function get( $creditcardid) {
+	public static function get( $creditcardid, $apiContext=null) {
 		if (($creditcardid == null) || (strlen($creditcardid) <= 0)) {
 			throw new \InvalidArgumentException("creditcardid cannot be null or empty");
 		}

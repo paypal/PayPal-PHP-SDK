@@ -179,7 +179,7 @@ class Payment extends Resource implements IResource {
 	 *			All other keys in the map are ignored by the SDK	  
 	 * @param PayPal\Rest\ApiContext $apiContext optional
 	 */
-	public static function all($params) {
+	public static function all($params, $apiContext=null) {
 		$payLoad = "";
 		$allowedParams = array('count' => 1, 'start_id' => 1, 'start_index' => 1, 'start_time' => 1, 'end_time' => 1, 'payee_id' => 1, 'sort_by' => 1, 'sort_order' => 1, );		
 		if($apiContext == null) {
@@ -220,7 +220,7 @@ class Payment extends Resource implements IResource {
 	 * @param string $paymentid	  
 	 * @param PayPal\Rest\ApiContext $apiContext optional
 	 */
-	public static function get( $paymentid) {
+	public static function get( $paymentid, $apiContext=null) {
 		if (($paymentid == null) || (strlen($paymentid) <= 0)) {
 			throw new \InvalidArgumentException("paymentid cannot be null or empty");
 		}

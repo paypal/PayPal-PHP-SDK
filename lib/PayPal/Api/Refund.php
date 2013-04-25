@@ -184,7 +184,7 @@ class Refund extends Resource implements IResource {
 	 * @param string $refundid	  
 	 * @param PayPal\Rest\ApiContext $apiContext optional
 	 */
-	public static function get( $refundid) {
+	public static function get( $refundid, $apiContext=null) {
 		if (($refundid == null) || (strlen($refundid) <= 0)) {
 			throw new \InvalidArgumentException("refundid cannot be null or empty");
 		}

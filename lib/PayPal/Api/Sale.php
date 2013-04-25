@@ -136,7 +136,7 @@ class Sale extends Resource implements IResource {
 	 * @param string $saleid	  
 	 * @param PayPal\Rest\ApiContext $apiContext optional
 	 */
-	public static function get( $saleid) {
+	public static function get( $saleid, $apiContext=null) {
 		if (($saleid == null) || (strlen($saleid) <= 0)) {
 			throw new \InvalidArgumentException("saleid cannot be null or empty");
 		}
