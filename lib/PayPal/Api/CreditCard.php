@@ -237,8 +237,8 @@ class CreditCard extends Resource implements IResource {
 		if($apiContext == null) {
 			$apiContext = new ApiContext(self::$credential);
 		}
-		$call = new \PPRestCall();		
-		$json = $call->execute($apiContext, array('PayPal\Rest\RestHandler'),
+		$call = new \PPRestCall($apiContext);		
+		$json = $call->execute( array('PayPal\Rest\RestHandler'),
 			"/v1/vault/credit-card", 
 			"POST", $payLoad);
 		$this->fromJson($json);
@@ -259,8 +259,8 @@ class CreditCard extends Resource implements IResource {
 		if($apiContext == null) {
 			$apiContext = new ApiContext(self::$credential);
 		}
-		$call = new \PPRestCall();		
-		$json = $call->execute($apiContext, array('PayPal\Rest\RestHandler'),
+		$call = new \PPRestCall($apiContext);		
+		$json = $call->execute( array('PayPal\Rest\RestHandler'),
 			"/v1/vault/credit-card/$creditcardid", 
 			"GET", $payLoad);
 		$ret = new CreditCard();

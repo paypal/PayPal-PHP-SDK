@@ -185,8 +185,8 @@ class Payment extends Resource implements IResource {
 		if($apiContext == null) {
 			$apiContext = new ApiContext(self::$credential);
 		}
-		$call = new \PPRestCall();		
-		$json = $call->execute($apiContext, array('PayPal\Rest\RestHandler'),
+		$call = new \PPRestCall($apiContext);		
+		$json = $call->execute( array('PayPal\Rest\RestHandler'),
 			"/v1/payments/payment?" . http_build_query(array_intersect_key($params, $allowedParams)), 
 			"GET", $payLoad);
 		$ret = new PaymentHistory();
@@ -206,8 +206,8 @@ class Payment extends Resource implements IResource {
 		if($apiContext == null) {
 			$apiContext = new ApiContext(self::$credential);
 		}
-		$call = new \PPRestCall();		
-		$json = $call->execute($apiContext, array('PayPal\Rest\RestHandler'),
+		$call = new \PPRestCall($apiContext);		
+		$json = $call->execute( array('PayPal\Rest\RestHandler'),
 			"/v1/payments/payment", 
 			"POST", $payLoad);
 		$this->fromJson($json);
@@ -228,8 +228,8 @@ class Payment extends Resource implements IResource {
 		if($apiContext == null) {
 			$apiContext = new ApiContext(self::$credential);
 		}
-		$call = new \PPRestCall();		
-		$json = $call->execute($apiContext, array('PayPal\Rest\RestHandler'),
+		$call = new \PPRestCall($apiContext);		
+		$json = $call->execute( array('PayPal\Rest\RestHandler'),
 			"/v1/payments/payment/$paymentid", 
 			"GET", $payLoad);
 		$ret = new Payment();
@@ -255,8 +255,8 @@ class Payment extends Resource implements IResource {
 		if($apiContext == null) {
 			$apiContext = new ApiContext(self::$credential);
 		}
-		$call = new \PPRestCall();		
-		$json = $call->execute($apiContext, array('PayPal\Rest\RestHandler'),
+		$call = new \PPRestCall($apiContext);		
+		$json = $call->execute( array('PayPal\Rest\RestHandler'),
 			"/v1/payments/payment/{$this->getId()}/execute", 
 			"POST", $payLoad);
 		$this->fromJson($json);

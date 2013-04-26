@@ -144,8 +144,8 @@ class Sale extends Resource implements IResource {
 		if($apiContext == null) {
 			$apiContext = new ApiContext(self::$credential);
 		}
-		$call = new \PPRestCall();		
-		$json = $call->execute($apiContext, array('PayPal\Rest\RestHandler'),
+		$call = new \PPRestCall($apiContext);		
+		$json = $call->execute( array('PayPal\Rest\RestHandler'),
 			"/v1/payments/sale/$saleid", 
 			"GET", $payLoad);
 		$ret = new Sale();
@@ -171,8 +171,8 @@ class Sale extends Resource implements IResource {
 		if($apiContext == null) {
 			$apiContext = new ApiContext(self::$credential);
 		}
-		$call = new \PPRestCall();		
-		$json = $call->execute($apiContext, array('PayPal\Rest\RestHandler'),
+		$call = new \PPRestCall($apiContext);		
+		$json = $call->execute( array('PayPal\Rest\RestHandler'),
 			"/v1/payments/sale/{$this->getId()}/refund", 
 			"POST", $payLoad);
 		$this->fromJson($json);

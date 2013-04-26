@@ -9,27 +9,19 @@ API used: POST '/v1/payments/payment/<payment-id>/execute'.</p></div></div><div 
 <span class="k">use</span> <span class="nx">PayPal\Api\ExecutePayment</span><span class="p">;</span>
 <span class="k">use</span> <span class="nx">PayPal\Api\Payment</span><span class="p">;</span>
 <span class="k">use</span> <span class="nx">PayPal\Api\PaymentExecution</span><span class="p">;</span>
-<span class="k">use</span> <span class="nx">PayPal\Rest\ApiContext</span><span class="p">;</span>
 <span class="nb">session_start</span><span class="p">();</span>
-
-<span class="k">if</span><span class="p">(</span><span class="nb">isset</span><span class="p">(</span><span class="nv">$_GET</span><span class="p">[</span><span class="s1">&#39;success&#39;</span><span class="p">])</span> <span class="o">&amp;&amp;</span> <span class="nv">$_GET</span><span class="p">[</span><span class="s1">&#39;success&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;true&#39;</span><span class="p">)</span> <span class="p">{</span></div></div></div><div class="segment"><a id="segment-2" name="segment-2" class="section_anchor"></a><div class="comments"><div class="pilwrap"><a href="#segment-2" class="pilcrow">¶</a></div><div class="wrapper"><h3 id="api-context">Api Context</h3>
-
-<p>Pass in a <code>ApiContext</code> object to authenticate 
-the call and to send a unique request id 
-(that ensures idempotency). The SDK generates
-a request id if you do not pass one explicitly. </p></div></div><div class="code"><div class="wrapper">  <span class="nv">$apiContext</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ApiContext</span><span class="p">(</span><span class="nv">$cred</span><span class="p">);</span>
-  </div></div></div><div class="segment"><a id="segment-3" name="segment-3" class="section_anchor"></a><div class="comments"><div class="pilwrap"><a href="#segment-3" class="pilcrow">¶</a></div><div class="wrapper"><p>Get the payment Object by passing paymentId
+<span class="k">if</span><span class="p">(</span><span class="nb">isset</span><span class="p">(</span><span class="nv">$_GET</span><span class="p">[</span><span class="s1">&#39;success&#39;</span><span class="p">])</span> <span class="o">&amp;&amp;</span> <span class="nv">$_GET</span><span class="p">[</span><span class="s1">&#39;success&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;true&#39;</span><span class="p">)</span> <span class="p">{</span>
+  </div></div></div><div class="segment"><a id="segment-2" name="segment-2" class="section_anchor"></a><div class="comments"><div class="pilwrap"><a href="#segment-2" class="pilcrow">¶</a></div><div class="wrapper"><p>Get the payment Object by passing paymentId
 payment id was previously stored in session in
 CreatePaymentUsingPayPal.php</p></div></div><div class="code"><div class="wrapper">  <span class="nv">$paymentId</span> <span class="o">=</span> <span class="nv">$_SESSION</span><span class="p">[</span><span class="s1">&#39;paymentId&#39;</span><span class="p">];</span>
-  <span class="nv">$payment</span> <span class="o">=</span> <span class="nx">Payment</span><span class="o">::</span><span class="na">get</span><span class="p">(</span><span class="nv">$paymentId</span><span class="p">);</span>
-  </div></div></div><div class="segment"><a id="segment-4" name="segment-4" class="section_anchor"></a><div class="comments"><div class="pilwrap"><a href="#segment-4" class="pilcrow">¶</a></div><div class="wrapper"><p>PaymentExecution object includes information necessary 
+  <span class="nv">$payment</span> <span class="o">=</span> <span class="nx">Payment</span><span class="o">::</span><span class="na">get</span><span class="p">(</span><span class="nv">$paymentId</span><span class="p">,</span> <span class="nv">$apiContext</span><span class="p">);</span>
+  </div></div></div><div class="segment"><a id="segment-3" name="segment-3" class="section_anchor"></a><div class="comments"><div class="pilwrap"><a href="#segment-3" class="pilcrow">¶</a></div><div class="wrapper"><p>PaymentExecution object includes information necessary 
 to execute a PayPal account payment. 
 The payer_id is added to the request query parameters
 when the user is redirected from paypal back to your site</p></div></div><div class="code"><div class="wrapper">  <span class="nv">$execution</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">PaymentExecution</span><span class="p">();</span>
   <span class="nv">$execution</span><span class="o">-&gt;</span><span class="na">setPayer_id</span><span class="p">(</span><span class="nv">$_GET</span><span class="p">[</span><span class="s1">&#39;PayerID&#39;</span><span class="p">]);</span>
   
-  <span class="c1">//Execute the payment</span>
-  <span class="nv">$payment</span><span class="o">-&gt;</span><span class="na">execute</span><span class="p">(</span><span class="nv">$execution</span><span class="p">,</span> <span class="nv">$apiContext</span><span class="p">);</span>
+  <span class="c1">//Execute the payment</span></div></div></div><div class="segment"><a id="segment-4" name="segment-4" class="section_anchor"></a><div class="comments"><div class="pilwrap"><a href="#segment-4" class="pilcrow">¶</a></div><div class="wrapper"><p>(See bootstrap.php for more on <code>ApiContext</code>)</p></div></div><div class="code"><div class="wrapper">  <span class="nv">$payment</span><span class="o">-&gt;</span><span class="na">execute</span><span class="p">(</span><span class="nv">$execution</span><span class="p">,</span> <span class="nv">$apiContext</span><span class="p">);</span>
 
   <span class="k">echo</span> <span class="s2">&quot;&lt;html&gt;&lt;body&gt;&lt;pre&gt;&quot;</span><span class="p">;</span>
   <span class="nb">var_dump</span><span class="p">(</span><span class="nv">$payment</span><span class="o">-&gt;</span><span class="na">toArray</span><span class="p">());</span>

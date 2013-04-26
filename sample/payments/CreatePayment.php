@@ -13,7 +13,6 @@ use PayPal\Api\Payer;
 use PayPal\Api\Payment;
 use PayPal\Api\FundingInstrument;
 use PayPal\Api\Transaction;
-use PayPal\Rest\ApiContext;
 
 // ### Address
 // Base Address object used as shipping or billing
@@ -80,16 +79,11 @@ $payment->setIntent("sale");
 $payment->setPayer($payer);
 $payment->setTransactions(array($transaction));
 
-// ### Api Context
-// Pass in a `ApiContext` object to authenticate 
-// the call and to send a unique request id 
-// (that ensures idempotency). The SDK generates
-// a request id if you do not pass one explicitly. 
-$apiContext = new ApiContext($cred, 'Request' . time());
+
 
 // ### Create Payment
 // Create a payment by posting to the APIService
-// using a valid ApiContext
+// using a valid ApiContext (See bootstrap.php for more on `ApiContext`)
 // The return object contains the status;
 try {
 	$payment->create($apiContext);

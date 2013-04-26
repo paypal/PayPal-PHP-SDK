@@ -49,14 +49,15 @@ class OAuthTokenCredential {
 	 */
 	public function __construct($clientId, $clientSecret) {
 		$this->clientId = $clientId;
-		$this->clientSecret = $clientSecret;
-		$this->logger = new \PPLoggingManager(__CLASS__);		
+		$this->clientSecret = $clientSecret;		
 	}
 	
 	/**
 	 * @return the accessToken
 	 */
-	public function getAccessToken($config) {		
+	public function getAccessToken($config) {
+
+		$this->logger = new \PPLoggingManager(__CLASS__, $config);
 		// Check if Access Token is not null and has not expired.
 		// The API returns expiry time as a relative time unit 
 		// We use a buffer time when checking for token expiry to account

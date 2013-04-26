@@ -1,7 +1,7 @@
 <?php
 /*
  * Sample bootstrap file.
-*/
+ */
 
 // Include the composer autoloader
 if(!file_exists(__DIR__ .'/vendor/autoload.php')) {
@@ -9,23 +9,30 @@ if(!file_exists(__DIR__ .'/vendor/autoload.php')) {
 	exit(1);
 }
 require __DIR__ . '/vendor/autoload.php';
-use PayPal\Auth\OAuthTokenCredential;
-
 define("PP_CONFIG_PATH", __DIR__);
 
-$configManager = \PPConfigManager::getInstance();
+use PayPal\Rest\ApiContext;
+use PayPal\Auth\OAuthTokenCredential;
 
-// $cred is used by samples that include this bootstrap file
-// This piece of code simply demonstrates how you can
-// dynamically pass in a client id/secret instead of using
-// the config file. If you do not need a way to pass
-// in credentials dynamically, you can skip the
-// <Resource>::setCredential($cred) calls that
-// you see in the samples.
-$cred = new OAuthTokenCredential(
-		$configManager->get('acct1.ClientId'),
-		$configManager->get('acct1.ClientSecret'));
-
+// ### Api Context
+// Pass in a `PayPal\Rest\ApiContext` object to authenticate 
+// the call. You can also send a unique request id 
+// (that ensures idempotency). The SDK generates
+// a request id if you do not pass one explicitly. 
+$apiContext = new ApiContext(new OAuthTokenCredential(
+		'EBWKjlELKMYqRNQ6sYvFo64FtaRLRR5BdHEESmha49TM',
+		'EO422dn3gQLgDbuwqTjzrFgFtaRLRR5BdHEESmha49TM'));
+// Uncomment this step if you want to use per request 
+// dynamic configuration instead of using sdk_config.ini
+/*
+$apiContext->setConfig(array(
+	'mode' => 'sandbox',
+	'http.ConnectionTimeOut' => 30,
+	'log.LogEnabled' => true,
+	'log.FileName' => '../PayPal.log',
+	'log.LogLevel' => 'FINE'
+));
+*/
 
 /**
  * ### getBaseUrl function

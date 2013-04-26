@@ -7,9 +7,7 @@ a payment in the future.
 The following code demonstrates how 
 can save a Credit Card on PayPal using 
 the Vault API.
-API used: POST /v1/vault/credit-card</p></div></div><div class="code"><div class="wrapper"><span class="k">use</span> <span class="nx">PayPal\Rest\ApiContext</span><span class="p">;</span>
-
-<span class="k">require</span> <span class="nx">__DIR__</span> <span class="o">.</span> <span class="s1">&#39;/../bootstrap.php&#39;</span><span class="p">;</span>
+API used: POST /v1/vault/credit-card</p></div></div><div class="code"><div class="wrapper"><span class="k">require</span> <span class="nx">__DIR__</span> <span class="o">.</span> <span class="s1">&#39;/../bootstrap.php&#39;</span><span class="p">;</span>
 <span class="k">use</span> <span class="nx">PayPal\Api\CreditCard</span><span class="p">;</span>
 <span class="k">use</span> <span class="nx">PayPal\Api\Address</span><span class="p">;</span></div></div></div><div class="segment"><a id="segment-2" name="segment-2" class="section_anchor"></a><div class="comments"><div class="pilwrap"><a href="#segment-2" class="pilcrow">¶</a></div><div class="wrapper"><h3 id="creditcard">CreditCard</h3>
 
@@ -21,18 +19,14 @@ used to fund a payment.</p></div></div><div class="code"><div class="wrapper"><s
 <span class="nv">$card</span><span class="o">-&gt;</span><span class="na">setExpire_year</span><span class="p">(</span><span class="s2">&quot;2019&quot;</span><span class="p">);</span>
 <span class="nv">$card</span><span class="o">-&gt;</span><span class="na">setCvv2</span><span class="p">(</span><span class="s2">&quot;012&quot;</span><span class="p">);</span>
 <span class="nv">$card</span><span class="o">-&gt;</span><span class="na">setFirst_name</span><span class="p">(</span><span class="s2">&quot;Joe&quot;</span><span class="p">);</span>
-<span class="nv">$card</span><span class="o">-&gt;</span><span class="na">setLast_name</span><span class="p">(</span><span class="s2">&quot;Shopper&quot;</span><span class="p">);</span></div></div></div><div class="segment"><a id="segment-3" name="segment-3" class="section_anchor"></a><div class="comments"><div class="pilwrap"><a href="#segment-3" class="pilcrow">¶</a></div><div class="wrapper"><h3 id="api-context">Api Context</h3>
-
-<p>Pass in a <code>ApiContext</code> object to authenticate 
-the call and to send a unique request id 
-(that ensures idempotency). The SDK generates
-a request id if you do not pass one explicitly. </p></div></div><div class="code"><div class="wrapper"><span class="nv">$apiContext</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ApiContext</span><span class="p">(</span><span class="nv">$cred</span><span class="p">,</span> <span class="s1">&#39;Request&#39;</span> <span class="o">.</span> <span class="nb">time</span><span class="p">());</span></div></div></div><div class="segment"><a id="segment-4" name="segment-4" class="section_anchor"></a><div class="comments"><div class="pilwrap"><a href="#segment-4" class="pilcrow">¶</a></div><div class="wrapper"><h3 id="save-card">Save card</h3>
+<span class="nv">$card</span><span class="o">-&gt;</span><span class="na">setLast_name</span><span class="p">(</span><span class="s2">&quot;Shopper&quot;</span><span class="p">);</span></div></div></div><div class="segment"><a id="segment-3" name="segment-3" class="section_anchor"></a><div class="comments"><div class="pilwrap"><a href="#segment-3" class="pilcrow">¶</a></div><div class="wrapper"><h3 id="save-card">Save card</h3>
 
 <p>Creates the credit card as a resource
 in the PayPal vault. The response contains
 an 'id' that you can use to refer to it
-in the future payments.</p></div></div><div class="code"><div class="wrapper"><span class="k">try</span> <span class="p">{</span>
-  <span class="nv">$card</span><span class="o">-&gt;</span><span class="na">create</span><span class="p">();</span>  
+in the future payments.
+(See bootstrap.php for more on <code>ApiContext</code>)</p></div></div><div class="code"><div class="wrapper"><span class="k">try</span> <span class="p">{</span>
+  <span class="nv">$card</span><span class="o">-&gt;</span><span class="na">create</span><span class="p">(</span><span class="nv">$apiContext</span><span class="p">);</span> 
 <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">\PPConnectionException</span> <span class="nv">$ex</span><span class="p">)</span> <span class="p">{</span>
   <span class="k">echo</span> <span class="s2">&quot;Exception:&quot;</span> <span class="o">.</span> <span class="nv">$ex</span><span class="o">-&gt;</span><span class="na">getMessage</span><span class="p">()</span> <span class="o">.</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
   <span class="nb">var_dump</span><span class="p">(</span><span class="nv">$ex</span><span class="o">-&gt;</span><span class="na">getData</span><span class="p">());</span>

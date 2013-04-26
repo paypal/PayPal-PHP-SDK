@@ -12,8 +12,7 @@ API used: /v1/payments/payment</p></div></div><div class="code"><div class="wrap
 <span class="k">use</span> <span class="nx">PayPal\Api\FundingInstrument</span><span class="p">;</span>
 <span class="k">use</span> <span class="nx">PayPal\Api\RedirectUrls</span><span class="p">;</span>
 <span class="k">use</span> <span class="nx">PayPal\Api\Transaction</span><span class="p">;</span>
-<span class="k">use</span> <span class="nx">PayPal\Auth\OAuthTokenCredential</span><span class="p">;</span>
-<span class="k">use</span> <span class="nx">PayPal\Rest\ApiContext</span><span class="p">;</span></div></div></div><div class="segment"><a id="segment-2" name="segment-2" class="section_anchor"></a><div class="comments"><div class="pilwrap"><a href="#segment-2" class="pilcrow">¶</a></div><div class="wrapper"><h3 id="credit-card-token">Credit card token</h3>
+<span class="k">use</span> <span class="nx">PayPal\Auth\OAuthTokenCredential</span><span class="p">;</span></div></div></div><div class="segment"><a id="segment-2" name="segment-2" class="section_anchor"></a><div class="comments"><div class="pilwrap"><a href="#segment-2" class="pilcrow">¶</a></div><div class="wrapper"><h3 id="credit-card-token">Credit card token</h3>
 
 <p>Saved credit card id from a previous call to
 CreateCreditCard.php</p></div></div><div class="code"><div class="wrapper"><span class="nv">$creditCardId</span> <span class="o">=</span> <span class="s1">&#39;CARD-5BT058015C739554AKE2GCEI&#39;</span><span class="p">;</span>
@@ -48,15 +47,10 @@ a <code>Payee</code> and <code>Amount</code> types</p></div></div><div class="co
 the above types and intent as 'sale'</p></div></div><div class="code"><div class="wrapper"><span class="nv">$payment</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Payment</span><span class="p">();</span>
 <span class="nv">$payment</span><span class="o">-&gt;</span><span class="na">setIntent</span><span class="p">(</span><span class="s2">&quot;sale&quot;</span><span class="p">);</span>
 <span class="nv">$payment</span><span class="o">-&gt;</span><span class="na">setPayer</span><span class="p">(</span><span class="nv">$payer</span><span class="p">);</span>
-<span class="nv">$payment</span><span class="o">-&gt;</span><span class="na">setTransactions</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="nv">$transaction</span><span class="p">));</span></div></div></div><div class="segment"><a id="segment-8" name="segment-8" class="section_anchor"></a><div class="comments"><div class="pilwrap"><a href="#segment-8" class="pilcrow">¶</a></div><div class="wrapper"><h3 id="api-context">Api Context</h3>
-
-<p>Pass in a <code>ApiContext</code> object to authenticate
-the call and to send a unique request id
-(that ensures idempotency). The SDK generates
-a request id if you do not pass one explicitly.</p></div></div><div class="code"><div class="wrapper"><span class="nv">$apiContext</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ApiContext</span><span class="p">(</span><span class="nv">$cred</span><span class="p">,</span> <span class="s1">&#39;Request&#39;</span> <span class="o">.</span> <span class="nb">time</span><span class="p">());</span></div></div></div><div class="segment"><a id="segment-9" name="segment-9" class="section_anchor"></a><div class="comments"><div class="pilwrap"><a href="#segment-9" class="pilcrow">¶</a></div><div class="wrapper"><h3 id="create-payment">Create Payment</h3>
+<span class="nv">$payment</span><span class="o">-&gt;</span><span class="na">setTransactions</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="nv">$transaction</span><span class="p">));</span></div></div></div><div class="segment"><a id="segment-8" name="segment-8" class="section_anchor"></a><div class="comments"><div class="pilwrap"><a href="#segment-8" class="pilcrow">¶</a></div><div class="wrapper"><h3 id="create-payment">Create Payment</h3>
 
 <p>Create a payment by posting to the APIService
-using a valid apiContext
+(See bootstrap.php for more on <code>ApiContext</code>)
 The return object contains the status;</p></div></div><div class="code"><div class="wrapper"><span class="k">try</span> <span class="p">{</span>
   <span class="nv">$payment</span><span class="o">-&gt;</span><span class="na">create</span><span class="p">(</span><span class="nv">$apiContext</span><span class="p">);</span>
 <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">\PPConnectionException</span> <span class="nv">$ex</span><span class="p">)</span> <span class="p">{</span>
