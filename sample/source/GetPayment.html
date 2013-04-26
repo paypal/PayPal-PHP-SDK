@@ -9,16 +9,14 @@ payments list.
 API used: GET /v1/payments/payments</p></div></div><div class="code"><div class="wrapper"><span class="k">require</span> <span class="nx">__DIR__</span> <span class="o">.</span> <span class="s1">&#39;/../bootstrap.php&#39;</span><span class="p">;</span>
 <span class="k">use</span> <span class="nx">PayPal\Api\Payment</span><span class="p">;</span>
 
-<span class="nv">$paymentId</span> <span class="o">=</span> <span class="s2">&quot;PAY-0XL713371A312273YKE2GCNI&quot;</span><span class="p">;</span></div></div></div><div class="segment"><a id="segment-2" name="segment-2" class="section_anchor"></a><div class="comments"><div class="pilwrap"><a href="#segment-2" class="pilcrow">¶</a></div><div class="wrapper"><h3 id="authentication">Authentication</h3>
-
-<p>Pass in a <code>OAuthTokenCredential</code> object
-explicilty to authenticate the call. </p></div></div><div class="code"><div class="wrapper"><span class="nx">Payment</span><span class="o">::</span><span class="na">setCredential</span><span class="p">(</span><span class="nv">$cred</span><span class="p">);</span></div></div></div><div class="segment"><a id="segment-3" name="segment-3" class="section_anchor"></a><div class="comments"><div class="pilwrap"><a href="#segment-3" class="pilcrow">¶</a></div><div class="wrapper"><h3 id="retrieve-payment">Retrieve payment</h3>
+<span class="nv">$paymentId</span> <span class="o">=</span> <span class="s2">&quot;PAY-0XL713371A312273YKE2GCNI&quot;</span><span class="p">;</span></div></div></div><div class="segment"><a id="segment-2" name="segment-2" class="section_anchor"></a><div class="comments"><div class="pilwrap"><a href="#segment-2" class="pilcrow">¶</a></div><div class="wrapper"><h3 id="retrieve-payment">Retrieve payment</h3>
 
 <p>Retrieve the payment object by calling the
 static <code>get</code> method
 on the Payment class by passing a valid
-Payment ID</p></div></div><div class="code"><div class="wrapper"><span class="k">try</span> <span class="p">{</span>
-  <span class="nv">$payment</span> <span class="o">=</span> <span class="nx">Payment</span><span class="o">::</span><span class="na">get</span><span class="p">(</span><span class="nv">$paymentId</span><span class="p">);</span>
+Payment ID
+(See bootstrap.php for more on <code>ApiContext</code>)</p></div></div><div class="code"><div class="wrapper"><span class="k">try</span> <span class="p">{</span>
+  <span class="nv">$payment</span> <span class="o">=</span> <span class="nx">Payment</span><span class="o">::</span><span class="na">get</span><span class="p">(</span><span class="nv">$paymentId</span><span class="p">,</span> <span class="nv">$apiContext</span><span class="p">);</span>
 <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">\PPConnectionException</span> <span class="nv">$ex</span><span class="p">)</span> <span class="p">{</span>
   <span class="k">echo</span> <span class="s2">&quot;Exception:&quot;</span> <span class="o">.</span> <span class="nv">$ex</span><span class="o">-&gt;</span><span class="na">getMessage</span><span class="p">()</span> <span class="o">.</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
   <span class="nb">var_dump</span><span class="p">(</span><span class="nv">$ex</span><span class="o">-&gt;</span><span class="na">getData</span><span class="p">());</span>

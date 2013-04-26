@@ -18,6 +18,7 @@ class PaymentHistory extends Resource {
 
 	/**
 	 * Getter for payments
+	 * @return PayPal\Api\Payment
 	 */ 
 	public function getPayments() {
 		return $this->payments;
@@ -33,6 +34,7 @@ class PaymentHistory extends Resource {
 
 	/**
 	 * Getter for count
+	 * @return integer
 	 */ 
 	public function getCount() {
 		return $this->count;
@@ -48,6 +50,7 @@ class PaymentHistory extends Resource {
 
 	/**
 	 * Getter for next_id
+	 * @return string
 	 */ 
 	public function getNext_id() {
 		return $this->next_id;

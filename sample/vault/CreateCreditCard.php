@@ -10,7 +10,6 @@
 // the Vault API.
 // API used: POST /v1/vault/credit-card
 
-use PayPal\Rest\ApiContext;
 
 require __DIR__ . '/../bootstrap.php';
 use PayPal\Api\CreditCard;
@@ -28,20 +27,14 @@ $card->setCvv2("012");
 $card->setFirst_name("Joe");
 $card->setLast_name("Shopper");
 
-// ### Api Context
-// Pass in a `ApiContext` object to authenticate 
-// the call and to send a unique request id 
-// (that ensures idempotency). The SDK generates
-// a request id if you do not pass one explicitly. 
-$apiContext = new ApiContext($cred, 'Request' . time());
-
 // ### Save card
 // Creates the credit card as a resource
 // in the PayPal vault. The response contains
 // an 'id' that you can use to refer to it
 // in the future payments.
+// (See bootstrap.php for more on `ApiContext`)
 try {
-	$card->create();	
+	$card->create($apiContext);	
 } catch (\PPConnectionException $ex) {
 	echo "Exception:" . $ex->getMessage() . PHP_EOL;
 	var_dump($ex->getData());

@@ -18,6 +18,7 @@ class ItemList extends Resource {
 
 	/**
 	 * Getter for items
+	 * @return PayPal\Api\Item
 	 */ 
 	public function getItems() {
 		return $this->items;
@@ -33,6 +34,7 @@ class ItemList extends Resource {
 
 	/**
 	 * Getter for shipping_address
+	 * @return PayPal\Api\ShippingAddress
 	 */ 
 	public function getShipping_address() {
 		return $this->shipping_address;

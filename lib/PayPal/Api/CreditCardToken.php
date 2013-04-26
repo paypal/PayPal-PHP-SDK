@@ -18,6 +18,7 @@ class CreditCardToken extends Resource {
 
 	/**
 	 * Getter for credit_card_id
+	 * @return string
 	 */ 
 	public function getCredit_card_id() {
 		return $this->credit_card_id;
@@ -33,6 +34,7 @@ class CreditCardToken extends Resource {
 
 	/**
 	 * Getter for payer_id
+	 * @return string
 	 */ 
 	public function getPayer_id() {
 		return $this->payer_id;

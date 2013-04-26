@@ -14,15 +14,10 @@ use PayPal\Api\CreditCard;
 // card operation. Use $card->getId()
 $cardId = "CARD-5BT058015C739554AKE2GCEI";
 
-// ### Authentication
-// Pass in a `OAuthTokenCredential` object
-// explicilty to authenticate the call.
-// If you skip this step, the client id/secret
-// set in the config file will be used.
-CreditCard::setCredential($cred);
 /// ### Retrieve card
+// (See bootstrap.php for more on `ApiContext`)
 try {
-	$card = CreditCard::get($cardId);
+	$card = CreditCard::get($cardId, $apiContext);
 } catch (\PPConnectionException $ex) {
 	echo "Exception: " . $ex->getMessage() . PHP_EOL;
 	var_dump($ex->getData());

@@ -18,6 +18,7 @@ class ShippingAddress extends Address {
 
 	/**
 	 * Getter for recipient_name
+	 * @return string
 	 */ 
 	public function getRecipient_name() {
 		return $this->recipient_name;

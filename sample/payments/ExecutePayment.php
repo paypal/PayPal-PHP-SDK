@@ -11,22 +11,14 @@ require __DIR__ . '/../bootstrap.php';
 use PayPal\Api\ExecutePayment;
 use PayPal\Api\Payment;
 use PayPal\Api\PaymentExecution;
-use PayPal\Rest\ApiContext;
 session_start();
-
 if(isset($_GET['success']) && $_GET['success'] == 'true') {
-	// ### Api Context
-	// Pass in a `ApiContext` object to authenticate 
-	// the call and to send a unique request id 
-	// (that ensures idempotency). The SDK generates
-	// a request id if you do not pass one explicitly. 
-	$apiContext = new ApiContext($cred);
 	
 	// Get the payment Object by passing paymentId
 	// payment id was previously stored in session in
 	// CreatePaymentUsingPayPal.php
 	$paymentId = $_SESSION['paymentId'];
-	$payment = Payment::get($paymentId);
+	$payment = Payment::get($paymentId, $apiContext);
 	
 	// PaymentExecution object includes information necessary 
 	// to execute a PayPal account payment. 
@@ -36,6 +28,7 @@ if(isset($_GET['success']) && $_GET['success'] == 'true') {
 	$execution->setPayer_id($_GET['PayerID']);
 	
 	//Execute the payment
+	// (See bootstrap.php for more on `ApiContext`)
 	$payment->execute($execution, $apiContext);
 
 	echo "<html><body><pre>";

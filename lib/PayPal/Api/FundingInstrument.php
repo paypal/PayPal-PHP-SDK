@@ -18,6 +18,7 @@ class FundingInstrument extends Resource {
 
 	/**
 	 * Getter for credit_card
+	 * @return PayPal\Api\CreditCard
 	 */ 
 	public function getCredit_card() {
 		return $this->credit_card;
@@ -33,6 +34,7 @@ class FundingInstrument extends Resource {
 
 	/**
 	 * Getter for credit_card_token
+	 * @return PayPal\Api\CreditCardToken
 	 */ 
 	public function getCredit_card_token() {
 		return $this->credit_card_token;

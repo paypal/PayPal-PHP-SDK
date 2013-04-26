@@ -16,7 +16,6 @@ use PayPal\Api\FundingInstrument;
 use PayPal\Api\RedirectUrls;
 use PayPal\Api\Transaction;
 use PayPal\Auth\OAuthTokenCredential;
-use PayPal\Rest\ApiContext;
 
 // ### Credit card token
 // Saved credit card id from a previous call to
@@ -65,16 +64,9 @@ $payment->setIntent("sale");
 $payment->setPayer($payer);
 $payment->setTransactions(array($transaction));
 
-// ### Api Context
-// Pass in a `ApiContext` object to authenticate
-// the call and to send a unique request id
-// (that ensures idempotency). The SDK generates
-// a request id if you do not pass one explicitly.
-$apiContext = new ApiContext($cred, 'Request' . time());
-
 // ###Create Payment
 // Create a payment by posting to the APIService
-// using a valid apiContext
+// (See bootstrap.php for more on `ApiContext`)
 // The return object contains the status;
 try {
 	$payment->create($apiContext);

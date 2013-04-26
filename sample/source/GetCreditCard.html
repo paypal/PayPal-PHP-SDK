@@ -7,15 +7,10 @@ by sending a GET request to the URI
 The following code takes you through
 the process of retrieving a saved CreditCard</p></div></div><div class="code"><div class="wrapper"><span class="k">require</span> <span class="nx">__DIR__</span> <span class="o">.</span> <span class="s1">&#39;/../bootstrap.php&#39;</span><span class="p">;</span>
 <span class="k">use</span> <span class="nx">PayPal\Api\CreditCard</span><span class="p">;</span></div></div></div><div class="segment"><a id="segment-2" name="segment-2" class="section_anchor"></a><div class="comments"><div class="pilwrap"><a href="#segment-2" class="pilcrow">¶</a></div><div class="wrapper"><p>The cardId can be obtained from a previous save credit
-card operation. Use $card->getId()</p></div></div><div class="code"><div class="wrapper"><span class="nv">$cardId</span> <span class="o">=</span> <span class="s2">&quot;CARD-5BT058015C739554AKE2GCEI&quot;</span><span class="p">;</span></div></div></div><div class="segment"><a id="segment-3" name="segment-3" class="section_anchor"></a><div class="comments"><div class="pilwrap"><a href="#segment-3" class="pilcrow">¶</a></div><div class="wrapper"><h3 id="authentication">Authentication</h3>
+card operation. Use $card->getId()</p></div></div><div class="code"><div class="wrapper"><span class="nv">$cardId</span> <span class="o">=</span> <span class="s2">&quot;CARD-5BT058015C739554AKE2GCEI&quot;</span><span class="p">;</span>
 
-<p>Pass in a <code>OAuthTokenCredential</code> object
-explicilty to authenticate the call.
-If you skip this step, the client id/secret
-set in the config file will be used.</p></div></div><div class="code"><div class="wrapper"><span class="nx">CreditCard</span><span class="o">::</span><span class="na">setCredential</span><span class="p">(</span><span class="nv">$cred</span><span class="p">);</span>
-<span class="c1">/// ### Retrieve card</span>
-<span class="k">try</span> <span class="p">{</span>
-  <span class="nv">$card</span> <span class="o">=</span> <span class="nx">CreditCard</span><span class="o">::</span><span class="na">get</span><span class="p">(</span><span class="nv">$cardId</span><span class="p">);</span>
+<span class="c1">/// ### Retrieve card</span></div></div></div><div class="segment"><a id="segment-3" name="segment-3" class="section_anchor"></a><div class="comments"><div class="pilwrap"><a href="#segment-3" class="pilcrow">¶</a></div><div class="wrapper"><p>(See bootstrap.php for more on <code>ApiContext</code>)</p></div></div><div class="code"><div class="wrapper"><span class="k">try</span> <span class="p">{</span>
+  <span class="nv">$card</span> <span class="o">=</span> <span class="nx">CreditCard</span><span class="o">::</span><span class="na">get</span><span class="p">(</span><span class="nv">$cardId</span><span class="p">,</span> <span class="nv">$apiContext</span><span class="p">);</span>
 <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">\PPConnectionException</span> <span class="nv">$ex</span><span class="p">)</span> <span class="p">{</span>
   <span class="k">echo</span> <span class="s2">&quot;Exception: &quot;</span> <span class="o">.</span> <span class="nv">$ex</span><span class="o">-&gt;</span><span class="na">getMessage</span><span class="p">()</span> <span class="o">.</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
   <span class="nb">var_dump</span><span class="p">(</span><span class="nv">$ex</span><span class="o">-&gt;</span><span class="na">getData</span><span class="p">());</span>

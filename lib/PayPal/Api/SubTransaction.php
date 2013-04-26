@@ -18,6 +18,7 @@ class SubTransaction extends Resource {
 
 	/**
 	 * Getter for sale
+	 * @return PayPal\Api\Sale
 	 */ 
 	public function getSale() {
 		return $this->sale;
@@ -33,6 +34,7 @@ class SubTransaction extends Resource {
 
 	/**
 	 * Getter for authorization
+	 * @return PayPal\Api\Authorization
 	 */ 
 	public function getAuthorization() {
 		return $this->authorization;
@@ -48,6 +50,7 @@ class SubTransaction extends Resource {
 
 	/**
 	 * Getter for refund
+	 * @return PayPal\Api\Refund
 	 */ 
 	public function getRefund() {
 		return $this->refund;
@@ -63,6 +66,7 @@ class SubTransaction extends Resource {
 
 	/**
 	 * Getter for capture
+	 * @return PayPal\Api\Capture
 	 */ 
 	public function getCapture() {
 		return $this->capture;

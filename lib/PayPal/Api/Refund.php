@@ -11,7 +11,11 @@ use PayPal\Rest\ApiContext;
 class Refund extends Resource implements IResource {
 
 	private static $credential;
-	
+
+	/**
+	 *
+	 * @deprected. Pass ApiContext to the get method instead
+	 */
 	public static function setCredential($credential) {
 		self::$credential = $credential;
 	}
@@ -26,6 +30,7 @@ class Refund extends Resource implements IResource {
 
 	/**
 	 * Getter for id
+	 * @return string
 	 */ 
 	public function getId() {
 		return $this->id;
@@ -41,6 +46,7 @@ class Refund extends Resource implements IResource {
 
 	/**
 	 * Getter for create_time
+	 * @return string
 	 */ 
 	public function getCreate_time() {
 		return $this->create_time;
@@ -56,6 +62,7 @@ class Refund extends Resource implements IResource {
 
 	/**
 	 * Getter for update_time
+	 * @return string
 	 */ 
 	public function getUpdate_time() {
 		return $this->update_time;
@@ -71,6 +78,7 @@ class Refund extends Resource implements IResource {
 
 	/**
 	 * Getter for state
+	 * @return string
 	 */ 
 	public function getState() {
 		return $this->state;
@@ -86,6 +94,7 @@ class Refund extends Resource implements IResource {
 
 	/**
 	 * Getter for amount
+	 * @return PayPal\Api\Amount
 	 */ 
 	public function getAmount() {
 		return $this->amount;
@@ -101,6 +110,7 @@ class Refund extends Resource implements IResource {
 
 	/**
 	 * Getter for sale_id
+	 * @return string
 	 */ 
 	public function getSale_id() {
 		return $this->sale_id;
@@ -116,6 +126,7 @@ class Refund extends Resource implements IResource {
 
 	/**
 	 * Getter for capture_id
+	 * @return string
 	 */ 
 	public function getCapture_id() {
 		return $this->capture_id;
@@ -131,6 +142,7 @@ class Refund extends Resource implements IResource {
 
 	/**
 	 * Getter for parent_payment
+	 * @return string
 	 */ 
 	public function getParent_payment() {
 		return $this->parent_payment;
@@ -146,6 +158,7 @@ class Refund extends Resource implements IResource {
 
 	/**
 	 * Getter for description
+	 * @return string
 	 */ 
 	public function getDescription() {
 		return $this->description;
@@ -161,6 +174,7 @@ class Refund extends Resource implements IResource {
 
 	/**
 	 * Getter for links
+	 * @return PayPal\Api\Link
 	 */ 
 	public function getLinks() {
 		return $this->links;
@@ -171,16 +185,21 @@ class Refund extends Resource implements IResource {
 	/**
 	 * @path /v1/payments/refund/:refund-id
 	 * @method GET
-	 * @param string $refundid	  	 
+	 * @param string $refundid	  
+	 * @param PayPal\Rest\ApiContext $apiContext optional
 	 */
-	public static function get( $refundid) {
+	public static function get( $refundid, $apiContext=null) {
 		if (($refundid == null) || (strlen($refundid) <= 0)) {
 			throw new \InvalidArgumentException("refundid cannot be null or empty");
 		}
 		$payLoad = "";
-		
-		$apiContext = new ApiContext(self::$credential);		$call = new Call();		
-		$json = $call->execute("/v1/payments/refund/$refundid", "GET", $payLoad, $apiContext);
+		if($apiContext == null) {
+			$apiContext = new ApiContext(self::$credential);
+		}
+		$call = new \PPRestCall($apiContext);		
+		$json = $call->execute( array('PayPal\Rest\RestHandler'),
+			"/v1/payments/refund/$refundid", 
+			"GET", $payLoad);
 		$ret = new Refund();
 		$ret->fromJson($json);
 		return $ret;

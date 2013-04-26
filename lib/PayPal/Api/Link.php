@@ -18,6 +18,7 @@ class Link extends Resource {
 
 	/**
 	 * Getter for href
+	 * @return string
 	 */ 
 	public function getHref() {
 		return $this->href;
@@ -33,6 +34,7 @@ class Link extends Resource {
 
 	/**
 	 * Getter for rel
+	 * @return string
 	 */ 
 	public function getRel() {
 		return $this->rel;
@@ -48,6 +50,7 @@ class Link extends Resource {
 
 	/**
 	 * Getter for method
+	 * @return string
 	 */ 
 	public function getMethod() {
 		return $this->method;

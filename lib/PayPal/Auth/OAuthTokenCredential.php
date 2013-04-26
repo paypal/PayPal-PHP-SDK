@@ -6,6 +6,10 @@ namespace PayPal\Auth;
  * Oauth Token credential
  *
  */
+use PayPal\Rest\RestHandler;
+
+use PayPal\Common\UserAgent;
+
 class OAuthTokenCredential {
 	
 	private static $expiryBufferTime = 120;
@@ -45,14 +49,15 @@ class OAuthTokenCredential {
 	 */
 	public function __construct($clientId, $clientSecret) {
 		$this->clientId = $clientId;
-		$this->clientSecret = $clientSecret;
-		$this->logger = new \PPLoggingManager(__CLASS__);		
+		$this->clientSecret = $clientSecret;		
 	}
 	
 	/**
 	 * @return the accessToken
 	 */
-	public function getAccessToken() {		
+	public function getAccessToken($config) {
+
+		$this->logger = new \PPLoggingManager(__CLASS__, $config);
 		// Check if Access Token is not null and has not expired.
 		// The API returns expiry time as a relative time unit 
 		// We use a buffer time when checking for token expiry to account
@@ -64,7 +69,7 @@ class OAuthTokenCredential {
 		}
 		// If accessToken is Null, obtain a new token
 		if ($this->accessToken == null) {			
-			$this->generateAccessToken();
+			$this->_generateAccessToken($config);
 		}
 		return $this->accessToken;
 	}
@@ -72,23 +77,18 @@ class OAuthTokenCredential {
 	/**
 	 * Generates a new access token
 	 */
-	private function generateAccessToken() {
-		return $this->generateOAuthToken(base64_encode($this->clientId . ":" . $this->clientSecret));		
-	}
-	
-	/**
-	 * Generate OAuth type token from Base64Client ID
-	 */
-	private function generateOAuthToken($base64ClientID) {
-							
+	private function _generateAccessToken($config) {
+
+		$base64ClientID = base64_encode($this->clientId . ":" . $this->clientSecret);							
 		$headers = array(
+			"User-Agent" => \PPUserAgent::getValue(RestHandler::$sdkName, RestHandler::$sdkVersion),	
 			"Authorization" => "Basic " . $base64ClientID,
 			"Accept" => "*/*"
 		);		
-		$httpConfiguration = $this->getOAuthHttpConfiguration();
+		$httpConfiguration = $this->getOAuthHttpConfiguration($config);
 		$httpConfiguration->setHeaders($headers);
 		
-		$connection = \PPConnectionManager::getInstance()->getConnection($httpConfiguration);		
+		$connection = \PPConnectionManager::getInstance()->getConnection($httpConfiguration, $config);		
 		$res = $connection->execute("grant_type=client_credentials");		
 		$jsonResponse = json_decode($res, true);
 		if($jsonResponse == NULL || 
@@ -107,11 +107,26 @@ class OAuthTokenCredential {
 	/*
 	 * Get HttpConfiguration object for OAuth API
 	*/
-	private function getOAuthHttpConfiguration() {
-		$configMgr = \PPConfigManager::getInstance();
+	private function getOAuthHttpConfiguration($config) {
+		if (isset($config['oauth.EndPoint'])) {
+			$baseEndpoint = $config['oauth.EndPoint'];
+		} else if (isset($config['service.EndPoint'])) {
+			$baseEndpoint = $config['service.EndPoint'];
+		} else if (isset($config['mode'])) {
+			switch (strtoupper($config['mode'])) {
+				case 'SANDBOX':
+					$baseEndpoint = \PPConstants::REST_SANDBOX_ENDPOINT;
+					break;
+				case 'LIVE':
+					$baseEndpoint = \PPConstants::REST_LIVE_ENDPOINT;
+					break;
+				default:
+					throw new \PPConfigurationException('The mode config parameter must be set to either sandbox/live');
+			}
+		} else {
+			throw new PPConfigurationException('You must set one of service.endpoint or mode parameters in your configuration');
+		}		
 		
-		$baseEndpoint = ($configMgr->get("oauth.EndPoint") != '' && !is_array($configMgr->get("oauth.EndPoint"))) ? 
-			$configMgr->get("oauth.EndPoint") : $configMgr->get("service.EndPoint");
 		$baseEndpoint = rtrim(trim($baseEndpoint), '/');		 
 		return new \PPHttpConfig($baseEndpoint . "/v1/oauth2/token", "POST");
 	}

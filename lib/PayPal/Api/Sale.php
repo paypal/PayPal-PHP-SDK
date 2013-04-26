@@ -12,6 +12,10 @@ class Sale extends Resource implements IResource {
 
 	private static $credential;
 	
+	/**
+	 * 
+	 * @deprected. Pass ApiContext to refund/get methods instead
+	 */
 	public static function setCredential($credential) {
 		self::$credential = $credential;
 	}
@@ -26,6 +30,7 @@ class Sale extends Resource implements IResource {
 
 	/**
 	 * Getter for id
+	 * @return string
 	 */ 
 	public function getId() {
 		return $this->id;
@@ -41,6 +46,7 @@ class Sale extends Resource implements IResource {
 
 	/**
 	 * Getter for create_time
+	 * @return string
 	 */ 
 	public function getCreate_time() {
 		return $this->create_time;
@@ -56,6 +62,7 @@ class Sale extends Resource implements IResource {
 
 	/**
 	 * Getter for update_time
+	 * @return string
 	 */ 
 	public function getUpdate_time() {
 		return $this->update_time;
@@ -71,6 +78,7 @@ class Sale extends Resource implements IResource {
 
 	/**
 	 * Getter for state
+	 * @return string
 	 */ 
 	public function getState() {
 		return $this->state;
@@ -86,6 +94,7 @@ class Sale extends Resource implements IResource {
 
 	/**
 	 * Getter for amount
+	 * @return PayPal\Api\Amount
 	 */ 
 	public function getAmount() {
 		return $this->amount;
@@ -101,6 +110,7 @@ class Sale extends Resource implements IResource {
 
 	/**
 	 * Getter for parent_payment
+	 * @return string
 	 */ 
 	public function getParent_payment() {
 		return $this->parent_payment;
@@ -116,6 +126,7 @@ class Sale extends Resource implements IResource {
 
 	/**
 	 * Getter for links
+	 * @return PayPal\Api\Link
 	 */ 
 	public function getLinks() {
 		return $this->links;
@@ -126,16 +137,21 @@ class Sale extends Resource implements IResource {
 	/**
 	 * @path /v1/payments/sale/:sale-id
 	 * @method GET
-	 * @param string $saleid	  	 
+	 * @param string $saleid	  
+	 * @param PayPal\Rest\ApiContext $apiContext optional
 	 */
-	public static function get( $saleid) {
+	public static function get( $saleid, $apiContext=null) {
 		if (($saleid == null) || (strlen($saleid) <= 0)) {
 			throw new \InvalidArgumentException("saleid cannot be null or empty");
 		}
 		$payLoad = "";
-		
-		$apiContext = new ApiContext(self::$credential);		$call = new Call();		
-		$json = $call->execute("/v1/payments/sale/$saleid", "GET", $payLoad, $apiContext);
+		if($apiContext == null) {
+			$apiContext = new ApiContext(self::$credential);
+		}
+		$call = new \PPRestCall($apiContext);		
+		$json = $call->execute( array('PayPal\Rest\RestHandler'),
+			"/v1/payments/sale/$saleid", 
+			"GET", $payLoad);
 		$ret = new Sale();
 		$ret->fromJson($json);
 		return $ret;
@@ -146,7 +162,7 @@ class Sale extends Resource implements IResource {
 	 * @path /v1/payments/sale/:sale-id/refund
 	 * @method POST
 	 * @param Refund $refund	  
-	 * @param PayPal\Rest\ApiContext $apiContext optional	  	 
+	 * @param PayPal\Rest\ApiContext $apiContext optional
 	 */
 	public function refund( $refund, $apiContext=null) {
 		if ($refund == null) {
@@ -159,8 +175,10 @@ class Sale extends Resource implements IResource {
 		if($apiContext == null) {
 			$apiContext = new ApiContext(self::$credential);
 		}
-		$call = new Call();		
-		$json = $call->execute("/v1/payments/sale/{$this->getId()}/refund", "POST", $payLoad, $apiContext);
+		$call = new \PPRestCall($apiContext);		
+		$json = $call->execute( array('PayPal\Rest\RestHandler'),
+			"/v1/payments/sale/{$this->getId()}/refund", 
+			"POST", $payLoad);
 		$this->fromJson($json);
  		return $this; 		
  	}

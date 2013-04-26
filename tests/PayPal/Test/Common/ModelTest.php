@@ -2,9 +2,8 @@
 
 // namespace PayPal\Test\Common;
 
-use PayPal\Common\Model;
 
-class SimpleClass extends Model {
+class SimpleClass extends \PPModel {
 
 	public function setName($name) {
 		$this->name = $name;
@@ -21,7 +20,7 @@ class SimpleClass extends Model {
 	}
 }
 
-class ArrayClass extends Model {
+class ArrayClass extends \PPModel {
 
 	public function setName($name) {
 		$this->name = $name;
@@ -48,7 +47,7 @@ class ArrayClass extends Model {
 	}
 }
 
-class NestedClass extends Model {
+class NestedClass extends \PPModel {
 	
 	public function setId($id) {
 		$this->id = $id;
@@ -64,6 +63,10 @@ class NestedClass extends Model {
 	public function setInfo($info) {
 		$this->info = $info;
 	}
+	/**
+	 * 
+	 * @return ArrayClass
+	 */
 	public function getInfo() {
 		return $this->info;
 	}

@@ -18,6 +18,7 @@ class Amount extends Resource {
 
 	/**
 	 * Getter for total
+	 * @return string
 	 */ 
 	public function getTotal() {
 		return $this->total;
@@ -33,6 +34,7 @@ class Amount extends Resource {
 
 	/**
 	 * Getter for currency
+	 * @return string
 	 */ 
 	public function getCurrency() {
 		return $this->currency;
@@ -48,6 +50,7 @@ class Amount extends Resource {
 
 	/**
 	 * Getter for details
+	 * @return PayPal\Api\AmountDetails
 	 */ 
 	public function getDetails() {
 		return $this->details;

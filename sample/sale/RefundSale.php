@@ -10,7 +10,6 @@ require __DIR__ . '/../bootstrap.php';
 use PayPal\Api\Amount;
 use PayPal\Api\Refund;
 use PayPal\Api\Sale;
-use PayPal\Rest\ApiContext;
 
 // ### Refund
 // Create a refund object indicating 
@@ -31,14 +30,9 @@ $saleId = '3RM92092UW5126232';
 $sale = new Sale();
 $sale->setId($saleId);
 
-// ### Api Context
-// Pass in a `ApiContext` object to authenticate 
-// the call and to send a unique request id 
-// (that ensures idempotency). The SDK generates
-// a request id if you do not pass one explicitly. 
-$apiContext = new ApiContext($cred, 'Request' . time());
 try {	
 	// Refund the sale
+	// (See bootstrap.php for more on `ApiContext`)
 	$sale->refund($refund, $apiContext);
 } catch (\PPConnectionException $ex) {
 	echo "Exception:" . $ex->getMessage() . PHP_EOL;

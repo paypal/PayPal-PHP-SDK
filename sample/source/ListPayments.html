@@ -7,19 +7,15 @@ Note various query parameters that you can
 use to filter, and paginate through the
 payments list.
 API used: GET /v1/payments/payments</p></div></div><div class="code"><div class="wrapper"><span class="k">require</span> <span class="nx">__DIR__</span> <span class="o">.</span> <span class="s1">&#39;/../bootstrap.php&#39;</span><span class="p">;</span>
-<span class="k">use</span> <span class="nx">PayPal\Api\Payment</span><span class="p">;</span></div></div></div><div class="segment"><a id="segment-2" name="segment-2" class="section_anchor"></a><div class="comments"><div class="pilwrap"><a href="#segment-2" class="pilcrow">¶</a></div><div class="wrapper"><h3 id="authentication">Authentication</h3>
-
-<p>Pass in a <code>OAuthTokenCredential</code> object
-explicilty to authenticate the call. 
-If you skip this step, the client id/secret
-set in the config file will be used. </p></div></div><div class="code"><div class="wrapper"><span class="nx">Payment</span><span class="o">::</span><span class="na">setCredential</span><span class="p">(</span><span class="nv">$cred</span><span class="p">);</span></div></div></div><div class="segment"><a id="segment-3" name="segment-3" class="section_anchor"></a><div class="comments"><div class="pilwrap"><a href="#segment-3" class="pilcrow">¶</a></div><div class="wrapper"><h3 id="retrieve-payment">Retrieve payment</h3>
+<span class="k">use</span> <span class="nx">PayPal\Api\Payment</span><span class="p">;</span></div></div></div><div class="segment"><a id="segment-2" name="segment-2" class="section_anchor"></a><div class="comments"><div class="pilwrap"><a href="#segment-2" class="pilcrow">¶</a></div><div class="wrapper"><h3 id="retrieve-payment">Retrieve payment</h3>
 
 <p>Retrieve the PaymentHistory object by calling the
 static <code>get</code> method on the Payment class, 
 and pass a Map object that contains
 query parameters for paginations and filtering.
-Refer the method doc for valid values for keys</p></div></div><div class="code"><div class="wrapper"><span class="k">try</span> <span class="p">{</span>
-  <span class="nv">$payments</span> <span class="o">=</span> <span class="nx">Payment</span><span class="o">::</span><span class="na">all</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="s1">&#39;count&#39;</span> <span class="o">=&gt;</span> <span class="mi">10</span><span class="p">,</span> <span class="s1">&#39;start_index&#39;</span> <span class="o">=&gt;</span> <span class="mi">5</span><span class="p">));</span> 
+Refer the method doc for valid values for keys
+(See bootstrap.php for more on <code>ApiContext</code>)</p></div></div><div class="code"><div class="wrapper"><span class="k">try</span> <span class="p">{</span>
+  <span class="nv">$payments</span> <span class="o">=</span> <span class="nx">Payment</span><span class="o">::</span><span class="na">all</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="s1">&#39;count&#39;</span> <span class="o">=&gt;</span> <span class="mi">10</span><span class="p">,</span> <span class="s1">&#39;start_index&#39;</span> <span class="o">=&gt;</span> <span class="mi">5</span><span class="p">),</span> <span class="nv">$apiContext</span><span class="p">);</span>  
 <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">\PPConnectionException</span> <span class="nv">$ex</span><span class="p">)</span> <span class="p">{</span>
   <span class="k">echo</span> <span class="s2">&quot;Exception:&quot;</span> <span class="o">.</span> <span class="nv">$ex</span><span class="o">-&gt;</span><span class="na">getMessage</span><span class="p">()</span> <span class="o">.</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
   <span class="nb">var_dump</span><span class="p">(</span><span class="nv">$ex</span><span class="o">-&gt;</span><span class="na">getData</span><span class="p">());</span>
