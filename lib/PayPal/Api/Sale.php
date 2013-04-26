@@ -12,6 +12,10 @@ class Sale extends Resource implements IResource {
 
 	private static $credential;
 	
+	/**
+	 * 
+	 * @deprected. Pass ApiContext to refund/get methods instead
+	 */
 	public static function setCredential($credential) {
 		self::$credential = $credential;
 	}

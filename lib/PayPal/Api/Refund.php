@@ -11,7 +11,11 @@ use PayPal\Rest\ApiContext;
 class Refund extends Resource implements IResource {
 
 	private static $credential;
-	
+
+	/**
+	 *
+	 * @deprected. Pass ApiContext to the get method instead
+	 */
 	public static function setCredential($credential) {
 		self::$credential = $credential;
 	}
