@@ -124,7 +124,7 @@ class OAuthTokenCredential {
 					throw new \PPConfigurationException('The mode config parameter must be set to either sandbox/live');
 			}
 		} else {
-			throw new PPConfigurationException('You must set one of service.endpoint or mode parameters in your configuration');
+			throw new \PPConfigurationException('You must set one of service.endpoint or mode parameters in your configuration');
 		}		
 		
 		$baseEndpoint = rtrim(trim($baseEndpoint), '/');		 
