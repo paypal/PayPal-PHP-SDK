@@ -17,8 +17,8 @@ Running the sample
 
    * Ensure that you have composer installed on your machine.
    * Navigate to the samples folder and run 'composer update'.
-   * Optionally, update the sdk_config.ini file with your own client Id and client secret.
-   * Run any of the command line samples in the folder to see what the APIs can do.
+   * Optionally, update the bootstrap.php file with your own client Id and client secret.
+   * Run any of the samples in the 'samples' folder to see what the APIs can do.
     
     
 Usage
@@ -30,28 +30,31 @@ To write an app that uses the SDK
 dependencies
    * Copy the sample configuration file sdk_config.ini to a location of your choice and let the SDK know your config path using the following define directive
     
-    ```php
-    define('PP_SDK_CONFIG_PATH', /path/to/your/sdk_config.ini);
-    ```
+```php
+    define('PP_CONFIG_PATH', /path/to/your/sdk_config.ini);
+```
     
-   * Obtain your clientId and client secret from the developer portal and add them to your config file	
+   * Obtain your clientId and client secret from the developer portal. You will use them to create a `OAuthTokenCredential` object.
    * Now you are all set to make your first API call. Create a resource object as per your need and call the relevant operation or invoke one of the static methods on your resource class.
     
-    ```php
+```php
+
+    $apiContext = new ApiContext(new OAuthTokenCredential('<clientId>', '<clientSecret'));
+		
     $payment = new Payment();
 
     $payment->setIntent("Sale");
 
     ...
 
-    $payment->create();
+    $payment->create($apiContext);
 
       *OR*
 
-    $payment = Payment::get('payment_id');
-    ```
-  
-    These examples pick the client id / secret automatically from your config file. You can also set API credentials dynamically. See the sample code for how you can do this.
+    $payment = Payment::get('payment_id', $apiContext);
+```
+
+These examples pick the SDK configuration from the sdk_config.ini file. If you do not want to use an ini file or want to pick your configuration dynamically, you can use the `$apiContext->setConfig()` method to pass in the configuration.
 	
 
 Contributing
@@ -60,6 +63,6 @@ Contributing
 More help
 ---------
 
-   * API Reference
-   * Reporting issues / feature requests  
+   * [API Reference](https://developer.paypal.com/webapps/developer/docs/api/)
+   * [Reporting issues / feature requests] (https://github.com/paypal/rest-api-sdk-php/issues)
    
