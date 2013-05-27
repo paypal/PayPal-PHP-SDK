@@ -1,60 +1,55 @@
-<?php 
-
+<?php
 namespace PayPal\Api;
 
-/**
- * 
- */
-class Payer extends Resource {
 
-
+class Payer extends \PPModel {
 	/**
-	 * Setter for payment_method
+	 * Payment method being used - PayPal Wallet payment or Direct Credit card.
 	 * @param string $payment_method
-	 */ 
-	public function setPayment_method($payment_method) {
+	 */
+	public function setPaymentMethod($payment_method) {
 		$this->payment_method = $payment_method;
-	}
-
+	}	
+	
 	/**
-	 * Getter for payment_method
+	 * Payment method being used - PayPal Wallet payment or Direct Credit card.
 	 * @return string
-	 */ 
-	public function getPayment_method() {
+	 */
+	public function getPaymentMethod() {
 		return $this->payment_method;
 	}
-
+	
 	/**
-	 * Setter for payer_info
-	 * @param PayPal\Api\PayerInfo $payer_info
-	 */ 
-	public function setPayer_info($payer_info) {
-		$this->payer_info = $payer_info;
-	}
-
-	/**
-	 * Getter for payer_info
-	 * @return PayPal\Api\PayerInfo
-	 */ 
-	public function getPayer_info() {
-		return $this->payer_info;
-	}
-
-	/**
-	 * Setter for funding_instruments
+	 * List of funding instruments from where the funds of the current payment come from. Typically a credit card.
+	 * @array
 	 * @param PayPal\Api\FundingInstrument $funding_instruments
-	 */ 
-	public function setFunding_instruments($funding_instruments) {
+	 */
+	public function setFundingInstruments($funding_instruments) {
 		$this->funding_instruments = $funding_instruments;
-	}
-
+	}	
+	
 	/**
-	 * Getter for funding_instruments
+	 * List of funding instruments from where the funds of the current payment come from. Typically a credit card.
 	 * @return PayPal\Api\FundingInstrument
-	 */ 
-	public function getFunding_instruments() {
+	 */
+	public function getFundingInstruments() {
 		return $this->funding_instruments;
 	}
-
-
+	
+	/**
+	 * Information related to the Payer. In case of PayPal Wallet payment, this information will be filled in by PayPal after the user approves the payment using their PayPal Wallet. 
+	 * @param PayPal\Api\PayerInfo $payer_info
+	 */
+	public function setPayerInfo($payer_info) {
+		$this->payer_info = $payer_info;
+	}	
+	
+	/**
+	 * Information related to the Payer. In case of PayPal Wallet payment, this information will be filled in by PayPal after the user approves the payment using their PayPal Wallet. 
+	 * @return PayPal\Api\PayerInfo
+	 */
+	public function getPayerInfo() {
+		return $this->payer_info;
+	}
+	
 }

@@ -1,76 +1,70 @@
-<?php 
-
+<?php
 namespace PayPal\Api;
 
-/**
- * 
- */
-class SubTransaction extends Resource {
 
-
+class RelatedResources extends \PPModel {
 	/**
-	 * Setter for sale
+	 * A sale transaction
 	 * @param PayPal\Api\Sale $sale
-	 */ 
+	 */
 	public function setSale($sale) {
 		$this->sale = $sale;
-	}
-
+	}	
+	
 	/**
-	 * Getter for sale
+	 * A sale transaction
 	 * @return PayPal\Api\Sale
-	 */ 
+	 */
 	public function getSale() {
 		return $this->sale;
 	}
-
+	
 	/**
-	 * Setter for authorization
+	 * An authorization transaction
 	 * @param PayPal\Api\Authorization $authorization
-	 */ 
+	 */
 	public function setAuthorization($authorization) {
 		$this->authorization = $authorization;
-	}
-
+	}	
+	
 	/**
-	 * Getter for authorization
+	 * An authorization transaction
 	 * @return PayPal\Api\Authorization
-	 */ 
+	 */
 	public function getAuthorization() {
 		return $this->authorization;
 	}
-
+	
 	/**
-	 * Setter for refund
-	 * @param PayPal\Api\Refund $refund
-	 */ 
-	public function setRefund($refund) {
-		$this->refund = $refund;
-	}
-
-	/**
-	 * Getter for refund
-	 * @return PayPal\Api\Refund
-	 */ 
-	public function getRefund() {
-		return $this->refund;
-	}
-
-	/**
-	 * Setter for capture
+	 * A capture transaction
 	 * @param PayPal\Api\Capture $capture
-	 */ 
+	 */
 	public function setCapture($capture) {
 		$this->capture = $capture;
-	}
-
+	}	
+	
 	/**
-	 * Getter for capture
+	 * A capture transaction
 	 * @return PayPal\Api\Capture
-	 */ 
+	 */
 	public function getCapture() {
 		return $this->capture;
 	}
-
-
+	
+	/**
+	 * A refund transaction
+	 * @param PayPal\Api\Refund $refund
+	 */
+	public function setRefund($refund) {
+		$this->refund = $refund;
+	}	
+	
+	/**
+	 * A refund transaction
+	 * @return PayPal\Api\Refund
+	 */
+	public function getRefund() {
+		return $this->refund;
+	}
+	
 }

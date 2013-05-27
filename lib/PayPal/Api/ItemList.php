@@ -1,44 +1,39 @@
-<?php 
-
+<?php
 namespace PayPal\Api;
 
-/**
- * 
- */
-class ItemList extends Resource {
 
-
+class ItemList extends \PPModel {
 	/**
-	 * Setter for items
+	 * List of items.
+	 * @array
 	 * @param PayPal\Api\Item $items
-	 */ 
+	 */
 	public function setItems($items) {
 		$this->items = $items;
-	}
-
+	}	
+	
 	/**
-	 * Getter for items
+	 * List of items.
 	 * @return PayPal\Api\Item
-	 */ 
+	 */
 	public function getItems() {
 		return $this->items;
 	}
-
+	
 	/**
-	 * Setter for shipping_address
+	 * Shipping address.
 	 * @param PayPal\Api\ShippingAddress $shipping_address
-	 */ 
-	public function setShipping_address($shipping_address) {
+	 */
+	public function setShippingAddress($shipping_address) {
 		$this->shipping_address = $shipping_address;
-	}
-
+	}	
+	
 	/**
-	 * Getter for shipping_address
+	 * Shipping address.
 	 * @return PayPal\Api\ShippingAddress
-	 */ 
-	public function getShipping_address() {
+	 */
+	public function getShippingAddress() {
 		return $this->shipping_address;
 	}
-
-
+	
 }

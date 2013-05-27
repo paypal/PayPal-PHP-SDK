@@ -2,22 +2,22 @@
 namespace PayPal\Api;
 
 
-class PaymentHistory extends \PPModel {
+class CreditCardHistory extends \PPModel {
 	/**
-	 * A list of Payment resources
+	 * A list of credit card resources
 	 * @array
-	 * @param PayPal\Api\Payment $payments
+	 * @param PayPal\Api\CreditCard $credit-cards
 	 */
-	public function setPayments($payments) {
-		$this->payments = $payments;
+	public function setCreditCards($credit-cards) {
+		$this->credit-cards = $credit-cards;
 	}	
 	
 	/**
-	 * A list of Payment resources
-	 * @return PayPal\Api\Payment
+	 * A list of credit card resources
+	 * @return PayPal\Api\CreditCard
 	 */
-	public function getPayments() {
-		return $this->payments;
+	public function getCreditCards() {
+		return $this->credit-cards;
 	}
 	
 	/**

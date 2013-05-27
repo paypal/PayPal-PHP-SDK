@@ -1,15 +1,12 @@
-<?php 
-
+<?php
 namespace PayPal\Api;
+
 use PayPal\Rest\IResource;
 use PayPal\Rest\Call;
 use PayPal\Rest\ApiContext;
 
-/**
- * 
- */
-class Payment extends Resource implements IResource {
-
+class Payment extends \PPModel implements IResource {
+	
 	private static $credential;
 	
 	/**
@@ -21,251 +18,209 @@ class Payment extends Resource implements IResource {
 	}
 	
 	/**
-	 * Setter for id
+	 * Identifier of the payment resource created.
 	 * @param string $id
-	 */ 
+	 */
 	public function setId($id) {
 		$this->id = $id;
-	}
-
+	}	
+	
 	/**
-	 * Getter for id
+	 * Identifier of the payment resource created.
 	 * @return string
-	 */ 
+	 */
 	public function getId() {
 		return $this->id;
 	}
-
+	
 	/**
-	 * Setter for create_time
+	 * Time the resource was created.
 	 * @param string $create_time
-	 */ 
-	public function setCreate_time($create_time) {
+	 */
+	public function setCreateTime($create_time) {
 		$this->create_time = $create_time;
-	}
-
+	}	
+	
 	/**
-	 * Getter for create_time
+	 * Time the resource was created.
 	 * @return string
-	 */ 
-	public function getCreate_time() {
+	 */
+	public function getCreateTime() {
 		return $this->create_time;
 	}
-
+	
 	/**
-	 * Setter for update_time
+	 * Time the resource was last updated.
 	 * @param string $update_time
-	 */ 
-	public function setUpdate_time($update_time) {
+	 */
+	public function setUpdateTime($update_time) {
 		$this->update_time = $update_time;
-	}
-
+	}	
+	
 	/**
-	 * Getter for update_time
+	 * Time the resource was last updated.
 	 * @return string
-	 */ 
-	public function getUpdate_time() {
+	 */
+	public function getUpdateTime() {
 		return $this->update_time;
 	}
-
+	
 	/**
-	 * Setter for state
-	 * @param string $state
-	 */ 
-	public function setState($state) {
-		$this->state = $state;
-	}
-
-	/**
-	 * Getter for state
-	 * @return string
-	 */ 
-	public function getState() {
-		return $this->state;
-	}
-
-	/**
-	 * Setter for intent
+	 * Intent of the payment - Sale or Authorization or Order.
 	 * @param string $intent
-	 */ 
+	 */
 	public function setIntent($intent) {
 		$this->intent = $intent;
-	}
-
+	}	
+	
 	/**
-	 * Getter for intent
+	 * Intent of the payment - Sale or Authorization or Order.
 	 * @return string
-	 */ 
+	 */
 	public function getIntent() {
 		return $this->intent;
 	}
-
+	
 	/**
-	 * Setter for payer
+	 * Source of the funds for this payment represented by a PayPal account or a direct credit card.
 	 * @param PayPal\Api\Payer $payer
-	 */ 
+	 */
 	public function setPayer($payer) {
 		$this->payer = $payer;
-	}
-
+	}	
+	
 	/**
-	 * Getter for payer
+	 * Source of the funds for this payment represented by a PayPal account or a direct credit card.
 	 * @return PayPal\Api\Payer
-	 */ 
+	 */
 	public function getPayer() {
 		return $this->payer;
 	}
-
+	
 	/**
-	 * Setter for transactions
+	 * A payment can have more than one transaction, with each transaction establishing a contract between the payer and a payee
+	 * @array
 	 * @param PayPal\Api\Transaction $transactions
-	 */ 
+	 */
 	public function setTransactions($transactions) {
 		$this->transactions = $transactions;
-	}
-
+	}	
+	
 	/**
-	 * Getter for transactions
+	 * A payment can have more than one transaction, with each transaction establishing a contract between the payer and a payee
 	 * @return PayPal\Api\Transaction
-	 */ 
+	 */
 	public function getTransactions() {
 		return $this->transactions;
 	}
-
+	
 	/**
-	 * Setter for redirect_urls
-	 * @param PayPal\Api\RedirectUrls $redirect_urls
-	 */ 
-	public function setRedirect_urls($redirect_urls) {
-		$this->redirect_urls = $redirect_urls;
+	 * state of the payment
+	 * @param string $state
+	 */
+	public function setState($state) {
+		$this->state = $state;
+	}	
+	
+	/**
+	 * state of the payment
+	 * @return string
+	 */
+	public function getState() {
+		return $this->state;
 	}
-
+	
 	/**
-	 * Getter for redirect_urls
+	 * Redirect urls required only when using payment_method as PayPal - the only settings supported are return and cancel urls.
+	 * @param PayPal\Api\RedirectUrls $redirect_urls
+	 */
+	public function setRedirectUrls($redirect_urls) {
+		$this->redirect_urls = $redirect_urls;
+	}	
+	
+	/**
+	 * Redirect urls required only when using payment_method as PayPal - the only settings supported are return and cancel urls.
 	 * @return PayPal\Api\RedirectUrls
-	 */ 
-	public function getRedirect_urls() {
+	 */
+	public function getRedirectUrls() {
 		return $this->redirect_urls;
 	}
-
+	
 	/**
-	 * Setter for links
-	 * @param PayPal\Api\Link $links
-	 */ 
+	 * 
+	 * @array
+	 * @param PayPal\Api\Links $links
+	 */
 	public function setLinks($links) {
 		$this->links = $links;
-	}
-
+	}	
+	
 	/**
-	 * Getter for links
-	 * @return PayPal\Api\Link
-	 */ 
+	 * 
+	 * @return PayPal\Api\Links
+	 */
 	public function getLinks() {
 		return $this->links;
 	}
+	
 
-	
-	
-	/**
-	 * @path /v1/payments/payment
-	 * @method GET
-	 * @param array $params
-	 *			array containing the query strings with the 
-	 *			following values as keys:
-	 *			count,
-	 *			start_id,
-	 *			start_index,
-	 *			start_time,
-	 *			end_time,
-	 *			payee_id,
-	 *			sort_by,
-	 *			sort_order,
-	 *			All other keys in the map are ignored by the SDK	  
-	 * @param PayPal\Rest\ApiContext $apiContext optional
-	 */
-	public static function all($params, $apiContext=null) {
-		$payLoad = "";
-		$allowedParams = array('count' => 1, 'start_id' => 1, 'start_index' => 1, 'start_time' => 1, 'end_time' => 1, 'payee_id' => 1, 'sort_by' => 1, 'sort_order' => 1, );		
-		if($apiContext == null) {
+	public function create($apiContext = null) {
+		$payLoad = $this->toJSON();
+		if ($apiContext == null) {
 			$apiContext = new ApiContext(self::$credential);
 		}
-		$call = new \PPRestCall($apiContext);		
-		$json = $call->execute( array('PayPal\Rest\RestHandler'),
-			"/v1/payments/payment?" . http_build_query(array_intersect_key($params, $allowedParams)), 
-			"GET", $payLoad);
-		$ret = new PaymentHistory();
-		$ret->fromJson($json);
-		return $ret;
- 		 		
- 	}
-	
-	/**
-	 * @path /v1/payments/payment
-	 * @method POST
-	  
-	 * @param PayPal\Rest\ApiContext $apiContext optional
-	 */
-	public function create( $apiContext=null) {
-		$payLoad = $this->toJSON();	
-		if($apiContext == null) {
-			$apiContext = new ApiContext(self::$credential);
-		}
-		$call = new \PPRestCall($apiContext);		
-		$json = $call->execute( array('PayPal\Rest\RestHandler'),
-			"/v1/payments/payment", 
-			"POST", $payLoad);
+		$call = new \PPRestCall($apiContext);
+		$json = $call->execute(array('PayPal\Rest\RestHandler'), "/v1/payments/payment", "POST", $payLoad);
 		$this->fromJson($json);
- 		return $this; 		
- 	}
-	
-	/**
-	 * @path /v1/payments/payment/:payment-id
-	 * @method GET
-	 * @param string $paymentid	  
-	 * @param PayPal\Rest\ApiContext $apiContext optional
-	 */
-	public static function get( $paymentid, $apiContext=null) {
-		if (($paymentid == null) || (strlen($paymentid) <= 0)) {
-			throw new \InvalidArgumentException("paymentid cannot be null or empty");
+ 		return $this;
+	}
+
+	public static function get($paymentId, $apiContext = null) {
+		if (($paymentId == null) || (strlen($paymentId) <= 0)) {
+			throw new \InvalidArgumentException("paymentId cannot be null or empty");
 		}
 		$payLoad = "";
-		if($apiContext == null) {
+		if ($apiContext == null) {
 			$apiContext = new ApiContext(self::$credential);
 		}
-		$call = new \PPRestCall($apiContext);		
-		$json = $call->execute( array('PayPal\Rest\RestHandler'),
-			"/v1/payments/payment/$paymentid", 
-			"GET", $payLoad);
+		$call = new \PPRestCall($apiContext);
+		$json = $call->execute(array('PayPal\Rest\RestHandler'), "/v1/payments/payment/$paymentId", "GET", $payLoad);
 		$ret = new Payment();
 		$ret->fromJson($json);
 		return $ret;
- 		 		
- 	}
-	
-	/**
-	 * @path /v1/payments/payment/:payment-id/execute
-	 * @method POST
-	 * @param PaymentExecution $payment_execution	  
-	 * @param PayPal\Rest\ApiContext $apiContext optional
-	 */
-	public function execute( $payment_execution, $apiContext=null) {
-		if ($payment_execution == null) {
-			throw new \InvalidArgumentException("payment_execution cannot be null");
-		}
+	}
+
+	public function execute($paymentExecution, $apiContext = null) {
 		if ($this->getId() == null) {
 			throw new \InvalidArgumentException("Id cannot be null");
 		}
-		$payLoad = $payment_execution->toJSON();	
-		if($apiContext == null) {
+		if (($paymentExecution == null)) {
+			throw new \InvalidArgumentException("paymentExecution cannot be null or empty");
+		}
+		$payLoad = $paymentExecution->toJSON();
+		if ($apiContext == null) {
 			$apiContext = new ApiContext(self::$credential);
 		}
-		$call = new \PPRestCall($apiContext);		
-		$json = $call->execute( array('PayPal\Rest\RestHandler'),
-			"/v1/payments/payment/{$this->getId()}/execute", 
-			"POST", $payLoad);
-		$this->fromJson($json);
- 		return $this; 		
- 	}
-	
+		$call = new \PPRestCall($apiContext);
+		$json = $call->execute(array('PayPal\Rest\RestHandler'), "/v1/payments/payment/{$this->getId()}/execute", "POST", $payLoad);
+		$ret = new Payment();
+		$ret->fromJson($json);
+		return $ret;
+	}
 
+	public static function all($params, $apiContext = null) {
+		if (($params == null)) {
+			throw new \InvalidArgumentException("params cannot be null or empty");
+		}
+		$payLoad = "";
+		$allowedParams = array('count' => 1, 'start_id' => 1, 'start_index' => 1, 'start_time' => 1, 'end_time' => 1, 'payee_id' => 1, 'sort_by' => 1, 'sort_order' => 1, );
+		if ($apiContext == null) {
+			$apiContext = new ApiContext(self::$credential);
+		}
+		$call = new \PPRestCall($apiContext);
+		$json = $call->execute(array('PayPal\Rest\RestHandler'), "/v1/payments/payment?" . http_build_query(array_intersect_key($params, $allowedParams)), "GET", $payLoad);
+		$ret = new PaymentHistory();
+		$ret->fromJson($json);
+		return $ret;
+	}
 }

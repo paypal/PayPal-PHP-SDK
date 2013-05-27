@@ -1,60 +1,54 @@
-<?php 
-
+<?php
 namespace PayPal\Api;
 
-/**
- * 
- */
-class Payee extends Resource {
 
-
+class Payee extends \PPModel {
 	/**
-	 * Setter for merchant_id
-	 * @param string $merchant_id
-	 */ 
-	public function setMerchant_id($merchant_id) {
-		$this->merchant_id = $merchant_id;
-	}
-
-	/**
-	 * Getter for merchant_id
-	 * @return string
-	 */ 
-	public function getMerchant_id() {
-		return $this->merchant_id;
-	}
-
-	/**
-	 * Setter for email
+	 * Email Address associated with the Payee's PayPal Account. If the provided email address is not associated with any PayPal Account, the payee can only receiver PayPal Wallet Payments. Direct Credit Card Payments will be denied due to card compliance requirements.
 	 * @param string $email
-	 */ 
+	 */
 	public function setEmail($email) {
 		$this->email = $email;
-	}
-
+	}	
+	
 	/**
-	 * Getter for email
+	 * Email Address associated with the Payee's PayPal Account. If the provided email address is not associated with any PayPal Account, the payee can only receiver PayPal Wallet Payments. Direct Credit Card Payments will be denied due to card compliance requirements.
 	 * @return string
-	 */ 
+	 */
 	public function getEmail() {
 		return $this->email;
 	}
-
+	
 	/**
-	 * Setter for phone
+	 * Encrypted PayPal Account identifier for the Payee.
+	 * @param string $merchant_id
+	 */
+	public function setMerchantId($merchant_id) {
+		$this->merchant_id = $merchant_id;
+	}	
+	
+	/**
+	 * Encrypted PayPal Account identifier for the Payee.
+	 * @return string
+	 */
+	public function getMerchantId() {
+		return $this->merchant_id;
+	}
+	
+	/**
+	 * Phone number (in E.123 format) associated with the Payee's PayPal Account. If the provided phont number is not associated with any PayPal Account, the payee can only receiver PayPal Wallet Payments. Direct Credit Card Payments will be denied due to card compliance requirements.
 	 * @param string $phone
-	 */ 
+	 */
 	public function setPhone($phone) {
 		$this->phone = $phone;
-	}
-
+	}	
+	
 	/**
-	 * Getter for phone
+	 * Phone number (in E.123 format) associated with the Payee's PayPal Account. If the provided phont number is not associated with any PayPal Account, the payee can only receiver PayPal Wallet Payments. Direct Credit Card Payments will be denied due to card compliance requirements.
 	 * @return string
-	 */ 
+	 */
 	public function getPhone() {
 		return $this->phone;
 	}
-
-
+	
 }

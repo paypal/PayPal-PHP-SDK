@@ -1,108 +1,102 @@
-<?php 
-
+<?php
 namespace PayPal\Api;
 
-/**
- * 
- */
-class PayerInfo extends Resource {
 
-
+class PayerInfo extends \PPModel {
 	/**
-	 * Setter for email
+	 * Email address representing the Payer.
 	 * @param string $email
-	 */ 
+	 */
 	public function setEmail($email) {
 		$this->email = $email;
-	}
-
+	}	
+	
 	/**
-	 * Getter for email
+	 * Email address representing the Payer.
 	 * @return string
-	 */ 
+	 */
 	public function getEmail() {
 		return $this->email;
 	}
-
+	
 	/**
-	 * Setter for first_name
+	 * First Name of the Payer from their PayPal Account.
 	 * @param string $first_name
-	 */ 
-	public function setFirst_name($first_name) {
+	 */
+	public function setFirstName($first_name) {
 		$this->first_name = $first_name;
-	}
-
+	}	
+	
 	/**
-	 * Getter for first_name
+	 * First Name of the Payer from their PayPal Account.
 	 * @return string
-	 */ 
-	public function getFirst_name() {
+	 */
+	public function getFirstName() {
 		return $this->first_name;
 	}
-
+	
 	/**
-	 * Setter for last_name
+	 * Last Name of the Payer from their PayPal Account.
 	 * @param string $last_name
-	 */ 
-	public function setLast_name($last_name) {
+	 */
+	public function setLastName($last_name) {
 		$this->last_name = $last_name;
-	}
-
+	}	
+	
 	/**
-	 * Getter for last_name
+	 * Last Name of the Payer from their PayPal Account.
 	 * @return string
-	 */ 
-	public function getLast_name() {
+	 */
+	public function getLastName() {
 		return $this->last_name;
 	}
-
+	
 	/**
-	 * Setter for payer_id
+	 * PayPal assigned Payer ID.
 	 * @param string $payer_id
-	 */ 
-	public function setPayer_id($payer_id) {
+	 */
+	public function setPayerId($payer_id) {
 		$this->payer_id = $payer_id;
-	}
-
+	}	
+	
 	/**
-	 * Getter for payer_id
+	 * PayPal assigned Payer ID.
 	 * @return string
-	 */ 
-	public function getPayer_id() {
+	 */
+	public function getPayerId() {
 		return $this->payer_id;
 	}
-
+	
 	/**
-	 * Setter for shipping_address
-	 * @param PayPal\Api\Address $shipping_address
-	 */ 
-	public function setShipping_address($shipping_address) {
-		$this->shipping_address = $shipping_address;
-	}
-
-	/**
-	 * Getter for shipping_address
-	 * @return PayPal\Api\Address
-	 */ 
-	public function getShipping_address() {
-		return $this->shipping_address;
-	}
-
-	/**
-	 * Setter for phone
+	 * Phone number representing the Payer.
 	 * @param string $phone
-	 */ 
+	 */
 	public function setPhone($phone) {
 		$this->phone = $phone;
-	}
-
+	}	
+	
 	/**
-	 * Getter for phone
+	 * Phone number representing the Payer.
 	 * @return string
-	 */ 
+	 */
 	public function getPhone() {
 		return $this->phone;
 	}
-
-
+	
+	/**
+	 * Shipping address of the Payer from their PayPal Account.
+	 * @param PayPal\Api\Address $shipping_address
+	 */
+	public function setShippingAddress($shipping_address) {
+		$this->shipping_address = $shipping_address;
+	}	
+	
+	/**
+	 * Shipping address of the Payer from their PayPal Account.
+	 * @return PayPal\Api\Address
+	 */
+	public function getShippingAddress() {
+		return $this->shipping_address;
+	}
+	
 }

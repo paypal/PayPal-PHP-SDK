@@ -1,28 +1,22 @@
-<?php 
-
+<?php
 namespace PayPal\Api;
 
-/**
- * 
- */
+
 class ShippingAddress extends Address {
-
-
 	/**
-	 * Setter for recipient_name
+	 * Name of the recipient at this address.
 	 * @param string $recipient_name
-	 */ 
-	public function setRecipient_name($recipient_name) {
+	 */
+	public function setRecipientName($recipient_name) {
 		$this->recipient_name = $recipient_name;
-	}
-
+	}	
+	
 	/**
-	 * Getter for recipient_name
+	 * Name of the recipient at this address.
 	 * @return string
-	 */ 
-	public function getRecipient_name() {
+	 */
+	public function getRecipientName() {
 		return $this->recipient_name;
 	}
-
-
+	
 }

@@ -1,92 +1,104 @@
-<?php 
-
+<?php
 namespace PayPal\Api;
 
-/**
- * 
- */
-class Transaction extends Resource {
 
-
+class Transaction extends \PPModel {
 	/**
-	 * Setter for amount
+	 * Amount being collected.
 	 * @param PayPal\Api\Amount $amount
-	 */ 
+	 */
 	public function setAmount($amount) {
 		$this->amount = $amount;
-	}
-
+	}	
+	
 	/**
-	 * Getter for amount
+	 * Amount being collected.
 	 * @return PayPal\Api\Amount
-	 */ 
+	 */
 	public function getAmount() {
 		return $this->amount;
 	}
-
+	
 	/**
-	 * Setter for payee
+	 * Recepient of the funds in this transaction.
 	 * @param PayPal\Api\Payee $payee
-	 */ 
+	 */
 	public function setPayee($payee) {
 		$this->payee = $payee;
-	}
-
+	}	
+	
 	/**
-	 * Getter for payee
+	 * Recepient of the funds in this transaction.
 	 * @return PayPal\Api\Payee
-	 */ 
+	 */
 	public function getPayee() {
 		return $this->payee;
 	}
-
+	
 	/**
-	 * Setter for description
+	 * Description of what is being paid for.
 	 * @param string $description
-	 */ 
+	 */
 	public function setDescription($description) {
 		$this->description = $description;
-	}
-
+	}	
+	
 	/**
-	 * Getter for description
+	 * Description of what is being paid for.
 	 * @return string
-	 */ 
+	 */
 	public function getDescription() {
 		return $this->description;
 	}
-
+	
 	/**
-	 * Setter for item_list
+	 * List of items being paid for.
 	 * @param PayPal\Api\ItemList $item_list
-	 */ 
-	public function setItem_list($item_list) {
+	 */
+	public function setItemList($item_list) {
 		$this->item_list = $item_list;
-	}
-
+	}	
+	
 	/**
-	 * Getter for item_list
+	 * List of items being paid for.
 	 * @return PayPal\Api\ItemList
-	 */ 
-	public function getItem_list() {
+	 */
+	public function getItemList() {
 		return $this->item_list;
 	}
-
+	
 	/**
-	 * Setter for related_resources
-	 * @param PayPal\Api\SubTransaction $related_resources
-	 */ 
-	public function setRelated_resources($related_resources) {
+	 * List of financial transactions (Sale, Authorization, Capture, Refund) related to the payment.
+	 * @array
+	 * @param PayPal\Api\RelatedResources $related_resources
+	 */
+	public function setRelatedResources($related_resources) {
 		$this->related_resources = $related_resources;
-	}
-
+	}	
+	
 	/**
-	 * Getter for related_resources
-	 * @return PayPal\Api\SubTransaction
-	 */ 
-	public function getRelated_resources() {
+	 * List of financial transactions (Sale, Authorization, Capture, Refund) related to the payment.
+	 * @return PayPal\Api\RelatedResources
+	 */
+	public function getRelatedResources() {
 		return $this->related_resources;
 	}
-
-
+	
+	/**
+	 * Additional transactions for complex payment (Parallel and Chained) scenarios.
+	 * @array
+	 * @param PayPal\Api\self $transactions
+	 */
+	public function setTransactions($transactions) {
+		$this->transactions = $transactions;
+	}	
+	
+	/**
+	 * Additional transactions for complex payment (Parallel and Chained) scenarios.
+	 * @return PayPal\Api\self
+	 */
+	public function getTransactions() {
+		return $this->transactions;
+	}
+	
 }
