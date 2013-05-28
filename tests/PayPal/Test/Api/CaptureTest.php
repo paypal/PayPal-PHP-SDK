@@ -2,6 +2,9 @@
 namespace PayPal\Test\Api;
 
 use PayPal\Api\Capture;
+use PayPal\Api\Refund;
+use PayPal\Api\Authorization;
+use PayPal\Api\Amount;
 use PayPal\Test\Constants;
 
 class CaptureTest extends \PHPUnit_Framework_TestCase {
@@ -51,5 +54,34 @@ class CaptureTest extends \PHPUnit_Framework_TestCase {
 		$c2->fromJson($c1->toJson());
 		
 		$this->assertEquals($c1, $c2);
+	}
+	
+	public function testOperations()
+	{
+		$authId = AuthorizationTest::authorize();
+		$auth = Authorization::get($authId);
+		
+		$amount = new Amount();
+		$amount->setCurrency("USD");
+		$amount->setTotal("1.00");
+		
+		$captr = new Capture();
+		$captr->setId($authId);
+		$captr->setAmount($amount);
+		
+		$capt = $auth->capture($captr);
+		$captureId = $capt->getId();
+		$this->assertNotNull($captureId);
+		
+		$refund = new Refund();
+		$refund->setId($captureId);
+		$refund->setAmount($amount);
+		
+		$capture = Capture::get($captureId);
+		$this->assertNotNull($capture->getId());
+		
+		$retund = $capture->refund($refund);
+		$this->assertNotNull($retund->getId());
+		
 	}
 }

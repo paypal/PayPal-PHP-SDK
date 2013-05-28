@@ -1,11 +1,9 @@
 <?php
-
 namespace PayPal\Test\Api;
 
 use PayPal\Api\Address;
 use PayPal\Api\CreditCard;
 use PayPal\Test\Constants;
-
 class CreditCardTest extends \PHPUnit_Framework_TestCase {
 	
 	private $cards;
@@ -91,5 +89,6 @@ class CreditCardTest extends \PHPUnit_Framework_TestCase {
 		$this->assertGreaterThan(0, count($c2->getLinks()));
 		$this->assertEquals(self::$cardType, $c2->getType());
 		$this->assertNotNull($c2->getState());
+ 		$this->assertEquals(true, $c2->delete());
 	}
 }
