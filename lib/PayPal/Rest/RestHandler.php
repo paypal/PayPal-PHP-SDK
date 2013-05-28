@@ -66,11 +66,11 @@ class RestHandler implements \IPPHandler {
 					return \PPConstants::REST_LIVE_ENDPOINT;
 					break;
 				default:
-					throw new PPConfigurationException('The mode config parameter must be set to either sandbox/live');
+					throw new \PPConfigurationException('The mode config parameter must be set to either sandbox/live');
 					break;
 			}
 		} else {
-			throw new PPConfigurationException('You must set one of service.endpoint or mode parameters in your configuration');
+			throw new \PPConfigurationException('You must set one of service.endpoint or mode parameters in your configuration');
 		}
 	}
 
