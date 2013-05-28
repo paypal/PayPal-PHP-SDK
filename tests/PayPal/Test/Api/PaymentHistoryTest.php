@@ -15,7 +15,7 @@ class PaymentHistoryTest extends \PHPUnit_Framework_TestCase {
 	public static function createPaymentHistory() {
 		$history = new PaymentHistory();
 		$history->setCount(self::$count);
-		$history->setNext_id(self::$nextId);
+		$history->setNextId(self::$nextId);
 		$history->setPayments(array(PaymentTest::createPayment()));
 		return $history;
 	}
@@ -25,7 +25,7 @@ class PaymentHistoryTest extends \PHPUnit_Framework_TestCase {
 	
 	public function testGetterSetters() {
 		$this->assertEquals(self::$count, $this->history->getCount());
-		$this->assertEquals(self::$nextId, $this->history->getNext_id());
+		$this->assertEquals(self::$nextId, $this->history->getNextId());
 		
 	}
 	

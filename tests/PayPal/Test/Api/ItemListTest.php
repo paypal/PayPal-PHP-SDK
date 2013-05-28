@@ -21,7 +21,7 @@ class ItemListTest extends \PHPUnit_Framework_TestCase {
 		
 		$itemList = new ItemList();
 		$itemList->setItems(array($item));
-		$itemList->setShipping_address(ShippingAddressTest::createAddress());
+		$itemList->setShippingAddress(ShippingAddressTest::createAddress());
 		
 		return $itemList;
 	}
@@ -33,7 +33,7 @@ class ItemListTest extends \PHPUnit_Framework_TestCase {
 	public function testGetterSetters() {
 		$items = $this->items->getItems();		
 		$this->assertEquals(ItemTest::createItem(), $items[0]);
-		$this->assertEquals(ShippingAddressTest::createAddress(), $this->items->getShipping_address());
+		$this->assertEquals(ShippingAddressTest::createAddress(), $this->items->getShippingAddress());
 	}
 	
 	public function testSerializeDeserialize() {

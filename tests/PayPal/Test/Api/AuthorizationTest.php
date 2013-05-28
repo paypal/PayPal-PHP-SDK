@@ -3,7 +3,7 @@ namespace PayPal\Test\Api;
 
 use PayPal\Api\Amount;
 use PayPal\Api\Authorization;
-use PayPal\Api\Link;
+use PayPal\Api\Links;
 use PayPal\Test\Constants;
 
 class AuthorizationTest extends \PHPUnit_Framework_TestCase {
@@ -24,22 +24,22 @@ class AuthorizationTest extends \PHPUnit_Framework_TestCase {
 	
 	public static function createAuthorization() {			
 		$authorization = new Authorization();
-		$authorization->setCreate_time(self::$create_time);
+		$authorization->setCreateTime(self::$create_time);
 		$authorization->setId(self::$id);
 		$authorization->setState(self::$state);
 		
 		$authorization->setAmount(AmountTest::createAmount());
-		$authorization->setLinks(array(LinkTest::createLink()));	
+		$authorization->setLinks(array(LinksTest::createLinks()));	
 		
 		return $authorization;
 	}
 	
 	public function setup() {
 		$authorization = new Authorization();
-		$authorization->setCreate_time(self::$create_time);
+		$authorization->setCreateTime(self::$create_time);
 		$authorization->setId(self::$id);
 		$authorization->setState(self::$state);
-		$authorization->setParent_payment(self::$parent_payment);
+		$authorization->setParentPayment(self::$parent_payment);
 		$this->authorizations['partial'] = $authorization;
 	
 		
@@ -48,10 +48,10 @@ class AuthorizationTest extends \PHPUnit_Framework_TestCase {
 
 	public function testGetterSetter() {		
 		$authorization = $this->authorizations['partial'];
-		$this->assertEquals(self::$create_time, $authorization->getCreate_time());
+		$this->assertEquals(self::$create_time, $authorization->getCreateTime());
 		$this->assertEquals(self::$id, $authorization->getId());
 		$this->assertEquals(self::$state, $authorization->getState());
-		$this->assertEquals(self::$parent_payment, $authorization->getParent_payment());
+		$this->assertEquals(self::$parent_payment, $authorization->getParentPayment());
 		
 		$authorization = $this->authorizations['full'];
 		$this->assertEquals(AmountTest::$currency, $authorization->getAmount()->getCurrency());

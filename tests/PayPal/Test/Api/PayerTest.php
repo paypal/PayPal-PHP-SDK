@@ -15,9 +15,9 @@ class PayerTest extends \PHPUnit_Framework_TestCase {
 
 	public static function createPayer() {
 		$payer = new Payer();
-		$payer->setPayment_method(self::$paymentMethod);
-		$payer->setPayer_info(PayerInfoTest::createPayerInfo());
-		$payer->setFunding_instruments(array(FundingInstrumentTest::createFundingInstrument()));
+		$payer->setPaymentMethod(self::$paymentMethod);
+		$payer->setPayerInfo(PayerInfoTest::createPayerInfo());
+		$payer->setFundingInstruments(array(FundingInstrumentTest::createFundingInstrument()));
 		
 		return $payer;
 	}
@@ -27,11 +27,11 @@ class PayerTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testGetterSetter() {
-		$this->assertEquals(self::$paymentMethod, $this->payer->getPayment_method());
-		$this->assertEquals(PayerInfoTest::$email, $this->payer->getPayer_info()->getEmail());
+		$this->assertEquals(self::$paymentMethod, $this->payer->getPaymentMethod());
+		$this->assertEquals(PayerInfoTest::$email, $this->payer->getPayerInfo()->getEmail());
 		
-		$fi = $this->payer->getFunding_instruments();
-		$this->assertEquals(CreditCardTokenTest::$creditCardId, $fi[0]->getCredit_card_token()->getCredit_card_id());
+		$fi = $this->payer->getFundingInstruments();
+		$this->assertEquals(CreditCardTokenTest::$creditCardId, $fi[0]->getCreditCardToken()->getCreditCardId());
 	}
 	
 	public function testSerializeDeserialize() {

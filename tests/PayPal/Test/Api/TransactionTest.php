@@ -18,9 +18,9 @@ class TransactionTest extends \PHPUnit_Framework_TestCase {
 		$transaction = new Transaction();
 		$transaction->setAmount(AmountTest::createAmount());
 		$transaction->setDescription(self::$description);
-		$transaction->setItem_list(ItemListTest::createItemList());
+		$transaction->setItemList(ItemListTest::createItemList());
 		$transaction->setPayee(PayeeTest::createPayee());
- 		$transaction->setRelated_resources( array(SubTransactionTest::createSubTransaction()) );
+ 		$transaction->setRelatedResources( array(RelatedResourcesTest::createRelatedResources()) );
 		return $transaction;
 	}
 	
@@ -31,11 +31,11 @@ class TransactionTest extends \PHPUnit_Framework_TestCase {
 	public function testGetterSetter() {
 		$this->assertEquals(AmountTest::$currency, $this->transaction->getAmount()->getCurrency());
 		$this->assertEquals(self::$description, $this->transaction->getDescription());
-		$items = $this->transaction->getItem_list()->getItems();
+		$items = $this->transaction->getItemList()->getItems();
 		$this->assertEquals(ItemTest::$quantity, $items[0]->getQuantity());
 		$this->assertEquals(PayeeTest::$email, $this->transaction->getPayee()->getEmail());
-		$resources = $this->transaction->getRelated_resources();
-		$this->assertEquals(AuthorizationTest::$create_time, $resources[0]->getAuthorization()->getCreate_Time());
+		$resources = $this->transaction->getRelatedResources();
+		$this->assertEquals(AuthorizationTest::$create_time, $resources[0]->getAuthorization()->getCreateTime());
 	}
 	
 	public function testSerializeDeserialize() {

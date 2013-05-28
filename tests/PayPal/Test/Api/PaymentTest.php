@@ -1,10 +1,6 @@
 <?php
-
 namespace PayPal\Test\Api;
-
-
 use PayPal\Api\RedirectUrls;
-
 use PayPal\Api\Address;
 use PayPal\Api\Amount;
 use PayPal\Api\CreditCard;
@@ -21,12 +17,12 @@ class PaymentTest extends \PHPUnit_Framework_TestCase {
 	public static function createPayment() {
 		
 		$redirectUrls = new RedirectUrls();
-		$redirectUrls->setReturn_url("http://localhost/return");
-		$redirectUrls->setCancel_url("http://localhost/cancel");
+		$redirectUrls->setReturnUrl("http://localhost/return");
+		$redirectUrls->setCancelUrl("http://localhost/cancel");
 		
 		$payment = new Payment();
 		$payment->setIntent("sale");
-		$payment->setRedirect_urls($redirectUrls);
+		$payment->setRedirectUrls($redirectUrls);
 		$payment->setPayer(PayerTest::createPayer());
 		$payment->setTransactions(array(TransactionTest::createTransaction()));
 		
@@ -35,20 +31,20 @@ class PaymentTest extends \PHPUnit_Framework_TestCase {
 	
 	public static function createNewPayment() {
 		$payer = new Payer();
-		$payer->setPayment_method("credit_card");
-		$payer->setFunding_instruments(array(FundingInstrumentTest::createFundingInstrument()));
+		$payer->setPaymentMethod("credit_card");
+		$payer->setFundingInstruments(array(FundingInstrumentTest::createFundingInstrument()));
 		
 		$transaction = new Transaction();
 		$transaction->setAmount(AmountTest::createAmount());
 		$transaction->setDescription("This is the payment description.");
 		
 		$redirectUrls = new RedirectUrls();
-		$redirectUrls->setReturn_url("http://localhost/return");
-		$redirectUrls->setCancel_url("http://localhost/cancel");
+		$redirectUrls->setReturnUrl("http://localhost/return");
+		$redirectUrls->setCancelUrl("http://localhost/cancel");
 		
 		$payment = new Payment();
 		$payment->setIntent("sale");
-		$payment->setRedirect_urls($redirectUrls);
+		$payment->setRedirectUrls($redirectUrls);
 		$payment->setPayer($payer);
 		$payment->setTransactions(array($transaction));
 	

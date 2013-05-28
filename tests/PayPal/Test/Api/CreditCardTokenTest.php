@@ -13,8 +13,8 @@ class CreditCardTokenTest extends \PHPUnit_Framework_TestCase {
 
 	public static function createCreditCardToken() {
 		$ccToken = new CreditCardToken();
-		$ccToken->setPayer_id(self::$payerId);
-		$ccToken->setCredit_card_id(self::$creditCardId);
+		$ccToken->setPayerId(self::$payerId);
+		$ccToken->setCreditCardId(self::$creditCardId);
 		return $ccToken;
 	}
 	
@@ -23,8 +23,8 @@ class CreditCardTokenTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testGetterSetter() {
-		$this->assertEquals(self::$payerId, $this->ccToken->getPayer_id());
-		$this->assertEquals(self::$creditCardId, $this->ccToken->getCredit_card_id());
+		$this->assertEquals(self::$payerId, $this->ccToken->getPayerId());
+		$this->assertEquals(self::$creditCardId, $this->ccToken->getCreditCardId());
 	}
 	
 	public function testSerializeDeserialize() {

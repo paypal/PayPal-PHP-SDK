@@ -11,8 +11,8 @@ class FundingInstrumentTest extends \PHPUnit_Framework_TestCase {
 
 	public static function createFundingInstrument() {
 		$fi = new FundingInstrument();
-		$fi->setCredit_card(CreditCardTest::createCreditCard());
-		$fi->setCredit_card_token(CreditCardTokenTest::createCreditCardToken());
+		$fi->setCreditCard(CreditCardTest::createCreditCard());
+		$fi->setCreditCardToken(CreditCardTokenTest::createCreditCardToken());
 		return $fi;
 	}
 	
@@ -21,9 +21,9 @@ class FundingInstrumentTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testGetterSetter() {
-		$this->assertEquals(CreditCardTest::$cardNumber, $this->fi->getCredit_card()->getNumber());
+		$this->assertEquals(CreditCardTest::$cardNumber, $this->fi->getCreditCard()->getNumber());
 		$this->assertEquals(CreditCardTokenTest::$creditCardId, 
-				$this->fi->getCredit_card_token()->getCredit_card_id());
+				$this->fi->getCreditCardToken()->getCreditCardId());
 	}
 	
 	public function testSerializeDeserialize() {

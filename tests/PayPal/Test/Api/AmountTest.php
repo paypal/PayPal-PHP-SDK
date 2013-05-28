@@ -24,14 +24,14 @@ class AmountTest extends \PHPUnit_Framework_TestCase {
 		$this->amounts['partial'] = self::createAmount();
 		
 		$amount = self::createAmount();
-		$amount->setDetails(AmountDetailsTest::createAmountDetails());
+		$amount->setDetails(DetailsTest::createAmountDetails());
 		$this->amounts['full'] = $amount;
 	}
 
 	public function testGetterSetter() {
 		$this->assertEquals(self::$currency, $this->amounts['partial']->getCurrency());
 		$this->assertEquals(self::$total, $this->amounts['partial']->getTotal());
-		$this->assertEquals(AmountDetailsTest::$fee, $this->amounts['full']->getDetails()->getFee());
+		$this->assertEquals(DetailsTest::$fee, $this->amounts['full']->getDetails()->getFee());
 	}
 	
 	public function testSerializeDeserialize() {

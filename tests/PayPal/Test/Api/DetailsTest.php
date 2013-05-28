@@ -1,10 +1,10 @@
 <?php
 namespace PayPal\Test\Api;
 
-use PayPal\Api\AmountDetails;
+use PayPal\Api\Details;
 use PayPal\Test\Constants;
 
-class AmountDetailsTest extends \PHPUnit_Framework_TestCase {
+class DetailsTest extends \PHPUnit_Framework_TestCase {
 
 	private $amountDetails;
 
@@ -14,7 +14,7 @@ class AmountDetailsTest extends \PHPUnit_Framework_TestCase {
 	public static $fee = "4.99";
 
 	public static function createAmountDetails() {
-		$amountDetails = new AmountDetails();
+		$amountDetails = new Details();
 		$amountDetails->setSubtotal(self::$subtotal);
 		$amountDetails->setTax(self::$tax);
 		$amountDetails->setShipping(self::$shipping);
@@ -37,7 +37,7 @@ class AmountDetailsTest extends \PHPUnit_Framework_TestCase {
 	public function testSerializeDeserialize() {
 		$a1 = $this->amountDetails;
 		
-		$a2 = new AmountDetails();
+		$a2 = new Details();
 		$a2->fromJson($a1->toJson());
 		
 		$this->assertEquals($a1, $a2);
