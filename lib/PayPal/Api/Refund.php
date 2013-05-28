@@ -6,9 +6,9 @@ use PayPal\Rest\Call;
 use PayPal\Rest\ApiContext;
 
 class Refund extends \PPModel implements IResource {
-	
+
 	private static $credential;
-	
+
 	/**
 	 *
 	 * @deprected. Pass ApiContext to create/get methods instead
@@ -16,15 +16,16 @@ class Refund extends \PPModel implements IResource {
 	public static function setCredential($credential) {
 		self::$credential = $credential;
 	}
-	
+
 	/**
 	 * Identifier of the refund transaction.
 	 * @param string $id
 	 */
 	public function setId($id) {
 		$this->id = $id;
-	}	
-	
+		return $this;
+	}
+
 	/**
 	 * Identifier of the refund transaction.
 	 * @return string
@@ -32,15 +33,17 @@ class Refund extends \PPModel implements IResource {
 	public function getId() {
 		return $this->id;
 	}
-	
+
+
 	/**
 	 * Time the resource was created.
 	 * @param string $create_time
 	 */
 	public function setCreateTime($create_time) {
 		$this->create_time = $create_time;
-	}	
-	
+		return $this;
+	}
+
 	/**
 	 * Time the resource was created.
 	 * @return string
@@ -48,15 +51,30 @@ class Refund extends \PPModel implements IResource {
 	public function getCreateTime() {
 		return $this->create_time;
 	}
-	
+
+	/**
+	 * Deprecated method
+	 */
+	public function setCreate_time($create_time) {
+		$this->create_time = $create_time;
+		return $this;
+	}
+	/**
+	 * Deprecated method
+	 */
+	public function getCreate_time() {
+		return $this->create_time;
+	}
+
 	/**
 	 * Details including both refunded amount (to Payer) and refunded fee (to Payee).If amount is not specified, it's assumed to be full refund.
 	 * @param PayPal\Api\Amount $amount
 	 */
 	public function setAmount($amount) {
 		$this->amount = $amount;
-	}	
-	
+		return $this;
+	}
+
 	/**
 	 * Details including both refunded amount (to Payer) and refunded fee (to Payee).If amount is not specified, it's assumed to be full refund.
 	 * @return PayPal\Api\Amount
@@ -64,15 +82,17 @@ class Refund extends \PPModel implements IResource {
 	public function getAmount() {
 		return $this->amount;
 	}
-	
+
+
 	/**
 	 * State of the refund transaction.
 	 * @param string $state
 	 */
 	public function setState($state) {
 		$this->state = $state;
-	}	
-	
+		return $this;
+	}
+
 	/**
 	 * State of the refund transaction.
 	 * @return string
@@ -80,15 +100,17 @@ class Refund extends \PPModel implements IResource {
 	public function getState() {
 		return $this->state;
 	}
-	
+
+
 	/**
 	 * ID of the Sale transaction being refunded. 
 	 * @param string $sale_id
 	 */
 	public function setSaleId($sale_id) {
 		$this->sale_id = $sale_id;
-	}	
-	
+		return $this;
+	}
+
 	/**
 	 * ID of the Sale transaction being refunded. 
 	 * @return string
@@ -96,15 +118,30 @@ class Refund extends \PPModel implements IResource {
 	public function getSaleId() {
 		return $this->sale_id;
 	}
-	
+
+	/**
+	 * Deprecated method
+	 */
+	public function setSale_id($sale_id) {
+		$this->sale_id = $sale_id;
+		return $this;
+	}
+	/**
+	 * Deprecated method
+	 */
+	public function getSale_id() {
+		return $this->sale_id;
+	}
+
 	/**
 	 * ID of the Capture transaction being refunded. 
 	 * @param string $capture_id
 	 */
 	public function setCaptureId($capture_id) {
 		$this->capture_id = $capture_id;
-	}	
-	
+		return $this;
+	}
+
 	/**
 	 * ID of the Capture transaction being refunded. 
 	 * @return string
@@ -112,15 +149,30 @@ class Refund extends \PPModel implements IResource {
 	public function getCaptureId() {
 		return $this->capture_id;
 	}
-	
+
+	/**
+	 * Deprecated method
+	 */
+	public function setCapture_id($capture_id) {
+		$this->capture_id = $capture_id;
+		return $this;
+	}
+	/**
+	 * Deprecated method
+	 */
+	public function getCapture_id() {
+		return $this->capture_id;
+	}
+
 	/**
 	 * ID of the Payment resource that this transaction is based on.
 	 * @param string $parent_payment
 	 */
 	public function setParentPayment($parent_payment) {
 		$this->parent_payment = $parent_payment;
-	}	
-	
+		return $this;
+	}
+
 	/**
 	 * ID of the Payment resource that this transaction is based on.
 	 * @return string
@@ -128,7 +180,21 @@ class Refund extends \PPModel implements IResource {
 	public function getParentPayment() {
 		return $this->parent_payment;
 	}
-	
+
+	/**
+	 * Deprecated method
+	 */
+	public function setParent_payment($parent_payment) {
+		$this->parent_payment = $parent_payment;
+		return $this;
+	}
+	/**
+	 * Deprecated method
+	 */
+	public function getParent_payment() {
+		return $this->parent_payment;
+	}
+
 	/**
 	 * 
 	 * @array
@@ -136,8 +202,9 @@ class Refund extends \PPModel implements IResource {
 	 */
 	public function setLinks($links) {
 		$this->links = $links;
-	}	
-	
+		return $this;
+	}
+
 	/**
 	 * 
 	 * @return PayPal\Api\Links
@@ -145,7 +212,8 @@ class Refund extends \PPModel implements IResource {
 	public function getLinks() {
 		return $this->links;
 	}
-	
+
+
 
 	public static function get($refundId, $apiContext = null) {
 		if (($refundId == null) || (strlen($refundId) <= 0)) {

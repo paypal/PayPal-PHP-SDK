@@ -9,8 +9,9 @@ class ShippingAddress extends Address {
 	 */
 	public function setRecipientName($recipient_name) {
 		$this->recipient_name = $recipient_name;
-	}	
-	
+		return $this;
+	}
+
 	/**
 	 * Name of the recipient at this address.
 	 * @return string
@@ -18,5 +19,19 @@ class ShippingAddress extends Address {
 	public function getRecipientName() {
 		return $this->recipient_name;
 	}
-	
+
+	/**
+	 * Deprecated method
+	 */
+	public function setRecipient_name($recipient_name) {
+		$this->recipient_name = $recipient_name;
+		return $this;
+	}
+	/**
+	 * Deprecated method
+	 */
+	public function getRecipient_name() {
+		return $this->recipient_name;
+	}
+
 }

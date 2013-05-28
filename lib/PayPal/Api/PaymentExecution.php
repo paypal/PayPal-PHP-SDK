@@ -9,8 +9,9 @@ class PaymentExecution extends \PPModel {
 	 */
 	public function setPayerId($payer_id) {
 		$this->payer_id = $payer_id;
-	}	
-	
+		return $this;
+	}
+
 	/**
 	 * PayPal assigned Payer ID returned in the approval return url.
 	 * @return string
@@ -18,7 +19,21 @@ class PaymentExecution extends \PPModel {
 	public function getPayerId() {
 		return $this->payer_id;
 	}
-	
+
+	/**
+	 * Deprecated method
+	 */
+	public function setPayer_id($payer_id) {
+		$this->payer_id = $payer_id;
+		return $this;
+	}
+	/**
+	 * Deprecated method
+	 */
+	public function getPayer_id() {
+		return $this->payer_id;
+	}
+
 	/**
 	 * If the amount needs to be updated after obtaining the PayPal Payer info (eg. shipping address), it can be updated using this element.
 	 * @array
@@ -26,8 +41,9 @@ class PaymentExecution extends \PPModel {
 	 */
 	public function setTransactions($transactions) {
 		$this->transactions = $transactions;
-	}	
-	
+		return $this;
+	}
+
 	/**
 	 * If the amount needs to be updated after obtaining the PayPal Payer info (eg. shipping address), it can be updated using this element.
 	 * @return PayPal\Api\Transactions
@@ -35,5 +51,6 @@ class PaymentExecution extends \PPModel {
 	public function getTransactions() {
 		return $this->transactions;
 	}
-	
+
+
 }

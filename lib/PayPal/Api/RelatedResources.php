@@ -9,8 +9,9 @@ class RelatedResources extends \PPModel {
 	 */
 	public function setSale($sale) {
 		$this->sale = $sale;
-	}	
-	
+		return $this;
+	}
+
 	/**
 	 * A sale transaction
 	 * @return PayPal\Api\Sale
@@ -18,15 +19,17 @@ class RelatedResources extends \PPModel {
 	public function getSale() {
 		return $this->sale;
 	}
-	
+
+
 	/**
 	 * An authorization transaction
 	 * @param PayPal\Api\Authorization $authorization
 	 */
 	public function setAuthorization($authorization) {
 		$this->authorization = $authorization;
-	}	
-	
+		return $this;
+	}
+
 	/**
 	 * An authorization transaction
 	 * @return PayPal\Api\Authorization
@@ -34,15 +37,17 @@ class RelatedResources extends \PPModel {
 	public function getAuthorization() {
 		return $this->authorization;
 	}
-	
+
+
 	/**
 	 * A capture transaction
 	 * @param PayPal\Api\Capture $capture
 	 */
 	public function setCapture($capture) {
 		$this->capture = $capture;
-	}	
-	
+		return $this;
+	}
+
 	/**
 	 * A capture transaction
 	 * @return PayPal\Api\Capture
@@ -50,15 +55,17 @@ class RelatedResources extends \PPModel {
 	public function getCapture() {
 		return $this->capture;
 	}
-	
+
+
 	/**
 	 * A refund transaction
 	 * @param PayPal\Api\Refund $refund
 	 */
 	public function setRefund($refund) {
 		$this->refund = $refund;
-	}	
-	
+		return $this;
+	}
+
 	/**
 	 * A refund transaction
 	 * @return PayPal\Api\Refund
@@ -66,5 +73,6 @@ class RelatedResources extends \PPModel {
 	public function getRefund() {
 		return $this->refund;
 	}
-	
+
+
 }

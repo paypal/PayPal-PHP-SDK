@@ -9,8 +9,9 @@ class Transactions extends \PPModel {
 	 */
 	public function setAmount($amount) {
 		$this->amount = $amount;
-	}	
-	
+		return $this;
+	}
+
 	/**
 	 * Amount being collected.
 	 * @return PayPal\Api\Amount
@@ -18,5 +19,6 @@ class Transactions extends \PPModel {
 	public function getAmount() {
 		return $this->amount;
 	}
-	
+
+
 }
