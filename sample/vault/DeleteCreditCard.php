@@ -1,6 +1,35 @@
 <?php
 require __DIR__ . '/../bootstrap.php';
 use PayPal\Api\CreditCard;
+use PayPal\Api\CreditCard;
+use PayPal\Api\Address;
+
+// save card for demo 
+// ### CreditCard
+// A resource representing a credit card that can be
+// used to fund a payment.
+$card = new CreditCard();
+$card->setType("visa");
+$card->setNumber("4417119669820331");
+$card->setExpire_month("11");
+$card->setExpire_year("2019");
+$card->setCvv2("012");
+$card->setFirst_name("Joe");
+$card->setLast_name("Shopper");
+
+// ### Save card
+// Creates the credit card as a resource
+// in the PayPal vault. The response contains
+// an 'id' that you can use to refer to it
+// in the future payments.
+// (See bootstrap.php for more on `ApiContext`)
+try {
+	$res = $card->create($apiContext);
+} catch (\PPConnectionException $ex) {
+	echo "Exception:" . $ex->getMessage() . PHP_EOL;
+	var_dump($ex->getData());
+	exit(1);
+}
 
 // # Delete CreditCard Sample
 // This sample code demonstrate how you can
@@ -9,7 +38,7 @@ use PayPal\Api\CreditCard;
 // API used: /v1/vault/credit-card/{<creditCardId>}
 // NOTE: HTTP method used here is DELETE
 
-$creditCard = CreditCard::get('CARD-38K23067VS968933SKGPU66Q', $apiContext);
+$creditCard = CreditCard::get($res->getId(), $apiContext);
 
 try {
 	// (See bootstrap.php for more on `ApiContext`)
