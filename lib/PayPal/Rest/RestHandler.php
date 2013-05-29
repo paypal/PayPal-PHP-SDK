@@ -2,12 +2,19 @@
 namespace PayPal\Rest;
 
 use PayPal\Auth\OAuthTokenCredential;
+use PayPal\Handler\IPPHandler;
+use PayPal\Core\PPCredentialManager;
+use PayPal\Core\PPConstants;
+use PayPal\Exception\PPMissingCredentialException;
+use PayPal\Exception\PPInvalidCredentialException;
+use PayPal\Exception\PPConfigurationException;
+use PayPal\Common\PPUserAgent;
 
 /**
  * 
  * API handler for all REST API calls
  */
-class RestHandler implements \IPPHandler {
+class RestHandler implements IPPHandler {
 
 	private $apiContext;
 	
@@ -25,15 +32,15 @@ class RestHandler implements \IPPHandler {
 		
 		if($credential == NULL) {
 			// Try picking credentials from the config file
-			$credMgr = \PPCredentialManager::getInstance($config);
+			$credMgr = PPCredentialManager::getInstance($config);
 			$credValues = $credMgr->getCredentialObject();
 			if(!is_array($credValues)) {
-				throw new \PPMissingCredentialException("Empty or invalid credentials passed");
+				throw new PPMissingCredentialException("Empty or invalid credentials passed");
 			}
 			$credential = new OAuthTokenCredential($credValues['clientId'], $credValues['clientSecret']);
 		}
 		if($credential == NULL || ! ($credential instanceof OAuthTokenCredential) ) {
-			throw new \PPInvalidCredentialException("Invalid credentials passed");
+			throw new PPInvalidCredentialException("Invalid credentials passed");
 		}
 
 		
@@ -43,7 +50,7 @@ class RestHandler implements \IPPHandler {
 		);
 		
 		if(!array_key_exists("User-Agent", $httpConfig->getHeaders())) {
-			$httpConfig->addHeader("User-Agent", \PPUserAgent::getValue(self::$sdkName, self::$sdkVersion));
+			$httpConfig->addHeader("User-Agent", PPUserAgent::getValue(self::$sdkName, self::$sdkVersion));
 		}		
 		if(!is_null($credential) && $credential instanceof OAuthTokenCredential) {
 			$httpConfig->addHeader('Authorization', "Bearer " . $credential->getAccessToken($config));
@@ -60,17 +67,17 @@ class RestHandler implements \IPPHandler {
 		} else if (isset($config['mode'])) {
 			switch (strtoupper($config['mode'])) {
 				case 'SANDBOX':
-					return \PPConstants::REST_SANDBOX_ENDPOINT;
+					return PPConstants::REST_SANDBOX_ENDPOINT;
 					break;
 				case 'LIVE':
-					return \PPConstants::REST_LIVE_ENDPOINT;
+					return PPConstants::REST_LIVE_ENDPOINT;
 					break;
 				default:
-					throw new \PPConfigurationException('The mode config parameter must be set to either sandbox/live');
+					throw new PPConfigurationException('The mode config parameter must be set to either sandbox/live');
 					break;
 			}
 		} else {
-			throw new \PPConfigurationException('You must set one of service.endpoint or mode parameters in your configuration');
+			throw new PPConfigurationException('You must set one of service.endpoint or mode parameters in your configuration');
 		}
 	}
 

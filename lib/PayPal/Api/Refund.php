@@ -1,17 +1,20 @@
 <?php
 namespace PayPal\Api;
 
+use PayPal\Common\PPModel;
 use PayPal\Rest\IResource;
 use PayPal\Rest\Call;
 use PayPal\Rest\ApiContext;
+use PayPal\Api\Refund;
+use PayPal\Transport\PPRestCall;
 
-class Refund extends \PPModel implements IResource {
+class Refund extends PPModel implements IResource {
 
 	private static $credential;
 
 	/**
 	 *
-	 * @deprected. Pass ApiContext to create/get methods instead
+	 * @deprecated. Pass ApiContext to create/get methods instead
 	 */
 	public static function setCredential($credential) {
 		self::$credential = $credential;
@@ -53,14 +56,18 @@ class Refund extends \PPModel implements IResource {
 	}
 
 	/**
-	 * Deprecated method
+	 * Time the resource was created.
+	 * @param string $create_time
+	 * @deprecated. Instead use setCreateTime
 	 */
 	public function setCreate_time($create_time) {
 		$this->create_time = $create_time;
 		return $this;
 	}
 	/**
-	 * Deprecated method
+	 * Time the resource was created.
+	 * @return string
+	 * @deprecated. Instead use getCreateTime
 	 */
 	public function getCreate_time() {
 		return $this->create_time;
@@ -120,14 +127,18 @@ class Refund extends \PPModel implements IResource {
 	}
 
 	/**
-	 * Deprecated method
+	 * ID of the Sale transaction being refunded. 
+	 * @param string $sale_id
+	 * @deprecated. Instead use setSaleId
 	 */
 	public function setSale_id($sale_id) {
 		$this->sale_id = $sale_id;
 		return $this;
 	}
 	/**
-	 * Deprecated method
+	 * ID of the Sale transaction being refunded. 
+	 * @return string
+	 * @deprecated. Instead use getSaleId
 	 */
 	public function getSale_id() {
 		return $this->sale_id;
@@ -151,14 +162,18 @@ class Refund extends \PPModel implements IResource {
 	}
 
 	/**
-	 * Deprecated method
+	 * ID of the Capture transaction being refunded. 
+	 * @param string $capture_id
+	 * @deprecated. Instead use setCaptureId
 	 */
 	public function setCapture_id($capture_id) {
 		$this->capture_id = $capture_id;
 		return $this;
 	}
 	/**
-	 * Deprecated method
+	 * ID of the Capture transaction being refunded. 
+	 * @return string
+	 * @deprecated. Instead use getCaptureId
 	 */
 	public function getCapture_id() {
 		return $this->capture_id;
@@ -182,14 +197,18 @@ class Refund extends \PPModel implements IResource {
 	}
 
 	/**
-	 * Deprecated method
+	 * ID of the Payment resource that this transaction is based on.
+	 * @param string $parent_payment
+	 * @deprecated. Instead use setParentPayment
 	 */
 	public function setParent_payment($parent_payment) {
 		$this->parent_payment = $parent_payment;
 		return $this;
 	}
 	/**
-	 * Deprecated method
+	 * ID of the Payment resource that this transaction is based on.
+	 * @return string
+	 * @deprecated. Instead use getParentPayment
 	 */
 	public function getParent_payment() {
 		return $this->parent_payment;
@@ -223,7 +242,7 @@ class Refund extends \PPModel implements IResource {
 		if ($apiContext == null) {
 			$apiContext = new ApiContext(self::$credential);
 		}
-		$call = new \PPRestCall($apiContext);
+		$call = new PPRestCall($apiContext);
 		$json = $call->execute(array('PayPal\Rest\RestHandler'), "/v1/payments/refund/$refundId", "GET", $payLoad);
 		$ret = new Refund();
 		$ret->fromJson($json);

@@ -1,8 +1,9 @@
 <?php
 namespace PayPal\Api;
 
+use PayPal\Common\PPModel;
 
-class PaymentHistory extends \PPModel {
+class PaymentHistory extends PPModel {
 	/**
 	 * A list of Payment resources
 	 * @array
@@ -58,14 +59,18 @@ class PaymentHistory extends \PPModel {
 	}
 
 	/**
-	 * Deprecated method
+	 * Identifier of the next element to get the next range of results.
+	 * @param string $next_id
+	 * @deprecated. Instead use setNextId
 	 */
 	public function setNext_id($next_id) {
 		$this->next_id = $next_id;
 		return $this;
 	}
 	/**
-	 * Deprecated method
+	 * Identifier of the next element to get the next range of results.
+	 * @return string
+	 * @deprecated. Instead use getNextId
 	 */
 	public function getNext_id() {
 		return $this->next_id;

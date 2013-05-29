@@ -1,8 +1,9 @@
 <?php
 namespace PayPal\Api;
 
+use PayPal\Common\PPModel;
 
-class ItemList extends \PPModel {
+class ItemList extends PPModel {
 	/**
 	 * List of items.
 	 * @array
@@ -40,14 +41,18 @@ class ItemList extends \PPModel {
 	}
 
 	/**
-	 * Deprecated method
+	 * Shipping address.
+	 * @param PayPal\Api\ShippingAddress $shipping_address
+	 * @deprecated. Instead use setShippingAddress
 	 */
 	public function setShipping_address($shipping_address) {
 		$this->shipping_address = $shipping_address;
 		return $this;
 	}
 	/**
-	 * Deprecated method
+	 * Shipping address.
+	 * @return PayPal\Api\ShippingAddress
+	 * @deprecated. Instead use getShippingAddress
 	 */
 	public function getShipping_address() {
 		return $this->shipping_address;

@@ -1,8 +1,9 @@
 <?php
 namespace PayPal\Api;
 
+use PayPal\Common\PPModel;
 
-class Amount extends \PPModel {
+class Amount extends PPModel {
 	/**
 	 * 3 letter currency code
 	 * @param string $currency

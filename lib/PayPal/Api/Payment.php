@@ -1,17 +1,21 @@
 <?php
 namespace PayPal\Api;
 
+use PayPal\Common\PPModel;
 use PayPal\Rest\IResource;
 use PayPal\Rest\Call;
 use PayPal\Rest\ApiContext;
+use PayPal\Api\Payment;
+use PayPal\Api\PaymentHistory;
+use PayPal\Transport\PPRestCall;
 
-class Payment extends \PPModel implements IResource {
+class Payment extends PPModel implements IResource {
 
 	private static $credential;
 
 	/**
 	 *
-	 * @deprected. Pass ApiContext to create/get methods instead
+	 * @deprecated. Pass ApiContext to create/get methods instead
 	 */
 	public static function setCredential($credential) {
 		self::$credential = $credential;
@@ -53,14 +57,18 @@ class Payment extends \PPModel implements IResource {
 	}
 
 	/**
-	 * Deprecated method
+	 * Time the resource was created.
+	 * @param string $create_time
+	 * @deprecated. Instead use setCreateTime
 	 */
 	public function setCreate_time($create_time) {
 		$this->create_time = $create_time;
 		return $this;
 	}
 	/**
-	 * Deprecated method
+	 * Time the resource was created.
+	 * @return string
+	 * @deprecated. Instead use getCreateTime
 	 */
 	public function getCreate_time() {
 		return $this->create_time;
@@ -84,14 +92,18 @@ class Payment extends \PPModel implements IResource {
 	}
 
 	/**
-	 * Deprecated method
+	 * Time the resource was last updated.
+	 * @param string $update_time
+	 * @deprecated. Instead use setUpdateTime
 	 */
 	public function setUpdate_time($update_time) {
 		$this->update_time = $update_time;
 		return $this;
 	}
 	/**
-	 * Deprecated method
+	 * Time the resource was last updated.
+	 * @return string
+	 * @deprecated. Instead use getUpdateTime
 	 */
 	public function getUpdate_time() {
 		return $this->update_time;
@@ -188,14 +200,18 @@ class Payment extends \PPModel implements IResource {
 	}
 
 	/**
-	 * Deprecated method
+	 * Redirect urls required only when using payment_method as PayPal - the only settings supported are return and cancel urls.
+	 * @param PayPal\Api\RedirectUrls $redirect_urls
+	 * @deprecated. Instead use setRedirectUrls
 	 */
 	public function setRedirect_urls($redirect_urls) {
 		$this->redirect_urls = $redirect_urls;
 		return $this;
 	}
 	/**
-	 * Deprecated method
+	 * Redirect urls required only when using payment_method as PayPal - the only settings supported are return and cancel urls.
+	 * @return PayPal\Api\RedirectUrls
+	 * @deprecated. Instead use getRedirectUrls
 	 */
 	public function getRedirect_urls() {
 		return $this->redirect_urls;
@@ -226,7 +242,7 @@ class Payment extends \PPModel implements IResource {
 		if ($apiContext == null) {
 			$apiContext = new ApiContext(self::$credential);
 		}
-		$call = new \PPRestCall($apiContext);
+		$call = new PPRestCall($apiContext);
 		$json = $call->execute(array('PayPal\Rest\RestHandler'), "/v1/payments/payment", "POST", $payLoad);
 		$this->fromJson($json);
  		return $this;
@@ -240,7 +256,7 @@ class Payment extends \PPModel implements IResource {
 		if ($apiContext == null) {
 			$apiContext = new ApiContext(self::$credential);
 		}
-		$call = new \PPRestCall($apiContext);
+		$call = new PPRestCall($apiContext);
 		$json = $call->execute(array('PayPal\Rest\RestHandler'), "/v1/payments/payment/$paymentId", "GET", $payLoad);
 		$ret = new Payment();
 		$ret->fromJson($json);
@@ -258,7 +274,7 @@ class Payment extends \PPModel implements IResource {
 		if ($apiContext == null) {
 			$apiContext = new ApiContext(self::$credential);
 		}
-		$call = new \PPRestCall($apiContext);
+		$call = new PPRestCall($apiContext);
 		$json = $call->execute(array('PayPal\Rest\RestHandler'), "/v1/payments/payment/{$this->getId()}/execute", "POST", $payLoad);
 		$ret = new Payment();
 		$ret->fromJson($json);
@@ -274,7 +290,7 @@ class Payment extends \PPModel implements IResource {
 		if ($apiContext == null) {
 			$apiContext = new ApiContext(self::$credential);
 		}
-		$call = new \PPRestCall($apiContext);
+		$call = new PPRestCall($apiContext);
 		$json = $call->execute(array('PayPal\Rest\RestHandler'), "/v1/payments/payment?" . http_build_query(array_intersect_key($params, $allowedParams)), "GET", $payLoad);
 		$ret = new PaymentHistory();
 		$ret->fromJson($json);

@@ -1,8 +1,9 @@
 <?php
 namespace PayPal\Api;
 
+use PayPal\Common\PPModel;
 
-class HyperSchema extends \PPModel {
+class HyperSchema extends PPModel {
 	/**
 	 * 
 	 * @array
@@ -39,19 +40,6 @@ class HyperSchema extends \PPModel {
 		return $this->fragmentResolution;
 	}
 
-	/**
-	 * Deprecated method
-	 */
-	public function setFragmentresolution($fragmentResolution) {
-		$this->fragmentResolution = $fragmentResolution;
-		return $this;
-	}
-	/**
-	 * Deprecated method
-	 */
-	public function getFragmentresolution() {
-		return $this->fragmentResolution;
-	}
 
 	/**
 	 * 
@@ -88,19 +76,6 @@ class HyperSchema extends \PPModel {
 		return $this->contentEncoding;
 	}
 
-	/**
-	 * Deprecated method
-	 */
-	public function setContentencoding($contentEncoding) {
-		$this->contentEncoding = $contentEncoding;
-		return $this;
-	}
-	/**
-	 * Deprecated method
-	 */
-	public function getContentencoding() {
-		return $this->contentEncoding;
-	}
 
 	/**
 	 * 
@@ -119,19 +94,6 @@ class HyperSchema extends \PPModel {
 		return $this->pathStart;
 	}
 
-	/**
-	 * Deprecated method
-	 */
-	public function setPathstart($pathStart) {
-		$this->pathStart = $pathStart;
-		return $this;
-	}
-	/**
-	 * Deprecated method
-	 */
-	public function getPathstart() {
-		return $this->pathStart;
-	}
 
 	/**
 	 * 
@@ -150,18 +112,5 @@ class HyperSchema extends \PPModel {
 		return $this->mediaType;
 	}
 
-	/**
-	 * Deprecated method
-	 */
-	public function setMediatype($mediaType) {
-		$this->mediaType = $mediaType;
-		return $this;
-	}
-	/**
-	 * Deprecated method
-	 */
-	public function getMediatype() {
-		return $this->mediaType;
-	}
 
 }

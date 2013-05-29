@@ -1,17 +1,21 @@
 <?php
 namespace PayPal\Api;
 
+use PayPal\Common\PPModel;
 use PayPal\Rest\IResource;
 use PayPal\Rest\Call;
 use PayPal\Rest\ApiContext;
+use PayPal\Api\Capture;
+use PayPal\Api\Refund;
+use PayPal\Transport\PPRestCall;
 
-class Capture extends \PPModel implements IResource {
+class Capture extends PPModel implements IResource {
 
 	private static $credential;
 
 	/**
 	 *
-	 * @deprected. Pass ApiContext to create/get methods instead
+	 * @deprecated. Pass ApiContext to create/get methods instead
 	 */
 	public static function setCredential($credential) {
 		self::$credential = $credential;
@@ -53,14 +57,18 @@ class Capture extends \PPModel implements IResource {
 	}
 
 	/**
-	 * Deprecated method
+	 * Time the resource was created.
+	 * @param string $create_time
+	 * @deprecated. Instead use setCreateTime
 	 */
 	public function setCreate_time($create_time) {
 		$this->create_time = $create_time;
 		return $this;
 	}
 	/**
-	 * Deprecated method
+	 * Time the resource was created.
+	 * @return string
+	 * @deprecated. Instead use getCreateTime
 	 */
 	public function getCreate_time() {
 		return $this->create_time;
@@ -84,14 +92,18 @@ class Capture extends \PPModel implements IResource {
 	}
 
 	/**
-	 * Deprecated method
+	 * Time the resource was last updated.
+	 * @param string $update_time
+	 * @deprecated. Instead use setUpdateTime
 	 */
 	public function setUpdate_time($update_time) {
 		$this->update_time = $update_time;
 		return $this;
 	}
 	/**
-	 * Deprecated method
+	 * Time the resource was last updated.
+	 * @return string
+	 * @deprecated. Instead use getUpdateTime
 	 */
 	public function getUpdate_time() {
 		return $this->update_time;
@@ -133,14 +145,18 @@ class Capture extends \PPModel implements IResource {
 	}
 
 	/**
-	 * Deprecated method
+	 * whether this is a final capture for the given authorization or not. If it's final, all the remaining funds held by the authorization, will be released in the funding instrument.
+	 * @param boolean $is_final_capture
+	 * @deprecated. Instead use setIsFinalCapture
 	 */
 	public function setIs_final_capture($is_final_capture) {
 		$this->is_final_capture = $is_final_capture;
 		return $this;
 	}
 	/**
-	 * Deprecated method
+	 * whether this is a final capture for the given authorization or not. If it's final, all the remaining funds held by the authorization, will be released in the funding instrument.
+	 * @return boolean
+	 * @deprecated. Instead use getIsFinalCapture
 	 */
 	public function getIs_final_capture() {
 		return $this->is_final_capture;
@@ -182,14 +198,18 @@ class Capture extends \PPModel implements IResource {
 	}
 
 	/**
-	 * Deprecated method
+	 * ID of the Payment resource that this transaction is based on.
+	 * @param string $parent_payment
+	 * @deprecated. Instead use setParentPayment
 	 */
 	public function setParent_payment($parent_payment) {
 		$this->parent_payment = $parent_payment;
 		return $this;
 	}
 	/**
-	 * Deprecated method
+	 * ID of the Payment resource that this transaction is based on.
+	 * @return string
+	 * @deprecated. Instead use getParentPayment
 	 */
 	public function getParent_payment() {
 		return $this->parent_payment;
@@ -223,7 +243,7 @@ class Capture extends \PPModel implements IResource {
 		if ($apiContext == null) {
 			$apiContext = new ApiContext(self::$credential);
 		}
-		$call = new \PPRestCall($apiContext);
+		$call = new PPRestCall($apiContext);
 		$json = $call->execute(array('PayPal\Rest\RestHandler'), "/v1/payments/capture/$captureId", "GET", $payLoad);
 		$ret = new Capture();
 		$ret->fromJson($json);
@@ -241,7 +261,7 @@ class Capture extends \PPModel implements IResource {
 		if ($apiContext == null) {
 			$apiContext = new ApiContext(self::$credential);
 		}
-		$call = new \PPRestCall($apiContext);
+		$call = new PPRestCall($apiContext);
 		$json = $call->execute(array('PayPal\Rest\RestHandler'), "/v1/payments/capture/{$this->getId()}/refund", "POST", $payLoad);
 		$ret = new Refund();
 		$ret->fromJson($json);

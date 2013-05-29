@@ -1,12 +1,13 @@
 <?php
 namespace PayPal\Rest;
 
+use PayPal\Common\PPApiContext;
 /**
  * 
  * Call level parameters such as
  * request id, credentials etc
  */
-class ApiContext extends \PPApiContext {
+class ApiContext extends PPApiContext {
 	
 	/**
 	 * OAuth Credentials to use for this call

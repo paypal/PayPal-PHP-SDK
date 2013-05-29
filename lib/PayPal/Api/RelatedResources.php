@@ -1,8 +1,9 @@
 <?php
 namespace PayPal\Api;
 
+use PayPal\Common\PPModel;
 
-class RelatedResources extends \PPModel {
+class RelatedResources extends PPModel {
 	/**
 	 * A sale transaction
 	 * @param PayPal\Api\Sale $sale

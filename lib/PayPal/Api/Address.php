@@ -1,8 +1,9 @@
 <?php
 namespace PayPal\Api;
 
+use PayPal\Common\PPModel;
 
-class Address extends \PPModel {
+class Address extends PPModel {
 	/**
 	 * Line 1 of the Address (eg. number, street, etc).
 	 * @param string $line1
@@ -75,14 +76,18 @@ class Address extends \PPModel {
 	}
 
 	/**
-	 * Deprecated method
+	 * 2 letter country code.
+	 * @param string $country_code
+	 * @deprecated. Instead use setCountryCode
 	 */
 	public function setCountry_code($country_code) {
 		$this->country_code = $country_code;
 		return $this;
 	}
 	/**
-	 * Deprecated method
+	 * 2 letter country code.
+	 * @return string
+	 * @deprecated. Instead use getCountryCode
 	 */
 	public function getCountry_code() {
 		return $this->country_code;
@@ -106,14 +111,18 @@ class Address extends \PPModel {
 	}
 
 	/**
-	 * Deprecated method
+	 * Zip code or equivalent is usually required for countries that have them. For list of countries that do not have postal codes please refer to http://en.wikipedia.org/wiki/Postal_code.
+	 * @param string $postal_code
+	 * @deprecated. Instead use setPostalCode
 	 */
 	public function setPostal_code($postal_code) {
 		$this->postal_code = $postal_code;
 		return $this;
 	}
 	/**
-	 * Deprecated method
+	 * Zip code or equivalent is usually required for countries that have them. For list of countries that do not have postal codes please refer to http://en.wikipedia.org/wiki/Postal_code.
+	 * @return string
+	 * @deprecated. Instead use getPostalCode
 	 */
 	public function getPostal_code() {
 		return $this->postal_code;

@@ -1,8 +1,9 @@
 <?php
 namespace PayPal\Api;
 
+use PayPal\Common\PPModel;
 
-class Item extends \PPModel {
+class Item extends PPModel {
 	/**
 	 * Number of items.
 	 * @param string $quantity

@@ -1,17 +1,20 @@
 <?php
 namespace PayPal\Api;
 
+use PayPal\Common\PPModel;
 use PayPal\Rest\IResource;
 use PayPal\Rest\Call;
 use PayPal\Rest\ApiContext;
+use PayPal\Api\CreditCard;
+use PayPal\Transport\PPRestCall;
 
-class CreditCard extends \PPModel implements IResource {
+class CreditCard extends PPModel implements IResource {
 
 	private static $credential;
 
 	/**
 	 *
-	 * @deprected. Pass ApiContext to create/get methods instead
+	 * @deprecated. Pass ApiContext to create/get methods instead
 	 */
 	public static function setCredential($credential) {
 		self::$credential = $credential;
@@ -89,14 +92,18 @@ class CreditCard extends \PPModel implements IResource {
 	}
 
 	/**
-	 * Deprecated method
+	 * card expiry month with value 1 - 12.
+	 * @param integer $expire_month
+	 * @deprecated. Instead use setExpireMonth
 	 */
 	public function setExpire_month($expire_month) {
 		$this->expire_month = $expire_month;
 		return $this;
 	}
 	/**
-	 * Deprecated method
+	 * card expiry month with value 1 - 12.
+	 * @return integer
+	 * @deprecated. Instead use getExpireMonth
 	 */
 	public function getExpire_month() {
 		return $this->expire_month;
@@ -120,14 +127,18 @@ class CreditCard extends \PPModel implements IResource {
 	}
 
 	/**
-	 * Deprecated method
+	 * 4 digit card expiry year
+	 * @param integer $expire_year
+	 * @deprecated. Instead use setExpireYear
 	 */
 	public function setExpire_year($expire_year) {
 		$this->expire_year = $expire_year;
 		return $this;
 	}
 	/**
-	 * Deprecated method
+	 * 4 digit card expiry year
+	 * @return integer
+	 * @deprecated. Instead use getExpireYear
 	 */
 	public function getExpire_year() {
 		return $this->expire_year;
@@ -169,14 +180,18 @@ class CreditCard extends \PPModel implements IResource {
 	}
 
 	/**
-	 * Deprecated method
+	 * Card holder's first name.
+	 * @param string $first_name
+	 * @deprecated. Instead use setFirstName
 	 */
 	public function setFirst_name($first_name) {
 		$this->first_name = $first_name;
 		return $this;
 	}
 	/**
-	 * Deprecated method
+	 * Card holder's first name.
+	 * @return string
+	 * @deprecated. Instead use getFirstName
 	 */
 	public function getFirst_name() {
 		return $this->first_name;
@@ -200,14 +215,18 @@ class CreditCard extends \PPModel implements IResource {
 	}
 
 	/**
-	 * Deprecated method
+	 * Card holder's last name.
+	 * @param string $last_name
+	 * @deprecated. Instead use setLastName
 	 */
 	public function setLast_name($last_name) {
 		$this->last_name = $last_name;
 		return $this;
 	}
 	/**
-	 * Deprecated method
+	 * Card holder's last name.
+	 * @return string
+	 * @deprecated. Instead use getLastName
 	 */
 	public function getLast_name() {
 		return $this->last_name;
@@ -231,14 +250,18 @@ class CreditCard extends \PPModel implements IResource {
 	}
 
 	/**
-	 * Deprecated method
+	 * Billing Address associated with this card.
+	 * @param PayPal\Api\Address $billing_address
+	 * @deprecated. Instead use setBillingAddress
 	 */
 	public function setBilling_address($billing_address) {
 		$this->billing_address = $billing_address;
 		return $this;
 	}
 	/**
-	 * Deprecated method
+	 * Billing Address associated with this card.
+	 * @return PayPal\Api\Address
+	 * @deprecated. Instead use getBillingAddress
 	 */
 	public function getBilling_address() {
 		return $this->billing_address;
@@ -262,14 +285,18 @@ class CreditCard extends \PPModel implements IResource {
 	}
 
 	/**
-	 * Deprecated method
+	 * A unique identifier of the payer generated and provided by the facilitator. This is required when creating or using a tokenized funding instrument.
+	 * @param string $payer_id
+	 * @deprecated. Instead use setPayerId
 	 */
 	public function setPayer_id($payer_id) {
 		$this->payer_id = $payer_id;
 		return $this;
 	}
 	/**
-	 * Deprecated method
+	 * A unique identifier of the payer generated and provided by the facilitator. This is required when creating or using a tokenized funding instrument.
+	 * @return string
+	 * @deprecated. Instead use getPayerId
 	 */
 	public function getPayer_id() {
 		return $this->payer_id;
@@ -311,14 +338,18 @@ class CreditCard extends \PPModel implements IResource {
 	}
 
 	/**
-	 * Deprecated method
+	 * Date/Time until this resource can be used fund a payment.
+	 * @param string $valid_until
+	 * @deprecated. Instead use setValidUntil
 	 */
 	public function setValid_until($valid_until) {
 		$this->valid_until = $valid_until;
 		return $this;
 	}
 	/**
-	 * Deprecated method
+	 * Date/Time until this resource can be used fund a payment.
+	 * @return string
+	 * @deprecated. Instead use getValidUntil
 	 */
 	public function getValid_until() {
 		return $this->valid_until;
@@ -349,7 +380,7 @@ class CreditCard extends \PPModel implements IResource {
 		if ($apiContext == null) {
 			$apiContext = new ApiContext(self::$credential);
 		}
-		$call = new \PPRestCall($apiContext);
+		$call = new PPRestCall($apiContext);
 		$json = $call->execute(array('PayPal\Rest\RestHandler'), "/v1/vault/credit-card", "POST", $payLoad);
 		$this->fromJson($json);
  		return $this;
@@ -363,7 +394,7 @@ class CreditCard extends \PPModel implements IResource {
 		if ($apiContext == null) {
 			$apiContext = new ApiContext(self::$credential);
 		}
-		$call = new \PPRestCall($apiContext);
+		$call = new PPRestCall($apiContext);
 		$json = $call->execute(array('PayPal\Rest\RestHandler'), "/v1/vault/credit-card/$creditCardId", "GET", $payLoad);
 		$ret = new CreditCard();
 		$ret->fromJson($json);
@@ -378,7 +409,7 @@ class CreditCard extends \PPModel implements IResource {
 		if ($apiContext == null) {
 			$apiContext = new ApiContext(self::$credential);
 		}
-		$call = new \PPRestCall($apiContext);
+		$call = new PPRestCall($apiContext);
 		$json = $call->execute(array('PayPal\Rest\RestHandler'), "/v1/vault/credit-card/{$this->getId()}", "POST", $payLoad);
     return true;
 	}

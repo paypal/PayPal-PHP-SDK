@@ -1,8 +1,9 @@
 <?php
 namespace PayPal\Api;
 
+use PayPal\Common\PPModel;
 
-class Details extends \PPModel {
+class Details extends PPModel {
 	/**
 	 * Amount being charged for shipping.
 	 * @param string $shipping

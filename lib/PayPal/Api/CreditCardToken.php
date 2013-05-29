@@ -1,8 +1,9 @@
 <?php
 namespace PayPal\Api;
 
+use PayPal\Common\PPModel;
 
-class CreditCardToken extends \PPModel {
+class CreditCardToken extends PPModel {
 	/**
 	 * ID of a previously saved Credit Card resource using /vault/credit-card API.
 	 * @param string $credit_card_id
@@ -21,14 +22,18 @@ class CreditCardToken extends \PPModel {
 	}
 
 	/**
-	 * Deprecated method
+	 * ID of a previously saved Credit Card resource using /vault/credit-card API.
+	 * @param string $credit_card_id
+	 * @deprecated. Instead use setCreditCardId
 	 */
 	public function setCredit_card_id($credit_card_id) {
 		$this->credit_card_id = $credit_card_id;
 		return $this;
 	}
 	/**
-	 * Deprecated method
+	 * ID of a previously saved Credit Card resource using /vault/credit-card API.
+	 * @return string
+	 * @deprecated. Instead use getCreditCardId
 	 */
 	public function getCredit_card_id() {
 		return $this->credit_card_id;
@@ -52,14 +57,18 @@ class CreditCardToken extends \PPModel {
 	}
 
 	/**
-	 * Deprecated method
+	 * The unique identifier of the payer used when saving this credit card using /vault/credit-card API.
+	 * @param string $payer_id
+	 * @deprecated. Instead use setPayerId
 	 */
 	public function setPayer_id($payer_id) {
 		$this->payer_id = $payer_id;
 		return $this;
 	}
 	/**
-	 * Deprecated method
+	 * The unique identifier of the payer used when saving this credit card using /vault/credit-card API.
+	 * @return string
+	 * @deprecated. Instead use getPayerId
 	 */
 	public function getPayer_id() {
 		return $this->payer_id;
@@ -119,14 +128,18 @@ class CreditCardToken extends \PPModel {
 	}
 
 	/**
-	 * Deprecated method
+	 * card expiry month from the saved card with value 1 - 12
+	 * @param integer $expire_month
+	 * @deprecated. Instead use setExpireMonth
 	 */
 	public function setExpire_month($expire_month) {
 		$this->expire_month = $expire_month;
 		return $this;
 	}
 	/**
-	 * Deprecated method
+	 * card expiry month from the saved card with value 1 - 12
+	 * @return integer
+	 * @deprecated. Instead use getExpireMonth
 	 */
 	public function getExpire_month() {
 		return $this->expire_month;
@@ -150,14 +163,18 @@ class CreditCardToken extends \PPModel {
 	}
 
 	/**
-	 * Deprecated method
+	 * 4 digit card expiry year from the saved card
+	 * @param integer $expire_year
+	 * @deprecated. Instead use setExpireYear
 	 */
 	public function setExpire_year($expire_year) {
 		$this->expire_year = $expire_year;
 		return $this;
 	}
 	/**
-	 * Deprecated method
+	 * 4 digit card expiry year from the saved card
+	 * @return integer
+	 * @deprecated. Instead use getExpireYear
 	 */
 	public function getExpire_year() {
 		return $this->expire_year;

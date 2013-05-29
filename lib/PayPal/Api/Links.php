@@ -1,8 +1,9 @@
 <?php
 namespace PayPal\Api;
 
+use PayPal\Common\PPModel;
 
-class Links extends \PPModel {
+class Links extends PPModel {
 	/**
 	 * 
 	 * @param string $href
@@ -56,19 +57,6 @@ class Links extends \PPModel {
 		return $this->targetSchema;
 	}
 
-	/**
-	 * Deprecated method
-	 */
-	public function setTargetschema($targetSchema) {
-		$this->targetSchema = $targetSchema;
-		return $this;
-	}
-	/**
-	 * Deprecated method
-	 */
-	public function getTargetschema() {
-		return $this->targetSchema;
-	}
 
 	/**
 	 * 

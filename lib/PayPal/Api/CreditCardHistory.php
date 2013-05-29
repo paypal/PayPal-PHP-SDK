@@ -1,15 +1,16 @@
 <?php
 namespace PayPal\Api;
 
+use PayPal\Common\PPModel;
 
-class CreditCardHistory extends \PPModel {
+class CreditCardHistory extends PPModel {
 	/**
 	 * A list of credit card resources
 	 * @array
 	 * @param PayPal\Api\CreditCard $credit-cards
 	 */
-	public function setCreditCards($credit_cards) {
-		$this->credit_cards = $credit_cards;
+	public function setCreditCards($credit-cards) {
+		$this->credit-cards = $credit-cards;
 		return $this;
 	}
 
@@ -22,14 +23,19 @@ class CreditCardHistory extends \PPModel {
 	}
 
 	/**
-	 * Deprecated method
+	 * A list of credit card resources
+	 * @array
+	 * @param PayPal\Api\CreditCard $credit-cards
+	 * @deprecated. Instead use setCreditCards
 	 */
-	public function setCredit_cards($credit_cards) {
-		$this->credit_cards = $credit_cards;
+	public function setCredit_cards($credit-cards) {
+		$this->credit-cards = $credit-cards;
 		return $this;
 	}
 	/**
-	 * Deprecated method
+	 * A list of credit card resources
+	 * @return PayPal\Api\CreditCard
+	 * @deprecated. Instead use getCreditCards
 	 */
 	public function getCredit_cards() {
 		return $this->credit-cards;
@@ -71,14 +77,18 @@ class CreditCardHistory extends \PPModel {
 	}
 
 	/**
-	 * Deprecated method
+	 * Identifier of the next element to get the next range of results.
+	 * @param string $next_id
+	 * @deprecated. Instead use setNextId
 	 */
 	public function setNext_id($next_id) {
 		$this->next_id = $next_id;
 		return $this;
 	}
 	/**
-	 * Deprecated method
+	 * Identifier of the next element to get the next range of results.
+	 * @return string
+	 * @deprecated. Instead use getNextId
 	 */
 	public function getNext_id() {
 		return $this->next_id;

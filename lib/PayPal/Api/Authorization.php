@@ -1,17 +1,21 @@
 <?php
 namespace PayPal\Api;
 
+use PayPal\Common\PPModel;
 use PayPal\Rest\IResource;
 use PayPal\Rest\Call;
 use PayPal\Rest\ApiContext;
+use PayPal\Api\Authorization;
+use PayPal\Api\Capture;
+use PayPal\Transport\PPRestCall;
 
-class Authorization extends \PPModel implements IResource {
+class Authorization extends PPModel implements IResource {
 
 	private static $credential;
 
 	/**
 	 *
-	 * @deprected. Pass ApiContext to create/get methods instead
+	 * @deprecated. Pass ApiContext to create/get methods instead
 	 */
 	public static function setCredential($credential) {
 		self::$credential = $credential;
@@ -53,14 +57,18 @@ class Authorization extends \PPModel implements IResource {
 	}
 
 	/**
-	 * Deprecated method
+	 * Time the resource was created.
+	 * @param string $create_time
+	 * @deprecated. Instead use setCreateTime
 	 */
 	public function setCreate_time($create_time) {
 		$this->create_time = $create_time;
 		return $this;
 	}
 	/**
-	 * Deprecated method
+	 * Time the resource was created.
+	 * @return string
+	 * @deprecated. Instead use getCreateTime
 	 */
 	public function getCreate_time() {
 		return $this->create_time;
@@ -84,14 +92,18 @@ class Authorization extends \PPModel implements IResource {
 	}
 
 	/**
-	 * Deprecated method
+	 * Time the resource was last updated.
+	 * @param string $update_time
+	 * @deprecated. Instead use setUpdateTime
 	 */
 	public function setUpdate_time($update_time) {
 		$this->update_time = $update_time;
 		return $this;
 	}
 	/**
-	 * Deprecated method
+	 * Time the resource was last updated.
+	 * @return string
+	 * @deprecated. Instead use getUpdateTime
 	 */
 	public function getUpdate_time() {
 		return $this->update_time;
@@ -151,14 +163,18 @@ class Authorization extends \PPModel implements IResource {
 	}
 
 	/**
-	 * Deprecated method
+	 * ID of the Payment resource that this transaction is based on.
+	 * @param string $parent_payment
+	 * @deprecated. Instead use setParentPayment
 	 */
 	public function setParent_payment($parent_payment) {
 		$this->parent_payment = $parent_payment;
 		return $this;
 	}
 	/**
-	 * Deprecated method
+	 * ID of the Payment resource that this transaction is based on.
+	 * @return string
+	 * @deprecated. Instead use getParentPayment
 	 */
 	public function getParent_payment() {
 		return $this->parent_payment;
@@ -182,14 +198,18 @@ class Authorization extends \PPModel implements IResource {
 	}
 
 	/**
-	 * Deprecated method
+	 * Date/Time until which funds may be captured against this resource.
+	 * @param string $valid_until
+	 * @deprecated. Instead use setValidUntil
 	 */
 	public function setValid_until($valid_until) {
 		$this->valid_until = $valid_until;
 		return $this;
 	}
 	/**
-	 * Deprecated method
+	 * Date/Time until which funds may be captured against this resource.
+	 * @return string
+	 * @deprecated. Instead use getValidUntil
 	 */
 	public function getValid_until() {
 		return $this->valid_until;
@@ -223,7 +243,7 @@ class Authorization extends \PPModel implements IResource {
 		if ($apiContext == null) {
 			$apiContext = new ApiContext(self::$credential);
 		}
-		$call = new \PPRestCall($apiContext);
+		$call = new PPRestCall($apiContext);
 		$json = $call->execute(array('PayPal\Rest\RestHandler'), "/v1/payments/authorization/$authorizationId", "GET", $payLoad);
 		$ret = new Authorization();
 		$ret->fromJson($json);
@@ -241,7 +261,7 @@ class Authorization extends \PPModel implements IResource {
 		if ($apiContext == null) {
 			$apiContext = new ApiContext(self::$credential);
 		}
-		$call = new \PPRestCall($apiContext);
+		$call = new PPRestCall($apiContext);
 		$json = $call->execute(array('PayPal\Rest\RestHandler'), "/v1/payments/authorization/{$this->getId()}/capture", "POST", $payLoad);
 		$ret = new Capture();
 		$ret->fromJson($json);
@@ -256,7 +276,7 @@ class Authorization extends \PPModel implements IResource {
 		if ($apiContext == null) {
 			$apiContext = new ApiContext(self::$credential);
 		}
-		$call = new \PPRestCall($apiContext);
+		$call = new PPRestCall($apiContext);
 		$json = $call->execute(array('PayPal\Rest\RestHandler'), "/v1/payments/authorization/{$this->getId()}/void", "POST", $payLoad);
 		$ret = new Authorization();
 		$ret->fromJson($json);
@@ -271,7 +291,7 @@ class Authorization extends \PPModel implements IResource {
 		if ($apiContext == null) {
 			$apiContext = new ApiContext(self::$credential);
 		}
-		$call = new \PPRestCall($apiContext);
+		$call = new PPRestCall($apiContext);
 		$json = $call->execute(array('PayPal\Rest\RestHandler'), "/v1/payments/authorization/{$this->getId()}/reauthorize", "POST", $payLoad);
 		$this->fromJson($json);
  		return $this;

@@ -1,8 +1,9 @@
 <?php
 namespace PayPal\Api;
 
+use PayPal\Common\PPModel;
 
-class Transaction extends \PPModel {
+class Transaction extends PPModel {
 	/**
 	 * Amount being collected.
 	 * @param PayPal\Api\Amount $amount
@@ -75,14 +76,18 @@ class Transaction extends \PPModel {
 	}
 
 	/**
-	 * Deprecated method
+	 * List of items being paid for.
+	 * @param PayPal\Api\ItemList $item_list
+	 * @deprecated. Instead use setItemList
 	 */
 	public function setItem_list($item_list) {
 		$this->item_list = $item_list;
 		return $this;
 	}
 	/**
-	 * Deprecated method
+	 * List of items being paid for.
+	 * @return PayPal\Api\ItemList
+	 * @deprecated. Instead use getItemList
 	 */
 	public function getItem_list() {
 		return $this->item_list;
@@ -107,14 +112,19 @@ class Transaction extends \PPModel {
 	}
 
 	/**
-	 * Deprecated method
+	 * List of financial transactions (Sale, Authorization, Capture, Refund) related to the payment.
+	 * @array
+	 * @param PayPal\Api\RelatedResources $related_resources
+	 * @deprecated. Instead use setRelatedResources
 	 */
 	public function setRelated_resources($related_resources) {
 		$this->related_resources = $related_resources;
 		return $this;
 	}
 	/**
-	 * Deprecated method
+	 * List of financial transactions (Sale, Authorization, Capture, Refund) related to the payment.
+	 * @return PayPal\Api\RelatedResources
+	 * @deprecated. Instead use getRelatedResources
 	 */
 	public function getRelated_resources() {
 		return $this->related_resources;
