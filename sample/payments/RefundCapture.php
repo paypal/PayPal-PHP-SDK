@@ -1,4 +1,9 @@
 <?php
+// # Refund Capture Sample
+// This sample code demonstrate how you can
+// process a refund on a Captured transaction created
+// using the Capture API.
+// API used: /v1/payments/capture/{<captureID>}/refund
 require __DIR__ . '/../bootstrap.php';
 use PayPal\Api\Capture;
 use PayPal\Api\Refund;
@@ -36,13 +41,6 @@ try {
 	var_dump($ex->getData());
 	exit(1);
 }
-
-// # Refund Capture Sample
-// This sample code demonstrate how you can
-// process a refund on a Captured transaction created
-// using the Capture API.
-// API used: /v1/payments/capture/{<captureID>}/refund
-
 
 // ### Refund
 // Create a refund object indicating

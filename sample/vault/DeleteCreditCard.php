@@ -1,4 +1,10 @@
 <?php
+// # Delete CreditCard Sample
+// This sample code demonstrate how you can
+//delete a saved creditcard
+// using the delete API.
+// API used: /v1/vault/credit-card/{<creditCardId>}
+// NOTE: HTTP method used here is DELETE
 require __DIR__ . '/../bootstrap.php';
 use PayPal\Api\CreditCard;
 use PayPal\Api\CreditCard;
@@ -31,16 +37,12 @@ try {
 	exit(1);
 }
 
-// # Delete CreditCard Sample
-// This sample code demonstrate how you can
-//delete a saved creditcard
-// using the delete API.
-// API used: /v1/vault/credit-card/{<creditCardId>}
-// NOTE: HTTP method used here is DELETE
 
 $creditCard = CreditCard::get($res->getId(), $apiContext);
 
 try {
+	// ### Delete Card
+	// deletes saved credit card
 	// (See bootstrap.php for more on `ApiContext`)
 	$creditCard->delete($apiContext);
 } catch (\PPConnectionException $ex) {
