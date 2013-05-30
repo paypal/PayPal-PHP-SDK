@@ -22,9 +22,9 @@ $amt->setCurrency("USD");
 $amt->setTotal("1.00");
 
 ### Capture
-$captur = new Capture();
-$captur->setId($authId);
-$captur->setAmount($amt);
+$capture = new Capture();
+$capture->setId($authId);
+$capture->setAmount($amt);
 
 // get the authorization
 $authorization = Authorization::get($authId, $apiContext);
@@ -34,7 +34,7 @@ $authorization = Authorization::get($authId, $apiContext);
 // using a valid ApiContext (See bootstrap.php for more on `ApiContext`)
 // The return object contains the status;
 try {
-	$capt = $authorization->capture($captur, $apiContext);
+	$getCapture = $authorization->capture($capture, $apiContext);
 } catch (\PPConnectionException $ex) {
 	echo "Exception: " . $ex->getMessage() . PHP_EOL;
 	var_dump($ex->getData());
@@ -45,10 +45,10 @@ try {
 <body>
 	<div>
 		Capture payment:
-		<?php echo $capt->getId();?>
+		<?php echo $getCapture->getId();?>
 	</div>
 	<pre>
-		<?php var_dump($capt->toArray());?>
+		<?php var_dump($getCapture->toArray());?>
 	</pre>
 	<a href='../index.html'>Back</a>
 </body>
