@@ -1,6 +1,13 @@
 CHANGELOG
 ========= 
 
+V0.7.0 (May 30, 2013)
+-----------------------
+
+   * Added support for Auth and Capture APIs
+   * Types modified to match the API Spec
+   * Updated SDK to use namespace supported core library 
+
 V0.6.0 (April 26, 2013)
 -----------------------
 
