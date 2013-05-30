@@ -15,7 +15,7 @@ use PayPal\Api\FundingInstrument;
 use PayPal\Api\Transaction;
 
 // create payment to get authorization Id
-$authId = createAuthorization();
+$authId = createAuthorization($apiContext);
 
 $authorization = Authorization::get($authId, $apiContext);
 
@@ -42,7 +42,7 @@ try {
 </body>
 </html>
 <?php 
-function createAuthorization()
+function createAuthorization($apiContext)
 {
 	$addr = new Address();
 	$addr->setLine1("3909 Witmer Road");
@@ -83,7 +83,7 @@ function createAuthorization()
 	$payment->setPayer($payer);
 	$payment->setTransactions(array($transaction));
 	
-	$paymnt = $payment->create();
+	$paymnt = $payment->create($apiContext);
 	$resArray = $paymnt->toArray();
 	
 	return $authId = $resArray['transactions'][0]['related_resources'][0]['authorization']['id'];

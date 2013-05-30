@@ -5,6 +5,7 @@
 // using the Capture API.
 // API used: /v1/payments/capture/{<captureID>}/refund
 require __DIR__ . '/../bootstrap.php';
+use PayPal\Api\Authorization;
 use PayPal\Api\Capture;
 use PayPal\Api\Refund;
 use PayPal\Api\Address;
@@ -14,9 +15,11 @@ use PayPal\Api\Payer;
 use PayPal\Api\Payment;
 use PayPal\Api\FundingInstrument;
 use PayPal\Api\Transaction;
+use PayPal\Rest\ApiContext;
+use PayPal\Auth\OAuthTokenCredential;
 
 // create payment to get authorization Id
-$authId = createAuthorization();
+$authId = createAuthorization($apiContext);
 
 $amt = new Amount();
 $amt->setCurrency("USD");
@@ -24,7 +27,6 @@ $amt->setTotal("1.00");
 
 ### Capture
 $captur = new Capture();
-$captur->setId($authId);
 $captur->setAmount($amt);
 
 // get the authorization
@@ -48,14 +50,17 @@ try {
 
 
 $refund = new Refund();
-$refund->setId($capt->getId());
 $refund->setAmount($amt);
 
-
 $capture = Capture::get($capt->getId(), $apiContext);
+
+// create new API context 
+$context = new ApiContext(new OAuthTokenCredential(
+		'Aer9WxCa2q0dlmoyWv2n__xE10ttwuXL3pNLzLFU30atoUda5bKGh_lUqSzy',
+		'EIUvhhC4ga-Fy5N7vIZPRBOpcdoi2iVRhTwJ_ZhMD9RdZZSMtSGSNLAwq-ND'));
 try {
 	// (See bootstrap.php for more on `ApiContext`)
-	$captureRefund = $capture->refund($refund, $apiContext);
+	$captureRefund = $capture->refund($refund, $context);
 } catch (\PPConnectionException $ex) {
 	echo "Exception: " . $ex->getMessage() . PHP_EOL;
 	var_dump($ex->getData());
@@ -71,7 +76,7 @@ try {
 </body>
 </html>
 <?php 
-function createAuthorization()
+function createAuthorization($apiContext)
 {
 	$addr = new Address();
 	$addr->setLine1("3909 Witmer Road");
@@ -101,7 +106,7 @@ function createAuthorization()
 	
 	$amount = new Amount();
 	$amount->setCurrency("USD");
-	$amount->setTotal("1.00");
+	$amount->setTotal("10.00");
 	
 	$transaction = new Transaction();
 	$transaction->setAmount($amount);
@@ -112,7 +117,7 @@ function createAuthorization()
 	$payment->setPayer($payer);
 	$payment->setTransactions(array($transaction));
 	
-	$paymnt = $payment->create();
+	$paymnt = $payment->create($apiContext);
 	$resArray = $paymnt->toArray();
 	
 	return $authId = $resArray['transactions'][0]['related_resources'][0]['authorization']['id'];
