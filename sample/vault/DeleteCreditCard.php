@@ -7,7 +7,6 @@
 // NOTE: HTTP method used here is DELETE
 require __DIR__ . '/../bootstrap.php';
 use PayPal\Api\CreditCard;
-use PayPal\Api\CreditCard;
 use PayPal\Api\Address;
 
 // save card for demo 
@@ -37,9 +36,7 @@ try {
 	exit(1);
 }
 
-
 $creditCard = CreditCard::get($res->getId(), $apiContext);
-
 try {
 	// ### Delete Card
 	// deletes saved credit card
