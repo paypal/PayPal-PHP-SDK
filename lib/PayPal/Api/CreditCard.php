@@ -410,7 +410,7 @@ class CreditCard extends PPModel implements IResource {
 			$apiContext = new ApiContext(self::$credential);
 		}
 		$call = new PPRestCall($apiContext);
-		$json = $call->execute(array('PayPal\Rest\RestHandler'), "/v1/vault/credit-card/{$this->getId()}", "POST", $payLoad);
+		$json = $call->execute(array('PayPal\Rest\RestHandler'), "/v1/vault/credit-card/{$this->getId()}", "DELETE", $payLoad);
     return true;
 	}
 }
