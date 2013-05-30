@@ -16,7 +16,6 @@ class ShippingAddressTest extends \PHPUnit_Framework_TestCase {
 	public static $countryCode = "US";
 	public static $phone = "716-298-1822";
 	public static $recipientName = "TestUser";
-	public static $type = "Billing";
 
 	public static function createAddress() {
 		$addr = new ShippingAddress();
@@ -24,11 +23,10 @@ class ShippingAddressTest extends \PHPUnit_Framework_TestCase {
 		$addr->setLine2(self::$line2);
 		$addr->setCity(self::$city);
 		$addr->setState(self::$state);
-		$addr->setPostal_code(self::$postalCode);
-		$addr->setCountry_code(self::$countryCode);
+		$addr->setPostalCode(self::$postalCode);
+		$addr->setCountryCode(self::$countryCode);
 		$addr->setPhone(self::$phone);
-		$addr->setRecipient_name(self::$recipientName);
-		$addr->setType(self::$type);
+		$addr->setRecipientName(self::$recipientName);
 		return $addr;
 	}
 	
@@ -41,11 +39,10 @@ class ShippingAddressTest extends \PHPUnit_Framework_TestCase {
 		$this->assertEquals(self::$line2, $this->address->getLine2());
 		$this->assertEquals(self::$city, $this->address->getCity());
 		$this->assertEquals(self::$state, $this->address->getState());
-		$this->assertEquals(self::$postalCode, $this->address->getPostal_code());
-		$this->assertEquals(self::$countryCode, $this->address->getCountry_code());
+		$this->assertEquals(self::$postalCode, $this->address->getPostalCode());
+		$this->assertEquals(self::$countryCode, $this->address->getCountryCode());
 		$this->assertEquals(self::$phone, $this->address->getPhone());
-		$this->assertEquals(self::$recipientName, $this->address->getRecipient_name());
-		$this->assertEquals(self::$type, $this->address->getType());
+		$this->assertEquals(self::$recipientName, $this->address->getRecipientName());
 	}
 	
 	public function testSerializeDeserialize() {

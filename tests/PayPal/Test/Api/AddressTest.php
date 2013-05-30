@@ -23,10 +23,9 @@ class AddressTest extends \PHPUnit_Framework_TestCase {
 		$addr->setLine2(self::$line2);
 		$addr->setCity(self::$city);
 		$addr->setState(self::$state);
-		$addr->setPostal_code(self::$postalCode);
-		$addr->setCountry_code(self::$countryCode);
+		$addr->setPostalCode(self::$postalCode);
+		$addr->setCountryCode(self::$countryCode);
 		$addr->setPhone(self::$phone);
-		$addr->setType(self::$type);
 		return $addr;
 	}
 	
@@ -39,10 +38,9 @@ class AddressTest extends \PHPUnit_Framework_TestCase {
 		$this->assertEquals(self::$line2, $this->address->getLine2());
 		$this->assertEquals(self::$city, $this->address->getCity());
 		$this->assertEquals(self::$state, $this->address->getState());
-		$this->assertEquals(self::$postalCode, $this->address->getPostal_code());
-		$this->assertEquals(self::$countryCode, $this->address->getCountry_code());
+		$this->assertEquals(self::$postalCode, $this->address->getPostalCode());
+		$this->assertEquals(self::$countryCode, $this->address->getCountryCode());
 		$this->assertEquals(self::$phone, $this->address->getPhone());
-		$this->assertEquals(self::$type, $this->address->getType());
 	}
 	
 	public function testSerializeDeserialize() {

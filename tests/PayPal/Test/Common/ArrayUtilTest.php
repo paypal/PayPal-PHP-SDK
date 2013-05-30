@@ -1,8 +1,8 @@
 <?php
-// namespace PayPal\Test\Common;
+namespace PayPal\Test\Common;
+use PayPal\Common\PPArrayUtil;
 
-
-class ArrayUtilTest extends PHPUnit_Framework_TestCase {
+class ArrayUtilTest extends \PHPUnit_Framework_TestCase {
 	
 	public function testIsAssocArray() {
 		

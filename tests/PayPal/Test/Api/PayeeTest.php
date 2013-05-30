@@ -17,7 +17,7 @@ class PayeeTest extends \PHPUnit_Framework_TestCase {
 	public static function createPayee() {
 		$payee = new Payee();
 		$payee->setEmail(self::$email);
-		$payee->setMerchant_id(self::$merchant_id);
+		$payee->setMerchantId(self::$merchant_id);
 		$payee->setPhone(self::$phone);		
 		
 		return $payee;
@@ -29,7 +29,7 @@ class PayeeTest extends \PHPUnit_Framework_TestCase {
 
 	public function testGetterSetter() {
 		$this->assertEquals(self::$email, $this->payee->getEmail());
-		$this->assertEquals(self::$merchant_id, $this->payee->getMerchant_id());
+		$this->assertEquals(self::$merchant_id, $this->payee->getMerchantId());
 		$this->assertEquals(self::$phone, $this->payee->getPhone());
 	}
 	

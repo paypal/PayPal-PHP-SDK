@@ -1,11 +1,9 @@
 <?php
-
 namespace PayPal\Test\Api;
 
 use PayPal\Api\Address;
 use PayPal\Api\CreditCard;
 use PayPal\Test\Constants;
-
 class CreditCardTest extends \PHPUnit_Framework_TestCase {
 	
 	private $cards;
@@ -26,23 +24,23 @@ class CreditCardTest extends \PHPUnit_Framework_TestCase {
 		$card = new CreditCard();
 		$card->setType(self::$cardType);
 		$card->setNumber(self::$cardNumber);
-		$card->setExpire_month(self::$expireMonth);
-		$card->setExpire_year(self::$expireYear);
+		$card->setExpireMonth(self::$expireMonth);
+		$card->setExpireYear(self::$expireYear);
 		$card->setCvv2(self::$cvv);
-		$card->setFirst_name(self::$firstName);
-		$card->setLast_name(self::$lastName);
+		$card->setFirstName(self::$firstName);
+		$card->setLastName(self::$lastName);
 		$card->setId(self::$id);
-		$card->setValid_until(self::$validUntil);
+		$card->setValidUntil(self::$validUntil);
 		$card->setState(self::$state);
-		$card->setPayer_id(self::$payerId);
+		$card->setPayerId(self::$payerId);
 		return $card;
 	}
 	
 	public function setup() {
 		
 		$card = self::createCreditCard();
-		$card->setBilling_address(AddressTest::createAddress());	
-		$card->setLinks(array(LinkTest::createLink()));
+		$card->setBillingAddress(AddressTest::createAddress());	
+		$card->setLinks(array(LinksTest::createLinks()));
 		$this->cards['full'] = $card;
 		
 		$card = self::createCreditCard();	
@@ -53,20 +51,20 @@ class CreditCardTest extends \PHPUnit_Framework_TestCase {
 		$c = $this->cards['partial'];
 		$this->assertEquals(self::$cardType, $c->getType());
 		$this->assertEquals(self::$cardNumber, $c->getNumber());
-		$this->assertEquals(self::$expireMonth, $c->getExpire_month());
-		$this->assertEquals(self::$expireYear, $c->getExpire_year());
+		$this->assertEquals(self::$expireMonth, $c->getExpireMonth());
+		$this->assertEquals(self::$expireYear, $c->getExpireYear());
 		$this->assertEquals(self::$cvv, $c->getCvv2());
-		$this->assertEquals(self::$firstName, $c->getFirst_name());
-		$this->assertEquals(self::$lastName, $c->getLast_name());
+		$this->assertEquals(self::$firstName, $c->getFirstName());
+		$this->assertEquals(self::$lastName, $c->getLastName());
 		$this->assertEquals(self::$id, $c->getId());
-		$this->assertEquals(self::$validUntil, $c->getValid_until());
+		$this->assertEquals(self::$validUntil, $c->getValidUntil());
 		$this->assertEquals(self::$state, $c->getState());
-		$this->assertEquals(self::$payerId, $c->getPayer_id());
+		$this->assertEquals(self::$payerId, $c->getPayerId());
 		
 		$c = $this->cards['full'];
-		$this->assertEquals(AddressTest::$line1, $c->getBilling_address()->getLine1());
+		$this->assertEquals(AddressTest::$line1, $c->getBillingAddress()->getLine1());
 		$link = $c->getLinks();
-		$this->assertEquals(LinkTest::$href, $link[0]->getHref());
+		$this->assertEquals(LinksTest::$href, $link[0]->getHref());
 	}
 	
 	public function testSerializeDeserialize() {
@@ -87,9 +85,10 @@ class CreditCardTest extends \PHPUnit_Framework_TestCase {
 		$this->assertNotNull($c1->getId());
 		
 		$c2 = CreditCard::get($c1->getId());
-		$this->assertEquals($c1->getBilling_address(), $c2->getBilling_address());
+		$this->assertEquals($c1->getBillingAddress(), $c2->getBillingAddress());
 		$this->assertGreaterThan(0, count($c2->getLinks()));
 		$this->assertEquals(self::$cardType, $c2->getType());
 		$this->assertNotNull($c2->getState());
+ 		$this->assertEquals(true, $c2->delete());
 	}
 }

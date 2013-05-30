@@ -1,82 +1,10 @@
 <?php 
-
-// namespace PayPal\Test\Common;
-
-
-class SimpleClass extends \PPModel {
-
-	public function setName($name) {
-		$this->name = $name;
-	}
-	public function getName() {
-		return $this->name;
-	}
-	
-	public function setDescription($desc) {
-		$this->desc = $desc;
-	}
-	public function getDescription() {
-		return $this->desc;
-	}
-}
-
-class ArrayClass extends \PPModel {
-
-	public function setName($name) {
-		$this->name = $name;
-	}
-	public function getName() {
-		return $this->name;
-	}
-
-	public function setDescription($desc) {
-		$this->desc = $desc;
-	}
-	public function getDescription() {
-		return $this->desc;
-	}
-	
-	public function setTags($tags) {
-		if(!is_array($tags)) {
-			$tags = array($tags);
-		}
-		$this->tags = $tags;
-	}
-	public function getTags() {
-		return $this->tags;
-	}
-}
-
-class NestedClass extends \PPModel {
-	
-	public function setId($id) {
-		$this->id = $id;
-	}
-	public function getId() {
-		return $this->id;
-	}
-	
-	/**
-	 * 
-	 * @param ArrayClass $info
-	 */
-	public function setInfo($info) {
-		$this->info = $info;
-	}
-	/**
-	 * 
-	 * @return ArrayClass
-	 */
-	public function getInfo() {
-		return $this->info;
-	}
-}
-
-class ChildClass extends SimpleClass {
-	
-}
-
-class ModelTest extends PHPUnit_Framework_TestCase {
+namespace PayPal\Test\Common;
+use PayPal\Common\PPModel;
+use PayPal\Test\Common\ArrayClass;
+use PayPal\Test\Common\SimpleClass;
+use PayPal\Test\Common\NestedClass;
+class ModelTest extends \PHPUnit_Framework_TestCase {
 	
 	public function testSimpleClassConversion() {
 		$o = new SimpleClass();

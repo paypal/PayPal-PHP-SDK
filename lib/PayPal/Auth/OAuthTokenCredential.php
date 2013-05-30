@@ -7,8 +7,12 @@ namespace PayPal\Auth;
  *
  */
 use PayPal\Rest\RestHandler;
-
-use PayPal\Common\UserAgent;
+use PayPal\Common\PPUserAgent;
+use PayPal\Core\PPLoggingManager;
+use PayPal\Core\PPConstants;
+use PayPal\Core\PPHttpConfig;
+use PayPal\Core\PPConnectionManager;
+use PayPal\Exception\PPConfigurationException;
 
 class OAuthTokenCredential {
 	
@@ -57,7 +61,7 @@ class OAuthTokenCredential {
 	 */
 	public function getAccessToken($config) {
 
-		$this->logger = new \PPLoggingManager(__CLASS__, $config);
+		$this->logger = new PPLoggingManager(__CLASS__, $config);
 		// Check if Access Token is not null and has not expired.
 		// The API returns expiry time as a relative time unit 
 		// We use a buffer time when checking for token expiry to account
@@ -81,14 +85,14 @@ class OAuthTokenCredential {
 
 		$base64ClientID = base64_encode($this->clientId . ":" . $this->clientSecret);							
 		$headers = array(
-			"User-Agent" => \PPUserAgent::getValue(RestHandler::$sdkName, RestHandler::$sdkVersion),	
+			"User-Agent" => PPUserAgent::getValue(RestHandler::$sdkName, RestHandler::$sdkVersion),	
 			"Authorization" => "Basic " . $base64ClientID,
 			"Accept" => "*/*"
 		);		
 		$httpConfiguration = $this->getOAuthHttpConfiguration($config);
 		$httpConfiguration->setHeaders($headers);
 		
-		$connection = \PPConnectionManager::getInstance()->getConnection($httpConfiguration, $config);		
+		$connection = PPConnectionManager::getInstance()->getConnection($httpConfiguration, $config);		
 		$res = $connection->execute("grant_type=client_credentials");		
 		$jsonResponse = json_decode($res, true);
 		if($jsonResponse == NULL || 
@@ -115,19 +119,19 @@ class OAuthTokenCredential {
 		} else if (isset($config['mode'])) {
 			switch (strtoupper($config['mode'])) {
 				case 'SANDBOX':
-					$baseEndpoint = \PPConstants::REST_SANDBOX_ENDPOINT;
+					$baseEndpoint = PPConstants::REST_SANDBOX_ENDPOINT;
 					break;
 				case 'LIVE':
-					$baseEndpoint = \PPConstants::REST_LIVE_ENDPOINT;
+					$baseEndpoint = PPConstants::REST_LIVE_ENDPOINT;
 					break;
 				default:
-					throw new \PPConfigurationException('The mode config parameter must be set to either sandbox/live');
+					throw new PPConfigurationException('The mode config parameter must be set to either sandbox/live');
 			}
 		} else {
-			throw new \PPConfigurationException('You must set one of service.endpoint or mode parameters in your configuration');
+			throw new PPConfigurationException('You must set one of service.endpoint or mode parameters in your configuration');
 		}		
 		
 		$baseEndpoint = rtrim(trim($baseEndpoint), '/');		 
-		return new \PPHttpConfig($baseEndpoint . "/v1/oauth2/token", "POST");
+		return new PPHttpConfig($baseEndpoint . "/v1/oauth2/token", "POST");
 	}
 }
