@@ -4,7 +4,6 @@
 API used: /v1/vault/credit-card/{<creditCardId>}
 NOTE: HTTP method used here is DELETE</p></div></div><div class="code"><div class="wrapper"><span class="k">require</span> <span class="nx">__DIR__</span> <span class="o">.</span> <span class="s1">&#39;/../bootstrap.php&#39;</span><span class="p">;</span>
 <span class="k">use</span> <span class="nx">PayPal\Api\CreditCard</span><span class="p">;</span>
-<span class="k">use</span> <span class="nx">PayPal\Api\CreditCard</span><span class="p">;</span>
 <span class="k">use</span> <span class="nx">PayPal\Api\Address</span><span class="p">;</span></div></div></div><div class="segment"><a id="segment-3" name="segment-3" class="section_anchor"></a><div class="comments"><div class="pilwrap"><a href="#segment-3" class="pilcrow">¶</a></div><div class="wrapper"><p>save card for demo </p>
 
 <h3 id="creditcard">CreditCard</h3>
@@ -31,9 +30,7 @@ in the future payments.
   <span class="k">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
 <span class="p">}</span>
 
-
 <span class="nv">$creditCard</span> <span class="o">=</span> <span class="nx">CreditCard</span><span class="o">::</span><span class="na">get</span><span class="p">(</span><span class="nv">$res</span><span class="o">-&gt;</span><span class="na">getId</span><span class="p">(),</span> <span class="nv">$apiContext</span><span class="p">);</span>
-
 <span class="k">try</span> <span class="p">{</span></div></div></div><div class="segment"><a id="segment-5" name="segment-5" class="section_anchor"></a><div class="comments"><div class="pilwrap"><a href="#segment-5" class="pilcrow">¶</a></div><div class="wrapper"><h3 id="delete-card">Delete Card</h3>
 
 <p>deletes saved credit card

@@ -9,7 +9,8 @@ API used: /v1/payments/capture/&lt;$captureId></p></div></div><div class="code">
 <span class="k">use</span> <span class="nx">PayPal\Api\Payer</span><span class="p">;</span>
 <span class="k">use</span> <span class="nx">PayPal\Api\Payment</span><span class="p">;</span>
 <span class="k">use</span> <span class="nx">PayPal\Api\FundingInstrument</span><span class="p">;</span>
-<span class="k">use</span> <span class="nx">PayPal\Api\Transaction</span><span class="p">;</span></div></div></div><div class="segment"><a id="segment-2" name="segment-2" class="section_anchor"></a><div class="comments"><div class="pilwrap"><a href="#segment-2" class="pilcrow">¶</a></div><div class="wrapper"><p>create payment to get authorization Id</p></div></div><div class="code"><div class="wrapper"><span class="nv">$authId</span> <span class="o">=</span> <span class="nx">createAuthorization</span><span class="p">();</span>
+<span class="k">use</span> <span class="nx">PayPal\Api\Transaction</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">PayPal\Api\Authorization</span><span class="p">;</span></div></div></div><div class="segment"><a id="segment-2" name="segment-2" class="section_anchor"></a><div class="comments"><div class="pilwrap"><a href="#segment-2" class="pilcrow">¶</a></div><div class="wrapper"><p>create payment to get authorization Id</p></div></div><div class="code"><div class="wrapper"><span class="nv">$authId</span> <span class="o">=</span> <span class="nx">createAuthorization</span><span class="p">(</span><span class="nv">$apiContext</span><span class="p">);</span>
 <span class="nv">$amt</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Amount</span><span class="p">();</span>
 <span class="nv">$amt</span><span class="o">-&gt;</span><span class="na">setCurrency</span><span class="p">(</span><span class="s2">&quot;USD&quot;</span><span class="p">);</span>
 <span class="nv">$amt</span><span class="o">-&gt;</span><span class="na">setTotal</span><span class="p">(</span><span class="s2">&quot;1.00&quot;</span><span class="p">);</span>
@@ -50,7 +51,7 @@ The return object contains the status;</p></div></div><div class="code"><div cla
 <span class="x">&lt;/body&gt;</span>
 <span class="x">&lt;/html&gt;</span>
 <span class="cp">&lt;?php</span> 
-<span class="k">function</span> <span class="nf">createAuthorization</span><span class="p">()</span>
+<span class="k">function</span> <span class="nf">createAuthorization</span><span class="p">(</span><span class="nv">$apiContext</span><span class="p">)</span>
 <span class="p">{</span>
   <span class="nv">$addr</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Address</span><span class="p">();</span>
   <span class="nv">$addr</span><span class="o">-&gt;</span><span class="na">setLine1</span><span class="p">(</span><span class="s2">&quot;3909 Witmer Road&quot;</span><span class="p">);</span>
@@ -91,7 +92,7 @@ The return object contains the status;</p></div></div><div class="code"><div cla
   <span class="nv">$payment</span><span class="o">-&gt;</span><span class="na">setPayer</span><span class="p">(</span><span class="nv">$payer</span><span class="p">);</span>
   <span class="nv">$payment</span><span class="o">-&gt;</span><span class="na">setTransactions</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="nv">$transaction</span><span class="p">));</span>
   
-  <span class="nv">$paymnt</span> <span class="o">=</span> <span class="nv">$payment</span><span class="o">-&gt;</span><span class="na">create</span><span class="p">();</span>
+  <span class="nv">$paymnt</span> <span class="o">=</span> <span class="nv">$payment</span><span class="o">-&gt;</span><span class="na">create</span><span class="p">(</span><span class="nv">$apiContext</span><span class="p">);</span>
   <span class="nv">$resArray</span> <span class="o">=</span> <span class="nv">$paymnt</span><span class="o">-&gt;</span><span class="na">toArray</span><span class="p">();</span>
   
   <span class="k">return</span> <span class="nv">$authId</span> <span class="o">=</span> <span class="nv">$resArray</span><span class="p">[</span><span class="s1">&#39;transactions&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;related_resources&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;authorization&#39;</span><span class="p">][</span><span class="s1">&#39;id&#39;</span><span class="p">];</span>
