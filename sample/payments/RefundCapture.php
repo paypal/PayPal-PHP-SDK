@@ -56,8 +56,8 @@ $capture = Capture::get($capt->getId(), $apiContext);
 
 // create new API context 
 $context = new ApiContext(new OAuthTokenCredential(
-		'Aer9WxCa2q0dlmoyWv2n__xE10ttwuXL3pNLzLFU30atoUda5bKGh_lUqSzy',
-		'EIUvhhC4ga-Fy5N7vIZPRBOpcdoi2iVRhTwJ_ZhMD9RdZZSMtSGSNLAwq-ND'));
+		'EBWKjlELKMYqRNQ6sYvFo64FtaRLRR5BdHEESmha49TM',
+		'EO422dn3gQLgDbuwqTjzrFgFtaRLRR5BdHEESmha49TM'));
 try {
 	// (See bootstrap.php for more on `ApiContext`)
 	$captureRefund = $capture->refund($refund, $context);
