@@ -1,4 +1,4 @@
-REST API SDK for PHP  (V0.6.0) [![Build Status](https://travis-ci.org/paypal/rest-api-sdk-php.png?branch=master)](https://travis-ci.org/paypal/rest-api-sdk-php)
+REST API SDK for PHP  (V0.7.0) [![Build Status](https://travis-ci.org/paypal/rest-api-sdk-php.png?branch=master)](https://travis-ci.org/paypal/rest-api-sdk-php)
 ==============================
 
 This repository contains PayPal's PHP SDK and samples for REST API.
