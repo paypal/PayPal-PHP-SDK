@@ -9,7 +9,7 @@ class ItemList extends PPModel {
 	 * @array
 	 * @param PayPal\Api\Item $items
 	 */
-	public function setItems($items) {
+	public function setItems(array $items) {
 		$this->items = $items;
 		return $this;
 	}
