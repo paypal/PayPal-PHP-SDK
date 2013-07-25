@@ -7,7 +7,7 @@ class CreditCardHistory extends PPModel {
 	/**
 	 * A list of credit card resources
 	 * @array
-	 * @param PayPal\Api\CreditCard $credit-cards
+	 * @param PayPal\Api\CreditCard $credit_cards
 	 */
 	public function setCreditCards($credit_cards) {
 		$this->credit_cards = $credit_cards;
@@ -19,13 +19,13 @@ class CreditCardHistory extends PPModel {
 	 * @return PayPal\Api\CreditCard
 	 */
 	public function getCreditCards() {
-		return $this->credit-cards;
+		return $this->credit_cards;
 	}
 
 	/**
 	 * A list of credit card resources
 	 * @array
-	 * @param PayPal\Api\CreditCard $credit-cards
+	 * @param PayPal\Api\CreditCard $credit_cards
 	 * @deprecated. Instead use setCreditCards
 	 */
 	public function setCredit_cards($credit_cards) {
@@ -38,7 +38,7 @@ class CreditCardHistory extends PPModel {
 	 * @deprecated. Instead use getCreditCards
 	 */
 	public function getCredit_cards() {
-		return $this->credit-cards;
+		return $this->credit_cards;
 	}
 
 	/**
