@@ -1,0 +1,4 @@
+# .coveralls.yml configuration
+
+# for php-coveralls
+coverage_clover: build/coverage/clover.xml
