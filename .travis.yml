@@ -8,7 +8,7 @@ before_script:
 script:
     - ant coverage
 after_script:
-    - php vendor/bin/coveralls -v
+    - php vendor/bin/coveralls -v -c .coveralls.yml
 notifications:
   recipients:
     - DL-PP-Platform-PHP-SDK@ebay.com
