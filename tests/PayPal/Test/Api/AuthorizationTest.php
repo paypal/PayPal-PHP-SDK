@@ -14,6 +14,7 @@ use PayPal\Api\Payer;
 use PayPal\Api\Payment;
 use PayPal\Api\FundingInstrument;
 use PayPal\Api\Transaction;
+use PayPal\Exception\PPConnectionException;
 
 class AuthorizationTest extends \PHPUnit_Framework_TestCase {
 	private $authorizations = array();
@@ -136,5 +137,20 @@ class AuthorizationTest extends \PHPUnit_Framework_TestCase {
 		$void = $auth->void();
 		$this->assertNotNull($void->getId());
 
+	}
+	
+	public function testReauthorize(){
+		$authorization = Authorization::get('7GH53639GA425732B');
+	
+		$amount = new Amount();
+		$amount->setCurrency("USD");
+		$amount->setTotal("1.00");
+		
+		$authorization->setAmount($amount);
+		try{
+			$reauthorization = $authorization->reauthorize();
+		}catch (PPConnectionException $ex){
+			$this->assertEquals(strpos($ex->getMessage(),"500"), false);
+		}
 	}
 }
