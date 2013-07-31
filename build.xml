@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="paypal-rest-sdk-php" basedir="." default="all">
 
+	<property name="basedir" value="." />
 	<property name="release.dir" value="${basedir}/release" />
 	<property name="output.dir" value="${basedir}/build" />
 	<property name="phplint.out" value="${output.dir}/phplint.txt" />
@@ -9,9 +10,6 @@
 	<property name="coverage.out" value="${coverage.dir}/junit.xml" />
 	<property name="clover.out" value="${coverage.dir}/clover.xml" />
 	<property name="test.dir" value="${output.dir}/test" />
-	<property name="coverage.out" value="${coverage.dir}/junit.xml" />
-	<property name="clover.out" value="${coverage.dir}/clover.xml" />
-	
 	
 	<fileset id="src.files" dir="${basedir}/lib" includes="**/*.php" />
 		
@@ -38,12 +36,12 @@
 	</target>
 
 	<target name="phploc">
-		<exec command="phploc.bat --log-xml ${phploc.out} ." dir="${basedir}/lib"  />
+		<exec command="phploc --log-xml ${phploc.out} ." dir="${basedir}/lib"  />
 	</target>
 
 	<target name="coverage">
 		<mkdir dir="${output.dir}/coverage"/>
-		<exec command="phpunit.bat --coverage-html=${coverage.dir} --coverage-clover=${clover.out} --log-junit=${coverage.out} --exclude-group=PayPal\\Api\\*" />
+		<exec command="phpunit --coverage-html=${coverage.dir} --coverage-clover=${clover.out} --log-junit=${coverage.out} --exclude-group=PayPal\\Api\\*" />
 	</target>
 
 	<target name="clean" description="Deletes build artifacts">
@@ -52,13 +50,13 @@
 	</target>
 	
 	<target name="test" description="Runs test cases">
-		<exec command="phpunit.bat --testdox-html=${test.dir}/testdox.html --log-junit=${test.dir}/junit.xml"/>
+		<exec command="phpunit --testdox-html=${test.dir}/testdox.html --log-junit=${test.dir}/junit.xml"/>
 	</target>
 
 	<!-- Requires phing -->	
-	<target name="convert-test-report">
+	<target name="convert-test-report" >
 		<mkdir dir="build/test/report"/>
-		<phpunitreport infile="build/test/junit.xml" 
+		<phpunitreport infile="${coverage.out}" 
 			format="frames" 
 			todir="build/test/report" />
 	</target>
