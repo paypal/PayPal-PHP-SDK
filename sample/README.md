@@ -2,7 +2,7 @@ Rest API Samples
 ===================
 
 
-This sample project is a simple web app that you can explore to understand what the payment APIs can do for you. To try out the sample, run `composer update` from the samples folder and you are all set.
+This sample project is a simple web app that you can explore to understand what the payment APIs can do for you. To try out the sample, run `composer update --no-dev` from the samples folder and you are all set.
 
 
 The sample comes pre-configured with a test account but in case you need to try them against your account, you must
