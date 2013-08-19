@@ -9,13 +9,14 @@ This repository contains PayPal's PHP SDK and samples for REST API.
 
    * PHP 5.3 or above
    * curl, json & openssl extensions must be enabled
-   * composer for running the sample out of the box (See http://getcomposer.org)
+   * composer for fetching dependencies (See http://getcomposer.org)
+
 
 
 ## Running the sample
 
-   * Ensure that you have composer installed on your machine.
-   * Navigate to the samples folder and run 'composer update --no-dev'.
+   * `Composer` is the recommended way to get the SDK. Ensure that you have composer installed on your machine, navigate to the samples folder and run 'composer update --no-dev' to fetch the SDK.
+   * In case you cannot install composer on your machine, you can also fetch the SDK bundle from https://github.com/paypal/sdk-packages/raw/gh-pages/rest-api-sdk/php/rest-api-sdk-php-0.7.1.zip and unzip the bundle in to the samples folder.
    * Optionally, update the bootstrap.php file with your own client Id and client secret.
    * Run any of the samples in the 'samples' folder to see what the APIs can do.
     
