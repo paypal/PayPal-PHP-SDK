@@ -14,27 +14,28 @@ use PayPal\Api\FundingInstrument;
 use PayPal\Api\Transaction;
 use PayPal\Api\Authorization;
 
-// create payment to get authorization Id
-$authId = createAuthorization($apiContext);
-$amt = new Amount();
-$amt->setCurrency("USD");
-$amt->setTotal("1.00");
-
-### Capture
-$captur = new Capture();
-$captur->setId($authId);
-$captur->setAmount($amt);
-
-// get the authorization
-$authorization = Authorization::get($authId, $apiContext);
 
 // ### Capture Payment
 // Capture Payment by posting to the APIService
 // using a valid ApiContext (See bootstrap.php for more on `ApiContext`)
 // The return object contains the status;
 try {
+	// create payment to get authorization Id
+	$authId = createAuthorization($apiContext);
+	$amt = new Amount();
+	$amt->setCurrency("USD");
+	$amt->setTotal("1.00");
+
+	### Capture
+	$captur = new Capture();
+	$captur->setId($authId);
+	$captur->setAmount($amt);
+
+	// get the authorization
+	$authorization = Authorization::get($authId, $apiContext);
+	
 	$capt = $authorization->capture($captur, $apiContext);
-} catch (\PPConnectionException $ex) {
+} catch (PayPal\Exception\PPConnectionException $ex) {
 	echo "Exception: " . $ex->getMessage() . PHP_EOL;
 	var_dump($ex->getData());
 	exit(1);
@@ -46,7 +47,7 @@ try {
 // The return object contains the status;
 try {
 	$capture = Capture::get($capt->getId(), $apiContext);
-} catch (\PPConnectionException $ex) {
+} catch (PayPal\Exception\PPConnectionException $ex) {
 	echo "Exception: " . $ex->getMessage() . PHP_EOL;
 	var_dump($ex->getData());
 	exit(1);

@@ -22,6 +22,7 @@ use PayPal\Auth\OAuthTokenCredential;
 $apiContext = new ApiContext(new OAuthTokenCredential(
 		'EBWKjlELKMYqRNQ6sYvFo64FtaRLRR5BdHEESmha49TM',
 		'EO422dn3gQLgDbuwqTjzrFgFtaRLRR5BdHEESmha49TM'));
+
 // Uncomment this step if you want to use per request 
 // dynamic configuration instead of using sdk_config.ini
 /*
@@ -33,6 +34,7 @@ $apiContext->setConfig(array(
 	'log.LogLevel' => 'FINE'
 ));
 */
+
 
 /**
  * ### getBaseUrl function

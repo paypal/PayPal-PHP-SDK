@@ -63,7 +63,7 @@ $payment->setTransactions(array($transaction));
 // for payment approval
 try {
 	$payment->create($apiContext);
-} catch (\PPConnectionException $ex) {
+} catch (PayPal\Exception\PPConnectionException $ex) {
 	echo "Exception: " . $ex->getMessage() . PHP_EOL;
 	var_dump($ex->getData());	
 	exit(1);

@@ -22,7 +22,7 @@ use PayPal\Api\Payment;
 // (See bootstrap.php for more on `ApiContext`)
 try {
 	$payments = Payment::all(array('count' => 10, 'start_index' => 5), $apiContext);	
-} catch (\PPConnectionException $ex) {
+} catch (PayPal\Exception\PPConnectionException $ex) {
 	echo "Exception:" . $ex->getMessage() . PHP_EOL;
 	var_dump($ex->getData());
 	exit(1);

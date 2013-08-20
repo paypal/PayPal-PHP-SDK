@@ -87,7 +87,7 @@ $payment->setTransactions(array($transaction));
 // The return object contains the status;
 try {
 	$payment->create($apiContext);
-} catch (\PPConnectionException $ex) {
+} catch (PayPal\Exception\PPConnectionException $ex) {
 	echo "Exception: " . $ex->getMessage() . PHP_EOL;
 	var_dump($ex->getData());
 	exit(1);

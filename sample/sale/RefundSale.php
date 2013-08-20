@@ -34,7 +34,7 @@ try {
 	// Refund the sale
 	// (See bootstrap.php for more on `ApiContext`)
 	$sale->refund($refund, $apiContext);
-} catch (\PPConnectionException $ex) {
+} catch (PayPal\Exception\PPConnectionException $ex) {
 	echo "Exception:" . $ex->getMessage() . PHP_EOL;
 	var_dump($ex->getData());
 	exit(1);
