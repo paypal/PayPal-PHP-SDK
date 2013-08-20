@@ -18,27 +18,28 @@ use PayPal\Api\Transaction;
 use PayPal\Rest\ApiContext;
 use PayPal\Auth\OAuthTokenCredential;
 
-// create payment to get authorization Id
-$authId = createAuthorization($apiContext);
-
-$amt = new Amount();
-$amt->setCurrency("USD");
-$amt->setTotal("1.00");
-
-### Capture
-$captur = new Capture();
-$captur->setAmount($amt);
-
-// get the authorization
-$authorization = Authorization::get($authId, $apiContext);
 
 // ### Capture Payment
 // Capture Payment by posting to the APIService
 // using a valid ApiContext (See bootstrap.php for more on `ApiContext`)
 // The return object contains the status;
 try {
+	// create payment to get authorization Id
+	$authId = createAuthorization($apiContext);
+
+	$amt = new Amount();
+	$amt->setCurrency("USD");
+	$amt->setTotal("1.00");
+
+	### Capture
+	$captur = new Capture();
+	$captur->setAmount($amt);
+
+	// get the authorization
+	$authorization = Authorization::get($authId, $apiContext);
+	
 	$capt = $authorization->capture($captur, $apiContext);
-} catch (\PPConnectionException $ex) {
+} catch (PayPal\Exception\PPConnectionException $ex) {
 	echo "Exception: " . $ex->getMessage() . PHP_EOL;
 	var_dump($ex->getData());
 	exit(1);
@@ -52,16 +53,15 @@ try {
 $refund = new Refund();
 $refund->setAmount($amt);
 
-$capture = Capture::get($capt->getId(), $apiContext);
 
-// create new API context 
-$context = new ApiContext(new OAuthTokenCredential(
-		'EBWKjlELKMYqRNQ6sYvFo64FtaRLRR5BdHEESmha49TM',
-		'EO422dn3gQLgDbuwqTjzrFgFtaRLRR5BdHEESmha49TM'));
 try {
-	// (See bootstrap.php for more on `ApiContext`)
-	$captureRefund = $capture->refund($refund, $context);
-} catch (\PPConnectionException $ex) {
+	$capture = Capture::get($capt->getId(), $apiContext);
+
+	// Create a new apiContext object so we send a new
+	// PayPal-Request-Id (idempotency) header for this resource
+	$apiContext = new ApiContext($apiContext->getCredential());
+	$captureRefund = $capture->refund($refund, $apiContext);
+} catch (PayPal\Exception\PPConnectionException $ex) {
 	echo "Exception: " . $ex->getMessage() . PHP_EOL;
 	var_dump($ex->getData());
 	exit(1);

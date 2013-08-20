@@ -25,7 +25,7 @@ given sale transaction id.</p></div></div><div class="code"><div class="wrapper"
 
 <span class="k">try</span> <span class="p">{</span> </div></div></div><div class="segment"><a id="segment-4" name="segment-4" class="section_anchor"></a><div class="comments"><div class="pilwrap"><a href="#segment-4" class="pilcrow">¶</a></div><div class="wrapper"><p>Refund the sale
 (See bootstrap.php for more on <code>ApiContext</code>)</p></div></div><div class="code"><div class="wrapper">  <span class="nv">$sale</span><span class="o">-&gt;</span><span class="na">refund</span><span class="p">(</span><span class="nv">$refund</span><span class="p">,</span> <span class="nv">$apiContext</span><span class="p">);</span>
-<span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">\PPConnectionException</span> <span class="nv">$ex</span><span class="p">)</span> <span class="p">{</span>
+<span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">PayPal\Exception\PPConnectionException</span> <span class="nv">$ex</span><span class="p">)</span> <span class="p">{</span>
   <span class="k">echo</span> <span class="s2">&quot;Exception:&quot;</span> <span class="o">.</span> <span class="nv">$ex</span><span class="o">-&gt;</span><span class="na">getMessage</span><span class="p">()</span> <span class="o">.</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
   <span class="nb">var_dump</span><span class="p">(</span><span class="nv">$ex</span><span class="o">-&gt;</span><span class="na">getData</span><span class="p">());</span>
   <span class="k">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>

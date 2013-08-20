@@ -15,7 +15,7 @@ try {
 	// Pass the ID of the sale
 	// transaction from your payment resource.
 	$sale = Sale::get($saleId, $apiContext);
-} catch (\PPConnectionException $ex) {
+} catch (PayPal\Exception\PPConnectionException $ex) {
 	echo "Exception:" . $ex->getMessage() . PHP_EOL;
 	var_dump($ex->getData());
 	exit(1);

@@ -11,7 +11,7 @@ API used: /v1/payments/sale/{sale-id}</p></div></div><div class="code"><div clas
 
 <p>Pass the ID of the sale
 transaction from your payment resource.</p></div></div><div class="code"><div class="wrapper">  <span class="nv">$sale</span> <span class="o">=</span> <span class="nx">Sale</span><span class="o">::</span><span class="na">get</span><span class="p">(</span><span class="nv">$saleId</span><span class="p">,</span> <span class="nv">$apiContext</span><span class="p">);</span>
-<span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">\PPConnectionException</span> <span class="nv">$ex</span><span class="p">)</span> <span class="p">{</span>
+<span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">PayPal\Exception\PPConnectionException</span> <span class="nv">$ex</span><span class="p">)</span> <span class="p">{</span>
   <span class="k">echo</span> <span class="s2">&quot;Exception:&quot;</span> <span class="o">.</span> <span class="nv">$ex</span><span class="o">-&gt;</span><span class="na">getMessage</span><span class="p">()</span> <span class="o">.</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
   <span class="nb">var_dump</span><span class="p">(</span><span class="nv">$ex</span><span class="o">-&gt;</span><span class="na">getData</span><span class="p">());</span>
   <span class="k">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
