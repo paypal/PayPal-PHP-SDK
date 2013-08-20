@@ -5,24 +5,24 @@
 require __DIR__ . '/../bootstrap.php';
 use PayPal\Api\Authorization;
 use PayPal\Api\Amount;
-use PayPal\Exception\PPConnectionException;
 
-// ###Reauthorization
-// Retrieve a authorization id from authorization object
-// by making a `Payment Using PayPal` with intent
-// as `authorize`. You can reauthorize a payment only once 4 to 29
-// days after 3-day honor period for the original authorization
-// expires.
-$authorization = Authorization::get('7GH53639GA425732B', $apiContext);
+try {
+	// ###Reauthorization
+	// Retrieve a authorization id from authorization object
+	// by making a `Payment Using PayPal` with intent
+	// as `authorize`. You can reauthorize a payment only once 4 to 29
+	// days after 3-day honor period for the original authorization
+	// expires.
+	$authorization = Authorization::get('7GH53639GA425732B', $apiContext);
 
-$amount = new Amount();
-$amount->setCurrency("USD");
-$amount->setTotal("1.00");
+	$amount = new Amount();
+	$amount->setCurrency("USD");
+	$amount->setTotal("1.00");
 
-$authorization->setAmount($amount);
-try{
+	$authorization->setAmount($amount);
+	
 	$reauthorization = $authorization->reauthorize($apiContext);
-}catch (PPConnectionException $ex){
+}catch (PayPal\Exception\PPConnectionException $ex){
 	echo "Exception: " . $ex->getMessage() . PHP_EOL;
 	var_dump($ex->getData());
 	exit(1);

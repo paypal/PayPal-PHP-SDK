@@ -14,16 +14,17 @@ use PayPal\Api\Payment;
 use PayPal\Api\FundingInstrument;
 use PayPal\Api\Transaction;
 
-// create payment to get authorization Id
-$authId = createAuthorization($apiContext);
 
 // ### GetAuthorization
 // GetAuthorization by posting to the APIService
 // using a valid ApiContext (See bootstrap.php for more on `ApiContext`)
 // The return object contains the status;
 try {
+	// create payment to get authorization Id
+	$authId = createAuthorization($apiContext);
+	
 	$authorization = Authorization::get($authId, $apiContext);
-} catch (\PPConnectionException $ex) {
+} catch (PayPal\Exception\PPConnectionException $ex) {
 	echo "Exception: " . $ex->getMessage() . PHP_EOL;
 	var_dump($ex->getData());
 	exit(1);
