@@ -20,7 +20,7 @@ session_start();
 // Use the List of `FundingInstrument` and the Payment Method
 // as 'credit_card'
 $payer = new Payer();
-$payer->setPayment_method("paypal");
+$payer->setPaymentMethod("paypal");
 
 // ### Amount
 // Let's you specify a payment amount.
@@ -42,8 +42,8 @@ $transaction->setDescription("This is the payment description.");
 // payment approval/ cancellation.
 $baseUrl = getBaseUrl();
 $redirectUrls = new RedirectUrls();
-$redirectUrls->setReturn_url("$baseUrl/ExecutePayment.php?success=true");
-$redirectUrls->setCancel_url("$baseUrl/ExecutePayment.php?success=false");
+$redirectUrls->setReturnUrl("$baseUrl/ExecutePayment.php?success=true");
+$redirectUrls->setCancelUrl("$baseUrl/ExecutePayment.php?success=false");
 
 // ### Payment
 // A Payment Resource; create one using
@@ -51,7 +51,7 @@ $redirectUrls->setCancel_url("$baseUrl/ExecutePayment.php?success=false");
 $payment = new Payment();
 $payment->setIntent("sale");
 $payment->setPayer($payer);
-$payment->setRedirect_urls($redirectUrls);
+$payment->setRedirectUrls($redirectUrls);
 $payment->setTransactions(array($transaction));
 
 // ### Create Payment

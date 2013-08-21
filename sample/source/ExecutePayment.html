@@ -19,7 +19,7 @@ CreatePaymentUsingPayPal.php</p></div></div><div class="code"><div class="wrappe
 to execute a PayPal account payment. 
 The payer_id is added to the request query parameters
 when the user is redirected from paypal back to your site</p></div></div><div class="code"><div class="wrapper">  <span class="nv">$execution</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">PaymentExecution</span><span class="p">();</span>
-  <span class="nv">$execution</span><span class="o">-&gt;</span><span class="na">setPayer_id</span><span class="p">(</span><span class="nv">$_GET</span><span class="p">[</span><span class="s1">&#39;PayerID&#39;</span><span class="p">]);</span>
+  <span class="nv">$execution</span><span class="o">-&gt;</span><span class="na">setPayerId</span><span class="p">(</span><span class="nv">$_GET</span><span class="p">[</span><span class="s1">&#39;PayerID&#39;</span><span class="p">]);</span>
   
   <span class="c1">//Execute the payment</span></div></div></div><div class="segment"><a id="segment-4" name="segment-4" class="section_anchor"></a><div class="comments"><div class="pilwrap"><a href="#segment-4" class="pilcrow">¶</a></div><div class="wrapper"><p>(See bootstrap.php for more on <code>ApiContext</code>)</p></div></div><div class="code"><div class="wrapper">  <span class="nv">$payment</span><span class="o">-&gt;</span><span class="na">execute</span><span class="p">(</span><span class="nv">$execution</span><span class="p">,</span> <span class="nv">$apiContext</span><span class="p">);</span>
 

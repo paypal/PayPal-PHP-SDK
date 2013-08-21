@@ -22,7 +22,7 @@ use PayPal\Auth\OAuthTokenCredential;
 // CreateCreditCard.php
 $creditCardId = 'CARD-5BT058015C739554AKE2GCEI';
 $creditCardToken = new CreditCardToken();
-$creditCardToken->setCredit_card_id($creditCardId);
+$creditCardToken->setCreditCardId($creditCardId);
 
 // ### FundingInstrument
 // A resource representing a Payer's funding instrument.
@@ -31,15 +31,15 @@ $creditCardToken->setCredit_card_id($creditCardId);
 // creating or using a tokenized funding instrument)
 // and the `CreditCardDetails`
 $fi = new FundingInstrument();
-$fi->setCredit_card_token($creditCardToken);
+$fi->setCreditCardToken($creditCardToken);
 
 // ### Payer
 // A resource representing a Payer that funds a payment
 // Use the List of `FundingInstrument` and the Payment Method
 // as 'credit_card'
 $payer = new Payer();
-$payer->setPayment_method("credit_card");
-$payer->setFunding_instruments(array($fi));
+$payer->setPaymentMethod("credit_card");
+$payer->setFundingInstruments(array($fi));
 
 // ### Amount
 // Let's you specify a payment amount.
@@ -70,7 +70,7 @@ $payment->setTransactions(array($transaction));
 // The return object contains the status;
 try {
 	$payment->create($apiContext);
-} catch (PayPal\ExceptionPayPal\Exception\PPConnectionException $ex) {
+} catch (PayPal\Exception\PPConnectionException $ex) {
 	echo "Exception: " . $ex->getMessage() . PHP_EOL;
 	var_dump($ex->getData());	
 	exit(1);

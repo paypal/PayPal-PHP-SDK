@@ -17,20 +17,20 @@ API used: /v1/payments/payment</p></div></div><div class="code"><div class="wrap
 <p>Saved credit card id from a previous call to
 CreateCreditCard.php</p></div></div><div class="code"><div class="wrapper"><span class="nv">$creditCardId</span> <span class="o">=</span> <span class="s1">&#39;CARD-5BT058015C739554AKE2GCEI&#39;</span><span class="p">;</span>
 <span class="nv">$creditCardToken</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">CreditCardToken</span><span class="p">();</span>
-<span class="nv">$creditCardToken</span><span class="o">-&gt;</span><span class="na">setCredit_card_id</span><span class="p">(</span><span class="nv">$creditCardId</span><span class="p">);</span></div></div></div><div class="segment"><a id="segment-3" name="segment-3" class="section_anchor"></a><div class="comments"><div class="pilwrap"><a href="#segment-3" class="pilcrow">¶</a></div><div class="wrapper"><h3 id="fundinginstrument">FundingInstrument</h3>
+<span class="nv">$creditCardToken</span><span class="o">-&gt;</span><span class="na">setCreditCardId</span><span class="p">(</span><span class="nv">$creditCardId</span><span class="p">);</span></div></div></div><div class="segment"><a id="segment-3" name="segment-3" class="section_anchor"></a><div class="comments"><div class="pilwrap"><a href="#segment-3" class="pilcrow">¶</a></div><div class="wrapper"><h3 id="fundinginstrument">FundingInstrument</h3>
 
 <p>A resource representing a Payer's funding instrument.
 Use a Payer ID (A unique identifier of the payer generated
 and provided by the facilitator. This is required when
 creating or using a tokenized funding instrument)
 and the <code>CreditCardDetails</code></p></div></div><div class="code"><div class="wrapper"><span class="nv">$fi</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">FundingInstrument</span><span class="p">();</span>
-<span class="nv">$fi</span><span class="o">-&gt;</span><span class="na">setCredit_card_token</span><span class="p">(</span><span class="nv">$creditCardToken</span><span class="p">);</span></div></div></div><div class="segment"><a id="segment-4" name="segment-4" class="section_anchor"></a><div class="comments"><div class="pilwrap"><a href="#segment-4" class="pilcrow">¶</a></div><div class="wrapper"><h3 id="payer">Payer</h3>
+<span class="nv">$fi</span><span class="o">-&gt;</span><span class="na">setCreditCardToken</span><span class="p">(</span><span class="nv">$creditCardToken</span><span class="p">);</span></div></div></div><div class="segment"><a id="segment-4" name="segment-4" class="section_anchor"></a><div class="comments"><div class="pilwrap"><a href="#segment-4" class="pilcrow">¶</a></div><div class="wrapper"><h3 id="payer">Payer</h3>
 
 <p>A resource representing a Payer that funds a payment
 Use the List of <code>FundingInstrument</code> and the Payment Method
 as 'credit_card'</p></div></div><div class="code"><div class="wrapper"><span class="nv">$payer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Payer</span><span class="p">();</span>
-<span class="nv">$payer</span><span class="o">-&gt;</span><span class="na">setPayment_method</span><span class="p">(</span><span class="s2">&quot;credit_card&quot;</span><span class="p">);</span>
-<span class="nv">$payer</span><span class="o">-&gt;</span><span class="na">setFunding_instruments</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="nv">$fi</span><span class="p">));</span></div></div></div><div class="segment"><a id="segment-5" name="segment-5" class="section_anchor"></a><div class="comments"><div class="pilwrap"><a href="#segment-5" class="pilcrow">¶</a></div><div class="wrapper"><h3 id="amount">Amount</h3>
+<span class="nv">$payer</span><span class="o">-&gt;</span><span class="na">setPaymentMethod</span><span class="p">(</span><span class="s2">&quot;credit_card&quot;</span><span class="p">);</span>
+<span class="nv">$payer</span><span class="o">-&gt;</span><span class="na">setFundingInstruments</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="nv">$fi</span><span class="p">));</span></div></div></div><div class="segment"><a id="segment-5" name="segment-5" class="section_anchor"></a><div class="comments"><div class="pilwrap"><a href="#segment-5" class="pilcrow">¶</a></div><div class="wrapper"><h3 id="amount">Amount</h3>
 
 <p>Let's you specify a payment amount.</p></div></div><div class="code"><div class="wrapper"><span class="nv">$amount</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Amount</span><span class="p">();</span>
 <span class="nv">$amount</span><span class="o">-&gt;</span><span class="na">setCurrency</span><span class="p">(</span><span class="s2">&quot;USD&quot;</span><span class="p">);</span>
@@ -53,7 +53,7 @@ the above types and intent as 'sale'</p></div></div><div class="code"><div class
 (See bootstrap.php for more on <code>ApiContext</code>)
 The return object contains the status;</p></div></div><div class="code"><div class="wrapper"><span class="k">try</span> <span class="p">{</span>
   <span class="nv">$payment</span><span class="o">-&gt;</span><span class="na">create</span><span class="p">(</span><span class="nv">$apiContext</span><span class="p">);</span>
-<span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">PayPal\ExceptionPayPal\Exception\PPConnectionException</span> <span class="nv">$ex</span><span class="p">)</span> <span class="p">{</span>
+<span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">PayPal\Exception\PPConnectionException</span> <span class="nv">$ex</span><span class="p">)</span> <span class="p">{</span>
   <span class="k">echo</span> <span class="s2">&quot;Exception: &quot;</span> <span class="o">.</span> <span class="nv">$ex</span><span class="o">-&gt;</span><span class="na">getMessage</span><span class="p">()</span> <span class="o">.</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
   <span class="nb">var_dump</span><span class="p">(</span><span class="nv">$ex</span><span class="o">-&gt;</span><span class="na">getData</span><span class="p">());</span> 
   <span class="k">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>

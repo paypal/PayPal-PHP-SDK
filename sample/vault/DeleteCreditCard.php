@@ -16,11 +16,11 @@ use PayPal\Api\Address;
 $card = new CreditCard();
 $card->setType("visa");
 $card->setNumber("4417119669820331");
-$card->setExpire_month("11");
-$card->setExpire_year("2019");
+$card->setExpireMonth("11");
+$card->setExpireYear("2019");
 $card->setCvv2("012");
-$card->setFirst_name("Joe");
-$card->setLast_name("Shopper");
+$card->setFirstName("Joe");
+$card->setLastName("Shopper");
 
 // ### Save card
 // Creates the credit card as a resource
@@ -30,7 +30,7 @@ $card->setLast_name("Shopper");
 // (See bootstrap.php for more on `ApiContext`)
 try {
 	$res = $card->create($apiContext);
-} catch (\PPConnectionException $ex) {
+} catch (PayPal\Exception\PPConnectionException $ex) {
 	echo "Exception:" . $ex->getMessage() . PHP_EOL;
 	var_dump($ex->getData());
 	exit(1);
@@ -42,7 +42,7 @@ try {
 	// deletes saved credit card
 	// (See bootstrap.php for more on `ApiContext`)
 	$creditCard->delete($apiContext);
-} catch (\PPConnectionException $ex) {
+} catch (PayPal\Exception\PPConnectionException $ex) {
 	echo "Exception: " . $ex->getMessage() . PHP_EOL;
 	exit(1);
 }

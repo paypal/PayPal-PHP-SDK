@@ -22,8 +22,8 @@ $addr->setLine1("3909 Witmer Road");
 $addr->setLine2("Niagara Falls");
 $addr->setCity("Niagara Falls");
 $addr->setState("NY");
-$addr->setPostal_code("14305");
-$addr->setCountry_code("US");
+$addr->setPostalCode("14305");
+$addr->setCountryCode("US");
 $addr->setPhone("716-298-1822");
 
 // ### CreditCard
@@ -32,12 +32,12 @@ $addr->setPhone("716-298-1822");
 $card = new CreditCard();
 $card->setType("visa");
 $card->setNumber("4417119669820331");
-$card->setExpire_month("11");
-$card->setExpire_year("2019");
+$card->setExpireMonth("11");
+$card->setExpireYear("2019");
 $card->setCvv2("012");
-$card->setFirst_name("Joe");
-$card->setLast_name("Shopper");
-$card->setBilling_address($addr);
+$card->setFirstName("Joe");
+$card->setLastName("Shopper");
+$card->setBillingAddress($addr);
 
 // ### FundingInstrument
 // A resource representing a Payer's funding instrument.
@@ -46,15 +46,15 @@ $card->setBilling_address($addr);
 // creating or using a tokenized funding instrument)
 // and the `CreditCardDetails`
 $fi = new FundingInstrument();
-$fi->setCredit_card($card);
+$fi->setCreditCard($card);
 
 // ### Payer
 // A resource representing a Payer that funds a payment
 // Use the List of `FundingInstrument` and the Payment Method
 // as 'credit_card'
 $payer = new Payer();
-$payer->setPayment_method("credit_card");
-$payer->setFunding_instruments(array($fi));
+$payer->setPaymentMethod("credit_card");
+$payer->setFundingInstruments(array($fi));
 
 // ### Amount
 // Let's you specify a payment amount.

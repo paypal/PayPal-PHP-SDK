@@ -59,26 +59,26 @@ The return object contains the status;</p></div></div><div class="code"><div cla
   <span class="nv">$addr</span><span class="o">-&gt;</span><span class="na">setLine2</span><span class="p">(</span><span class="s2">&quot;Niagara Falls&quot;</span><span class="p">);</span>
   <span class="nv">$addr</span><span class="o">-&gt;</span><span class="na">setCity</span><span class="p">(</span><span class="s2">&quot;Niagara Falls&quot;</span><span class="p">);</span>
   <span class="nv">$addr</span><span class="o">-&gt;</span><span class="na">setState</span><span class="p">(</span><span class="s2">&quot;NY&quot;</span><span class="p">);</span>
-  <span class="nv">$addr</span><span class="o">-&gt;</span><span class="na">setPostal_code</span><span class="p">(</span><span class="s2">&quot;14305&quot;</span><span class="p">);</span>
-  <span class="nv">$addr</span><span class="o">-&gt;</span><span class="na">setCountry_code</span><span class="p">(</span><span class="s2">&quot;US&quot;</span><span class="p">);</span>
+  <span class="nv">$addr</span><span class="o">-&gt;</span><span class="na">setPostalCode</span><span class="p">(</span><span class="s2">&quot;14305&quot;</span><span class="p">);</span>
+  <span class="nv">$addr</span><span class="o">-&gt;</span><span class="na">setCountryCode</span><span class="p">(</span><span class="s2">&quot;US&quot;</span><span class="p">);</span>
   <span class="nv">$addr</span><span class="o">-&gt;</span><span class="na">setPhone</span><span class="p">(</span><span class="s2">&quot;716-298-1822&quot;</span><span class="p">);</span>
   
   <span class="nv">$card</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">CreditCard</span><span class="p">();</span>
   <span class="nv">$card</span><span class="o">-&gt;</span><span class="na">setType</span><span class="p">(</span><span class="s2">&quot;visa&quot;</span><span class="p">);</span>
   <span class="nv">$card</span><span class="o">-&gt;</span><span class="na">setNumber</span><span class="p">(</span><span class="s2">&quot;4417119669820331&quot;</span><span class="p">);</span>
-  <span class="nv">$card</span><span class="o">-&gt;</span><span class="na">setExpire_month</span><span class="p">(</span><span class="s2">&quot;11&quot;</span><span class="p">);</span>
-  <span class="nv">$card</span><span class="o">-&gt;</span><span class="na">setExpire_year</span><span class="p">(</span><span class="s2">&quot;2019&quot;</span><span class="p">);</span>
+  <span class="nv">$card</span><span class="o">-&gt;</span><span class="na">setExpireMonth</span><span class="p">(</span><span class="s2">&quot;11&quot;</span><span class="p">);</span>
+  <span class="nv">$card</span><span class="o">-&gt;</span><span class="na">setExpireYear</span><span class="p">(</span><span class="s2">&quot;2019&quot;</span><span class="p">);</span>
   <span class="nv">$card</span><span class="o">-&gt;</span><span class="na">setCvv2</span><span class="p">(</span><span class="s2">&quot;012&quot;</span><span class="p">);</span>
-  <span class="nv">$card</span><span class="o">-&gt;</span><span class="na">setFirst_name</span><span class="p">(</span><span class="s2">&quot;Joe&quot;</span><span class="p">);</span>
-  <span class="nv">$card</span><span class="o">-&gt;</span><span class="na">setLast_name</span><span class="p">(</span><span class="s2">&quot;Shopper&quot;</span><span class="p">);</span>
-  <span class="nv">$card</span><span class="o">-&gt;</span><span class="na">setBilling_address</span><span class="p">(</span><span class="nv">$addr</span><span class="p">);</span>
+  <span class="nv">$card</span><span class="o">-&gt;</span><span class="na">setFirstName</span><span class="p">(</span><span class="s2">&quot;Joe&quot;</span><span class="p">);</span>
+  <span class="nv">$card</span><span class="o">-&gt;</span><span class="na">setLastName</span><span class="p">(</span><span class="s2">&quot;Shopper&quot;</span><span class="p">);</span>
+  <span class="nv">$card</span><span class="o">-&gt;</span><span class="na">setBillingAddress</span><span class="p">(</span><span class="nv">$addr</span><span class="p">);</span>
   
   <span class="nv">$fi</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">FundingInstrument</span><span class="p">();</span>
-  <span class="nv">$fi</span><span class="o">-&gt;</span><span class="na">setCredit_card</span><span class="p">(</span><span class="nv">$card</span><span class="p">);</span>
+  <span class="nv">$fi</span><span class="o">-&gt;</span><span class="na">setCreditCard</span><span class="p">(</span><span class="nv">$card</span><span class="p">);</span>
   
   <span class="nv">$payer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Payer</span><span class="p">();</span>
-  <span class="nv">$payer</span><span class="o">-&gt;</span><span class="na">setPayment_method</span><span class="p">(</span><span class="s2">&quot;credit_card&quot;</span><span class="p">);</span>
-  <span class="nv">$payer</span><span class="o">-&gt;</span><span class="na">setFunding_instruments</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="nv">$fi</span><span class="p">));</span>
+  <span class="nv">$payer</span><span class="o">-&gt;</span><span class="na">setPaymentMethod</span><span class="p">(</span><span class="s2">&quot;credit_card&quot;</span><span class="p">);</span>
+  <span class="nv">$payer</span><span class="o">-&gt;</span><span class="na">setFundingInstruments</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="nv">$fi</span><span class="p">));</span>
   
   <span class="nv">$amount</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Amount</span><span class="p">();</span>
   <span class="nv">$amount</span><span class="o">-&gt;</span><span class="na">setCurrency</span><span class="p">(</span><span class="s2">&quot;USD&quot;</span><span class="p">);</span>

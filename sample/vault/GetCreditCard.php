@@ -12,13 +12,13 @@ use PayPal\Api\CreditCard;
 
 // The cardId can be obtained from a previous save credit
 // card operation. Use $card->getId()
-$cardId = "CARD-5BT058015C739554AKE2GCEI";
+$cardId = "CARD-5AR29593TC404090HKIKN77Q";
 
 /// ### Retrieve card
 // (See bootstrap.php for more on `ApiContext`)
 try {
 	$card = CreditCard::get($cardId, $apiContext);
-} catch (\PPConnectionException $ex) {
+} catch (PayPal\Exception\PPConnectionException $ex) {
 	echo "Exception: " . $ex->getMessage() . PHP_EOL;
 	var_dump($ex->getData());
 	exit(1);
