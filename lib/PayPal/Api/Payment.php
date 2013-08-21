@@ -148,7 +148,7 @@ class Payment extends PPModel implements IResource {
 	/**
 	 * Add a transaction to the payment more comfortable.
 	 * @param PayPal\Api\Transaction
-	 * @return PayPal\Api\Payment;
+	 * @return PayPal\Api\Payment
 	 */
 	public function addTransaction(Transaction $transaction) {
 		$this->transactions[] = $transaction;
