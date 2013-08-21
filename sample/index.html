@@ -13,123 +13,104 @@
 	.source {
 		background: url('images/edt-format-source-button.png') no-repeat left top;		
 	}
+	.header {
+		font-weight: bold;
+	}
+	.header td {
+		padding: 10px 0px 10px 0px;
+	}
 </style>
 </head>
 <body>
     <center>
         <h3>PayPal REST API Samples</h3>
     </center>
-    <br /><br />
 	<table cellspacing="5" width="85%">
 		<tbody>
+			<tr valign="top" class='header'>
+				<td>Payments</td>
+			</tr>
 			<tr valign="top">
 				<td>Payment with a credit card</td>
-				<td></td>
 				<td width="30%" ><a href="payments/CreatePayment.php" class="execute imagelink">Execute</a></td>
-				<td></td>
 				<td width="30%"><a href="source/CreatePayment.html" class="source imagelink">Source</a></td>
 			</tr>
 			<tr>
 				<td>Payment with a PayPal Account</td>
-
-				<td></td>
 				<td><a href="payments/CreatePaymentUsingPayPal.php" class="execute imagelink">Execute</a></td>
-
-				<td></td>
 				<td><a href="source/CreatePaymentUsingPayPal.html" class="source imagelink">Source</a></td>
 			</tr>
 			<tr>
-				<td>Get Payment Details</td>
-				<td></td>
+				<td>Get payment details</td>
 				<td><a href="payments/GetPayment.php" class="execute imagelink" >Execute</a></td>
-
-				<td></td>
 				<td><a href="source/GetPayment.html" class="source imagelink" >Source</a></td>
 			</tr>
 			<tr>
-				<td>Get Payment History</td>
-				<td></td>
+				<td>Get payment history</td>
 				<td><a href="payments/ListPayments.php" class="execute imagelink" >Execute</a></td>
-				<td></td>
 				<td><a href="source/ListPayments.html" class="source imagelink" >Source</a></td>
 			</tr>
 			<tr>
-				<td>Get Sale Details</td>
-				<td></td>
+				<td>Get sale details</td>
 				<td><a href="sale/GetSale.php" class="execute imagelink" >Execute</a></td>
-				<td></td>
 				<td><a href="source/GetSale.html" class="source imagelink" >Source</a></td>
 			</tr>
 			<tr>
-				<td>Refund a Payment</td>
-				<td></td>
+				<td>Refund a payment</td>
 				<td><a href="sale/RefundSale.php" class="execute imagelink" >Execute</a></td>
-				<td></td>
 				<td><a href="source/RefundSale.html" class="source imagelink" >Source</a></td>
+			</tr>
+			<tr valign="top" class='header'>
+				<td>Vault</td>
 			</tr>
 			<tr>
 				<td>Save a credit card</td>
-				<td></td>
 				<td><a href="vault/CreateCreditCard.php" class="execute imagelink" >Execute</a></td>
-				<td></td>
 				<td><a href="source/CreateCreditCard.html" class="source imagelink" >Source</a></td>
 			</tr>
 			<tr>
 				<td>Retrieve saved credit card</td>
-				<td></td>
 				<td><a href="vault/GetCreditCard.php" class="execute imagelink" >Execute</a></td>
-				<td></td>
 				<td><a href="source/GetCreditCard.html" class="source imagelink" >Source</a></td>
 			</tr>
 			<tr>
-				<td>Get Details of Authorized Payment</td>
-				<td></td>
+				<td>Delete saved credit card</td>
+				<td><a href="vault/DeleteCreditCard.php" class="execute imagelink" >Execute</a></td>
+				<td><a href="source/DeleteCreditCard.html" class="source imagelink" >Source</a></td>
+			</tr>			
+			<tr valign="top" class='header'>
+				<td>Authorization and capture</td>
+			</tr>
+			<tr>
+				<td>Get details of an authorized payment</td>
 				<td><a href="payments/GetAuthorization.php" class="execute imagelink" >Execute</a></td>
-				<td></td>
 				<td><a href="source/GetAuthorization.html" class="source imagelink" >Source</a></td>
 			</tr>
 			<tr>
-				<td>Capture Authorized Payment</td>
-				<td></td>
+				<td>Capture an authorized payment</td>
 				<td><a href="payments/AuthorizationCapture.php" class="execute imagelink" >Execute</a></td>
-				<td></td>
 				<td><a href="source/AuthorizationCapture.html" class="source imagelink" >Source</a></td>
 			</tr>
 			<tr>
-				<td>Void Authorized Payment</td>
-				<td></td>
+				<td>Void an authorized payment</td>
 				<td><a href="payments/VoidAuthorization.php" class="execute imagelink" >Execute</a></td>
-				<td></td>
 				<td><a href="source/VoidAuthorization.html" class="source imagelink" >Source</a></td>
 			</tr>
 			<tr>
-				<td>Reauthorize a Payment</td>
-				<td></td>
+				<td>Reauthorize a payment</td>
 				<td><a href="payments/Reauthorization.php" class="execute imagelink" >Execute</a></td>
-				<td></td>
 				<td><a href="source/Reauthorization.html" class="source imagelink" >Source</a></td>
 			</tr>
 			<tr>
-				<td>Get Details of Captured Payment</td>
-				<td></td>
+				<td>Get details of a captured payment</td>
 				<td><a href="payments/GetCapture.php" class="execute imagelink" >Execute</a></td>
-				<td></td>
 				<td><a href="source/GetCapture.html" class="source imagelink" >Source</a></td>
 			</tr>
 			<tr>
-				<td>Refund Captured Payment</td>
-				<td></td>
+				<td>Refund captured payment</td>
 				<td><a href="payments/RefundCapture.php" class="execute imagelink" >Execute</a></td>
-				<td></td>
 				<td><a href="source/RefundCapture.html" class="source imagelink" >Source</a></td>
 			</tr>
-			<tr>
-				<td>Delete saved CreditCard</td>
-				<td></td>
-				<td><a href="vault/DeleteCreditCard.php" class="execute imagelink" >Execute</a></td>
-				<td></td>
-				<td><a href="source/DeleteCreditCard.html" class="source imagelink" >Source</a></td>
-			</tr>			
 		</tbody>
 	</table>
 </body>
