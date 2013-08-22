@@ -14,13 +14,13 @@ use PayPal\Api\Address;
 // A resource representing a credit card that can be
 // used to fund a payment.
 $card = new CreditCard();
-$card->setType("visa");
-$card->setNumber("4417119669820331");
-$card->setExpireMonth("11");
-$card->setExpireYear("2019");
-$card->setCvv2("012");
-$card->setFirstName("Joe");
-$card->setLastName("Shopper");
+$card->setType("visa")
+	->setNumber("4417119669820331")
+	->setExpireMonth("11")
+	->setExpireYear("2019")
+	->setCvv2("012")
+	->setFirstName("Joe")
+	->setLastName("Shopper");
 
 // ### Save card
 // Creates the credit card as a resource
@@ -29,14 +29,14 @@ $card->setLastName("Shopper");
 // in the future payments.
 // (See bootstrap.php for more on `ApiContext`)
 try {
-	$res = $card->create($apiContext);
+	$card = $card->create($apiContext);
 } catch (PayPal\Exception\PPConnectionException $ex) {
 	echo "Exception:" . $ex->getMessage() . PHP_EOL;
 	var_dump($ex->getData());
 	exit(1);
 }
 
-$creditCard = CreditCard::get($res->getId(), $apiContext);
+$creditCard = CreditCard::get($card->getId(), $apiContext);
 try {
 	// ### Delete Card
 	// deletes saved credit card
@@ -50,7 +50,6 @@ try {
 
 <html>
 <body>
-<div>Delete CreditCard:</div>
     <p> Credit Card deleted Successfully</p>
 	<a href='../index.html'>Back</a>
 </body>

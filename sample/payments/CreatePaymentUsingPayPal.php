@@ -25,8 +25,8 @@ $payer->setPaymentMethod("paypal");
 // ### Amount
 // Let's you specify a payment amount.
 $amount = new Amount();
-$amount->setCurrency("USD");
-$amount->setTotal("1.00");
+$amount->setCurrency("USD")
+	->setTotal("1.00");
 
 // ### Transaction
 // A transaction defines the contract of a
@@ -34,25 +34,25 @@ $amount->setTotal("1.00");
 // is fulfilling it. Transaction is created with
 // a `Payee` and `Amount` types
 $transaction = new Transaction();
-$transaction->setAmount($amount);
-$transaction->setDescription("This is the payment description.");
+$transaction->setAmount($amount)
+	->setDescription("This is the payment description.");
 
 // ### Redirect urls
 // Set the urls that the buyer must be redirected to after 
 // payment approval/ cancellation.
 $baseUrl = getBaseUrl();
 $redirectUrls = new RedirectUrls();
-$redirectUrls->setReturnUrl("$baseUrl/ExecutePayment.php?success=true");
-$redirectUrls->setCancelUrl("$baseUrl/ExecutePayment.php?success=false");
+$redirectUrls->setReturnUrl("$baseUrl/ExecutePayment.php?success=true")
+	->setCancelUrl("$baseUrl/ExecutePayment.php?success=false");
 
 // ### Payment
 // A Payment Resource; create one using
 // the above types and intent as 'sale'
 $payment = new Payment();
-$payment->setIntent("sale");
-$payment->setPayer($payer);
-$payment->setRedirectUrls($redirectUrls);
-$payment->setTransactions(array($transaction));
+$payment->setIntent("sale")
+	->setPayer($payer)
+	->setRedirectUrls($redirectUrls)
+	->setTransactions(array($transaction));
 
 // ### Create Payment
 // Create a payment by posting to the APIService

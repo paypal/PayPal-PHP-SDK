@@ -38,14 +38,14 @@ $fi->setCreditCardToken($creditCardToken);
 // Use the List of `FundingInstrument` and the Payment Method
 // as 'credit_card'
 $payer = new Payer();
-$payer->setPaymentMethod("credit_card");
-$payer->setFundingInstruments(array($fi));
+$payer->setPaymentMethod("credit_card")
+	->setFundingInstruments(array($fi));
 
 // ### Amount
 // Let's you specify a payment amount.
 $amount = new Amount();
-$amount->setCurrency("USD");
-$amount->setTotal("1.00");
+$amount->setCurrency("USD")
+	->setTotal("1.00");
 
 // ### Transaction
 // A transaction defines the contract of a
@@ -53,16 +53,16 @@ $amount->setTotal("1.00");
 // is fulfilling it. Transaction is created with
 // a `Payee` and `Amount` types
 $transaction = new Transaction();
-$transaction->setAmount($amount);
-$transaction->setDescription("This is the payment description.");
+$transaction->setAmount($amount)
+	->setDescription("This is the payment description.");
 
 // ### Payment
 // A Payment Resource; create one using
 // the above types and intent as 'sale'
 $payment = new Payment();
-$payment->setIntent("sale");
-$payment->setPayer($payer);
-$payment->setTransactions(array($transaction));
+$payment->setIntent("sale")
+	->setPayer($payer)
+	->setTransactions(array($transaction));
 
 // ###Create Payment
 // Create a payment by posting to the APIService

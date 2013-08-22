@@ -15,8 +15,8 @@ use PayPal\Api\Sale;
 // Create a refund object indicating 
 // refund amount
 $amt = new Amount();
-$amt->setCurrency('USD');
-$amt->setTotal('0.01');
+$amt->setCurrency('USD')
+	->setTotal('0.01');
 
 $refund = new Refund();
 $refund->setAmount($amt);
