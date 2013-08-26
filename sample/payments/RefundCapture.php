@@ -48,7 +48,7 @@ $refund->setAmount($amt);
 try {
 	// Create a new apiContext object so we send a new
 	// PayPal-Request-Id (idempotency) header for this resource
-	$apiContext = new ApiContext($apiContext->getCredential());
+	$apiContext = getApiContext();
 
 	$captureRefund = $capture->refund($refund, $apiContext);
 } catch (PayPal\Exception\PPConnectionException $ex) {
