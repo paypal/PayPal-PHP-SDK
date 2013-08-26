@@ -2,9 +2,8 @@
 
 // # Get Credit Card Sample
 // The CreditCard resource allows you to
-// retrieve previously saved CreditCards, 
-// by sending a GET request to the URI
-// '/v1/vault/credit-card'
+// retrieve previously saved CreditCards.
+// API called: '/v1/vault/credit-card'
 // The following code takes you through
 // the process of retrieving a saved CreditCard
 require __DIR__ . '/../bootstrap.php';
@@ -25,8 +24,11 @@ try {
 }
 ?>
 <html>
+<head>
+	<title>Lookup a saved credit card</title>
+</head>
 <body>
-	<div>Retrieving credit card: <?php echo $cardId;?></div>
+	<div>Retrieving saved credit card: <?php echo $cardId;?></div>
 	<pre><?php var_dump($card);?></pre>
 	<a href='../index.html'>Back</a>
 </body>

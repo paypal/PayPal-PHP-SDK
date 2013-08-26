@@ -1,6 +1,7 @@
 <?php
 // # GetAuthorization
-// This sample code demonstrate how you can get details of an authorized payment
+// This sample code demonstrates how you can get details 
+// of an authorized payment.
 // API used: /v1/payments/authorization/<$authorizationId>
 
 require __DIR__ . '/../bootstrap.php';
@@ -28,6 +29,9 @@ try {
 }
 ?>
 <html>
+<head>
+	<title>Lookup an authorization</title>
+</head>
 <body>
 	<div>
 		Retrieved Authorization:

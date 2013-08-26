@@ -28,6 +28,9 @@ try {
 }
 ?>
 <html>
+<head>
+	<title>Lookup a payment</title>
+</head>
 <body>
 	<div>Retrieving Payment ID: <?php echo $paymentId;?></div>
 	<pre><?php var_dump($payment->toArray());?></pre>

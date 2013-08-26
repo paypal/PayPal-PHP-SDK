@@ -29,6 +29,9 @@ try {
 }
 ?>
 <html>
+<head>
+	<title>Lookup payment history</title>
+</head>
 <body>
 	<div>Got <?php echo $payments->getCount(); ?> matching payments </div>
 	<pre><?php var_dump($payments->toArray());?></pre>

@@ -1,6 +1,7 @@
 <?php
 // ##Reauthorization Sample
-// Sample showing how to do a reauthorization
+// This sample code demonstrates how you can reauthorize a PayPal
+// account payment.
 // API used: v1/payments/authorization/{authorization_id}/reauthorize
 
 require __DIR__ . '/../bootstrap.php';
@@ -17,7 +18,7 @@ use PayPal\Api\Amount;
 
 try {
 	
-	// ### Retrieve a authorization using the authorization id
+	// ### Lookup authorization using the authorization id
 	$authorization = Authorization::get('7GH53639GA425732B', $apiContext);
 
 	$amount = new Amount();
@@ -34,6 +35,9 @@ try {
 }
 ?>
 <html>
+<head>
+	<title>Reauthorize a payment</title>
+</head>
 <body>
 	<div>
 		Reauthorization Id:

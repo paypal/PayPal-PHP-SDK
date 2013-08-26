@@ -1,6 +1,7 @@
 <?php
 // # AuthorizationCapture
-// This sample code demonstrate how you can capture the authorized payment
+// This sample code demonstrates how you can capture 
+// a previously authorized payment.
 // API used: /v1/payments/payment
 
 require __DIR__ . '/../bootstrap.php';
@@ -14,7 +15,7 @@ use PayPal\Api\Authorization;
 // by invoking the $authorization->capture method
 // with a valid ApiContext (See bootstrap.php for more on `ApiContext`)
 try {
-	// create payment to get authorization Id
+	// Create a new authorization to get authorization Id
 	// createAuthorization defined in common.php
 	$authId = createAuthorization($apiContext);
 
@@ -27,9 +28,10 @@ try {
 	$capture->setId($authId)
 		->setAmount($amt);
 
-	// Get the authorization
+	// Lookup the authorization.
 	$authorization = Authorization::get($authId, $apiContext);
 
+	// Perform a capture
 	$getCapture = $authorization->capture($capture, $apiContext);
 } catch (PayPal\Exception\PPConnectionException $ex) {
 	echo "Exception: " . $ex->getMessage() . PHP_EOL;
@@ -38,14 +40,15 @@ try {
 }
 ?>
 <html>
+<head>
+	<title>Capturing an authorization</title>
+</head>
 <body>
 	<div>
 		Captured payment <?php echo $getCapture->getParentPayment(); ?>. Capture Id:
 		<?php echo $getCapture->getId();?>
 	</div>
-	<pre>
-		<?php var_dump($getCapture->toArray());?>
-	</pre>
+	<pre><?php var_dump($getCapture->toArray());?></pre>
 	<a href='../index.html'>Back</a>
 </body>
 </html>

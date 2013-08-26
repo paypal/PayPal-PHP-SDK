@@ -1,8 +1,11 @@
 <?php
 
 // # CreatePaymentSample
+//
 // This sample code demonstrate how you can process
-// a payment with a credit card.
+// a direct credit card payment. Please note that direct 
+// credit card payment and related features using the 
+// REST API is restricted in some countries.
 // API used: /v1/payments/payment
 
 require __DIR__ . '/../bootstrap.php';
@@ -15,8 +18,7 @@ use PayPal\Api\FundingInstrument;
 use PayPal\Api\Transaction;
 
 // ### Address
-// Base Address object used as shipping or billing
-// address in a payment. [Optional]
+// [Optional] Billing address associated with card.
 $addr = new Address();
 $addr->setLine1("3909 Witmer Road")
 	->setLine2("Niagara Falls")
@@ -41,23 +43,23 @@ $card->setType("visa")
 
 // ### FundingInstrument
 // A resource representing a Payer's funding instrument.
-// Use a Payer ID (A unique identifier of the payer generated
-// and provided by the facilitator. This is required when
-// creating or using a tokenized funding instrument)
-// and the `CreditCardDetails`
+// For direct credit card payments, set the CreditCard
+// field on this object.
 $fi = new FundingInstrument();
 $fi->setCreditCard($card);
 
 // ### Payer
 // A resource representing a Payer that funds a payment
-// Use the List of `FundingInstrument` and the Payment Method
-// as 'credit_card'
+// For direct credit card payments, set payment method
+// to 'credit_card' and add an array of funding instruments.
 $payer = new Payer();
 $payer->setPaymentMethod("credit_card")
 	->setFundingInstruments(array($fi));
 
 // ### Amount
-// Let's you specify a payment amount.
+// Lets you specify a payment amount.
+// You can also specify additional details
+// such as shipping, tax.
 $amount = new Amount();
 $amount->setCurrency("USD")
 	->setTotal("1.00");
@@ -65,15 +67,14 @@ $amount->setCurrency("USD")
 // ### Transaction
 // A transaction defines the contract of a
 // payment - what is the payment for and who
-// is fulfilling it. Transaction is created with
-// a `Payee` and `Amount` types
+// is fulfilling it. 
 $transaction = new Transaction();
 $transaction->setAmount($amount)
-	->setDescription("This is the payment description.");
+	->setDescription("Payment description");
 
 // ### Payment
 // A Payment Resource; create one using
-// the above types and intent as 'sale'
+// the above types and intent set to sale 'sale'
 $payment = new Payment();
 $payment->setIntent("sale")
 	->setPayer($payer)
@@ -82,7 +83,7 @@ $payment->setIntent("sale")
 // ### Create Payment
 // Create a payment by posting to the APIService
 // using a valid ApiContext (See bootstrap.php for more on `ApiContext`)
-// The return object contains the status;
+// The return object contains the state.
 try {
 	$payment->create($apiContext);
 } catch (PayPal\Exception\PPConnectionException $ex) {
@@ -92,6 +93,9 @@ try {
 }
 ?>
 <html>
+<head>
+	<title>Direct Credit card payments</title>
+</head>
 <body>
 	<div>
 		Created payment:

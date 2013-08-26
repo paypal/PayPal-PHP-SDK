@@ -1,6 +1,7 @@
 <?php
 
 // # Get Sale sample 
+// Sale transactions are nothing but completed payments.
 // This sample code demonstrates how you can retrieve 
 // details of completed Sale Transaction.
 // API used: /v1/payments/sale/{sale-id}
@@ -22,6 +23,9 @@ try {
 }
 ?>
 <html>
+<head>
+	<title>Lookup a sale</title>
+</head>
 <body>
 	<div>Retrieving sale id: <?php echo $saleId;?></div>
 	<pre><?php var_dump($sale);?></pre>

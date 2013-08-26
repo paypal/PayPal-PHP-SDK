@@ -1,6 +1,7 @@
 <?php
 // # VoidAuthorization
-// This sample code demonstrate how you can void an authorized payment
+// This sample code demonstrates how you can 
+// void an authorized payment.
 // API used: /v1/payments/authorization/<{authorizationid}>/void"
 
 require __DIR__ . '/../bootstrap.php';
@@ -13,11 +14,14 @@ use PayPal\Api\Authorization;
 // by invoking the $authorization->void method
 // with a valid ApiContext (See bootstrap.php for more on `ApiContext`)
 try {
-	// create payment to get authorization Id
+	// create an authorization to get authorization Id
 	// createAuthorization is defined in common.php
 	$authId = createAuthorization($apiContext);
-	
+
+	// Lookup the authorization
 	$authorization = Authorization::get($authId, $apiContext);
+
+	// Void the authorization 
 	$voidedAuth = $authorization->void($apiContext);
 } catch (PayPal\Exception\PPConnectionException $ex) {
 	echo "Exception: " . $ex->getMessage() . PHP_EOL;
@@ -26,6 +30,9 @@ try {
 }
 ?>
 <html>
+<head>
+	<title>Void an authorization</title>
+</head>
 <body>
 	<div>
 		Voided authorization

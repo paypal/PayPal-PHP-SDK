@@ -36,7 +36,7 @@ function getBaseUrl() {
 }
 
 /**
- * Creates a new payment authorization
+ * Creates a new mock 'payment authorization'
  *
  * @param PayPal\Api\ApiContext apiContext
  * @return PayPal\Api\Authorization
@@ -74,12 +74,12 @@ function createAuthorization($apiContext) {
 	
 	$transaction = new Transaction();
 	$transaction->setAmount($amount)
-		->setDescription("This is the payment description.");
+		->setDescription("Payment description.");
 	
 	$payment = new Payment();
 
 	// Setting intent to authorize creates a payment
-	// authorization. Setting it to sale makes an actual payment
+	// authorization. Setting it to sale creates actual payment
 	$payment->setIntent("authorize")
 		->setPayer($payer)
 		->setTransactions(array($transaction));

@@ -1,9 +1,9 @@
 <?php
 // # Refund Capture Sample
-// This sample code demonstrate how you can
-// process a refund on a Captured transaction created
-// using the Capture API.
+// This sample code demonstrates how you can
+// process a refund on a Captured transaction.
 // API used: /v1/payments/capture/{<captureID>}/refund
+
 require __DIR__ . '/../bootstrap.php';
 
 use PayPal\Api\Authorization;
@@ -13,24 +13,25 @@ use PayPal\Api\Amount;
 use PayPal\Rest\ApiContext;
 
 
-// ### Create a mock capture
 try {
-	// create payment to get authorization Id
+	// Create a mock authorization to get authorization Id
 	$authId = createAuthorization($apiContext);
-
-	$amt = new Amount();
-	$amt->setCurrency("USD")
-		->setTotal("1.00");
-
-	### Capture
-	$captur = new Capture();
-	$captur->setAmount($amt);
 
 	// Get the authorization
 	$authorization = Authorization::get($authId, $apiContext);
 	
+	
+	// ### Capture
+	
+	$amt = new Amount();
+	$amt->setCurrency("USD")
+		->setTotal("1.00");
+	
 	// Create a capture
-	$capt = $authorization->capture($captur, $apiContext);
+	$captureInfo = new Capture();
+	$captureInfo->setAmount($amt);
+
+	$capture = $authorization->capture($captureInfo, $apiContext);
 } catch (PayPal\Exception\PPConnectionException $ex) {
 	echo "Exception: " . $ex->getMessage() . PHP_EOL;
 	var_dump($ex->getData());
@@ -48,7 +49,8 @@ try {
 	// Create a new apiContext object so we send a new
 	// PayPal-Request-Id (idempotency) header for this resource
 	$apiContext = new ApiContext($apiContext->getCredential());
-	$captureRefund = $capt->refund($refund, $apiContext);
+
+	$captureRefund = $capture->refund($refund, $apiContext);
 } catch (PayPal\Exception\PPConnectionException $ex) {
 	echo "Exception: " . $ex->getMessage() . PHP_EOL;
 	var_dump($ex->getData());
@@ -57,6 +59,9 @@ try {
 ?>
 
 <html>
+<head>
+	<title>Refund a captured payment</title>
+</head>
 <body>
 	<div>Refund Capture:</div>
 	<pre><?php var_dump($captureRefund);?></pre>
