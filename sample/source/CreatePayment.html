@@ -60,8 +60,8 @@ the above types and intent set to sale 'sale'</p></div></div><div class="code"><
   <span class="o">-&gt;</span><span class="na">setPayer</span><span class="p">(</span><span class="nv">$payer</span><span class="p">)</span>
   <span class="o">-&gt;</span><span class="na">setTransactions</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="nv">$transaction</span><span class="p">));</span></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><h3 id="create-payment">Create Payment</h3>
 
-<p>Create a payment by posting to the APIService
-using a valid ApiContext (See bootstrap.php for more on <code>ApiContext</code>)
+<p>Create a payment by calling the payment->create() method
+with a valid ApiContext (See bootstrap.php for more on <code>ApiContext</code>)
 The return object contains the state.</p></div></div><div class="code"><div class="wrapper"><span class="k">try</span> <span class="p">{</span>
   <span class="nv">$payment</span><span class="o">-&gt;</span><span class="na">create</span><span class="p">(</span><span class="nv">$apiContext</span><span class="p">);</span>
 <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">PayPal\Exception\PPConnectionException</span> <span class="nv">$ex</span><span class="p">)</span> <span class="p">{</span>

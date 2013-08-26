@@ -81,8 +81,8 @@ $payment->setIntent("sale")
 	->setTransactions(array($transaction));
 
 // ### Create Payment
-// Create a payment by posting to the APIService
-// using a valid ApiContext (See bootstrap.php for more on `ApiContext`)
+// Create a payment by calling the payment->create() method
+// with a valid ApiContext (See bootstrap.php for more on `ApiContext`)
 // The return object contains the state.
 try {
 	$payment->create($apiContext);
