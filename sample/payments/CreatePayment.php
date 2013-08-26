@@ -71,22 +71,14 @@ $transaction = new Transaction();
 $transaction->setAmount($amount)
 	->setDescription("This is the payment description.");
 
-$transaction2 = new Transaction();
-$transaction->setAmount($amount)
-	->setDescription("This is fee payment.");
-var_dump($transaction2->toJson());
-
 // ### Payment
 // A Payment Resource; create one using
 // the above types and intent as 'sale'
 $payment = new Payment();
 $payment->setIntent("sale")
-//	->setPayer($payer)
-	->addTransaction($transaction)->addTransaction($transaction2);
+	->setPayer($payer)
+	->setTransactions(array($transaction));
 
-echo "*************<br/>";
-var_dump($payment->toJson());
-exit;
 // ### Create Payment
 // Create a payment by posting to the APIService
 // using a valid ApiContext (See bootstrap.php for more on `ApiContext`)
