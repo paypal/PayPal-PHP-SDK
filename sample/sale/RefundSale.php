@@ -11,13 +11,15 @@ use PayPal\Api\Amount;
 use PayPal\Api\Refund;
 use PayPal\Api\Sale;
 
-// ### Refund
-// Create a refund object indicating 
-// refund amount
+// ### Refund amount
+// Includes both the refunded amount (to Payer) 
+// and refunded fee (to Payee). Use the $amt->details
+// field to mention fees refund details.
 $amt = new Amount();
-$amt->setCurrency('USD');
-$amt->setTotal('0.01');
+$amt->setCurrency('USD')
+	->setTotal('0.01');
 
+// ### Refund object
 $refund = new Refund();
 $refund->setAmount($amt);
 
@@ -29,7 +31,6 @@ $saleId = '3RM92092UW5126232';
 // given sale transaction id.
 $sale = new Sale();
 $sale->setId($saleId);
-
 try {	
 	// Refund the sale
 	// (See bootstrap.php for more on `ApiContext`)
@@ -41,6 +42,9 @@ try {
 }
 ?>
 <html>
+<head>
+	<title>Refund a sale</title>
+</head>
 <body>
 	<div>Refunding sale id: <?php echo $saleId;?></div>
 	<pre><?php var_dump($sale);?></pre>

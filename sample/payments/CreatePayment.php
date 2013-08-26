@@ -1,8 +1,11 @@
 <?php
 
 // # CreatePaymentSample
+//
 // This sample code demonstrate how you can process
-// a payment with a credit card.
+// a direct credit card payment. Please note that direct 
+// credit card payment and related features using the 
+// REST API is restricted in some countries.
 // API used: /v1/payments/payment
 
 require __DIR__ . '/../bootstrap.php';
@@ -15,76 +18,72 @@ use PayPal\Api\FundingInstrument;
 use PayPal\Api\Transaction;
 
 // ### Address
-// Base Address object used as shipping or billing
-// address in a payment. [Optional]
+// [Optional] Billing address associated with card.
 $addr = new Address();
-$addr->setLine1("3909 Witmer Road");
-$addr->setLine2("Niagara Falls");
-$addr->setCity("Niagara Falls");
-$addr->setState("NY");
-$addr->setPostal_code("14305");
-$addr->setCountry_code("US");
-$addr->setPhone("716-298-1822");
+$addr->setLine1("3909 Witmer Road")
+	->setLine2("Niagara Falls")
+	->setCity("Niagara Falls")
+	->setState("NY")
+	->setPostalCode("14305")
+	->setCountryCode("US")
+	->setPhone("716-298-1822");
 
 // ### CreditCard
 // A resource representing a credit card that can be
 // used to fund a payment.
 $card = new CreditCard();
-$card->setType("visa");
-$card->setNumber("4417119669820331");
-$card->setExpire_month("11");
-$card->setExpire_year("2019");
-$card->setCvv2("012");
-$card->setFirst_name("Joe");
-$card->setLast_name("Shopper");
-$card->setBilling_address($addr);
+$card->setType("visa")
+	->setNumber("4417119669820331")
+	->setExpireMonth("11")
+	->setExpireYear("2019")
+	->setCvv2("012")
+	->setFirstName("Joe")
+	->setLastName("Shopper")
+	->setBillingAddress($addr);
 
 // ### FundingInstrument
 // A resource representing a Payer's funding instrument.
-// Use a Payer ID (A unique identifier of the payer generated
-// and provided by the facilitator. This is required when
-// creating or using a tokenized funding instrument)
-// and the `CreditCardDetails`
+// For direct credit card payments, set the CreditCard
+// field on this object.
 $fi = new FundingInstrument();
-$fi->setCredit_card($card);
+$fi->setCreditCard($card);
 
 // ### Payer
 // A resource representing a Payer that funds a payment
-// Use the List of `FundingInstrument` and the Payment Method
-// as 'credit_card'
+// For direct credit card payments, set payment method
+// to 'credit_card' and add an array of funding instruments.
 $payer = new Payer();
-$payer->setPayment_method("credit_card");
-$payer->setFunding_instruments(array($fi));
+$payer->setPaymentMethod("credit_card")
+	->setFundingInstruments(array($fi));
 
 // ### Amount
-// Let's you specify a payment amount.
+// Lets you specify a payment amount.
+// You can also specify additional details
+// such as shipping, tax.
 $amount = new Amount();
-$amount->setCurrency("USD");
-$amount->setTotal("1.00");
+$amount->setCurrency("USD")
+	->setTotal("1.00");
 
 // ### Transaction
 // A transaction defines the contract of a
 // payment - what is the payment for and who
-// is fulfilling it. Transaction is created with
-// a `Payee` and `Amount` types
+// is fulfilling it. 
 $transaction = new Transaction();
-$transaction->setAmount($amount);
-$transaction->setDescription("This is the payment description.");
+$transaction->setAmount($amount)
+	->setDescription("Payment description");
 
 // ### Payment
 // A Payment Resource; create one using
-// the above types and intent as 'sale'
+// the above types and intent set to sale 'sale'
 $payment = new Payment();
-$payment->setIntent("sale");
-$payment->setPayer($payer);
-$payment->setTransactions(array($transaction));
-
-
+$payment->setIntent("sale")
+	->setPayer($payer)
+	->setTransactions(array($transaction));
 
 // ### Create Payment
 // Create a payment by posting to the APIService
 // using a valid ApiContext (See bootstrap.php for more on `ApiContext`)
-// The return object contains the status;
+// The return object contains the state.
 try {
 	$payment->create($apiContext);
 } catch (PayPal\Exception\PPConnectionException $ex) {
@@ -94,6 +93,9 @@ try {
 }
 ?>
 <html>
+<head>
+	<title>Direct Credit card payments</title>
+</head>
 <body>
 	<div>
 		Created payment:
