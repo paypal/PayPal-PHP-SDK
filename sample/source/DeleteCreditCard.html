@@ -31,7 +31,7 @@ an 'id' that you can use to refer to it later.
 
 <span class="k">try</span> <span class="p">{</span></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><h3 id="delete-card">Delete Card</h3>
 
-<p>deletes saved credit card
+<p>Lookup and delete a saved credit card.
 (See bootstrap.php for more on <code>ApiContext</code>)</p></div></div><div class="code"><div class="wrapper">  <span class="nv">$creditCard</span> <span class="o">=</span> <span class="nx">CreditCard</span><span class="o">::</span><span class="na">get</span><span class="p">(</span><span class="nv">$card</span><span class="o">-&gt;</span><span class="na">getId</span><span class="p">(),</span> <span class="nv">$apiContext</span><span class="p">);</span>
   <span class="nv">$creditCard</span><span class="o">-&gt;</span><span class="na">delete</span><span class="p">(</span><span class="nv">$apiContext</span><span class="p">);</span>
 <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">PayPal\Exception\PPConnectionException</span> <span class="nv">$ex</span><span class="p">)</span> <span class="p">{</span>

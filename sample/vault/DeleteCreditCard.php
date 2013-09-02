@@ -36,7 +36,7 @@ try {
 
 try {
 	// ### Delete Card
-	// deletes saved credit card
+	// Lookup and delete a saved credit card.
 	// (See bootstrap.php for more on `ApiContext`)
 
 	$creditCard = CreditCard::get($card->getId(), $apiContext);
