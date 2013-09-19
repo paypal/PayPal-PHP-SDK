@@ -12,12 +12,14 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
           "nameMatchers": [{}, ".fbp"],
           "pygmentsLexer": "php",
           "singleLineComment": ["//"],
+          "ignorePrefix": "}",
+          "foldPrefix": "^",
           "name": "PHP"
         },
-        "sourcePath": "c:\\xcommerce\\repo\\PayPalSDKs\\rest\\rest-api-sdk-php\\sample\\sale\\GetSale.php",
-        "projectPath": "GetSale.php",
-        "targetPath": "GetSale",
-        "title": "GetSale"
+        "projectPath": "CreatePayment.php",
+        "targetPath": "CreatePayment",
+        "pageTitle": "CreatePayment",
+        "title": "CreatePayment"
       },
       "depth": 1,
       "outline": [
@@ -25,8 +27,8 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
           "type": "heading",
           "data": {
             "level": 1,
-            "title": "Get Sale sample",
-            "slug": "get-sale-sample"
+            "title": "CreatePaymentSample",
+            "slug": "createpaymentsample"
           },
           "depth": 1,
           "children": [
@@ -34,8 +36,72 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "type": "heading",
               "data": {
                 "level": 3,
-                "title": "Retrieve the sale object",
-                "slug": "retrieve-the-sale-object"
+                "title": "CreditCard",
+                "slug": "creditcard"
+              },
+              "depth": 3
+            }, {
+              "type": "heading",
+              "data": {
+                "level": 3,
+                "title": "FundingInstrument",
+                "slug": "fundinginstrument"
+              },
+              "depth": 3
+            }, {
+              "type": "heading",
+              "data": {
+                "level": 3,
+                "title": "Payer",
+                "slug": "payer"
+              },
+              "depth": 3
+            }, {
+              "type": "heading",
+              "data": {
+                "level": 3,
+                "title": "Itemized information",
+                "slug": "itemized-information"
+              },
+              "depth": 3
+            }, {
+              "type": "heading",
+              "data": {
+                "level": 3,
+                "title": "Additional payment details",
+                "slug": "additional-payment-details"
+              },
+              "depth": 3
+            }, {
+              "type": "heading",
+              "data": {
+                "level": 3,
+                "title": "Amount",
+                "slug": "amount"
+              },
+              "depth": 3
+            }, {
+              "type": "heading",
+              "data": {
+                "level": 3,
+                "title": "Transaction",
+                "slug": "transaction"
+              },
+              "depth": 3
+            }, {
+              "type": "heading",
+              "data": {
+                "level": 3,
+                "title": "Payment",
+                "slug": "payment"
+              },
+              "depth": 3
+            }, {
+              "type": "heading",
+              "data": {
+                "level": 3,
+                "title": "Create Payment",
+                "slug": "create-payment"
               },
               "depth": 3
             }
@@ -49,12 +115,14 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
           "nameMatchers": [{}, ".fbp"],
           "pygmentsLexer": "php",
           "singleLineComment": ["//"],
+          "ignorePrefix": "}",
+          "foldPrefix": "^",
           "name": "PHP"
         },
-        "sourcePath": "c:\\xcommerce\\repo\\PayPalSDKs\\rest\\rest-api-sdk-php\\sample\\sale\\RefundSale.php",
-        "projectPath": "RefundSale.php",
-        "targetPath": "RefundSale",
-        "title": "RefundSale"
+        "projectPath": "CreatePaymentUsingPayPal.php",
+        "targetPath": "CreatePaymentUsingPayPal",
+        "pageTitle": "CreatePaymentUsingPayPal",
+        "title": "CreatePaymentUsingPayPal"
       },
       "depth": 1,
       "outline": [
@@ -62,8 +130,8 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
           "type": "heading",
           "data": {
             "level": 1,
-            "title": "Sale Refund Sample",
-            "slug": "sale-refund-sample"
+            "title": "Create Payment using PayPal as payment method",
+            "slug": "create-payment-using-paypal-as-payment-method"
           },
           "depth": 1,
           "children": [
@@ -71,24 +139,183 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "type": "heading",
               "data": {
                 "level": 3,
-                "title": "Refund amount",
-                "slug": "refund-amount"
+                "title": "Payer",
+                "slug": "payer"
               },
               "depth": 3
             }, {
               "type": "heading",
               "data": {
                 "level": 3,
-                "title": "Refund object",
-                "slug": "refund-object"
+                "title": "Itemized information",
+                "slug": "itemized-information"
               },
               "depth": 3
             }, {
               "type": "heading",
               "data": {
                 "level": 3,
-                "title": "Sale",
-                "slug": "sale"
+                "title": "Additional payment details",
+                "slug": "additional-payment-details"
+              },
+              "depth": 3
+            }, {
+              "type": "heading",
+              "data": {
+                "level": 3,
+                "title": "Amount",
+                "slug": "amount"
+              },
+              "depth": 3
+            }, {
+              "type": "heading",
+              "data": {
+                "level": 3,
+                "title": "Transaction",
+                "slug": "transaction"
+              },
+              "depth": 3
+            }, {
+              "type": "heading",
+              "data": {
+                "level": 3,
+                "title": "Redirect urls",
+                "slug": "redirect-urls"
+              },
+              "depth": 3
+            }, {
+              "type": "heading",
+              "data": {
+                "level": 3,
+                "title": "Payment",
+                "slug": "payment"
+              },
+              "depth": 3
+            }, {
+              "type": "heading",
+              "data": {
+                "level": 3,
+                "title": "Create Payment",
+                "slug": "create-payment"
+              },
+              "depth": 3
+            }, {
+              "type": "heading",
+              "data": {
+                "level": 3,
+                "title": "Get redirect url",
+                "slug": "get-redirect-url"
+              },
+              "depth": 3
+            }, {
+              "type": "heading",
+              "data": {
+                "level": 3,
+                "title": "Redirect buyer to PayPal website",
+                "slug": "redirect-buyer-to-paypal-website"
+              },
+              "depth": 3
+            }
+          ]
+        }
+      ]
+    }, {
+      "type": "file",
+      "data": {
+        "language": {
+          "nameMatchers": [{}, ".fbp"],
+          "pygmentsLexer": "php",
+          "singleLineComment": ["//"],
+          "ignorePrefix": "}",
+          "foldPrefix": "^",
+          "name": "PHP"
+        },
+        "projectPath": "CreatePaymentUsingSavedCard.php",
+        "targetPath": "CreatePaymentUsingSavedCard",
+        "pageTitle": "CreatePaymentUsingSavedCard",
+        "title": "CreatePaymentUsingSavedCard"
+      },
+      "depth": 1,
+      "outline": [
+        {
+          "type": "heading",
+          "data": {
+            "level": 1,
+            "title": "Create payment using a saved credit card",
+            "slug": "create-payment-using-a-saved-credit-card"
+          },
+          "depth": 1,
+          "children": [
+            {
+              "type": "heading",
+              "data": {
+                "level": 3,
+                "title": "Credit card token",
+                "slug": "credit-card-token"
+              },
+              "depth": 3
+            }, {
+              "type": "heading",
+              "data": {
+                "level": 3,
+                "title": "FundingInstrument",
+                "slug": "fundinginstrument"
+              },
+              "depth": 3
+            }, {
+              "type": "heading",
+              "data": {
+                "level": 3,
+                "title": "Payer",
+                "slug": "payer"
+              },
+              "depth": 3
+            }, {
+              "type": "heading",
+              "data": {
+                "level": 3,
+                "title": "Itemized information",
+                "slug": "itemized-information"
+              },
+              "depth": 3
+            }, {
+              "type": "heading",
+              "data": {
+                "level": 3,
+                "title": "Additional payment details",
+                "slug": "additional-payment-details"
+              },
+              "depth": 3
+            }, {
+              "type": "heading",
+              "data": {
+                "level": 3,
+                "title": "Amount",
+                "slug": "amount"
+              },
+              "depth": 3
+            }, {
+              "type": "heading",
+              "data": {
+                "level": 3,
+                "title": "Transaction",
+                "slug": "transaction"
+              },
+              "depth": 3
+            }, {
+              "type": "heading",
+              "data": {
+                "level": 3,
+                "title": "Payment",
+                "slug": "payment"
+              },
+              "depth": 3
+            }, {
+              "type": "heading",
+              "data": {
+                "level": 3,
+                "title": "Create Payment",
+                "slug": "create-payment"
               },
               "depth": 3
             }
@@ -331,14 +558,29 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
   };
 
   buildTOCNode = function(node, metaInfo) {
-    var c, children$, discloser$, label$, node$, _i, _len, _ref, _ref1, _ref2;
+    var c, children$, clickLabel, discloser, discloser$, label$, node$, _i, _len, _ref, _ref1, _ref2;
     node$ = $("<li class=\"" + node.type + "\"/>");
+    discloser = null;
     switch (node.type) {
       case 'file':
         node$.append("<a class=\"label\" href=\"" + metaInfo.relativeRoot + node.data.targetPath + ".html\" title=\"" + node.data.projectPath + "\"><span class=\"text\">" + node.data.title + "</span></a>");
+        clickLabel = function(evt) {
+          if (evt.target === discloser) {
+            node$.toggleClass('expanded');
+            evt.preventDefault();
+            return false;
+          }
+          return selectNode(node$);
+        };
         break;
       case 'folder':
-        node$.append("<span class=\"label\"><span class=\"text\">" + node.data.title + "</span></span>");
+        node$.append("<a class=\"label\" href=\"#\"><span class=\"text\">" + node.data.title + "</span></a>");
+        clickLabel = function(evt) {
+          selectNode(node$);
+          node$.toggleClass('expanded');
+          evt.preventDefault();
+          return false;
+        };
     }
     if (((_ref = node.children) != null ? _ref.length : void 0) > 0) {
       children$ = $('<ol class="children"/>');
@@ -350,17 +592,12 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
       node$.append(children$);
     }
     label$ = node$.find('> .label');
-    label$.click(function() {
-      return selectNode(node$);
-    });
+    label$.click(clickLabel);
     discloser$ = $('<span class="discloser"/>').prependTo(label$);
     if (!(((_ref2 = node.children) != null ? _ref2.length : void 0) > 0)) {
       discloser$.addClass('placeholder');
     }
-    discloser$.click(function(evt) {
-      node$.toggleClass('expanded');
-      return evt.preventDefault();
-    });
+    discloser = discloser$.get(0);
     if (node.type === 'file') {
       fileMap[node.data.targetPath] = node$;
     }
@@ -435,7 +672,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
     search$.bind('keyup search', function(evt) {
       return searchNodes(search$.val());
     });
-    return search$.keydown(function(evt) {
+    search$.keydown(function(evt) {
       if (evt.keyCode === 27) {
         if (search$.val().trim() === '') {
           return search$.blur();
@@ -443,6 +680,15 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
           return search$.val('');
         }
       }
+    });
+    return $('.code.folded').each(function(index, code) {
+      var code$;
+      code$ = $(code);
+      return code$.click(function(evt) {
+        code$.toggleClass('folded');
+        evt.preventDefault();
+        return false;
+      });
     });
   });
 
