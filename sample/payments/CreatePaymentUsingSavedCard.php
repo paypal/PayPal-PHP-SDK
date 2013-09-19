@@ -7,6 +7,9 @@
 
 require __DIR__ . '/../bootstrap.php';
 use PayPal\Api\Amount;
+use PayPal\Api\Details;
+use PayPal\Api\Item;
+use PayPal\Api\ItemList;
 use PayPal\Api\CreditCardToken;
 use PayPal\Api\Payer;
 use PayPal\Api\Payment;
@@ -34,13 +37,40 @@ $payer = new Payer();
 $payer->setPaymentMethod("credit_card")
 	->setFundingInstruments(array($fi));
 
+// ### Itemized information
+// (Optional) Lets you specify item wise
+// information
+$item1 = new Item();
+$item1->setName('Ground Coffee 40 oz')
+	->setCurrency('USD')
+	->setQuantity(1)
+	->setPrice('7.50');
+$item2 = new Item();
+$item2->setName('Granola bars')
+	->setCurrency('USD')
+	->setQuantity(5)
+	->setPrice('2.00');
+
+$itemList = new ItemList();
+$itemList->setItems(array($item1, $item2));
+
+// ### Additional payment details
+// Use this optional field to set additional
+// payment information such as tax, shipping
+// charges etc.
+$details = new Details();
+$details->setShipping('1.20')
+	->setTax('1.30')
+	->setSubtotal('17.50');
+
 // ### Amount
 // Lets you specify a payment amount.
 // You can also specify additional details
 // such as shipping, tax.
 $amount = new Amount();
 $amount->setCurrency("USD")
-	->setTotal("1.00");
+	->setTotal("20.00")
+	->setDetails($details);
 
 // ### Transaction
 // A transaction defines the contract of a
@@ -48,6 +78,7 @@ $amount->setCurrency("USD")
 // is fulfilling it. 
 $transaction = new Transaction();
 $transaction->setAmount($amount)
+	->setItemList($itemList)
 	->setDescription("Payment description");
 
 // ### Payment
