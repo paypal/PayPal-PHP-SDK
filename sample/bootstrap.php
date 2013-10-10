@@ -5,7 +5,7 @@
 
 // Include the composer autoloader
 $composerAutoload = dirname(dirname(dirname(__DIR__))) . '/autoload.php';
-if (file_exists($composerAutoload))
+if (!file_exists($composerAutoload))
 {
     $composerAutoload = __DIR__ .'/vendor/autoload.php';
 
