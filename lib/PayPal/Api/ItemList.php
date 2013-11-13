@@ -4,6 +4,21 @@ namespace PayPal\Api;
 use PayPal\Common\PPModel;
 
 class ItemList extends PPModel {
+
+	/**
+	 * Construct an empty list.
+	 */
+	function __construct() {
+		$this->items = array();
+	}
+
+	/** 
+	 * Is this list empty?
+	 */
+	public function isEmpty() {
+		return empty($this->items);
+	}
+
 	/**
 	 * List of items.
 	 * @array
@@ -22,6 +37,26 @@ class ItemList extends PPModel {
 		return $this->items;
 	}
 
+	/**
+	 * Append an item to the list.
+	 * @return PayPal\Api\Item
+	 */
+	public function addItem($item) {
+		return $this->setItems(
+			array_merge($this->items, array($item))
+		);
+	}
+
+	/**
+	 * Remove an item from the list.
+	 * Items are compared using === comparision (PHP.net)
+	 * @return PayPal\Api\Item
+	 */
+	public function removeItem($item) {
+		return $this->setItems(
+			array_diff($this->items, array($item))
+		);
+	}
 
 	/**
 	 * Shipping address.
