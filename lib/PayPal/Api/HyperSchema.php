@@ -1,116 +1,162 @@
 <?php
+
 namespace PayPal\Api;
 
 use PayPal\Common\PPModel;
 
-class HyperSchema extends PPModel {
-	/**
-	 * 
-	 * @array
-	 * @param PayPal\Api\Links $links
-	 */
-	public function setLinks($links) {
-		$this->links = $links;
-		return $this;
-	}
+/**
+ * Class HyperSchema
+ *
+ * @property \PayPal\Api\Links links
+ * @property string            fragmentResolution
+ * @property bool              readonly
+ * @property string            contentEncoding
+ * @property string            pathStart
+ * @property string            mediaType
+ */
+class HyperSchema extends PPModel
+{
+    /**
+     * Set Links
+     *
+     * @param \PayPal\Api\Links $links
+     *
+     * @return $this
+     */
+    public function setLinks($links)
+    {
+        $this->links = $links;
 
-	/**
-	 * 
-	 * @return PayPal\Api\Links
-	 */
-	public function getLinks() {
-		return $this->links;
-	}
+        return $this;
+    }
 
+    /**
+     * Get Links
+     *
+     * @return \PayPal\Api\Links
+     */
+    public function getLinks()
+    {
+        return $this->links;
+    }
 
-	/**
-	 * 
-	 * @param string $fragmentResolution
-	 */
-	public function setFragmentResolution($fragmentResolution) {
-		$this->fragmentResolution = $fragmentResolution;
-		return $this;
-	}
+    /**
+     * Set Fragment Resolution
+     *
+     * @param string $fragmentResolution
+     *
+     * @return $this
+     */
+    public function setFragmentResolution($fragmentResolution)
+    {
+        $this->fragmentResolution = $fragmentResolution;
 
-	/**
-	 * 
-	 * @return string
-	 */
-	public function getFragmentResolution() {
-		return $this->fragmentResolution;
-	}
+        return $this;
+    }
 
+    /**
+     * Get Fragment Resolution
+     *
+     * @return string
+     */
+    public function getFragmentResolution()
+    {
+        return $this->fragmentResolution;
+    }
 
-	/**
-	 * 
-	 * @param boolean $readonly
-	 */
-	public function setReadonly($readonly) {
-		$this->readonly = $readonly;
-		return $this;
-	}
+    /**
+     * Set Read Only
+     *
+     * @param bool $readonly
+     *
+     * @return $this
+     */
+    public function setReadonly($readonly)
+    {
+        $this->readonly = $readonly;
 
-	/**
-	 * 
-	 * @return boolean
-	 */
-	public function getReadonly() {
-		return $this->readonly;
-	}
+        return $this;
+    }
 
+    /**
+     * Get Read Only
+     *
+     * @return bool
+     */
+    public function getReadonly()
+    {
+        return $this->readonly;
+    }
 
-	/**
-	 * 
-	 * @param string $contentEncoding
-	 */
-	public function setContentEncoding($contentEncoding) {
-		$this->contentEncoding = $contentEncoding;
-		return $this;
-	}
+    /**
+     * Set Content Encoding
+     *
+     * @param string $contentEncoding
+     *
+     * @return $this
+     */
+    public function setContentEncoding($contentEncoding)
+    {
+        $this->contentEncoding = $contentEncoding;
 
-	/**
-	 * 
-	 * @return string
-	 */
-	public function getContentEncoding() {
-		return $this->contentEncoding;
-	}
+        return $this;
+    }
 
+    /**
+     * Get Content Encoding
+     *
+     * @return string
+     */
+    public function getContentEncoding()
+    {
+        return $this->contentEncoding;
+    }
 
-	/**
-	 * 
-	 * @param string $pathStart
-	 */
-	public function setPathStart($pathStart) {
-		$this->pathStart = $pathStart;
-		return $this;
-	}
+    /**
+     * Set Path Start
+     *
+     * @param string $pathStart
+     *
+     * @return $this
+     */
+    public function setPathStart($pathStart)
+    {
+        $this->pathStart = $pathStart;
 
-	/**
-	 * 
-	 * @return string
-	 */
-	public function getPathStart() {
-		return $this->pathStart;
-	}
+        return $this;
+    }
 
+    /**
+     * Get Path Start
+     *
+     * @return string
+     */
+    public function getPathStart()
+    {
+        return $this->pathStart;
+    }
 
-	/**
-	 * 
-	 * @param string $mediaType
-	 */
-	public function setMediaType($mediaType) {
-		$this->mediaType = $mediaType;
-		return $this;
-	}
+    /**
+     * Set Media Type
+     *
+     * @param string $mediaType
+     *
+     * @return $this
+     */
+    public function setMediaType($mediaType)
+    {
+        $this->mediaType = $mediaType;
 
-	/**
-	 * 
-	 * @return string
-	 */
-	public function getMediaType() {
-		return $this->mediaType;
-	}
+        return $this;
+    }
 
-
+    /**
+     * Get Media Type
+     *
+     * @return string
+     */
+    public function getMediaType()
+    {
+        return $this->mediaType;
+    }
 }
