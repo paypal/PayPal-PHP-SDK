@@ -63,3 +63,5 @@ The samples in this repo pick the SDK configuration from the sdk_config.ini file
 
    * [API Reference](https://developer.paypal.com/webapps/developer/docs/api/)
    * [Reporting issues / feature requests] (https://github.com/paypal/rest-api-sdk-php/issues)
+   
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/paypal/rest-api-sample-app-php/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
