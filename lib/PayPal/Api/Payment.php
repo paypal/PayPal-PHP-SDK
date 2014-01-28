@@ -7,6 +7,7 @@ use PayPal\Rest\Call;
 use PayPal\Rest\ApiContext;
 use PayPal\Api\Payment;
 use PayPal\Api\PaymentHistory;
+use PayPal\Api\Transaction;
 use PayPal\Transport\PPRestCall;
 
 class Payment extends PPModel implements IResource {
@@ -144,13 +145,22 @@ class Payment extends PPModel implements IResource {
 		return $this->payer;
 	}
 
+	/**
+	 * Add a transaction to the payment more comfortable.
+	 * @param PayPal\Api\Transaction
+	 * @return PayPal\Api\Payment
+	 */
+	public function addTransaction(Transaction $transaction) {
+		$this->transactions[] = $transaction;
+		return $this;
+	}
 
 	/**
 	 * A payment can have more than one transaction, with each transaction establishing a contract between the payer and a payee
 	 * @array
 	 * @param PayPal\Api\Transaction $transactions
 	 */
-	public function setTransactions($transactions) {
+	public function setTransactions(array $transactions) {
 		$this->transactions = $transactions;
 		return $this;
 	}
