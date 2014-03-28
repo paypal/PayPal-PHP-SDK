@@ -2,10 +2,12 @@
 namespace PayPal\Api;
 
 use PayPal\Common\PPModel;
+use PayPal\Rest\ApiContext;
 
 class Details extends PPModel {
 	/**
 	 * Amount being charged for shipping.
+	 *
 	 * @param string $shipping
 	 */
 	public function setShipping($shipping) {
@@ -15,6 +17,7 @@ class Details extends PPModel {
 
 	/**
 	 * Amount being charged for shipping.
+	 *
 	 * @return string
 	 */
 	public function getShipping() {
@@ -24,6 +27,7 @@ class Details extends PPModel {
 
 	/**
 	 * Sub-total (amount) of items being paid for.
+	 *
 	 * @param string $subtotal
 	 */
 	public function setSubtotal($subtotal) {
@@ -33,6 +37,7 @@ class Details extends PPModel {
 
 	/**
 	 * Sub-total (amount) of items being paid for.
+	 *
 	 * @return string
 	 */
 	public function getSubtotal() {
@@ -42,6 +47,7 @@ class Details extends PPModel {
 
 	/**
 	 * Amount being charged as tax.
+	 *
 	 * @param string $tax
 	 */
 	public function setTax($tax) {
@@ -51,6 +57,7 @@ class Details extends PPModel {
 
 	/**
 	 * Amount being charged as tax.
+	 *
 	 * @return string
 	 */
 	public function getTax() {
@@ -60,6 +67,7 @@ class Details extends PPModel {
 
 	/**
 	 * Fee charged by PayPal. In case of a refund, this is the fee amount refunded to the original receipient of the payment.
+	 *
 	 * @param string $fee
 	 */
 	public function setFee($fee) {
@@ -69,6 +77,7 @@ class Details extends PPModel {
 
 	/**
 	 * Fee charged by PayPal. In case of a refund, this is the fee amount refunded to the original receipient of the payment.
+	 *
 	 * @return string
 	 */
 	public function getFee() {

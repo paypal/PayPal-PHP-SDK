@@ -2,10 +2,12 @@
 namespace PayPal\Api;
 
 use PayPal\Common\PPModel;
+use PayPal\Rest\ApiContext;
 
 class Amount extends PPModel {
 	/**
 	 * 3 letter currency code
+	 *
 	 * @param string $currency
 	 */
 	public function setCurrency($currency) {
@@ -15,6 +17,7 @@ class Amount extends PPModel {
 
 	/**
 	 * 3 letter currency code
+	 *
 	 * @return string
 	 */
 	public function getCurrency() {
@@ -24,6 +27,7 @@ class Amount extends PPModel {
 
 	/**
 	 * Total amount charged from the Payer account (or card) to Payee. In case of a refund, this is the refunded amount to the original Payer from Payee account.
+	 *
 	 * @param string $total
 	 */
 	public function setTotal($total) {
@@ -33,6 +37,7 @@ class Amount extends PPModel {
 
 	/**
 	 * Total amount charged from the Payer account (or card) to Payee. In case of a refund, this is the refunded amount to the original Payer from Payee account.
+	 *
 	 * @return string
 	 */
 	public function getTotal() {
@@ -42,6 +47,7 @@ class Amount extends PPModel {
 
 	/**
 	 * Additional details of the payment amount.
+	 *
 	 * @param PayPal\Api\Details $details
 	 */
 	public function setDetails($details) {
@@ -51,6 +57,7 @@ class Amount extends PPModel {
 
 	/**
 	 * Additional details of the payment amount.
+	 *
 	 * @return PayPal\Api\Details
 	 */
 	public function getDetails() {

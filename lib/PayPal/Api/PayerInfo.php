@@ -2,10 +2,12 @@
 namespace PayPal\Api;
 
 use PayPal\Common\PPModel;
+use PayPal\Rest\ApiContext;
 
 class PayerInfo extends PPModel {
 	/**
 	 * Email address representing the Payer.
+	 *
 	 * @param string $email
 	 */
 	public function setEmail($email) {
@@ -15,6 +17,7 @@ class PayerInfo extends PPModel {
 
 	/**
 	 * Email address representing the Payer.
+	 *
 	 * @return string
 	 */
 	public function getEmail() {
@@ -24,6 +27,7 @@ class PayerInfo extends PPModel {
 
 	/**
 	 * First Name of the Payer from their PayPal Account.
+	 *
 	 * @param string $first_name
 	 */
 	public function setFirstName($first_name) {
@@ -33,6 +37,7 @@ class PayerInfo extends PPModel {
 
 	/**
 	 * First Name of the Payer from their PayPal Account.
+	 *
 	 * @return string
 	 */
 	public function getFirstName() {
@@ -41,6 +46,7 @@ class PayerInfo extends PPModel {
 
 	/**
 	 * First Name of the Payer from their PayPal Account.
+	 *
 	 * @param string $first_name
 	 * @deprecated. Instead use setFirstName
 	 */
@@ -50,6 +56,7 @@ class PayerInfo extends PPModel {
 	}
 	/**
 	 * First Name of the Payer from their PayPal Account.
+	 *
 	 * @return string
 	 * @deprecated. Instead use getFirstName
 	 */
@@ -59,6 +66,7 @@ class PayerInfo extends PPModel {
 
 	/**
 	 * Last Name of the Payer from their PayPal Account.
+	 *
 	 * @param string $last_name
 	 */
 	public function setLastName($last_name) {
@@ -68,6 +76,7 @@ class PayerInfo extends PPModel {
 
 	/**
 	 * Last Name of the Payer from their PayPal Account.
+	 *
 	 * @return string
 	 */
 	public function getLastName() {
@@ -76,6 +85,7 @@ class PayerInfo extends PPModel {
 
 	/**
 	 * Last Name of the Payer from their PayPal Account.
+	 *
 	 * @param string $last_name
 	 * @deprecated. Instead use setLastName
 	 */
@@ -85,6 +95,7 @@ class PayerInfo extends PPModel {
 	}
 	/**
 	 * Last Name of the Payer from their PayPal Account.
+	 *
 	 * @return string
 	 * @deprecated. Instead use getLastName
 	 */
@@ -94,6 +105,7 @@ class PayerInfo extends PPModel {
 
 	/**
 	 * PayPal assigned Payer ID.
+	 *
 	 * @param string $payer_id
 	 */
 	public function setPayerId($payer_id) {
@@ -103,6 +115,7 @@ class PayerInfo extends PPModel {
 
 	/**
 	 * PayPal assigned Payer ID.
+	 *
 	 * @return string
 	 */
 	public function getPayerId() {
@@ -111,6 +124,7 @@ class PayerInfo extends PPModel {
 
 	/**
 	 * PayPal assigned Payer ID.
+	 *
 	 * @param string $payer_id
 	 * @deprecated. Instead use setPayerId
 	 */
@@ -120,6 +134,7 @@ class PayerInfo extends PPModel {
 	}
 	/**
 	 * PayPal assigned Payer ID.
+	 *
 	 * @return string
 	 * @deprecated. Instead use getPayerId
 	 */
@@ -129,6 +144,7 @@ class PayerInfo extends PPModel {
 
 	/**
 	 * Phone number representing the Payer.
+	 *
 	 * @param string $phone
 	 */
 	public function setPhone($phone) {
@@ -138,6 +154,7 @@ class PayerInfo extends PPModel {
 
 	/**
 	 * Phone number representing the Payer.
+	 *
 	 * @return string
 	 */
 	public function getPhone() {
@@ -147,6 +164,7 @@ class PayerInfo extends PPModel {
 
 	/**
 	 * Shipping address of the Payer from their PayPal Account.
+	 *
 	 * @param PayPal\Api\Address $shipping_address
 	 */
 	public function setShippingAddress($shipping_address) {
@@ -156,6 +174,7 @@ class PayerInfo extends PPModel {
 
 	/**
 	 * Shipping address of the Payer from their PayPal Account.
+	 *
 	 * @return PayPal\Api\Address
 	 */
 	public function getShippingAddress() {
@@ -164,6 +183,7 @@ class PayerInfo extends PPModel {
 
 	/**
 	 * Shipping address of the Payer from their PayPal Account.
+	 *
 	 * @param PayPal\Api\Address $shipping_address
 	 * @deprecated. Instead use setShippingAddress
 	 */
@@ -173,6 +193,7 @@ class PayerInfo extends PPModel {
 	}
 	/**
 	 * Shipping address of the Payer from their PayPal Account.
+	 *
 	 * @return PayPal\Api\Address
 	 * @deprecated. Instead use getShippingAddress
 	 */

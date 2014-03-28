@@ -2,10 +2,12 @@
 namespace PayPal\Api;
 
 use PayPal\Common\PPModel;
+use PayPal\Rest\ApiContext;
 
 class Transactions extends PPModel {
 	/**
 	 * Amount being collected.
+	 *
 	 * @param PayPal\Api\Amount $amount
 	 */
 	public function setAmount($amount) {
@@ -15,6 +17,7 @@ class Transactions extends PPModel {
 
 	/**
 	 * Amount being collected.
+	 *
 	 * @return PayPal\Api\Amount
 	 */
 	public function getAmount() {

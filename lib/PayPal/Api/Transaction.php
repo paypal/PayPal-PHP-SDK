@@ -2,10 +2,12 @@
 namespace PayPal\Api;
 
 use PayPal\Common\PPModel;
+use PayPal\Rest\ApiContext;
 
 class Transaction extends PPModel {
 	/**
 	 * Amount being collected.
+	 *
 	 * @param PayPal\Api\Amount $amount
 	 */
 	public function setAmount($amount) {
@@ -15,6 +17,7 @@ class Transaction extends PPModel {
 
 	/**
 	 * Amount being collected.
+	 *
 	 * @return PayPal\Api\Amount
 	 */
 	public function getAmount() {
@@ -24,6 +27,7 @@ class Transaction extends PPModel {
 
 	/**
 	 * Recepient of the funds in this transaction.
+	 *
 	 * @param PayPal\Api\Payee $payee
 	 */
 	public function setPayee($payee) {
@@ -33,6 +37,7 @@ class Transaction extends PPModel {
 
 	/**
 	 * Recepient of the funds in this transaction.
+	 *
 	 * @return PayPal\Api\Payee
 	 */
 	public function getPayee() {
@@ -42,6 +47,7 @@ class Transaction extends PPModel {
 
 	/**
 	 * Description of what is being paid for.
+	 *
 	 * @param string $description
 	 */
 	public function setDescription($description) {
@@ -51,6 +57,7 @@ class Transaction extends PPModel {
 
 	/**
 	 * Description of what is being paid for.
+	 *
 	 * @return string
 	 */
 	public function getDescription() {
@@ -60,6 +67,7 @@ class Transaction extends PPModel {
 
 	/**
 	 * List of items being paid for.
+	 *
 	 * @param PayPal\Api\ItemList $item_list
 	 */
 	public function setItemList($item_list) {
@@ -69,6 +77,7 @@ class Transaction extends PPModel {
 
 	/**
 	 * List of items being paid for.
+	 *
 	 * @return PayPal\Api\ItemList
 	 */
 	public function getItemList() {
@@ -77,6 +86,7 @@ class Transaction extends PPModel {
 
 	/**
 	 * List of items being paid for.
+	 *
 	 * @param PayPal\Api\ItemList $item_list
 	 * @deprecated. Instead use setItemList
 	 */
@@ -86,6 +96,7 @@ class Transaction extends PPModel {
 	}
 	/**
 	 * List of items being paid for.
+	 *
 	 * @return PayPal\Api\ItemList
 	 * @deprecated. Instead use getItemList
 	 */
@@ -95,6 +106,7 @@ class Transaction extends PPModel {
 
 	/**
 	 * List of financial transactions (Sale, Authorization, Capture, Refund) related to the payment.
+	 *
 	 * @array
 	 * @param PayPal\Api\RelatedResources $related_resources
 	 */
@@ -105,6 +117,7 @@ class Transaction extends PPModel {
 
 	/**
 	 * List of financial transactions (Sale, Authorization, Capture, Refund) related to the payment.
+	 *
 	 * @return PayPal\Api\RelatedResources
 	 */
 	public function getRelatedResources() {
@@ -113,6 +126,7 @@ class Transaction extends PPModel {
 
 	/**
 	 * List of financial transactions (Sale, Authorization, Capture, Refund) related to the payment.
+	 *
 	 * @array
 	 * @param PayPal\Api\RelatedResources $related_resources
 	 * @deprecated. Instead use setRelatedResources
@@ -123,6 +137,7 @@ class Transaction extends PPModel {
 	}
 	/**
 	 * List of financial transactions (Sale, Authorization, Capture, Refund) related to the payment.
+	 *
 	 * @return PayPal\Api\RelatedResources
 	 * @deprecated. Instead use getRelatedResources
 	 */
@@ -132,6 +147,7 @@ class Transaction extends PPModel {
 
 	/**
 	 * Additional transactions for complex payment (Parallel and Chained) scenarios.
+	 *
 	 * @array
 	 * @param PayPal\Api\self $transactions
 	 */
@@ -142,6 +158,7 @@ class Transaction extends PPModel {
 
 	/**
 	 * Additional transactions for complex payment (Parallel and Chained) scenarios.
+	 *
 	 * @return PayPal\Api\self
 	 */
 	public function getTransactions() {
