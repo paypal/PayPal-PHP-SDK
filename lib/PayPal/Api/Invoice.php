@@ -789,7 +789,7 @@ class Invoice extends PPModel implements IResource {
 		}
 		$call = new PPRestCall($apiContext);
 		$json = $call->execute(array('PayPal\Rest\RestHandler'), "/v1/invoicing/invoices/{$this->getId()}/send", "POST", $payLoad);
-    return;
+    return true;
 	}
 
 	/*
@@ -812,7 +812,7 @@ class Invoice extends PPModel implements IResource {
 		}
 		$call = new PPRestCall($apiContext);
 		$json = $call->execute(array('PayPal\Rest\RestHandler'), "/v1/invoicing/invoices/{$this->getId()}/remind", "POST", $payLoad);
-    return;
+    return true;
 	}
 
 	/*
@@ -835,7 +835,7 @@ class Invoice extends PPModel implements IResource {
 		}
 		$call = new PPRestCall($apiContext);
 		$json = $call->execute(array('PayPal\Rest\RestHandler'), "/v1/invoicing/invoices/{$this->getId()}/cancel", "POST", $payLoad);
-    return;
+    return true;
 	}
 
 	/*
@@ -858,7 +858,7 @@ class Invoice extends PPModel implements IResource {
 		}
 		$call = new PPRestCall($apiContext);
 		$json = $call->execute(array('PayPal\Rest\RestHandler'), "/v1/invoicing/invoices/{$this->getId()}/record-payment", "POST", $payLoad);
-    return;
+    return true;
 	}
 
 	/*
@@ -881,7 +881,7 @@ class Invoice extends PPModel implements IResource {
 		}
 		$call = new PPRestCall($apiContext);
 		$json = $call->execute(array('PayPal\Rest\RestHandler'), "/v1/invoicing/invoices/{$this->getId()}/record-refund", "POST", $payLoad);
-    return;
+    return true;
 	}
 
 	/*
@@ -960,6 +960,6 @@ class Invoice extends PPModel implements IResource {
 		}
 		$call = new PPRestCall($apiContext);
 		$json = $call->execute(array('PayPal\Rest\RestHandler'), "/v1/invoicing/invoices/{$this->getId()}", "DELETE", $payLoad);
-    return;
+    return true;
 	}
 }
