@@ -150,7 +150,7 @@ class Payment extends PPModel implements IResource {
 	 * @array
 	 * @param PayPal\Api\Transaction $transactions
 	 */
-	public function setTransactions($transactions) {
+	public function setTransactions(array $transactions) {
 		$this->transactions = $transactions;
 		return $this;
 	}
