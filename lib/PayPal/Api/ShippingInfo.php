@@ -123,6 +123,26 @@ class ShippingInfo extends PPModel {
 	}
 
 	/**
+	 * 
+	 *
+	 * @param PayPal\Api\Phone $phone
+	 */
+	public function setPhone($phone) {
+		$this->phone = $phone;
+		return $this;
+	}
+
+	/**
+	 * 
+	 *
+	 * @return PayPal\Api\Phone
+	 */
+	public function getPhone() {
+		return $this->phone;
+	}
+
+
+	/**
 	 * Address of the invoice recipient.
 	 *
 	 * @param PayPal\Api\Address $address
