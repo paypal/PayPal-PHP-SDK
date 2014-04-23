@@ -2,10 +2,12 @@
 namespace PayPal\Api;
 
 use PayPal\Common\PPModel;
+use PayPal\Rest\ApiContext;
 
 class ShippingAddress extends Address {
 	/**
 	 * Name of the recipient at this address.
+	 *
 	 * @param string $recipient_name
 	 */
 	public function setRecipientName($recipient_name) {
@@ -15,6 +17,7 @@ class ShippingAddress extends Address {
 
 	/**
 	 * Name of the recipient at this address.
+	 *
 	 * @return string
 	 */
 	public function getRecipientName() {
@@ -23,6 +26,7 @@ class ShippingAddress extends Address {
 
 	/**
 	 * Name of the recipient at this address.
+	 *
 	 * @param string $recipient_name
 	 * @deprecated. Instead use setRecipientName
 	 */
@@ -32,6 +36,7 @@ class ShippingAddress extends Address {
 	}
 	/**
 	 * Name of the recipient at this address.
+	 *
 	 * @return string
 	 * @deprecated. Instead use getRecipientName
 	 */

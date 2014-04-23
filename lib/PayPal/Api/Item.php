@@ -2,10 +2,12 @@
 namespace PayPal\Api;
 
 use PayPal\Common\PPModel;
+use PayPal\Rest\ApiContext;
 
 class Item extends PPModel {
 	/**
 	 * Number of items.
+	 *
 	 * @param string $quantity
 	 */
 	public function setQuantity($quantity) {
@@ -15,6 +17,7 @@ class Item extends PPModel {
 
 	/**
 	 * Number of items.
+	 *
 	 * @return string
 	 */
 	public function getQuantity() {
@@ -24,6 +27,7 @@ class Item extends PPModel {
 
 	/**
 	 * Name of the item.
+	 *
 	 * @param string $name
 	 */
 	public function setName($name) {
@@ -33,6 +37,7 @@ class Item extends PPModel {
 
 	/**
 	 * Name of the item.
+	 *
 	 * @return string
 	 */
 	public function getName() {
@@ -42,6 +47,7 @@ class Item extends PPModel {
 
 	/**
 	 * Cost of the item.
+	 *
 	 * @param string $price
 	 */
 	public function setPrice($price) {
@@ -51,6 +57,7 @@ class Item extends PPModel {
 
 	/**
 	 * Cost of the item.
+	 *
 	 * @return string
 	 */
 	public function getPrice() {
@@ -60,6 +67,7 @@ class Item extends PPModel {
 
 	/**
 	 * 3-letter Currency Code
+	 *
 	 * @param string $currency
 	 */
 	public function setCurrency($currency) {
@@ -69,6 +77,7 @@ class Item extends PPModel {
 
 	/**
 	 * 3-letter Currency Code
+	 *
 	 * @return string
 	 */
 	public function getCurrency() {
@@ -78,6 +87,7 @@ class Item extends PPModel {
 
 	/**
 	 * Number or code to identify the item in your catalog/records.
+	 *
 	 * @param string $sku
 	 */
 	public function setSku($sku) {
@@ -87,6 +97,7 @@ class Item extends PPModel {
 
 	/**
 	 * Number or code to identify the item in your catalog/records.
+	 *
 	 * @return string
 	 */
 	public function getSku() {

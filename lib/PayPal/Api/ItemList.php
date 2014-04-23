@@ -2,10 +2,12 @@
 namespace PayPal\Api;
 
 use PayPal\Common\PPModel;
+use PayPal\Rest\ApiContext;
 
 class ItemList extends PPModel {
 	/**
 	 * List of items.
+	 *
 	 * @array
 	 * @param PayPal\Api\Item $items
 	 */
@@ -16,6 +18,7 @@ class ItemList extends PPModel {
 
 	/**
 	 * List of items.
+	 *
 	 * @return PayPal\Api\Item
 	 */
 	public function getItems() {
@@ -25,6 +28,7 @@ class ItemList extends PPModel {
 
 	/**
 	 * Shipping address.
+	 *
 	 * @param PayPal\Api\ShippingAddress $shipping_address
 	 */
 	public function setShippingAddress($shipping_address) {
@@ -34,6 +38,7 @@ class ItemList extends PPModel {
 
 	/**
 	 * Shipping address.
+	 *
 	 * @return PayPal\Api\ShippingAddress
 	 */
 	public function getShippingAddress() {
@@ -42,6 +47,7 @@ class ItemList extends PPModel {
 
 	/**
 	 * Shipping address.
+	 *
 	 * @param PayPal\Api\ShippingAddress $shipping_address
 	 * @deprecated. Instead use setShippingAddress
 	 */
@@ -51,6 +57,7 @@ class ItemList extends PPModel {
 	}
 	/**
 	 * Shipping address.
+	 *
 	 * @return PayPal\Api\ShippingAddress
 	 * @deprecated. Instead use getShippingAddress
 	 */

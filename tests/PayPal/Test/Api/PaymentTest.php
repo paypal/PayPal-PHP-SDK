@@ -12,66 +12,70 @@ use PayPal\Test\Constants;
 
 class PaymentTest extends \PHPUnit_Framework_TestCase {
 
-	private $payments;	
+	private $payments;
 
 	public static function createPayment() {
-		
+
 		$redirectUrls = new RedirectUrls();
 		$redirectUrls->setReturnUrl("http://localhost/return");
 		$redirectUrls->setCancelUrl("http://localhost/cancel");
-		
+
 		$payment = new Payment();
 		$payment->setIntent("sale");
 		$payment->setRedirectUrls($redirectUrls);
 		$payment->setPayer(PayerTest::createPayer());
 		$payment->setTransactions(array(TransactionTest::createTransaction()));
-		
-		return $payment;				
+
+		return $payment;
 	}
-	
+
 	public static function createNewPayment() {
+
+    $funding = FundingInstrumentTest::createFundingInstrument();
+    $funding->credit_card_token = null;
+
 		$payer = new Payer();
 		$payer->setPaymentMethod("credit_card");
-		$payer->setFundingInstruments(array(FundingInstrumentTest::createFundingInstrument()));
-		
+		$payer->setFundingInstruments(array($funding));
+
 		$transaction = new Transaction();
 		$transaction->setAmount(AmountTest::createAmount());
 		$transaction->setDescription("This is the payment description.");
-		
+
 		$redirectUrls = new RedirectUrls();
 		$redirectUrls->setReturnUrl("http://localhost/return");
 		$redirectUrls->setCancelUrl("http://localhost/cancel");
-		
+
 		$payment = new Payment();
 		$payment->setIntent("sale");
 		$payment->setRedirectUrls($redirectUrls);
 		$payment->setPayer($payer);
 		$payment->setTransactions(array($transaction));
-	
-		return $payment;	
+
+		return $payment;
 	}
-	
-	public function setup() {		
+
+	public function setup() {
 		$this->payments['full'] = self::createPayment();
 		$this->payments['new'] = self::createNewPayment();
 	}
-	
+
 	public function testSerializeDeserialize() {
 		$p2 = new Payment();
-		$p2->fromJson($this->payments['full']->toJSON());		
+		$p2->fromJson($this->payments['full']->toJSON());
 		$this->assertEquals($p2, $this->payments['full']);
 	}
-	
+
 	public function testOperations() {
 
 		$p1 = $this->payments['new'];
-		 
-		$p1->create();		
+
+		$p1->create();
 		$this->assertNotNull($p1->getId());
-		
+
 		$p2 = Payment::get($p1->getId());
 		$this->assertNotNull($p2);
-		
+
 		$paymentHistory = Payment::all(array('count' => '10'));
 		$this->assertNotNull($paymentHistory);
 	}

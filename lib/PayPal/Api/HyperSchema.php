@@ -2,10 +2,12 @@
 namespace PayPal\Api;
 
 use PayPal\Common\PPModel;
+use PayPal\Rest\ApiContext;
 
 class HyperSchema extends PPModel {
 	/**
 	 * 
+	 *
 	 * @array
 	 * @param PayPal\Api\Links $links
 	 */
@@ -16,6 +18,7 @@ class HyperSchema extends PPModel {
 
 	/**
 	 * 
+	 *
 	 * @return PayPal\Api\Links
 	 */
 	public function getLinks() {
@@ -25,6 +28,7 @@ class HyperSchema extends PPModel {
 
 	/**
 	 * 
+	 *
 	 * @param string $fragmentResolution
 	 */
 	public function setFragmentResolution($fragmentResolution) {
@@ -34,6 +38,7 @@ class HyperSchema extends PPModel {
 
 	/**
 	 * 
+	 *
 	 * @return string
 	 */
 	public function getFragmentResolution() {
@@ -43,6 +48,7 @@ class HyperSchema extends PPModel {
 
 	/**
 	 * 
+	 *
 	 * @param boolean $readonly
 	 */
 	public function setReadonly($readonly) {
@@ -52,6 +58,7 @@ class HyperSchema extends PPModel {
 
 	/**
 	 * 
+	 *
 	 * @return boolean
 	 */
 	public function getReadonly() {
@@ -61,6 +68,7 @@ class HyperSchema extends PPModel {
 
 	/**
 	 * 
+	 *
 	 * @param string $contentEncoding
 	 */
 	public function setContentEncoding($contentEncoding) {
@@ -70,6 +78,7 @@ class HyperSchema extends PPModel {
 
 	/**
 	 * 
+	 *
 	 * @return string
 	 */
 	public function getContentEncoding() {
@@ -79,6 +88,7 @@ class HyperSchema extends PPModel {
 
 	/**
 	 * 
+	 *
 	 * @param string $pathStart
 	 */
 	public function setPathStart($pathStart) {
@@ -88,6 +98,7 @@ class HyperSchema extends PPModel {
 
 	/**
 	 * 
+	 *
 	 * @return string
 	 */
 	public function getPathStart() {
@@ -97,6 +108,7 @@ class HyperSchema extends PPModel {
 
 	/**
 	 * 
+	 *
 	 * @param string $mediaType
 	 */
 	public function setMediaType($mediaType) {
@@ -106,6 +118,7 @@ class HyperSchema extends PPModel {
 
 	/**
 	 * 
+	 *
 	 * @return string
 	 */
 	public function getMediaType() {

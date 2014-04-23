@@ -2,10 +2,12 @@
 namespace PayPal\Api;
 
 use PayPal\Common\PPModel;
+use PayPal\Rest\ApiContext;
 
 class Address extends PPModel {
 	/**
 	 * Line 1 of the Address (eg. number, street, etc).
+	 *
 	 * @param string $line1
 	 */
 	public function setLine1($line1) {
@@ -15,6 +17,7 @@ class Address extends PPModel {
 
 	/**
 	 * Line 1 of the Address (eg. number, street, etc).
+	 *
 	 * @return string
 	 */
 	public function getLine1() {
@@ -24,6 +27,7 @@ class Address extends PPModel {
 
 	/**
 	 * Optional line 2 of the Address (eg. suite, apt #, etc.).
+	 *
 	 * @param string $line2
 	 */
 	public function setLine2($line2) {
@@ -33,6 +37,7 @@ class Address extends PPModel {
 
 	/**
 	 * Optional line 2 of the Address (eg. suite, apt #, etc.).
+	 *
 	 * @return string
 	 */
 	public function getLine2() {
@@ -42,6 +47,7 @@ class Address extends PPModel {
 
 	/**
 	 * City name.
+	 *
 	 * @param string $city
 	 */
 	public function setCity($city) {
@@ -51,6 +57,7 @@ class Address extends PPModel {
 
 	/**
 	 * City name.
+	 *
 	 * @return string
 	 */
 	public function getCity() {
@@ -60,6 +67,7 @@ class Address extends PPModel {
 
 	/**
 	 * 2 letter country code.
+	 *
 	 * @param string $country_code
 	 */
 	public function setCountryCode($country_code) {
@@ -69,6 +77,7 @@ class Address extends PPModel {
 
 	/**
 	 * 2 letter country code.
+	 *
 	 * @return string
 	 */
 	public function getCountryCode() {
@@ -77,6 +86,7 @@ class Address extends PPModel {
 
 	/**
 	 * 2 letter country code.
+	 *
 	 * @param string $country_code
 	 * @deprecated. Instead use setCountryCode
 	 */
@@ -86,6 +96,7 @@ class Address extends PPModel {
 	}
 	/**
 	 * 2 letter country code.
+	 *
 	 * @return string
 	 * @deprecated. Instead use getCountryCode
 	 */
@@ -95,6 +106,7 @@ class Address extends PPModel {
 
 	/**
 	 * Zip code or equivalent is usually required for countries that have them. For list of countries that do not have postal codes please refer to http://en.wikipedia.org/wiki/Postal_code.
+	 *
 	 * @param string $postal_code
 	 */
 	public function setPostalCode($postal_code) {
@@ -104,6 +116,7 @@ class Address extends PPModel {
 
 	/**
 	 * Zip code or equivalent is usually required for countries that have them. For list of countries that do not have postal codes please refer to http://en.wikipedia.org/wiki/Postal_code.
+	 *
 	 * @return string
 	 */
 	public function getPostalCode() {
@@ -112,6 +125,7 @@ class Address extends PPModel {
 
 	/**
 	 * Zip code or equivalent is usually required for countries that have them. For list of countries that do not have postal codes please refer to http://en.wikipedia.org/wiki/Postal_code.
+	 *
 	 * @param string $postal_code
 	 * @deprecated. Instead use setPostalCode
 	 */
@@ -121,6 +135,7 @@ class Address extends PPModel {
 	}
 	/**
 	 * Zip code or equivalent is usually required for countries that have them. For list of countries that do not have postal codes please refer to http://en.wikipedia.org/wiki/Postal_code.
+	 *
 	 * @return string
 	 * @deprecated. Instead use getPostalCode
 	 */
@@ -130,6 +145,7 @@ class Address extends PPModel {
 
 	/**
 	 * 2 letter code for US states, and the equivalent for other countries.
+	 *
 	 * @param string $state
 	 */
 	public function setState($state) {
@@ -139,6 +155,7 @@ class Address extends PPModel {
 
 	/**
 	 * 2 letter code for US states, and the equivalent for other countries.
+	 *
 	 * @return string
 	 */
 	public function getState() {
@@ -148,6 +165,7 @@ class Address extends PPModel {
 
 	/**
 	 * Phone number in E.123 format.
+	 *
 	 * @param string $phone
 	 */
 	public function setPhone($phone) {
@@ -157,6 +175,7 @@ class Address extends PPModel {
 
 	/**
 	 * Phone number in E.123 format.
+	 *
 	 * @return string
 	 */
 	public function getPhone() {
