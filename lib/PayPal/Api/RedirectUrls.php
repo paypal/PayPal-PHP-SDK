@@ -2,10 +2,12 @@
 namespace PayPal\Api;
 
 use PayPal\Common\PPModel;
+use PayPal\Rest\ApiContext;
 
 class RedirectUrls extends PPModel {
 	/**
 	 * Url where the payer would be redirected to after approving the payment.
+	 *
 	 * @param string $return_url
 	 */
 	public function setReturnUrl($return_url) {
@@ -15,6 +17,7 @@ class RedirectUrls extends PPModel {
 
 	/**
 	 * Url where the payer would be redirected to after approving the payment.
+	 *
 	 * @return string
 	 */
 	public function getReturnUrl() {
@@ -23,6 +26,7 @@ class RedirectUrls extends PPModel {
 
 	/**
 	 * Url where the payer would be redirected to after approving the payment.
+	 *
 	 * @param string $return_url
 	 * @deprecated. Instead use setReturnUrl
 	 */
@@ -32,6 +36,7 @@ class RedirectUrls extends PPModel {
 	}
 	/**
 	 * Url where the payer would be redirected to after approving the payment.
+	 *
 	 * @return string
 	 * @deprecated. Instead use getReturnUrl
 	 */
@@ -41,6 +46,7 @@ class RedirectUrls extends PPModel {
 
 	/**
 	 * Url where the payer would be redirected to after canceling the payment.
+	 *
 	 * @param string $cancel_url
 	 */
 	public function setCancelUrl($cancel_url) {
@@ -50,6 +56,7 @@ class RedirectUrls extends PPModel {
 
 	/**
 	 * Url where the payer would be redirected to after canceling the payment.
+	 *
 	 * @return string
 	 */
 	public function getCancelUrl() {
@@ -58,6 +65,7 @@ class RedirectUrls extends PPModel {
 
 	/**
 	 * Url where the payer would be redirected to after canceling the payment.
+	 *
 	 * @param string $cancel_url
 	 * @deprecated. Instead use setCancelUrl
 	 */
@@ -67,6 +75,7 @@ class RedirectUrls extends PPModel {
 	}
 	/**
 	 * Url where the payer would be redirected to after canceling the payment.
+	 *
 	 * @return string
 	 * @deprecated. Instead use getCancelUrl
 	 */

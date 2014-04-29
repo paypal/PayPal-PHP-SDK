@@ -2,10 +2,12 @@
 namespace PayPal\Api;
 
 use PayPal\Common\PPModel;
+use PayPal\Rest\ApiContext;
 
 class Links extends PPModel {
 	/**
 	 * 
+	 *
 	 * @param string $href
 	 */
 	public function setHref($href) {
@@ -15,6 +17,7 @@ class Links extends PPModel {
 
 	/**
 	 * 
+	 *
 	 * @return string
 	 */
 	public function getHref() {
@@ -24,6 +27,7 @@ class Links extends PPModel {
 
 	/**
 	 * 
+	 *
 	 * @param string $rel
 	 */
 	public function setRel($rel) {
@@ -33,6 +37,7 @@ class Links extends PPModel {
 
 	/**
 	 * 
+	 *
 	 * @return string
 	 */
 	public function getRel() {
@@ -42,6 +47,7 @@ class Links extends PPModel {
 
 	/**
 	 * 
+	 *
 	 * @param PayPal\Api\HyperSchema $targetSchema
 	 */
 	public function setTargetSchema($targetSchema) {
@@ -51,6 +57,7 @@ class Links extends PPModel {
 
 	/**
 	 * 
+	 *
 	 * @return PayPal\Api\HyperSchema
 	 */
 	public function getTargetSchema() {
@@ -60,6 +67,7 @@ class Links extends PPModel {
 
 	/**
 	 * 
+	 *
 	 * @param string $method
 	 */
 	public function setMethod($method) {
@@ -69,6 +77,7 @@ class Links extends PPModel {
 
 	/**
 	 * 
+	 *
 	 * @return string
 	 */
 	public function getMethod() {
@@ -78,6 +87,7 @@ class Links extends PPModel {
 
 	/**
 	 * 
+	 *
 	 * @param string $enctype
 	 */
 	public function setEnctype($enctype) {
@@ -87,6 +97,7 @@ class Links extends PPModel {
 
 	/**
 	 * 
+	 *
 	 * @return string
 	 */
 	public function getEnctype() {
@@ -96,6 +107,7 @@ class Links extends PPModel {
 
 	/**
 	 * 
+	 *
 	 * @param PayPal\Api\HyperSchema $schema
 	 */
 	public function setSchema($schema) {
@@ -105,6 +117,7 @@ class Links extends PPModel {
 
 	/**
 	 * 
+	 *
 	 * @return PayPal\Api\HyperSchema
 	 */
 	public function getSchema() {

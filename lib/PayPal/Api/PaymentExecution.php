@@ -2,10 +2,12 @@
 namespace PayPal\Api;
 
 use PayPal\Common\PPModel;
+use PayPal\Rest\ApiContext;
 
 class PaymentExecution extends PPModel {
 	/**
 	 * PayPal assigned Payer ID returned in the approval return url.
+	 *
 	 * @param string $payer_id
 	 */
 	public function setPayerId($payer_id) {
@@ -15,6 +17,7 @@ class PaymentExecution extends PPModel {
 
 	/**
 	 * PayPal assigned Payer ID returned in the approval return url.
+	 *
 	 * @return string
 	 */
 	public function getPayerId() {
@@ -23,6 +26,7 @@ class PaymentExecution extends PPModel {
 
 	/**
 	 * PayPal assigned Payer ID returned in the approval return url.
+	 *
 	 * @param string $payer_id
 	 * @deprecated. Instead use setPayerId
 	 */
@@ -32,6 +36,7 @@ class PaymentExecution extends PPModel {
 	}
 	/**
 	 * PayPal assigned Payer ID returned in the approval return url.
+	 *
 	 * @return string
 	 * @deprecated. Instead use getPayerId
 	 */
@@ -41,6 +46,7 @@ class PaymentExecution extends PPModel {
 
 	/**
 	 * If the amount needs to be updated after obtaining the PayPal Payer info (eg. shipping address), it can be updated using this element.
+	 *
 	 * @array
 	 * @param PayPal\Api\Transactions $transactions
 	 */
@@ -51,6 +57,7 @@ class PaymentExecution extends PPModel {
 
 	/**
 	 * If the amount needs to be updated after obtaining the PayPal Payer info (eg. shipping address), it can be updated using this element.
+	 *
 	 * @return PayPal\Api\Transactions
 	 */
 	public function getTransactions() {
