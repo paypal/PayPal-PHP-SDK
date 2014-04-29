@@ -2,10 +2,8 @@
 namespace PayPal\Api;
 
 use PayPal\Common\PPModel;
-use PayPal\Rest\IResource;
-use PayPal\Rest\Call;
 use PayPal\Rest\ApiContext;
-use PayPal\Api\Payment;
+use PayPal\Rest\IResource;
 use PayPal\Api\PaymentHistory;
 use PayPal\Transport\PPRestCall;
 
@@ -23,6 +21,7 @@ class Payment extends PPModel implements IResource {
 
 	/**
 	 * Identifier of the payment resource created.
+	 *
 	 * @param string $id
 	 */
 	public function setId($id) {
@@ -32,6 +31,7 @@ class Payment extends PPModel implements IResource {
 
 	/**
 	 * Identifier of the payment resource created.
+	 *
 	 * @return string
 	 */
 	public function getId() {
@@ -41,6 +41,7 @@ class Payment extends PPModel implements IResource {
 
 	/**
 	 * Time the resource was created.
+	 *
 	 * @param string $create_time
 	 */
 	public function setCreateTime($create_time) {
@@ -50,6 +51,7 @@ class Payment extends PPModel implements IResource {
 
 	/**
 	 * Time the resource was created.
+	 *
 	 * @return string
 	 */
 	public function getCreateTime() {
@@ -58,6 +60,7 @@ class Payment extends PPModel implements IResource {
 
 	/**
 	 * Time the resource was created.
+	 *
 	 * @param string $create_time
 	 * @deprecated. Instead use setCreateTime
 	 */
@@ -67,6 +70,7 @@ class Payment extends PPModel implements IResource {
 	}
 	/**
 	 * Time the resource was created.
+	 *
 	 * @return string
 	 * @deprecated. Instead use getCreateTime
 	 */
@@ -76,6 +80,7 @@ class Payment extends PPModel implements IResource {
 
 	/**
 	 * Time the resource was last updated.
+	 *
 	 * @param string $update_time
 	 */
 	public function setUpdateTime($update_time) {
@@ -85,6 +90,7 @@ class Payment extends PPModel implements IResource {
 
 	/**
 	 * Time the resource was last updated.
+	 *
 	 * @return string
 	 */
 	public function getUpdateTime() {
@@ -93,6 +99,7 @@ class Payment extends PPModel implements IResource {
 
 	/**
 	 * Time the resource was last updated.
+	 *
 	 * @param string $update_time
 	 * @deprecated. Instead use setUpdateTime
 	 */
@@ -102,6 +109,7 @@ class Payment extends PPModel implements IResource {
 	}
 	/**
 	 * Time the resource was last updated.
+	 *
 	 * @return string
 	 * @deprecated. Instead use getUpdateTime
 	 */
@@ -111,6 +119,7 @@ class Payment extends PPModel implements IResource {
 
 	/**
 	 * Intent of the payment - Sale or Authorization or Order.
+	 *
 	 * @param string $intent
 	 */
 	public function setIntent($intent) {
@@ -120,6 +129,7 @@ class Payment extends PPModel implements IResource {
 
 	/**
 	 * Intent of the payment - Sale or Authorization or Order.
+	 *
 	 * @return string
 	 */
 	public function getIntent() {
@@ -129,6 +139,7 @@ class Payment extends PPModel implements IResource {
 
 	/**
 	 * Source of the funds for this payment represented by a PayPal account or a direct credit card.
+	 *
 	 * @param PayPal\Api\Payer $payer
 	 */
 	public function setPayer($payer) {
@@ -138,6 +149,7 @@ class Payment extends PPModel implements IResource {
 
 	/**
 	 * Source of the funds for this payment represented by a PayPal account or a direct credit card.
+	 *
 	 * @return PayPal\Api\Payer
 	 */
 	public function getPayer() {
@@ -147,16 +159,18 @@ class Payment extends PPModel implements IResource {
 
 	/**
 	 * A payment can have more than one transaction, with each transaction establishing a contract between the payer and a payee
+	 *
 	 * @array
 	 * @param PayPal\Api\Transaction $transactions
 	 */
-	public function setTransactions($transactions) {
+	public function setTransactions(array $transactions) {
 		$this->transactions = $transactions;
 		return $this;
 	}
 
 	/**
 	 * A payment can have more than one transaction, with each transaction establishing a contract between the payer and a payee
+	 *
 	 * @return PayPal\Api\Transaction
 	 */
 	public function getTransactions() {
@@ -166,6 +180,7 @@ class Payment extends PPModel implements IResource {
 
 	/**
 	 * state of the payment
+	 *
 	 * @param string $state
 	 */
 	public function setState($state) {
@@ -175,6 +190,7 @@ class Payment extends PPModel implements IResource {
 
 	/**
 	 * state of the payment
+	 *
 	 * @return string
 	 */
 	public function getState() {
@@ -184,6 +200,7 @@ class Payment extends PPModel implements IResource {
 
 	/**
 	 * Redirect urls required only when using payment_method as PayPal - the only settings supported are return and cancel urls.
+	 *
 	 * @param PayPal\Api\RedirectUrls $redirect_urls
 	 */
 	public function setRedirectUrls($redirect_urls) {
@@ -193,6 +210,7 @@ class Payment extends PPModel implements IResource {
 
 	/**
 	 * Redirect urls required only when using payment_method as PayPal - the only settings supported are return and cancel urls.
+	 *
 	 * @return PayPal\Api\RedirectUrls
 	 */
 	public function getRedirectUrls() {
@@ -201,6 +219,7 @@ class Payment extends PPModel implements IResource {
 
 	/**
 	 * Redirect urls required only when using payment_method as PayPal - the only settings supported are return and cancel urls.
+	 *
 	 * @param PayPal\Api\RedirectUrls $redirect_urls
 	 * @deprecated. Instead use setRedirectUrls
 	 */
@@ -210,6 +229,7 @@ class Payment extends PPModel implements IResource {
 	}
 	/**
 	 * Redirect urls required only when using payment_method as PayPal - the only settings supported are return and cancel urls.
+	 *
 	 * @return PayPal\Api\RedirectUrls
 	 * @deprecated. Instead use getRedirectUrls
 	 */
@@ -219,6 +239,7 @@ class Payment extends PPModel implements IResource {
 
 	/**
 	 * 
+	 *
 	 * @array
 	 * @param PayPal\Api\Links $links
 	 */
@@ -229,6 +250,7 @@ class Payment extends PPModel implements IResource {
 
 	/**
 	 * 
+	 *
 	 * @return PayPal\Api\Links
 	 */
 	public function getLinks() {
@@ -237,6 +259,12 @@ class Payment extends PPModel implements IResource {
 
 
 
+	/*
+	 * Creates (and processes) a new Payment Resource.
+	 *
+	 * @param PayPal\Rest\ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
+	 * @return Payment
+	 */
 	public function create($apiContext = null) {
 		$payLoad = $this->toJSON();
 		if ($apiContext == null) {
@@ -248,6 +276,13 @@ class Payment extends PPModel implements IResource {
  		return $this;
 	}
 
+	/*
+	 * Obtain the Payment resource for the given identifier.
+	 *
+	 * @param string $paymentId
+	 * @param PayPal\Rest\ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
+	 * @return Payment
+	 */
 	public static function get($paymentId, $apiContext = null) {
 		if (($paymentId == null) || (strlen($paymentId) <= 0)) {
 			throw new \InvalidArgumentException("paymentId cannot be null or empty");
@@ -263,6 +298,13 @@ class Payment extends PPModel implements IResource {
 		return $ret;
 	}
 
+	/*
+	 * Executes the payment (after approved by the Payer) associated with this resource when the payment method is PayPal.
+	 *
+	 * @param PaymentExecution $paymentExecution
+	 * @param PayPal\Rest\ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
+	 * @return Payment
+	 */
 	public function execute($paymentExecution, $apiContext = null) {
 		if ($this->getId() == null) {
 			throw new \InvalidArgumentException("Id cannot be null");
@@ -281,6 +323,13 @@ class Payment extends PPModel implements IResource {
 		return $ret;
 	}
 
+	/*
+	 * Retrieves a list of Payment resources.
+	 *
+	 * @param array $params
+	 * @param PayPal\Rest\ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
+	 * @return PaymentHistory
+	 */
 	public static function all($params, $apiContext = null) {
 		if (($params == null)) {
 			throw new \InvalidArgumentException("params cannot be null or empty");

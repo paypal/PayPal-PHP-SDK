@@ -25,14 +25,14 @@ if(isset($_GET['success']) && $_GET['success'] == 'true') {
 	// The payer_id is added to the request query parameters
 	// when the user is redirected from paypal back to your site
 	$execution = new PaymentExecution();
-	$execution->setPayer_id($_GET['PayerID']);
+	$execution->setPayerId($_GET['PayerID']);
 	
 	//Execute the payment
 	// (See bootstrap.php for more on `ApiContext`)
-	$payment->execute($execution, $apiContext);
+	$result = $payment->execute($execution, $apiContext);
 
 	echo "<html><body><pre>";
-	var_dump($payment->toArray());
+	var_dump($result);
 	echo "</pre><a href='../index.html'>Back</a></body></html>";
 	
 } else {

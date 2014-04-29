@@ -1,6 +1,7 @@
 <?php
 
 // # Get Sale sample 
+// Sale transactions are nothing but completed payments.
 // This sample code demonstrates how you can retrieve 
 // details of completed Sale Transaction.
 // API used: /v1/payments/sale/{sale-id}
@@ -15,13 +16,16 @@ try {
 	// Pass the ID of the sale
 	// transaction from your payment resource.
 	$sale = Sale::get($saleId, $apiContext);
-} catch (\PPConnectionException $ex) {
+} catch (PayPal\Exception\PPConnectionException $ex) {
 	echo "Exception:" . $ex->getMessage() . PHP_EOL;
 	var_dump($ex->getData());
 	exit(1);
 }
 ?>
 <html>
+<head>
+	<title>Lookup a sale</title>
+</head>
 <body>
 	<div>Retrieving sale id: <?php echo $saleId;?></div>
 	<pre><?php var_dump($sale);?></pre>

@@ -2,10 +2,8 @@
 namespace PayPal\Api;
 
 use PayPal\Common\PPModel;
-use PayPal\Rest\IResource;
-use PayPal\Rest\Call;
 use PayPal\Rest\ApiContext;
-use PayPal\Api\Refund;
+use PayPal\Rest\IResource;
 use PayPal\Transport\PPRestCall;
 
 class Refund extends PPModel implements IResource {
@@ -22,6 +20,7 @@ class Refund extends PPModel implements IResource {
 
 	/**
 	 * Identifier of the refund transaction.
+	 *
 	 * @param string $id
 	 */
 	public function setId($id) {
@@ -31,6 +30,7 @@ class Refund extends PPModel implements IResource {
 
 	/**
 	 * Identifier of the refund transaction.
+	 *
 	 * @return string
 	 */
 	public function getId() {
@@ -40,6 +40,7 @@ class Refund extends PPModel implements IResource {
 
 	/**
 	 * Time the resource was created.
+	 *
 	 * @param string $create_time
 	 */
 	public function setCreateTime($create_time) {
@@ -49,6 +50,7 @@ class Refund extends PPModel implements IResource {
 
 	/**
 	 * Time the resource was created.
+	 *
 	 * @return string
 	 */
 	public function getCreateTime() {
@@ -57,6 +59,7 @@ class Refund extends PPModel implements IResource {
 
 	/**
 	 * Time the resource was created.
+	 *
 	 * @param string $create_time
 	 * @deprecated. Instead use setCreateTime
 	 */
@@ -66,6 +69,7 @@ class Refund extends PPModel implements IResource {
 	}
 	/**
 	 * Time the resource was created.
+	 *
 	 * @return string
 	 * @deprecated. Instead use getCreateTime
 	 */
@@ -74,7 +78,47 @@ class Refund extends PPModel implements IResource {
 	}
 
 	/**
+	 * Time the resource was last updated.
+	 *
+	 * @param string $update_time
+	 */
+	public function setUpdateTime($update_time) {
+		$this->update_time = $update_time;
+		return $this;
+	}
+
+	/**
+	 * Time the resource was last updated.
+	 *
+	 * @return string
+	 */
+	public function getUpdateTime() {
+		return $this->update_time;
+	}
+
+	/**
+	 * Time the resource was last updated.
+	 *
+	 * @param string $update_time
+	 * @deprecated. Instead use setUpdateTime
+	 */
+	public function setUpdate_time($update_time) {
+		$this->update_time = $update_time;
+		return $this;
+	}
+	/**
+	 * Time the resource was last updated.
+	 *
+	 * @return string
+	 * @deprecated. Instead use getUpdateTime
+	 */
+	public function getUpdate_time() {
+		return $this->update_time;
+	}
+
+	/**
 	 * Details including both refunded amount (to Payer) and refunded fee (to Payee).If amount is not specified, it's assumed to be full refund.
+	 *
 	 * @param PayPal\Api\Amount $amount
 	 */
 	public function setAmount($amount) {
@@ -84,6 +128,7 @@ class Refund extends PPModel implements IResource {
 
 	/**
 	 * Details including both refunded amount (to Payer) and refunded fee (to Payee).If amount is not specified, it's assumed to be full refund.
+	 *
 	 * @return PayPal\Api\Amount
 	 */
 	public function getAmount() {
@@ -93,6 +138,7 @@ class Refund extends PPModel implements IResource {
 
 	/**
 	 * State of the refund transaction.
+	 *
 	 * @param string $state
 	 */
 	public function setState($state) {
@@ -102,6 +148,7 @@ class Refund extends PPModel implements IResource {
 
 	/**
 	 * State of the refund transaction.
+	 *
 	 * @return string
 	 */
 	public function getState() {
@@ -111,6 +158,7 @@ class Refund extends PPModel implements IResource {
 
 	/**
 	 * ID of the Sale transaction being refunded. 
+	 *
 	 * @param string $sale_id
 	 */
 	public function setSaleId($sale_id) {
@@ -120,6 +168,7 @@ class Refund extends PPModel implements IResource {
 
 	/**
 	 * ID of the Sale transaction being refunded. 
+	 *
 	 * @return string
 	 */
 	public function getSaleId() {
@@ -128,6 +177,7 @@ class Refund extends PPModel implements IResource {
 
 	/**
 	 * ID of the Sale transaction being refunded. 
+	 *
 	 * @param string $sale_id
 	 * @deprecated. Instead use setSaleId
 	 */
@@ -137,6 +187,7 @@ class Refund extends PPModel implements IResource {
 	}
 	/**
 	 * ID of the Sale transaction being refunded. 
+	 *
 	 * @return string
 	 * @deprecated. Instead use getSaleId
 	 */
@@ -146,6 +197,7 @@ class Refund extends PPModel implements IResource {
 
 	/**
 	 * ID of the Capture transaction being refunded. 
+	 *
 	 * @param string $capture_id
 	 */
 	public function setCaptureId($capture_id) {
@@ -155,6 +207,7 @@ class Refund extends PPModel implements IResource {
 
 	/**
 	 * ID of the Capture transaction being refunded. 
+	 *
 	 * @return string
 	 */
 	public function getCaptureId() {
@@ -163,6 +216,7 @@ class Refund extends PPModel implements IResource {
 
 	/**
 	 * ID of the Capture transaction being refunded. 
+	 *
 	 * @param string $capture_id
 	 * @deprecated. Instead use setCaptureId
 	 */
@@ -172,6 +226,7 @@ class Refund extends PPModel implements IResource {
 	}
 	/**
 	 * ID of the Capture transaction being refunded. 
+	 *
 	 * @return string
 	 * @deprecated. Instead use getCaptureId
 	 */
@@ -181,6 +236,7 @@ class Refund extends PPModel implements IResource {
 
 	/**
 	 * ID of the Payment resource that this transaction is based on.
+	 *
 	 * @param string $parent_payment
 	 */
 	public function setParentPayment($parent_payment) {
@@ -190,6 +246,7 @@ class Refund extends PPModel implements IResource {
 
 	/**
 	 * ID of the Payment resource that this transaction is based on.
+	 *
 	 * @return string
 	 */
 	public function getParentPayment() {
@@ -198,6 +255,7 @@ class Refund extends PPModel implements IResource {
 
 	/**
 	 * ID of the Payment resource that this transaction is based on.
+	 *
 	 * @param string $parent_payment
 	 * @deprecated. Instead use setParentPayment
 	 */
@@ -207,6 +265,7 @@ class Refund extends PPModel implements IResource {
 	}
 	/**
 	 * ID of the Payment resource that this transaction is based on.
+	 *
 	 * @return string
 	 * @deprecated. Instead use getParentPayment
 	 */
@@ -216,6 +275,7 @@ class Refund extends PPModel implements IResource {
 
 	/**
 	 * 
+	 *
 	 * @array
 	 * @param PayPal\Api\Links $links
 	 */
@@ -226,6 +286,7 @@ class Refund extends PPModel implements IResource {
 
 	/**
 	 * 
+	 *
 	 * @return PayPal\Api\Links
 	 */
 	public function getLinks() {
@@ -234,6 +295,13 @@ class Refund extends PPModel implements IResource {
 
 
 
+	/*
+	 * Obtain the Refund transaction resource for the given identifier.
+	 *
+	 * @param string $refundId
+	 * @param PayPal\Rest\ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
+	 * @return Refund
+	 */
 	public static function get($refundId, $apiContext = null) {
 		if (($refundId == null) || (strlen($refundId) <= 0)) {
 			throw new \InvalidArgumentException("refundId cannot be null or empty");

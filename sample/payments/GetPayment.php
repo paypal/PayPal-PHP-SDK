@@ -21,13 +21,16 @@ $paymentId = "PAY-0XL713371A312273YKE2GCNI";
 // (See bootstrap.php for more on `ApiContext`)
 try {
 	$payment = Payment::get($paymentId, $apiContext);
-} catch (\PPConnectionException $ex) {
+} catch (PayPal\Exception\PPConnectionException $ex) {
 	echo "Exception:" . $ex->getMessage() . PHP_EOL;
 	var_dump($ex->getData());
 	exit(1);
 }
 ?>
 <html>
+<head>
+	<title>Lookup a payment</title>
+</head>
 <body>
 	<div>Retrieving Payment ID: <?php echo $paymentId;?></div>
 	<pre><?php var_dump($payment->toArray());?></pre>

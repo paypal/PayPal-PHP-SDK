@@ -22,13 +22,16 @@ use PayPal\Api\Payment;
 // (See bootstrap.php for more on `ApiContext`)
 try {
 	$payments = Payment::all(array('count' => 10, 'start_index' => 5), $apiContext);	
-} catch (\PPConnectionException $ex) {
+} catch (PayPal\Exception\PPConnectionException $ex) {
 	echo "Exception:" . $ex->getMessage() . PHP_EOL;
 	var_dump($ex->getData());
 	exit(1);
 }
 ?>
 <html>
+<head>
+	<title>Lookup payment history</title>
+</head>
 <body>
 	<div>Got <?php echo $payments->getCount(); ?> matching payments </div>
 	<pre><?php var_dump($payments->toArray());?></pre>
