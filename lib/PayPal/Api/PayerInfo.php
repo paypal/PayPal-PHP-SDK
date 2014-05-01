@@ -1,204 +1,295 @@
 <?php
+
 namespace PayPal\Api;
 
 use PayPal\Common\PPModel;
 use PayPal\Rest\ApiContext;
 
-class PayerInfo extends PPModel {
-	/**
-	 * Email address representing the Payer.
-	 *
-	 * @param string $email
-	 */
-	public function setEmail($email) {
-		$this->email = $email;
-		return $this;
-	}
+/**
+ * Class PayerInfo
+ *
+ * @property string              email
+ * @property string              first_name
+ * @property string              last_name
+ * @property string              payer_id
+ * @property string              phone
+ * @property \PayPal\Api\Address shipping_address
+ */
+class PayerInfo extends PPModel
+{
+    /**
+     * Set Email
+     * Email address representing the Payer
+     *
+     * @param string $email
+     *
+     * @return $this
+     */
+    public function setEmail($email)
+    {
+        $this->email = $email;
 
-	/**
-	 * Email address representing the Payer.
-	 *
-	 * @return string
-	 */
-	public function getEmail() {
-		return $this->email;
-	}
+        return $this;
+    }
 
+    /**
+     * Get Email
+     * Email address representing the Payer
+     *
+     * @return string
+     */
+    public function getEmail()
+    {
+        return $this->email;
+    }
 
-	/**
-	 * First Name of the Payer from their PayPal Account.
-	 *
-	 * @param string $first_name
-	 */
-	public function setFirstName($first_name) {
-		$this->first_name = $first_name;
-		return $this;
-	}
+    /**
+     * Set First Name
+     * First Name of the Payer from their PayPal Account
+     *
+     * @param string $first_name
+     *
+     * @return $this
+     */
+    public function setFirstName($first_name)
+    {
+        $this->first_name = $first_name;
 
-	/**
-	 * First Name of the Payer from their PayPal Account.
-	 *
-	 * @return string
-	 */
-	public function getFirstName() {
-		return $this->first_name;
-	}
+        return $this;
+    }
 
-	/**
-	 * First Name of the Payer from their PayPal Account.
-	 *
-	 * @param string $first_name
-	 * @deprecated. Instead use setFirstName
-	 */
-	public function setFirst_name($first_name) {
-		$this->first_name = $first_name;
-		return $this;
-	}
-	/**
-	 * First Name of the Payer from their PayPal Account.
-	 *
-	 * @return string
-	 * @deprecated. Instead use getFirstName
-	 */
-	public function getFirst_name() {
-		return $this->first_name;
-	}
+    /**
+     * Get First Name
+     * First Name of the Payer from their PayPal Account
+     *
+     * @return string
+     */
+    public function getFirstName()
+    {
+        return $this->first_name;
+    }
 
-	/**
-	 * Last Name of the Payer from their PayPal Account.
-	 *
-	 * @param string $last_name
-	 */
-	public function setLastName($last_name) {
-		$this->last_name = $last_name;
-		return $this;
-	}
+    /**
+     * Set First Name
+     * First Name of the Payer from their PayPal Account
+     *
+     * @param string $first_name
+     *
+     * @deprecated Use setFirstName
+     *
+     * @return $this
+     */
+    public function setFirst_name($first_name)
+    {
+        $this->first_name = $first_name;
 
-	/**
-	 * Last Name of the Payer from their PayPal Account.
-	 *
-	 * @return string
-	 */
-	public function getLastName() {
-		return $this->last_name;
-	}
+        return $this;
+    }
 
-	/**
-	 * Last Name of the Payer from their PayPal Account.
-	 *
-	 * @param string $last_name
-	 * @deprecated. Instead use setLastName
-	 */
-	public function setLast_name($last_name) {
-		$this->last_name = $last_name;
-		return $this;
-	}
-	/**
-	 * Last Name of the Payer from their PayPal Account.
-	 *
-	 * @return string
-	 * @deprecated. Instead use getLastName
-	 */
-	public function getLast_name() {
-		return $this->last_name;
-	}
+    /**
+     * Get First Name
+     * First Name of the Payer from their PayPal Account
+     *
+     * @deprecated Use getFirstName
+     *
+     * @return string
+     */
+    public function getFirst_name()
+    {
+        return $this->first_name;
+    }
 
-	/**
-	 * PayPal assigned Payer ID.
-	 *
-	 * @param string $payer_id
-	 */
-	public function setPayerId($payer_id) {
-		$this->payer_id = $payer_id;
-		return $this;
-	}
+    /**
+     * Set Last Name
+     * Last Name of the Payer from their PayPal Account
+     *
+     * @param string $last_name
+     *
+     * @return $this
+     */
+    public function setLastName($last_name)
+    {
+        $this->last_name = $last_name;
 
-	/**
-	 * PayPal assigned Payer ID.
-	 *
-	 * @return string
-	 */
-	public function getPayerId() {
-		return $this->payer_id;
-	}
+        return $this;
+    }
 
-	/**
-	 * PayPal assigned Payer ID.
-	 *
-	 * @param string $payer_id
-	 * @deprecated. Instead use setPayerId
-	 */
-	public function setPayer_id($payer_id) {
-		$this->payer_id = $payer_id;
-		return $this;
-	}
-	/**
-	 * PayPal assigned Payer ID.
-	 *
-	 * @return string
-	 * @deprecated. Instead use getPayerId
-	 */
-	public function getPayer_id() {
-		return $this->payer_id;
-	}
+    /**
+     * Get Last Name
+     * Last Name of the Payer from their PayPal Account
+     *
+     * @return string
+     */
+    public function getLastName()
+    {
+        return $this->last_name;
+    }
 
-	/**
-	 * Phone number representing the Payer.
-	 *
-	 * @param string $phone
-	 */
-	public function setPhone($phone) {
-		$this->phone = $phone;
-		return $this;
-	}
+    /**
+     * Set Last Name
+     * Last Name of the Payer from their PayPal Account
+     *
+     * @param string $last_name
+     *
+     * @deprecated Use setLastName
+     *
+     * @return $this
+     */
+    public function setLast_name($last_name)
+    {
+        $this->last_name = $last_name;
 
-	/**
-	 * Phone number representing the Payer.
-	 *
-	 * @return string
-	 */
-	public function getPhone() {
-		return $this->phone;
-	}
+        return $this;
+    }
 
+    /**
+     * Get Last Name
+     * Last Name of the Payer from their PayPal Account
+     *
+     * @deprecated Use getLastName
+     *
+     * @return string
+     */
+    public function getLast_name()
+    {
+        return $this->last_name;
+    }
 
-	/**
-	 * Shipping address of the Payer from their PayPal Account.
-	 *
-	 * @param PayPal\Api\Address $shipping_address
-	 */
-	public function setShippingAddress($shipping_address) {
-		$this->shipping_address = $shipping_address;
-		return $this;
-	}
+    /**
+     * Set Payer ID
+     * PayPal assigned Payer ID
+     *
+     * @param string $payer_id
+     *
+     * @return $this
+     */
+    public function setPayerId($payer_id)
+    {
+        $this->payer_id = $payer_id;
 
-	/**
-	 * Shipping address of the Payer from their PayPal Account.
-	 *
-	 * @return PayPal\Api\Address
-	 */
-	public function getShippingAddress() {
-		return $this->shipping_address;
-	}
+        return $this;
+    }
 
-	/**
-	 * Shipping address of the Payer from their PayPal Account.
-	 *
-	 * @param PayPal\Api\Address $shipping_address
-	 * @deprecated. Instead use setShippingAddress
-	 */
-	public function setShipping_address($shipping_address) {
-		$this->shipping_address = $shipping_address;
-		return $this;
-	}
-	/**
-	 * Shipping address of the Payer from their PayPal Account.
-	 *
-	 * @return PayPal\Api\Address
-	 * @deprecated. Instead use getShippingAddress
-	 */
-	public function getShipping_address() {
-		return $this->shipping_address;
-	}
+    /**
+     * Get Payer ID
+     * PayPal assigned Payer ID
+     *
+     * @return string
+     */
+    public function getPayerId()
+    {
+        return $this->payer_id;
+    }
 
+    /**
+     * Set Payer ID
+     * PayPal assigned Payer ID
+     *
+     * @param string $payer_id
+     *
+     * @deprecated Use setPayerId
+     *
+     * @return $this
+     */
+    public function setPayer_id($payer_id)
+    {
+        $this->payer_id = $payer_id;
+
+        return $this;
+    }
+
+    /**
+     * Get Payer ID
+     * PayPal assigned Payer ID
+     *
+     * @deprecated Use setPayerId
+     *
+     * @return string
+     */
+    public function getPayer_id()
+    {
+        return $this->payer_id;
+    }
+
+    /**
+     * Set Phone
+     * Phone number representing the Payer
+     *
+     * @param string $phone
+     *
+     * @return $this
+     */
+    public function setPhone($phone)
+    {
+        $this->phone = $phone;
+
+        return $this;
+    }
+
+    /**
+     * Get Phone
+     * Phone number representing the Payer
+     *
+     * @return string
+     */
+    public function getPhone()
+    {
+        return $this->phone;
+    }
+
+    /**
+     * Set Shipping Address
+     * Shipping address of the Payer from their PayPal Account
+     *
+     * @param \PayPal\Api\Address $shipping_address
+     *
+     * @return $this
+     */
+    public function setShippingAddress($shipping_address)
+    {
+        $this->shipping_address = $shipping_address;
+
+        return $this;
+    }
+
+    /**
+     * Get Shipping Address
+     * Shipping address of the Payer from their PayPal Account
+     *
+     * @return \PayPal\Api\Address
+     */
+    public function getShippingAddress()
+    {
+        return $this->shipping_address;
+    }
+
+    /**
+     * Set Shipping Address
+     * Shipping address of the Payer from their PayPal Account
+     *
+     * @param \PayPal\Api\Address $shipping_address
+     *
+     * @deprecated Use setShippingAddress
+     *
+     * @return $this
+     */
+    public function setShipping_address($shipping_address)
+    {
+        $this->shipping_address = $shipping_address;
+
+        return $this;
+    }
+    
+    /**
+     * Get Shipping Address
+     * Shipping address of the Payer from their PayPal Account
+     *
+     * @deprecated Use getShippingAddress
+     *
+     * @return \PayPal\Api\Address
+     */
+    public function getShipping_address()
+    {
+        return $this->shipping_address;
+    }
 }
