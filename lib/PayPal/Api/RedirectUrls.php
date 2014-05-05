@@ -23,6 +23,11 @@ class RedirectUrls extends PPModel
      */
     public function setReturnUrl($return_url)
     {
+        if(filter_var($return_url, FILTER_VALIDATE_URL) === false)
+        {
+            throw new \InvalidArgumentException("Return URL is not a fully qualified URL");
+        }
+
         $this->return_url = $return_url;
 
         return $this;
@@ -79,6 +84,10 @@ class RedirectUrls extends PPModel
      */
     public function setCancelUrl($cancel_url)
     {
+        if(filter_var($cancel_url, FILTER_VALIDATE_URL) === false)
+        {
+            throw new \InvalidArgumentException("Cancel URL is not a fully qualified URL");
+        }
         $this->cancel_url = $cancel_url;
 
         return $this;
