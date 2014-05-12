@@ -47,7 +47,6 @@ class Invoices extends PPModel {
 	/**
 	 * List of invoices belonging to a merchant.
 	 *
-	 * @array
 	 * @param PayPal\Api\Invoice $invoices
 	 */
 	public function setInvoices($invoices) {

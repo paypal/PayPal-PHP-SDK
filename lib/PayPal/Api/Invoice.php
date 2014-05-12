@@ -141,7 +141,6 @@ class Invoice extends PPModel implements IResource {
 	/**
 	 * Email address of invoice recipient (required) and optional billing information. (Note: We currently only allow one recipient).
 	 *
-	 * @array
 	 * @param PayPal\Api\BillingInfo $billing_info
 	 */
 	public function setBillingInfo($billing_info) {
@@ -161,7 +160,6 @@ class Invoice extends PPModel implements IResource {
 	/**
 	 * Email address of invoice recipient (required) and optional billing information. (Note: We currently only allow one recipient).
 	 *
-	 * @array
 	 * @param PayPal\Api\BillingInfo $billing_info
 	 * @deprecated. Instead use setBillingInfo
 	 */
@@ -221,7 +219,6 @@ class Invoice extends PPModel implements IResource {
 	/**
 	 * List of items included in the invoice. 100 items max per invoice.
 	 *
-	 * @array
 	 * @param PayPal\Api\InvoiceItem $items
 	 */
 	public function setItems($items) {
@@ -634,7 +631,6 @@ class Invoice extends PPModel implements IResource {
 	/**
 	 * List of payment details for the invoice.
 	 *
-	 * @array
 	 * @param PayPal\Api\PaymentDetail $payment_details
 	 */
 	public function setPaymentDetails($payment_details) {
@@ -654,7 +650,6 @@ class Invoice extends PPModel implements IResource {
 	/**
 	 * List of payment details for the invoice.
 	 *
-	 * @array
 	 * @param PayPal\Api\PaymentDetail $payment_details
 	 * @deprecated. Instead use setPaymentDetails
 	 */
@@ -675,7 +670,6 @@ class Invoice extends PPModel implements IResource {
 	/**
 	 * List of refund details for the invoice.
 	 *
-	 * @array
 	 * @param PayPal\Api\RefundDetail $refund_details
 	 */
 	public function setRefundDetails($refund_details) {
@@ -695,7 +689,6 @@ class Invoice extends PPModel implements IResource {
 	/**
 	 * List of refund details for the invoice.
 	 *
-	 * @array
 	 * @param PayPal\Api\RefundDetail $refund_details
 	 * @deprecated. Instead use setRefundDetails
 	 */

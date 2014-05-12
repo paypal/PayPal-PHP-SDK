@@ -126,7 +126,6 @@ class Error extends PPModel {
 	/**
 	 * Additional details of the error
 	 *
-	 * @array
 	 * @param PayPal\Api\ErrorDetails $details
 	 */
 	public function setDetails($details) {
