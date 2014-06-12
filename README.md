@@ -4,6 +4,7 @@
 
 This repository contains PayPal's PHP SDK and samples for REST API.
 
+> **Before starting to use the sdk, please be aware of the [existing issues and currently available or upcoming features](https://github.com/paypal/rest-api-sdk-python/wiki/Existing-Issues-and-Unavailable%5CUpcoming-features) for the REST APIs. (which the sdks are based on)** 
 
 ## Prerequisites
 
@@ -32,7 +33,7 @@ To write an app that uses the SDK
     define('PP_CONFIG_PATH', /path/to/your/sdk_config.ini);
 ```
     
-   * Obtain your clientId and client secret from the developer portal. You will use them to create a `OAuthTokenCredential` object.
+   * Obtain your clientId and client secret from the [developer portal](https://developer.paypal.com). You will use them to create a `OAuthTokenCredential` object.
    * Now you are all set to make your first API call. Create a resource object as per your need and call the relevant operation or invoke one of the static methods on your resource class.
     
 ```php
