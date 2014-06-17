@@ -4,7 +4,7 @@
 
 This repository contains PayPal's PHP SDK and samples for REST API.
 
-> **Before starting to use the sdk, please be aware of the [existing issues and currently available or upcoming features](https://github.com/paypal/rest-api-sdk-python/wiki/Existing-Issues-and-Unavailable%5CUpcoming-features) for the REST APIs. (which the sdks are based on)** 
+> **Before starting to use the sdk, please be aware of the [existing issues and currently unavailable or upcoming features](https://github.com/paypal/rest-api-sdk-python/wiki/Existing-Issues-and-Unavailable%5CUpcoming-features) for the REST APIs. (which the sdks are based on)** 
 
 ## Prerequisites
 
@@ -16,7 +16,8 @@ This repository contains PayPal's PHP SDK and samples for REST API.
 
 ## Running the sample
 
-   * `Composer` is the recommended way to get the SDK. Ensure that you have composer installed on your machine, navigate to the samples folder and run 'composer update --no-dev' to fetch the SDK.
+   * Clone the repo and navigate to the samples folder.
+   * Samples have dependency on the sdk and you can use `Composer` to get the dependencies. Ensure that you have composer installed on your machine, navigate to the samples folder and run 'composer update --no-dev' to fetch the SDK.
    * In case you cannot install composer on your machine, you can also fetch the SDK bundle from https://github.com/paypal/sdk-packages/raw/gh-pages/rest-api-sdk/php/rest-api-sdk-php-0.7.1.zip and unzip the bundle in to the samples folder.
    * Optionally, update the bootstrap.php file with your own client Id and client secret.
    * Run any of the samples in the 'samples' folder to see what the APIs can do.
