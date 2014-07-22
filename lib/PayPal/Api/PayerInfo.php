@@ -241,7 +241,7 @@ class PayerInfo extends PPModel
      * Set Shipping Address
      * Shipping address of the Payer from their PayPal Account
      *
-     * @param \PayPal\Api\Address $shipping_address
+     * @param \PayPal\Api\ShippingAddress $shipping_address
      *
      * @return $this
      */
@@ -256,7 +256,7 @@ class PayerInfo extends PPModel
      * Get Shipping Address
      * Shipping address of the Payer from their PayPal Account
      *
-     * @return \PayPal\Api\Address
+     * @return \PayPal\Api\ShippingAddress
      */
     public function getShippingAddress()
     {
@@ -267,7 +267,7 @@ class PayerInfo extends PPModel
      * Set Shipping Address
      * Shipping address of the Payer from their PayPal Account
      *
-     * @param \PayPal\Api\Address $shipping_address
+     * @param \PayPal\Api\ShippingAddress $shipping_address
      *
      * @deprecated Use setShippingAddress
      *
@@ -286,7 +286,7 @@ class PayerInfo extends PPModel
      *
      * @deprecated Use getShippingAddress
      *
-     * @return \PayPal\Api\Address
+     * @return \PayPal\Api\ShippingAddress
      */
     public function getShipping_address()
     {
