@@ -21,7 +21,7 @@ class PayerInfoTest extends \PHPUnit_Framework_TestCase {
 		$payerInfo->setLastName(self::$lastName);
 		$payerInfo->setPhone(self::$phone);
 		$payerInfo->setPayerId(self::$payerId);
-		$payerInfo->setShippingAddress(AddressTest::createAddress());
+		$payerInfo->setShippingAddress(ShippingAddressTest::createAddress());
 		
 		return $payerInfo;
 	}
@@ -36,7 +36,7 @@ class PayerInfoTest extends \PHPUnit_Framework_TestCase {
 		$this->assertEquals(self::$lastName, $this->payerInfo->getLastName());
 		$this->assertEquals(self::$phone, $this->payerInfo->getPhone());
 		$this->assertEquals(self::$payerId, $this->payerInfo->getPayerId());
-		$this->assertEquals(AddressTest::$line1, $this->payerInfo->getShippingAddress()->getLine1());
+		$this->assertEquals(ShippingAddressTest::$line1, $this->payerInfo->getShippingAddress()->getLine1());
 	}
 	
 	public function testSerializeDeserialize() {
