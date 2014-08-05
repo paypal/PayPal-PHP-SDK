@@ -629,6 +629,32 @@ class Invoice extends PPModel implements IResource {
 	}
 
 	/**
+	 * Set Payments
+	 * A list of Payment resources
+	 *
+	 * @param \PayPal\Api\Payment $payments
+	 *
+	 * @return $this
+	 */
+	public function setPayments($payments)
+	{
+	    $this->payments = $payments;
+
+	    return $this;
+	}
+
+	/**
+	 * Get Payments
+	 * A list of Payment resources
+	 *
+	 * @return \PayPal\Api\Payment
+	 */
+	public function getPayments()
+	{
+	    return $this->payments;
+	}
+
+	/**
 	 * List of payment details for the invoice.
 	 *
 	 * @param PayPal\Api\PaymentDetail $payment_details
