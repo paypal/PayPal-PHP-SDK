@@ -143,9 +143,15 @@ class AuthorizationTest extends \PHPUnit_Framework_TestCase {
 		$void = $auth->void();
 		$this->assertNotNull($void->getId());
 
+        $auth->setId(null);
+        try {
+            $auth->void();
+        } catch (\InvalidArgumentException $ex) {
+            $this->assertEquals($ex->getMessage(), "Id cannot be null");
+        }
 	}
 	
-	public function testReauthorize(){
+	public function testReauthorize() {
 		$authorization = Authorization::get('7GH53639GA425732B');
 	
 		$amount = new Amount();
@@ -153,10 +159,18 @@ class AuthorizationTest extends \PHPUnit_Framework_TestCase {
 		$amount->setTotal("1.00");
 		
 		$authorization->setAmount($amount);
-		try{
-			$reauthorization = $authorization->reauthorize();
-		}catch (PPConnectionException $ex){
+		try {
+			$authorization->reauthorize();
+		} catch (PPConnectionException $ex){
+            var_dump($ex->getMessage());
 			$this->assertEquals(strpos($ex->getMessage(),"500"), false);
 		}
+
+        $authorization->setId(null);
+        try {
+            $authorization->reauthorize();
+        } catch (\InvalidArgumentException $ex) {
+            $this->assertEquals($ex->getMessage(), "Id cannot be null");
+        }
 	}
 }
