@@ -14,7 +14,7 @@ use PayPal\Rest\ApiContext;
  * @property string             state
  * @property \PayPal\Api\Amount amount
  * @property string             parentPayment
- * @property array|\PayPal\Api\Links  links
+ * @property \PayPal\Api\Links  links
  * @property string             reasonCode
  */
 class Order extends PPModel
@@ -170,7 +170,7 @@ class Order extends PPModel
     /**
      * Set Links
      * 
-     * @param array|\PayPal\Api\Links $links
+     * @param \PayPal\Api\Links $links
      * 
      * @return $this
      */
@@ -184,7 +184,7 @@ class Order extends PPModel
     /**
      * Get Links
      * 
-     * @return array|\PayPal\Api\Links
+     * @return \PayPal\Api\Links
      */
     public function getLinks()
     {
