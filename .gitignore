@@ -4,6 +4,7 @@ build
 *.log
 
 # IDE
+.idea
 .project
 .settings
 .buildpath
