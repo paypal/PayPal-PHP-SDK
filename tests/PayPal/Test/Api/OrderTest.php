@@ -54,7 +54,7 @@ class OrderTest extends \PHPUnit_Framework_TestCase {
         $o1 = $this->order;
 
         $o2 = new Order();
-        $o2->fromJson($this->o1->toJson());
+        $o2->fromJson($o1->toJson());
 
         $this->assertEquals($o1, $o2);
     }
