@@ -114,4 +114,28 @@ class RelatedResources extends PPModel
     {
         return $this->refund;
     }
+
+    /**
+     * Set Order
+     * 
+     * @param \PayPal\Api\Order $order
+     * 
+     * @return $this
+     */
+    public function setOrder($order)
+    {
+        $this->order = $order;
+
+        return $this;
+    }
+
+    /**
+     * Get Order
+     * 
+     * @return \PayPal\Api\Order
+     */
+    public function getOrder()
+    {
+        return $this->order;
+    }
 }
