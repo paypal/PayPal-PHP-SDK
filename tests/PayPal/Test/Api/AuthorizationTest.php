@@ -162,7 +162,7 @@ class AuthorizationTest extends \PHPUnit_Framework_TestCase {
 		try {
 			$authorization->reauthorize();
 		} catch (PPConnectionException $ex){
-            var_dump($ex->getMessage());
+            //var_dump($ex->getMessage());
 			$this->assertEquals(strpos($ex->getMessage(),"500"), false);
 		}
 
