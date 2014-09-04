@@ -208,6 +208,84 @@ class Transaction extends PPModel
     }
 
     /**
+     * Set invoice number.
+     * Invoice number used to track the payment. 256 characters max.
+     *
+     * @param string $invoiceNumber
+     *
+     * @return $this
+     */
+    public function setInvoiceNumber($invoiceNumber)
+    {
+        $this->invoice_number = $invoiceNumber;
+
+        return $this;
+    }
+
+    /**
+     * Get invoice number.
+     * Invoice number used to track the payment. 256 characters max.
+     *
+     * @return string
+     */
+    public function getInvoiceNumber()
+    {
+        return $this->invoice_number;
+    }
+
+    /**
+     * Set free-form field.
+     * Free-form field for the use of clients. 256 characters max.
+     *
+     * @param string $custom
+     *
+     * @return $this
+     */
+    public function setCustom($custom)
+    {
+        $this->custom = $custom;
+
+        return $this;
+    }
+
+    /**
+     * Get free-form field.
+     * Free-form field for the use of clients. 256 characters max.
+     *
+     * @return string
+     */
+    public function getCustom()
+    {
+        return $this->custom;
+    }
+
+    /**
+     * Set soft descriptor.
+     * Soft descriptor used when charging this funding source. 22 characters max.
+     *
+     * @param string $softDescriptor
+     *
+     * @return $this
+     */
+    public function setSoftDescriptor($softDescriptor)
+    {
+        $this->soft_descriptor = $softDescriptor;
+
+        return $this;
+    }
+
+    /**
+     * Get soft descriptor.
+     * Soft descriptor used when charging this funding source. 22 characters max.
+     *
+     * @return string
+     */
+    public function getSoftDescriptor()
+    {
+        return $this->soft_descriptor;
+    }
+
+    /**
      * Set Transactions
      * Additional transactions for complex payment (Parallel and Chained) scenarios
      *
