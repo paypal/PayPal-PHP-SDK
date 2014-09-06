@@ -14,6 +14,9 @@ use PayPal\Rest\ApiContext;
  * @property \PayPal\Api\ItemList         item_list
  * @property \PayPal\Api\RelatedResources related_resources
  * @property \PayPal\Api\Transaction      transactions
+ * @property string                       invoice_number
+ * @property string                       custom
+ * @property string                       soft_descriptor
  */
 class Transaction extends PPModel
 {
