@@ -12,12 +12,18 @@ class TransactionTest extends \PHPUnit_Framework_TestCase {
 	private $transaction;
 
 	public static $description = "desc . . . ";
+	public static $invoiceNumber = "#123";
+	public static $custom = "custom";
+	public static $softDescriptor = "descriptor";
 	public static $total = "1.12";	
 
 	public static function createTransaction() {
 		$transaction = new Transaction();
 		$transaction->setAmount(AmountTest::createAmount());
 		$transaction->setDescription(self::$description);
+		$transaction->setInvoiceNumber(self::$invoiceNumber);
+		$transaction->setCustom(self::$custom);
+		$transaction->setSoftDescriptor(self::$softDescriptor);
 		$transaction->setItemList(ItemListTest::createItemList());
 		$transaction->setPayee(PayeeTest::createPayee());
  		$transaction->setRelatedResources( array(RelatedResourcesTest::createRelatedResources()) );
@@ -31,6 +37,9 @@ class TransactionTest extends \PHPUnit_Framework_TestCase {
 	public function testGetterSetter() {
 		$this->assertEquals(AmountTest::$currency, $this->transaction->getAmount()->getCurrency());
 		$this->assertEquals(self::$description, $this->transaction->getDescription());
+		$this->assertEquals(self::$invoiceNumber, $this->transaction->getInvoiceNumber());
+		$this->assertEquals(self::$custom, $this->transaction->getCustom());
+		$this->assertEquals(self::$softDescriptor, $this->transaction->getSoftDescriptor());
 		$items = $this->transaction->getItemList()->getItems();
 		$this->assertEquals(ItemTest::$quantity, $items[0]->getQuantity());
 		$this->assertEquals(PayeeTest::$email, $this->transaction->getPayee()->getEmail());
