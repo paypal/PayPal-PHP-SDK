@@ -1,183 +1,297 @@
 <?php
+
 namespace PayPal\Api;
 
 use PayPal\Common\PPModel;
+use PayPal\Rest\ApiContext;
 
-class CreditCardToken extends PPModel {
-	/**
-	 * ID of a previously saved Credit Card resource using /vault/credit-card API.
-	 * @param string $credit_card_id
-	 */
-	public function setCreditCardId($credit_card_id) {
-		$this->credit_card_id = $credit_card_id;
-		return $this;
-	}
+/**
+ * Class CreditCardToken
+ *
+ * @property string credit_card_id
+ * @property string payer_id
+ * @property string last4
+ * @property string type
+ * @property int    expire_month
+ * @property int    expire_year
+ */
+class CreditCardToken extends PPModel
+{
+    /**
+     * Set Credit Card ID
+     * ID of a previously saved Credit Card resource using /vault/credit-card API
+     *
+     * @param string $credit_card_id
+     *
+     * @return $this
+     */
+    public function setCreditCardId($credit_card_id)
+    {
+        $this->credit_card_id = $credit_card_id;
 
-	/**
-	 * ID of a previously saved Credit Card resource using /vault/credit-card API.
-	 * @return string
-	 */
-	public function getCreditCardId() {
-		return $this->credit_card_id;
-	}
+        return $this;
+    }
 
-	/**
-	 * ID of a previously saved Credit Card resource using /vault/credit-card API.
-	 * @param string $credit_card_id
-	 * @deprecated. Instead use setCreditCardId
-	 */
-	public function setCredit_card_id($credit_card_id) {
-		$this->credit_card_id = $credit_card_id;
-		return $this;
-	}
-	/**
-	 * ID of a previously saved Credit Card resource using /vault/credit-card API.
-	 * @return string
-	 * @deprecated. Instead use getCreditCardId
-	 */
-	public function getCredit_card_id() {
-		return $this->credit_card_id;
-	}
+    /**
+     * Get Credit Card ID
+     * ID of a previously saved Credit Card resource using /vault/credit-card API
+     *
+     * @return string
+     */
+    public function getCreditCardId()
+    {
+        return $this->credit_card_id;
+    }
 
-	/**
-	 * The unique identifier of the payer used when saving this credit card using /vault/credit-card API.
-	 * @param string $payer_id
-	 */
-	public function setPayerId($payer_id) {
-		$this->payer_id = $payer_id;
-		return $this;
-	}
+    /**
+     * Set Credit Card ID
+     * ID of a previously saved Credit Card resource using /vault/credit-card API
+     *
+     * @param string $credit_card_id
+     *
+     * @deprecated Use setCreditCardId
+     *
+     * @return $this
+     */
+    public function setCredit_card_id($credit_card_id)
+    {
+        $this->credit_card_id = $credit_card_id;
 
-	/**
-	 * The unique identifier of the payer used when saving this credit card using /vault/credit-card API.
-	 * @return string
-	 */
-	public function getPayerId() {
-		return $this->payer_id;
-	}
+        return $this;
+    }
 
-	/**
-	 * The unique identifier of the payer used when saving this credit card using /vault/credit-card API.
-	 * @param string $payer_id
-	 * @deprecated. Instead use setPayerId
-	 */
-	public function setPayer_id($payer_id) {
-		$this->payer_id = $payer_id;
-		return $this;
-	}
-	/**
-	 * The unique identifier of the payer used when saving this credit card using /vault/credit-card API.
-	 * @return string
-	 * @deprecated. Instead use getPayerId
-	 */
-	public function getPayer_id() {
-		return $this->payer_id;
-	}
+    /**
+     * Get Credit Card ID
+     * ID of a previously saved Credit Card resource using /vault/credit-card API
+     *
+     * @deprecated Use getCreditCardId
+     *
+     * @return string
+     */
+    public function getCredit_card_id()
+    {
+        return $this->credit_card_id;
+    }
 
-	/**
-	 * Last 4 digits of the card number from the saved card.
-	 * @param string $last4
-	 */
-	public function setLast4($last4) {
-		$this->last4 = $last4;
-		return $this;
-	}
+    /**
+     * Set Payer ID
+     * The unique identifier of the payer used when saving this credit card using /vault/credit-card API
+     *
+     * @param string $payer_id
+     *
+     * @return $this
+     */
+    public function setPayerId($payer_id)
+    {
+        $this->payer_id = $payer_id;
 
-	/**
-	 * Last 4 digits of the card number from the saved card.
-	 * @return string
-	 */
-	public function getLast4() {
-		return $this->last4;
-	}
+        return $this;
+    }
 
+    /**
+     * Get Payer ID
+     * The unique identifier of the payer used when saving this credit card using /vault/credit-card API
+     *
+     * @return string
+     */
+    public function getPayerId()
+    {
+        return $this->payer_id;
+    }
 
-	/**
-	 * Type of the Card (eg. visa, mastercard, etc.) from the saved card. Please note that the values are always in lowercase and not meant to be used directly for display.
-	 * @param string $type
-	 */
-	public function setType($type) {
-		$this->type = $type;
-		return $this;
-	}
+    /**
+     * Set Payer ID
+     * The unique identifier of the payer used when saving this credit card using /vault/credit-card API
+     *
+     * @param string $payer_id
+     *
+     * @deprecated Use setPayerId
+     *
+     * @return $this
+     */
+    public function setPayer_id($payer_id)
+    {
+        $this->payer_id = $payer_id;
 
-	/**
-	 * Type of the Card (eg. visa, mastercard, etc.) from the saved card. Please note that the values are always in lowercase and not meant to be used directly for display.
-	 * @return string
-	 */
-	public function getType() {
-		return $this->type;
-	}
+        return $this;
+    }
 
+    /**
+     * Get Payer ID
+     * The unique identifier of the payer used when saving this credit card using /vault/credit-card API
+     *
+     * @deprecated Use getPayerId
+     *
+     * @return string
+     */
+    public function getPayer_id()
+    {
+        return $this->payer_id;
+    }
 
-	/**
-	 * card expiry month from the saved card with value 1 - 12
-	 * @param integer $expire_month
-	 */
-	public function setExpireMonth($expire_month) {
-		$this->expire_month = $expire_month;
-		return $this;
-	}
+    /**
+     * Set Last Four
+     * Last 4 digits of the card number from the saved card
+     *
+     * @param string $last4
+     *
+     * @return $this
+     */
+    public function setLast4($last4)
+    {
+        $this->last4 = $last4;
 
-	/**
-	 * card expiry month from the saved card with value 1 - 12
-	 * @return integer
-	 */
-	public function getExpireMonth() {
-		return $this->expire_month;
-	}
+        return $this;
+    }
 
-	/**
-	 * card expiry month from the saved card with value 1 - 12
-	 * @param integer $expire_month
-	 * @deprecated. Instead use setExpireMonth
-	 */
-	public function setExpire_month($expire_month) {
-		$this->expire_month = $expire_month;
-		return $this;
-	}
-	/**
-	 * card expiry month from the saved card with value 1 - 12
-	 * @return integer
-	 * @deprecated. Instead use getExpireMonth
-	 */
-	public function getExpire_month() {
-		return $this->expire_month;
-	}
+    /**
+     * Get Last Four
+     * Last 4 digits of the card number from the saved card
+     *
+     * @return string
+     */
+    public function getLast4()
+    {
+        return $this->last4;
+    }
 
-	/**
-	 * 4 digit card expiry year from the saved card
-	 * @param integer $expire_year
-	 */
-	public function setExpireYear($expire_year) {
-		$this->expire_year = $expire_year;
-		return $this;
-	}
+    /**
+     * Set Type
+     * (eg. visa, mastercard, etc) from the saved card
+     * Please note that the values are always in lowercase and not meant to be used directly for display
+     *
+     * @param string $type
+     *
+     * @return $this
+     */
+    public function setType($type)
+    {
+        $this->type = $type;
 
-	/**
-	 * 4 digit card expiry year from the saved card
-	 * @return integer
-	 */
-	public function getExpireYear() {
-		return $this->expire_year;
-	}
+        return $this;
+    }
 
-	/**
-	 * 4 digit card expiry year from the saved card
-	 * @param integer $expire_year
-	 * @deprecated. Instead use setExpireYear
-	 */
-	public function setExpire_year($expire_year) {
-		$this->expire_year = $expire_year;
-		return $this;
-	}
-	/**
-	 * 4 digit card expiry year from the saved card
-	 * @return integer
-	 * @deprecated. Instead use getExpireYear
-	 */
-	public function getExpire_year() {
-		return $this->expire_year;
-	}
+    /**
+     * Get Type
+     * (eg. visa, mastercard, etc) from the saved card
+     * Please note that the values are always in lowercase and not meant to be used directly for display
+     *
+     * @return string
+     */
+    public function getType()
+    {
+        return $this->type;
+    }
 
+    /**
+     * Set Expire Month
+     * Card Expiration month from the saved card with value 1 - 12
+     *
+     * @param int $expire_month
+     *
+     * @return $this
+     */
+    public function setExpireMonth($expire_month)
+    {
+        $this->expire_month = $expire_month;
+
+        return $this;
+    }
+
+    /**
+     * Get Expire Month
+     * Card Expiration month from the saved card with value 1 - 12
+     *
+     * @return int
+     */
+    public function getExpireMonth()
+    {
+        return $this->expire_month;
+    }
+
+    /**
+     * Set Expire Month
+     * Card Expiration month from the saved card with value 1 - 12
+     *
+     * @param int $expire_month
+     *
+     * @deprecated Use setExpireMonth
+     *
+     * @return $this
+     */
+    public function setExpire_month($expire_month)
+    {
+        $this->expire_month = $expire_month;
+
+        return $this;
+    }
+
+    /**
+     * Get Expire Month
+     * Card Expiration month from the saved card with value 1 - 12
+     *
+     * @deprecated Use getExpireMonth
+     *
+     * @return int
+     */
+    public function getExpire_month()
+    {
+        return $this->expire_month;
+    }
+
+    /**
+     * Set Expire Year
+     * 4 digit card expiry year from the saved card
+     *
+     * @param int $expire_year
+     *
+     * @return $this
+     */
+    public function setExpireYear($expire_year)
+    {
+        $this->expire_year = $expire_year;
+
+        return $this;
+    }
+
+    /**
+     * Get Expire Year
+     * 4 digit card expiry year from the saved card
+     *
+     * @return int
+     */
+    public function getExpireYear()
+    {
+        return $this->expire_year;
+    }
+
+    /**
+     * Set Expire Year
+     * 4 digit card expiry year from the saved card
+     *
+     * @param int $expire_year
+     *
+     * @deprecated Use setExpireYear
+     *
+     * @return $this
+     */
+    public function setExpire_year($expire_year)
+    {
+        $this->expire_year = $expire_year;
+
+        return $this;
+    }
+
+    /**
+     * Get Expire Year
+     * 4 digit card expiry year from the saved card
+     *
+     * @deprecated Use getExpireYear
+     *
+     * @return int
+     */
+    public function getExpire_year()
+    {
+        return $this->expire_year;
+    }
 }

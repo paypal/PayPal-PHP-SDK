@@ -4,6 +4,7 @@
 
 This repository contains PayPal's PHP SDK and samples for REST API.
 
+> **Before starting to use the sdk, please be aware of the [existing issues and currently unavailable or upcoming features](https://github.com/paypal/rest-api-sdk-python/wiki/Existing-Issues-and-Unavailable%5CUpcoming-features) for the REST APIs. (which the sdks are based on)** 
 
 ## Prerequisites
 
@@ -15,8 +16,8 @@ This repository contains PayPal's PHP SDK and samples for REST API.
 
 ## Running the sample
 
-   * `Composer` is the recommended way to get the SDK. Ensure that you have composer installed on your machine, navigate to the samples folder and run 'composer update --no-dev' to fetch the SDK.
-   * In case you cannot install composer on your machine, you can also fetch the SDK bundle from https://github.com/paypal/sdk-packages/raw/gh-pages/rest-api-sdk/php/rest-api-sdk-php-0.7.1.zip and unzip the bundle in to the samples folder.
+   * Clone the repo and navigate to the samples folder.
+   * Samples have dependency on the sdk and you can use `Composer` to get the dependencies. Ensure that you have composer installed on your machine, navigate to the samples folder and run 'composer update --no-dev' to fetch the SDK.
    * Optionally, update the bootstrap.php file with your own client Id and client secret.
    * Run any of the samples in the 'samples' folder to see what the APIs can do.
     
@@ -32,7 +33,7 @@ To write an app that uses the SDK
     define('PP_CONFIG_PATH', /path/to/your/sdk_config.ini);
 ```
     
-   * Obtain your clientId and client secret from the developer portal. You will use them to create a `OAuthTokenCredential` object.
+   * Obtain your clientId and client secret from the [developer portal](https://developer.paypal.com). You will use them to create a `OAuthTokenCredential` object.
    * Now you are all set to make your first API call. Create a resource object as per your need and call the relevant operation or invoke one of the static methods on your resource class.
     
 ```php
@@ -63,3 +64,5 @@ The samples in this repo pick the SDK configuration from the sdk_config.ini file
 
    * [API Reference](https://developer.paypal.com/webapps/developer/docs/api/)
    * [Reporting issues / feature requests] (https://github.com/paypal/rest-api-sdk-php/issues)
+   
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/paypal/rest-api-sample-app-php/trend.png)](https://bitdeli.com/free "Bitdeli Badge")

@@ -19,9 +19,11 @@ use PayPal\Exception\PPConnectionException;
 class AuthorizationTest extends \PHPUnit_Framework_TestCase {
 	private $authorizations = array();
 	public static $create_time = "2013-02-28T00:00:00Z";
+    public static $update_time = "2013-03-28T00:00:00Z";
 	public static $id = "AUTH-123";
 	public static $state = "Created";
 	public static $parent_payment = "PAY-12345";
+    public static $valid_until = "2013-04-28T00:00:00Z";
 	public static $currency = "USD";
 	public static $total = "1.12";
 	public static $href = "USD";
@@ -90,20 +92,24 @@ class AuthorizationTest extends \PHPUnit_Framework_TestCase {
 	public function setup() {
 		$authorization = new Authorization();
 		$authorization->setCreateTime(self::$create_time);
+        $authorization->setUpdateTime(self::$update_time);
 		$authorization->setId(self::$id);
 		$authorization->setState(self::$state);
 		$authorization->setParentPayment(self::$parent_payment);
+        $authorization->setValidUntil(self::$valid_until);
 		$this->authorizations['partial'] = $authorization;
 		$this->authorizations['full'] = self::createAuthorization();
 		
 	}
 
-	public function testGetterSetter() {		
+	public function testGetterSetter() {
 		$authorization = $this->authorizations['partial'];
 		$this->assertEquals(self::$create_time, $authorization->getCreateTime());
+        $this->assertEquals(self::$update_time, $authorization->getUpdateTime());
 		$this->assertEquals(self::$id, $authorization->getId());
 		$this->assertEquals(self::$state, $authorization->getState());
 		$this->assertEquals(self::$parent_payment, $authorization->getParentPayment());
+        $this->assertEquals(self::$valid_until, $authorization->getValidUntil());
 		
 		$authorization = $this->authorizations['full'];
 		$this->assertEquals(AmountTest::$currency, $authorization->getAmount()->getCurrency());
@@ -137,9 +143,15 @@ class AuthorizationTest extends \PHPUnit_Framework_TestCase {
 		$void = $auth->void();
 		$this->assertNotNull($void->getId());
 
+        $auth->setId(null);
+        try {
+            $auth->void();
+        } catch (\InvalidArgumentException $ex) {
+            $this->assertEquals($ex->getMessage(), "Id cannot be null");
+        }
 	}
 	
-	public function testReauthorize(){
+	public function testReauthorize() {
 		$authorization = Authorization::get('7GH53639GA425732B');
 	
 		$amount = new Amount();
@@ -147,10 +159,18 @@ class AuthorizationTest extends \PHPUnit_Framework_TestCase {
 		$amount->setTotal("1.00");
 		
 		$authorization->setAmount($amount);
-		try{
-			$reauthorization = $authorization->reauthorize();
-		}catch (PPConnectionException $ex){
+		try {
+			$authorization->reauthorize();
+		} catch (PPConnectionException $ex){
+            //var_dump($ex->getMessage());
 			$this->assertEquals(strpos($ex->getMessage(),"500"), false);
 		}
+
+        $authorization->setId(null);
+        try {
+            $authorization->reauthorize();
+        } catch (\InvalidArgumentException $ex) {
+            $this->assertEquals($ex->getMessage(), "Id cannot be null");
+        }
 	}
 }

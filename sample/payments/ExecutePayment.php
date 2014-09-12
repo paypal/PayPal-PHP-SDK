@@ -29,10 +29,10 @@ if(isset($_GET['success']) && $_GET['success'] == 'true') {
 	
 	//Execute the payment
 	// (See bootstrap.php for more on `ApiContext`)
-	$response = $payment->execute($execution, $apiContext);
+	$result = $payment->execute($execution, $apiContext);
 
 	echo "<html><body><pre>";
-	var_dump($response->toArray());
+	var_dump($result);
 	echo "</pre><a href='../index.html'>Back</a></body></html>";
 	
 } else {

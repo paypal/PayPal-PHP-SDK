@@ -2,6 +2,9 @@
 
 namespace PayPal\Rest;
 
-interface IResource {
-	
+/**
+ * Interface IResource
+ */
+interface IResource
+{
 }

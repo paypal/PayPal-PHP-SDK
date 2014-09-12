@@ -1,7 +1,14 @@
 language: php
 php:
-  - 5.4
   - 5.3
+  - 5.4
+  - 5.5
+  - 5.6
+  - hhvm
+matrix:
+  allow_failures:
+    - php: hhvm
+  fast_finish: true
 before_script:
   - composer install --dev
   - composer update satooshi/php-coveralls --dev
@@ -11,5 +18,5 @@ after_script:
     - php vendor/bin/coveralls -v -c .coveralls.yml
 notifications:
   recipients:
-    - DL-PP-Platform-PHP-SDK@ebay.com
+    - DL-PP-PHP-SDK@ebay.com
   on_success: change

@@ -1,167 +1,263 @@
 <?php
+
 namespace PayPal\Api;
 
 use PayPal\Common\PPModel;
+use PayPal\Rest\ApiContext;
 
-class Address extends PPModel {
-	/**
-	 * Line 1 of the Address (eg. number, street, etc).
-	 * @param string $line1
-	 */
-	public function setLine1($line1) {
-		$this->line1 = $line1;
-		return $this;
-	}
+/**
+ * Class Address
+ *
+ * @property string line1
+ * @property string line2
+ * @property string city
+ * @property string country_code
+ * @property string postal_code
+ * @property string state
+ * @property string phone
+ */
+class Address extends PPModel
+{
+    /**
+     * Set Line 1
+     * Address (eg. number, street, etc)
+     *
+     * @param string $line1
+     *
+     * @return $this
+     */
+    public function setLine1($line1)
+    {
+        $this->line1 = $line1;
 
-	/**
-	 * Line 1 of the Address (eg. number, street, etc).
-	 * @return string
-	 */
-	public function getLine1() {
-		return $this->line1;
-	}
+        return $this;
+    }
 
+    /**
+     * Get Line 1
+     * Address (eg. number, street, etc)
+     *
+     * @return string
+     */
+    public function getLine1()
+    {
+        return $this->line1;
+    }
 
-	/**
-	 * Optional line 2 of the Address (eg. suite, apt #, etc.).
-	 * @param string $line2
-	 */
-	public function setLine2($line2) {
-		$this->line2 = $line2;
-		return $this;
-	}
+    /**
+     * Set Line 2 (Optional)
+     * Address (eg. suite, apt #, etc)
+     *
+     * @param string $line2
+     *
+     * @return $this
+     */
+    public function setLine2($line2)
+    {
+        $this->line2 = $line2;
 
-	/**
-	 * Optional line 2 of the Address (eg. suite, apt #, etc.).
-	 * @return string
-	 */
-	public function getLine2() {
-		return $this->line2;
-	}
+        return $this;
+    }
 
+    /**
+     * Get Line 2 (Optional)
+     * Address (eg. suite, apt #, etc)
+     *
+     * @return string
+     */
+    public function getLine2()
+    {
+        return $this->line2;
+    }
 
-	/**
-	 * City name.
-	 * @param string $city
-	 */
-	public function setCity($city) {
-		$this->city = $city;
-		return $this;
-	}
+    /**
+     * Set City Name
+     *
+     * @param string $city
+     *
+     * @return $this
+     */
+    public function setCity($city)
+    {
+        $this->city = $city;
 
-	/**
-	 * City name.
-	 * @return string
-	 */
-	public function getCity() {
-		return $this->city;
-	}
+        return $this;
+    }
 
+    /**
+     * Get City Name
+     *
+     * @return string
+     */
+    public function getCity()
+    {
+        return $this->city;
+    }
 
-	/**
-	 * 2 letter country code.
-	 * @param string $country_code
-	 */
-	public function setCountryCode($country_code) {
-		$this->country_code = $country_code;
-		return $this;
-	}
+    /**
+     * Set Country Code
+     * Two Letter
+     *
+     * @param string $country_code
+     *
+     * @return $this
+     */
+    public function setCountryCode($country_code)
+    {
+        $this->country_code = $country_code;
 
-	/**
-	 * 2 letter country code.
-	 * @return string
-	 */
-	public function getCountryCode() {
-		return $this->country_code;
-	}
+        return $this;
+    }
 
-	/**
-	 * 2 letter country code.
-	 * @param string $country_code
-	 * @deprecated. Instead use setCountryCode
-	 */
-	public function setCountry_code($country_code) {
-		$this->country_code = $country_code;
-		return $this;
-	}
-	/**
-	 * 2 letter country code.
-	 * @return string
-	 * @deprecated. Instead use getCountryCode
-	 */
-	public function getCountry_code() {
-		return $this->country_code;
-	}
+    /**
+     * Get Country Code
+     * Two Letter
+     *
+     * @return string
+     */
+    public function getCountryCode()
+    {
+        return $this->country_code;
+    }
 
-	/**
-	 * Zip code or equivalent is usually required for countries that have them. For list of countries that do not have postal codes please refer to http://en.wikipedia.org/wiki/Postal_code.
-	 * @param string $postal_code
-	 */
-	public function setPostalCode($postal_code) {
-		$this->postal_code = $postal_code;
-		return $this;
-	}
+    /**
+     * Set Country Code
+     * Two Letter
+     *
+     * @param string $country_code
+     *
+     * @deprecated Use setCountryCode
+     *
+     * @return $this
+     */
+    public function setCountry_code($country_code)
+    {
+        $this->country_code = $country_code;
 
-	/**
-	 * Zip code or equivalent is usually required for countries that have them. For list of countries that do not have postal codes please refer to http://en.wikipedia.org/wiki/Postal_code.
-	 * @return string
-	 */
-	public function getPostalCode() {
-		return $this->postal_code;
-	}
+        return $this;
+    }
 
-	/**
-	 * Zip code or equivalent is usually required for countries that have them. For list of countries that do not have postal codes please refer to http://en.wikipedia.org/wiki/Postal_code.
-	 * @param string $postal_code
-	 * @deprecated. Instead use setPostalCode
-	 */
-	public function setPostal_code($postal_code) {
-		$this->postal_code = $postal_code;
-		return $this;
-	}
-	/**
-	 * Zip code or equivalent is usually required for countries that have them. For list of countries that do not have postal codes please refer to http://en.wikipedia.org/wiki/Postal_code.
-	 * @return string
-	 * @deprecated. Instead use getPostalCode
-	 */
-	public function getPostal_code() {
-		return $this->postal_code;
-	}
+    /**
+     * Get Country Code
+     * Two Letter
+     *
+     * @deprecated Use getCountryCode
+     *
+     * @return string
+     */
+    public function getCountry_code()
+    {
+        return $this->country_code;
+    }
 
-	/**
-	 * 2 letter code for US states, and the equivalent for other countries.
-	 * @param string $state
-	 */
-	public function setState($state) {
-		$this->state = $state;
-		return $this;
-	}
+    /**
+     * Set Postal Code
+     * Zip code or equivalent is usually required for countries that have them
+     * For list of countries that do not have postal codes please refer to http://en.wikipedia.org/wiki/Postal_code
+     *
+     * @param string $postal_code
+     *
+     * @return $this
+     */
+    public function setPostalCode($postal_code)
+    {
+        $this->postal_code = $postal_code;
 
-	/**
-	 * 2 letter code for US states, and the equivalent for other countries.
-	 * @return string
-	 */
-	public function getState() {
-		return $this->state;
-	}
+        return $this;
+    }
 
+    /**
+     * Get Postal Code
+     * Zip code or equivalent is usually required for countries that have them
+     * For list of countries that do not have postal codes please refer to http://en.wikipedia.org/wiki/Postal_code
+     *
+     * @return string
+     */
+    public function getPostalCode()
+    {
+        return $this->postal_code;
+    }
 
-	/**
-	 * Phone number in E.123 format.
-	 * @param string $phone
-	 */
-	public function setPhone($phone) {
-		$this->phone = $phone;
-		return $this;
-	}
+    /**
+     * Set Postal Code
+     * Zip code or equivalent is usually required for countries that have them
+     * For list of countries that do not have postal codes please refer to http://en.wikipedia.org/wiki/Postal_code
+     *
+     * @param string $postal_code
+     *
+     * @deprecated Use setPostalCode
+     *
+     * @return $this
+     */
+    public function setPostal_code($postal_code)
+    {
+        $this->postal_code = $postal_code;
 
-	/**
-	 * Phone number in E.123 format.
-	 * @return string
-	 */
-	public function getPhone() {
-		return $this->phone;
-	}
+        return $this;
+    }
 
+    /**
+     * Get Postal Code
+     * Zip code or equivalent is usually required for countries that have them
+     * For list of countries that do not have postal codes please refer to http://en.wikipedia.org/wiki/Postal_code
+     *
+     * @deprecated Use getPostalCode
+     *
+     * @return string
+     */
+    public function getPostal_code()
+    {
+        return $this->postal_code;
+    }
 
+    /**
+     * Set State
+     * Two Letter Code for US States and the equivalent for other countries
+     *
+     * @param string $state
+     *
+     * @return $this
+     */
+    public function setState($state)
+    {
+        $this->state = $state;
+
+        return $this;
+    }
+
+    /**
+     * Get State
+     * Two Letter Code for US States and the equivalent for other countries
+     *
+     * @return string
+     */
+    public function getState()
+    {
+        return $this->state;
+    }
+
+    /**
+     * Set Phone Number
+     * E.123 format
+     *
+     * @param string $phone
+     *
+     * @return $this
+     */
+    public function setPhone($phone)
+    {
+        $this->phone = $phone;
+        return $this;
+    }
+
+    /**
+     * Get Phone Number
+     * E.123 format
+     *
+     * @return string
+     */
+    public function getPhone()
+    {
+        return $this->phone;
+    }
 }

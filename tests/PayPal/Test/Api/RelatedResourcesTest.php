@@ -12,6 +12,7 @@ class RelatedResourcesTest extends \PHPUnit_Framework_TestCase {
 		$relatedResources = new RelatedResources();
 		$relatedResources->setAuthorization(AuthorizationTest::createAuthorization());
 		$relatedResources->setCapture(CaptureTest::createCapture());
+        $relatedResources->setOrder(OrderTest::createOrder());
 		return $relatedResources;
 	}
 	
@@ -22,6 +23,7 @@ class RelatedResourcesTest extends \PHPUnit_Framework_TestCase {
 	public function testGetterSetter() {
 		$this->assertEquals(AuthorizationTest::$create_time, $this->relatedResources->getAuthorization()->getCreateTime());
 		$this->assertEquals(CaptureTest::$create_time, $this->relatedResources->getCapture()->getCreateTime());
+        $this->assertEquals(OrderTest::$id, $this->relatedResources->getOrder()->getId());
 	}
 	
 	public function testSerializeDeserialize() {
