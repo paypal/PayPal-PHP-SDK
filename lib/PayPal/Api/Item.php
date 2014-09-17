@@ -148,51 +148,51 @@ class Item extends PPModel
         return $this->sku;
     }
 
-	/**
-	 * Set Description
-	 * Description of the item
-	 *
-	 * @param string $description
-	 *
-	 * @return $this
-	 */
-	public function setDescription($description) {
-		$this->description = $description;
+    /**
+     * Set Description
+     * Description of the item
+     *
+     * @param string $description
+     *
+     * @return $this
+     */
+    public function setDescription($description) {
+        $this->description = $description;
 
-		return $this;
-	}
+        return $this;
+    }
 
-	/**
-	 * Get Description
-	 * Description of the item
-	 *
-	 * @return string
-	 */
-	public function getDescription() {
-		return $this->description;
-	}
+    /**
+     * Get Description
+     * Description of the item
+     *
+     * @return string
+     */
+    public function getDescription() {
+        return $this->description;
+    }
 
-	/**
-	 * Set Tax
-	 * Tax of the item
-	 *
-	 * @param string $tax
-	 *
-	 * @return $this
-	 */
-	public function setTax($tax) {
-		$this->tax = $tax;
+    /**
+     * Set Tax
+     * Tax of the item
+     *
+     * @param string $tax
+     *
+     * @return $this
+     */
+    public function setTax($tax) {
+        $this->tax = $tax;
 
-		return $this;
-	}
+        return $this;
+    }
 
-	/**
-	 * Get Tax
-	 * Tax of the item
-	 *
-	 * @return string
-	 */
-	public function getTax($tax) {
-		return $this->tax;
-	}
+    /**
+     * Get Tax
+     * Tax of the item
+     *
+     * @return string
+     */
+    public function getTax($tax) {
+        return $this->tax;
+    }
 }
