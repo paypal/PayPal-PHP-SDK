@@ -54,9 +54,7 @@ If you do not want to use composer, you can grab the SDK zip that contains Paypa
 - Unzip and copy vendor directory inside your project, e.g. project root directory.
 
 - If your application has a bootstrap/autoload file, you should add 
-```php
-include '<vendor directory location>/vendor/autoload.php'
-``` in it. The location of the ```<vendor directory>``` should be replaced based on where you downloaded **vendor** directory in your application.
+`include '<vendor directory location>/vendor/autoload.php'` in it. The location of the `<vendor directory>` should be replaced based on where you downloaded **vendor** directory in your application.
  
 - This *autoload.php* file registers a custom autoloader that can autoload the PayPal SDK files, that allows you to access PHP SDK system in your application.
 
