@@ -46,7 +46,8 @@ class OrderTest extends \PHPUnit_Framework_TestCase {
         $this->assertEquals(self::$state, $this->order->getState());
         $this->assertEquals(AmountTest::$currency, $this->order->getAmount()->getCurrency());
         $this->assertEquals(self::$parentPayment, $this->order->getParentPayment());
-        $this->assertEquals(LinksTest::$href, $this->order->getLinks()[0]->getHref());
+        $links = (array)$this->order->getLinks();
+        $this->assertEquals(LinksTest::$href, $links[0]->getHref());
         $this->assertEquals(self::$reasonCode, $this->order->getReasonCode());
     }
 
