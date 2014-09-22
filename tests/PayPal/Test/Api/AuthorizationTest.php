@@ -123,31 +123,37 @@ class AuthorizationTest extends \PHPUnit_Framework_TestCase {
 		$this->assertEquals($a1, $a2);
 	}
 	public function testOperations() {
-		$authId = self::authorize();
-		$auth = Authorization::get($authId);
-		$this->assertNotNull($auth->getId());
-		
-		$amount = new Amount();
-		$amount->setCurrency("USD");
-		$amount->setTotal("1.00");
-		
-		$captur = new Capture();
-		$captur->setId($authId);
-		$captur->setAmount($amount);	
-		
-		$capt = $auth->capture($captur);
-		$this->assertNotNull( $capt->getId());
-		
-		$authId = self::authorize();
-		$auth = Authorization::get($authId);
-		$void = $auth->void();
-		$this->assertNotNull($void->getId());
-
-        $auth->setId(null);
         try {
-            $auth->void();
-        } catch (\InvalidArgumentException $ex) {
-            $this->assertEquals($ex->getMessage(), "Id cannot be null");
+            $authId = self::authorize();
+            $auth = Authorization::get($authId);
+            $this->assertNotNull($auth->getId());
+
+            $amount = new Amount();
+            $amount->setCurrency("USD");
+            $amount->setTotal("1.00");
+
+            $captur = new Capture();
+            $captur->setId($authId);
+            $captur->setAmount($amount);
+
+            $capt = $auth->capture($captur);
+            $this->assertNotNull( $capt->getId());
+
+            $authId = self::authorize();
+            $auth = Authorization::get($authId);
+            $void = $auth->void();
+            $this->assertNotNull($void->getId());
+
+            $auth->setId(null);
+            try {
+                $auth->void();
+            } catch (\InvalidArgumentException $ex) {
+                $this->assertEquals($ex->getMessage(), "Id cannot be null");
+            }
+        } catch (\PayPal\Exception\PPConnectionException $ex) {
+            $this->markTestSkipped(
+                'Tests failing because of intermittent failures in Paypal Sandbox environment.' . $ex->getMessage()
+            );
         }
 	}
 	
