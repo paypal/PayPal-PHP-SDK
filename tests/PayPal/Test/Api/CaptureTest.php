@@ -55,33 +55,42 @@ class CaptureTest extends \PHPUnit_Framework_TestCase {
 		
 		$this->assertEquals($c1, $c2);
 	}
-	
+
+    /**
+     * @group integration
+     */
 	public function testOperations()
 	{
-		$authId = AuthorizationTest::authorize();
-		$auth = Authorization::get($authId);
-		
-		$amount = new Amount();
-		$amount->setCurrency("USD");
-		$amount->setTotal("1.00");
-		
-		$captr = new Capture();
-		$captr->setId($authId);
-		$captr->setAmount($amount);
-		
-		$capt = $auth->capture($captr);
-		$captureId = $capt->getId();
-		$this->assertNotNull($captureId);
-		
-		$refund = new Refund();
-		$refund->setId($captureId);
-		$refund->setAmount($amount);
-		
-		$capture = Capture::get($captureId);
-		$this->assertNotNull($capture->getId());
-		
-		$retund = $capture->refund($refund);
-		$this->assertNotNull($retund->getId());
+        try {
+            $authId = AuthorizationTest::authorize();
+            $auth = Authorization::get($authId);
+
+            $amount = new Amount();
+            $amount->setCurrency("USD");
+            $amount->setTotal("1.00");
+
+            $captr = new Capture();
+            $captr->setId($authId);
+            $captr->setAmount($amount);
+
+            $capt = $auth->capture($captr);
+            $captureId = $capt->getId();
+            $this->assertNotNull($captureId);
+
+            $refund = new Refund();
+            $refund->setId($captureId);
+            $refund->setAmount($amount);
+
+            $capture = Capture::get($captureId);
+            $this->assertNotNull($capture->getId());
+
+            $retund = $capture->refund($refund);
+            $this->assertNotNull($retund->getId());
+        } catch (PPConnectionException $ex) {
+            $this->markTestSkipped(
+                'Tests failing because of intermittent failures in Paypal Sandbox environment.' . $ex->getMessage()
+            );
+        }
 		
 	}
 }

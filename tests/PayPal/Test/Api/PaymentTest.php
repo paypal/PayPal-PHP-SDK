@@ -66,6 +66,9 @@ class PaymentTest extends \PHPUnit_Framework_TestCase {
 		$this->assertEquals($p2, $this->payments['full']);
 	}
 
+    /**
+     * @group integration
+     */
 	public function testOperations() {
 
 		$p1 = $this->payments['new'];
