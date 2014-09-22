@@ -15,12 +15,6 @@
         </testsuite>
     </testsuites>
 
-    <groups>
-        <exclude>
-            <group>integration</group>
-        </exclude>
-    </groups>
-
     <logging>
         <log type="junit" target="build/junit.xml" logIncompleteSkipped="false" />
         <log type="coverage-html" target="build/coverage/" charset="UTF-8"
