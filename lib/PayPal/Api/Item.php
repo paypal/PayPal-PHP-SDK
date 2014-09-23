@@ -192,7 +192,7 @@ class Item extends PPModel
      *
      * @return string
      */
-    public function getTax($tax) {
+    public function getTax() {
         return $this->tax;
     }
 }
