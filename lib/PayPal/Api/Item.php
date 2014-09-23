@@ -13,6 +13,8 @@ use PayPal\Rest\ApiContext;
  * @property string price
  * @property string currency
  * @property string sku
+ * @property string description
+ * @property string tax
  */
 class Item extends PPModel
 {
@@ -136,7 +138,7 @@ class Item extends PPModel
     }
 
     /**
-     * Get SKI
+     * Get SKU
      * Number or code to identify the item in your catalog/records
      *
      * @return string
@@ -144,5 +146,53 @@ class Item extends PPModel
     public function getSku()
     {
         return $this->sku;
+    }
+
+    /**
+     * Set Description
+     * Description of the item
+     *
+     * @param string $description
+     *
+     * @return $this
+     */
+    public function setDescription($description) {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    /**
+     * Get Description
+     * Description of the item
+     *
+     * @return string
+     */
+    public function getDescription() {
+        return $this->description;
+    }
+
+    /**
+     * Set Tax
+     * Tax of the item
+     *
+     * @param string $tax
+     *
+     * @return $this
+     */
+    public function setTax($tax) {
+        $this->tax = $tax;
+
+        return $this;
+    }
+
+    /**
+     * Get Tax
+     * Tax of the item
+     *
+     * @return string
+     */
+    public function getTax() {
+        return $this->tax;
     }
 }
