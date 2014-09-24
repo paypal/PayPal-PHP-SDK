@@ -104,9 +104,25 @@ use PayPal\Api\Payment;
 ## SDK Configuration
 
 The samples in this repo pick the SDK configuration from the `sdk_config.ini` file. If you do not want to use an ini file or want to pick your configuration dynamically, you can use the `$apiContext->setConfig()` method to pass in the configuration as a hashmap. See the `sample/bootstrap.php` file for an example.
-	
+
+## Testing
+
+There are two kinds of tests that we include in our sdk package. Unit tests, and Integration Tests.
+
+* **Unit Tests**
+	* Unit tests can be executed by running this command `phpunit` at Paypal SDK root location.
+	* It executes the tests with configuration stored in `phpunit.xml` file.
+* **Integration Tests**
+	* Integration tests make curl requests to sandbox environments by default. It would test both unit as well as integration tests. To execute, run this command `phpunit -c phpunit.integration.xml` at Paypal SDK root location.
+	* It executes the tests with configuration stored in `phpunit.integration.xml` file.
+	* The configurations could be changed from `tests\sdk_config.ini` file.
 
 ## Contributing
+
+* If you find solution to an [issue/improvements](https://github.com/paypal/rest-api-sdk-php/issues) in sdk that would be helpful to everyone, feel free to send us a pull request.
+* The ideal approach to create a fix would be to fork the repository, create a branch in your repository, and make a pull request out of it.
+* It is desirable if there is enough comments/documentation and Tests included in the pull request.
+* For general idea of contribution, please follow the guidelines mentioned [here](https://guides.github.com/activities/contributing-to-open-source/).
 
 ## More help
 

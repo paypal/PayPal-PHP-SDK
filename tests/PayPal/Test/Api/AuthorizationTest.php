@@ -122,6 +122,10 @@ class AuthorizationTest extends \PHPUnit_Framework_TestCase {
 		$a2->fromJson($a1->toJson());
 		$this->assertEquals($a1, $a2);
 	}
+
+    /**
+     * @group integration
+     */
 	public function testOperations() {
         try {
             $authId = self::authorize();
@@ -150,13 +154,16 @@ class AuthorizationTest extends \PHPUnit_Framework_TestCase {
             } catch (\InvalidArgumentException $ex) {
                 $this->assertEquals($ex->getMessage(), "Id cannot be null");
             }
-        } catch (\PayPal\Exception\PPConnectionException $ex) {
+        } catch (PPConnectionException $ex) {
             $this->markTestSkipped(
                 'Tests failing because of intermittent failures in Paypal Sandbox environment.' . $ex->getMessage()
             );
         }
 	}
-	
+
+    /**
+     * @group integration
+     */
 	public function testReauthorize() {
 		$authorization = Authorization::get('7GH53639GA425732B');
 	

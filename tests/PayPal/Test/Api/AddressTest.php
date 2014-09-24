@@ -42,7 +42,7 @@ class AddressTest extends \PHPUnit_Framework_TestCase {
 		$this->assertEquals(self::$countryCode, $this->address->getCountryCode());
 		$this->assertEquals(self::$phone, $this->address->getPhone());
 	}
-	
+
 	public function testSerializeDeserialize() {
 		$a1 = $this->address;
 		

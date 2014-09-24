@@ -71,6 +71,9 @@ class CreditCardTest extends \PHPUnit_Framework_TestCase {
 		$this->assertEquals($c1, $c2);
 	}
 
+    /**
+     * @group integration
+     */
 	public function testOperations() {
 		$c1 = $this->cards['full'];
 

@@ -24,12 +24,12 @@ use PayPal\Api\Transaction;
 // used to fund a payment.
 $card = new CreditCard();
 $card->setType("visa")
-	->setNumber("4417119669820331")
-	->setExpireMonth("11")
-	->setExpireYear("2019")
-	->setCvv2("012")
-	->setFirstName("Joe")
-	->setLastName("Shopper");
+    ->setNumber("4417119669820331")
+    ->setExpireMonth("11")
+    ->setExpireYear("2019")
+    ->setCvv2("012")
+    ->setFirstName("Joe")
+    ->setLastName("Shopper");
 
 // ### FundingInstrument
 // A resource representing a Payer's funding instrument.
@@ -44,21 +44,25 @@ $fi->setCreditCard($card);
 // to 'credit_card' and add an array of funding instruments.
 $payer = new Payer();
 $payer->setPaymentMethod("credit_card")
-	->setFundingInstruments(array($fi));
+    ->setFundingInstruments(array($fi));
 
 // ### Itemized information
 // (Optional) Lets you specify item wise
 // information
 $item1 = new Item();
 $item1->setName('Ground Coffee 40 oz')
-	->setCurrency('USD')
-	->setQuantity(1)
-	->setPrice('7.50');
+    ->setDescription('Ground Coffee 40 oz')
+    ->setCurrency('USD')
+    ->setQuantity(1)
+    ->setTax('0.30')
+    ->setPrice('7.50');
 $item2 = new Item();
 $item2->setName('Granola bars')
-	->setCurrency('USD')
-	->setQuantity(5)
-	->setPrice('2.00');
+    ->setDescription('Granola Bars with Peanuts')
+    ->setCurrency('USD')
+    ->setQuantity(5)
+    ->setTax('0.20')
+    ->setPrice('2.00');
 
 $itemList = new ItemList();
 $itemList->setItems(array($item1, $item2));
@@ -69,8 +73,8 @@ $itemList->setItems(array($item1, $item2));
 // charges etc.
 $details = new Details();
 $details->setShipping('1.20')
-	->setTax('1.30')
-	->setSubtotal('17.50');
+    ->setTax('1.30')
+    ->setSubtotal('17.50');
 
 // ### Amount
 // Lets you specify a payment amount.
@@ -78,8 +82,8 @@ $details->setShipping('1.20')
 // such as shipping, tax.
 $amount = new Amount();
 $amount->setCurrency("USD")
-	->setTotal("20.00")
-	->setDetails($details);
+    ->setTotal("20.00")
+    ->setDetails($details);
 
 // ### Transaction
 // A transaction defines the contract of a
@@ -87,39 +91,39 @@ $amount->setCurrency("USD")
 // is fulfilling it. 
 $transaction = new Transaction();
 $transaction->setAmount($amount)
-	->setItemList($itemList)
-	->setDescription("Payment description");
+    ->setItemList($itemList)
+    ->setDescription("Payment description");
 
 // ### Payment
 // A Payment Resource; create one using
 // the above types and intent set to sale 'sale'
 $payment = new Payment();
 $payment->setIntent("sale")
-	->setPayer($payer)
-	->setTransactions(array($transaction));
+    ->setPayer($payer)
+    ->setTransactions(array($transaction));
 
 // ### Create Payment
 // Create a payment by calling the payment->create() method
 // with a valid ApiContext (See bootstrap.php for more on `ApiContext`)
 // The return object contains the state.
 try {
-	$payment->create($apiContext);
+    $payment->create($apiContext);
 } catch (PayPal\Exception\PPConnectionException $ex) {
-	echo "Exception: " . $ex->getMessage() . PHP_EOL;
-	var_dump($ex->getData());
-	exit(1);
+    echo "Exception: " . $ex->getMessage() . PHP_EOL;
+    var_dump($ex->getData());
+    exit(1);
 }
 ?>
 <html>
 <head>
-	<title>Direct Credit card payments</title>
+    <title>Direct Credit card payments</title>
 </head>
 <body>
-	<div>
-		Created payment:
-		<?php echo $payment->getId();?>
-	</div>
+    <div>
+        Created payment:
+        <?php echo $payment->getId();?>
+    </div>
 	<pre><?php var_dump($payment->toArray());?></pre>
-	<a href='../index.html'>Back</a>
+    <a href='../index.html'>Back</a>
 </body>
 </html>
