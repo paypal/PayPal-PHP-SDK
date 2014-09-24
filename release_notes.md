@@ -1,6 +1,18 @@
 PayPal PHP SDK release notes
 ============================
 
+v0.11.0
+----
+* Ability for PUT and PATCH requests
+* Invoice number, custom and soft descriptor
+* Order API and tests, more Authorization tests
+* remove references to sdk-packages
+* patch for retrieving paid invoices
+* Shipping address docs patch
+* Remove @array annotation
+* Validate return cancel url
+* type hinting, comment cleaning, and getters and setters for Shipping
+
 v0.8.0
 -----
 * Invoicing API support added

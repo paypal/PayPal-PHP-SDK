@@ -8,6 +8,7 @@ build
 .project
 .settings
 .buildpath
+atlassian-ide-plugin.xml
 *.bak
 
 # Composer
