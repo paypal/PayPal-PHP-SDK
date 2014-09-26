@@ -23,6 +23,7 @@ require __DIR__ . '/common.php';
 use PayPal\Rest\ApiContext;
 use PayPal\Auth\OAuthTokenCredential;
 
+/** @var \Paypal\Rest\ApiContext $apiContext */
 $apiContext = getApiContext();
 
 
