@@ -60,10 +60,6 @@ class CreditCardHistoryTest extends \PHPUnit_Framework_TestCase {
 
 	
 	public function testSerializationDeserialization() {
-        // Stop here and mark this test as incomplete.
-        $this->markTestIncomplete(
-            'This test is failing because of warning thrown by regex at https://github.com/paypal/sdk-core-php/blob/master/lib/common/PPReflectionUtil.php#L59.'
-        );
 		$cardHistory = new CreditCardHistory();
 		$cardHistory->setCreditCards(array($this->cards['partial'], $this->cards['full']));
 		$cardHistory->setCount(2);
