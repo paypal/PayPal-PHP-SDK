@@ -20,6 +20,7 @@ use PayPal\Transport\PPRestCall;
  * @property string                        state
  * @property \PayPal\Api\RedirectUrls      redirect_urls
  * @property \PayPal\Api\Links             links
+ * @property string                        experience_profile_id
  */
 class Payment extends PPModel implements IResource
 {
