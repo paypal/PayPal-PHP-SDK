@@ -32,7 +32,7 @@ if(isset($_GET['success']) && $_GET['success'] == 'true') {
 	$result = $payment->execute($execution, $apiContext);
 
 	echo "<html><body><pre>";
-	var_dump($result);
+	echo $result->toJSON(JSON_PRETTY_PRINT);
 	echo "</pre><a href='../index.html'>Back</a></body></html>";
 	
 } else {

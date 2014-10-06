@@ -108,7 +108,7 @@ class PaymentHistory extends PPModel
 
         return $this;
     }
-    
+
     /**
      * Get Next ID
      * Identifier of the next element to get the next range of results

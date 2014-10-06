@@ -1,0 +1,45 @@
+<!DOCTYPE html><html lang="en"><head><title>vault/DeleteCreditCard</title></head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"><meta name="groc-relative-root" content="../"><meta name="groc-document-path" content="vault/DeleteCreditCard"><meta name="groc-project-path" content="sample/vault/DeleteCreditCard.php"><link rel="stylesheet" type="text/css" media="all" href="../assets/style.css"><script type="text/javascript" src="../assets/behavior.js"></script><body><div id="meta"><div class="file-path">sample/vault/DeleteCreditCard.php</div></div><div id="document"><div class="segment"><div class="code"><div class="wrapper"><span class="hljs-preprocessor">&lt;?php</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><h1 id="delete-creditcard-sample">Delete CreditCard Sample</h1>
+<p>This sample code demonstrate how you can
+delete a saved credit card.
+API used: /v1/vault/credit-card/{<creditCardId>}
+NOTE: HTTP method used here is DELETE</p></div></div><div class="code"><div class="wrapper"><span class="hljs-keyword">require</span> <span class="hljs-keyword">__DIR__</span> . <span class="hljs-string">'/../bootstrap.php'</span>;
+<span class="hljs-keyword">use</span> <span class="hljs-title">PayPal</span>\<span class="hljs-title">Api</span>\<span class="hljs-title">CreditCard</span>;</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Store a mock card that can be deleted later.</p>
+<h3 id="creditcard">CreditCard</h3>
+<p>A resource representing a credit card that can be
+used to fund a payment.</p></div></div><div class="code"><div class="wrapper"><span class="hljs-variable">$card</span> = <span class="hljs-keyword">new</span> CreditCard();
+<span class="hljs-variable">$card</span>-&gt;setType(<span class="hljs-string">"visa"</span>)
+	-&gt;setNumber(<span class="hljs-string">"4417119669820331"</span>)
+	-&gt;setExpireMonth(<span class="hljs-string">"11"</span>)
+	-&gt;setExpireYear(<span class="hljs-string">"2019"</span>)
+	-&gt;setCvv2(<span class="hljs-string">"012"</span>)
+	-&gt;setFirstName(<span class="hljs-string">"Joe"</span>)
+	-&gt;setLastName(<span class="hljs-string">"Shopper"</span>);</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><h3 id="save-card">Save card</h3>
+<p>Creates the credit card as a resource
+in the PayPal vault. The response contains
+an &#39;id&#39; that you can use to refer to it later.
+(See bootstrap.php for more on <code>ApiContext</code>)</p></div></div><div class="code"><div class="wrapper"><span class="hljs-keyword">try</span> {
+	<span class="hljs-variable">$card</span> = <span class="hljs-variable">$card</span>-&gt;create(<span class="hljs-variable">$apiContext</span>);
+} <span class="hljs-keyword">catch</span> (PayPal\<span class="hljs-keyword">Exception</span>\PPConnectionException <span class="hljs-variable">$ex</span>) {
+	<span class="hljs-keyword">echo</span> <span class="hljs-string">"Exception:"</span> . <span class="hljs-variable">$ex</span>-&gt;getMessage() . PHP_EOL;
+	var_dump(<span class="hljs-variable">$ex</span>-&gt;getData());
+	<span class="hljs-keyword">exit</span>(<span class="hljs-number">1</span>);
+}
+
+<span class="hljs-keyword">try</span> {</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><h3 id="delete-card">Delete Card</h3>
+<p>Lookup and delete a saved credit card.
+(See bootstrap.php for more on <code>ApiContext</code>)</p></div></div><div class="code"><div class="wrapper">	<span class="hljs-variable">$creditCard</span> = CreditCard::get(<span class="hljs-variable">$card</span>-&gt;getId(), <span class="hljs-variable">$apiContext</span>);
+	<span class="hljs-variable">$creditCard</span>-&gt;delete(<span class="hljs-variable">$apiContext</span>);
+} <span class="hljs-keyword">catch</span> (PayPal\<span class="hljs-keyword">Exception</span>\PPConnectionException <span class="hljs-variable">$ex</span>) {
+	<span class="hljs-keyword">echo</span> <span class="hljs-string">"Exception: "</span> . <span class="hljs-variable">$ex</span>-&gt;getMessage() . PHP_EOL;
+	<span class="hljs-keyword">exit</span>(<span class="hljs-number">1</span>);
+}
+<span class="hljs-preprocessor">?&gt;</span>
+&lt;html&gt;
+&lt;head&gt;
+	&lt;title&gt;Delete a saved credit card&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;p&gt; Credit Card deleted Successfully&lt;/p&gt;
+	&lt;a href=<span class="hljs-string">'../index.html'</span>&gt;Back&lt;/a&gt;
+&lt;/body&gt;
+&lt;/html&gt;</div></div></div></div></body></html>

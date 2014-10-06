@@ -128,5 +128,5 @@ There are two kinds of tests that we include in our sdk package. Unit tests, and
 
    * [API Reference](https://developer.paypal.com/webapps/developer/docs/api/)
    * [Reporting issues / feature requests] (https://github.com/paypal/rest-api-sdk-php/issues)
-   
+   * [Pizza App Using Paypal REST API] (https://github.com/paypal/rest-api-sample-app-php)
 [![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/paypal/rest-api-sample-app-php/trend.png)](https://bitdeli.com/free "Bitdeli Badge")

@@ -2,10 +2,10 @@
 namespace PayPal\Test\Api;
 
 use PayPal\Api\Address;
-use PayPal\Test\Constants;
 
 class AddressTest extends \PHPUnit_Framework_TestCase {
 
+    /** @var  Address */
 	private $address;
 
 	public static $line1 = "3909 Witmer Road";

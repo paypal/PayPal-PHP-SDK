@@ -42,7 +42,7 @@ try {
 </head>
 <body>
 	<div>Saved a new credit card with id: <?php echo $card->getId();?></div>
-	<pre><?php var_dump($card);?></pre>
+	<pre><?php echo $card->toJSON(JSON_PRETTY_PRINT);?></pre>
 	<a href='../index.html'>Back</a>
 </body>
 </html>

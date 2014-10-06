@@ -51,14 +51,13 @@ class RestHandler implements IPPHandler
     }
 
     /**
-     * Handle
-     *
-     * @param \PayPal\Core\PPHttpConfig $httpConfig
-     * @param \PayPal\Core\PPRequest    $request
-     * @param array                     $options
-     *
-     * @throws \PayPal\Exception\PPInvalidCredentialException
-     * @throws \PayPal\Exception\PPMissingCredentialException
+     * @param \Paypal\Core\PPHttpConfig $httpConfig
+     * @param string                    $request
+     * @param mixed                     $options
+     * @return mixed|void
+     * @throws PPConfigurationException
+     * @throws PPInvalidCredentialException
+     * @throws PPMissingCredentialException
      */
     public function handle($httpConfig, $request, $options)
     {
@@ -125,7 +124,9 @@ class RestHandler implements IPPHandler
                     break;
             }
         } else {
-            throw new PPConfigurationException('You must set one of service.endpoint or mode parameters in your configuration');
+            throw new PPConfigurationException(
+                'You must set one of service.endpoint or mode parameters in your configuration'
+            );
         }
     }
 }

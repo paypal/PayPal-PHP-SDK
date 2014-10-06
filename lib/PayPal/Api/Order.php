@@ -7,7 +7,7 @@ use PayPal\Rest\ApiContext;
 
 /**
  * Class Order
- * 
+ *
  * @property string             id
  * @property string             createTime
  * @property string             updateTime
@@ -21,9 +21,9 @@ class Order extends PPModel
 {
     /**
      * Set the identifier of the order transaction.
-     * 
+     *
      * @param string $id
-     * 
+     *
      * @return $this
      */
     public function setId($id)
@@ -35,7 +35,7 @@ class Order extends PPModel
 
     /**
      * Get the identifier of the order transaction.
-     * 
+     *
      * @return string
      */
     public function getId()
@@ -45,9 +45,9 @@ class Order extends PPModel
 
     /**
      * Set the time the resource was created.
-     * 
+     *
      * @param string $create_time
-     * 
+     *
      * @return $this
      */
     public function setCreateTime($create_time)
@@ -59,7 +59,7 @@ class Order extends PPModel
 
     /**
      * Get the time the resource was created.
-     * 
+     *
      * @return string
      */
     public function getCreateTime()
@@ -69,9 +69,9 @@ class Order extends PPModel
 
     /**
      * Set the time the resource was last updated.
-     * 
+     *
      * @param string $update_time
-     * 
+     *
      * @return $this
      */
     public function setUpdateTime($update_time)
@@ -83,7 +83,7 @@ class Order extends PPModel
 
     /**
      * Get the time the resource was last updated.
-     * 
+     *
      * @return string
      */
     public function getUpdateTime()
@@ -93,11 +93,11 @@ class Order extends PPModel
 
     /**
      * Set the state of the order transaction.
-     * 
+     *
      * Allowed values are: `PENDING`, `COMPLETED`, `REFUNDED` or `PARTIALLY_REFUNDED`.
-     * 
+     *
      * @param string $state
-     * 
+     *
      * @return $this
      */
     public function setState($state)
@@ -109,9 +109,9 @@ class Order extends PPModel
 
     /**
      * Get the state of the order transaction.
-     * 
+     *
      * Allowed values are: `PENDING`, `COMPLETED`, `REFUNDED` or `PARTIALLY_REFUNDED`.
-     * 
+     *
      * @return string
      */
     public function getState()
@@ -121,9 +121,9 @@ class Order extends PPModel
 
     /**
      * Set the amount being collected.
-     * 
+     *
      * @param \PayPal\Api\Amount $amount
-     * 
+     *
      * @return $this
      */
     public function setAmount($amount)
@@ -135,7 +135,7 @@ class Order extends PPModel
 
     /**
      * Get the amount being collected.
-     * 
+     *
      * @return \PayPal\Api\Amount
      */
     public function getAmount()
@@ -145,9 +145,9 @@ class Order extends PPModel
 
     /**
      * Set ID of the payment resource on which this transaction is based.
-     * 
+     *
      * @param string $parent_payment
-     * 
+     *
      * @return $this
      */
     public function setParentPayment($parent_payment)
@@ -159,7 +159,7 @@ class Order extends PPModel
 
     /**
      * Get ID of the payment resource on which this transaction is based.
-     * 
+     *
      * @return string
      */
     public function getParentPayment()
@@ -169,9 +169,9 @@ class Order extends PPModel
 
     /**
      * Set Links
-     * 
+     *
      * @param \PayPal\Api\Links $links
-     * 
+     *
      * @return $this
      */
     public function setLinks($links)
@@ -183,7 +183,7 @@ class Order extends PPModel
 
     /**
      * Get Links
-     * 
+     *
      * @return \PayPal\Api\Links
      */
     public function getLinks()
@@ -193,16 +193,16 @@ class Order extends PPModel
 
     /**
      * Reason code for the transaction state being Pending or Reversed. Assigned in response.
-     * 
+     *
      * Allowed values: `CHARGEBACK`, `GUARANTEE`, `BUYER_COMPLAINT`, `REFUND`,
      * `UNCONFIRMED_SHIPPING_ADDRESS`,
      * `ECHECK`, `INTERNATIONAL_WITHDRAWAL`,
      * `RECEIVING_PREFERENCE_MANDATES_MANUAL_ACTION`, `PAYMENT_REVIEW`,
      * `REGULATORY_REVIEW`, `UNILATERAL`, or `VERIFICATION_REQUIRED`
      * (`ORDER` can also be set in the response).
-     * 
+     *
      * @param string $reason_code
-     * 
+     *
      * @return $this
      */
     public function setReasonCode($reason_code)
@@ -214,14 +214,14 @@ class Order extends PPModel
 
     /**
      * Reason code for the transaction state being Pending or Reversed. Assigned in response.
-     * 
+     *
      * Allowed values: `CHARGEBACK`, `GUARANTEE`, `BUYER_COMPLAINT`, `REFUND`,
      * `UNCONFIRMED_SHIPPING_ADDRESS`,
      * `ECHECK`, `INTERNATIONAL_WITHDRAWAL`,
      * `RECEIVING_PREFERENCE_MANDATES_MANUAL_ACTION`, `PAYMENT_REVIEW`,
      * `REGULATORY_REVIEW`, `UNILATERAL`, or `VERIFICATION_REQUIRED`
      * (`ORDER` can also be set in the response).
-     * 
+     *
      * @return string
      */
     public function getReasonCode()

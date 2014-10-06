@@ -1,6 +1,11 @@
 PayPal PHP SDK release notes
 ============================
 
+v0.11.1
+----
+* Removed Dependency from SDK Core Project
+* Enabled Future Payments
+
 v0.11.0
 ----
 * Ability for PUT and PATCH requests
@@ -25,7 +30,7 @@ v0.7.0
 -----
 * Added support for Auth and Capture APIs
 * Types modified to match the API Spec
-* Updated SDK to use namespace supported core library 
+* Updated SDK to use namespace supported core library
 
 v0.6.0
 -----

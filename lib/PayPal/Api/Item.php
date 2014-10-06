@@ -156,7 +156,8 @@ class Item extends PPModel
      *
      * @return $this
      */
-    public function setDescription($description) {
+    public function setDescription($description)
+    {
         $this->description = $description;
 
         return $this;
@@ -168,7 +169,8 @@ class Item extends PPModel
      *
      * @return string
      */
-    public function getDescription() {
+    public function getDescription()
+    {
         return $this->description;
     }
 
@@ -180,7 +182,8 @@ class Item extends PPModel
      *
      * @return $this
      */
-    public function setTax($tax) {
+    public function setTax($tax)
+    {
         $this->tax = $tax;
 
         return $this;
@@ -192,7 +195,8 @@ class Item extends PPModel
      *
      * @return string
      */
-    public function getTax() {
+    public function getTax()
+    {
         return $this->tax;
     }
 }

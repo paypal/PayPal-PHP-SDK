@@ -1,23 +1,19 @@
 <?php
-/**
- * Call level parameters such as request id, credentials etc
- */
 
 namespace PayPal\Rest;
 
-use PayPal\Common\PPApiContext;
+use PayPal\Core\PPConfigManager;
+use PayPal\Core\PPCredentialManager;
 
 /**
  * Class ApiContext
+ *
+ * Call level parameters such as request id, credentials etc
+ *
+ * @package PayPal\Rest
  */
-class ApiContext extends PPApiContext
+class ApiContext
 {
-    /**
-     * OAuth Credentials to use for this call
-     *
-     * @var \PayPal\Auth\OAuthTokenCredential $credential
-     */
-    private $credential;
 
     /**
      * Unique request id to be used for this call
@@ -29,12 +25,23 @@ class ApiContext extends PPApiContext
     private $requestId;
 
     /**
+     * This is a placeholder for holding credential for the request
+     * If the value is not set, it would get the value from @\PayPal\Core\PPCredentialManager
+     *
+     * @var \Paypal\Auth\OAuthTokenCredential
+     */
+    private $credential;
+
+    /**
      * Get Credential
      *
      * @return \PayPal\Auth\OAuthTokenCredential
      */
     public function getCredential()
     {
+        if ($this->credential == null) {
+            return PPCredentialManager::getInstance()->getCredentialObject();
+        }
         return $this->credential;
     }
 
@@ -58,16 +65,46 @@ class ApiContext extends PPApiContext
      * @param \PayPal\Auth\OAuthTokenCredential $credential
      * @param string|null                       $requestId
      */
-    public function __construct($credential, $requestId = null)
+    public function __construct($credential = null, $requestId = null)
     {
-        $this->credential = $credential;
         $this->requestId = $requestId;
+        $this->credential = $credential;
+    }
+
+    /**
+     * Sets Config
+     *
+     * @param array $config SDK configuration parameters
+     */
+    public function setConfig(array $config)
+    {
+        PPConfigManager::getInstance()->addConfigs($config);
+    }
+
+    /**
+     * Gets Configurations
+     *
+     * @return array
+     */
+    public function getConfig()
+    {
+        return PPConfigManager::getInstance()->getConfigHashmap();
+    }
+
+    /**
+     * Gets a specific configuration from key
+     *
+     * @param $searchKey
+     */
+    public function get($searchKey)
+    {
+        PPConfigManager::getInstance()->get($searchKey);
     }
 
     /**
      * Generates a unique per request id that
      * can be used to set the PayPal-Request-Id header
-     * that is used for idemptency
+     * that is used for idempotency
      *
      * @return string
      */

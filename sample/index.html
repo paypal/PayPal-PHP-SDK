@@ -1,121 +1,310 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>PayPal REST API Samples</title>
-<style>
-	.imagelink {
-		padding: 5px 0px 5px 28px;	
-	}
-	.execute {
-		background: url('images/play_button.png') no-repeat left top;			
-	}	
-	.source {
-		background: url('images/edt-format-source-button.png') no-repeat left top;		
-	}
-	.header {
-		font-weight: bold;
-	}
-	.header td {
-		padding: 10px 0px 10px 0px;
-	}
-</style>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="images/favicon.ico">
+
+    <title>PayPal REST API Samples</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+    </style>
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
 </head>
+
 <body>
-    <center>
-        <h3>PayPal REST API Samples</h3>
-    </center>
-	<table cellspacing="5" width="85%">
-		<tbody>
-			<tr valign="top" class='header'>
-				<td>Payments</td>
-			</tr>
-			<tr valign="top">
-				<td>Direct credit card payments</td>
-				<td width="30%" ><a href="payments/CreatePayment.php" class="execute imagelink">Execute</a></td>
-				<td width="30%"><a href="source/CreatePayment.html" class="source imagelink">Source</a></td>
-			</tr>
-			<tr>
-				<td>PayPal account payments</td>
-				<td><a href="payments/CreatePaymentUsingPayPal.php" class="execute imagelink">Execute</a></td>
-				<td><a href="source/CreatePaymentUsingPayPal.html" class="source imagelink">Source</a></td>
-			</tr>
-			<tr>
-				<td>Stored credit card payments</td>
-				<td><a href="payments/CreatePaymentUsingSavedCard.php" class="execute imagelink">Execute</a></td>
-				<td><a href="source/CreatePaymentUsingSavedCard.html" class="source imagelink">Source</a></td>
-			<tr>
-				<td>Get payment details</td>
-				<td><a href="payments/GetPayment.php" class="execute imagelink" >Execute</a></td>
-				<td><a href="source/GetPayment.html" class="source imagelink" >Source</a></td>
-			</tr>
-			<tr>
-				<td>Get payment history</td>
-				<td><a href="payments/ListPayments.php" class="execute imagelink" >Execute</a></td>
-				<td><a href="source/ListPayments.html" class="source imagelink" >Source</a></td>
-			</tr>
-			<tr>
-				<td>Get sale details</td>
-				<td><a href="sale/GetSale.php" class="execute imagelink" >Execute</a></td>
-				<td><a href="source/GetSale.html" class="source imagelink" >Source</a></td>
-			</tr>
-			<tr>
-				<td>Refund a payment</td>
-				<td><a href="sale/RefundSale.php" class="execute imagelink" >Execute</a></td>
-				<td><a href="source/RefundSale.html" class="source imagelink" >Source</a></td>
-			</tr>
-			<tr valign="top" class='header'>
-				<td>Vault</td>
-			</tr>
-			<tr>
-				<td>Save a credit card</td>
-				<td><a href="vault/CreateCreditCard.php" class="execute imagelink" >Execute</a></td>
-				<td><a href="source/CreateCreditCard.html" class="source imagelink" >Source</a></td>
-			</tr>
-			<tr>
-				<td>Retrieve saved credit card</td>
-				<td><a href="vault/GetCreditCard.php" class="execute imagelink" >Execute</a></td>
-				<td><a href="source/GetCreditCard.html" class="source imagelink" >Source</a></td>
-			</tr>
-			<tr>
-				<td>Delete saved credit card</td>
-				<td><a href="vault/DeleteCreditCard.php" class="execute imagelink" >Execute</a></td>
-				<td><a href="source/DeleteCreditCard.html" class="source imagelink" >Source</a></td>
-			</tr>			
-			<tr valign="top" class='header'>
-				<td>Authorization and capture</td>
-			</tr>
-			<tr>
-				<td>Get details of an authorized payment</td>
-				<td><a href="payments/GetAuthorization.php" class="execute imagelink" >Execute</a></td>
-				<td><a href="source/GetAuthorization.html" class="source imagelink" >Source</a></td>
-			</tr>
-			<tr>
-				<td>Capture an authorized payment</td>
-				<td><a href="payments/AuthorizationCapture.php" class="execute imagelink" >Execute</a></td>
-				<td><a href="source/AuthorizationCapture.html" class="source imagelink" >Source</a></td>
-			</tr>
-			<tr>
-				<td>Void an authorized payment</td>
-				<td><a href="payments/VoidAuthorization.php" class="execute imagelink" >Execute</a></td>
-				<td><a href="source/VoidAuthorization.html" class="source imagelink" >Source</a></td>
-			</tr>
-			<tr>
-				<td>Reauthorize a payment</td>
-				<td><a href="payments/Reauthorization.php" class="execute imagelink" >Execute</a></td>
-				<td><a href="source/Reauthorization.html" class="source imagelink" >Source</a></td>
-			</tr>
-			<tr>
-				<td>Get details of a captured payment</td>
-				<td><a href="payments/GetCapture.php" class="execute imagelink" >Execute</a></td>
-				<td><a href="source/GetCapture.html" class="source imagelink" >Source</a></td>
-			</tr>
-			<tr>
-				<td>Refund captured payment</td>
-				<td><a href="payments/RefundCapture.php" class="execute imagelink" >Execute</a></td>
-				<td><a href="source/RefundCapture.html" class="source imagelink" >Source</a></td>
-			</tr>
-		</tbody>
-	</table>
+<!-- Main component for a primary marketing message or call to action -->
+<div class="jumbotron">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <img src="images/pp_v_rgb.png" height="200" />
+            </div>
+            <div class="col-md-9">
+                <h1> REST API Samples</h1>
+                <p>These examples are created to experiment with the rest-api-sdk-php capabilities. Each examples are designed to demonstrate the default use-cases in each segment.
+                    Many examples should be executable, and should allow you to experience the default behavior of our sdk, to expedite your integration experience.</p>
+                <p>
+            </div>
+        </div>
+        </p>
+    </div>
+</div>
+<div class="container-fluid">
+<div class="container">
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h3 class="panel-title">Payments</h3>
+    </div>
+    <!-- List group -->
+    <ul class="list-group">
+        <li class="list-group-item">
+            <div class="row">
+                <div class="col-md-9 "><h5>Direct credit card payments</h5></div>
+                <div class="col-md-3">
+                    <a href="payments/CreatePayment.php" class="btn btn-primary pull-left" >Execute <i class="fa fa-play-circle-o"></i></a>
+                    <a href="doc/payments/CreatePayment.html" class="btn btn-default pull-right" >Source <i class="fa fa-file-code-o"></i></a>
+                </div>
+            </div>
+        </li>
+        <li class="list-group-item">
+            <div class="row">
+                <div class="col-md-9 "><h5>PayPal account payments</h5></div>
+                <div class="col-md-3">
+                    <a href="payments/CreatePaymentUsingPayPal.php" class="btn btn-primary pull-left" >Execute <i class="fa fa-play-circle-o"></i></a><a href="doc/payments/CreatePaymentUsingPayPal.html" class="btn btn-default pull-right" >Source <i class="fa fa-file-code-o"></i></a>
+                </div>
+            </div>
+        </li>
+        <li class="list-group-item">
+            <div class="row">
+                <div class="col-md-9 "><h5>Stored credit card payments</h5></div>
+                <div class="col-md-3">
+                    <a href="payments/CreatePaymentUsingSavedCard.php" class="btn btn-primary pull-left" >Execute <i class="fa fa-play-circle-o"></i></a>
+                    <a href="doc/payments/CreatePayment.html" class="btn btn-default pull-right" >Source <i class="fa fa-file-code-o"></i></a>
+                </div>
+            </div>
+        </li>
+        <li class="list-group-item">
+            <div class="row">
+                <div class="col-md-9 "><h5>Future payments* <small> (needs Authorization Code from Mobile SDK)</small></h5></div>
+                <div class="col-md-3"></div>
+                <div class="col-md-3">
+                    <a href="doc/payments/CreateFuturePayment.html" class="btn btn-default pull-right" >Source <i class="fa fa-file-code-o"></i></a>
+                </div>
+
+            </div>
+        </li>
+        <li class="list-group-item">
+            <div class="row">
+                <div class="col-md-9 "><h5>Get payment details</h5></div>
+                <div class="col-md-3">
+                    <a href="payments/GetPayment.php" class="btn btn-primary pull-left" >Execute <i class="fa fa-play-circle-o"></i></a>
+                    <a href="doc/payments/CreatePayment.html" class="btn btn-default pull-right" >Source <i class="fa fa-file-code-o"></i></a>
+                </div>
+            </div>
+        </li>
+        <li class="list-group-item">
+            <div class="row">
+                <div class="col-md-9 "><h5>Get payment history</h5></div>
+                <div class="col-md-3">
+                    <a href="payments/ListPayments.php" class="btn btn-primary pull-left" >Execute <i class="fa fa-play-circle-o"></i></a>
+                    <a href="doc/payments/CreatePayment.html" class="btn btn-default pull-right" >Source <i class="fa fa-file-code-o"></i></a>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>
+
+<div class="panel panel-primary" >
+    <div class="panel-heading" >
+        <h3 class="panel-title">Sale</h3>
+    </div>
+    <!-- List group -->
+    <ul class="list-group">
+        <li class="list-group-item">
+            <div class="row">
+                <div class="col-md-9 "><h5>Get sale details</h5></div>
+                <div class="col-md-3">
+                    <a href="sale/GetSale.php" class="btn btn-primary pull-left" >Execute <i class="fa fa-play-circle-o"></i></a>
+                    <a href="doc/sale/GetSale.html" class="btn btn-default pull-right" >Source <i class="fa fa-file-code-o"></i></a>
+                </div>
+            </div>
+        </li>
+        <li class="list-group-item">
+            <div class="row">
+                <div class="col-md-9 "><h5>Refund a payment</h5></div>
+                <div class="col-md-3">
+                    <a href="sale/RefundSale.php" class="btn btn-primary pull-left" >Execute <i class="fa fa-play-circle-o"></i></a>
+                    <a href="doc/sale/RefundSale.html" class="btn btn-default pull-right" >Source <i class="fa fa-file-code-o"></i></a>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>
+
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h3 class="panel-title">Vault</h3>
+    </div>
+    <!-- List group -->
+    <ul class="list-group">
+        <li class="list-group-item">
+            <div class="row">
+                <div class="col-md-9 "><h5>Save a credit card</h5></div>
+                <div class="col-md-3">
+                    <a href="vault/CreateCreditCard.php" class="btn btn-primary pull-left" >Execute <i class="fa fa-play-circle-o"></i></a>
+                    <a href="doc/vault/CreateCreditCard.html" class="btn btn-default pull-right" >Source <i class="fa fa-file-code-o"></i></a>
+                </div>
+            </div>
+        </li>
+        <li class="list-group-item">
+            <div class="row">
+                <div class="col-md-9 "><h5>Retrieve saved credit card</h5></div>
+                <div class="col-md-3">
+                    <a href="vault/GetCreditCard.php" class="btn btn-primary pull-left" >Execute <i class="fa fa-play-circle-o"></i></a>
+                    <a href="doc/vault/GetCreditCard.html" class="btn btn-default pull-right" >Source <i class="fa fa-file-code-o"></i></a>
+                </div>
+            </div>
+        </li>
+        <li class="list-group-item">
+            <div class="row">
+                <div class="col-md-9 "><h5>Delete saved credit card</h5></div>
+                <div class="col-md-3">
+                    <a href="vault/DeleteCreditCard.php" class="btn btn-primary pull-left" >Execute <i class="fa fa-play-circle-o"></i></a>
+                    <a href="doc/vault/DeleteCreditCard.html" class="btn btn-default pull-right" >Source <i class="fa fa-file-code-o"></i></a>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>
+
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h3 class="panel-title">Authorization and capture</h3>
+    </div>
+    <!-- List group -->
+    <ul class="list-group">
+        <li class="list-group-item">
+            <div class="row">
+                <div class="col-md-9 "><h5>Get details of an authorized payment</h5></div>
+                <div class="col-md-3">
+                    <a href="payments/GetAuthorization.php" class="btn btn-primary pull-left" >Execute <i class="fa fa-play-circle-o"></i></a>
+                    <a href="doc/payments/GetAuthorization.html" class="btn btn-default pull-right" >Source <i class="fa fa-file-code-o"></i></a>
+                </div>
+            </div>
+        </li>
+        <li class="list-group-item">
+            <div class="row">
+                <div class="col-md-9 "><h5>Capture an authorized payment</h5></div>
+                <div class="col-md-3">
+                    <a href="payments/AuthorizationCapture.php" class="btn btn-primary pull-left" >Execute <i class="fa fa-play-circle-o"></i></a>
+                    <a href="doc/payments/AuthorizationCapture.html" class="btn btn-default pull-right" >Source <i class="fa fa-file-code-o"></i></a>
+                </div>
+            </div>
+        </li>
+        <li class="list-group-item">
+            <div class="row">
+                <div class="col-md-9 "><h5>Void an authorized payment</h5></div>
+                <div class="col-md-3">
+                    <a href="payments/VoidAuthorization.php" class="btn btn-primary pull-left" >Execute <i class="fa fa-play-circle-o"></i></a>
+                    <a href="doc/payments/VoidAuthorization.html" class="btn btn-default pull-right" >Source <i class="fa fa-file-code-o"></i></a>
+                </div>
+            </div>
+        </li>
+        <li class="list-group-item">
+            <div class="row">
+                <div class="col-md-9 "><h5>Reauthorize a payment</h5></div>
+                <div class="col-md-3">
+                    <a href="payments/Reauthorization.php" class="btn btn-primary pull-left" >Execute <i class="fa fa-play-circle-o"></i></a>
+                    <a href="doc/payments/Reauthorization.html" class="btn btn-default pull-right" >Source <i class="fa fa-file-code-o"></i></a>
+                </div>
+            </div>
+        </li>
+        <li class="list-group-item">
+            <div class="row">
+                <div class="col-md-9 "><h5>Get details of a captured payment</h5></div>
+                <div class="col-md-3">
+                    <a href="payments/GetCapture.php" class="btn btn-primary pull-left" >Execute <i class="fa fa-play-circle-o"></i></a>
+                    <a href="doc/payments/GetCapture.html" class="btn btn-default pull-right" >Source <i class="fa fa-file-code-o"></i></a>
+                </div>
+            </div>
+        </li>
+        <li class="list-group-item">
+            <div class="row">
+                <div class="col-md-9 "><h5>Refund captured payment</h5></div>
+                <div class="col-md-3">
+                    <a href="payments/RefundCapture.php" class="btn btn-primary pull-left" >Execute <i class="fa fa-play-circle-o"></i></a>
+                    <a href="doc/payments/RefundCapture.html" class="btn btn-default pull-right" >Source <i class="fa fa-file-code-o"></i></a>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>
+
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h3 class="panel-title">Invoice</h3>
+    </div>
+    <!-- List group -->
+    <ul class="list-group">
+        <li class="list-group-item">
+            <div class="row">
+                <div class="col-md-9 "><h5>Create Invoice</h5></div>
+                <div class="col-md-3">
+                    <a href="invoice/CreateInvoice.php" class="btn btn-primary pull-left" >Execute <i class="fa fa-play-circle-o"></i></a>
+                    <a href="doc/" class="btn btn-default pull-right" >Source <i class="fa fa-file-code-o"></i></a>
+                </div>
+            </div>
+        </li>
+        <li class="list-group-item">
+            <div class="row">
+                <div class="col-md-9 "><h5>Get Invoice</h5></div>
+                <div class="col-md-3">
+                    <a href="invoice/GetInvoice.php" class="btn btn-primary pull-left" >Execute <i class="fa fa-play-circle-o"></i></a>
+                    <a href="doc/" class="btn btn-default pull-right" >Source <i class="fa fa-file-code-o"></i></a>
+                </div>
+            </div>
+        </li>
+        <li class="list-group-item">
+            <div class="row">
+                <div class="col-md-9 "><h5>List All Invoice</h5></div>
+                <div class="col-md-3">
+                    <a href="invoice/ListInvoice.php" class="btn btn-primary pull-left" >Execute <i class="fa fa-play-circle-o"></i></a>
+                    <a href="doc/" class="btn btn-default pull-right" >Source <i class="fa fa-file-code-o"></i></a>
+                </div>
+            </div>
+        </li>
+        <li class="list-group-item">
+            <div class="row">
+                <div class="col-md-9 "><h5>Send Invoice</h5></div>
+                <div class="col-md-3">
+                    <a href="invoice/SendInvoice.php" class="btn btn-primary pull-left" >Execute <i class="fa fa-play-circle-o"></i></a>
+                    <a href="doc/" class="btn btn-default pull-right" >Source <i class="fa fa-file-code-o"></i></a>
+                </div>
+            </div>
+        </li>
+        <li class="list-group-item">
+            <div class="row">
+                <div class="col-md-9 "><h5>Remind Invoice</h5></div>
+                <div class="col-md-3">
+                    <a href="invoice/RemindInvoice.php" class="btn btn-primary pull-left" >Execute <i class="fa fa-play-circle-o"></i></a>
+                    <a href="doc/" class="btn btn-default pull-right" >Source <i class="fa fa-file-code-o"></i></a>
+                </div>
+            </div>
+        </li>
+        <li class="list-group-item">
+            <div class="row">
+                <div class="col-md-9 "><h5>Cancel Invoice</h5></div>
+                <div class="col-md-3">
+                    <a href="invoice/CancelInvoice.php" class="btn btn-primary pull-left" >Execute <i class="fa fa-play-circle-o"></i></a>
+                    <a href="doc/" class="btn btn-default pull-right" >Source <i class="fa fa-file-code-o"></i></a>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>
+</div>
+</div> <!-- /container -->
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.2.0/js/scrollspy.min.js"></script>
 </body>
 </html>

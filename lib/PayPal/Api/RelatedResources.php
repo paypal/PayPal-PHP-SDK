@@ -117,9 +117,9 @@ class RelatedResources extends PPModel
 
     /**
      * Set Order
-     * 
+     *
      * @param \PayPal\Api\Order $order
-     * 
+     *
      * @return $this
      */
     public function setOrder($order)
@@ -131,7 +131,7 @@ class RelatedResources extends PPModel
 
     /**
      * Get Order
-     * 
+     *
      * @return \PayPal\Api\Order
      */
     public function getOrder()

@@ -279,7 +279,7 @@ class PayerInfo extends PPModel
 
         return $this;
     }
-    
+
     /**
      * Get Shipping Address
      * Shipping address of the Payer from their PayPal Account

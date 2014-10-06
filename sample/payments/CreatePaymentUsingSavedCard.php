@@ -111,7 +111,7 @@ try {
 		Created payment:
 		<?php echo $payment->getId();?>
 	</div>
-	<pre><?php var_dump($payment->toArray());?></pre>
+	<pre><?php echo $payment->toJSON(JSON_PRETTY_PRINT);?></pre>
 	<a href='../index.html'>Back</a>
 </body>
 </html>

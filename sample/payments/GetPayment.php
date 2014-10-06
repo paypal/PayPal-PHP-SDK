@@ -33,7 +33,7 @@ try {
 </head>
 <body>
 	<div>Retrieving Payment ID: <?php echo $paymentId;?></div>
-	<pre><?php var_dump($payment->toArray());?></pre>
+	<pre><?php echo $payment->toJSON(JSON_PRETTY_PRINT);?></pre>
 	<a href='../index.html'>Back</a>
 </body>
 </html>

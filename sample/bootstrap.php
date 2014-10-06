@@ -6,13 +6,12 @@
 // Include the composer autoloader
 // The location of your project's vendor autoloader.
 $composerAutoload = dirname(dirname(dirname(__DIR__))) . '/autoload.php';
-if (!file_exists($composerAutoload))
-{
+if (!file_exists($composerAutoload)) {
     //If the project is used as its own project, it would use rest-api-sdk-php composer autoloader.
-    $composerAutoload = dirname(__DIR__) .'/vendor/autoload.php';
+    $composerAutoload = dirname(__DIR__) . '/vendor/autoload.php';
 
 
-    if(!file_exists($composerAutoload)) {
+    if (!file_exists($composerAutoload)) {
         echo "The 'vendor' folder is missing. You must run 'composer update' to resolve application dependencies.\nPlease see the README for more information.\n";
         exit(1);
     }
@@ -32,46 +31,46 @@ $apiContext = getApiContext();
  *
  * @return PayPal\Rest\ApiContext
  */
-function getApiContext() {
-	
-	// ### Api context
-	// Use an ApiContext object to authenticate 
-	// API calls. The clientId and clientSecret for the 
-	// OAuthTokenCredential class can be retrieved from 
-	// developer.paypal.com
+function getApiContext()
+{
 
-	$apiContext = new ApiContext(
-		new OAuthTokenCredential(
-			'EBWKjlELKMYqRNQ6sYvFo64FtaRLRR5BdHEESmha49TM',
-			'EO422dn3gQLgDbuwqTjzrFgFtaRLRR5BdHEESmha49TM'
-		)
-	);
+    // ### Api context
+    // Use an ApiContext object to authenticate
+    // API calls. The clientId and clientSecret for the
+    // OAuthTokenCredential class can be retrieved from
+    // developer.paypal.com
+
+    $apiContext = new ApiContext(
+        new OAuthTokenCredential(
+            'EBWKjlELKMYqRNQ6sYvFo64FtaRLRR5BdHEESmha49TM',
+            'EO422dn3gQLgDbuwqTjzrFgFtaRLRR5BdHEESmha49TM'
+        )
+    );
 
 
+    // #### SDK configuration
 
-	// #### SDK configuration
-	
-	// Comment this line out and uncomment the PP_CONFIG_PATH
-	// 'define' block if you want to use static file 
-	// based configuration
+    // Comment this line out and uncomment the PP_CONFIG_PATH
+    // 'define' block if you want to use static file
+    // based configuration
 
-	$apiContext->setConfig(
-		array(
-			'mode' => 'sandbox',
-			'http.ConnectionTimeOut' => 30,
-			'log.LogEnabled' => true,
-			'log.FileName' => '../PayPal.log',
-			'log.LogLevel' => 'FINE'
-		)
-	);
-	
-	/*
-	// Register the sdk_config.ini file in current directory
-	// as the configuration source.
-	if(!defined("PP_CONFIG_PATH")) {
-		define("PP_CONFIG_PATH", __DIR__);
-	}
-	*/
+    $apiContext->setConfig(
+        array(
+            'mode' => 'sandbox',
+            'http.ConnectionTimeOut' => 30,
+            'log.LogEnabled' => true,
+            'log.FileName' => '../PayPal.log',
+            'log.LogLevel' => 'FINE'
+        )
+    );
 
-	return $apiContext;
+    /*
+    // Register the sdk_config.ini file in current directory
+    // as the configuration source.
+    if(!defined("PP_CONFIG_PATH")) {
+        define("PP_CONFIG_PATH", __DIR__);
+    }
+    */
+
+    return $apiContext;
 }

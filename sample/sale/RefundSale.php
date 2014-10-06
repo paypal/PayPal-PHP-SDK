@@ -47,7 +47,7 @@ try {
 </head>
 <body>
 	<div>Refunding sale id: <?php echo $saleId;?></div>
-	<pre><?php var_dump($sale);?></pre>
+	<pre><?php echo $sale->toJSON(JSON_PRETTY_PRINT);?></pre>
 	<a href='../index.html'>Back</a>
 </body>
 </html>
