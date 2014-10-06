@@ -5,7 +5,6 @@ namespace PayPal\Api;
 use PayPal\Common\PPModel;
 use PayPal\Rest\ApiContext;
 use PayPal\Rest\IResource;
-use PayPal\Api\PaymentHistory;
 use PayPal\Transport\PPRestCall;
 
 /**
@@ -363,7 +362,32 @@ class Payment extends PPModel implements IResource
         return $this->links;
     }
 
-
+    /**
+     * Set Experience_profile_id
+     * experience_profile_id of the payment
+     *
+     * @param string $experience_profile_id
+     *
+     * @return $this
+     */
+    public function setExperienceProfileId($experience_profile_id)
+    {
+    	$this->experience_profile_id = $experience_profile_id;
+    
+    	return $this;
+    }
+    
+    /**
+     * Get Experience_profile_id
+     * Experience_profile_id of the payment
+     *
+     * @return string
+     */
+    public function getExperienceProfileId()
+    {
+    	return $this->experience_profile_id;
+    }
+    
     /**
      * Create
      *
