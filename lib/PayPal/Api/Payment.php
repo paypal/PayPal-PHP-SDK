@@ -26,7 +26,7 @@ class Payment extends PPModel implements IResource
     /**
      * @var
      */
-    private static $credential;
+    protected static $credential;
 
     /**
      * Set Credential
@@ -467,14 +467,14 @@ class Payment extends PPModel implements IResource
         $payLoad = "";
 
         $allowedParams = array(
-            'count'       => 1,
-            'start_id'    => 1,
+            'count' => 1,
+            'start_id' => 1,
             'start_index' => 1,
-            'start_time'  => 1,
-            'end_time'    => 1,
-            'payee_id'    => 1,
-            'sort_by'     => 1,
-            'sort_order'  => 1,
+            'start_time' => 1,
+            'end_time' => 1,
+            'payee_id' => 1,
+            'sort_by' => 1,
+            'sort_order' => 1,
         );
 
         if ($apiContext == null) {
