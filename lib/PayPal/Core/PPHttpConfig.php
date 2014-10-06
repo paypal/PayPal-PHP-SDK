@@ -119,7 +119,7 @@ class PPHttpConfig
      *
      * @param array $headers
      */
-    public function setHeaders(array $headers = [])
+    public function setHeaders(array $headers = array())
     {
         $this->headers = $headers;
     }

@@ -69,7 +69,7 @@ class PPCredentialManager
     /**
      * Load credentials for multiple accounts, with priority given to Signature credential.
      *
-     * @param [] $config
+     * @param array $config
      */
     private function initCredential($config)
     {

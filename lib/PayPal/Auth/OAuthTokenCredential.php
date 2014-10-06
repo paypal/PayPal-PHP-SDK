@@ -143,7 +143,7 @@ class OAuthTokenCredential
     /**
      * Retrieves the token based on the input configuration
      *
-     * @param [] $config
+     * @param array $config
      * @param string $payload
      * @return mixed
      * @throws PPConfigurationException
@@ -183,7 +183,7 @@ class OAuthTokenCredential
     /**
      * Generates a new access token
      *
-     * @param [] $config
+     * @param array $config
      * @return null
      */
     private function generateAccessToken($config, $refreshToken = null)

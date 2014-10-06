@@ -49,7 +49,7 @@ class PPRestCall
      * @return mixed
      * @throws \PayPal\Exception\PPConnectionException
      */
-    public function execute($handlers = [], $path, $method, $data = '', $headers = array())
+    public function execute($handlers = array(), $path, $method, $data = '', $headers = array())
     {
 
         $config = $this->apiContext->getConfig();

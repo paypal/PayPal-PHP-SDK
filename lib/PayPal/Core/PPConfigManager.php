@@ -76,10 +76,10 @@ class PPConfigManager
      * then the element from the first array will be used and
      * the matching key's element from the second array will be ignored.
      *
-     * @param [] $config
+     * @param array $configs
      * @return $this
      */
-    public function addConfigs($configs = [])
+    public function addConfigs($configs = array())
     {
         $this->configs = $configs + $this->configs;
         return $this;

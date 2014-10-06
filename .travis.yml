@@ -10,6 +10,7 @@ matrix:
     - php: hhvm
   fast_finish: true
 before_script:
+  - composer self-update
   - composer install --dev
   - composer require satooshi/php-coveralls:* --dev
 script:
