@@ -1,5 +1,6 @@
 <?php
 use PayPal\Exception\PPConfigurationException;
+
 /**
  * Test class for PPConfigurationException.
  *
@@ -27,9 +28,11 @@ class PPConfigurationExceptionTest extends \PHPUnit_Framework_TestCase
     protected function tearDown()
     {
     }
+
     public function testPPConfigurationException()
     {
-    	$this->assertEquals('Test PPConfigurationException', $this->object->getMessage());
+        $this->assertEquals('Test PPConfigurationException', $this->object->getMessage());
     }
 }
+
 ?>

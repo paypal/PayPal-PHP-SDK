@@ -6,7 +6,13 @@ use PayPal\Rest\ApiContext;
 use PayPal\Rest\IResource;
 use PayPal\Api\Invoices;
 use PayPal\Transport\PPRestCall;
+use PayPal\Validation\ArgumentValidator;
 
+/**
+ * Class Invoice
+ *
+ * @package PayPal\Api
+ */
 class Invoice extends PPModel implements IResource
 {
 
@@ -866,9 +872,7 @@ class Invoice extends PPModel implements IResource
      */
     public function search($search, $apiContext = null)
     {
-        if (($search == null)) {
-            throw new \InvalidArgumentException("search cannot be null or empty");
-        }
+        ArgumentValidator::validate($search, 'search');
         $payLoad = $search->toJSON();
         if ($apiContext == null) {
             $apiContext = new ApiContext(self::$credential);

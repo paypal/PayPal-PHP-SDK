@@ -1,6 +1,11 @@
 PayPal PHP SDK release notes
 ============================
 
+v0.12.0
+----
+* Enabled EC Parameters Support for Payment APIs
+* Enabled Validation for Missing Accessors
+
 v0.11.1
 ----
 * Removed Dependency from SDK Core Project

@@ -1,6 +1,7 @@
 <?php
 
 namespace PayPal\Common;
+use PayPal\Validation\ModelAccessorValidator;
 
 /**
  * Generic Model class that all API domain classes extend
@@ -13,6 +14,45 @@ class PPModel
     private $_propMap = array();
 
     /**
+     * Default Constructor
+     *
+     * You can pass data as a json representation or array object. This argument eliminates the need
+     * to do $obj->fromJson($data) later after creating the object.
+     *
+     * @param null $data
+     * @throws \InvalidArgumentException
+     */
+    public function __construct($data = null)
+    {
+        switch (gettype($data)) {
+            case "NULL":
+                break;
+            case "string":
+                if (!$this->isJson($data)) {
+                    throw new \InvalidArgumentException("data should be either json or array representation of object");
+                }
+                $this->fromJson($data);
+                break;
+            case "array":
+                $this->fromArray($data);
+                break;
+            default:
+        }
+    }
+
+    /**
+     * Tests if the string provided is json representation or not.
+     *
+     * @param $string
+     * @return bool
+     */
+    private function isJson($string)
+    {
+        json_decode($string);
+        return (json_last_error() == JSON_ERROR_NONE);
+    }
+
+    /**
      * Magic Get Method
      *
      * @param $key
@@ -20,7 +60,10 @@ class PPModel
      */
     public function __get($key)
     {
-        return $this->_propMap[$key];
+        if ($this->__isset($key)) {
+            return $this->_propMap[$key];
+        }
+        return null;
     }
 
     /**
@@ -31,7 +74,19 @@ class PPModel
      */
     public function __set($key, $value)
     {
+        ModelAccessorValidator::validate($this, $this->convertToCamelCase($key));
         $this->_propMap[$key] = $value;
+    }
+
+    /**
+     * Converts the input key into a valid Setter Method Name
+     *
+     * @param $key
+     * @return mixed
+     */
+    private function convertToCamelCase($key)
+    {
+        return str_replace(' ', '', ucwords(str_replace(array('_', '-'), ' ', $key)));
     }
 
     /**

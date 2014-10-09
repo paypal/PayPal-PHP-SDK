@@ -40,7 +40,7 @@ class PPReflectionUtil
         }
 
         if (isset($param)) {
-            $anno = explode(' ', $param);
+            $anno = preg_split("/[\s\[\]]+/", $param);
             return $anno[0];
         } else {
             return 'string';

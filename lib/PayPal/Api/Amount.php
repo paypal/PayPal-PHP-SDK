@@ -8,30 +8,32 @@ use PayPal\Rest\ApiContext;
 /**
  * Class Amount
  *
- * @property string               currency
- * @property string               total
- * @property \PayPal\Api\Details  details
+ * Let's you specify details of a payment amount.
+ *
+ * @package PayPal\Api
+ *
+ * @property string currency
+ * @property string total
+ * @property \PayPal\Api\Details details
  */
 class Amount extends PPModel
 {
     /**
-     * Set Currency
-     * Three Letter Currency Code
+     * 3 letter currency code
+     * 
      *
      * @param string $currency
-     *
+     * 
      * @return $this
      */
     public function setCurrency($currency)
     {
         $this->currency = $currency;
-
         return $this;
     }
 
     /**
-     * Get Currency
-     * Three Letter Currency Code
+     * 3 letter currency code
      *
      * @return string
      */
@@ -41,25 +43,21 @@ class Amount extends PPModel
     }
 
     /**
-     * Set Total
-     * Amount charged from the Payer account (or card) to Payee
-     * In case of a refund, this is the refunded amount to the original Payer from Payee account
+     * Total amount charged from the Payer account (or card) to Payee. In case of a refund, this is the refunded amount to the original Payer from Payee account.
+     * 
      *
      * @param string $total
-     *
+     * 
      * @return $this
      */
     public function setTotal($total)
     {
         $this->total = $total;
-
         return $this;
     }
 
     /**
-     * Get Total
-     * Amount charged from the Payer account (or card) to Payee
-     * In case of a refund, this is the refunded amount to the original Payer from Payee account
+     * Total amount charged from the Payer account (or card) to Payee. In case of a refund, this is the refunded amount to the original Payer from Payee account.
      *
      * @return string
      */
@@ -69,11 +67,11 @@ class Amount extends PPModel
     }
 
     /**
-     * Set Details
-     * Additional Details of Payment Amount
+     * Additional details of the payment amount.
+     * 
      *
      * @param \PayPal\Api\Details $details
-     *
+     * 
      * @return $this
      */
     public function setDetails($details)
@@ -83,8 +81,7 @@ class Amount extends PPModel
     }
 
     /**
-     * Get Details
-     * Additional Details of Payment Amount
+     * Additional details of the payment amount.
      *
      * @return \PayPal\Api\Details
      */
@@ -92,4 +89,5 @@ class Amount extends PPModel
     {
         return $this->details;
     }
+
 }

@@ -8,34 +8,32 @@ use PayPal\Rest\ApiContext;
 /**
  * Class Payee
  *
+ * A resource representing a Payee that received the funds and fulfills the order. Only one of the following identifiers need to be supplied.
+ *
+ * @package PayPal\Api
+ *
  * @property string email
  * @property string merchant_id
- * @property string phone
+ * @property \PayPal\Api\Phone phone
  */
 class Payee extends PPModel
 {
     /**
-     * Set Email
-     * Email Address associated with the Payee's PayPal Account
-     * If the provided email address is not associated with any PayPal Account, the payee can only receiver PayPal Wallet Payments
-     * Direct Credit Card Payments will be denied due to card compliance requirements
+     * Email Address associated with the Payee's PayPal Account. If the provided email address is not associated with any PayPal Account, the payee can only receiver PayPal Wallet Payments. Direct Credit Card Payments will be denied due to card compliance requirements.
+     * 
      *
      * @param string $email
-     *
+     * 
      * @return $this
      */
     public function setEmail($email)
     {
         $this->email = $email;
-
         return $this;
     }
 
     /**
-     * Get Email
-     * Email Address associated with the Payee's PayPal Account
-     * If the provided email address is not associated with any PayPal Account, the payee can only receiver PayPal Wallet Payments
-     * Direct Credit Card Payments will be denied due to card compliance requirements
+     * Email Address associated with the Payee's PayPal Account. If the provided email address is not associated with any PayPal Account, the payee can only receiver PayPal Wallet Payments. Direct Credit Card Payments will be denied due to card compliance requirements.
      *
      * @return string
      */
@@ -45,11 +43,11 @@ class Payee extends PPModel
     }
 
     /**
-     * Set Merchant ID
-     * Encrypted PayPal Account identifier for the Payee
+     * Encrypted PayPal Account identifier for the Payee.
+     * 
      *
      * @param string $merchant_id
-     *
+     * 
      * @return $this
      */
     public function setMerchantId($merchant_id)
@@ -59,8 +57,7 @@ class Payee extends PPModel
     }
 
     /**
-     * Get Merchant ID
-     * Encrypted PayPal Account identifier for the Payee
+     * Encrypted PayPal Account identifier for the Payee.
      *
      * @return string
      */
@@ -70,27 +67,22 @@ class Payee extends PPModel
     }
 
     /**
-     * Set Merchant ID
-     * Encrypted PayPal Account identifier for the Payee
+     * Encrypted PayPal Account identifier for the Payee.
+     *
+     * @deprecated Instead use setMerchantId
      *
      * @param string $merchant_id
-     *
-     * @deprecated Use setMerchantId
-     *
      * @return $this
      */
     public function setMerchant_id($merchant_id)
     {
         $this->merchant_id = $merchant_id;
-
         return $this;
     }
 
     /**
-     * Get Merchant ID
-     * Encrypted PayPal Account identifier for the Payee
-     *
-     * @deprecated Use getMerchantId
+     * Encrypted PayPal Account identifier for the Payee.
+     * @deprecated Instead use getMerchantId
      *
      * @return string
      */
@@ -100,13 +92,11 @@ class Payee extends PPModel
     }
 
     /**
-     * Set Phone
-     * (in E.123 format) associated with the Payee's PayPal Account
-     * If the provided phont number is not associated with any PayPal Account, the payee can only receiver PayPal Wallet Payments
-     * Direct Credit Card Payments will be denied due to card compliance requirements
+     * Information related to the Payer. In case of PayPal Wallet payment, this information will be filled in by PayPal after the user approves the payment using their PayPal Wallet. 
+     * 
      *
-     * @param string $phone
-     *
+     * @param \PayPal\Api\Phone $phone
+     * 
      * @return $this
      */
     public function setPhone($phone)
@@ -116,15 +106,13 @@ class Payee extends PPModel
     }
 
     /**
-     * Get Phone
-     * (in E.123 format) associated with the Payee's PayPal Account
-     * If the provided phont number is not associated with any PayPal Account, the payee can only receiver PayPal Wallet Payments
-     * Direct Credit Card Payments will be denied due to card compliance requirements
+     * Information related to the Payer. In case of PayPal Wallet payment, this information will be filled in by PayPal after the user approves the payment using their PayPal Wallet. 
      *
-     * @return string
+     * @return \PayPal\Api\Phone
      */
     public function getPhone()
     {
         return $this->phone;
     }
+
 }

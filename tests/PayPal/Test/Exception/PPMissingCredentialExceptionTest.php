@@ -34,8 +34,9 @@ class PPMissingCredentialExceptionTest extends \PHPUnit_Framework_TestCase
      */
     public function testErrorMessage()
     {
-		$msg = $this->object->errorMessage();
-		$this->assertContains('Error on line', $msg);
+        $msg = $this->object->errorMessage();
+        $this->assertContains('Error on line', $msg);
     }
 }
+
 ?>

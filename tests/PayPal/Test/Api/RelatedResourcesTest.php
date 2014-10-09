@@ -4,34 +4,39 @@ namespace PayPal\Test\Api;
 use PayPal\Api\RelatedResources;
 use PayPal\Test\Constants;
 
-class RelatedResourcesTest extends \PHPUnit_Framework_TestCase {
+class RelatedResourcesTest extends \PHPUnit_Framework_TestCase
+{
 
-	private $RelatedResources;
+    private $RelatedResources;
 
-	public static function createRelatedResources() {
-		$relatedResources = new RelatedResources();
-		$relatedResources->setAuthorization(AuthorizationTest::createAuthorization());
-		$relatedResources->setCapture(CaptureTest::createCapture());
+    public static function createRelatedResources()
+    {
+        $relatedResources = new RelatedResources();
+        $relatedResources->setAuthorization(AuthorizationTest::createAuthorization());
+        $relatedResources->setCapture(CaptureTest::createCapture());
         $relatedResources->setOrder(OrderTest::createOrder());
-		return $relatedResources;
-	}
-	
-	public function setup() {
-		$this->relatedResources = self::createRelatedResources();
-	}
+        return $relatedResources;
+    }
 
-	public function testGetterSetter() {
-		$this->assertEquals(AuthorizationTest::$create_time, $this->relatedResources->getAuthorization()->getCreateTime());
-		$this->assertEquals(CaptureTest::$create_time, $this->relatedResources->getCapture()->getCreateTime());
+    public function setup()
+    {
+        $this->relatedResources = self::createRelatedResources();
+    }
+
+    public function testGetterSetter()
+    {
+        $this->assertEquals(AuthorizationTest::$create_time, $this->relatedResources->getAuthorization()->getCreateTime());
+        $this->assertEquals(CaptureTest::$create_time, $this->relatedResources->getCapture()->getCreateTime());
         $this->assertEquals(OrderTest::$id, $this->relatedResources->getOrder()->getId());
-	}
-	
-	public function testSerializeDeserialize() {
-		$s1 = $this->relatedResources;
-		
-		$s2 = new RelatedResources();
-		$s2->fromJson($s1->toJson());
-		
-		$this->assertEquals($s1, $s2);
-	}
+    }
+
+    public function testSerializeDeserialize()
+    {
+        $s1 = $this->relatedResources;
+
+        $s2 = new RelatedResources();
+        $s2->fromJson($s1->toJson());
+
+        $this->assertEquals($s1, $s2);
+    }
 }

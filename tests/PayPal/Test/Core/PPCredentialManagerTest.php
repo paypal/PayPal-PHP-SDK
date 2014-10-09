@@ -1,5 +1,6 @@
 <?php
 use PayPal\Core\PPCredentialManager;
+
 /**
  * Test class for PPCredentialManager.
  *
@@ -7,68 +8,70 @@ use PayPal\Core\PPCredentialManager;
  */
 class PPCredentialManagerTest extends \PHPUnit_Framework_TestCase
 {
-	/**
-	 * @var PPCredentialManager
-	 */
-	protected $object;
+    /**
+     * @var PPCredentialManager
+     */
+    protected $object;
 
-	private $config = array(
-			'acct1.ClientId' => 		'client-id',
-			'acct1.ClientSecret' => 	'client-secret',
-			'http.ConnectionTimeOut' => '30',
-			'http.Retry' => 			'5',
-			'service.RedirectURL' => 	'https://www.sandbox.paypal.com/webscr&cmd=',
-			'service.DevCentralURL' => 	'https://developer.paypal.com',
-			'service.EndPoint.IPN' => 	'https://www.sandbox.paypal.com/cgi-bin/webscr',
-			'service.EndPoint.AdaptivePayments' => 'https://svcs.sandbox.paypal.com/',
-			'service.SandboxEmailAddress' => 'platform_sdk_seller@gmail.com',
-			'log.FileName' => 			'PayPal.log',
-			'log.LogLevel' => 			'INFO',
-			'log.LogEnabled' => 		'1',
-	);
-	/**
-	 * Sets up the fixture, for example, opens a network connection.
-	 * This method is called before a test is executed.
-	 */
-	protected function setUp()
-	{
-		$this->object = PPCredentialManager::getInstance($this->config);
-	}
+    private $config = array(
+        'acct1.ClientId' => 'client-id',
+        'acct1.ClientSecret' => 'client-secret',
+        'http.ConnectionTimeOut' => '30',
+        'http.Retry' => '5',
+        'service.RedirectURL' => 'https://www.sandbox.paypal.com/webscr&cmd=',
+        'service.DevCentralURL' => 'https://developer.paypal.com',
+        'service.EndPoint.IPN' => 'https://www.sandbox.paypal.com/cgi-bin/webscr',
+        'service.EndPoint.AdaptivePayments' => 'https://svcs.sandbox.paypal.com/',
+        'service.SandboxEmailAddress' => 'platform_sdk_seller@gmail.com',
+        'log.FileName' => 'PayPal.log',
+        'log.LogLevel' => 'INFO',
+        'log.LogEnabled' => '1',
+    );
 
-	/**
-	 * Tears down the fixture, for example, closes a network connection.
-	 * This method is called after a test is executed.
-	 */
-	protected function tearDown()
-	{
-	}
+    /**
+     * Sets up the fixture, for example, opens a network connection.
+     * This method is called before a test is executed.
+     */
+    protected function setUp()
+    {
+        $this->object = PPCredentialManager::getInstance($this->config);
+    }
 
-	/**
-	 * @test
-	 */
-	public function testGetInstance()
-	{
-		$instance = $this->object->getInstance($this->config);
-		$this->assertTrue($instance instanceof PPCredentialManager);
-	}
+    /**
+     * Tears down the fixture, for example, closes a network connection.
+     * This method is called after a test is executed.
+     */
+    protected function tearDown()
+    {
+    }
 
-	/**
-	 * @test
-	 */
-	public function testGetSpecificCredentialObject()
-	{
-		$cred = $this->object->getCredentialObject('acct1');
-		$this->assertNotNull($cred);
+    /**
+     * @test
+     */
+    public function testGetInstance()
+    {
+        $instance = $this->object->getInstance($this->config);
+        $this->assertTrue($instance instanceof PPCredentialManager);
+    }
+
+    /**
+     * @test
+     */
+    public function testGetSpecificCredentialObject()
+    {
+        $cred = $this->object->getCredentialObject('acct1');
+        $this->assertNotNull($cred);
         $this->assertAttributeEquals('client-id', 'clientId', $cred);
         $this->assertAttributeEquals('client-secret', 'clientSecret', $cred);
-	}
+    }
 
     /**
      * @after testGetDefaultCredentialObject
      *
      * @throws \PayPal\Exception\PPInvalidCredentialException
      */
-    public function testSetCredentialObject() {
+    public function testSetCredentialObject()
+    {
         $authObject = $this->getMockBuilder('\Paypal\Auth\OAuthTokenCredential')
             ->disableOriginalConstructor()
             ->getMock();
@@ -83,7 +86,8 @@ class PPCredentialManagerTest extends \PHPUnit_Framework_TestCase
      *
      * @throws \PayPal\Exception\PPInvalidCredentialException
      */
-    public function testSetCredentialObjectWithUserId() {
+    public function testSetCredentialObjectWithUserId()
+    {
         $authObject = $this->getMockBuilder('\Paypal\Auth\OAuthTokenCredential')
             ->disableOriginalConstructor()
             ->getMock();
@@ -97,7 +101,8 @@ class PPCredentialManagerTest extends \PHPUnit_Framework_TestCase
      *
      * @throws \PayPal\Exception\PPInvalidCredentialException
      */
-    public function testSetCredentialObjectWithoutDefault() {
+    public function testSetCredentialObjectWithoutDefault()
+    {
         $authObject = $this->getMockBuilder('\Paypal\Auth\OAuthTokenCredential')
             ->disableOriginalConstructor()
             ->getMock();
@@ -107,39 +112,39 @@ class PPCredentialManagerTest extends \PHPUnit_Framework_TestCase
     }
 
 
-
+    /**
+     * @test
+     */
+    public function testGetInvalidCredentialObject()
+    {
+        $this->setExpectedException('PayPal\Exception\PPInvalidCredentialException');
+        $cred = $this->object->getCredentialObject('invalid_biz_api1.gmail.com');
+    }
 
     /**
-	 * @test
-	 */
-	public function testGetInvalidCredentialObject()
-	{
-		$this->setExpectedException('PayPal\Exception\PPInvalidCredentialException');
-		$cred = $this->object->getCredentialObject('invalid_biz_api1.gmail.com');
-	}
-		
-	/**
      *
-	 */
-	public function testGetDefaultCredentialObject()
-	{
+     */
+    public function testGetDefaultCredentialObject()
+    {
         $cred = $this->object->getCredentialObject();
         $this->assertNotNull($cred);
         $this->assertAttributeEquals('client-id', 'clientId', $cred);
         $this->assertAttributeEquals('client-secret', 'clientSecret', $cred);
-	}
+    }
 
-	/**
-	 * @test
-	 */
-	public function testGetRestCredentialObject() {
-		$cred = $this->object->getCredentialObject('acct1');
-	
-		$this->assertNotNull($cred);
+    /**
+     * @test
+     */
+    public function testGetRestCredentialObject()
+    {
+        $cred = $this->object->getCredentialObject('acct1');
 
-		$this->assertAttributeEquals($this->config['acct1.ClientId'], 'clientId', $cred);
+        $this->assertNotNull($cred);
+
+        $this->assertAttributeEquals($this->config['acct1.ClientId'], 'clientId', $cred);
 
         $this->assertAttributeEquals($this->config['acct1.ClientSecret'], 'clientSecret', $cred);
-	}
+    }
 }
+
 ?>

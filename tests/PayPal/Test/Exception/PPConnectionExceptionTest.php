@@ -1,5 +1,6 @@
 <?php
 use PayPal\Exception\PPConnectionException;
+
 /**
  * Test class for PPConnectionException.
  *
@@ -34,15 +35,16 @@ class PPConnectionExceptionTest extends \PHPUnit_Framework_TestCase
      */
     public function testGetUrl()
     {
-    	$this->assertEquals('http://testURL', $this->object->getUrl());
+        $this->assertEquals('http://testURL', $this->object->getUrl());
     }
-    
+
     /**
      * @test
      */
- 	public function testGetData()
+    public function testGetData()
     {
-    	$this->assertEquals('response payload for connection', $this->object->getData());    	
+        $this->assertEquals('response payload for connection', $this->object->getData());
     }
 }
+
 ?>

@@ -43,12 +43,33 @@ class PPLoggingManager
     private $loggerFile;
 
     /**
-     * @param      $loggerName
-     * @param array|null $config
+     * Returns the singleton object
+     *
+     * @param string $loggerName
+     * @return $this
      */
-    public function __construct($loggerName, $config = null)
+    public static function getInstance($loggerName = __CLASS__)
+    {
+        $instance = new self();
+        $instance->setLoggerName($loggerName);
+        return $instance;
+    }
+
+    /**
+     * Sets Logger Name. Generally defaulted to Logging Class
+     *
+     * @param string $loggerName
+     */
+    public function setLoggerName($loggerName = __CLASS__)
     {
         $this->loggerName = $loggerName;
+    }
+
+    /**
+     * Default Constructor
+     */
+    public function __construct()
+    {
         $config = PPConfigManager::getInstance()->getConfigHashmap();
 
         $this->isLoggingEnabled = (array_key_exists('log.LogEnabled', $config) && $config['log.LogEnabled'] == '1');
@@ -83,7 +104,7 @@ class PPLoggingManager
      */
     public function error($message)
     {
-        $this->log($message, PPLoggingLevel::ERROR);
+        $this->log('ERROR: ' . $message, PPLoggingLevel::ERROR);
     }
 
     /**
@@ -93,7 +114,7 @@ class PPLoggingManager
      */
     public function warning($message)
     {
-        $this->log($message, PPLoggingLevel::WARN);
+        $this->log('WARNING: ' . $message, PPLoggingLevel::WARN);
     }
 
     /**
@@ -103,7 +124,7 @@ class PPLoggingManager
      */
     public function info($message)
     {
-        $this->log($message, PPLoggingLevel::INFO);
+        $this->log('INFO: ' . $message, PPLoggingLevel::INFO);
     }
 
     /**
@@ -113,7 +134,7 @@ class PPLoggingManager
      */
     public function fine($message)
     {
-        $this->log($message, PPLoggingLevel::FINE);
+        $this->log('FINE: ' . $message, PPLoggingLevel::FINE);
     }
 
 }

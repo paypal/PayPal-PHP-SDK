@@ -22,6 +22,8 @@ require __DIR__ . '/common.php';
 use PayPal\Rest\ApiContext;
 use PayPal\Auth\OAuthTokenCredential;
 
+error_reporting(E_ALL);
+
 /** @var \Paypal\Rest\ApiContext $apiContext */
 $apiContext = getApiContext();
 
@@ -60,7 +62,8 @@ function getApiContext()
             'http.ConnectionTimeOut' => 30,
             'log.LogEnabled' => true,
             'log.FileName' => '../PayPal.log',
-            'log.LogLevel' => 'FINE'
+            'log.LogLevel' => 'FINE',
+            'validation.level' => 'log'
         )
     );
 

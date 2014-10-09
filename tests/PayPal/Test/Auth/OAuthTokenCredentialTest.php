@@ -6,29 +6,33 @@ use PayPal\Auth\OAuthTokenCredential;
 use PayPal\Test\Constants;
 use PayPal\Core\PPConfigManager;
 use PayPal\Exception\PPConnectionException;
-class OAuthTokenCredentialTest extends PHPUnit_Framework_TestCase {
+
+class OAuthTokenCredentialTest extends PHPUnit_Framework_TestCase
+{
 
     /**
      * @group integration
      */
-	public function testGetAccessToken() {
-		$cred = new OAuthTokenCredential(Constants::CLIENT_ID, Constants::CLIENT_SECRET);
-		$config = PPConfigManager::getInstance()->getConfigHashmap();
-		$token = $cred->getAccessToken($config);
-		$this->assertNotNull($token);
-		
-		// Check that we get the same token when issuing a new call before token expiry
-		$newToken = $cred->getAccessToken($config);
-		$this->assertNotNull($newToken);
-		$this->assertEquals($token, $newToken);
-	}
+    public function testGetAccessToken()
+    {
+        $cred = new OAuthTokenCredential(Constants::CLIENT_ID, Constants::CLIENT_SECRET);
+        $config = PPConfigManager::getInstance()->getConfigHashmap();
+        $token = $cred->getAccessToken($config);
+        $this->assertNotNull($token);
+
+        // Check that we get the same token when issuing a new call before token expiry
+        $newToken = $cred->getAccessToken($config);
+        $this->assertNotNull($newToken);
+        $this->assertEquals($token, $newToken);
+    }
 
     /**
      * @group integration
      */
-	public function testInvalidCredentials() {
-		$this->setExpectedException('PayPal\Exception\PPConnectionException');
-		$cred = new OAuthTokenCredential('dummy', 'secret');		
-		$this->assertNull($cred->getAccessToken(PPConfigManager::getInstance()->getConfigHashmap()));
-	}
+    public function testInvalidCredentials()
+    {
+        $this->setExpectedException('PayPal\Exception\PPConnectionException');
+        $cred = new OAuthTokenCredential('dummy', 'secret');
+        $this->assertNull($cred->getAccessToken(PPConfigManager::getInstance()->getConfigHashmap()));
+    }
 }

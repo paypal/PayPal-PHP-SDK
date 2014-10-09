@@ -1,15 +1,30 @@
 <?php
+
 namespace PayPal\Api;
 
 use PayPal\Common\PPModel;
 use PayPal\Rest\ApiContext;
 
+/**
+ * Class Phone
+ *
+ * Information related to the Payer. In case of PayPal Wallet payment, this information will be filled in by PayPal after the user approves the payment using their PayPal Wallet. 
+ *
+ * @package PayPal\Api
+ *
+ * @property string country_code
+ * @property string national_number
+ * @property string extension
+ */
 class Phone extends PPModel
 {
     /**
-     * Country code (in E.164 format). Assume length is n.
+     * Country code (from in E.164 format)
+     * 
      *
      * @param string $country_code
+     * 
+     * @return $this
      */
     public function setCountryCode($country_code)
     {
@@ -18,7 +33,7 @@ class Phone extends PPModel
     }
 
     /**
-     * Country code (in E.164 format). Assume length is n.
+     * Country code (from in E.164 format)
      *
      * @return string
      */
@@ -28,10 +43,12 @@ class Phone extends PPModel
     }
 
     /**
-     * Country code (in E.164 format). Assume length is n.
+     * Country code (from in E.164 format)
+     *
+     * @deprecated Instead use setCountryCode
      *
      * @param string $country_code
-     * @deprecated. Instead use setCountryCode
+     * @return $this
      */
     public function setCountry_code($country_code)
     {
@@ -40,10 +57,10 @@ class Phone extends PPModel
     }
 
     /**
-     * Country code (in E.164 format). Assume length is n.
+     * Country code (from in E.164 format)
+     * @deprecated Instead use getCountryCode
      *
      * @return string
-     * @deprecated. Instead use getCountryCode
      */
     public function getCountry_code()
     {
@@ -51,9 +68,12 @@ class Phone extends PPModel
     }
 
     /**
-     * In-country phone number (in E.164 format). Maximum (15 - n) digits.
+     * In-country phone number (from in E.164 format)
+     * 
      *
      * @param string $national_number
+     * 
+     * @return $this
      */
     public function setNationalNumber($national_number)
     {
@@ -62,7 +82,7 @@ class Phone extends PPModel
     }
 
     /**
-     * In-country phone number (in E.164 format). Maximum (15 - n) digits.
+     * In-country phone number (from in E.164 format)
      *
      * @return string
      */
@@ -72,10 +92,12 @@ class Phone extends PPModel
     }
 
     /**
-     * In-country phone number (in E.164 format). Maximum (15 - n) digits.
+     * In-country phone number (from in E.164 format)
+     *
+     * @deprecated Instead use setNationalNumber
      *
      * @param string $national_number
-     * @deprecated. Instead use setNationalNumber
+     * @return $this
      */
     public function setNational_number($national_number)
     {
@@ -84,14 +106,38 @@ class Phone extends PPModel
     }
 
     /**
-     * In-country phone number (in E.164 format). Maximum (15 - n) digits.
+     * In-country phone number (from in E.164 format)
+     * @deprecated Instead use getNationalNumber
      *
      * @return string
-     * @deprecated. Instead use getNationalNumber
      */
     public function getNational_number()
     {
         return $this->national_number;
+    }
+
+    /**
+     * Phone extension
+     * 
+     *
+     * @param string $extension
+     * 
+     * @return $this
+     */
+    public function setExtension($extension)
+    {
+        $this->extension = $extension;
+        return $this;
+    }
+
+    /**
+     * Phone extension
+     *
+     * @return string
+     */
+    public function getExtension()
+    {
+        return $this->extension;
     }
 
 }

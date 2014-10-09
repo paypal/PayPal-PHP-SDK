@@ -4,7 +4,7 @@
 
 This repository contains PayPal's PHP SDK and samples for REST API.
 
-> **Before starting to use the sdk, please be aware of the [existing issues and currently unavailable or upcoming features](https://github.com/paypal/rest-api-sdk-python/wiki/Existing-Issues-and-Unavailable%5CUpcoming-features) for the REST APIs. (which the sdks are based on)** 
+> **Before starting to use the sdk, please be aware of the [existing issues and currently unavailable or upcoming features](https://github.com/paypal/rest-api-sdk-python/wiki/Existing-Issues-and-Unavailable%5CUpcoming-features) for the REST APIs. (which the sdks are based on)**
 
 ## Prerequisites
 
@@ -14,7 +14,7 @@ This repository contains PayPal's PHP SDK and samples for REST API.
 ## Installation
 
 ### - Using Composer
-[**composer**](https://getcomposer.org/) is the recommended way to install the SDK. To use the SDK with project, add the following dependency to your application's composer.json and run `composer update --no-dev` to fetch the SDK. 
+[**composer**](https://getcomposer.org/) is the recommended way to install the SDK. To use the SDK with project, add the following dependency to your application's composer.json and run `composer update --no-dev` to fetch the SDK.
 
 You can download composer using instructions on [Composer Official Website.](https://getcomposer.org/download/)
 
@@ -34,28 +34,28 @@ The resultant sample *composer.json* would look like this:
 ```php
 {
   ...
-  
+
   "name": "sample/website",
   "require": {
   	"paypal/rest-api-sdk-php" : "*"
   }
-  
+
   ...
 }
 ```
 
 ### - Direct Download (without using Composer)
 
-If you do not want to use composer, you can grab the SDK zip that contains Paypal PHP Rest API SDK with all its dependencies with it. 
+If you do not want to use composer, you can grab the SDK zip that contains Paypal PHP Rest API SDK with all its dependencies with it.
 
 #### Steps to Install :
 - Download zip archive with desired version from our [Releases](https://github.com/paypal/rest-api-sdk-php/releases). Each release will have a `direct-download-*.zip` that contains PHP Rest API SDK and its dependencies.
 
 - Unzip and copy vendor directory inside your project, e.g. project root directory.
 
-- If your application has a bootstrap/autoload file, you should add 
+- If your application has a bootstrap/autoload file, you should add
 `include '<vendor directory location>/vendor/autoload.php'` in it. The location of the `<vendor directory>` should be replaced based on where you downloaded **vendor** directory in your application.
- 
+
 - This *autoload.php* file registers a custom autoloader that can autoload the PayPal SDK files, that allows you to access PHP SDK system in your application.
 
 ## Running the sample
@@ -64,11 +64,11 @@ If you do not want to use composer, you can grab the SDK zip that contains Paypa
    * Samples have dependency on the sdk and you can use [`composer`](http://getcomposer.org) to get the dependencies. Ensure that you have composer installed on your machine, navigate to the samples folder and run `composer update --no-dev`  to fetch the SDK.
    * Optionally, update the bootstrap.php file with your own client Id and client secret, that you could find from the [developer portal](https://developer.paypal.com)
    * Run any of the samples in the 'samples' folder to see what the APIs can do.
-    
-    
+
+
 ## Usage
 
-To write an app that uses the SDK 
+To write an app that uses the SDK
 
    * Update your project's composer.json file, and add dependency on PHP Rest API SDK by running `composer require paypal/rest-api-sdk-php:*` and run `composer update --no-dev` to fetch all dependencies.
    * Copy the sample configuration file `sdk_config.ini` to a location of your choice and let the SDK know your config path using the following define directive.
@@ -78,16 +78,16 @@ To write an app that uses the SDK
 ```
    * Obtain your clientId and client secret from the [developer portal](https://developer.paypal.com). You will use them to create a `OAuthTokenCredential` object.
    * Now you are all set to make your first API call. Create a resource object as per your need and call the relevant operation or invoke one of the static methods on your resource class.
-    
+
 ```php
 
 use PayPal\Rest\ApiContext;
 use PayPal\Auth\OAuthTokenCredential;
 use PayPal\Api\Payment;
 
- 
+
    $apiContext = new ApiContext(new OAuthTokenCredential('<clientId>', '<clientSecret>'));
-		
+
     $payment = new Payment();
 
     $payment->setIntent("Sale");
@@ -116,6 +116,42 @@ There are two kinds of tests that we include in our sdk package. Unit tests, and
 	* Integration tests make curl requests to sandbox environments by default. It would test both unit as well as integration tests. To execute, run this command `phpunit -c phpunit.integration.xml` at Paypal SDK root location.
 	* It executes the tests with configuration stored in `phpunit.integration.xml` file.
 	* The configurations could be changed from `tests\sdk_config.ini` file.
+
+## Developer Notes
+
+### API Model Constructor
+
+You can intialize the API objects by passing JSON string or Array representation of object to the constructor. E.g.:
+
+```
+$obj = new SimpleClass('{"name":"test","description":"description"}');
+$obj->getName();
+$obj->getDescription();
+```
+
+### Accessor Validation
+
+We recently introduced a validation to determine if Model Object contains all the appropriate accessors (Getters and Setters) when converted from json response that we receive from Server.
+
+This validation could be configured by updating the configuration settings in your sdk_config.ini file
+
+Please visit our [sample sdk_config.ini](https://github.com/paypal/rest-api-sdk-php/blob/master/sample/sdk_config.ini)
+```
+;Validation Configuration
+[validation]
+; If validation is set to strict, the PPModel would make sure that
+; there are proper accessors (Getters and Setters) for each model
+; objects. Accepted value is
+; 'log'     : logs the error message to logger only (default)
+; 'strict'  : throws a php notice message
+; 'disable' : disable the validation
+validation.level=strict
+```
+
+The warning message would be logged into your PayPal.log file, for e.g.:
+```
+PayPal\Validation\ModelAccessorValidator: WARNING: Missing Accessor: PayPal\Api\Payment:setFirstName . Please let us know by creating an issue at https://github.com/paypal/rest-api-sdk-php/issues
+```
 
 ## Contributing
 

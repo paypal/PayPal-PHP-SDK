@@ -37,7 +37,7 @@ class PPRestCall
     public function __construct(\Paypal\Rest\ApiContext $apiContext)
     {
         $this->apiContext = $apiContext;
-        $this->logger = new PPLoggingManager(__CLASS__, $apiContext->getConfig());
+        $this->logger = PPLoggingManager::getInstance(__CLASS__);
     }
 
     /**
@@ -70,7 +70,7 @@ class PPRestCall
         }
         $connection = new PPHttpConnection($httpConfig, $config);
         $response = $connection->execute($data);
-        $this->logger->fine($response);
+        $this->logger->fine($response . PHP_EOL);
 
         return $response;
     }

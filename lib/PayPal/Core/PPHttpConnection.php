@@ -45,7 +45,7 @@ class PPHttpConnection
             throw new PPConfigurationException("Curl module is not available on this system");
         }
         $this->httpConfig = $httpConfig;
-        $this->logger = new PPLoggingManager(__CLASS__, $config);
+        $this->logger = PPLoggingManager::getInstance(__CLASS__);
     }
 
     /**

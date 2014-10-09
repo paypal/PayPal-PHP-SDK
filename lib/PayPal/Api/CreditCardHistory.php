@@ -8,28 +8,31 @@ use PayPal\Rest\ApiContext;
 /**
  * Class CreditCardHistory
  *
- * @property int    count
+ * A list of Credit Card Resources
+ *
+ * @package PayPal\Api
+ *
+ * @property \PayPal\Api\CreditCard credit_cards
+ * @property int count
  * @property string next_id
  */
 class CreditCardHistory extends PPModel
 {
     /**
-     * Set Credit Cards
      * A list of credit card resources
+     * 
      *
-     * @param \PayPal\Api\CreditCard $credit_cards
-     *
+     * @param \PayPal\Api\CreditCard $credit-cards
+     * 
      * @return $this
      */
     public function setCreditCards($credit_cards)
     {
         $this->{"credit-cards"} = $credit_cards;
-
         return $this;
     }
 
     /**
-     * Get Credit Cards
      * A list of credit card resources
      *
      * @return \PayPal\Api\CreditCard
@@ -40,27 +43,22 @@ class CreditCardHistory extends PPModel
     }
 
     /**
-     * Set Credit Cards
      * A list of credit card resources
      *
-     * @param \PayPal\Api\CreditCard $credit_cards
+     * @deprecated Instead use setCreditCards
      *
-     * @deprecated Use setCreditCards
-     *
+     * @param \PayPal\Api\CreditCard $credit-cards
      * @return $this
      */
     public function setCredit_cards($credit_cards)
     {
         $this->{"credit-cards"} = $credit_cards;
-
         return $this;
     }
 
     /**
-     * Get Credit Cards
      * A list of credit card resources
-     *
-     * @deprecated Use getCreditCards
+     * @deprecated Instead use getCreditCards
      *
      * @return \PayPal\Api\CreditCard
      */
@@ -70,25 +68,21 @@ class CreditCardHistory extends PPModel
     }
 
     /**
-     * Set Count
-     * Number of items returned in each range of results
-     * Note that the last results range could have fewer items than the requested number of items
+     * Number of items returned in each range of results. Note that the last results range could have fewer items than the requested number of items.
+     * 
      *
      * @param int $count
-     *
+     * 
      * @return $this
      */
     public function setCount($count)
     {
         $this->count = $count;
-
         return $this;
     }
 
     /**
-     * Set Count
-     * Number of items returned in each range of results
-     * Note that the last results range could have fewer items than the requested number of items
+     * Number of items returned in each range of results. Note that the last results range could have fewer items than the requested number of items.
      *
      * @return int
      */
@@ -98,23 +92,21 @@ class CreditCardHistory extends PPModel
     }
 
     /**
-     * Set Next ID
-     * Identifier of the next element to get the next range of results
+     * Identifier of the next element to get the next range of results.
+     * 
      *
      * @param string $next_id
-     *
+     * 
      * @return $this
      */
     public function setNextId($next_id)
     {
         $this->next_id = $next_id;
-
         return $this;
     }
 
     /**
-     * Get Next ID
-     * Identifier of the next element to get the next range of results
+     * Identifier of the next element to get the next range of results.
      *
      * @return string
      */
@@ -124,27 +116,22 @@ class CreditCardHistory extends PPModel
     }
 
     /**
-     * Set Next ID
-     * Identifier of the next element to get the next range of results
+     * Identifier of the next element to get the next range of results.
+     *
+     * @deprecated Instead use setNextId
      *
      * @param string $next_id
-     *
-     * @deprecated Use setNextId
-     *
      * @return $this
      */
     public function setNext_id($next_id)
     {
         $this->next_id = $next_id;
-
         return $this;
     }
 
     /**
-     * Get Next ID
-     * Identifier of the next element to get the next range of results
-     *
-     * @deprecated Use getNextId
+     * Identifier of the next element to get the next range of results.
+     * @deprecated Instead use getNextId
      *
      * @return string
      */
@@ -152,4 +139,5 @@ class CreditCardHistory extends PPModel
     {
         return $this->next_id;
     }
+
 }

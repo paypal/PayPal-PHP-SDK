@@ -1,5 +1,6 @@
 <?php
 use PayPal\Core\PPLoggingManager;
+
 /**
  * Test class for PPLoggingManager.
  *
@@ -17,7 +18,7 @@ class PPLoggingManagerTest extends \PHPUnit_Framework_TestCase
      */
     protected function setUp()
     {
-        $this->object = new PPLoggingManager('InvoiceTest');
+        $this->object = PPLoggingManager::getInstance('InvoiceTest');
     }
 
     /**
@@ -33,7 +34,7 @@ class PPLoggingManagerTest extends \PHPUnit_Framework_TestCase
      */
     public function testError()
     {
-    	 $this->object->error('Test Error Message');
+        $this->object->error('Test Error Message');
 
     }
 
@@ -42,7 +43,7 @@ class PPLoggingManagerTest extends \PHPUnit_Framework_TestCase
      */
     public function testWarning()
     {
-         $this->object->warning('Test Warning Message');
+        $this->object->warning('Test Warning Message');
     }
 
     /**
@@ -58,7 +59,8 @@ class PPLoggingManagerTest extends \PHPUnit_Framework_TestCase
      */
     public function testFine()
     {
-       $this->object->fine('Test fine Message');
+        $this->object->fine('Test fine Message');
     }
 }
+
 ?>

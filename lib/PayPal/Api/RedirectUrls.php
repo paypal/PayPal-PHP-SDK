@@ -4,9 +4,14 @@ namespace PayPal\Api;
 
 use PayPal\Common\PPModel;
 use PayPal\Rest\ApiContext;
+use PayPal\Validation\UrlValidator;
 
 /**
  * Class RedirectUrls
+ *
+ * Redirect urls required only when using payment_method as PayPal - the only settings supported are return and cancel urls.
+ *
+ * @package PayPal\Api
  *
  * @property string return_url
  * @property string cancel_url
@@ -14,27 +19,22 @@ use PayPal\Rest\ApiContext;
 class RedirectUrls extends PPModel
 {
     /**
-     * Set Return URL
-     * Url where the payer would be redirected to after approving the payment
+     * Url where the payer would be redirected to after approving the payment.
+     * 
      *
      * @param string $return_url
-     *
+     * @throws InvalidArgumentException
      * @return $this
      */
     public function setReturnUrl($return_url)
     {
-        if (filter_var($return_url, FILTER_VALIDATE_URL) === false) {
-            throw new \InvalidArgumentException("Return URL is not a fully qualified URL");
-        }
-
+        UrlValidator::validate($return_url, "ReturnUrl");
         $this->return_url = $return_url;
-
         return $this;
     }
 
     /**
-     * Get Return URL
-     * Url where the payer would be redirected to after approving the payment
+     * Url where the payer would be redirected to after approving the payment.
      *
      * @return string
      */
@@ -44,27 +44,22 @@ class RedirectUrls extends PPModel
     }
 
     /**
-     * Set Return URL
-     * Url where the payer would be redirected to after approving the payment
+     * Url where the payer would be redirected to after approving the payment.
+     *
+     * @deprecated Instead use setReturnUrl
      *
      * @param string $return_url
-     *
-     * @deprecated Use setReturnUrl
-     *
      * @return $this
      */
     public function setReturn_url($return_url)
     {
         $this->return_url = $return_url;
-
         return $this;
     }
 
     /**
-     * Get Return URL
-     * Url where the payer would be redirected to after approving the payment
-     *
-     * @deprecated Use getReturnUrl
+     * Url where the payer would be redirected to after approving the payment.
+     * @deprecated Instead use getReturnUrl
      *
      * @return string
      */
@@ -74,26 +69,22 @@ class RedirectUrls extends PPModel
     }
 
     /**
-     * Set Cancel URL
-     * Url where the payer would be redirected to after canceling the payment
+     * Url where the payer would be redirected to after canceling the payment.
+     * 
      *
      * @param string $cancel_url
-     *
+     * @throws InvalidArgumentException
      * @return $this
      */
     public function setCancelUrl($cancel_url)
     {
-        if (filter_var($cancel_url, FILTER_VALIDATE_URL) === false) {
-            throw new \InvalidArgumentException("Cancel URL is not a fully qualified URL");
-        }
+        UrlValidator::validate($cancel_url, "CancelUrl");
         $this->cancel_url = $cancel_url;
-
         return $this;
     }
 
     /**
-     * Get Cancel URL
-     * Url where the payer would be redirected to after canceling the payment
+     * Url where the payer would be redirected to after canceling the payment.
      *
      * @return string
      */
@@ -103,27 +94,22 @@ class RedirectUrls extends PPModel
     }
 
     /**
-     * Set Cancel URL
-     * Url where the payer would be redirected to after canceling the payment
+     * Url where the payer would be redirected to after canceling the payment.
+     *
+     * @deprecated Instead use setCancelUrl
      *
      * @param string $cancel_url
-     *
-     * @deprecated Use setCancelUrl
-     *
      * @return $this
      */
     public function setCancel_url($cancel_url)
     {
         $this->cancel_url = $cancel_url;
-
         return $this;
     }
 
     /**
-     * Get Cancel URL
-     * Url where the payer would be redirected to after canceling the payment
-     *
-     * @deprecated Use getCancelUrl
+     * Url where the payer would be redirected to after canceling the payment.
+     * @deprecated Instead use getCancelUrl
      *
      * @return string
      */
@@ -131,4 +117,5 @@ class RedirectUrls extends PPModel
     {
         return $this->cancel_url;
     }
+
 }

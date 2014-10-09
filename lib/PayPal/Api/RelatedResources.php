@@ -8,19 +8,24 @@ use PayPal\Rest\ApiContext;
 /**
  * Class RelatedResources
  *
- * @property \PayPal\Api\Sale          sale
+ * Each one representing a financial transaction (Sale, Authorization, Capture, Refund) related to the payment.
+ *
+ * @package PayPal\Api
+ *
+ * @property \PayPal\Api\Sale sale
  * @property \PayPal\Api\Authorization authorization
- * @property \PayPal\Api\Capture       capture
- * @property \PayPal\Api\Refund        refund
+ * @property \PayPal\Api\Order order
+ * @property \PayPal\Api\Capture capture
+ * @property \PayPal\Api\Refund refund
  */
 class RelatedResources extends PPModel
 {
     /**
-     * Set Sale
      * A sale transaction
+     * 
      *
      * @param \PayPal\Api\Sale $sale
-     *
+     * 
      * @return $this
      */
     public function setSale($sale)
@@ -30,7 +35,6 @@ class RelatedResources extends PPModel
     }
 
     /**
-     * Get Sale
      * A sale transaction
      *
      * @return \PayPal\Api\Sale
@@ -41,11 +45,11 @@ class RelatedResources extends PPModel
     }
 
     /**
-     * Set Authorization
      * An authorization transaction
+     * 
      *
      * @param \PayPal\Api\Authorization $authorization
-     *
+     * 
      * @return $this
      */
     public function setAuthorization($authorization)
@@ -55,7 +59,6 @@ class RelatedResources extends PPModel
     }
 
     /**
-     * Get Authorization
      * An authorization transaction
      *
      * @return \PayPal\Api\Authorization
@@ -66,11 +69,35 @@ class RelatedResources extends PPModel
     }
 
     /**
-     * Set Capture
+     * An order transaction
+     * 
+     *
+     * @param \PayPal\Api\Order $order
+     * 
+     * @return $this
+     */
+    public function setOrder($order)
+    {
+        $this->order = $order;
+        return $this;
+    }
+
+    /**
+     * An order transaction
+     *
+     * @return \PayPal\Api\Order
+     */
+    public function getOrder()
+    {
+        return $this->order;
+    }
+
+    /**
      * A capture transaction
+     * 
      *
      * @param \PayPal\Api\Capture $capture
-     *
+     * 
      * @return $this
      */
     public function setCapture($capture)
@@ -80,7 +107,6 @@ class RelatedResources extends PPModel
     }
 
     /**
-     * Get Capture
      * A capture transaction
      *
      * @return \PayPal\Api\Capture
@@ -91,11 +117,11 @@ class RelatedResources extends PPModel
     }
 
     /**
-     * Set Refund
      * A refund transaction
+     * 
      *
      * @param \PayPal\Api\Refund $refund
-     *
+     * 
      * @return $this
      */
     public function setRefund($refund)
@@ -105,7 +131,6 @@ class RelatedResources extends PPModel
     }
 
     /**
-     * Get Refund
      * A refund transaction
      *
      * @return \PayPal\Api\Refund
@@ -115,27 +140,4 @@ class RelatedResources extends PPModel
         return $this->refund;
     }
 
-    /**
-     * Set Order
-     *
-     * @param \PayPal\Api\Order $order
-     *
-     * @return $this
-     */
-    public function setOrder($order)
-    {
-        $this->order = $order;
-
-        return $this;
-    }
-
-    /**
-     * Get Order
-     *
-     * @return \PayPal\Api\Order
-     */
-    public function getOrder()
-    {
-        return $this->order;
-    }
 }

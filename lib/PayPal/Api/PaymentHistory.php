@@ -8,32 +8,34 @@ use PayPal\Rest\ApiContext;
 /**
  * Class PaymentHistory
  *
+ * A list of Payment Resources
+ *
+ * @package PayPal\Api
+ *
  * @property \PayPal\Api\Payment payments
- * @property int                 count
- * @property string              next_id
+ * @property int count
+ * @property string next_id
  */
 class PaymentHistory extends PPModel
 {
     /**
-     * Set Payments
      * A list of Payment resources
+     * 
      *
      * @param \PayPal\Api\Payment $payments
-     *
+     * 
      * @return $this
      */
     public function setPayments($payments)
     {
         $this->payments = $payments;
-
         return $this;
     }
 
     /**
-     * Get Payments
      * A list of Payment resources
      *
-     * @return \PayPal\Api\Payment
+     * @return \PayPal\Api\Payment[]
      */
     public function getPayments()
     {
@@ -41,12 +43,11 @@ class PaymentHistory extends PPModel
     }
 
     /**
-     * Set Count
-     * Number of items returned in each range of results
-     * Note that the last results range could have fewer items than the requested number of items
+     * Number of items returned in each range of results. Note that the last results range could have fewer items than the requested number of items.
+     * 
      *
      * @param int $count
-     *
+     * 
      * @return $this
      */
     public function setCount($count)
@@ -56,9 +57,7 @@ class PaymentHistory extends PPModel
     }
 
     /**
-     * Get Count
-     * Number of items returned in each range of results
-     * Note that the last results range could have fewer items than the requested number of items
+     * Number of items returned in each range of results. Note that the last results range could have fewer items than the requested number of items.
      *
      * @return int
      */
@@ -68,11 +67,11 @@ class PaymentHistory extends PPModel
     }
 
     /**
-     * Set Next ID
-     * Identifier of the next element to get the next range of results
+     * Identifier of the next element to get the next range of results.
+     * 
      *
      * @param string $next_id
-     *
+     * 
      * @return $this
      */
     public function setNextId($next_id)
@@ -82,8 +81,7 @@ class PaymentHistory extends PPModel
     }
 
     /**
-     * Get Next ID
-     * Identifier of the next element to get the next range of results
+     * Identifier of the next element to get the next range of results.
      *
      * @return string
      */
@@ -93,27 +91,22 @@ class PaymentHistory extends PPModel
     }
 
     /**
-     * Set Next ID
-     * Identifier of the next element to get the next range of results
+     * Identifier of the next element to get the next range of results.
+     *
+     * @deprecated Instead use setNextId
      *
      * @param string $next_id
-     *
-     * @deprecated Use setNextId
-     *
      * @return $this
      */
     public function setNext_id($next_id)
     {
         $this->next_id = $next_id;
-
         return $this;
     }
 
     /**
-     * Get Next ID
-     * Identifier of the next element to get the next range of results
-     *
-     * @deprecated Use getNextId
+     * Identifier of the next element to get the next range of results.
+     * @deprecated Instead use getNextId
      *
      * @return string
      */
@@ -121,4 +114,5 @@ class PaymentHistory extends PPModel
     {
         return $this->next_id;
     }
+
 }
