@@ -26,6 +26,7 @@ use PayPal\Validation\ArgumentValidator;
  * @property string state
  * @property \PayPal\Api\RedirectUrls redirect_urls
  * @property \PayPal\Api\Links links
+ * @property string experience_profile_id
  */
 class Payment extends PPModel implements IResource
 {
@@ -49,10 +50,10 @@ class Payment extends PPModel implements IResource
 
     /**
      * Identifier of the payment resource created.
-     * 
+     *
      *
      * @param string $id
-     * 
+     *
      * @return $this
      */
     public function setId($id)
@@ -73,10 +74,10 @@ class Payment extends PPModel implements IResource
 
     /**
      * Time the resource was created in UTC ISO8601 format.
-     * 
+     *
      *
      * @param string $create_time
-     * 
+     *
      * @return $this
      */
     public function setCreateTime($create_time)
@@ -122,10 +123,10 @@ class Payment extends PPModel implements IResource
 
     /**
      * Time the resource was last updated in UTC ISO8601 format.
-     * 
+     *
      *
      * @param string $update_time
-     * 
+     *
      * @return $this
      */
     public function setUpdateTime($update_time)
@@ -171,10 +172,10 @@ class Payment extends PPModel implements IResource
 
     /**
      * Intent of the payment - Sale or Authorization or Order.
-     * Valid Values: ["sale", "authorize", "order"] 
+     * Valid Values: ["sale", "authorize", "order"]
      *
      * @param string $intent
-     * 
+     *
      * @return $this
      */
     public function setIntent($intent)
@@ -195,10 +196,10 @@ class Payment extends PPModel implements IResource
 
     /**
      * Source of the funds for this payment represented by a PayPal account or a direct credit card.
-     * 
+     *
      *
      * @param \PayPal\Api\Payer $payer
-     * 
+     *
      * @return $this
      */
     public function setPayer($payer)
@@ -219,10 +220,10 @@ class Payment extends PPModel implements IResource
 
     /**
      * Cart for which the payment is done.
-     * 
+     *
      *
      * @param \PayPal\Api\object $cart
-     * 
+     *
      * @return $this
      */
     public function setCart($cart)
@@ -243,10 +244,10 @@ class Payment extends PPModel implements IResource
 
     /**
      * A payment can have more than one transaction, with each transaction establishing a contract between the payer and a payee
-     * 
+     *
      *
      * @param \PayPal\Api\Transaction $transactions
-     * 
+     *
      * @return $this
      */
     public function setTransactions($transactions)
@@ -267,10 +268,10 @@ class Payment extends PPModel implements IResource
 
     /**
      * state of the payment
-     * Valid Values: ["created", "approved", "failed", "canceled", "expired"] 
+     * Valid Values: ["created", "approved", "failed", "canceled", "expired"]
      *
      * @param string $state
-     * 
+     *
      * @return $this
      */
     public function setState($state)
@@ -291,10 +292,10 @@ class Payment extends PPModel implements IResource
 
     /**
      * Redirect urls required only when using payment_method as PayPal - the only settings supported are return and cancel urls.
-     * 
+     *
      *
      * @param \PayPal\Api\RedirectUrls $redirect_urls
-     * 
+     *
      * @return $this
      */
     public function setRedirectUrls($redirect_urls)
@@ -340,10 +341,10 @@ class Payment extends PPModel implements IResource
 
     /**
      * Sets Links
-     * 
+     *
      *
      * @param \PayPal\Api\Links $links
-     * 
+     *
      * @return $this
      */
     public function setLinks($links)
@@ -362,6 +363,32 @@ class Payment extends PPModel implements IResource
         return $this->links;
     }
 
+    /**
+     * Set Experience_profile_id
+     * experience_profile_id of the payment
+     *
+     * @param string $experience_profile_id
+     *
+     * @return $this
+     */
+    public function setExperienceProfileId($experience_profile_id)
+    {
+        $this->experience_profile_id = $experience_profile_id;
+
+        return $this;
+    }
+
+    /**
+     * Get Experience_profile_id
+     * Experience_profile_id of the payment
+     *
+     * @return string
+     */
+    public function getExperienceProfileId()
+    {
+        return $this->experience_profile_id;
+    }
+    
     /**
      * Creates (and processes) a new Payment Resource.
      *
@@ -438,14 +465,14 @@ class Payment extends PPModel implements IResource
 
         $payLoad = "";
         $allowedParams = array(
-                    'count' => 1,
-                    'start_id' => 1,
-                    'start_index' => 1,
-                    'start_time' => 1,
-                    'end_time' => 1,
-                    'payee_id' => 1,
-                    'sort_by' => 1,
-                    'sort_order' => 1,
+            'count' => 1,
+            'start_id' => 1,
+            'start_index' => 1,
+            'start_time' => 1,
+            'end_time' => 1,
+            'payee_id' => 1,
+            'sort_by' => 1,
+            'sort_order' => 1,
         );
         if ($apiContext == null) {
             $apiContext = new ApiContext(self::$credential);
@@ -456,5 +483,6 @@ class Payment extends PPModel implements IResource
         $ret->fromJson($json);
         return $ret;
     }
+
 
 }
