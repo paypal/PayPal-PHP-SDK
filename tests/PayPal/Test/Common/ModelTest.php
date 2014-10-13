@@ -50,7 +50,7 @@ class ModelTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @expectedException        \InvalidArgumentException
-     * @expectedExceptionMessage data should be either json or array representation of object
+     * @expectedExceptionMessage Invalid JSON String
      */
     public function testConstructorInvalidInput()
     {

@@ -25,7 +25,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "name": "PHP"
             },
             "sourcePath": "/Users/japatel/Documents/workspace/Server-SDK/rest-api-sdk-php/sample/invoice/CancelInvoice.php",
-            "projectPath": "sample/invoice/CancelInvoice.php",
+            "projectPath": "invoice/CancelInvoice.php",
             "targetPath": "invoice/CancelInvoice",
             "pageTitle": "invoice/CancelInvoice",
             "title": "CancelInvoice"
@@ -81,7 +81,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "name": "PHP"
             },
             "sourcePath": "/Users/japatel/Documents/workspace/Server-SDK/rest-api-sdk-php/sample/invoice/CreateInvoice.php",
-            "projectPath": "sample/invoice/CreateInvoice.php",
+            "projectPath": "invoice/CreateInvoice.php",
             "targetPath": "invoice/CreateInvoice",
             "pageTitle": "invoice/CreateInvoice",
             "title": "CreateInvoice"
@@ -169,7 +169,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "name": "PHP"
             },
             "sourcePath": "/Users/japatel/Documents/workspace/Server-SDK/rest-api-sdk-php/sample/invoice/GetInvoice.php",
-            "projectPath": "sample/invoice/GetInvoice.php",
+            "projectPath": "invoice/GetInvoice.php",
             "targetPath": "invoice/GetInvoice",
             "pageTitle": "invoice/GetInvoice",
             "title": "GetInvoice"
@@ -209,7 +209,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "name": "PHP"
             },
             "sourcePath": "/Users/japatel/Documents/workspace/Server-SDK/rest-api-sdk-php/sample/invoice/ListInvoice.php",
-            "projectPath": "sample/invoice/ListInvoice.php",
+            "projectPath": "invoice/ListInvoice.php",
             "targetPath": "invoice/ListInvoice",
             "pageTitle": "invoice/ListInvoice",
             "title": "ListInvoice"
@@ -249,7 +249,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "name": "PHP"
             },
             "sourcePath": "/Users/japatel/Documents/workspace/Server-SDK/rest-api-sdk-php/sample/invoice/RemindInvoice.php",
-            "projectPath": "sample/invoice/RemindInvoice.php",
+            "projectPath": "invoice/RemindInvoice.php",
             "targetPath": "invoice/RemindInvoice",
             "pageTitle": "invoice/RemindInvoice",
             "title": "RemindInvoice"
@@ -305,7 +305,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "name": "PHP"
             },
             "sourcePath": "/Users/japatel/Documents/workspace/Server-SDK/rest-api-sdk-php/sample/invoice/SendInvoice.php",
-            "projectPath": "sample/invoice/SendInvoice.php",
+            "projectPath": "invoice/SendInvoice.php",
             "targetPath": "invoice/SendInvoice",
             "pageTitle": "invoice/SendInvoice",
             "title": "SendInvoice"
@@ -346,6 +346,209 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
     }, {
       "type": "folder",
       "data": {
+        "path": "payment-experience",
+        "title": "payment-experience"
+      },
+      "depth": 1,
+      "children": [
+        {
+          "type": "file",
+          "data": {
+            "language": {
+              "nameMatchers": [{}, ".fbp"],
+              "pygmentsLexer": "php",
+              "singleLineComment": ["//"],
+              "ignorePrefix": "}",
+              "foldPrefix": "^",
+              "name": "PHP"
+            },
+            "sourcePath": "/Users/japatel/Documents/workspace/Server-SDK/rest-api-sdk-php/sample/payment-experience/CreateWebProfile.php",
+            "projectPath": "payment-experience/CreateWebProfile.php",
+            "targetPath": "payment-experience/CreateWebProfile",
+            "pageTitle": "payment-experience/CreateWebProfile",
+            "title": "CreateWebProfile"
+          },
+          "depth": 2,
+          "outline": [
+            {
+              "type": "heading",
+              "data": {
+                "level": 3,
+                "title": "Create Web Profile",
+                "slug": "create-web-profile"
+              },
+              "depth": 3,
+              "children": [
+                {
+                  "type": "heading",
+                  "data": {
+                    "level": 4,
+                    "title": "Payment Web experience profile resource",
+                    "slug": "payment-web-experience-profile-resource"
+                  },
+                  "depth": 4
+                }
+              ]
+            }
+          ]
+        }, {
+          "type": "file",
+          "data": {
+            "language": {
+              "nameMatchers": [{}, ".fbp"],
+              "pygmentsLexer": "php",
+              "singleLineComment": ["//"],
+              "ignorePrefix": "}",
+              "foldPrefix": "^",
+              "name": "PHP"
+            },
+            "sourcePath": "/Users/japatel/Documents/workspace/Server-SDK/rest-api-sdk-php/sample/payment-experience/DeleteWebProfile.php",
+            "projectPath": "payment-experience/DeleteWebProfile.php",
+            "targetPath": "payment-experience/DeleteWebProfile",
+            "pageTitle": "payment-experience/DeleteWebProfile",
+            "title": "DeleteWebProfile"
+          },
+          "depth": 2,
+          "outline": [
+            {
+              "type": "heading",
+              "data": {
+                "level": 4,
+                "title": "Delete Web Profile",
+                "slug": "delete-web-profile"
+              },
+              "depth": 4
+            }
+          ]
+        }, {
+          "type": "file",
+          "data": {
+            "language": {
+              "nameMatchers": [{}, ".fbp"],
+              "pygmentsLexer": "php",
+              "singleLineComment": ["//"],
+              "ignorePrefix": "}",
+              "foldPrefix": "^",
+              "name": "PHP"
+            },
+            "sourcePath": "/Users/japatel/Documents/workspace/Server-SDK/rest-api-sdk-php/sample/payment-experience/GetWebProfile.php",
+            "projectPath": "payment-experience/GetWebProfile.php",
+            "targetPath": "payment-experience/GetWebProfile",
+            "pageTitle": "payment-experience/GetWebProfile",
+            "title": "GetWebProfile"
+          },
+          "depth": 2,
+          "outline": [
+            {
+              "type": "heading",
+              "data": {
+                "level": 3,
+                "title": "Get Web Profile",
+                "slug": "get-web-profile"
+              },
+              "depth": 3
+            }
+          ]
+        }, {
+          "type": "file",
+          "data": {
+            "language": {
+              "nameMatchers": [{}, ".fbp"],
+              "pygmentsLexer": "php",
+              "singleLineComment": ["//"],
+              "ignorePrefix": "}",
+              "foldPrefix": "^",
+              "name": "PHP"
+            },
+            "sourcePath": "/Users/japatel/Documents/workspace/Server-SDK/rest-api-sdk-php/sample/payment-experience/ListWebProfiles.php",
+            "projectPath": "payment-experience/ListWebProfiles.php",
+            "targetPath": "payment-experience/ListWebProfiles",
+            "pageTitle": "payment-experience/ListWebProfiles",
+            "title": "ListWebProfiles"
+          },
+          "depth": 2,
+          "outline": [
+            {
+              "type": "heading",
+              "data": {
+                "level": 3,
+                "title": "Retrieve List of All Web Profiles",
+                "slug": "retrieve-list-of-all-web-profiles"
+              },
+              "depth": 3
+            }
+          ]
+        }, {
+          "type": "file",
+          "data": {
+            "language": {
+              "nameMatchers": [{}, ".fbp"],
+              "pygmentsLexer": "php",
+              "singleLineComment": ["//"],
+              "ignorePrefix": "}",
+              "foldPrefix": "^",
+              "name": "PHP"
+            },
+            "sourcePath": "/Users/japatel/Documents/workspace/Server-SDK/rest-api-sdk-php/sample/payment-experience/PartiallyUpdateWebProfile.php",
+            "projectPath": "payment-experience/PartiallyUpdateWebProfile.php",
+            "targetPath": "payment-experience/PartiallyUpdateWebProfile",
+            "pageTitle": "payment-experience/PartiallyUpdateWebProfile",
+            "title": "PartiallyUpdateWebProfile"
+          },
+          "depth": 2,
+          "outline": [
+            {
+              "type": "heading",
+              "data": {
+                "level": 4,
+                "title": "Partially Update Web Profile",
+                "slug": "partially-update-web-profile"
+              },
+              "depth": 4
+            }, {
+              "type": "heading",
+              "data": {
+                "level": 3,
+                "title": "Create Patch Operation",
+                "slug": "create-patch-operation"
+              },
+              "depth": 3
+            }
+          ]
+        }, {
+          "type": "file",
+          "data": {
+            "language": {
+              "nameMatchers": [{}, ".fbp"],
+              "pygmentsLexer": "php",
+              "singleLineComment": ["//"],
+              "ignorePrefix": "}",
+              "foldPrefix": "^",
+              "name": "PHP"
+            },
+            "sourcePath": "/Users/japatel/Documents/workspace/Server-SDK/rest-api-sdk-php/sample/payment-experience/UpdateWebProfile.php",
+            "projectPath": "payment-experience/UpdateWebProfile.php",
+            "targetPath": "payment-experience/UpdateWebProfile",
+            "pageTitle": "payment-experience/UpdateWebProfile",
+            "title": "UpdateWebProfile"
+          },
+          "depth": 2,
+          "outline": [
+            {
+              "type": "heading",
+              "data": {
+                "level": 4,
+                "title": "Update Web Profile",
+                "slug": "update-web-profile"
+              },
+              "depth": 4
+            }
+          ]
+        }
+      ]
+    }, {
+      "type": "folder",
+      "data": {
         "path": "payments",
         "title": "payments"
       },
@@ -363,7 +566,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "name": "PHP"
             },
             "sourcePath": "/Users/japatel/Documents/workspace/Server-SDK/rest-api-sdk-php/sample/payments/AuthorizationCapture.php",
-            "projectPath": "sample/payments/AuthorizationCapture.php",
+            "projectPath": "payments/AuthorizationCapture.php",
             "targetPath": "payments/AuthorizationCapture",
             "pageTitle": "payments/AuthorizationCapture",
             "title": "AuthorizationCapture"
@@ -403,7 +606,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "name": "PHP"
             },
             "sourcePath": "/Users/japatel/Documents/workspace/Server-SDK/rest-api-sdk-php/sample/payments/CreateFuturePayment.php",
-            "projectPath": "sample/payments/CreateFuturePayment.php",
+            "projectPath": "payments/CreateFuturePayment.php",
             "targetPath": "payments/CreateFuturePayment",
             "pageTitle": "payments/CreateFuturePayment",
             "title": "CreateFuturePayment"
@@ -491,7 +694,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "name": "PHP"
             },
             "sourcePath": "/Users/japatel/Documents/workspace/Server-SDK/rest-api-sdk-php/sample/payments/CreatePayment.php",
-            "projectPath": "sample/payments/CreatePayment.php",
+            "projectPath": "payments/CreatePayment.php",
             "targetPath": "payments/CreatePayment",
             "pageTitle": "payments/CreatePayment",
             "title": "CreatePayment"
@@ -595,7 +798,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "name": "PHP"
             },
             "sourcePath": "/Users/japatel/Documents/workspace/Server-SDK/rest-api-sdk-php/sample/payments/CreatePaymentUsingPayPal.php",
-            "projectPath": "sample/payments/CreatePaymentUsingPayPal.php",
+            "projectPath": "payments/CreatePaymentUsingPayPal.php",
             "targetPath": "payments/CreatePaymentUsingPayPal",
             "pageTitle": "payments/CreatePaymentUsingPayPal",
             "title": "CreatePaymentUsingPayPal"
@@ -707,7 +910,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "name": "PHP"
             },
             "sourcePath": "/Users/japatel/Documents/workspace/Server-SDK/rest-api-sdk-php/sample/payments/CreatePaymentUsingSavedCard.php",
-            "projectPath": "sample/payments/CreatePaymentUsingSavedCard.php",
+            "projectPath": "payments/CreatePaymentUsingSavedCard.php",
             "targetPath": "payments/CreatePaymentUsingSavedCard",
             "pageTitle": "payments/CreatePaymentUsingSavedCard",
             "title": "CreatePaymentUsingSavedCard"
@@ -811,7 +1014,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "name": "PHP"
             },
             "sourcePath": "/Users/japatel/Documents/workspace/Server-SDK/rest-api-sdk-php/sample/payments/ExecutePayment.php",
-            "projectPath": "sample/payments/ExecutePayment.php",
+            "projectPath": "payments/ExecutePayment.php",
             "targetPath": "payments/ExecutePayment",
             "pageTitle": "payments/ExecutePayment",
             "title": "ExecutePayment"
@@ -840,7 +1043,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "name": "PHP"
             },
             "sourcePath": "/Users/japatel/Documents/workspace/Server-SDK/rest-api-sdk-php/sample/payments/GetAuthorization.php",
-            "projectPath": "sample/payments/GetAuthorization.php",
+            "projectPath": "payments/GetAuthorization.php",
             "targetPath": "payments/GetAuthorization",
             "pageTitle": "payments/GetAuthorization",
             "title": "GetAuthorization"
@@ -880,7 +1083,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "name": "PHP"
             },
             "sourcePath": "/Users/japatel/Documents/workspace/Server-SDK/rest-api-sdk-php/sample/payments/GetCapture.php",
-            "projectPath": "sample/payments/GetCapture.php",
+            "projectPath": "payments/GetCapture.php",
             "targetPath": "payments/GetCapture",
             "pageTitle": "payments/GetCapture",
             "title": "GetCapture"
@@ -928,7 +1131,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "name": "PHP"
             },
             "sourcePath": "/Users/japatel/Documents/workspace/Server-SDK/rest-api-sdk-php/sample/payments/GetPayment.php",
-            "projectPath": "sample/payments/GetPayment.php",
+            "projectPath": "payments/GetPayment.php",
             "targetPath": "payments/GetPayment",
             "pageTitle": "payments/GetPayment",
             "title": "GetPayment"
@@ -968,7 +1171,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "name": "PHP"
             },
             "sourcePath": "/Users/japatel/Documents/workspace/Server-SDK/rest-api-sdk-php/sample/payments/ListPayments.php",
-            "projectPath": "sample/payments/ListPayments.php",
+            "projectPath": "payments/ListPayments.php",
             "targetPath": "payments/ListPayments",
             "pageTitle": "payments/ListPayments",
             "title": "ListPayments"
@@ -1008,7 +1211,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "name": "PHP"
             },
             "sourcePath": "/Users/japatel/Documents/workspace/Server-SDK/rest-api-sdk-php/sample/payments/Reauthorization.php",
-            "projectPath": "sample/payments/Reauthorization.php",
+            "projectPath": "payments/Reauthorization.php",
             "targetPath": "payments/Reauthorization",
             "pageTitle": "payments/Reauthorization",
             "title": "Reauthorization"
@@ -1064,7 +1267,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "name": "PHP"
             },
             "sourcePath": "/Users/japatel/Documents/workspace/Server-SDK/rest-api-sdk-php/sample/payments/RefundCapture.php",
-            "projectPath": "sample/payments/RefundCapture.php",
+            "projectPath": "payments/RefundCapture.php",
             "targetPath": "payments/RefundCapture",
             "pageTitle": "payments/RefundCapture",
             "title": "RefundCapture"
@@ -1112,7 +1315,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "name": "PHP"
             },
             "sourcePath": "/Users/japatel/Documents/workspace/Server-SDK/rest-api-sdk-php/sample/payments/VoidAuthorization.php",
-            "projectPath": "sample/payments/VoidAuthorization.php",
+            "projectPath": "payments/VoidAuthorization.php",
             "targetPath": "payments/VoidAuthorization",
             "pageTitle": "payments/VoidAuthorization",
             "title": "VoidAuthorization"
@@ -1162,7 +1365,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "name": "PHP"
             },
             "sourcePath": "/Users/japatel/Documents/workspace/Server-SDK/rest-api-sdk-php/sample/sale/GetSale.php",
-            "projectPath": "sample/sale/GetSale.php",
+            "projectPath": "sale/GetSale.php",
             "targetPath": "sale/GetSale",
             "pageTitle": "sale/GetSale",
             "title": "GetSale"
@@ -1202,7 +1405,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "name": "PHP"
             },
             "sourcePath": "/Users/japatel/Documents/workspace/Server-SDK/rest-api-sdk-php/sample/sale/RefundSale.php",
-            "projectPath": "sample/sale/RefundSale.php",
+            "projectPath": "sale/RefundSale.php",
             "targetPath": "sale/RefundSale",
             "pageTitle": "sale/RefundSale",
             "title": "RefundSale"
@@ -1268,7 +1471,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "name": "PHP"
             },
             "sourcePath": "/Users/japatel/Documents/workspace/Server-SDK/rest-api-sdk-php/sample/vault/CreateCreditCard.php",
-            "projectPath": "sample/vault/CreateCreditCard.php",
+            "projectPath": "vault/CreateCreditCard.php",
             "targetPath": "vault/CreateCreditCard",
             "pageTitle": "vault/CreateCreditCard",
             "title": "CreateCreditCard"
@@ -1316,7 +1519,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "name": "PHP"
             },
             "sourcePath": "/Users/japatel/Documents/workspace/Server-SDK/rest-api-sdk-php/sample/vault/DeleteCreditCard.php",
-            "projectPath": "sample/vault/DeleteCreditCard.php",
+            "projectPath": "vault/DeleteCreditCard.php",
             "targetPath": "vault/DeleteCreditCard",
             "pageTitle": "vault/DeleteCreditCard",
             "title": "DeleteCreditCard"
@@ -1372,7 +1575,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "name": "PHP"
             },
             "sourcePath": "/Users/japatel/Documents/workspace/Server-SDK/rest-api-sdk-php/sample/vault/GetCreditCard.php",
-            "projectPath": "sample/vault/GetCreditCard.php",
+            "projectPath": "vault/GetCreditCard.php",
             "targetPath": "vault/GetCreditCard",
             "pageTitle": "vault/GetCreditCard",
             "title": "GetCreditCard"

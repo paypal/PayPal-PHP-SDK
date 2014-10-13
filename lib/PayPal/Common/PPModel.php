@@ -1,6 +1,7 @@
 <?php
 
 namespace PayPal\Common;
+use PayPal\Validation\JsonValidator;
 use PayPal\Validation\ModelAccessorValidator;
 
 /**
@@ -28,9 +29,7 @@ class PPModel
             case "NULL":
                 break;
             case "string":
-                if (!$this->isJson($data)) {
-                    throw new \InvalidArgumentException("data should be either json or array representation of object");
-                }
+                JsonValidator::validate($data);
                 $this->fromJson($data);
                 break;
             case "array":
@@ -41,15 +40,28 @@ class PPModel
     }
 
     /**
-     * Tests if the string provided is json representation or not.
+     * Returns a list of Object from Array or Json String. It is generally used when you json
+     * contains an array of this object
      *
-     * @param $string
-     * @return bool
+     * @param mixed $data Array object or json string representation
+     * @return array
      */
-    private function isJson($string)
+    public static function getList($data)
     {
-        json_decode($string);
-        return (json_last_error() == JSON_ERROR_NONE);
+        if (!is_array($data) && JsonValidator::validate($data)) {
+            //Convert to Array if Json Data Sent
+            $data = json_decode($data, true);
+        }
+        if (!PPArrayUtil::isAssocArray($data)) {
+            $list = array();
+            //This means, root element is array
+            foreach ($data as $k => $v) {
+                $obj = new static;
+                $obj->fromArray($v);
+                $list[] = $obj;
+            }
+            return $list;
+        }
     }
 
     /**
@@ -139,16 +151,14 @@ class PPModel
      */
     public function fromArray($arr)
     {
-
         foreach ($arr as $k => $v) {
             if (is_array($v)) {
                 $clazz = PPReflectionUtil::getPropertyClass(get_class($this), $k);
-
                 if (PPArrayUtil::isAssocArray($v)) {
                     /** @var self $o */
                     $o = new $clazz();
                     $o->fromArray($v);
-                    $this->__set($k, $o);
+                    $this->setValue($k, $o);
                 } else {
                     $arr = array();
                     foreach ($v as $nk => $nv) {
@@ -160,13 +170,23 @@ class PPModel
                             $arr[$nk] = $nv;
                         }
                     }
-                    $this->__set($k, $arr);
+                    $this->setValue($k, $arr);
                 }
             } else {
-                $this->$k = $v;
+                $this->$k =  $v;
             }
         }
         return $this;
+    }
+
+    private function setValue($key, $value)
+    {
+        if (ModelAccessorValidator::validate($this, $this->convertToCamelCase($key))) {
+            $setter = "set" . $this->convertToCamelCase($key);
+            $this->$setter($value);
+        } else {
+            $this->__set($key, $value);
+        }
     }
 
     /**

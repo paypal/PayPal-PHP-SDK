@@ -151,7 +151,8 @@ class PPCredentialManager
         }
 
         if (empty($credObj)) {
-            throw new PPInvalidCredentialException("Invalid userId $userId");
+            throw new PPInvalidCredentialException("Credential not found for " .  ($userId ? $userId : " default user") .
+            ". Please make sure your configuration/APIContext has credential information");
         }
         return $credObj;
     }

@@ -1,6 +1,10 @@
 PayPal PHP SDK release notes
 ============================
 
+v0.13.0
+----
+* Enabled Payment Experience
+
 v0.12.0
 ----
 * Enabled EC Parameters Support for Payment APIs

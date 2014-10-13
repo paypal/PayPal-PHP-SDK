@@ -27,7 +27,7 @@ error_reporting(E_ALL);
 /** @var \Paypal\Rest\ApiContext $apiContext */
 $apiContext = getApiContext();
 
-
+return $apiContext;
 /**
  * Helper method for getting an APIContext for all calls
  *

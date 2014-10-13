@@ -88,7 +88,6 @@ class PPHttpConnection
         curl_setopt($ch, CURLOPT_URL, $this->httpConfig->getUrl());
         curl_setopt($ch, CURLOPT_HEADER, false);
         curl_setopt($ch, CURLOPT_HTTPHEADER, $this->getHttpHeaders());
-
         //Determine Curl Options based on Method
         switch ($this->httpConfig->getMethod()) {
             case 'POST':
@@ -101,6 +100,7 @@ class PPHttpConnection
         //Default Option if Method not of given types in switch case
         if ($this->httpConfig->getMethod() != NULL) {
             curl_setopt($ch, CURLOPT_CUSTOMREQUEST, $this->httpConfig->getMethod());
+            $this->logger->info("Method : " . $this->httpConfig->getMethod());
         }
 
         //Logging Each Headers for debugging purposes
@@ -142,10 +142,8 @@ class PPHttpConnection
             curl_close($ch);
             throw $ex;
         }
-
         //Close the curl request
         curl_close($ch);
-
         //More Exceptions based on HttpStatus Code
         if (in_array($httpStatus, self::$retryCodes)) {
             $ex = new PPConnectionException(
@@ -158,7 +156,8 @@ class PPHttpConnection
         } else if ($httpStatus < 200 || $httpStatus >= 300) {
             $ex = new PPConnectionException(
                 $this->httpConfig->getUrl(),
-                "Got Http response code $httpStatus when accessing {$this->httpConfig->getUrl()}."
+                "Got Http response code $httpStatus when accessing {$this->httpConfig->getUrl()}.",
+                $httpStatus
             );
             $ex->setData($result);
             throw $ex;

@@ -374,7 +374,6 @@ class Payment extends PPModel implements IResource
     public function setExperienceProfileId($experience_profile_id)
     {
         $this->experience_profile_id = $experience_profile_id;
-
         return $this;
     }
 
