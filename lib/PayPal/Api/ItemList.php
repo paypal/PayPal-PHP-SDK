@@ -12,17 +12,25 @@ use PayPal\Rest\ApiContext;
  *
  * @package PayPal\Api
  *
- * @property \PayPal\Api\Item items
+ * @property \PayPal\Api\Item[]            items
  * @property \PayPal\Api\ShippingAddress shipping_address
  */
 class ItemList extends PPModel
 {
     /**
+     * Is this list empty?
+     */
+    public function isEmpty()
+    {
+        return empty($this->items);
+    }
+
+    /**
      * List of items.
-     * 
      *
-     * @param \PayPal\Api\Item $items
-     * 
+     *
+     * @param \PayPal\Api\Item[] $items
+     *
      * @return $this
      */
     public function setItems($items)
@@ -43,10 +51,10 @@ class ItemList extends PPModel
 
     /**
      * Shipping address.
-     * 
+     *
      *
      * @param \PayPal\Api\ShippingAddress $shipping_address
-     * 
+     *
      * @return $this
      */
     public function setShippingAddress($shipping_address)
@@ -56,7 +64,34 @@ class ItemList extends PPModel
     }
 
     /**
-     * Shipping address.
+     * Append an item to the list.
+     *
+     * @return \PayPal\Api\Item
+     */
+    public function addItem($item)
+    {
+        if (!$this->items) {
+            return $this->setItems(array($item));
+        } else {
+            return $this->setItems(
+                array_merge($this->items, array($item))
+            );
+        }
+    }
+
+    /**
+     * Remove an item from the list.
+     * Items are compared using === comparision (PHP.net)
+     *
+     * @return \PayPal\Api\Item
+     */
+    public function removeItem($item)
+    {
+        return $this->setItems(array_diff($this->getItems(), array($item)));
+    }
+
+    /**
+     * Get Shipping Address
      *
      * @return \PayPal\Api\ShippingAddress
      */
@@ -81,6 +116,7 @@ class ItemList extends PPModel
 
     /**
      * Shipping address.
+     *
      * @deprecated Instead use getShippingAddress
      *
      * @return \PayPal\Api\ShippingAddress

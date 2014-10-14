@@ -220,4 +220,14 @@ class PPModel
     {
         return json_encode($this->toArray(), $options);
     }
+
+    /**
+     * Magic Method for toString
+     *
+     * @return string
+     */
+    public function __toString()
+    {
+        return json_encode($this->toArray());
+    }
 }

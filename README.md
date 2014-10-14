@@ -61,10 +61,9 @@ If you do not want to use composer, you can grab the SDK zip that contains Paypa
 ## Running the sample
 
    * Clone the repo and navigate to the samples folder.
-   * Samples have dependency on the sdk and you can use [`composer`](http://getcomposer.org) to get the dependencies. Ensure that you have composer installed on your machine, navigate to the samples folder and run `composer update --no-dev`  to fetch the SDK.
+   * Samples have dependency on the sdk and you can use [`composer`](http://getcomposer.org) to get the dependencies. Ensure that you have composer installed on your machine, navigate to the root folder and run `composer update --no-dev`  to fetch the SDK.
    * Optionally, update the bootstrap.php file with your own client Id and client secret, that you could find from the [developer portal](https://developer.paypal.com)
    * Run any of the samples in the 'samples' folder to see what the APIs can do.
-
 
 ## Usage
 

@@ -24,8 +24,12 @@ use PayPal\Auth\OAuthTokenCredential;
 
 error_reporting(E_ALL);
 
+// Replace these values by entering your own ClientId and Secret by visiting https://developer.paypal.com/webapps/developer/applications/myapps
+$clientId = 'AYSq3RDGsmBLJE-otTkBtM-jBRd1TCQwFf9RGfwddNXWz0uFU9ztymylOhRS';
+$clientSecret = 'EGnHDxD_qRPdaLdZz8iCr8N7_MzF-YHPTkjs6NKYQvQSBngp4PTTVWkPZRbL';
+
 /** @var \Paypal\Rest\ApiContext $apiContext */
-$apiContext = getApiContext();
+$apiContext = getApiContext($clientId, $clientSecret);
 
 return $apiContext;
 /**
@@ -33,7 +37,7 @@ return $apiContext;
  *
  * @return PayPal\Rest\ApiContext
  */
-function getApiContext()
+function getApiContext($clientId, $clientSecret)
 {
 
     // ### Api context
@@ -44,8 +48,8 @@ function getApiContext()
 
     $apiContext = new ApiContext(
         new OAuthTokenCredential(
-            'EBWKjlELKMYqRNQ6sYvFo64FtaRLRR5BdHEESmha49TM',
-            'EO422dn3gQLgDbuwqTjzrFgFtaRLRR5BdHEESmha49TM'
+            $clientId,
+            $clientSecret
         )
     );
 

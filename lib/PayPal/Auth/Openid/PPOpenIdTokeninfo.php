@@ -165,12 +165,12 @@ class PPOpenIdTokeninfo extends ResourceModel
             $params['grant_type'] = 'authorization_code';
         }
 
-        if ($apiContext->get('client_id')) {
-            $clientId = $apiContext->get('client_id');
+        if (sizeof($apiContext->get($clientId)) > 0) {
+            $clientId = $apiContext->get($clientId);
         }
 
-        if ($apiContext->get('client_secret')) {
-            $clientSecret = $apiContext->get('client_secret');
+        if (sizeof($apiContext->get($clientSecret)) > 0) {
+            $clientSecret = $apiContext->get($clientSecret);
         }
         $json = self::executeCall(
             "/v1/identity/openidconnect/tokenservice",

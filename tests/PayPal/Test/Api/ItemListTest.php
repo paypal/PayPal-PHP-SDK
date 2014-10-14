@@ -7,8 +7,8 @@ use PayPal\Test\Constants;
 
 class ItemListTest extends \PHPUnit_Framework_TestCase
 {
-
-    private $items = array();
+    /** @var ItemList */
+    private $items;
 
     private static $name = "item name";
     private static $price = "1.12";
@@ -19,6 +19,7 @@ class ItemListTest extends \PHPUnit_Framework_TestCase
     public static function createItemList()
     {
 
+        /** @var Item $item */
         $item = ItemTest::createItem();
 
         $itemList = new ItemList();
@@ -48,4 +49,35 @@ class ItemListTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($itemList, $this->items);
     }
 
+    public function testAddItemMethod()
+    {
+        $item2 = ItemTest::createItem();
+        $item2->setName("Item2");
+        $this->items->addItem($item2);
+
+        $found = false;
+        foreach ($this->items->getItems() as $item) {
+            if ($item->getName() == $item2->getName()) {
+                $found = true;
+            }
+        }
+        $this->assertTrue($found);
+    }
+
+    public function testRemoveItemMethod()
+    {
+        $itemList = new ItemList();
+        $item1 = ItemTest::createItem();
+        $item1->setName("Name1");
+        $item2 = ItemTest::createItem();
+
+        $itemList->addItem($item1);
+        $itemList->addItem($item2);
+
+        $itemList->removeItem($item2);
+
+        $this->assertEquals(sizeof($itemList->getItems()), 1);
+        $remainingElements = $itemList->getItems();
+        $this->assertEquals($remainingElements[0]->getName(), "Name1");
+    }
 }

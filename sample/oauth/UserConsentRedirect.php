@@ -9,21 +9,17 @@
 
 require __DIR__ . '/../bootstrap.php';
 
-$clientId = 'AYSq3RDGsmBLJE-otTkBtM-jBRd1TCQwFf9RGfwddNXWz0uFU9ztymylOhRS';
-$clientSecret = 'EGnHDxD_qRPdaLdZz8iCr8N7_MzF-YHPTkjs6NKYQvQSBngp4PTTVWkPZRbL';
-
 use PayPal\Api\ExecutePayment;
 use PayPal\Api\Payment;
 use PayPal\Api\PaymentExecution;
 session_start();
 if(isset($_GET['success']) && $_GET['success'] == 'true') {
 
-
     $code = $_GET['code'];
 
     $params = array(
         'code' => $code,
-        'redirect_uri' => getBaseUrl() . '/ExecuteAuth.php?success=true',
+        'redirect_uri' => getBaseUrl() . '/UserConsentRedirect.php?success=true',
         'client_id' => $clientId,
         'client_secret' => $clientSecret
     );
@@ -34,6 +30,7 @@ if(isset($_GET['success']) && $_GET['success'] == 'true') {
             var_dump($ex->getData());
             exit(1);
     }
-    echo $accessToken->toJSON(JSON_PRETTY_PRINT);
+
+    print_result("Obtained Access Token", "Access Token", $accessToken->getAccessToken(), $accessToken);
 
 }
