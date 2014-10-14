@@ -1,32 +1,19 @@
 <?php
 namespace PayPal\Api;
 
-use PayPal\Common\PPModel;
-use PayPal\Rest\ApiContext;
-use PayPal\Rest\IResource;
+use PayPal\Common\ResourceModel;
 use PayPal\Api\Invoices;
-use PayPal\Transport\PPRestCall;
 use PayPal\Validation\ArgumentValidator;
+use PayPal\Rest\ApiContext;
+use PayPal\Transport\PPRestCall;
 
 /**
  * Class Invoice
  *
  * @package PayPal\Api
  */
-class Invoice extends PPModel implements IResource
+class Invoice extends ResourceModel
 {
-
-    private static $credential;
-
-    /**
-     *
-     * @deprecated. Pass ApiContext to create/get methods instead
-     */
-    public static function setCredential($credential)
-    {
-        self::$credential = $credential;
-    }
-
     /**
      * Unique invoice resource identifier.
      *
@@ -845,241 +832,250 @@ class Invoice extends PPModel implements IResource
     }
 
 
-    /*
+    /**
      * Creates a new invoice Resource.
      *
-     * @param PayPal\Rest\ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
+     * @param ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
+     * @param PPRestCall $restCall is the Rest Call Service that is used to make rest calls
      * @return Invoice
      */
-    public function create($apiContext = null)
+    public function create($apiContext = null, $restCall = null)
     {
         $payLoad = $this->toJSON();
-        if ($apiContext == null) {
-            $apiContext = new ApiContext(self::$credential);
-        }
-        $call = new PPRestCall($apiContext);
-        $json = $call->execute(array('PayPal\Rest\RestHandler'), "/v1/invoicing/invoices", "POST", $payLoad);
+        $json = self::executeCall(
+            "/v1/invoicing/invoices",
+            "POST",
+            $payLoad,
+            $apiContext,
+            $restCall
+        );
         $this->fromJson($json);
         return $this;
     }
 
-    /*
+    /**
      * Search for invoice resources.
      *
      * @param Search $search
-     * @param PayPal\Rest\ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
+     * @param ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
+     * @param PPRestCall $restCall is the Rest Call Service that is used to make rest calls
      * @return Invoices
      */
-    public function search($search, $apiContext = null)
+    public function search($search, $apiContext = null, $restCall = null)
     {
         ArgumentValidator::validate($search, 'search');
         $payLoad = $search->toJSON();
-        if ($apiContext == null) {
-            $apiContext = new ApiContext(self::$credential);
-        }
-        $call = new PPRestCall($apiContext);
-        $json = $call->execute(array('PayPal\Rest\RestHandler'), "/v1/invoicing/search", "POST", $payLoad);
+        $json = self::executeCall(
+            "/v1/invoicing/search",
+            "POST",
+            $payLoad,
+            $apiContext,
+            $restCall
+        );
         $ret = new Invoices();
         $ret->fromJson($json);
         return $ret;
     }
 
-    /*
+    /**
      * Sends a legitimate invoice to the payer.
      *
-     * @param PayPal\Rest\ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
-     * @return void
+     * @param ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
+     * @param PPRestCall $restCall is the Rest Call Service that is used to make rest calls
+     * @return bool
      */
-    public function send($apiContext = null)
+    public function send($apiContext = null, $restCall = null)
     {
-        if ($this->getId() == null) {
-            throw new \InvalidArgumentException("Id cannot be null");
-        }
+        ArgumentValidator::validate($this->getId(), "Id");
         $payLoad = "";
-        if ($apiContext == null) {
-            $apiContext = new ApiContext(self::$credential);
-        }
-        $call = new PPRestCall($apiContext);
-        $json = $call->execute(array('PayPal\Rest\RestHandler'), "/v1/invoicing/invoices/{$this->getId()}/send", "POST", $payLoad);
+        self::executeCall(
+            "/v1/invoicing/invoices/{$this->getId()}/send",
+            "POST",
+            $payLoad,
+            $apiContext,
+            $restCall
+        );
         return true;
     }
 
-    /*
+    /**
      * Reminds the payer to pay the invoice.
      *
      * @param Notification $notification
-     * @param PayPal\Rest\ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
-     * @return void
+     * @param ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
+     * @param PPRestCall $restCall is the Rest Call Service that is used to make rest calls
+     * @return bool
      */
-    public function remind($notification, $apiContext = null)
+    public function remind($notification, $apiContext = null, $restCall = null)
     {
-        if ($this->getId() == null) {
-            throw new \InvalidArgumentException("Id cannot be null");
-        }
-        if (($notification == null)) {
-            throw new \InvalidArgumentException("notification cannot be null or empty");
-        }
+        ArgumentValidator::validate($this->getId(), "Id");
+        ArgumentValidator::validate($notification, "Notification");
         $payLoad = $notification->toJSON();
-        if ($apiContext == null) {
-            $apiContext = new ApiContext(self::$credential);
-        }
-        $call = new PPRestCall($apiContext);
-        $json = $call->execute(array('PayPal\Rest\RestHandler'), "/v1/invoicing/invoices/{$this->getId()}/remind", "POST", $payLoad);
+        self::executeCall(
+            "/v1/invoicing/invoices/{$this->getId()}/remind",
+            "POST",
+            $payLoad,
+            $apiContext,
+            $restCall
+        );
         return true;
     }
 
-    /*
+    /**
      * Cancels an invoice.
      *
      * @param CancelNotification $cancelNotification
-     * @param PayPal\Rest\ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
-     * @return void
+     * @param ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
+     * @param PPRestCall $restCall is the Rest Call Service that is used to make rest calls
+     * @return bool
      */
-    public function cancel($cancelNotification, $apiContext = null)
+    public function cancel($cancelNotification, $apiContext = null, $restCall = null)
     {
-        if ($this->getId() == null) {
-            throw new \InvalidArgumentException("Id cannot be null");
-        }
-        if (($cancelNotification == null)) {
-            throw new \InvalidArgumentException("cancelNotification cannot be null or empty");
-        }
+        ArgumentValidator::validate($this->getId(), "Id");
+        ArgumentValidator::validate($cancelNotification, "CancelNotification");
         $payLoad = $cancelNotification->toJSON();
-        if ($apiContext == null) {
-            $apiContext = new ApiContext(self::$credential);
-        }
-        $call = new PPRestCall($apiContext);
-        $json = $call->execute(array('PayPal\Rest\RestHandler'), "/v1/invoicing/invoices/{$this->getId()}/cancel", "POST", $payLoad);
+        self::executeCall(
+            "/v1/invoicing/invoices/{$this->getId()}/cancel",
+            "POST",
+            $payLoad,
+            $apiContext,
+            $restCall
+        );
         return true;
     }
 
-    /*
+    /**
      * Mark the status of the invoice as paid.
      *
      * @param PaymentDetail $paymentDetail
-     * @param PayPal\Rest\ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
-     * @return void
+     * @param ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
+     * @param PPRestCall $restCall is the Rest Call Service that is used to make rest calls
+     * @return bool
      */
-    public function record_payment($paymentDetail, $apiContext = null)
+    public function record_payment($paymentDetail, $apiContext = null, $restCall = null)
     {
-        if ($this->getId() == null) {
-            throw new \InvalidArgumentException("Id cannot be null");
-        }
-        if (($paymentDetail == null)) {
-            throw new \InvalidArgumentException("paymentDetail cannot be null or empty");
-        }
+        ArgumentValidator::validate($this->getId(), "Id");
+        ArgumentValidator::validate($paymentDetail, "PaymentDetail");
         $payLoad = $paymentDetail->toJSON();
-        if ($apiContext == null) {
-            $apiContext = new ApiContext(self::$credential);
-        }
-        $call = new PPRestCall($apiContext);
-        $json = $call->execute(array('PayPal\Rest\RestHandler'), "/v1/invoicing/invoices/{$this->getId()}/record-payment", "POST", $payLoad);
+        self::executeCall(
+            "/v1/invoicing/invoices/{$this->getId()}/record-payment",
+            "POST",
+            $payLoad,
+            $apiContext,
+            $restCall
+        );
         return true;
     }
 
-    /*
+    /**
      * Mark the status of the invoice as refunded.
      *
      * @param RefundDetail $refundDetail
-     * @param PayPal\Rest\ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
-     * @return void
+     * @param ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
+     * @param PPRestCall $restCall is the Rest Call Service that is used to make rest calls
+     * @return bool
      */
-    public function record_refund($refundDetail, $apiContext = null)
+    public function record_refund($refundDetail, $apiContext = null, $restCall = null)
     {
-        if ($this->getId() == null) {
-            throw new \InvalidArgumentException("Id cannot be null");
-        }
-        if (($refundDetail == null)) {
-            throw new \InvalidArgumentException("refundDetail cannot be null or empty");
-        }
+        ArgumentValidator::validate($this->getId(), "Id");
+        ArgumentValidator::validate($refundDetail, "RefundDetail");
         $payLoad = $refundDetail->toJSON();
-        if ($apiContext == null) {
-            $apiContext = new ApiContext(self::$credential);
-        }
-        $call = new PPRestCall($apiContext);
-        $json = $call->execute(array('PayPal\Rest\RestHandler'), "/v1/invoicing/invoices/{$this->getId()}/record-refund", "POST", $payLoad);
+        self::executeCall(
+            "/v1/invoicing/invoices/{$this->getId()}/record-refund",
+            "POST",
+            $payLoad,
+            $apiContext,
+            $restCall
+        );
         return true;
     }
 
-    /*
+    /**
      * Get the invoice resource for the given identifier.
      *
      * @param string $invoiceId
-     * @param PayPal\Rest\ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
+     * @param ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
+     * @param PPRestCall $restCall is the Rest Call Service that is used to make rest calls
      * @return Invoice
      */
-    public static function get($invoiceId, $apiContext = null)
+    public static function get($invoiceId, $apiContext = null, $restCall = null)
     {
-        if (($invoiceId == null) || (strlen($invoiceId) <= 0)) {
-            throw new \InvalidArgumentException("invoiceId cannot be null or empty");
-        }
+        ArgumentValidator::validate($invoiceId);
         $payLoad = "";
-        if ($apiContext == null) {
-            $apiContext = new ApiContext(self::$credential);
-        }
-        $call = new PPRestCall($apiContext);
-        $json = $call->execute(array('PayPal\Rest\RestHandler'), "/v1/invoicing/invoices/$invoiceId", "GET", $payLoad);
+        $json = self::executeCall(
+            "/v1/invoicing/invoices/$invoiceId",
+            "GET",
+            $payLoad,
+            $apiContext,
+            $restCall
+        );
         $ret = new Invoice();
         $ret->fromJson($json);
         return $ret;
     }
 
-    /*
+    /**
      * Get all invoices of a merchant.
      *
-     * @param PayPal\Rest\ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
+     * @param ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
+     * @param PPRestCall $restCall is the Rest Call Service that is used to make rest calls
      * @return Invoices
      */
-    public static function get_all($apiContext = null)
+    public static function get_all($apiContext = null, $restCall = null)
     {
         $payLoad = "";
-        if ($apiContext == null) {
-            $apiContext = new ApiContext(self::$credential);
-        }
-        $call = new PPRestCall($apiContext);
-        $json = $call->execute(array('PayPal\Rest\RestHandler'), "/v1/invoicing/invoices/", "GET", $payLoad);
+        $json = self::executeCall(
+            "/v1/invoicing/invoices/",
+            "GET",
+            $payLoad,
+            $apiContext,
+            $restCall
+        );
         $ret = new Invoices();
         $ret->fromJson($json);
         return $ret;
     }
 
-    /*
+    /**
      * Full update of the invoice resource for the given identifier.
      *
-     * @param PayPal\Rest\ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
+     * @param ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
+     * @param PPRestCall $restCall is the Rest Call Service that is used to make rest calls
      * @return Invoice
      */
-    public function update($apiContext = null)
+    public function update($apiContext = null, $restCall = null)
     {
-        if ($this->getId() == null) {
-            throw new \InvalidArgumentException("Id cannot be null");
-        }
+        ArgumentValidator::validate($this->getId(), "Id");
         $payLoad = $this->toJSON();
-        if ($apiContext == null) {
-            $apiContext = new ApiContext(self::$credential);
-        }
-        $call = new PPRestCall($apiContext);
-        $json = $call->execute(array('PayPal\Rest\RestHandler'), "/v1/invoicing/invoices/{$this->getId()}", "PUT", $payLoad);
+        $json = self::executeCall(
+            "/v1/invoicing/invoices/{$this->getId()}",
+            "PUT",
+            $payLoad,
+            $apiContext,
+            $restCall
+        );
         $this->fromJson($json);
         return $this;
     }
 
-    /*
+    /**
      * Delete invoice resource for the given identifier.
      *
-     * @param PayPal\Rest\ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
-     * @return void
+     * @param ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
+     * @param PPRestCall $restCall is the Rest Call Service that is used to make rest calls
+     * @return bool
      */
-    public function delete($apiContext = null)
+    public function delete($apiContext = null, $restCall = null)
     {
-        if ($this->getId() == null) {
-            throw new \InvalidArgumentException("Id cannot be null");
-        }
+        ArgumentValidator::validate($this->getId(), "Id");
         $payLoad = "";
-        if ($apiContext == null) {
-            $apiContext = new ApiContext(self::$credential);
-        }
-        $call = new PPRestCall($apiContext);
-        $json = $call->execute(array('PayPal\Rest\RestHandler'), "/v1/invoicing/invoices/{$this->getId()}", "DELETE", $payLoad);
+        self::executeCall(
+            "/v1/invoicing/invoices/{$this->getId()}",
+            "DELETE",
+            $payLoad,
+            $apiContext,
+            $restCall
+        );
         return true;
     }
 }

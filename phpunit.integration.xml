@@ -9,6 +9,10 @@
          convertWarningsToExceptions="true"
          testSuiteLoaderClass="PHPUnit_Runner_StandardTestSuiteLoader">
 
+    <php>
+        <env name="REST_MODE" value="sandbox"/>
+    </php>
+
     <testsuites>
         <testsuite name="All">
             <directory>tests</directory>

@@ -158,7 +158,7 @@ class PPModel
                     /** @var self $o */
                     $o = new $clazz();
                     $o->fromArray($v);
-                    $this->setValue($k, $o);
+                    $this->assignValue($k, $o);
                 } else {
                     $arr = array();
                     foreach ($v as $nk => $nv) {
@@ -170,7 +170,7 @@ class PPModel
                             $arr[$nk] = $nv;
                         }
                     }
-                    $this->setValue($k, $arr);
+                    $this->assignValue($k, $arr);
                 }
             } else {
                 $this->$k =  $v;
@@ -179,7 +179,7 @@ class PPModel
         return $this;
     }
 
-    private function setValue($key, $value)
+    private function assignValue($key, $value)
     {
         if (ModelAccessorValidator::validate($this, $this->convertToCamelCase($key))) {
             $setter = "set" . $this->convertToCamelCase($key);

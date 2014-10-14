@@ -4,6 +4,7 @@ namespace PayPal\Transport;
 use PayPal\Core\PPLoggingManager;
 use PayPal\Core\PPHttpConfig;
 use PayPal\Core\PPHttpConnection;
+use PayPal\Rest\ApiContext;
 
 /**
  * Class PPRestCall
@@ -24,7 +25,7 @@ class PPRestCall
     /**
      * API Context
      *
-     * @var \Paypal\Rest\ApiContext
+     * @var ApiContext
      */
     private $apiContext;
 
@@ -32,9 +33,9 @@ class PPRestCall
     /**
      * Default Constructor
      *
-     * @param \Paypal\Rest\ApiContext $apiContext
+     * @param ApiContext $apiContext
      */
-    public function __construct(\Paypal\Rest\ApiContext $apiContext)
+    public function __construct(ApiContext $apiContext)
     {
         $this->apiContext = $apiContext;
         $this->logger = PPLoggingManager::getInstance(__CLASS__);
@@ -54,6 +55,7 @@ class PPRestCall
 
         $config = $this->apiContext->getConfig();
         $httpConfig = new PPHttpConfig(null, $method);
+        $headers = $headers ? $headers : array();
         $httpConfig->setHeaders($headers +
             array(
                 'Content-Type' => 'application/json'

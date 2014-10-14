@@ -3,7 +3,6 @@
 namespace PayPal\Api;
 
 use PayPal\Common\PPModel;
-use PayPal\Rest\ApiContext;
 
 /**
  * Class Patch
@@ -14,7 +13,7 @@ use PayPal\Rest\ApiContext;
  *
  * @property string op
  * @property string path
- * @property \PayPal\Api\object value
+ * @property mixed value
  * @property string from
  */
 class Patch extends PPModel
@@ -71,7 +70,7 @@ class Patch extends PPModel
      * New value to apply based on the operation. op=remove does not require value.
      * 
      *
-     * @param \PayPal\Api\object $value
+     * @param mixed $value
      * 
      * @return $this
      */
@@ -84,7 +83,7 @@ class Patch extends PPModel
     /**
      * New value to apply based on the operation. op=remove does not require value.
      *
-     * @return \PayPal\Api\object
+     * @return mixed
      */
     public function getValue()
     {

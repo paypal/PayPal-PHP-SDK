@@ -2,12 +2,11 @@
 
 namespace PayPal\Api;
 
-use PayPal\Common\PPModel;
-use PayPal\Rest\ApiContext;
-use PayPal\Rest\IResource;
-use PayPal\Api\CreateProfileResponse;
-use PayPal\Transport\PPRestCall;
+use PayPal\Common\ResourceModel;
 use PayPal\Validation\ArgumentValidator;
+use PayPal\Api\CreateProfileResponse;
+use PayPal\Rest\ApiContext;
+use PayPal\Transport\PPRestCall;
 
 /**
  * Class WebProfile
@@ -22,26 +21,8 @@ use PayPal\Validation\ArgumentValidator;
  * @property \PayPal\Api\InputFields input_fields
  * @property \PayPal\Api\Presentation presentation
  */
-class WebProfile extends PPModel implements IResource
+class WebProfile extends ResourceModel
 {
-    /**
-     * OAuth Credentials to use for this call
-     *
-     * @var \PayPal\Auth\OAuthTokenCredential $credential
-     */
-    protected static $credential;
-
-    /**
-     * Sets Credential
-     *
-     * @deprecated Pass ApiContext to create/get methods instead
-     * @param \PayPal\Auth\OAuthTokenCredential $credential
-     */
-    public static function setCredential($credential)
-    {
-        self::$credential = $credential;
-    }
-
     /**
      * ID of the web experience profile.
      * 
@@ -215,17 +196,21 @@ class WebProfile extends PPModel implements IResource
     /**
      * Create a web experience profile by passing the name of the profile and other profile details in the request JSON to the request URI.
      *
-     * @param \PayPal\Rest\ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
+     * @param ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
+     * @param PPRestCall $restCall is the Rest Call Service that is used to make rest calls
      * @return CreateProfileResponse
      */
-    public function create($apiContext = null)
+    public function create($apiContext = null, $restCall = null)
     {
         $payLoad = $this->toJSON();
-        if ($apiContext == null) {
-            $apiContext = new ApiContext(self::$credential);
-        }
-        $call = new PPRestCall($apiContext);
-        $json = $call->execute(array('PayPal\Rest\RestHandler'), "/v1/payment-experience/web-profiles/", "POST", $payLoad);
+        $json = self::executeCall(
+            "/v1/payment-experience/web-profiles/",
+            "POST",
+            $payLoad,
+            null,
+            $apiContext,
+            $restCall
+        );
         $ret = new CreateProfileResponse();
         $ret->fromJson($json);
         return $ret;
@@ -234,18 +219,22 @@ class WebProfile extends PPModel implements IResource
     /**
      * Update a web experience profile by passing the ID of the profile to the request URI. In addition, pass the profile details in the request JSON. If your request does not include values for all profile detail fields, the previously set values for the omitted fields are removed by this operation.
      *
-     * @param \PayPal\Rest\ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
+     * @param ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
+     * @param PPRestCall $restCall is the Rest Call Service that is used to make rest calls
      * @return bool
      */
-    public function update($apiContext = null)
+    public function update($apiContext = null, $restCall = null)
     {
         ArgumentValidator::validate($this->getId(), "Id");
         $payLoad = $this->toJSON();
-        if ($apiContext == null) {
-            $apiContext = new ApiContext(self::$credential);
-        }
-        $call = new PPRestCall($apiContext);
-        $json = $call->execute(array('PayPal\Rest\RestHandler'), "/v1/payment-experience/web-profiles/{$this->getId()}", "PUT", $payLoad);
+        self::executeCall(
+            "/v1/payment-experience/web-profiles/{$this->getId()}",
+            "PUT",
+            $payLoad,
+            null,
+            $apiContext,
+            $restCall
+        );
         return true;
     }
 
@@ -253,23 +242,27 @@ class WebProfile extends PPModel implements IResource
      * Partially update an existing web experience profile by passing the ID of the profile to the request URI. In addition, pass a patch object in the request JSON that specifies the operation to perform, path of the profile location to update, and a new value if needed to complete the operation.
      *
      * @param Patch[] $patch
-     * @param \PayPal\Rest\ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
+     * @param ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
+     * @param PPRestCall $restCall is the Rest Call Service that is used to make rest calls
      * @return bool
      */
-    public function partial_update($patch, $apiContext = null)
+    public function partial_update($patch, $apiContext = null, $restCall = null)
     {
         ArgumentValidator::validate($this->getId(), "Id");
         ArgumentValidator::validate($patch, 'patch');
+        $payload = array();
         foreach ($patch as $patchObject) {
             $payload[] = $patchObject->toArray();
         }
-
         $payLoad = json_encode($payload);
-        if ($apiContext == null) {
-            $apiContext = new ApiContext(self::$credential);
-        }
-        $call = new PPRestCall($apiContext);
-        $json = $call->execute(array('PayPal\Rest\RestHandler'), "/v1/payment-experience/web-profiles/{$this->getId()}", "PATCH", $payLoad);
+        self::executeCall(
+            "/v1/payment-experience/web-profiles/{$this->getId()}",
+            "PATCH",
+            $payLoad,
+            null,
+            $apiContext,
+            $restCall
+        );
         return true;
     }
 
@@ -277,18 +270,22 @@ class WebProfile extends PPModel implements IResource
      * Retrieve the details of a particular web experience profile by passing the ID of the profile to the request URI.
      *
      * @param string $profileId
-     * @param \PayPal\Rest\ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
+     * @param ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
+     * @param PPRestCall $restCall is the Rest Call Service that is used to make rest calls
      * @return WebProfile
      */
-    public static function get($profileId, $apiContext = null)
+    public static function get($profileId, $apiContext = null, $restCall = null)
     {
         ArgumentValidator::validate($profileId, 'profileId');
         $payLoad = "";
-        if ($apiContext == null) {
-            $apiContext = new ApiContext(self::$credential);
-        }
-        $call = new PPRestCall($apiContext);
-        $json = $call->execute(array('PayPal\Rest\RestHandler'), "/v1/payment-experience/web-profiles/$profileId", "GET", $payLoad);
+        $json = self::executeCall(
+            "/v1/payment-experience/web-profiles/$profileId",
+            "GET",
+            $payLoad,
+            null,
+            $apiContext,
+            $restCall
+        );
         $ret = new WebProfile();
         $ret->fromJson($json);
         return $ret;
@@ -297,35 +294,43 @@ class WebProfile extends PPModel implements IResource
     /**
      * Lists all web experience profiles that exist for a merchant (or subject).
      *
-     * @param \PayPal\Rest\ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
+     * @param ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
+     * @param PPRestCall $restCall is the Rest Call Service that is used to make rest calls
      * @return WebProfile[]
      */
-    public static function get_list($apiContext = null)
+    public static function get_list($apiContext = null, $restCall = null)
     {
         $payLoad = "";
-        if ($apiContext == null) {
-            $apiContext = new ApiContext(self::$credential);
-        }
-        $call = new PPRestCall($apiContext);
-        $json = $call->execute(array('PayPal\Rest\RestHandler'), "/v1/payment-experience/web-profiles/", "GET", $payLoad);
+        $json = self::executeCall(
+            "/v1/payment-experience/web-profiles/",
+            "GET",
+            $payLoad,
+            null,
+            $apiContext,
+            $restCall
+        );
         return WebProfile::getList($json);
     }
 
     /**
      * Delete an existing web experience profile by passing the profile ID to the request URI.
      *
-     * @param \PayPal\Rest\ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
+     * @param ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
+     * @param PPRestCall $restCall is the Rest Call Service that is used to make rest calls
      * @return bool
      */
-    public function delete($apiContext = null)
+    public function delete($apiContext = null, $restCall = null)
     {
         ArgumentValidator::validate($this->getId(), "Id");
         $payLoad = "";
-        if ($apiContext == null) {
-            $apiContext = new ApiContext(self::$credential);
-        }
-        $call = new PPRestCall($apiContext);
-        $json = $call->execute(array('PayPal\Rest\RestHandler'), "/v1/payment-experience/web-profiles/{$this->getId()}", "DELETE", $payLoad);
+        self::executeCall(
+            "/v1/payment-experience/web-profiles/{$this->getId()}",
+            "DELETE",
+            $payLoad,
+            null,
+            $apiContext,
+            $restCall
+        );
         return true;
     }
 

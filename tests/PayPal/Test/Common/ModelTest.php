@@ -80,7 +80,7 @@ class ModelTest extends \PHPUnit_Framework_TestCase
             $this->assertEquals("test", $obj->getName());
             $this->assertEquals("description", $obj->getDescription());
         } catch (\PHPUnit_Framework_Error_Notice $ex) {
-            echo $ex->getMessage();
+            // No need to do anything
         }
     }
 

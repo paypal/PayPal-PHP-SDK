@@ -3,7 +3,6 @@
 namespace PayPal\Api;
 
 use PayPal\Common\PPModel;
-use PayPal\Rest\ApiContext;
 
 /**
  * Class InputFields

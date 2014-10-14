@@ -1,6 +1,10 @@
 PayPal PHP SDK release notes
 ============================
 
+v0.13.1
+----
+* Updated Identity Support from SDK Core
+
 v0.13.0
 ----
 * Enabled Payment Experience

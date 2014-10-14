@@ -95,10 +95,11 @@ class ApiContext
      * Gets a specific configuration from key
      *
      * @param $searchKey
+     * @return mixed
      */
     public function get($searchKey)
     {
-        PPConfigManager::getInstance()->get($searchKey);
+        return PPConfigManager::getInstance()->get($searchKey);
     }
 
     /**

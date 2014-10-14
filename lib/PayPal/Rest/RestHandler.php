@@ -90,8 +90,8 @@ class RestHandler implements IPPHandler
             $httpConfig->addHeader("User-Agent", PPUserAgent::getValue(self::$sdkName, self::$sdkVersion));
         }
 
-        if (!is_null($credential) && $credential instanceof OAuthTokenCredential) {
-            $httpConfig->addHeader('Authorization', "Bearer " . $credential->getAccessToken($config));
+        if (!is_null($credential) && $credential instanceof OAuthTokenCredential && is_null($httpConfig->getHeader('Authorization'))) {
+            $httpConfig->addHeader('Authorization', "Bearer " . $credential->getAccessToken($config), false);
         }
 
         if ($httpConfig->getMethod() == 'POST' || $httpConfig->getMethod() == 'PUT') {

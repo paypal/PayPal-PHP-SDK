@@ -3,7 +3,6 @@
 namespace PayPal\Api;
 
 use PayPal\Common\PPModel;
-use PayPal\Rest\ApiContext;
 use PayPal\Validation\UrlValidator;
 
 /**
@@ -72,7 +71,7 @@ class FlowConfig extends PPModel
      * 
      *
      * @param string $bank_txn_pending_url
-     * @throws InvalidArgumentException
+     * @throws \InvalidArgumentException
      * @return $this
      */
     public function setBankTxnPendingUrl($bank_txn_pending_url)

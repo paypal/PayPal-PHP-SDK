@@ -2,6 +2,11 @@
 
 namespace PayPal\Test\Api;
 
+use PayPal\Common\ResourceModel;
+use PayPal\Validation\ArgumentValidator;
+use PayPal\Api\CreateProfileResponse;
+use PayPal\Rest\ApiContext;
+use PayPal\Transport\PPRestCall;
 use PayPal\Api\WebProfile;
 
 /**
@@ -11,73 +16,219 @@ use PayPal\Api\WebProfile;
  */
 class WebProfileTest extends \PHPUnit_Framework_TestCase
 {
-
-    public function testCreateprofileSerialization()
+    /**
+     * Gets Json String of Object WebProfile
+     * @return string
+     */
+    public static function getJson()
     {
-        $requestBody = '{"name":"someName2' . uniqid() . '","presentation":{"logo_image":"http://www.ebay.com"},"input_fields":{"no_shipping":1,"address_override":1},"flow_config":{"landing_page_type":"billing","bank_txn_pending_url":"http://www.ebay.com"}}';
-        $requestBodyEncoded = json_encode(json_decode($requestBody, true));
-        $object = new WebProfile($requestBodyEncoded);
+        return json_encode(json_decode('{"id":"TestSample","name":"TestSample","flow_config":' .FlowConfigTest::getJson() . ',"input_fields":' .InputFieldsTest::getJson() . ',"presentation":' .PresentationTest::getJson() . '}'));
+    }
 
-        $json = $object->toJson();
-        $this->assertEquals($requestBodyEncoded, $json);
+    /**
+     * Gets Object Instance with Json data filled in
+     * @return WebProfile
+     */
+    public static function getObject()
+    {
+        return new WebProfile(self::getJson());
     }
 
 
     /**
-     * @group integration
+     * Tests for Serialization and Deserialization Issues
+     * @return WebProfile
      */
-    public function testCreateprofileOperation()
+    public function testSerializationDeserialization()
     {
-        $requestBody = '{"name":"someName2' . uniqid() . '","presentation":{"logo_image":"http://www.ebay.com"},"input_fields":{"no_shipping":1,"address_override":1},"flow_config":{"landing_page_type":"billing","bank_txn_pending_url":"http://www.ebay.com"}}';
-        $requestBodyEncoded = json_encode(json_decode($requestBody, true));
-        $object = new WebProfile($requestBodyEncoded);
-        $response = $object->create(null);
-        $this->assertNotNull($response);
-        return $response->getId();
+        $obj = new WebProfile(self::getJson());
+        $this->assertNotNull($obj);
+        $this->assertNotNull($obj->getId());
+        $this->assertNotNull($obj->getName());
+        $this->assertNotNull($obj->getFlowConfig());
+        $this->assertNotNull($obj->getInputFields());
+        $this->assertNotNull($obj->getPresentation());
+        $this->assertEquals(self::getJson(), $obj->toJson());
+        return $obj;
+    }
+
+    /**
+     * @depends testSerializationDeserialization
+     * @param WebProfile $obj
+     */
+    public function testGetters($obj)
+    {
+        $this->assertEquals($obj->getId(), "TestSample");
+        $this->assertEquals($obj->getName(), "TestSample");
+        $this->assertEquals($obj->getFlowConfig(), FlowConfigTest::getObject());
+        $this->assertEquals($obj->getInputFields(), InputFieldsTest::getObject());
+        $this->assertEquals($obj->getPresentation(), PresentationTest::getObject());
+    }
+
+    /**
+     * @depends testSerializationDeserialization
+     * @param WebProfile $obj
+     */
+    public function testDeprecatedGetters($obj)
+    {
+        $this->assertEquals($obj->getFlow_config(), FlowConfigTest::getObject());
+        $this->assertEquals($obj->getInput_fields(), InputFieldsTest::getObject());
+    }
+
+    /**
+     * @depends testSerializationDeserialization
+     * @param WebProfile $obj
+     */
+    public function testDeprecatedSetterNormalGetter($obj)
+    {
+
+        // Check for Flow_config
+        $obj->setFlowConfig(null);
+        $this->assertNull($obj->getFlow_config());
+        $this->assertNull($obj->getFlowConfig());
+        $this->assertSame($obj->getFlowConfig(), $obj->getFlow_config());
+        $obj->setFlow_config(FlowConfigTest::getObject());
+        $this->assertEquals($obj->getFlow_config(), FlowConfigTest::getObject());
+
+        // Check for Input_fields
+        $obj->setInputFields(null);
+        $this->assertNull($obj->getInput_fields());
+        $this->assertNull($obj->getInputFields());
+        $this->assertSame($obj->getInputFields(), $obj->getInput_fields());
+        $obj->setInput_fields(InputFieldsTest::getObject());
+        $this->assertEquals($obj->getInput_fields(), InputFieldsTest::getObject());
+
+        //Test All Deprecated Getters and Normal Getters
+        $this->testDeprecatedGetters($obj);
+        $this->testGetters($obj);
     }
 
 
     /**
-     * @depends testCreateprofileOperation
-     * @group   integration
+     * @dataProvider mockProvider
+     * @param WebProfile $obj
      */
-    public function testGetprofileOperation($profileId)
+    public function testCreate($obj, $mockApiContext)
     {
-        $response = WebProfile::get($profileId, null);
-        $this->assertNotNull($response);
-        $this->assertEquals($response->getId(), $profileId);
-        $this->assertEquals("http://www.ebay.com", $response->getPresentation()->getLogoImage());
-        $this->assertEquals(1, $response->getInputFields()->getNoShipping());
-        $this->assertEquals(1, $response->getInputFields()->getAddressOverride());
-        $this->assertEquals("billing", $response->getFlowConfig()->getLandingPageType());
-        $this->assertEquals("http://www.ebay.com", $response->getFlowConfig()->getBankTxnPendingUrl());
-        return $response->getId();
+        $mockPPRestCall = $this->getMockBuilder('\PayPal\Transport\PPRestCall')
+            ->disableOriginalConstructor()
+            ->getMock();
+
+        $mockPPRestCall->expects($this->any())
+            ->method('execute')
+            ->will($this->returnValue(
+                    CreateProfileResponseTest::getJson()
+            ));
+
+        $result = $obj->create($mockApiContext, $mockPPRestCall);
+        $this->assertNotNull($result);
     }
-
-
-    public function testValidationerrorSerialization()
-    {
-        $requestBody = '{"name":"sampleName' . uniqid() . '","presentation":{"logo_image":"http://www.ebay.com"},"input_fields":{"no_shipping":4,"address_override":1},"flow_config":{"landing_page_type":"billing","bank_txn_pending_url":"ht//www.ebay.com"}}';
-        $requestBodyEncoded = json_encode(json_decode($requestBody, true));
-        $object = new WebProfile($requestBodyEncoded);
-
-        $json = $object->toJson();
-        $this->assertEquals($requestBodyEncoded, $json);
-    }
-
-
     /**
-     * @group                 integration
-     * @expectedException PayPal\Exception\PPConnectionException
-     * @expectedExceptionCode 400
+     * @dataProvider mockProvider
+     * @param WebProfile $obj
      */
-    public function testValidationerrorOperation()
+    public function testUpdate($obj, $mockApiContext)
     {
-        $requestBody = '{"name":"sampleName' . uniqid() . '","presentation":{"logo_image":"http://www.ebay.com"},"input_fields":{"no_shipping":4,"address_override":1},"flow_config":{"landing_page_type":"billing","bank_txn_pending_url":"ht//www.ebay.com"}}';
-        $requestBodyEncoded = json_encode(json_decode($requestBody, true));
-        $object = new WebProfile($requestBodyEncoded);
-        $response = $object->create(null);
-        return $response->getId();
+        $mockPPRestCall = $this->getMockBuilder('\PayPal\Transport\PPRestCall')
+            ->disableOriginalConstructor()
+            ->getMock();
+
+        $mockPPRestCall->expects($this->any())
+            ->method('execute')
+            ->will($this->returnValue(
+                    true
+            ));
+
+        $result = $obj->update($mockApiContext, $mockPPRestCall);
+        $this->assertNotNull($result);
+    }
+    /**
+     * @dataProvider mockProvider
+     * @param WebProfile $obj
+     */
+    public function testPartialUpdate($obj, $mockApiContext)
+    {
+        $mockPPRestCall = $this->getMockBuilder('\PayPal\Transport\PPRestCall')
+            ->disableOriginalConstructor()
+            ->getMock();
+
+        $mockPPRestCall->expects($this->any())
+            ->method('execute')
+            ->will($this->returnValue(
+                    true
+            ));
+        $patch = array(PatchTest::getObject());
+
+        $result = $obj->partial_update($patch, $mockApiContext, $mockPPRestCall);
+        $this->assertNotNull($result);
+    }
+    /**
+     * @dataProvider mockProvider
+     * @param WebProfile $obj
+     */
+    public function testGet($obj, $mockApiContext)
+    {
+        $mockPPRestCall = $this->getMockBuilder('\PayPal\Transport\PPRestCall')
+            ->disableOriginalConstructor()
+            ->getMock();
+
+        $mockPPRestCall->expects($this->any())
+            ->method('execute')
+            ->will($this->returnValue(
+                    WebProfileTest::getJson()
+            ));
+
+        $result = $obj->get("profileId", $mockApiContext, $mockPPRestCall);
+        $this->assertNotNull($result);
+    }
+    /**
+     * @dataProvider mockProvider
+     * @param WebProfile $obj
+     */
+    public function testGetList($obj, $mockApiContext)
+    {
+        $mockPPRestCall = $this->getMockBuilder('\PayPal\Transport\PPRestCall')
+            ->disableOriginalConstructor()
+            ->getMock();
+
+        $mockPPRestCall->expects($this->any())
+            ->method('execute')
+            ->will($this->returnValue(
+                    json_encode(array(json_decode(WebProfileTest::getJson())))
+            ));
+
+        $result = $obj->get_list($mockApiContext, $mockPPRestCall);
+        $this->assertNotNull($result);
+    }
+    /**
+     * @dataProvider mockProvider
+     * @param WebProfile $obj
+     */
+    public function testDelete($obj, $mockApiContext)
+    {
+        $mockPPRestCall = $this->getMockBuilder('\PayPal\Transport\PPRestCall')
+            ->disableOriginalConstructor()
+            ->getMock();
+
+        $mockPPRestCall->expects($this->any())
+            ->method('execute')
+            ->will($this->returnValue(
+                    true
+            ));
+
+        $result = $obj->delete($mockApiContext, $mockPPRestCall);
+        $this->assertNotNull($result);
     }
 
+    public function mockProvider()
+    {
+        $obj = self::getObject();
+        $mockApiContext = $this->getMockBuilder('ApiContext')
+                    ->disableOriginalConstructor()
+                    ->getMock();
+        return array(
+            array($obj, $mockApiContext),
+            array($obj, null)
+        );
+    }
 }
