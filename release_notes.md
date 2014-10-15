@@ -3,7 +3,9 @@ PayPal PHP SDK release notes
 
 v0.13.1
 ----
+* Enabled TLS version 1.x for SSL Negotiation
 * Updated Identity Support from SDK Core
+* Fixed Backward Compatibility changes
 
 v0.13.0
 ----

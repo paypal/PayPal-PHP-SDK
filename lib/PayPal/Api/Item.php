@@ -200,7 +200,7 @@ class Item extends PPModel
      * 
      *
      * @param string $url
-     * @throws InvalidArgumentException
+     * @throws \InvalidArgumentException
      * @return $this
      */
     public function setUrl($url)
