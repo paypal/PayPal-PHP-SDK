@@ -846,6 +846,7 @@ class Invoice extends ResourceModel
             "/v1/invoicing/invoices",
             "POST",
             $payLoad,
+            [],
             $apiContext,
             $restCall
         );
@@ -869,6 +870,7 @@ class Invoice extends ResourceModel
             "/v1/invoicing/search",
             "POST",
             $payLoad,
+            [],
             $apiContext,
             $restCall
         );
@@ -892,6 +894,7 @@ class Invoice extends ResourceModel
             "/v1/invoicing/invoices/{$this->getId()}/send",
             "POST",
             $payLoad,
+            [],
             $apiContext,
             $restCall
         );
@@ -915,6 +918,7 @@ class Invoice extends ResourceModel
             "/v1/invoicing/invoices/{$this->getId()}/remind",
             "POST",
             $payLoad,
+            [],
             $apiContext,
             $restCall
         );
@@ -938,6 +942,7 @@ class Invoice extends ResourceModel
             "/v1/invoicing/invoices/{$this->getId()}/cancel",
             "POST",
             $payLoad,
+            [],
             $apiContext,
             $restCall
         );
@@ -961,6 +966,7 @@ class Invoice extends ResourceModel
             "/v1/invoicing/invoices/{$this->getId()}/record-payment",
             "POST",
             $payLoad,
+            [],
             $apiContext,
             $restCall
         );
@@ -984,6 +990,7 @@ class Invoice extends ResourceModel
             "/v1/invoicing/invoices/{$this->getId()}/record-refund",
             "POST",
             $payLoad,
+            [],
             $apiContext,
             $restCall
         );
@@ -1006,6 +1013,7 @@ class Invoice extends ResourceModel
             "/v1/invoicing/invoices/$invoiceId",
             "GET",
             $payLoad,
+            [],
             $apiContext,
             $restCall
         );
@@ -1028,6 +1036,7 @@ class Invoice extends ResourceModel
             "/v1/invoicing/invoices/",
             "GET",
             $payLoad,
+            [],
             $apiContext,
             $restCall
         );
@@ -1051,6 +1060,7 @@ class Invoice extends ResourceModel
             "/v1/invoicing/invoices/{$this->getId()}",
             "PUT",
             $payLoad,
+            [],
             $apiContext,
             $restCall
         );
@@ -1073,6 +1083,7 @@ class Invoice extends ResourceModel
             "/v1/invoicing/invoices/{$this->getId()}",
             "DELETE",
             $payLoad,
+            [],
             $apiContext,
             $restCall
         );
