@@ -35,10 +35,10 @@ class FuturePayment extends Payment
             "/v1/payments/payment",
             "POST",
             $payLoad,
-            [
+            array(
                 'Paypal-Application-Correlation-Id' => $correlationId,
                 'PAYPAL-CLIENT-METADATA-ID' => $correlationId
-            ]
+            )
         );
         $this->fromJson($json);
 
