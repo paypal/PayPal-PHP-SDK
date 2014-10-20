@@ -28,7 +28,7 @@ try {
 </head>
 <body>
 	<div>Retrieving sale id: <?php echo $saleId;?></div>
-	<pre><?php echo $sale->toJSON(JSON_PRETTY_PRINT)?></pre>
+	<pre><?php echo $sale->toJSON(128)?></pre>
 	<a href='../index.html'>Back</a>
 </body>
 </html>

@@ -37,7 +37,7 @@ try {
 		Retrieved Authorization:
 		<?php echo $authorization->getId();?>
 	</div>
-	<pre><?php echo $authorization->toJSON(JSON_PRETTY_PRINT);?></pre>
+	<pre><?php echo $authorization->toJSON(128);?></pre>
 	<a href='../index.html'>Back</a>
 </body>
 </html>

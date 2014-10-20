@@ -29,7 +29,7 @@ try {
 </head>
 <body>
 	<div>Retrieving saved credit card: <?php echo $cardId;?></div>
-	<pre><?php echo $card->toJSON(JSON_PRETTY_PRINT);?></pre>
+	<pre><?php echo $card->toJSON(128);?></pre>
 	<a href='../index.html'>Back</a>
 </body>
 </html>

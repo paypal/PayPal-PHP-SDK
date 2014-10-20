@@ -49,7 +49,7 @@ try {
 </head>
 <body>
 <div>Remind Invoice:</div>
-<pre><?php echo $invoice->toJSON(JSON_PRETTY_PRINT); ?></pre>
+<pre><?php echo $invoice->toJSON(128); ?></pre>
 <a href='../index.html'>Back</a>
 </body>
 </html>

@@ -37,7 +37,7 @@ try {
 	<div>
 		Voided authorization
 	</div>
-	<pre><?php echo $voidedAuth->toJSON(JSON_PRETTY_PRINT);?></pre>
+	<pre><?php echo $voidedAuth->toJSON(128);?></pre>
 	<a href='../index.html'>Back</a>
 </body>
 </html>

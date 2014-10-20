@@ -123,7 +123,7 @@ try {
         Created payment:
         <?php echo $payment->getId();?>
     </div>
-	<pre><?php echo $payment->toJSON(JSON_PRETTY_PRINT);?></pre>
+	<pre><?php echo $payment->toJSON(128);?></pre>
     <a href='../index.html'>Back</a>
 </body>
 </html>

@@ -1,6 +1,11 @@
 PayPal PHP SDK release notes
 ============================
 
+v0.13.2
+----
+* Updated Future Payments and LIPP Support
+* Updated Logging Syntax
+
 v0.13.1
 ----
 * Enabled TLS version 1.x for SSL Negotiation

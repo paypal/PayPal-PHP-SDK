@@ -20,7 +20,7 @@ try {
 }
 $result = '';
 foreach ($list as $object) {
-    $result .= $object->toJSON(JSON_PRETTY_PRINT) . PHP_EOL;
+    $result .= $object->toJSON(128) . PHP_EOL;
 }
 
 print_result("Get List of All Web Profiles", "Web Profiles", null, $result);

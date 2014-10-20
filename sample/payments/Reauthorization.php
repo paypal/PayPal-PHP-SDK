@@ -44,7 +44,7 @@ try {
 		<?php echo $reauthorization->getId();?>
 	</div>
 	<pre>
-		<?php echo $reauthorization->toJSON(JSON_PRETTY_PRINT);?>
+		<?php echo $reauthorization->toJSON(128);?>
 	</pre>
 	<a href='../index.html'>Back</a>
 </body>

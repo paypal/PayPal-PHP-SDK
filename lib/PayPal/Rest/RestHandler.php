@@ -38,7 +38,7 @@ class RestHandler implements IPPHandler
      *
      * @var string $sdkVersion
      */
-    public static $sdkVersion = "0.6.0";
+    public static $sdkVersion = "0.13.2";
 
     /**
      * Construct

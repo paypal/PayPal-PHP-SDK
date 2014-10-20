@@ -48,7 +48,7 @@ try {
 		Captured payment <?php echo $getCapture->getParentPayment(); ?>. Capture Id:
 		<?php echo $getCapture->getId();?>
 	</div>
-	<pre><?php echo $getCapture->toJSON(JSON_PRETTY_PRINT);?></pre>
+	<pre><?php echo $getCapture->toJSON(128);?></pre>
 	<a href='../index.html'>Back</a>
 </body>
 </html>

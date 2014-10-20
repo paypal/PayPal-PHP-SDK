@@ -34,7 +34,7 @@ try {
 </head>
 <body>
 	<div>Got <?php echo $payments->getCount(); ?> matching payments </div>
-	<pre><?php echo $payments->toJSON(JSON_PRETTY_PRINT);?></pre>
+	<pre><?php echo $payments->toJSON(128);?></pre>
 	<a href='../index.html'>Back</a>
 </body>
 </html>

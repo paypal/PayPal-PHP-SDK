@@ -58,7 +58,7 @@ try {
 		Capture Id:
 		<?php echo $capture->getId();?>
 	</div>
-	<pre><?php echo $capture->toJSON(JSON_PRETTY_PRINT);?></pre>
+	<pre><?php echo $capture->toJSON(128);?></pre>
 	<a href='../index.html'>Back</a>
 </body>
 </html>

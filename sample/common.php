@@ -24,7 +24,7 @@ function print_result($title, $objectName, $objectId = null, $output = null)
     if ($output) {
         if (is_a($output, 'PayPal\Common\PPModel')) {
             /** @var $output \PayPal\Common\PPModel */
-            echo "<pre>" . $output->toJSON(JSON_PRETTY_PRINT) . "</pre>";
+            echo "<pre>" . $output->toJSON(128) . "</pre>";
         } elseif (is_string($output)) {
             echo "<pre>$output</pre>";
         }

@@ -34,4 +34,4 @@ try {
     exit(1);
 }
 
-print_result("User Information", "User Info", $userInfo->getUserId(), $userInfo->toJSON(JSON_PRETTY_PRINT));
+print_result("User Information", "User Info", $userInfo->getUserId(), $userInfo->toJSON(128));

@@ -26,7 +26,7 @@ try {
 </head>
 <body>
 	<div>Got invoices </div>
-	<pre><?php echo $invoices->toJSON(JSON_PRETTY_PRINT); ?></pre>
+	<pre><?php echo $invoices->toJSON(128); ?></pre>
 	<a href='../index.html'>Back</a>
 </body>
 </html>

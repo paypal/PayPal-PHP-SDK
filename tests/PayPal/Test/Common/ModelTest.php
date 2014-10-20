@@ -84,9 +84,6 @@ class ModelTest extends \PHPUnit_Framework_TestCase
         }
     }
 
-    /**
-     * @outputBuffering enabled
-     */
     public function testInvalidMagicMethod()
     {
         $obj = new SimpleClass();
@@ -101,9 +98,6 @@ class ModelTest extends \PHPUnit_Framework_TestCase
         }
     }
 
-    /**
-     * @outputBuffering enabled
-     */
     public function testInvalidMagicMethodWithDisabledValidation()
     {
         PPConfigManager::getInstance()->addConfigs(array('validation.level' => 'disabled'));

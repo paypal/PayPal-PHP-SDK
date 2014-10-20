@@ -64,7 +64,7 @@ try {
 </head>
 <body>
 	<div>Refund Capture:</div>
-	<pre><?php echo $captureRefund->toJSON(JSON_PRETTY_PRINT);?></pre>
+	<pre><?php echo $captureRefund->toJSON(128);?></pre>
 	<a href='../index.html'>Back</a>
 </body>
 </html>
