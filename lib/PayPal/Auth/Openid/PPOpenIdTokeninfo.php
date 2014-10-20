@@ -164,6 +164,7 @@ class PPOpenIdTokeninfo extends ResourceModel
         if (!array_key_exists('grant_type', $params)) {
             $params['grant_type'] = 'authorization_code';
         }
+        $apiContext = $apiContext ? $apiContext : new ApiContext(self::$credential);
 
         if (sizeof($apiContext->get($clientId)) > 0) {
             $clientId = $apiContext->get($clientId);
@@ -172,6 +173,10 @@ class PPOpenIdTokeninfo extends ResourceModel
         if (sizeof($apiContext->get($clientSecret)) > 0) {
             $clientSecret = $apiContext->get($clientSecret);
         }
+
+        $clientId = $clientId ? $clientId : $apiContext->getCredential()->getClientId();
+        $clientSecret = $clientSecret ? $clientSecret : $apiContext->getCredential()->getClientSecret();
+
         $json = self::executeCall(
             "/v1/identity/openidconnect/tokenservice",
             "POST",
@@ -205,6 +210,7 @@ class PPOpenIdTokeninfo extends ResourceModel
     public function createFromRefreshToken($params, $apiContext = null)
     {
         static $allowedParams = array('grant_type' => 1, 'refresh_token' => 1, 'scope' => 1);
+        $apiContext = $apiContext ? $apiContext : new ApiContext(self::$credential);
 
         if (!array_key_exists('grant_type', $params)) {
             $params['grant_type'] = 'refresh_token';
@@ -213,13 +219,16 @@ class PPOpenIdTokeninfo extends ResourceModel
             $params['refresh_token'] = $this->getRefreshToken();
         }
 
+        $clientId = isset($params['client_id']) ? $params['client_id'] : $apiContext->getCredential()->getClientId();
+        $clientSecret = isset($params['client_secret']) ? $params['client_secret'] : $apiContext->getCredential()->getClientSecret();
+
         $json = self::executeCall(
             "/v1/identity/openidconnect/tokenservice",
             "POST",
             http_build_query(array_intersect_key($params, $allowedParams)),
             array(
                 'Content-Type' => 'application/x-www-form-urlencoded',
-                'Authorization' => 'Basic ' . base64_encode($params['client_id'] . ":" . $params['client_secret'])
+                'Authorization' => 'Basic ' . base64_encode($clientId . ":" . $clientSecret)
             ),
             $apiContext
         );

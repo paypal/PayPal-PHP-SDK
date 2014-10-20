@@ -3,6 +3,7 @@
 namespace PayPal\Auth;
 
 use PayPal\Common\PPUserAgent;
+use PayPal\Common\ResourceModel;
 use PayPal\Core\PPConstants;
 use PayPal\Core\PPHttpConfig;
 use PayPal\Core\PPHttpConnection;
@@ -13,7 +14,7 @@ use PayPal\Rest\RestHandler;
 /**
  * Class OAuthTokenCredential
  */
-class OAuthTokenCredential
+class OAuthTokenCredential extends ResourceModel
 {
     /**
      * Private Variable
@@ -78,6 +79,26 @@ class OAuthTokenCredential
     }
 
     /**
+     * Get Client ID
+     *
+     * @return string
+     */
+    public function getClientId()
+    {
+        return $this->clientId;
+    }
+
+    /**
+     * Get Client Secret
+     *
+     * @return string
+     */
+    public function getClientSecret()
+    {
+        return $this->clientSecret;
+    }
+
+    /**
      * Get AccessToken
      *
      * @param $config
@@ -111,18 +132,29 @@ class OAuthTokenCredential
      *
      * @param $config
      * @param $authorizationCode
+     * @param array $params optional arrays to override defaults
      * @return string|null
      */
-    public function getRefreshToken($config, $authorizationCode) //Which comes from Mobile.
+    public function getRefreshToken($config, $authorizationCode = null, $params = array())
     {
-        $payload =
-            "grant_type=authorization_code&code=".
-            $authorizationCode.
-            "&redirect_uri=urn:ietf:wg:oauth:2.0:oob&response_type=token";
-        $jsonResponse = $this->getToken($config, $payload);
+        static $allowedParams = array(
+            'grant_type' => 'authorization_code',
+            'code' => 1,
+            'redirect_uri' => 'urn:ietf:wg:oauth:2.0:oob',
+            'response_type' => 'token'
+        );
 
-        if ($jsonResponse != null && isset($jsonResponse["refresh_token"])) {
-            return $jsonResponse['refresh_token'];
+        $params = is_array($params) ? $params : array();
+        if ($authorizationCode) {
+            //Override the authorizationCode if value is explicitly set
+            $params['code'] = $authorizationCode;
+        }
+        $payload = http_build_query(array_merge($allowedParams, array_intersect_key($params, $allowedParams)));
+
+        $response = $this->getToken($config, $this->clientId, $this->clientSecret, $payload);
+
+        if ($response != null && isset($response["refresh_token"])) {
+            return $response['refresh_token'];
         }
     }
 
@@ -148,34 +180,23 @@ class OAuthTokenCredential
      * @throws PPConfigurationException
      * @throws \PayPal\Exception\PPConnectionException
      */
-    private function getToken($config, $payload)
+    private function getToken($config, $clientId, $clientSecret, $payload)
     {
-        $base64ClientID = base64_encode($this->clientId . ":" . $this->clientSecret);
+        $base64ClientID = base64_encode($clientId . ":" . $clientSecret);
         $headers = array(
             "User-Agent"    => PPUserAgent::getValue(RestHandler::$sdkName, RestHandler::$sdkVersion),
             "Authorization" => "Basic " . $base64ClientID,
             "Accept"        => "*/*"
         );
 
-        $httpConfiguration = $this->getOAuthHttpConfiguration($config);
+        $httpConfiguration = self::getOAuthHttpConfiguration($config);
         $httpConfiguration->setHeaders($headers);
 
         $connection = new PPHttpConnection($httpConfiguration, $config);
         $res = $connection->execute($payload);
-        $jsonResponse = json_decode($res, true);
+        $response = json_decode($res, true);
 
-        if ($jsonResponse == null || !isset($jsonResponse["access_token"]) || !isset($jsonResponse["expires_in"])) {
-            $this->accessToken = null;
-            $this->tokenExpiresIn = null;
-            $this->logger->warning(
-                "Could not generate new Access token. Invalid response from server: " . $jsonResponse
-            );
-        } else {
-            $this->accessToken = $jsonResponse["access_token"];
-            $this->tokenExpiresIn = $jsonResponse["expires_in"];
-        }
-        $this->tokenCreateTime = time();
-        return $jsonResponse;
+        return $response;
     }
 
 
@@ -187,13 +208,27 @@ class OAuthTokenCredential
      */
     private function generateAccessToken($config, $refreshToken = null)
     {
-        $payload = "grant_type=client_credentials";
+        $params = array('grant_type' => 'client_credentials');
         if ($refreshToken != null) {
             // If the refresh token is provided, it would get access token using refresh token
             // Used for Future Payments
-            $payload = "grant_type=refresh_token&refresh_token=$refreshToken";
+            $params['grant_type'] = 'refresh_token';
+            $params['refresh_token'] = $refreshToken;
         }
-        $this->getToken($config, $payload);
+        $payload = http_build_query($params);
+        $response = $this->getToken($config, $this->clientId, $this->clientSecret, $payload);
+
+        if ($response == null || !isset($response["access_token"]) || !isset($response["expires_in"])) {
+            $this->accessToken = null;
+            $this->tokenExpiresIn = null;
+            $this->logger->warning(
+                "Could not generate new Access token. Invalid response from server: " . $response
+            );
+        } else {
+            $this->accessToken = $response["access_token"];
+            $this->tokenExpiresIn = $response["expires_in"];
+        }
+        $this->tokenCreateTime = time();
 
         return $this->accessToken;
     }
@@ -206,7 +241,7 @@ class OAuthTokenCredential
      * @return PPHttpConfig
      * @throws \PayPal\Exception\PPConfigurationException
      */
-    private function getOAuthHttpConfiguration($config)
+    private static function getOAuthHttpConfiguration($config)
     {
         if (isset($config['oauth.EndPoint'])) {
             $baseEndpoint = $config['oauth.EndPoint'];

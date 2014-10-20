@@ -11,7 +11,7 @@ use PayPal\Api\CreditCard;
 
 // The cardId can be obtained from a previous save credit
 // card operation. Use $card->getId()
-$cardId = "CARD-5AR29593TC404090HKIKN77Q";
+$cardId = "CARD-44D10970C24287906KRCTWNI";
 
 /// ### Retrieve card
 // (See bootstrap.php for more on `ApiContext`)

@@ -346,6 +346,132 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
     }, {
       "type": "folder",
       "data": {
+        "path": "lipp",
+        "title": "lipp"
+      },
+      "depth": 1,
+      "children": [
+        {
+          "type": "file",
+          "data": {
+            "language": {
+              "nameMatchers": [{}, ".fbp"],
+              "pygmentsLexer": "php",
+              "singleLineComment": ["//"],
+              "ignorePrefix": "}",
+              "foldPrefix": "^",
+              "name": "PHP"
+            },
+            "sourcePath": "/Users/japatel/Documents/workspace/Server-SDK/rest-api-sdk-php/sample/lipp/GenerateAccessTokenFromRefreshToken.php",
+            "projectPath": "lipp/GenerateAccessTokenFromRefreshToken.php",
+            "targetPath": "lipp/GenerateAccessTokenFromRefreshToken",
+            "pageTitle": "lipp/GenerateAccessTokenFromRefreshToken",
+            "title": "GenerateAccessTokenFromRefreshToken"
+          },
+          "depth": 2,
+          "outline": [
+            {
+              "type": "heading",
+              "data": {
+                "level": 3,
+                "title": "Obtain Access Token From Refresh Token",
+                "slug": "obtain-access-token-from-refresh-token"
+              },
+              "depth": 3
+            }
+          ]
+        }, {
+          "type": "file",
+          "data": {
+            "language": {
+              "nameMatchers": [{}, ".fbp"],
+              "pygmentsLexer": "php",
+              "singleLineComment": ["//"],
+              "ignorePrefix": "}",
+              "foldPrefix": "^",
+              "name": "PHP"
+            },
+            "sourcePath": "/Users/japatel/Documents/workspace/Server-SDK/rest-api-sdk-php/sample/lipp/GetUserInfo.php",
+            "projectPath": "lipp/GetUserInfo.php",
+            "targetPath": "lipp/GetUserInfo",
+            "pageTitle": "lipp/GetUserInfo",
+            "title": "GetUserInfo"
+          },
+          "depth": 2,
+          "outline": [
+            {
+              "type": "heading",
+              "data": {
+                "level": 3,
+                "title": "Obtain Access Token From Refresh Token",
+                "slug": "obtain-access-token-from-refresh-token"
+              },
+              "depth": 3
+            }
+          ]
+        }, {
+          "type": "file",
+          "data": {
+            "language": {
+              "nameMatchers": [{}, ".fbp"],
+              "pygmentsLexer": "php",
+              "singleLineComment": ["//"],
+              "ignorePrefix": "}",
+              "foldPrefix": "^",
+              "name": "PHP"
+            },
+            "sourcePath": "/Users/japatel/Documents/workspace/Server-SDK/rest-api-sdk-php/sample/lipp/ObtainUserConsent.php",
+            "projectPath": "lipp/ObtainUserConsent.php",
+            "targetPath": "lipp/ObtainUserConsent",
+            "pageTitle": "lipp/ObtainUserConsent",
+            "title": "ObtainUserConsent"
+          },
+          "depth": 2,
+          "outline": [
+            {
+              "type": "heading",
+              "data": {
+                "level": 3,
+                "title": "Get User Consent URL",
+                "slug": "get-user-consent-url"
+              },
+              "depth": 3
+            }
+          ]
+        }, {
+          "type": "file",
+          "data": {
+            "language": {
+              "nameMatchers": [{}, ".fbp"],
+              "pygmentsLexer": "php",
+              "singleLineComment": ["//"],
+              "ignorePrefix": "}",
+              "foldPrefix": "^",
+              "name": "PHP"
+            },
+            "sourcePath": "/Users/japatel/Documents/workspace/Server-SDK/rest-api-sdk-php/sample/lipp/UserConsentRedirect.php",
+            "projectPath": "lipp/UserConsentRedirect.php",
+            "targetPath": "lipp/UserConsentRedirect",
+            "pageTitle": "lipp/UserConsentRedirect",
+            "title": "UserConsentRedirect"
+          },
+          "depth": 2,
+          "outline": [
+            {
+              "type": "heading",
+              "data": {
+                "level": 3,
+                "title": "User Consent Response",
+                "slug": "user-consent-response"
+              },
+              "depth": 3
+            }
+          ]
+        }
+      ]
+    }, {
+      "type": "folder",
+      "data": {
         "path": "payment-experience",
         "title": "payment-experience"
       },

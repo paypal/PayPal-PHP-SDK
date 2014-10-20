@@ -32,7 +32,7 @@ $invoice
 // A resource representing merchant information that can be
 // used to identify merchant
 $invoice->getMerchantInfo()
-    ->setEmail("PPX.DevNet-facilitator@gmail.com")
+    ->setEmail("jaypatel512-facilitator@hotmail.com")
     ->setFirstName("Dennis")
     ->setLastName("Doctor")
     ->setbusinessName("Medical Professionals, LLC")

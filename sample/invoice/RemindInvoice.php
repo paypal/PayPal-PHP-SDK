@@ -16,7 +16,7 @@ try {
     // on the Invoice class by passing a valid
     // Invoice ID
     // (See bootstrap.php for more on `ApiContext`)
-    $invoice = Invoice::get("INV2-9CAH-K5G7-2JPL-G4B4", $apiContext);
+    $invoice = Invoice::get("INV2-W4LC-6QS9-JZ62-VE4P", $apiContext);
 
     // ### Notification Object
     // This would send a notification to both merchant as well

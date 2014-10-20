@@ -72,7 +72,6 @@ class PPRestCall
         }
         $connection = new PPHttpConnection($httpConfig, $config);
         $response = $connection->execute($data);
-        $this->logger->fine($response . PHP_EOL);
 
         return $response;
     }

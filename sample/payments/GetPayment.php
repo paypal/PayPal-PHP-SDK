@@ -11,7 +11,7 @@
 require __DIR__ . '/../bootstrap.php';
 use PayPal\Api\Payment;
 
-$paymentId = "PAY-0XL713371A312273YKE2GCNI";
+$paymentId = "PAY-2AH507590P6615624KRCTUSY";
 
 // ### Retrieve payment
 // Retrieve the payment object by calling the

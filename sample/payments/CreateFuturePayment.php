@@ -7,11 +7,8 @@
 
 require __DIR__ . '/../bootstrap.php';
 use PayPal\Api\Amount;
-use PayPal\Api\Details;
-use PayPal\Api\Item;
-use PayPal\Api\ItemList;
 use PayPal\Api\Payer;
-use PayPal\Api\Payment;
+use PayPal\Api\FuturePayment;
 use PayPal\Api\RedirectUrls;
 use PayPal\Api\Transaction;
 session_start();
@@ -50,7 +47,7 @@ $redirectUrls->setReturnUrl("$baseUrl/ExecutePayment.php?success=true")
 // ### Payment
 // A Payment Resource; create one using
 // the above types and intent set to 'sale'
-$payment = new Payment();
+$payment = new FuturePayment();
 $payment->setIntent("authorize")
     ->setPayer($payer)
     ->setRedirectUrls($redirectUrls)
@@ -60,7 +57,7 @@ $payment->setIntent("authorize")
 // You need to get a permanent refresh token from the authorization code, retrieved from the mobile sdk.
 
 // authorization code from mobile sdk
-$authorizationCode = 'EF4Ds2Wv1JbHiU_UuhR5v-ftTbeJD03RBX-Zjg9pLCAhdLqLeRR6YSKTNsrbQGX7lFoZ3SxwFyxADEZbBOxpn023W9SA0JzSQAy-9eLdON5eDPAyMyKlHyNVS2DqBR2iWVfQGfudbd9MDoRxMEjIZbY';
+$authorizationCode = 'EJfRuAqXEE95pdVMmOym_mftTbeJD03RBX-Zjg9pLCAhdLqLeRR6YSKTNsrbQGX7lFoZ3SxwFyxADEZbBOxpn023W9SA0JzSQAy-9eLdON5eDPAyMyKlHyNVS2DqBR2iWVfQGfudbd9MDoRxMEjIZbY';
 
 // correlation id from mobile sdk
 $correlationId = '123123456';
@@ -68,10 +65,10 @@ $correlationId = '123123456';
 try {
     // Exchange authorization_code for long living refresh token. You should store
     // it in a database for later use
-    $refreshToken = $apiContext->getCredential()->getRefreshToken($apiContext->getConfig(), $authorizationCode);
+    $refreshToken = FuturePayment::getRefreshToken($authorizationCode, $apiContext);
 
     // Update the access token in apiContext
-    $apiContext->getCredential()->updateAccessToken($apiContext->getConfig(), $refreshToken);
+    $payment->updateAccessToken($refreshToken, $apiContext);
 
     // ### Create Future Payment
     // Create a payment by calling the 'create' method
@@ -80,7 +77,7 @@ try {
     // The return object contains the state and the
     // url to which the buyer must be redirected to
     // for payment approval
-    // Please note that currently future payments works only with Paypal as a funding instrument.
+    // Please note that currently future payments works only with PayPal as a funding instrument.
     $payment->create($apiContext, $correlationId);
 
 } catch (PayPal\Exception\PPConnectionException $ex) {

@@ -20,7 +20,7 @@ use PayPal\Api\Transaction;
 // Saved credit card id from a previous call to
 // CreateCreditCard.php
 $creditCardToken = new CreditCardToken();
-$creditCardToken->setCreditCardId('CARD-29H07236G1554552FKINPBHQ');
+$creditCardToken->setCreditCardId('CARD-17M96700G1952584EKRCTV5Y');
 
 // ### FundingInstrument
 // A resource representing a Payer's funding instrument.

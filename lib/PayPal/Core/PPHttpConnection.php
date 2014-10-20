@@ -79,8 +79,7 @@ class PPHttpConnection
     public function execute($data)
     {
         //Initialize the logger
-        $this->logger->fine("Connecting to " . $this->httpConfig->getUrl());
-        $this->logger->fine("Payload " . $data);
+        $this->logger->info($this->httpConfig->getMethod() . ' ' . $this->httpConfig->getUrl());
 
         //Initialize Curl Options
         $ch = curl_init($this->httpConfig->getUrl());
@@ -100,17 +99,18 @@ class PPHttpConnection
         //Default Option if Method not of given types in switch case
         if ($this->httpConfig->getMethod() != NULL) {
             curl_setopt($ch, CURLOPT_CUSTOMREQUEST, $this->httpConfig->getMethod());
-            $this->logger->info("Method : " . $this->httpConfig->getMethod());
         }
 
         //Logging Each Headers for debugging purposes
         foreach ($this->getHttpHeaders() as $header) {
             //TODO: Strip out credentials and other secure info when logging.
-            $this->logger->info("Adding header $header");
+            $this->logger->fine($header);
         }
 
+        $this->logger->fine("Payload : " . $data . "\n");
         //Execute Curl Request
         $result = curl_exec($ch);
+
 
         //Retry if Certificate Exception
         if (curl_errno($ch) == 60) {
@@ -151,6 +151,7 @@ class PPHttpConnection
                 "Got Http response code $httpStatus when accessing {$this->httpConfig->getUrl()}. " .
                 "Retried $retries times."
             );
+            $this->logger->fine("Response : " . $result . "\n\n");
             $ex->setData($result);
             throw $ex;
         } else if ($httpStatus < 200 || $httpStatus >= 300) {
@@ -159,9 +160,12 @@ class PPHttpConnection
                 "Got Http response code $httpStatus when accessing {$this->httpConfig->getUrl()}.",
                 $httpStatus
             );
+            $this->logger->fine("Response : " . $result . "\n\n");
             $ex->setData($result);
             throw $ex;
         }
+
+        $this->logger->fine("Response : " . $result . "\n\n");
 
         //Return result object
         return $result;

@@ -15,7 +15,7 @@ try {
     // on the Invoice class by passing a valid
     // Invoice ID
     // (See bootstrap.php for more on `ApiContext`)
-    $invoice = Invoice::get("INV2-9DRB-YTHU-2V9Q-7Q24", $apiContext);
+    $invoice = Invoice::get("INV2-W4LC-6QS9-JZ62-VE4P", $apiContext);
 
     // ### Send Invoice
     // Send a legitimate invoice to the payer

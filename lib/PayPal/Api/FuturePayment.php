@@ -21,7 +21,8 @@ class FuturePayment extends Payment
      * @param      $correlationId
      * @return $this
      */
-    public function create($apiContext = null, $correlationId = null) {
+    public function create($apiContext = null, $correlationId = null)
+    {
         if ($apiContext == null) {
             $apiContext = new ApiContext(self::$credential);
         }
@@ -44,5 +45,32 @@ class FuturePayment extends Payment
 
         return $this;
 
+    }
+
+    /**
+     * Get a Refresh Token from Authorization Code
+     *
+     * @param $authorizationCode
+     * @param ApiContext $apiContext
+     * @return string|null refresh token
+     */
+    public static function getRefreshToken($authorizationCode, $apiContext = null)
+    {
+        $apiContext = $apiContext ? $apiContext : new ApiContext(self::$credential);
+        $credential = $apiContext->getCredential();
+        return $credential->getRefreshToken($apiContext->getConfig(), $authorizationCode);
+    }
+
+    /**
+     * Updates Access Token using long lived refresh token
+     *
+     * @param string|null $refreshToken
+     * @param ApiContext $apiContext
+     * @return void
+     */
+    public function updateAccessToken($refreshToken, $apiContext)
+    {
+        $apiContext = $apiContext ? $apiContext : new ApiContext(self::$credential);
+        $apiContext->getCredential()->updateAccessToken($apiContext->getConfig(), $refreshToken);
     }
 }

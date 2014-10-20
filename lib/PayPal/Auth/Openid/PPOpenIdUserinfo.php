@@ -466,6 +466,8 @@ class PPOpenIdUserinfo extends ResourceModel
     {
         static $allowedParams = array('schema' => 1);
 
+        $params = is_array($params)  ? $params : array();
+
         if (!array_key_exists('schema', $params)) {
             $params['schema'] = 'openid';
         }

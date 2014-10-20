@@ -28,6 +28,9 @@ class PPOpenIdSession
         if ($apiContext->get($clientId)) {
             $clientId = $apiContext->get($clientId);
         }
+
+        $clientId = $clientId ? $clientId : $apiContext->getCredential()->getClientId();
+
         $scope = count($scope) != 0 ? $scope : array('openid', 'profile', 'address', 'email', 'phone',
             'https://uri.paypal.com/services/paypalattributes', 'https://uri.paypal.com/services/expresscheckout');
         if (!in_array('openid', $scope)) {

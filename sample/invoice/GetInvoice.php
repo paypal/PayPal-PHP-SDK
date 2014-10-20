@@ -7,7 +7,7 @@
 require __DIR__ . '/../bootstrap.php';
 use PayPal\Api\Invoice;
 
-$invoiceId = "INV2-9DRB-YTHU-2V9Q-7Q24";
+$invoiceId = "INV2-W4LC-6QS9-JZ62-VE4P";
 
 // ### Retrieve Invoice
 // Retrieve the invoice object by calling the
