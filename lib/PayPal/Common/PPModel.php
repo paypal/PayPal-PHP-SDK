@@ -156,9 +156,13 @@ class PPModel
                 $clazz = PPReflectionUtil::getPropertyClass(get_class($this), $k);
                 if (PPArrayUtil::isAssocArray($v)) {
                     /** @var self $o */
-                    $o = new $clazz();
-                    $o->fromArray($v);
-                    $this->assignValue($k, $o);
+                    if($clazz == "string"){
+                        $this->assignValue($k, $v);
+                    }else{
+                        $o = new $clazz();
+                        $o->fromArray($v);
+                        $this->assignValue($k, $o);
+                    }
                 } else {
                     $arr = array();
                     foreach ($v as $nk => $nv) {
