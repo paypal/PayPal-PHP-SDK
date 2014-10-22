@@ -10,7 +10,7 @@ use PayPal\Transport\PPRestCall;
 /**
  * Class Invoice
  *
- * @package PayPal\Api
+ * @package \PayPal\Api
  */
 class Invoice extends ResourceModel
 {
@@ -105,7 +105,7 @@ class Invoice extends ResourceModel
     /**
      * Information about the merchant who is sending the invoice.
      *
-     * @param PayPal\Api\MerchantInfo $merchant_info
+     * @param \PayPal\Api\MerchantInfo $merchant_info
      */
     public function setMerchantInfo($merchant_info)
     {
@@ -116,7 +116,7 @@ class Invoice extends ResourceModel
     /**
      * Information about the merchant who is sending the invoice.
      *
-     * @return PayPal\Api\MerchantInfo
+     * @return \PayPal\Api\MerchantInfo
      */
     public function getMerchantInfo()
     {
@@ -126,7 +126,7 @@ class Invoice extends ResourceModel
     /**
      * Information about the merchant who is sending the invoice.
      *
-     * @param PayPal\Api\MerchantInfo $merchant_info
+     * @param \PayPal\Api\MerchantInfo $merchant_info
      * @deprecated. Instead use setMerchantInfo
      */
     public function setMerchant_info($merchant_info)
@@ -138,7 +138,7 @@ class Invoice extends ResourceModel
     /**
      * Information about the merchant who is sending the invoice.
      *
-     * @return PayPal\Api\MerchantInfo
+     * @return \PayPal\Api\MerchantInfo
      * @deprecated. Instead use getMerchantInfo
      */
     public function getMerchant_info()
@@ -149,7 +149,7 @@ class Invoice extends ResourceModel
     /**
      * Email address of invoice recipient (required) and optional billing information. (Note: We currently only allow one recipient).
      *
-     * @param PayPal\Api\BillingInfo $billing_info
+     * @param \PayPal\Api\BillingInfo $billing_info
      */
     public function setBillingInfo($billing_info)
     {
@@ -160,7 +160,7 @@ class Invoice extends ResourceModel
     /**
      * Email address of invoice recipient (required) and optional billing information. (Note: We currently only allow one recipient).
      *
-     * @return PayPal\Api\BillingInfo
+     * @return \PayPal\Api\BillingInfo
      */
     public function getBillingInfo()
     {
@@ -170,7 +170,7 @@ class Invoice extends ResourceModel
     /**
      * Email address of invoice recipient (required) and optional billing information. (Note: We currently only allow one recipient).
      *
-     * @param PayPal\Api\BillingInfo $billing_info
+     * @param \PayPal\Api\BillingInfo $billing_info
      * @deprecated. Instead use setBillingInfo
      */
     public function setBilling_info($billing_info)
@@ -182,7 +182,7 @@ class Invoice extends ResourceModel
     /**
      * Email address of invoice recipient (required) and optional billing information. (Note: We currently only allow one recipient).
      *
-     * @return PayPal\Api\BillingInfo
+     * @return \PayPal\Api\BillingInfo
      * @deprecated. Instead use getBillingInfo
      */
     public function getBilling_info()
@@ -193,7 +193,7 @@ class Invoice extends ResourceModel
     /**
      * Shipping information for entities to whom items are being shipped.
      *
-     * @param PayPal\Api\ShippingInfo $shipping_info
+     * @param \PayPal\Api\ShippingInfo $shipping_info
      */
     public function setShippingInfo($shipping_info)
     {
@@ -204,7 +204,7 @@ class Invoice extends ResourceModel
     /**
      * Shipping information for entities to whom items are being shipped.
      *
-     * @return PayPal\Api\ShippingInfo
+     * @return \PayPal\Api\ShippingInfo
      */
     public function getShippingInfo()
     {
@@ -214,7 +214,7 @@ class Invoice extends ResourceModel
     /**
      * Shipping information for entities to whom items are being shipped.
      *
-     * @param PayPal\Api\ShippingInfo $shipping_info
+     * @param \PayPal\Api\ShippingInfo $shipping_info
      * @deprecated. Instead use setShippingInfo
      */
     public function setShipping_info($shipping_info)
@@ -226,7 +226,7 @@ class Invoice extends ResourceModel
     /**
      * Shipping information for entities to whom items are being shipped.
      *
-     * @return PayPal\Api\ShippingInfo
+     * @return \PayPal\Api\ShippingInfo
      * @deprecated. Instead use getShippingInfo
      */
     public function getShipping_info()
@@ -237,7 +237,7 @@ class Invoice extends ResourceModel
     /**
      * List of items included in the invoice. 100 items max per invoice.
      *
-     * @param PayPal\Api\InvoiceItem $items
+     * @param \PayPal\Api\InvoiceItem $items
      */
     public function setItems($items)
     {
@@ -248,7 +248,7 @@ class Invoice extends ResourceModel
     /**
      * List of items included in the invoice. 100 items max per invoice.
      *
-     * @return PayPal\Api\InvoiceItem
+     * @return \PayPal\Api\InvoiceItem
      */
     public function getItems()
     {
@@ -303,7 +303,7 @@ class Invoice extends ResourceModel
     /**
      * Optional field to pass payment deadline for the invoice. Either term_type or due_date can be passed, but not both.
      *
-     * @param PayPal\Api\PaymentTerm $payment_term
+     * @param \PayPal\Api\PaymentTerm $payment_term
      */
     public function setPaymentTerm($payment_term)
     {
@@ -314,7 +314,7 @@ class Invoice extends ResourceModel
     /**
      * Optional field to pass payment deadline for the invoice. Either term_type or due_date can be passed, but not both.
      *
-     * @return PayPal\Api\PaymentTerm
+     * @return \PayPal\Api\PaymentTerm
      */
     public function getPaymentTerm()
     {
@@ -324,7 +324,7 @@ class Invoice extends ResourceModel
     /**
      * Optional field to pass payment deadline for the invoice. Either term_type or due_date can be passed, but not both.
      *
-     * @param PayPal\Api\PaymentTerm $payment_term
+     * @param \PayPal\Api\PaymentTerm $payment_term
      * @deprecated. Instead use setPaymentTerm
      */
     public function setPayment_term($payment_term)
@@ -336,7 +336,7 @@ class Invoice extends ResourceModel
     /**
      * Optional field to pass payment deadline for the invoice. Either term_type or due_date can be passed, but not both.
      *
-     * @return PayPal\Api\PaymentTerm
+     * @return \PayPal\Api\PaymentTerm
      * @deprecated. Instead use getPaymentTerm
      */
     public function getPayment_term()
@@ -347,7 +347,7 @@ class Invoice extends ResourceModel
     /**
      * Invoice level discount in percent or amount.
      *
-     * @param PayPal\Api\Cost $discount
+     * @param \PayPal\Api\Cost $discount
      */
     public function setDiscount($discount)
     {
@@ -358,7 +358,7 @@ class Invoice extends ResourceModel
     /**
      * Invoice level discount in percent or amount.
      *
-     * @return PayPal\Api\Cost
+     * @return \PayPal\Api\Cost
      */
     public function getDiscount()
     {
@@ -369,7 +369,7 @@ class Invoice extends ResourceModel
     /**
      * Shipping cost in percent or amount.
      *
-     * @param PayPal\Api\ShippingCost $shipping_cost
+     * @param \PayPal\Api\ShippingCost $shipping_cost
      */
     public function setShippingCost($shipping_cost)
     {
@@ -380,7 +380,7 @@ class Invoice extends ResourceModel
     /**
      * Shipping cost in percent or amount.
      *
-     * @return PayPal\Api\ShippingCost
+     * @return \PayPal\Api\ShippingCost
      */
     public function getShippingCost()
     {
@@ -390,7 +390,7 @@ class Invoice extends ResourceModel
     /**
      * Shipping cost in percent or amount.
      *
-     * @param PayPal\Api\ShippingCost $shipping_cost
+     * @param \PayPal\Api\ShippingCost $shipping_cost
      * @deprecated. Instead use setShippingCost
      */
     public function setShipping_cost($shipping_cost)
@@ -402,7 +402,7 @@ class Invoice extends ResourceModel
     /**
      * Shipping cost in percent or amount.
      *
-     * @return PayPal\Api\ShippingCost
+     * @return \PayPal\Api\ShippingCost
      * @deprecated. Instead use getShippingCost
      */
     public function getShipping_cost()
@@ -413,7 +413,7 @@ class Invoice extends ResourceModel
     /**
      * Custom amount applied on an invoice. If a label is included then the amount cannot be empty.
      *
-     * @param PayPal\Api\CustomAmount $custom
+     * @param \PayPal\Api\CustomAmount $custom
      */
     public function setCustom($custom)
     {
@@ -424,7 +424,7 @@ class Invoice extends ResourceModel
     /**
      * Custom amount applied on an invoice. If a label is included then the amount cannot be empty.
      *
-     * @return PayPal\Api\CustomAmount
+     * @return \PayPal\Api\CustomAmount
      */
     public function getCustom()
     {
@@ -655,7 +655,7 @@ class Invoice extends ResourceModel
     /**
      * The total amount of the invoice.
      *
-     * @param PayPal\Api\Currency $total_amount
+     * @param \PayPal\Api\Currency $total_amount
      */
     public function setTotalAmount($total_amount)
     {
@@ -666,7 +666,7 @@ class Invoice extends ResourceModel
     /**
      * The total amount of the invoice.
      *
-     * @return PayPal\Api\Currency
+     * @return \PayPal\Api\Currency
      */
     public function getTotalAmount()
     {
@@ -676,7 +676,7 @@ class Invoice extends ResourceModel
     /**
      * The total amount of the invoice.
      *
-     * @param PayPal\Api\Currency $total_amount
+     * @param \PayPal\Api\Currency $total_amount
      * @deprecated. Instead use setTotalAmount
      */
     public function setTotal_amount($total_amount)
@@ -688,7 +688,7 @@ class Invoice extends ResourceModel
     /**
      * The total amount of the invoice.
      *
-     * @return PayPal\Api\Currency
+     * @return \PayPal\Api\Currency
      * @deprecated. Instead use getTotalAmount
      */
     public function getTotal_amount()
@@ -700,7 +700,7 @@ class Invoice extends ResourceModel
      * Set Payments
      * A list of Payment resources
      *
-     * @param \PayPal\Api\Payment $payments
+     * @param \\PayPal\Api\Payment $payments
      *
      * @return $this
      */
@@ -715,7 +715,7 @@ class Invoice extends ResourceModel
      * Get Payments
      * A list of Payment resources
      *
-     * @return \PayPal\Api\Payment
+     * @return \\PayPal\Api\Payment
      */
     public function getPayments()
     {
@@ -725,7 +725,7 @@ class Invoice extends ResourceModel
     /**
      * List of payment details for the invoice.
      *
-     * @param PayPal\Api\PaymentDetail $payment_details
+     * @param \PayPal\Api\PaymentDetail $payment_details
      */
     public function setPaymentDetails($payment_details)
     {
@@ -736,7 +736,7 @@ class Invoice extends ResourceModel
     /**
      * List of payment details for the invoice.
      *
-     * @return PayPal\Api\PaymentDetail
+     * @return \PayPal\Api\PaymentDetail
      */
     public function getPaymentDetails()
     {
@@ -746,7 +746,7 @@ class Invoice extends ResourceModel
     /**
      * List of payment details for the invoice.
      *
-     * @param PayPal\Api\PaymentDetail $payment_details
+     * @param \PayPal\Api\PaymentDetail $payment_details
      * @deprecated. Instead use setPaymentDetails
      */
     public function setPayment_details($payment_details)
@@ -758,7 +758,7 @@ class Invoice extends ResourceModel
     /**
      * List of payment details for the invoice.
      *
-     * @return PayPal\Api\PaymentDetail
+     * @return \PayPal\Api\PaymentDetail
      * @deprecated. Instead use getPaymentDetails
      */
     public function getPayment_details()
@@ -769,7 +769,7 @@ class Invoice extends ResourceModel
     /**
      * List of refund details for the invoice.
      *
-     * @param PayPal\Api\RefundDetail $refund_details
+     * @param \PayPal\Api\RefundDetail $refund_details
      */
     public function setRefundDetails($refund_details)
     {
@@ -780,7 +780,7 @@ class Invoice extends ResourceModel
     /**
      * List of refund details for the invoice.
      *
-     * @return PayPal\Api\RefundDetail
+     * @return \PayPal\Api\RefundDetail
      */
     public function getRefundDetails()
     {
@@ -790,7 +790,7 @@ class Invoice extends ResourceModel
     /**
      * List of refund details for the invoice.
      *
-     * @param PayPal\Api\RefundDetail $refund_details
+     * @param \PayPal\Api\RefundDetail $refund_details
      * @deprecated. Instead use setRefundDetails
      */
     public function setRefund_details($refund_details)
@@ -802,7 +802,7 @@ class Invoice extends ResourceModel
     /**
      * List of refund details for the invoice.
      *
-     * @return PayPal\Api\RefundDetail
+     * @return \PayPal\Api\RefundDetail
      * @deprecated. Instead use getRefundDetails
      */
     public function getRefund_details()
@@ -813,7 +813,7 @@ class Invoice extends ResourceModel
     /**
      * Audit information for the invoice.
      *
-     * @param PayPal\Api\Metadata $metadata
+     * @param \PayPal\Api\Metadata $metadata
      */
     public function setMetadata($metadata)
     {
@@ -824,7 +824,7 @@ class Invoice extends ResourceModel
     /**
      * Audit information for the invoice.
      *
-     * @return PayPal\Api\Metadata
+     * @return \PayPal\Api\Metadata
      */
     public function getMetadata()
     {

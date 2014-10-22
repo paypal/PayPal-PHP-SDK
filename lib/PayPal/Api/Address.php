@@ -220,7 +220,7 @@ class Address extends PPModel
      * Phone number in E.123 format.
      * 
      *
-     * @param string $phone
+     * @param \PayPal\Api\Phone $phone
      * 
      * @return $this
      */
@@ -233,7 +233,7 @@ class Address extends PPModel
     /**
      * Phone number in E.123 format.
      *
-     * @return string
+     * @return \PayPal\Api\Phone
      */
     public function getPhone()
     {
