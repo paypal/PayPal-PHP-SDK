@@ -700,7 +700,7 @@ class Invoice extends ResourceModel
      * Set Payments
      * A list of Payment resources
      *
-     * @param \\PayPal\Api\Payment $payments
+     * @param \PayPal\Api\Payment $payments
      *
      * @return $this
      */
@@ -715,7 +715,7 @@ class Invoice extends ResourceModel
      * Get Payments
      * A list of Payment resources
      *
-     * @return \\PayPal\Api\Payment
+     * @return \PayPal\Api\Payment
      */
     public function getPayments()
     {
