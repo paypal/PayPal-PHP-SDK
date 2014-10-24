@@ -22,7 +22,7 @@ class WebProfileTest extends \PHPUnit_Framework_TestCase
      */
     public static function getJson()
     {
-        return json_encode(json_decode('{"id":"TestSample","name":"TestSample","flow_config":' .FlowConfigTest::getJson() . ',"input_fields":' .InputFieldsTest::getJson() . ',"presentation":' .PresentationTest::getJson() . '}'));
+        return '{"id":"TestSample","name":"TestSample","flow_config":' .FlowConfigTest::getJson() . ',"input_fields":' .InputFieldsTest::getJson() . ',"presentation":' .PresentationTest::getJson() . '}';
     }
 
     /**

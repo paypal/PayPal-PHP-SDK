@@ -18,7 +18,7 @@ class FlowConfigTest extends \PHPUnit_Framework_TestCase
      */
     public static function getJson()
     {
-        return json_encode(json_decode('{"landing_page_type":"TestSample","bank_txn_pending_url":"http://www.google.com"}'));
+        return '{"landing_page_type":"TestSample","bank_txn_pending_url":"http://www.google.com"}';
     }
 
     /**
