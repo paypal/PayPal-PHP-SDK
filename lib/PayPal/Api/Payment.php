@@ -397,7 +397,7 @@ class Payment extends PPModel implements IResource
     public function create($apiContext = null)
     {
 
-        $payLoad = $this->toJSON();
+        $payLoad = $this->toJSON(JSON_UNESCAPED_SLASHES);
         if ($apiContext == null) {
             $apiContext = new ApiContext(self::$credential);
         }
