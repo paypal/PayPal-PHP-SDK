@@ -3,7 +3,6 @@
 namespace PayPal\Api;
 
 use PayPal\Common\PPModel;
-use PayPal\Rest\ApiContext;
 
 /**
  * Class HyperSchema
@@ -12,7 +11,7 @@ use PayPal\Rest\ApiContext;
  *
  * @package PayPal\Api
  *
- * @property \PayPal\Api\Links links
+ * @property \PayPal\Api\Links[] links
  * @property string fragmentResolution
  * @property bool readonly
  * @property string contentEncoding
@@ -23,9 +22,8 @@ class HyperSchema extends PPModel
 {
     /**
      * Sets Links
-     * 
      *
-     * @param \PayPal\Api\Links $links
+     * @param \PayPal\Api\Links[] $links
      * 
      * @return $this
      */
@@ -46,8 +44,37 @@ class HyperSchema extends PPModel
     }
 
     /**
+     * Append Links to the list.
+     *
+     * @param \PayPal\Api\Links $links
+     * @return $this
+     */
+    public function addLink($links)
+    {
+        if (!$this->getLinks()) {
+            return $this->setLinks(array($links));
+        } else {
+            return $this->setLinks(
+                array_merge($this->getLinks(), array($links))
+            );
+        }
+    }
+
+    /**
+     * Remove Links from the list.
+     *
+     * @param \PayPal\Api\Links $links
+     * @return $this
+     */
+    public function removeLink($links)
+    {
+        return $this->setLinks(
+            array_diff($this->getLinks(), array($links))
+        );
+    }
+
+    /**
      * Sets FragmentResolution
-     * 
      *
      * @param string $fragmentResolution
      * 
@@ -71,7 +98,6 @@ class HyperSchema extends PPModel
 
     /**
      * Sets Readonly
-     * 
      *
      * @param bool $readonly
      * 
@@ -95,7 +121,6 @@ class HyperSchema extends PPModel
 
     /**
      * Sets ContentEncoding
-     * 
      *
      * @param string $contentEncoding
      * 
@@ -119,7 +144,6 @@ class HyperSchema extends PPModel
 
     /**
      * Sets PathStart
-     * 
      *
      * @param string $pathStart
      * 
@@ -143,7 +167,6 @@ class HyperSchema extends PPModel
 
     /**
      * Sets MediaType
-     * 
      *
      * @param string $mediaType
      * 

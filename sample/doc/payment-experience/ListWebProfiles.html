@@ -15,9 +15,9 @@ static <code>get_list</code> method on the WebProfile class.
 }
 <span class="hljs-variable">$result</span> = <span class="hljs-string">''</span>;
 <span class="hljs-keyword">foreach</span> (<span class="hljs-variable">$list</span> <span class="hljs-keyword">as</span> <span class="hljs-variable">$object</span>) {
-    <span class="hljs-variable">$result</span> .= <span class="hljs-variable">$object</span>-&gt;toJSON(128) . PHP_EOL;
+    <span class="hljs-variable">$result</span> .= <span class="hljs-variable">$object</span>-&gt;toJSON(<span class="hljs-number">128</span>) . PHP_EOL;
 }
 
-print_result(<span class="hljs-string">"Get List of All Web Profiles"</span>, <span class="hljs-string">"Web Profiles"</span>, <span class="hljs-keyword">null</span>, <span class="hljs-variable">$result</span>);
+ResultPrinter::printResult(<span class="hljs-string">"Get List of All Web Profiles"</span>, <span class="hljs-string">"Web Profiles"</span>, <span class="hljs-keyword">null</span>, <span class="hljs-keyword">null</span>, <span class="hljs-variable">$result</span>);
 
 <span class="hljs-keyword">return</span> <span class="hljs-variable">$list</span>;</div></div></div></div></body></html>

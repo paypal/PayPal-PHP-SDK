@@ -8,6 +8,393 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
     {
       "type": "folder",
       "data": {
+        "path": "billing",
+        "title": "billing"
+      },
+      "depth": 1,
+      "children": [
+        {
+          "type": "file",
+          "data": {
+            "language": {
+              "nameMatchers": [{}, ".fbp"],
+              "pygmentsLexer": "php",
+              "singleLineComment": ["//"],
+              "ignorePrefix": "}",
+              "foldPrefix": "^",
+              "name": "PHP"
+            },
+            "sourcePath": "/Users/japatel/Documents/workspace/Server-SDK/rest-api-sdk-php/sample/billing/CreateBillingAgreementWithCreditCard.php",
+            "projectPath": "billing/CreateBillingAgreementWithCreditCard.php",
+            "targetPath": "billing/CreateBillingAgreementWithCreditCard",
+            "pageTitle": "billing/CreateBillingAgreementWithCreditCard",
+            "title": "CreateBillingAgreementWithCreditCard"
+          },
+          "depth": 2,
+          "outline": [
+            {
+              "type": "heading",
+              "data": {
+                "level": 1,
+                "title": "Create Billing Agreement with Credit Card as Payment Source",
+                "slug": "create-billing-agreement-with-credit-card-as-payment-source"
+              },
+              "depth": 1,
+              "children": [
+                {
+                  "type": "heading",
+                  "data": {
+                    "level": 3,
+                    "title": "Create Agreement",
+                    "slug": "create-agreement"
+                  },
+                  "depth": 3
+                }
+              ]
+            }
+          ]
+        }, {
+          "type": "file",
+          "data": {
+            "language": {
+              "nameMatchers": [{}, ".fbp"],
+              "pygmentsLexer": "php",
+              "singleLineComment": ["//"],
+              "ignorePrefix": "}",
+              "foldPrefix": "^",
+              "name": "PHP"
+            },
+            "sourcePath": "/Users/japatel/Documents/workspace/Server-SDK/rest-api-sdk-php/sample/billing/CreateBillingAgreementWithPayPal.php",
+            "projectPath": "billing/CreateBillingAgreementWithPayPal.php",
+            "targetPath": "billing/CreateBillingAgreementWithPayPal",
+            "pageTitle": "billing/CreateBillingAgreementWithPayPal",
+            "title": "CreateBillingAgreementWithPayPal"
+          },
+          "depth": 2,
+          "outline": [
+            {
+              "type": "heading",
+              "data": {
+                "level": 1,
+                "title": "Create Billing Agreement with PayPal as Payment Source",
+                "slug": "create-billing-agreement-with-paypal-as-payment-source"
+              },
+              "depth": 1,
+              "children": [
+                {
+                  "type": "heading",
+                  "data": {
+                    "level": 3,
+                    "title": "Create Agreement",
+                    "slug": "create-agreement"
+                  },
+                  "depth": 3
+                }, {
+                  "type": "heading",
+                  "data": {
+                    "level": 3,
+                    "title": "Get redirect url",
+                    "slug": "get-redirect-url"
+                  },
+                  "depth": 3
+                }
+              ]
+            }
+          ]
+        }, {
+          "type": "file",
+          "data": {
+            "language": {
+              "nameMatchers": [{}, ".fbp"],
+              "pygmentsLexer": "php",
+              "singleLineComment": ["//"],
+              "ignorePrefix": "}",
+              "foldPrefix": "^",
+              "name": "PHP"
+            },
+            "sourcePath": "/Users/japatel/Documents/workspace/Server-SDK/rest-api-sdk-php/sample/billing/CreatePlan.php",
+            "projectPath": "billing/CreatePlan.php",
+            "targetPath": "billing/CreatePlan",
+            "pageTitle": "billing/CreatePlan",
+            "title": "CreatePlan"
+          },
+          "depth": 2,
+          "outline": [
+            {
+              "type": "heading",
+              "data": {
+                "level": 1,
+                "title": "Create Plan Sample",
+                "slug": "create-plan-sample"
+              },
+              "depth": 1
+            }, {
+              "type": "heading",
+              "data": {
+                "level": 1,
+                "title": "Basic Information",
+                "slug": "basic-information"
+              },
+              "depth": 1
+            }, {
+              "type": "heading",
+              "data": {
+                "level": 1,
+                "title": "Payment definitions for this billing plan.",
+                "slug": "payment-definitions-for-this-billing-plan"
+              },
+              "depth": 1,
+              "children": [
+                {
+                  "type": "heading",
+                  "data": {
+                    "level": 3,
+                    "title": "Create Plan",
+                    "slug": "create-plan"
+                  },
+                  "depth": 3
+                }
+              ]
+            }
+          ]
+        }, {
+          "type": "file",
+          "data": {
+            "language": {
+              "nameMatchers": [{}, ".fbp"],
+              "pygmentsLexer": "php",
+              "singleLineComment": ["//"],
+              "ignorePrefix": "}",
+              "foldPrefix": "^",
+              "name": "PHP"
+            },
+            "sourcePath": "/Users/japatel/Documents/workspace/Server-SDK/rest-api-sdk-php/sample/billing/ExecuteAgreement.php",
+            "projectPath": "billing/ExecuteAgreement.php",
+            "targetPath": "billing/ExecuteAgreement",
+            "pageTitle": "billing/ExecuteAgreement",
+            "title": "ExecuteAgreement"
+          },
+          "depth": 2,
+          "outline": []
+        }, {
+          "type": "file",
+          "data": {
+            "language": {
+              "nameMatchers": [{}, ".fbp"],
+              "pygmentsLexer": "php",
+              "singleLineComment": ["//"],
+              "ignorePrefix": "}",
+              "foldPrefix": "^",
+              "name": "PHP"
+            },
+            "sourcePath": "/Users/japatel/Documents/workspace/Server-SDK/rest-api-sdk-php/sample/billing/GetBillingAgreement.php",
+            "projectPath": "billing/GetBillingAgreement.php",
+            "targetPath": "billing/GetBillingAgreement",
+            "pageTitle": "billing/GetBillingAgreement",
+            "title": "GetBillingAgreement"
+          },
+          "depth": 2,
+          "outline": [
+            {
+              "type": "heading",
+              "data": {
+                "level": 1,
+                "title": "Get Billing Agreement Sample",
+                "slug": "get-billing-agreement-sample"
+              },
+              "depth": 1
+            }
+          ]
+        }, {
+          "type": "file",
+          "data": {
+            "language": {
+              "nameMatchers": [{}, ".fbp"],
+              "pygmentsLexer": "php",
+              "singleLineComment": ["//"],
+              "ignorePrefix": "}",
+              "foldPrefix": "^",
+              "name": "PHP"
+            },
+            "sourcePath": "/Users/japatel/Documents/workspace/Server-SDK/rest-api-sdk-php/sample/billing/GetPlan.php",
+            "projectPath": "billing/GetPlan.php",
+            "targetPath": "billing/GetPlan",
+            "pageTitle": "billing/GetPlan",
+            "title": "GetPlan"
+          },
+          "depth": 2,
+          "outline": [
+            {
+              "type": "heading",
+              "data": {
+                "level": 1,
+                "title": "Get Plan Sample",
+                "slug": "get-plan-sample"
+              },
+              "depth": 1
+            }
+          ]
+        }, {
+          "type": "file",
+          "data": {
+            "language": {
+              "nameMatchers": [{}, ".fbp"],
+              "pygmentsLexer": "php",
+              "singleLineComment": ["//"],
+              "ignorePrefix": "}",
+              "foldPrefix": "^",
+              "name": "PHP"
+            },
+            "sourcePath": "/Users/japatel/Documents/workspace/Server-SDK/rest-api-sdk-php/sample/billing/ListPlans.php",
+            "projectPath": "billing/ListPlans.php",
+            "targetPath": "billing/ListPlans",
+            "pageTitle": "billing/ListPlans",
+            "title": "ListPlans"
+          },
+          "depth": 2,
+          "outline": [
+            {
+              "type": "heading",
+              "data": {
+                "level": 1,
+                "title": "Get List of Plan Sample",
+                "slug": "get-list-of-plan-sample"
+              },
+              "depth": 1
+            }
+          ]
+        }, {
+          "type": "file",
+          "data": {
+            "language": {
+              "nameMatchers": [{}, ".fbp"],
+              "pygmentsLexer": "php",
+              "singleLineComment": ["//"],
+              "ignorePrefix": "}",
+              "foldPrefix": "^",
+              "name": "PHP"
+            },
+            "sourcePath": "/Users/japatel/Documents/workspace/Server-SDK/rest-api-sdk-php/sample/billing/ReactivateBillingAgreement.php",
+            "projectPath": "billing/ReactivateBillingAgreement.php",
+            "targetPath": "billing/ReactivateBillingAgreement",
+            "pageTitle": "billing/ReactivateBillingAgreement",
+            "title": "ReactivateBillingAgreement"
+          },
+          "depth": 2,
+          "outline": [
+            {
+              "type": "heading",
+              "data": {
+                "level": 1,
+                "title": "Reactivate an agreement",
+                "slug": "reactivate-an-agreement"
+              },
+              "depth": 1
+            }
+          ]
+        }, {
+          "type": "file",
+          "data": {
+            "language": {
+              "nameMatchers": [{}, ".fbp"],
+              "pygmentsLexer": "php",
+              "singleLineComment": ["//"],
+              "ignorePrefix": "}",
+              "foldPrefix": "^",
+              "name": "PHP"
+            },
+            "sourcePath": "/Users/japatel/Documents/workspace/Server-SDK/rest-api-sdk-php/sample/billing/SuspendBillingAgreement.php",
+            "projectPath": "billing/SuspendBillingAgreement.php",
+            "targetPath": "billing/SuspendBillingAgreement",
+            "pageTitle": "billing/SuspendBillingAgreement",
+            "title": "SuspendBillingAgreement"
+          },
+          "depth": 2,
+          "outline": [
+            {
+              "type": "heading",
+              "data": {
+                "level": 1,
+                "title": "Suspend an agreement",
+                "slug": "suspend-an-agreement"
+              },
+              "depth": 1
+            }
+          ]
+        }, {
+          "type": "file",
+          "data": {
+            "language": {
+              "nameMatchers": [{}, ".fbp"],
+              "pygmentsLexer": "php",
+              "singleLineComment": ["//"],
+              "ignorePrefix": "}",
+              "foldPrefix": "^",
+              "name": "PHP"
+            },
+            "sourcePath": "/Users/japatel/Documents/workspace/Server-SDK/rest-api-sdk-php/sample/billing/UpdateBillingAgreement.php",
+            "projectPath": "billing/UpdateBillingAgreement.php",
+            "targetPath": "billing/UpdateBillingAgreement",
+            "pageTitle": "billing/UpdateBillingAgreement",
+            "title": "UpdateBillingAgreement"
+          },
+          "depth": 2,
+          "outline": [
+            {
+              "type": "heading",
+              "data": {
+                "level": 1,
+                "title": "Update an agreement",
+                "slug": "update-an-agreement"
+              },
+              "depth": 1
+            }
+          ]
+        }, {
+          "type": "file",
+          "data": {
+            "language": {
+              "nameMatchers": [{}, ".fbp"],
+              "pygmentsLexer": "php",
+              "singleLineComment": ["//"],
+              "ignorePrefix": "}",
+              "foldPrefix": "^",
+              "name": "PHP"
+            },
+            "sourcePath": "/Users/japatel/Documents/workspace/Server-SDK/rest-api-sdk-php/sample/billing/UpdatePlan.php",
+            "projectPath": "billing/UpdatePlan.php",
+            "targetPath": "billing/UpdatePlan",
+            "pageTitle": "billing/UpdatePlan",
+            "title": "UpdatePlan"
+          },
+          "depth": 2,
+          "outline": [
+            {
+              "type": "heading",
+              "data": {
+                "level": 1,
+                "title": "Update a plan",
+                "slug": "update-a-plan"
+              },
+              "depth": 1,
+              "children": [
+                {
+                  "type": "heading",
+                  "data": {
+                    "level": 3,
+                    "title": "Making Plan Active",
+                    "slug": "making-plan-active"
+                  },
+                  "depth": 3
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }, {
+      "type": "folder",
+      "data": {
         "path": "invoice",
         "title": "invoice"
       },

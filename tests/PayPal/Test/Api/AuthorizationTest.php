@@ -41,7 +41,7 @@ class AuthorizationTest extends \PHPUnit_Framework_TestCase
         $authorization->setClearingTime(self::$clearing_time);
 
         $authorization->setAmount(AmountTest::createAmount());
-        $authorization->setLinks(array(LinksTest::createLinks()));
+        $authorization->setLinks(array(LinksTest::getObject()));
 
         return $authorization;
     }

@@ -41,7 +41,9 @@ class PPConfigManager
             $configFile = implode(DIRECTORY_SEPARATOR,
                 array(dirname(__FILE__), "..", "config", "sdk_config.ini"));
         }
-        $this->addConfigFromIni($configFile);
+        if (file_exists($configFile)) {
+            $this->addConfigFromIni($configFile);
+        }
     }
 
     /**
@@ -65,7 +67,7 @@ class PPConfigManager
      */
     public function addConfigFromIni($fileName)
     {
-        if ($configs = @parse_ini_file($fileName)) {
+        if ($configs = parse_ini_file($fileName)) {
             $this->addConfigs($configs);
         }
         return $this;

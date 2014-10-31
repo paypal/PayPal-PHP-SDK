@@ -3,7 +3,6 @@
 namespace PayPal\Api;
 
 use PayPal\Common\PPModel;
-use PayPal\Rest\ApiContext;
 
 /**
  * Class CreditCardToken
@@ -23,7 +22,6 @@ class CreditCardToken extends PPModel
 {
     /**
      * ID of a previously saved Credit Card resource using /vault/credit-card API.
-     * 
      *
      * @param string $credit_card_id
      * 
@@ -72,7 +70,6 @@ class CreditCardToken extends PPModel
 
     /**
      * The unique identifier of the payer used when saving this credit card using /vault/credit-card API.
-     * 
      *
      * @param string $payer_id
      * 
@@ -121,7 +118,6 @@ class CreditCardToken extends PPModel
 
     /**
      * Last 4 digits of the card number from the saved card.
-     * 
      *
      * @param string $last4
      * 
@@ -145,7 +141,6 @@ class CreditCardToken extends PPModel
 
     /**
      * Type of the Card (eg. visa, mastercard, etc.) from the saved card. Please note that the values are always in lowercase and not meant to be used directly for display.
-     * 
      *
      * @param string $type
      * 
@@ -168,8 +163,7 @@ class CreditCardToken extends PPModel
     }
 
     /**
-     * card expiry month from the saved card with value 1 - 12
-     * 
+     * Expiry month from the saved card, represented as 1 - 12.
      *
      * @param int $expire_month
      * 
@@ -182,7 +176,7 @@ class CreditCardToken extends PPModel
     }
 
     /**
-     * card expiry month from the saved card with value 1 - 12
+     * Expiry month from the saved card, represented as 1 - 12.
      *
      * @return int
      */
@@ -192,7 +186,7 @@ class CreditCardToken extends PPModel
     }
 
     /**
-     * card expiry month from the saved card with value 1 - 12
+     * Expiry month from the saved card, represented as 1 - 12.
      *
      * @deprecated Instead use setExpireMonth
      *
@@ -206,7 +200,7 @@ class CreditCardToken extends PPModel
     }
 
     /**
-     * card expiry month from the saved card with value 1 - 12
+     * Expiry month from the saved card, represented as 1 - 12.
      * @deprecated Instead use getExpireMonth
      *
      * @return int
@@ -217,8 +211,7 @@ class CreditCardToken extends PPModel
     }
 
     /**
-     * 4 digit card expiry year from the saved card
-     * 
+     * Expiry year from the saved card, represented as YYYY format.
      *
      * @param int $expire_year
      * 
@@ -231,7 +224,7 @@ class CreditCardToken extends PPModel
     }
 
     /**
-     * 4 digit card expiry year from the saved card
+     * Expiry year from the saved card, represented as YYYY format.
      *
      * @return int
      */
@@ -241,7 +234,7 @@ class CreditCardToken extends PPModel
     }
 
     /**
-     * 4 digit card expiry year from the saved card
+     * Expiry year from the saved card, represented as YYYY format.
      *
      * @deprecated Instead use setExpireYear
      *
@@ -255,7 +248,7 @@ class CreditCardToken extends PPModel
     }
 
     /**
-     * 4 digit card expiry year from the saved card
+     * Expiry year from the saved card, represented as YYYY format.
      * @deprecated Instead use getExpireYear
      *
      * @return int

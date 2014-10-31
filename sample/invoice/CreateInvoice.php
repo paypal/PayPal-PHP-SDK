@@ -93,6 +93,9 @@ $invoice->getShippingInfo()->getAddress()
     ->setPostalCode("97217")
     ->setCountryCode("US");
 
+// For Sample Purposes Only.
+$request = clone $invoice;
+
 try {
     // ### Create Invoice
     // Create an invoice by calling the invoice->create() method
@@ -103,17 +106,6 @@ try {
     var_dump($ex->getData());
     exit(1);
 }
-?>
-<html>
-<head>
-    <title>Invoice Creation</title>
-</head>
-<body>
-<div>
-    Created Invoice:
-    <?php echo $invoice->getId(); ?>
-</div>
-<pre><?php echo $invoice->toJSON(128); ?></pre>
-<a href='../index.html'>Back</a>
-</body>
-</html>
+
+ResultPrinter::printResult("Invoice Creation", "Invoice", $invoice->getId(), $request, $invoice);
+

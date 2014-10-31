@@ -3,7 +3,6 @@
 namespace PayPal\Api;
 
 use PayPal\Common\PPModel;
-use PayPal\Rest\ApiContext;
 
 /**
  * Class Address
@@ -24,7 +23,6 @@ class Address extends PPModel
 {
     /**
      * Line 1 of the Address (eg. number, street, etc).
-     * 
      *
      * @param string $line1
      * 
@@ -48,7 +46,6 @@ class Address extends PPModel
 
     /**
      * Optional line 2 of the Address (eg. suite, apt #, etc.).
-     * 
      *
      * @param string $line2
      * 
@@ -72,7 +69,6 @@ class Address extends PPModel
 
     /**
      * City name.
-     * 
      *
      * @param string $city
      * 
@@ -96,7 +92,6 @@ class Address extends PPModel
 
     /**
      * 2 letter country code.
-     * 
      *
      * @param string $country_code
      * 
@@ -145,7 +140,6 @@ class Address extends PPModel
 
     /**
      * Zip code or equivalent is usually required for countries that have them. For list of countries that do not have postal codes please refer to http://en.wikipedia.org/wiki/Postal_code.
-     * 
      *
      * @param string $postal_code
      * 
@@ -194,7 +188,6 @@ class Address extends PPModel
 
     /**
      * 2 letter code for US states, and the equivalent for other countries.
-     * 
      *
      * @param string $state
      * 
@@ -218,7 +211,6 @@ class Address extends PPModel
 
     /**
      * Phone number in E.123 format.
-     * 
      *
      * @param \PayPal\Api\Phone $phone
      * 

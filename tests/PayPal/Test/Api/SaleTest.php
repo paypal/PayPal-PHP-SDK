@@ -55,33 +55,4 @@ class SaleTest extends \PHPUnit_Framework_TestCase
 
         $this->assertEquals($s1, $s2);
     }
-
-    /**
-     * @group integration
-     */
-    public function testOperations()
-    {
-        try {
-            $payment = PaymentTest::createNewPayment();
-            $payment->create();
-
-            $transactions = $payment->getTransactions();
-            $resources = $transactions[0]->getRelatedResources();
-            $saleId = $resources[0]->getSale()->getId();
-
-            $sale = Sale::get($saleId);
-            $this->assertNotNull($sale);
-
-            $refund = new Refund();
-            $refund->setAmount(AmountTest::createAmount());
-            $sale->refund($refund);
-
-            $this->setExpectedException('\InvalidArgumentException');
-            $sale->refund(NULL);
-        } catch (PPConnectionException $ex) {
-            $this->markTestSkipped(
-                'Tests failing because of intermittent failures in Paypal Sandbox environment.' . $ex->getMessage()
-            );
-        }
-    }
 }

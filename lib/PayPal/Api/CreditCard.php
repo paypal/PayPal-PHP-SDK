@@ -2,11 +2,10 @@
 
 namespace PayPal\Api;
 
-use PayPal\Common\PPModel;
-use PayPal\Rest\ApiContext;
-use PayPal\Rest\IResource;
-use PayPal\Transport\PPRestCall;
+use PayPal\Common\ResourceModel;
 use PayPal\Validation\ArgumentValidator;
+use PayPal\Rest\ApiContext;
+use PayPal\Transport\PPRestCall;
 
 /**
  * Class CreditCard
@@ -29,31 +28,12 @@ use PayPal\Validation\ArgumentValidator;
  * @property string valid_until
  * @property string create_time
  * @property string update_time
- * @property \PayPal\Api\Links links
+ * @property \PayPal\Api\Links[] links
  */
-class CreditCard extends PPModel implements IResource
+class CreditCard extends ResourceModel
 {
     /**
-     * OAuth Credentials to use for this call
-     *
-     * @var \PayPal\Auth\OAuthTokenCredential $credential
-     */
-    protected static $credential;
-
-    /**
-     * Sets Credential
-     *
-     * @deprecated Pass ApiContext to create/get methods instead
-     * @param \PayPal\Auth\OAuthTokenCredential $credential
-     */
-    public static function setCredential($credential)
-    {
-        self::$credential = $credential;
-    }
-
-    /**
      * ID of the credit card being saved for later use.
-     * 
      *
      * @param string $id
      * 
@@ -77,7 +57,6 @@ class CreditCard extends PPModel implements IResource
 
     /**
      * Card number.
-     * 
      *
      * @param string $number
      * 
@@ -101,7 +80,6 @@ class CreditCard extends PPModel implements IResource
 
     /**
      * Type of the Card (eg. Visa, Mastercard, etc.).
-     * 
      *
      * @param string $type
      * 
@@ -125,7 +103,6 @@ class CreditCard extends PPModel implements IResource
 
     /**
      * 2 digit card expiry month.
-     * 
      *
      * @param int $expire_month
      * 
@@ -174,7 +151,6 @@ class CreditCard extends PPModel implements IResource
 
     /**
      * 4 digit card expiry year
-     * 
      *
      * @param int $expire_year
      * 
@@ -223,7 +199,6 @@ class CreditCard extends PPModel implements IResource
 
     /**
      * Card validation code. Only supported when making a Payment but not when saving a credit card for future use.
-     * 
      *
      * @param int $cvv2
      * 
@@ -247,7 +222,6 @@ class CreditCard extends PPModel implements IResource
 
     /**
      * Card holder's first name.
-     * 
      *
      * @param string $first_name
      * 
@@ -296,7 +270,6 @@ class CreditCard extends PPModel implements IResource
 
     /**
      * Card holder's last name.
-     * 
      *
      * @param string $last_name
      * 
@@ -345,7 +318,6 @@ class CreditCard extends PPModel implements IResource
 
     /**
      * Billing Address associated with this card.
-     * 
      *
      * @param \PayPal\Api\Address $billing_address
      * 
@@ -394,7 +366,6 @@ class CreditCard extends PPModel implements IResource
 
     /**
      * A unique identifier of the customer to whom this bank account belongs to. Generated and provided by the facilitator. This is required when creating or using a stored funding instrument in vault.
-     * 
      *
      * @param string $external_customer_id
      * 
@@ -443,7 +414,7 @@ class CreditCard extends PPModel implements IResource
 
     /**
      * State of the funding instrument.
-     * Valid Values: ["expired", "ok"] 
+     * Valid Values: ["expired", "ok"]
      *
      * @param string $state
      * 
@@ -467,7 +438,6 @@ class CreditCard extends PPModel implements IResource
 
     /**
      * Date/Time until this resource can be used fund a payment.
-     * 
      *
      * @param string $valid_until
      * 
@@ -516,7 +486,6 @@ class CreditCard extends PPModel implements IResource
 
     /**
      * Time the resource was created in UTC ISO8601 format.
-     * 
      *
      * @param string $create_time
      * 
@@ -564,8 +533,7 @@ class CreditCard extends PPModel implements IResource
     }
 
     /**
-     * Time the resource was last updated in UTC ISO8601 format.
-     * 
+     * Time the resource was created in UTC ISO8601 format.
      *
      * @param string $update_time
      * 
@@ -578,7 +546,7 @@ class CreditCard extends PPModel implements IResource
     }
 
     /**
-     * Time the resource was last updated in UTC ISO8601 format.
+     * Time the resource was created in UTC ISO8601 format.
      *
      * @return string
      */
@@ -588,7 +556,7 @@ class CreditCard extends PPModel implements IResource
     }
 
     /**
-     * Time the resource was last updated in UTC ISO8601 format.
+     * Time the resource was created in UTC ISO8601 format.
      *
      * @deprecated Instead use setUpdateTime
      *
@@ -602,7 +570,7 @@ class CreditCard extends PPModel implements IResource
     }
 
     /**
-     * Time the resource was last updated in UTC ISO8601 format.
+     * Time the resource was created in UTC ISO8601 format.
      * @deprecated Instead use getUpdateTime
      *
      * @return string
@@ -614,9 +582,8 @@ class CreditCard extends PPModel implements IResource
 
     /**
      * Sets Links
-     * 
      *
-     * @param \PayPal\Api\Links $links
+     * @param \PayPal\Api\Links[] $links
      * 
      * @return $this
      */
@@ -637,20 +604,53 @@ class CreditCard extends PPModel implements IResource
     }
 
     /**
+     * Append Links to the list.
+     *
+     * @param \PayPal\Api\Links $links
+     * @return $this
+     */
+    public function addLink($links)
+    {
+        if (!$this->getLinks()) {
+            return $this->setLinks(array($links));
+        } else {
+            return $this->setLinks(
+                array_merge($this->getLinks(), array($links))
+            );
+        }
+    }
+
+    /**
+     * Remove Links from the list.
+     *
+     * @param \PayPal\Api\Links $links
+     * @return $this
+     */
+    public function removeLink($links)
+    {
+        return $this->setLinks(
+            array_diff($this->getLinks(), array($links))
+        );
+    }
+
+    /**
      * Creates a new Credit Card Resource (aka Tokenize).
      *
-     * @param \PayPal\Rest\ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
+     * @param ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
+     * @param PPRestCall $restCall is the Rest Call Service that is used to make rest calls
      * @return CreditCard
      */
-    public function create($apiContext = null)
+    public function create($apiContext = null, $restCall = null)
     {
-
         $payLoad = $this->toJSON();
-        if ($apiContext == null) {
-            $apiContext = new ApiContext(self::$credential);
-        }
-        $call = new PPRestCall($apiContext);
-        $json = $call->execute(array('PayPal\Rest\RestHandler'), "/v1/vault/credit-card", "POST", $payLoad);
+        $json = self::executeCall(
+            "/v1/vault/credit-card",
+            "POST",
+            $payLoad,
+            null,
+            $apiContext,
+            $restCall
+        );
         $this->fromJson($json);
         return $this;
     }
@@ -659,19 +659,22 @@ class CreditCard extends PPModel implements IResource
      * Obtain the Credit Card resource for the given identifier.
      *
      * @param string $creditCardId
-     * @param \PayPal\Rest\ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
+     * @param ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
+     * @param PPRestCall $restCall is the Rest Call Service that is used to make rest calls
      * @return CreditCard
      */
-    public static function get($creditCardId, $apiContext = null)
+    public static function get($creditCardId, $apiContext = null, $restCall = null)
     {
         ArgumentValidator::validate($creditCardId, 'creditCardId');
-
         $payLoad = "";
-        if ($apiContext == null) {
-            $apiContext = new ApiContext(self::$credential);
-        }
-        $call = new PPRestCall($apiContext);
-        $json = $call->execute(array('PayPal\Rest\RestHandler'), "/v1/vault/credit-card/$creditCardId", "GET", $payLoad);
+        $json = self::executeCall(
+            "/v1/vault/credit-card/$creditCardId",
+            "GET",
+            $payLoad,
+            null,
+            $apiContext,
+            $restCall
+        );
         $ret = new CreditCard();
         $ret->fromJson($json);
         return $ret;
@@ -680,38 +683,44 @@ class CreditCard extends PPModel implements IResource
     /**
      * Delete the Credit Card resource for the given identifier.
      *
-     * @param \PayPal\Rest\ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
+     * @param ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
+     * @param PPRestCall $restCall is the Rest Call Service that is used to make rest calls
      * @return bool
      */
-    public function delete($apiContext = null)
+    public function delete($apiContext = null, $restCall = null)
     {
         ArgumentValidator::validate($this->getId(), "Id");
-
         $payLoad = "";
-        if ($apiContext == null) {
-            $apiContext = new ApiContext(self::$credential);
-        }
-        $call = new PPRestCall($apiContext);
-        $json = $call->execute(array('PayPal\Rest\RestHandler'), "/v1/vault/credit-card/{$this->getId()}", "DELETE", $payLoad);
+        self::executeCall(
+            "/v1/vault/credit-card/{$this->getId()}",
+            "DELETE",
+            $payLoad,
+            null,
+            $apiContext,
+            $restCall
+        );
         return true;
     }
 
     /**
      * Update information in a previously saved card. Only the modified fields need to be passed in the request.
      *
-     * @param \PayPal\Rest\ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
+     * @param ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
+     * @param PPRestCall $restCall is the Rest Call Service that is used to make rest calls
      * @return CreditCard
      */
-    public function update($apiContext = null)
+    public function update($apiContext = null, $restCall = null)
     {
         ArgumentValidator::validate($this->getId(), "Id");
-
         $payLoad = $this->toJSON();
-        if ($apiContext == null) {
-            $apiContext = new ApiContext(self::$credential);
-        }
-        $call = new PPRestCall($apiContext);
-        $json = $call->execute(array('PayPal\Rest\RestHandler'), "/v1/vault/credit-card/{$this->getId()}", "PATCH", $payLoad);
+        $json = self::executeCall(
+            "/v1/vault/credit-card/{$this->getId()}",
+            "PATCH",
+            $payLoad,
+            null,
+            $apiContext,
+            $restCall
+        );
         $this->fromJson($json);
         return $this;
     }

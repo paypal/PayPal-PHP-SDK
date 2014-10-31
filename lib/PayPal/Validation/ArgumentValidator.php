@@ -29,9 +29,9 @@ class ArgumentValidator
         ) {
             //Throw an Exception for string or array
             throw new \InvalidArgumentException("$argumentName cannot be null or empty");
-        } elseif ($argument == null) {
+        } elseif ($argument === null) {
             //Generic Exception
             throw new \InvalidArgumentException("$argumentName cannot be null");
         }
     }
-} 
+}

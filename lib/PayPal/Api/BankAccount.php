@@ -2,11 +2,10 @@
 
 namespace PayPal\Api;
 
-use PayPal\Common\PPModel;
-use PayPal\Rest\ApiContext;
-use PayPal\Rest\IResource;
-use PayPal\Transport\PPRestCall;
+use PayPal\Common\ResourceModel;
 use PayPal\Validation\ArgumentValidator;
+use PayPal\Rest\ApiContext;
+use PayPal\Transport\PPRestCall;
 
 /**
  * Class BankAccount
@@ -38,31 +37,12 @@ use PayPal\Validation\ArgumentValidator;
  * @property string create_time
  * @property string update_time
  * @property string valid_until
- * @property \PayPal\Api\Links links
+ * @property \PayPal\Api\Links[] links
  */
-class BankAccount extends PPModel implements IResource
+class BankAccount extends ResourceModel
 {
     /**
-     * OAuth Credentials to use for this call
-     *
-     * @var \PayPal\Auth\OAuthTokenCredential $credential
-     */
-    protected static $credential;
-
-    /**
-     * Sets Credential
-     *
-     * @deprecated Pass ApiContext to create/get methods instead
-     * @param \PayPal\Auth\OAuthTokenCredential $credential
-     */
-    public static function setCredential($credential)
-    {
-        self::$credential = $credential;
-    }
-
-    /**
      * ID of the bank account being saved for later use.
-     * 
      *
      * @param string $id
      * 
@@ -86,7 +66,6 @@ class BankAccount extends PPModel implements IResource
 
     /**
      * Account number in either IBAN (max length 34) or BBAN (max length 17) format.
-     * 
      *
      * @param string $account_number
      * 
@@ -135,7 +114,7 @@ class BankAccount extends PPModel implements IResource
 
     /**
      * Type of the bank account number (International or Basic Bank Account Number). For more information refer to http://en.wikipedia.org/wiki/International_Bank_Account_Number.
-     * Valid Values: ["BBAN", "IBAN"] 
+     * Valid Values: ["BBAN", "IBAN"]
      *
      * @param string $account_number_type
      * 
@@ -184,7 +163,6 @@ class BankAccount extends PPModel implements IResource
 
     /**
      * Routing transit number (aka Bank Code) of the bank (typically for domestic use only - for international use, IBAN includes bank code). For more information refer to http://en.wikipedia.org/wiki/Bank_code.
-     * 
      *
      * @param string $routing_number
      * 
@@ -233,7 +211,7 @@ class BankAccount extends PPModel implements IResource
 
     /**
      * Type of the bank account.
-     * Valid Values: ["CHECKING", "SAVINGS"] 
+     * Valid Values: ["CHECKING", "SAVINGS"]
      *
      * @param string $account_type
      * 
@@ -282,7 +260,6 @@ class BankAccount extends PPModel implements IResource
 
     /**
      * A customer designated name.
-     * 
      *
      * @param string $account_name
      * 
@@ -331,7 +308,7 @@ class BankAccount extends PPModel implements IResource
 
     /**
      * Type of the check when this information was obtained through a check by the facilitator or merchant.
-     * Valid Values: ["PERSONAL", "COMPANY"] 
+     * Valid Values: ["PERSONAL", "COMPANY"]
      *
      * @param string $check_type
      * 
@@ -380,7 +357,7 @@ class BankAccount extends PPModel implements IResource
 
     /**
      * How the check was obtained from the customer, if check was the source of the information provided.
-     * Valid Values: ["CCD", "PPD", "TEL", "POP", "ARC", "RCK", "WEB"] 
+     * Valid Values: ["CCD", "PPD", "TEL", "POP", "ARC", "RCK", "WEB"]
      *
      * @param string $auth_type
      * 
@@ -429,7 +406,6 @@ class BankAccount extends PPModel implements IResource
 
     /**
      * Time at which the authorization (or check) was captured. Use this field if the user authorization needs to be captured due to any privacy requirements.
-     * 
      *
      * @param string $auth_capture_timestamp
      * 
@@ -478,7 +454,6 @@ class BankAccount extends PPModel implements IResource
 
     /**
      * Name of the bank.
-     * 
      *
      * @param string $bank_name
      * 
@@ -527,7 +502,6 @@ class BankAccount extends PPModel implements IResource
 
     /**
      * 2 letter country code of the Bank.
-     * 
      *
      * @param string $country_code
      * 
@@ -576,7 +550,6 @@ class BankAccount extends PPModel implements IResource
 
     /**
      * Account holder's first name.
-     * 
      *
      * @param string $first_name
      * 
@@ -625,7 +598,6 @@ class BankAccount extends PPModel implements IResource
 
     /**
      * Account holder's last name.
-     * 
      *
      * @param string $last_name
      * 
@@ -674,7 +646,6 @@ class BankAccount extends PPModel implements IResource
 
     /**
      * Birth date of the bank account holder.
-     * 
      *
      * @param string $birth_date
      * 
@@ -723,7 +694,6 @@ class BankAccount extends PPModel implements IResource
 
     /**
      * Billing address.
-     * 
      *
      * @param \PayPal\Api\Address $billing_address
      * 
@@ -772,7 +742,7 @@ class BankAccount extends PPModel implements IResource
 
     /**
      * State of this funding instrument.
-     * Valid Values: ["ACTIVE", "INACTIVE", "DELETED"] 
+     * Valid Values: ["ACTIVE", "INACTIVE", "DELETED"]
      *
      * @param string $state
      * 
@@ -796,7 +766,7 @@ class BankAccount extends PPModel implements IResource
 
     /**
      * Confirmation status of a bank account.
-     * Valid Values: ["UNCONFIRMED", "CONFIRMED"] 
+     * Valid Values: ["UNCONFIRMED", "CONFIRMED"]
      *
      * @param string $confirmation_status
      * 
@@ -845,7 +815,6 @@ class BankAccount extends PPModel implements IResource
 
     /**
      * Deprecated - Use external_customer_id instead.
-     * 
      *
      * @param string $payer_id
      * 
@@ -894,7 +863,6 @@ class BankAccount extends PPModel implements IResource
 
     /**
      * A unique identifier of the customer to whom this bank account belongs to. Generated and provided by the facilitator. This is required when creating or using a stored funding instrument in vault.
-     * 
      *
      * @param string $external_customer_id
      * 
@@ -943,7 +911,6 @@ class BankAccount extends PPModel implements IResource
 
     /**
      * A unique identifier of the merchant for which this bank account has been stored for. Generated and provided by the facilitator so it can be used to restrict the usage of the bank account to the specific merchnt.
-     * 
      *
      * @param string $merchant_id
      * 
@@ -992,7 +959,6 @@ class BankAccount extends PPModel implements IResource
 
     /**
      * Time the resource was created.
-     * 
      *
      * @param string $create_time
      * 
@@ -1041,7 +1007,6 @@ class BankAccount extends PPModel implements IResource
 
     /**
      * Time the resource was last updated.
-     * 
      *
      * @param string $update_time
      * 
@@ -1090,7 +1055,6 @@ class BankAccount extends PPModel implements IResource
 
     /**
      * Date/Time until this resource can be used to fund a payment.
-     * 
      *
      * @param string $valid_until
      * 
@@ -1139,9 +1103,8 @@ class BankAccount extends PPModel implements IResource
 
     /**
      * Sets Links
-     * 
      *
-     * @param \PayPal\Api\Links $links
+     * @param \PayPal\Api\Links[] $links
      * 
      * @return $this
      */
@@ -1162,20 +1125,53 @@ class BankAccount extends PPModel implements IResource
     }
 
     /**
+     * Append Links to the list.
+     *
+     * @param \PayPal\Api\Links $links
+     * @return $this
+     */
+    public function addLink($links)
+    {
+        if (!$this->getLinks()) {
+            return $this->setLinks(array($links));
+        } else {
+            return $this->setLinks(
+                array_merge($this->getLinks(), array($links))
+            );
+        }
+    }
+
+    /**
+     * Remove Links from the list.
+     *
+     * @param \PayPal\Api\Links $links
+     * @return $this
+     */
+    public function removeLink($links)
+    {
+        return $this->setLinks(
+            array_diff($this->getLinks(), array($links))
+        );
+    }
+
+    /**
      * Creates a new Bank Account Resource.
      *
-     * @param \PayPal\Rest\ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
+     * @param ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
+     * @param PPRestCall $restCall is the Rest Call Service that is used to make rest calls
      * @return BankAccount
      */
-    public function create($apiContext = null)
+    public function create($apiContext = null, $restCall = null)
     {
-
         $payLoad = $this->toJSON();
-        if ($apiContext == null) {
-            $apiContext = new ApiContext(self::$credential);
-        }
-        $call = new PPRestCall($apiContext);
-        $json = $call->execute(array('PayPal\Rest\RestHandler'), "/v1/vault/bank-accounts", "POST", $payLoad);
+        $json = self::executeCall(
+            "/v1/vault/bank-accounts",
+            "POST",
+            $payLoad,
+            null,
+            $apiContext,
+            $restCall
+        );
         $this->fromJson($json);
         return $this;
     }
@@ -1184,19 +1180,22 @@ class BankAccount extends PPModel implements IResource
      * Obtain the Bank Account resource for the given identifier.
      *
      * @param string $bankAccountId
-     * @param \PayPal\Rest\ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
+     * @param ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
+     * @param PPRestCall $restCall is the Rest Call Service that is used to make rest calls
      * @return BankAccount
      */
-    public static function get($bankAccountId, $apiContext = null)
+    public static function get($bankAccountId, $apiContext = null, $restCall = null)
     {
         ArgumentValidator::validate($bankAccountId, 'bankAccountId');
-
         $payLoad = "";
-        if ($apiContext == null) {
-            $apiContext = new ApiContext(self::$credential);
-        }
-        $call = new PPRestCall($apiContext);
-        $json = $call->execute(array('PayPal\Rest\RestHandler'), "/v1/vault/bank-accounts/$bankAccountId", "GET", $payLoad);
+        $json = self::executeCall(
+            "/v1/vault/bank-accounts/$bankAccountId",
+            "GET",
+            $payLoad,
+            null,
+            $apiContext,
+            $restCall
+        );
         $ret = new BankAccount();
         $ret->fromJson($json);
         return $ret;
@@ -1205,38 +1204,46 @@ class BankAccount extends PPModel implements IResource
     /**
      * Delete the bank account resource for the given identifier.
      *
-     * @param \PayPal\Rest\ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
+     * @param ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
+     * @param PPRestCall $restCall is the Rest Call Service that is used to make rest calls
      * @return bool
      */
-    public function delete($apiContext = null)
+    public function delete($apiContext = null, $restCall = null)
     {
         ArgumentValidator::validate($this->getId(), "Id");
-
         $payLoad = "";
-        if ($apiContext == null) {
-            $apiContext = new ApiContext(self::$credential);
-        }
-        $call = new PPRestCall($apiContext);
-        $json = $call->execute(array('PayPal\Rest\RestHandler'), "/v1/vault/bank-accounts/{$this->getId()}", "DELETE", $payLoad);
+        self::executeCall(
+            "/v1/vault/bank-accounts/{$this->getId()}",
+            "DELETE",
+            $payLoad,
+            null,
+            $apiContext,
+            $restCall
+        );
         return true;
     }
 
     /**
      * Update information in a previously saved bank account. Only the modified fields need to be passed in the request.
      *
-     * @param \PayPal\Rest\ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
+     * @param PatchRequest $patchRequest
+     * @param ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
+     * @param PPRestCall $restCall is the Rest Call Service that is used to make rest calls
      * @return BankAccount
      */
-    public function update($apiContext = null)
+    public function update($patchRequest, $apiContext = null, $restCall = null)
     {
         ArgumentValidator::validate($this->getId(), "Id");
-
-        $payLoad = "";
-        if ($apiContext == null) {
-            $apiContext = new ApiContext(self::$credential);
-        }
-        $call = new PPRestCall($apiContext);
-        $json = $call->execute(array('PayPal\Rest\RestHandler'), "/v1/vault/bank-accounts/{$this->getId()}", "PATCH", $payLoad);
+        ArgumentValidator::validate($patchRequest, 'patchRequest');
+        $payLoad = $patchRequest->toJSON();
+        $json = self::executeCall(
+            "/v1/vault/bank-accounts/{$this->getId()}",
+            "PATCH",
+            $payLoad,
+            null,
+            $apiContext,
+            $restCall
+        );
         $this->fromJson($json);
         return $this;
     }

@@ -19,14 +19,4 @@ try {
     var_dump($ex->getData());
     exit(1);
 }
-?>
-<html>
-<head>
-	<title>Lookup invoice history</title>
-</head>
-<body>
-	<div>Got invoices </div>
-	<pre><?php echo $invoices->toJSON(128); ?></pre>
-	<a href='../index.html'>Back</a>
-</body>
-</html>
+ResultPrinter::printResult("Lookup Invoice History", "Invoice", null, null, $invoices);

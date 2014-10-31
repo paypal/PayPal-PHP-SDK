@@ -1,5 +1,9 @@
 PayPal PHP SDK release notes
 ============================
+v0.14.0
+----
+* Enabled Billing Plans and Agreements APIs
+* Renamed SDK name to PayPal-PHP-SDK
 
 v0.13.2
 ----

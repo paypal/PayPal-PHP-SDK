@@ -27,14 +27,4 @@ try {
     exit(1);
 }
 
-?>
-<html>
-<head>
-    <title>Send Invoice</title>
-</head>
-<body>
-<div>Send Invoice:</div>
-<pre><?php echo $invoice->toJSON(128); ?></pre>
-<a href='../index.html'>Back</a>
-</body>
-</html>
+ResultPrinter::printResult("Send Invoice", "Invoice", $invoice->getId(), null, null);

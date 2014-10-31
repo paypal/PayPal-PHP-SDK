@@ -44,8 +44,8 @@ class CreditCardHistoryTest extends \PHPUnit_Framework_TestCase
     {
 
         $card = self::createCreditCard();
-        $card->setBillingAddress(AddressTest::createAddress());
-        $card->setLinks(array(LinksTest::createLinks()));
+        $card->setBillingAddress(AddressTest::getObject());
+        $card->setLinks(array(LinksTest::getObject()));
         $this->cards['full'] = $card;
 
         $card = self::createCreditCard();

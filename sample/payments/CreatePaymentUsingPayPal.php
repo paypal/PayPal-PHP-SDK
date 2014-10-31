@@ -14,7 +14,6 @@ use PayPal\Api\Payer;
 use PayPal\Api\Payment;
 use PayPal\Api\RedirectUrls;
 use PayPal\Api\Transaction;
-session_start();
 
 // ### Payer
 // A resource representing a Payer that funds a payment
@@ -111,14 +110,6 @@ foreach($payment->getLinks() as $link) {
 }
 
 // ### Redirect buyer to PayPal website
-// Save the payment id so that you can 'complete' the payment
-// once the buyer approves the payment and is redirected
-// back to your website.
-//
-// It is not a great idea to store the payment id
-// in the session. In a real world app, you may want to 
-// store the payment id in a database.
-$_SESSION['paymentId'] = $payment->getId();
 if(isset($redirectUrl)) {
 	header("Location: $redirectUrl");
 	exit;

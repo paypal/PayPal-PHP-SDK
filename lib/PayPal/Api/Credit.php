@@ -3,7 +3,6 @@
 namespace PayPal\Api;
 
 use PayPal\Common\PPModel;
-use PayPal\Rest\ApiContext;
 
 /**
  * Class Credit
@@ -20,7 +19,6 @@ class Credit extends PPModel
 {
     /**
      * Unique identifier of credit resource.
-     * 
      *
      * @param string $id
      * 
@@ -43,8 +41,8 @@ class Credit extends PPModel
     }
 
     /**
-     * specifies type of credit
-     * Valid Values: ["BILL_ME_LATER", "PAYPAL_EXTRAS_MASTERCARD", "EBAY_MASTERCARD", "PAYPAL_SMART_CONNECT"] 
+     * Specifies the type of credit.
+     * Valid Values: ["BILL_ME_LATER", "PAYPAL_EXTRAS_MASTERCARD", "EBAY_MASTERCARD", "PAYPAL_SMART_CONNECT"]
      *
      * @param string $type
      * 
@@ -57,7 +55,7 @@ class Credit extends PPModel
     }
 
     /**
-     * specifies type of credit
+     * Specifies the type of credit.
      *
      * @return string
      */
@@ -67,8 +65,7 @@ class Credit extends PPModel
     }
 
     /**
-     * URI to the associated terms
-     * 
+     * URI to the associated terms.
      *
      * @param string $terms
      * 
@@ -81,7 +78,7 @@ class Credit extends PPModel
     }
 
     /**
-     * URI to the associated terms
+     * URI to the associated terms.
      *
      * @return string
      */

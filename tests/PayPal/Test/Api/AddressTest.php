@@ -1,59 +1,108 @@
 <?php
+
 namespace PayPal\Test\Api;
 
+use PayPal\Common\PPModel;
 use PayPal\Api\Address;
 
+/**
+ * Class Address
+ *
+ * @package PayPal\Test\Api
+ */
 class AddressTest extends \PHPUnit_Framework_TestCase
 {
-
-    /** @var  Address */
-    private $address;
-
-    public static $line1 = "3909 Witmer Road";
-    public static $line2 = "Niagara Falls";
-    public static $city = "Niagara Falls";
-    public static $state = "NY";
-    public static $postalCode = "14305";
-    public static $countryCode = "US";
-    public static $phone = "716-298-1822";
-    public static $type = "Billing";
-
-    public static function createAddress()
+    /**
+     * Gets Json String of Object Address
+     * @return string
+     */
+    public static function getJson()
     {
-        $addr = new Address();
-        $addr->setLine1(self::$line1);
-        $addr->setLine2(self::$line2);
-        $addr->setCity(self::$city);
-        $addr->setState(self::$state);
-        $addr->setPostalCode(self::$postalCode);
-        $addr->setCountryCode(self::$countryCode);
-        $addr->setPhone(self::$phone);
-        return $addr;
+        return '{"line1":"TestSample","line2":"TestSample","city":"TestSample","country_code":"TestSample","postal_code":"TestSample","state":"TestSample","phone":"TestSample"}';
     }
 
-    public function setup()
+    /**
+     * Gets Object Instance with Json data filled in
+     * @return Address
+     */
+    public static function getObject()
     {
-        $this->address = self::createAddress();
+        return new Address(self::getJson());
     }
 
-    public function testGetterSetter()
+
+    /**
+     * Tests for Serialization and Deserialization Issues
+     * @return Address
+     */
+    public function testSerializationDeserialization()
     {
-        $this->assertEquals(self::$line1, $this->address->getLine1());
-        $this->assertEquals(self::$line2, $this->address->getLine2());
-        $this->assertEquals(self::$city, $this->address->getCity());
-        $this->assertEquals(self::$state, $this->address->getState());
-        $this->assertEquals(self::$postalCode, $this->address->getPostalCode());
-        $this->assertEquals(self::$countryCode, $this->address->getCountryCode());
-        $this->assertEquals(self::$phone, $this->address->getPhone());
+        $obj = new Address(self::getJson());
+        $this->assertNotNull($obj);
+        $this->assertNotNull($obj->getLine1());
+        $this->assertNotNull($obj->getLine2());
+        $this->assertNotNull($obj->getCity());
+        $this->assertNotNull($obj->getCountryCode());
+        $this->assertNotNull($obj->getPostalCode());
+        $this->assertNotNull($obj->getState());
+        $this->assertNotNull($obj->getPhone());
+        $this->assertEquals(self::getJson(), $obj->toJson());
+        return $obj;
     }
 
-    public function testSerializeDeserialize()
+    /**
+     * @depends testSerializationDeserialization
+     * @param Address $obj
+     */
+    public function testGetters($obj)
     {
-        $a1 = $this->address;
-
-        $a2 = new Address();
-        $a2->fromJson($a1->toJson());
-
-        $this->assertEquals($a1, $a2);
+        $this->assertEquals($obj->getLine1(), "TestSample");
+        $this->assertEquals($obj->getLine2(), "TestSample");
+        $this->assertEquals($obj->getCity(), "TestSample");
+        $this->assertEquals($obj->getCountryCode(), "TestSample");
+        $this->assertEquals($obj->getPostalCode(), "TestSample");
+        $this->assertEquals($obj->getState(), "TestSample");
+        $this->assertEquals($obj->getPhone(), "TestSample");
     }
+
+    /**
+     * @depends testSerializationDeserialization
+     * @param Address $obj
+     */
+    public function testDeprecatedGetters($obj)
+    {
+        $this->assertEquals($obj->getCountry_code(), "TestSample");
+        $this->assertEquals($obj->getPostal_code(), "TestSample");
+    }
+
+    /**
+     * @depends testSerializationDeserialization
+     * @param Address $obj
+     */
+    public function testDeprecatedSetterNormalGetter($obj)
+    {
+
+        // Check for Country_code
+        $obj->setCountryCode(null);
+        $this->assertNull($obj->getCountry_code());
+        $this->assertNull($obj->getCountryCode());
+        $this->assertSame($obj->getCountryCode(), $obj->getCountry_code());
+        $obj->setCountry_code("TestSample");
+        $this->assertEquals($obj->getCountry_code(), "TestSample");
+
+        // Check for Postal_code
+        $obj->setPostalCode(null);
+        $this->assertNull($obj->getPostal_code());
+        $this->assertNull($obj->getPostalCode());
+        $this->assertSame($obj->getPostalCode(), $obj->getPostal_code());
+        $obj->setPostal_code("TestSample");
+        $this->assertEquals($obj->getPostal_code(), "TestSample");
+
+        //Test All Deprecated Getters and Normal Getters
+        $this->testDeprecatedGetters($obj);
+        $this->testGetters($obj);
+    }
+
+
+
 }

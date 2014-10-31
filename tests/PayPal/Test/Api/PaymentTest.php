@@ -26,7 +26,7 @@ class PaymentTest extends \PHPUnit_Framework_TestCase
         $payment = new Payment();
         $payment->setIntent("sale");
         $payment->setRedirectUrls($redirectUrls);
-        $payment->setPayer(PayerTest::createPayer());
+        $payment->setPayer(PayerTest::getObject());
         $payment->setTransactions(array(TransactionTest::createTransaction()));
 
         return $payment;
@@ -35,7 +35,7 @@ class PaymentTest extends \PHPUnit_Framework_TestCase
     public static function createNewPayment()
     {
 
-        $funding = FundingInstrumentTest::createFundingInstrument();
+        $funding = FundingInstrumentTest::getObject();
         $funding->credit_card_token = null;
 
         $payer = new Payer();
@@ -70,24 +70,6 @@ class PaymentTest extends \PHPUnit_Framework_TestCase
         $p2 = new Payment();
         $p2->fromJson($this->payments['full']->toJSON());
         $this->assertEquals($p2, $this->payments['full']);
-    }
-
-    /**
-     * @group integration
-     */
-    public function testOperations()
-    {
-
-        $p1 = $this->payments['new'];
-
-        $p1->create();
-        $this->assertNotNull($p1->getId());
-
-        $p2 = Payment::get($p1->getId());
-        $this->assertNotNull($p2);
-
-        $paymentHistory = Payment::all(array('count' => '10'));
-        $this->assertNotNull($paymentHistory);
     }
 
     /**

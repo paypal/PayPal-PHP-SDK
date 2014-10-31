@@ -34,4 +34,4 @@ try {
     exit(1);
 }
 
-print_result("User Information", "User Info", $userInfo->getUserId(), $userInfo->toJSON(128));
+ResultPrinter::printResult("User Information", "User Info", $userInfo->getUserId(), $params, $userInfo);

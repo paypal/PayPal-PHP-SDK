@@ -23,6 +23,6 @@ try {
     exit(1);
 }
 
-print_result("Get Web Profile", "Web Profile", $webProfile->getId(), $webProfile);
+ResultPrinter::printResult("Get Web Profile", "Web Profile", $webProfile->getId(), null, $webProfile);
 
 return $webProfile;

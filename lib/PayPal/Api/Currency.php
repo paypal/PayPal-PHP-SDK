@@ -1,15 +1,27 @@
 <?php
+
 namespace PayPal\Api;
 
 use PayPal\Common\PPModel;
-use PayPal\Rest\ApiContext;
 
+/**
+ * Class Currency
+ *
+ * Base object for all financial value related fields (balance, payment due, etc.)
+ *
+ * @package PayPal\Api
+ *
+ * @property string currency
+ * @property string value
+ */
 class Currency extends PPModel
 {
     /**
-     * 3 letter currency code
+     * 3 letter currency code as defined by ISO 4217.
      *
      * @param string $currency
+     * 
+     * @return $this
      */
     public function setCurrency($currency)
     {
@@ -18,7 +30,7 @@ class Currency extends PPModel
     }
 
     /**
-     * 3 letter currency code
+     * 3 letter currency code as defined by ISO 4217.
      *
      * @return string
      */
@@ -27,11 +39,12 @@ class Currency extends PPModel
         return $this->currency;
     }
 
-
     /**
-     * amount upto 2 decimals represented as string
+     * amount up to N digit after the decimals separator as defined in ISO 4217 for the appropriate currency code.
      *
      * @param string $value
+     * 
+     * @return $this
      */
     public function setValue($value)
     {
@@ -40,7 +53,7 @@ class Currency extends PPModel
     }
 
     /**
-     * amount upto 2 decimals represented as string
+     * amount up to N digit after the decimals separator as defined in ISO 4217 for the appropriate currency code.
      *
      * @return string
      */
@@ -48,6 +61,5 @@ class Currency extends PPModel
     {
         return $this->value;
     }
-
 
 }

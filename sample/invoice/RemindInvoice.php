@@ -41,15 +41,5 @@ try {
     exit(1);
 }
 
-?>
+ResultPrinter::printResult("Remind Invoice", "Invoice", null, $notify, null);
 
-<html>
-<head>
-    <title>Remind Invoice</title>
-</head>
-<body>
-<div>Remind Invoice:</div>
-<pre><?php echo $invoice->toJSON(128); ?></pre>
-<a href='../index.html'>Back</a>
-</body>
-</html>

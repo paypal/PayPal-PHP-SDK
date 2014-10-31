@@ -3,7 +3,6 @@
 namespace PayPal\Api;
 
 use PayPal\Common\PPModel;
-use PayPal\Rest\ApiContext;
 
 /**
  * Class PaymentCard
@@ -26,13 +25,12 @@ use PayPal\Rest\ApiContext;
  * @property string external_customer_id
  * @property string status
  * @property string valid_until
- * @property \PayPal\Api\Links links
+ * @property \PayPal\Api\Links[] links
  */
 class PaymentCard extends PPModel
 {
     /**
      * ID of the credit card being saved for later use.
-     * 
      *
      * @param string $id
      * 
@@ -56,7 +54,6 @@ class PaymentCard extends PPModel
 
     /**
      * Card number.
-     * 
      *
      * @param string $number
      * 
@@ -80,7 +77,7 @@ class PaymentCard extends PPModel
 
     /**
      * Type of the Card.
-     * Valid Values: ["VISA", "AMEX", "SOLO", "JCB", "STAR", "DELTA", "DISCOVER", "SWITCH", "MAESTRO", "CB_NATIONALE", "CONFINOGA", "COFIDIS", "ELECTRON", "CETELEM", "CHINA_UNION_PAY", "MASTERCARD"] 
+     * Valid Values: ["VISA", "AMEX", "SOLO", "JCB", "STAR", "DELTA", "DISCOVER", "SWITCH", "MAESTRO", "CB_NATIONALE", "CONFINOGA", "COFIDIS", "ELECTRON", "CETELEM", "CHINA_UNION_PAY", "MASTERCARD"]
      *
      * @param string $type
      * 
@@ -104,7 +101,6 @@ class PaymentCard extends PPModel
 
     /**
      * 2 digit card expiry month.
-     * 
      *
      * @param int $expire_month
      * 
@@ -152,8 +148,7 @@ class PaymentCard extends PPModel
     }
 
     /**
-     * 4 digit card expiry year
-     * 
+     * 4 digit card expiry year.
      *
      * @param int $expire_year
      * 
@@ -166,7 +161,7 @@ class PaymentCard extends PPModel
     }
 
     /**
-     * 4 digit card expiry year
+     * 4 digit card expiry year.
      *
      * @return int
      */
@@ -176,7 +171,7 @@ class PaymentCard extends PPModel
     }
 
     /**
-     * 4 digit card expiry year
+     * 4 digit card expiry year.
      *
      * @deprecated Instead use setExpireYear
      *
@@ -190,7 +185,7 @@ class PaymentCard extends PPModel
     }
 
     /**
-     * 4 digit card expiry year
+     * 4 digit card expiry year.
      * @deprecated Instead use getExpireYear
      *
      * @return int
@@ -202,7 +197,6 @@ class PaymentCard extends PPModel
 
     /**
      * 2 digit card start month.
-     * 
      *
      * @param int $start_month
      * 
@@ -251,7 +245,6 @@ class PaymentCard extends PPModel
 
     /**
      * 4 digit card start year.
-     * 
      *
      * @param int $start_year
      * 
@@ -299,8 +292,7 @@ class PaymentCard extends PPModel
     }
 
     /**
-     * Card validation code. Only supported when making a Payment but not when saving a payment card for future use.
-     * 
+     * Card validation code. Only supported when making a Payment, but not when saving a payment card for future use.
      *
      * @param int $cvv2
      * 
@@ -313,7 +305,7 @@ class PaymentCard extends PPModel
     }
 
     /**
-     * Card validation code. Only supported when making a Payment but not when saving a payment card for future use.
+     * Card validation code. Only supported when making a Payment, but not when saving a payment card for future use.
      *
      * @return int
      */
@@ -324,7 +316,6 @@ class PaymentCard extends PPModel
 
     /**
      * Card holder's first name.
-     * 
      *
      * @param string $first_name
      * 
@@ -373,7 +364,6 @@ class PaymentCard extends PPModel
 
     /**
      * Card holder's last name.
-     * 
      *
      * @param string $last_name
      * 
@@ -422,7 +412,6 @@ class PaymentCard extends PPModel
 
     /**
      * Billing Address associated with this card.
-     * 
      *
      * @param \PayPal\Api\Address $billing_address
      * 
@@ -470,8 +459,7 @@ class PaymentCard extends PPModel
     }
 
     /**
-     * A unique identifier of the customer to whom this card account belongs to. Generated and provided by the facilitator. This is required when creating or using a stored funding instrument in vault.
-     * 
+     * A unique identifier of the customer to whom this card account belongs. Generated and provided by the facilitator. This is required when creating or using a stored funding instrument in vault.
      *
      * @param string $external_customer_id
      * 
@@ -484,7 +472,7 @@ class PaymentCard extends PPModel
     }
 
     /**
-     * A unique identifier of the customer to whom this card account belongs to. Generated and provided by the facilitator. This is required when creating or using a stored funding instrument in vault.
+     * A unique identifier of the customer to whom this card account belongs. Generated and provided by the facilitator. This is required when creating or using a stored funding instrument in vault.
      *
      * @return string
      */
@@ -494,7 +482,7 @@ class PaymentCard extends PPModel
     }
 
     /**
-     * A unique identifier of the customer to whom this card account belongs to. Generated and provided by the facilitator. This is required when creating or using a stored funding instrument in vault.
+     * A unique identifier of the customer to whom this card account belongs. Generated and provided by the facilitator. This is required when creating or using a stored funding instrument in vault.
      *
      * @deprecated Instead use setExternalCustomerId
      *
@@ -508,7 +496,7 @@ class PaymentCard extends PPModel
     }
 
     /**
-     * A unique identifier of the customer to whom this card account belongs to. Generated and provided by the facilitator. This is required when creating or using a stored funding instrument in vault.
+     * A unique identifier of the customer to whom this card account belongs. Generated and provided by the facilitator. This is required when creating or using a stored funding instrument in vault.
      * @deprecated Instead use getExternalCustomerId
      *
      * @return string
@@ -520,7 +508,7 @@ class PaymentCard extends PPModel
 
     /**
      * State of the funding instrument.
-     * Valid Values: ["EXPIRED", "ACTIVE"] 
+     * Valid Values: ["EXPIRED", "ACTIVE"]
      *
      * @param string $status
      * 
@@ -543,8 +531,7 @@ class PaymentCard extends PPModel
     }
 
     /**
-     * Date/Time until this resource can be used fund a payment.
-     * 
+     * Date/Time until this resource can be used to fund a payment.
      *
      * @param string $valid_until
      * 
@@ -557,7 +544,7 @@ class PaymentCard extends PPModel
     }
 
     /**
-     * Date/Time until this resource can be used fund a payment.
+     * Date/Time until this resource can be used to fund a payment.
      *
      * @return string
      */
@@ -567,7 +554,7 @@ class PaymentCard extends PPModel
     }
 
     /**
-     * Date/Time until this resource can be used fund a payment.
+     * Date/Time until this resource can be used to fund a payment.
      *
      * @deprecated Instead use setValidUntil
      *
@@ -581,7 +568,7 @@ class PaymentCard extends PPModel
     }
 
     /**
-     * Date/Time until this resource can be used fund a payment.
+     * Date/Time until this resource can be used to fund a payment.
      * @deprecated Instead use getValidUntil
      *
      * @return string
@@ -593,9 +580,8 @@ class PaymentCard extends PPModel
 
     /**
      * Sets Links
-     * 
      *
-     * @param \PayPal\Api\Links $links
+     * @param \PayPal\Api\Links[] $links
      * 
      * @return $this
      */
@@ -613,6 +599,36 @@ class PaymentCard extends PPModel
     public function getLinks()
     {
         return $this->links;
+    }
+
+    /**
+     * Append Links to the list.
+     *
+     * @param \PayPal\Api\Links $links
+     * @return $this
+     */
+    public function addLink($links)
+    {
+        if (!$this->getLinks()) {
+            return $this->setLinks(array($links));
+        } else {
+            return $this->setLinks(
+                array_merge($this->getLinks(), array($links))
+            );
+        }
+    }
+
+    /**
+     * Remove Links from the list.
+     *
+     * @param \PayPal\Api\Links $links
+     * @return $this
+     */
+    public function removeLink($links)
+    {
+        return $this->setLinks(
+            array_diff($this->getLinks(), array($links))
+        );
     }
 
 }

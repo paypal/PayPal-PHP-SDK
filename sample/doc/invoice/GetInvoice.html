@@ -15,14 +15,5 @@ Invoice ID
     var_dump(<span class="hljs-variable">$ex</span>-&gt;getData());
     <span class="hljs-keyword">exit</span>(<span class="hljs-number">1</span>);
 }
-<span class="hljs-preprocessor">?&gt;</span>
-&lt;html&gt;
-&lt;head&gt;
-	&lt;title&gt;Lookup invoice details&lt;/title&gt;
-&lt;/head&gt;
-&lt;body&gt;
-	&lt;div&gt;Retrieving Invoice: <span class="hljs-preprocessor">&lt;?php</span> <span class="hljs-keyword">echo</span> <span class="hljs-variable">$invoiceId</span>;<span class="hljs-preprocessor">?&gt;</span>&lt;/div&gt;
-	&lt;pre&gt;<span class="hljs-preprocessor">&lt;?php</span> <span class="hljs-keyword">echo</span> <span class="hljs-variable">$invoice</span>-&gt;toJSON(128); <span class="hljs-preprocessor">?&gt;</span>&lt;/pre&gt;
-	&lt;a href=<span class="hljs-string">'../index.html'</span>&gt;Back&lt;/a&gt;
-&lt;/body&gt;
-&lt;/html&gt;</div></div></div></div></body></html>
+
+ResultPrinter::printResult(<span class="hljs-string">"Get Invoice"</span>, <span class="hljs-string">"Invoice"</span>, <span class="hljs-variable">$invoice</span>-&gt;getId(), <span class="hljs-variable">$invoiceId</span>, <span class="hljs-variable">$invoice</span>);</div></div></div></div></body></html>

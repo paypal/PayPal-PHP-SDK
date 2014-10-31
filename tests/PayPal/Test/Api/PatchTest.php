@@ -18,7 +18,7 @@ class PatchTest extends \PHPUnit_Framework_TestCase
      */
     public static function getJson()
     {
-        return json_encode(json_decode('{"op":"TestSample","path":"TestSample","value":"TestSampleObject","from":"TestSample"}'));
+        return '{"op":"TestSample","path":"TestSample","value":"TestSampleObject","from":"TestSample"}';
     }
 
     /**

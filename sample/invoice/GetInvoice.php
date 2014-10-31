@@ -22,14 +22,5 @@ try {
     var_dump($ex->getData());
     exit(1);
 }
-?>
-<html>
-<head>
-	<title>Lookup invoice details</title>
-</head>
-<body>
-	<div>Retrieving Invoice: <?php echo $invoiceId;?></div>
-	<pre><?php echo $invoice->toJSON(128); ?></pre>
-	<a href='../index.html'>Back</a>
-</body>
-</html>
+
+ResultPrinter::printResult("Get Invoice", "Invoice", $invoice->getId(), $invoiceId, $invoice);

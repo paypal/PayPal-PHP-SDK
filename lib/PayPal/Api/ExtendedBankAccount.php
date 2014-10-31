@@ -3,7 +3,6 @@
 namespace PayPal\Api;
 
 use PayPal\Common\PPModel;
-use PayPal\Rest\ApiContext;
 
 /**
  * Class ExtendedBankAccount
@@ -18,7 +17,6 @@ class ExtendedBankAccount extends BankAccount
 {
     /**
      * Identifier of the direct debit mandate to validate. Currently supported only for EU bank accounts(SEPA).
-     * 
      *
      * @param string $mandate_reference_number
      * 

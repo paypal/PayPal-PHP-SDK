@@ -107,7 +107,7 @@ class PPHttpConnection
             $this->logger->fine($header);
         }
 
-        $this->logger->fine("Payload : " . $data . "\n");
+        $this->logger->fine(($data && $data != '' ? "Payload : " . $data : "No Request Payload") . "\n");
         //Execute Curl Request
         $result = curl_exec($ch);
 
@@ -144,6 +144,8 @@ class PPHttpConnection
         }
         //Close the curl request
         curl_close($ch);
+
+        $this->logger->fine(($result && $result != '' ? "Response : " . $result : "No Response Body") . "\n\n");
         //More Exceptions based on HttpStatus Code
         if (in_array($httpStatus, self::$retryCodes)) {
             $ex = new PPConnectionException(
@@ -151,7 +153,6 @@ class PPHttpConnection
                 "Got Http response code $httpStatus when accessing {$this->httpConfig->getUrl()}. " .
                 "Retried $retries times."
             );
-            $this->logger->fine("Response : " . $result . "\n\n");
             $ex->setData($result);
             throw $ex;
         } else if ($httpStatus < 200 || $httpStatus >= 300) {
@@ -160,12 +161,10 @@ class PPHttpConnection
                 "Got Http response code $httpStatus when accessing {$this->httpConfig->getUrl()}.",
                 $httpStatus
             );
-            $this->logger->fine("Response : " . $result . "\n\n");
             $ex->setData($result);
             throw $ex;
         }
 
-        $this->logger->fine("Response : " . $result . "\n\n");
 
         //Return result object
         return $result;

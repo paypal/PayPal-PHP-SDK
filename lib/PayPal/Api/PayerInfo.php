@@ -3,12 +3,11 @@
 namespace PayPal\Api;
 
 use PayPal\Common\PPModel;
-use PayPal\Rest\ApiContext;
 
 /**
  * Class PayerInfo
  *
- * A resource representing a information about Payer.
+ * A resource representing information about a Payer.
  *
  * @package PayPal\Api
  *
@@ -30,7 +29,6 @@ class PayerInfo extends PPModel
 {
     /**
      * Email address representing the Payer.
-     * 
      *
      * @param string $email
      * 
@@ -54,7 +52,6 @@ class PayerInfo extends PPModel
 
     /**
      * External Remember Me id representing the Payer
-     * 
      *
      * @param string $external_remember_me_id
      * 
@@ -103,7 +100,6 @@ class PayerInfo extends PPModel
 
     /**
      * Account Number representing the Payer
-     * 
      *
      * @param string $buyer_account_number
      * 
@@ -152,7 +148,6 @@ class PayerInfo extends PPModel
 
     /**
      * First Name of the Payer.
-     * 
      *
      * @param string $first_name
      * 
@@ -201,7 +196,6 @@ class PayerInfo extends PPModel
 
     /**
      * Last Name of the Payer.
-     * 
      *
      * @param string $last_name
      * 
@@ -250,7 +244,6 @@ class PayerInfo extends PPModel
 
     /**
      * PayPal assigned Payer ID.
-     * 
      *
      * @param string $payer_id
      * 
@@ -299,7 +292,6 @@ class PayerInfo extends PPModel
 
     /**
      * Phone number representing the Payer.
-     * 
      *
      * @param string $phone
      * 
@@ -323,7 +315,7 @@ class PayerInfo extends PPModel
 
     /**
      * Phone type
-     * Valid Values: ["HOME", "WORK", "MOBILE", "OTHER"] 
+     * Valid Values: ["HOME", "WORK", "MOBILE", "OTHER"]
      *
      * @param string $phone_type
      * 
@@ -372,7 +364,6 @@ class PayerInfo extends PPModel
 
     /**
      * Birth date of the Payer in ISO8601 format (YYYY-MM-DD).
-     * 
      *
      * @param string $birth_date
      * 
@@ -421,7 +412,6 @@ class PayerInfo extends PPModel
 
     /**
      * Payer's tax ID.
-     * 
      *
      * @param string $tax_id
      * 
@@ -470,7 +460,7 @@ class PayerInfo extends PPModel
 
     /**
      * Payer's tax ID type.
-     * Valid Values: ["BR_CPF", "BR_CNPJ"] 
+     * Valid Values: ["BR_CPF", "BR_CNPJ"]
      *
      * @param string $tax_id_type
      * 
@@ -519,7 +509,6 @@ class PayerInfo extends PPModel
 
     /**
      * Billing address of the Payer.
-     * 
      *
      * @param \PayPal\Api\Address $billing_address
      * 
@@ -568,7 +557,6 @@ class PayerInfo extends PPModel
 
     /**
      * Obsolete. Use shipping address present in purchase unit.
-     * 
      *
      * @param \PayPal\Api\ShippingAddress $shipping_address
      * 

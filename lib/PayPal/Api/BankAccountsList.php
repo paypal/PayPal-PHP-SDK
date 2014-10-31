@@ -3,7 +3,6 @@
 namespace PayPal\Api;
 
 use PayPal\Common\PPModel;
-use PayPal\Rest\ApiContext;
 
 /**
  * Class BankAccountsList
@@ -12,7 +11,7 @@ use PayPal\Rest\ApiContext;
  *
  * @package PayPal\Api
  *
- * @property \PayPal\Api\BankAccount bank_accounts
+ * @property \PayPal\Api\BankAccount[] bank_accounts
  * @property int count
  * @property string next_id
  */
@@ -20,9 +19,8 @@ class BankAccountsList extends PPModel
 {
     /**
      * A list of bank account resources
-     * 
      *
-     * @param \PayPal\Api\BankAccount $bank_accounts
+     * @param \PayPal\Api\BankAccount[] $bank_accounts
      * 
      * @return $this
      */
@@ -40,6 +38,36 @@ class BankAccountsList extends PPModel
     public function getBankAccounts()
     {
         return $this->{"bank-accounts"};
+    }
+
+    /**
+     * Append BankAccounts to the list.
+     *
+     * @param \PayPal\Api\BankAccount $bankAccount
+     * @return $this
+     */
+    public function addBankAccount($bankAccount)
+    {
+        if (!$this->getBankAccounts()) {
+            return $this->setBankAccounts(array($bankAccount));
+        } else {
+            return $this->setBankAccounts(
+                array_merge($this->getBankAccounts(), array($bankAccount))
+            );
+        }
+    }
+
+    /**
+     * Remove BankAccounts from the list.
+     *
+     * @param \PayPal\Api\BankAccount $bankAccount
+     * @return $this
+     */
+    public function removeBankAccount($bankAccount)
+    {
+        return $this->setBankAccounts(
+            array_diff($this->getBankAccounts(), array($bankAccount))
+        );
     }
 
     /**
@@ -69,7 +97,6 @@ class BankAccountsList extends PPModel
 
     /**
      * Number of items returned in each range of results. Note that the last results range could have fewer items than the requested number of items.
-     * 
      *
      * @param int $count
      * 
@@ -93,7 +120,6 @@ class BankAccountsList extends PPModel
 
     /**
      * Identifier of the next element to get the next range of results.
-     * 
      *
      * @param string $next_id
      * 

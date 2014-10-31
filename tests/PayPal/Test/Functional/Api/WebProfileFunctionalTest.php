@@ -1,6 +1,6 @@
 <?php
 
-namespace PayPal\Test\Api;
+namespace PayPal\Test\Functional\Api;
 
 use PayPal\Api\Patch;
 use PayPal\Common\PPModel;

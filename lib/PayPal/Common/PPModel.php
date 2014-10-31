@@ -173,7 +173,7 @@ class PPModel
                     $this->assignValue($k, $arr);
                 }
             } else {
-                $this->$k =  $v;
+                $this->assignValue($k, $v);
             }
         }
         return $this;

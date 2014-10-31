@@ -1,6 +1,6 @@
 # REST API SDK for PHP
 
-[![Build Status](https://travis-ci.org/paypal/rest-api-sdk-php.png?branch=master)](https://travis-ci.org/paypal/rest-api-sdk-php) [![Coverage Status](https://coveralls.io/repos/paypal/rest-api-sdk-php/badge.png?branch=master)](https://coveralls.io/r/paypal/rest-api-sdk-php?branch=master) [![Latest Stable Version](https://poser.pugx.org/paypal/rest-api-sdk-php/v/stable.png)](https://packagist.org/packages/paypal/rest-api-sdk-php) [![Total Downloads](https://poser.pugx.org/paypal/rest-api-sdk-php/downloads.png)](https://packagist.org/packages/paypal/rest-api-sdk-php)
+[![Build Status](https://travis-ci.org/paypal/PayPal-PHP-SDK.png?branch=master)](https://travis-ci.org/paypal/PayPal-PHP-SDK) [![Coverage Status](https://img.shields.io/coveralls/paypal/PayPal-PHP-SDK.svg)](https://coveralls.io/r/paypal/PayPal-PHP-SDK?branch=master) [![Latest Stable Version](https://poser.pugx.org/paypal/rest-api-sdk-php/v/stable.png)](https://packagist.org/packages/paypal/rest-api-sdk-php) [![Total Downloads](https://poser.pugx.org/paypal/rest-api-sdk-php/downloads.png)](https://packagist.org/packages/paypal/rest-api-sdk-php)
 
 This repository contains PayPal's PHP SDK and samples for REST API.
 
@@ -27,7 +27,7 @@ Currently, Paypal PHP Rest API SDK is available at [https://packagist.org](https
 
 * Running `composer require paypal/rest-api-sdk-php:*` command on your project root location (where project composer.json is located.)
 
-* Or, manually editing composer.json file `require` field, and adding `"paypal\rest-api-sdk-php" :  "*"` inside it.
+* Or, manually editing composer.json file `require` field, and adding `"paypal/rest-api-sdk-php" :  "*"` inside it.
 
 The resultant sample *composer.json* would look like this:
 
@@ -49,7 +49,7 @@ The resultant sample *composer.json* would look like this:
 If you do not want to use composer, you can grab the SDK zip that contains Paypal PHP Rest API SDK with all its dependencies with it.
 
 #### Steps to Install :
-- Download zip archive with desired version from our [Releases](https://github.com/paypal/rest-api-sdk-php/releases). Each release will have a `direct-download-*.zip` that contains PHP Rest API SDK and its dependencies.
+- Download zip archive with desired version from our [Releases](https://github.com/paypal/PayPal-PHP-SDK/releases). Each release will have a `direct-download-*.zip` that contains PHP Rest API SDK and its dependencies.
 
 - Unzip and copy vendor directory inside your project, e.g. project root directory.
 
@@ -134,7 +134,7 @@ We recently introduced a validation to determine if Model Object contains all th
 
 This validation could be configured by updating the configuration settings in your sdk_config.ini file
 
-Please visit our [sample sdk_config.ini](https://github.com/paypal/rest-api-sdk-php/blob/master/sample/sdk_config.ini)
+Please visit our [sample sdk_config.ini](https://github.com/paypal/PayPal-PHP-SDK/blob/master/sample/sdk_config.ini)
 ```
 ;Validation Configuration
 [validation]
@@ -149,12 +149,12 @@ validation.level=strict
 
 The warning message would be logged into your PayPal.log file, for e.g.:
 ```
-PayPal\Validation\ModelAccessorValidator: WARNING: Missing Accessor: PayPal\Api\Payment:setFirstName . Please let us know by creating an issue at https://github.com/paypal/rest-api-sdk-php/issues
+PayPal\Validation\ModelAccessorValidator: WARNING: Missing Accessor: PayPal\Api\Payment:setFirstName . Please let us know by creating an issue at https://github.com/paypal/PayPal-PHP-SDK/issues
 ```
 
 ## Contributing
 
-* If you find solution to an [issue/improvements](https://github.com/paypal/rest-api-sdk-php/issues) in sdk that would be helpful to everyone, feel free to send us a pull request.
+* If you find solution to an [issue/improvements](https://github.com/paypal/PayPal-PHP-SDK/issues) in sdk that would be helpful to everyone, feel free to send us a pull request.
 * The ideal approach to create a fix would be to fork the repository, create a branch in your repository, and make a pull request out of it.
 * It is desirable if there is enough comments/documentation and Tests included in the pull request.
 * For general idea of contribution, please follow the guidelines mentioned [here](https://guides.github.com/activities/contributing-to-open-source/).
@@ -162,6 +162,5 @@ PayPal\Validation\ModelAccessorValidator: WARNING: Missing Accessor: PayPal\Api\
 ## More help
 
    * [API Reference](https://developer.paypal.com/webapps/developer/docs/api/)
-   * [Reporting issues / feature requests] (https://github.com/paypal/rest-api-sdk-php/issues)
+   * [Reporting issues / feature requests] (https://github.com/paypal/PayPal-PHP-SDK/issues)
    * [Pizza App Using Paypal REST API] (https://github.com/paypal/rest-api-sample-app-php)
-[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/paypal/rest-api-sample-app-php/trend.png)](https://bitdeli.com/free "Bitdeli Badge")

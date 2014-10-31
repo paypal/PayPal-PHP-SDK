@@ -69,7 +69,7 @@ detailed breakdown of invoice</p></div></div><div class="code"><div class="wrapp
     -&gt;setCity(<span class="hljs-string">"Portland"</span>)
     -&gt;setState(<span class="hljs-string">"OR"</span>)
     -&gt;setPostalCode(<span class="hljs-string">"97217"</span>)
-    -&gt;setCountryCode(<span class="hljs-string">"US"</span>);
+    -&gt;setCountryCode(<span class="hljs-string">"US"</span>);</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>For Sample Purposes Only.</p></div></div><div class="code"><div class="wrapper"><span class="hljs-variable">$request</span> = <span class="hljs-keyword">clone</span> <span class="hljs-variable">$invoice</span>;
 
 <span class="hljs-keyword">try</span> {</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><h3 id="create-invoice">Create Invoice</h3>
 <p>Create an invoice by calling the invoice-&gt;create() method
@@ -79,17 +79,5 @@ with a valid ApiContext (See bootstrap.php for more on <code>ApiContext</code>)<
     var_dump(<span class="hljs-variable">$ex</span>-&gt;getData());
     <span class="hljs-keyword">exit</span>(<span class="hljs-number">1</span>);
 }
-<span class="hljs-preprocessor">?&gt;</span>
-&lt;html&gt;
-&lt;head&gt;
-    &lt;title&gt;Invoice Creation&lt;/title&gt;
-&lt;/head&gt;
-&lt;body&gt;
-&lt;div&gt;
-    Created Invoice:
-    <span class="hljs-preprocessor">&lt;?php</span> <span class="hljs-keyword">echo</span> <span class="hljs-variable">$invoice</span>-&gt;getId(); <span class="hljs-preprocessor">?&gt;</span>
-&lt;/div&gt;
-&lt;pre&gt;<span class="hljs-preprocessor">&lt;?php</span> <span class="hljs-keyword">echo</span> <span class="hljs-variable">$invoice</span>-&gt;toJSON(128); <span class="hljs-preprocessor">?&gt;</span>&lt;/pre&gt;
-&lt;a href=<span class="hljs-string">'../index.html'</span>&gt;Back&lt;/a&gt;
-&lt;/body&gt;
-&lt;/html&gt;</div></div></div></div></body></html>
+
+ResultPrinter::printResult(<span class="hljs-string">"Invoice Creation"</span>, <span class="hljs-string">"Invoice"</span>, <span class="hljs-variable">$invoice</span>-&gt;getId(), <span class="hljs-variable">$request</span>, <span class="hljs-variable">$invoice</span>);</div></div></div></div></body></html>

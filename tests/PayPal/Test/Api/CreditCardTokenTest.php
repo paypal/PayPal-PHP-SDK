@@ -1,43 +1,124 @@
 <?php
+
 namespace PayPal\Test\Api;
 
+use PayPal\Common\PPModel;
 use PayPal\Api\CreditCardToken;
-use PayPal\Test\Constants;
 
+/**
+ * Class CreditCardToken
+ *
+ * @package PayPal\Test\Api
+ */
 class CreditCardTokenTest extends \PHPUnit_Framework_TestCase
 {
-
-    private $ccToken;
-
-    public static $payerId = "PAYER-123";
-    public static $creditCardId = "CC-123";
-
-    public static function createCreditCardToken()
+    /**
+     * Gets Json String of Object CreditCardToken
+     * @return string
+     */
+    public static function getJson()
     {
-        $ccToken = new CreditCardToken();
-        $ccToken->setPayerId(self::$payerId);
-        $ccToken->setCreditCardId(self::$creditCardId);
-        return $ccToken;
+        return '{"credit_card_id":"TestSample","payer_id":"TestSample","last4":"TestSample","type":"TestSample","expire_month":123,"expire_year":123}';
     }
 
-    public function setup()
+    /**
+     * Gets Object Instance with Json data filled in
+     * @return CreditCardToken
+     */
+    public static function getObject()
     {
-        $this->ccToken = self::createCreditCardToken();
+        return new CreditCardToken(self::getJson());
     }
 
-    public function testGetterSetter()
+
+    /**
+     * Tests for Serialization and Deserialization Issues
+     * @return CreditCardToken
+     */
+    public function testSerializationDeserialization()
     {
-        $this->assertEquals(self::$payerId, $this->ccToken->getPayerId());
-        $this->assertEquals(self::$creditCardId, $this->ccToken->getCreditCardId());
+        $obj = new CreditCardToken(self::getJson());
+        $this->assertNotNull($obj);
+        $this->assertNotNull($obj->getCreditCardId());
+        $this->assertNotNull($obj->getPayerId());
+        $this->assertNotNull($obj->getLast4());
+        $this->assertNotNull($obj->getType());
+        $this->assertNotNull($obj->getExpireMonth());
+        $this->assertNotNull($obj->getExpireYear());
+        $this->assertEquals(self::getJson(), $obj->toJson());
+        return $obj;
     }
 
-    public function testSerializeDeserialize()
+    /**
+     * @depends testSerializationDeserialization
+     * @param CreditCardToken $obj
+     */
+    public function testGetters($obj)
     {
-        $t1 = $this->ccToken;
-
-        $t2 = new CreditCardToken();
-        $t2->fromJson($t1->toJson());
-
-        $this->assertEquals($t1, $t2);
+        $this->assertEquals($obj->getCreditCardId(), "TestSample");
+        $this->assertEquals($obj->getPayerId(), "TestSample");
+        $this->assertEquals($obj->getLast4(), "TestSample");
+        $this->assertEquals($obj->getType(), "TestSample");
+        $this->assertEquals($obj->getExpireMonth(), 123);
+        $this->assertEquals($obj->getExpireYear(), 123);
     }
+
+    /**
+     * @depends testSerializationDeserialization
+     * @param CreditCardToken $obj
+     */
+    public function testDeprecatedGetters($obj)
+    {
+        $this->assertEquals($obj->getCredit_card_id(), "TestSample");
+        $this->assertEquals($obj->getPayer_id(), "TestSample");
+        $this->assertEquals($obj->getExpire_month(), 123);
+        $this->assertEquals($obj->getExpire_year(), 123);
+    }
+
+    /**
+     * @depends testSerializationDeserialization
+     * @param CreditCardToken $obj
+     */
+    public function testDeprecatedSetterNormalGetter($obj)
+    {
+
+        // Check for Credit_card_id
+        $obj->setCreditCardId(null);
+        $this->assertNull($obj->getCredit_card_id());
+        $this->assertNull($obj->getCreditCardId());
+        $this->assertSame($obj->getCreditCardId(), $obj->getCredit_card_id());
+        $obj->setCredit_card_id("TestSample");
+        $this->assertEquals($obj->getCredit_card_id(), "TestSample");
+
+        // Check for Payer_id
+        $obj->setPayerId(null);
+        $this->assertNull($obj->getPayer_id());
+        $this->assertNull($obj->getPayerId());
+        $this->assertSame($obj->getPayerId(), $obj->getPayer_id());
+        $obj->setPayer_id("TestSample");
+        $this->assertEquals($obj->getPayer_id(), "TestSample");
+
+        // Check for Expire_month
+        $obj->setExpireMonth(null);
+        $this->assertNull($obj->getExpire_month());
+        $this->assertNull($obj->getExpireMonth());
+        $this->assertSame($obj->getExpireMonth(), $obj->getExpire_month());
+        $obj->setExpire_month(123);
+        $this->assertEquals($obj->getExpire_month(), 123);
+
+        // Check for Expire_year
+        $obj->setExpireYear(null);
+        $this->assertNull($obj->getExpire_year());
+        $this->assertNull($obj->getExpireYear());
+        $this->assertSame($obj->getExpireYear(), $obj->getExpire_year());
+        $obj->setExpire_year(123);
+        $this->assertEquals($obj->getExpire_year(), 123);
+
+        //Test All Deprecated Getters and Normal Getters
+        $this->testDeprecatedGetters($obj);
+        $this->testGetters($obj);
+    }
+
+
+
 }

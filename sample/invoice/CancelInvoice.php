@@ -43,15 +43,4 @@ try {
     exit(1);
 }
 
-?>
-
-<html>
-<head>
-    <title>Cancel Invoice</title>
-</head>
-<body>
-<div>Cancel Invoice:</div>
-<pre><?php echo $invoice->toJSON(128); ?></pre>
-<a href='../index.html'>Back</a>
-</body>
-</html>
+ResultPrinter::printResult("Cancel Invoice", "Invoice", $invoice->getId(), $notify, null);

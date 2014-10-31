@@ -2,9 +2,8 @@
 
 namespace PayPal\Api;
 
-use PayPal\Common\PPModel;
+use PayPal\Common\ResourceModel;
 use PayPal\Rest\ApiContext;
-use PayPal\Rest\IResource;
 use PayPal\Api\Refund;
 use PayPal\Transport\PPRestCall;
 use PayPal\Validation\ArgumentValidator;
@@ -30,7 +29,7 @@ use PayPal\Validation\ArgumentValidator;
  * @property string parent_payment
  * @property \PayPal\Api\Links links
  */
-class Sale extends PPModel implements IResource
+class Sale extends ResourceModel
 {
     /**
      * OAuth Credentials to use for this call
@@ -592,18 +591,22 @@ class Sale extends PPModel implements IResource
      *
      * @param string $saleId
      * @param \PayPal\Rest\ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
+     * @param PPRestCall $restCall is the Rest Call Service that is used to make rest calls
      * @return Sale
      */
-    public static function get($saleId, $apiContext = null)
+    public static function get($saleId, $apiContext = null, $restCall = null)
     {
         ArgumentValidator::validate($saleId, 'saleId');
 
         $payLoad = "";
-        if ($apiContext == null) {
-            $apiContext = new ApiContext(self::$credential);
-        }
-        $call = new PPRestCall($apiContext);
-        $json = $call->execute(array('PayPal\Rest\RestHandler'), "/v1/payments/sale/$saleId", "GET", $payLoad);
+        $json = self::executeCall(
+            "/v1/payments/sale/$saleId",
+            "GET",
+            $payLoad,
+            null,
+            $apiContext,
+            $restCall
+        );
         $ret = new Sale();
         $ret->fromJson($json);
         return $ret;
@@ -614,19 +617,23 @@ class Sale extends PPModel implements IResource
      *
      * @param Refund $refund
      * @param \PayPal\Rest\ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
+     * @param PPRestCall $restCall is the Rest Call Service that is used to make rest calls
      * @return Refund
      */
-    public function refund($refund, $apiContext = null)
+    public function refund($refund, $apiContext = null, $restCall = null)
     {
         ArgumentValidator::validate($this->getId(), "Id");
         ArgumentValidator::validate($refund, 'refund');
 
         $payLoad = $refund->toJSON();
-        if ($apiContext == null) {
-            $apiContext = new ApiContext(self::$credential);
-        }
-        $call = new PPRestCall($apiContext);
-        $json = $call->execute(array('PayPal\Rest\RestHandler'), "/v1/payments/sale/{$this->getId()}/refund", "POST", $payLoad);
+        $json = self::executeCall(
+            "/v1/payments/sale/{$this->getId()}/refund",
+            "POST",
+            $payLoad,
+            null,
+            $apiContext,
+            $restCall
+        );
         $ret = new Refund();
         $ret->fromJson($json);
         return $ret;

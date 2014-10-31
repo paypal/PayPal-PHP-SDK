@@ -3,6 +3,7 @@
 namespace PayPal\Api;
 
 use PayPal\Common\PPModel;
+use PayPal\Common\ResourceModel;
 use PayPal\Rest\ApiContext;
 use PayPal\Rest\IResource;
 use PayPal\Api\PaymentHistory;
@@ -28,7 +29,7 @@ use PayPal\Validation\ArgumentValidator;
  * @property \PayPal\Api\Links links
  * @property string experience_profile_id
  */
-class Payment extends PPModel implements IResource
+class Payment extends ResourceModel
 {
     /**
      * OAuth Credentials to use for this call
@@ -392,17 +393,21 @@ class Payment extends PPModel implements IResource
      * Creates (and processes) a new Payment Resource.
      *
      * @param \PayPal\Rest\ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
+     * @param PPRestCall $restCall is the Rest Call Service that is used to make rest calls
      * @return Payment
      */
-    public function create($apiContext = null)
+    public function create($apiContext = null, $restCall = null)
     {
 
         $payLoad = $this->toJSON();
-        if ($apiContext == null) {
-            $apiContext = new ApiContext(self::$credential);
-        }
-        $call = new PPRestCall($apiContext);
-        $json = $call->execute(array('PayPal\Rest\RestHandler'), "/v1/payments/payment", "POST", $payLoad);
+        $json = self::executeCall(
+            "/v1/payments/payment",
+            "POST",
+            $payLoad,
+            null,
+            $apiContext,
+            $restCall
+        );
         $this->fromJson($json);
         return $this;
     }
@@ -412,18 +417,22 @@ class Payment extends PPModel implements IResource
      *
      * @param string $paymentId
      * @param \PayPal\Rest\ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
+     * @param PPRestCall $restCall is the Rest Call Service that is used to make rest calls
      * @return Payment
      */
-    public static function get($paymentId, $apiContext = null)
+    public static function get($paymentId, $apiContext = null, $restCall = null)
     {
         ArgumentValidator::validate($paymentId, 'paymentId');
 
         $payLoad = "";
-        if ($apiContext == null) {
-            $apiContext = new ApiContext(self::$credential);
-        }
-        $call = new PPRestCall($apiContext);
-        $json = $call->execute(array('PayPal\Rest\RestHandler'), "/v1/payments/payment/$paymentId", "GET", $payLoad);
+        $json = self::executeCall(
+            "/v1/payments/payment/$paymentId",
+            "GET",
+            $payLoad,
+            null,
+            $apiContext,
+            $restCall
+        );
         $ret = new Payment();
         $ret->fromJson($json);
         return $ret;
@@ -434,19 +443,23 @@ class Payment extends PPModel implements IResource
      *
      * @param PaymentExecution $paymentExecution
      * @param \PayPal\Rest\ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
+     * @param PPRestCall $restCall is the Rest Call Service that is used to make rest calls
      * @return Payment
      */
-    public function execute($paymentExecution, $apiContext = null)
+    public function execute($paymentExecution, $apiContext = null, $restCall = null)
     {
         ArgumentValidator::validate($this->getId(), "Id");
         ArgumentValidator::validate($paymentExecution, 'paymentExecution');
 
         $payLoad = $paymentExecution->toJSON();
-        if ($apiContext == null) {
-            $apiContext = new ApiContext(self::$credential);
-        }
-        $call = new PPRestCall($apiContext);
-        $json = $call->execute(array('PayPal\Rest\RestHandler'), "/v1/payments/payment/{$this->getId()}/execute", "POST", $payLoad);
+        $json = self::executeCall(
+            "/v1/payments/payment/{$this->getId()}/execute",
+            "POST",
+            $payLoad,
+            null,
+            $apiContext,
+            $restCall
+        );
         $this->fromJson($json);
         return $this;
     }
@@ -456,9 +469,10 @@ class Payment extends PPModel implements IResource
      *
      * @param array $params
      * @param \PayPal\Rest\ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
+     * @param PPRestCall $restCall is the Rest Call Service that is used to make rest calls
      * @return PaymentHistory
      */
-    public static function all($params, $apiContext = null)
+    public static function all($params, $apiContext = null, $restCall = null)
     {
         ArgumentValidator::validate($params, 'params');
 
@@ -473,11 +487,14 @@ class Payment extends PPModel implements IResource
             'sort_by' => 1,
             'sort_order' => 1,
         );
-        if ($apiContext == null) {
-            $apiContext = new ApiContext(self::$credential);
-        }
-        $call = new PPRestCall($apiContext);
-        $json = $call->execute(array('PayPal\Rest\RestHandler'), "/v1/payments/payment?" . http_build_query(array_intersect_key($params, $allowedParams)), "GET", $payLoad);
+        $json = self::executeCall(
+            "/v1/payments/payment?" . http_build_query(array_intersect_key($params, $allowedParams)),
+            "GET",
+            $payLoad,
+            null,
+            $apiContext,
+            $restCall
+        );
         $ret = new PaymentHistory();
         $ret->fromJson($json);
         return $ret;

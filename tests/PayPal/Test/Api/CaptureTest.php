@@ -5,6 +5,7 @@ use PayPal\Api\Capture;
 use PayPal\Api\Refund;
 use PayPal\Api\Authorization;
 use PayPal\Api\Amount;
+use PayPal\Exception\PPConnectionException;
 use PayPal\Test\Constants;
 
 class CaptureTest extends \PHPUnit_Framework_TestCase
@@ -35,7 +36,7 @@ class CaptureTest extends \PHPUnit_Framework_TestCase
 
         $capture = self::createCapture();
         $capture->setAmount(AmountTest::createAmount());
-        $capture->setLinks(array(LinksTest::createLinks()));
+        $capture->setLinks(array(LinksTest::getObject()));
         $this->captures['full'] = $capture;
     }
 
@@ -48,7 +49,6 @@ class CaptureTest extends \PHPUnit_Framework_TestCase
 
         $this->assertEquals(AmountTest::$currency, $this->captures['full']->getAmount()->getCurrency());
         $links = $this->captures['full']->getLinks();
-        $this->assertEquals(LinksTest::$href, $links[0]->getHref());
     }
 
     public function testSerializeDeserialize()

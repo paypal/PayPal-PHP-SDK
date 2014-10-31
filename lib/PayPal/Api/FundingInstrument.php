@@ -3,7 +3,6 @@
 namespace PayPal\Api;
 
 use PayPal\Common\PPModel;
-use PayPal\Rest\ApiContext;
 
 /**
  * Class FundingInstrument
@@ -24,7 +23,6 @@ class FundingInstrument extends PPModel
 {
     /**
      * Credit Card information.
-     * 
      *
      * @param \PayPal\Api\CreditCard $credit_card
      * 
@@ -73,7 +71,6 @@ class FundingInstrument extends PPModel
 
     /**
      * Credit Card information.
-     * 
      *
      * @param \PayPal\Api\CreditCardToken $credit_card_token
      * 
@@ -122,7 +119,6 @@ class FundingInstrument extends PPModel
 
     /**
      * Payment Card information.
-     * 
      *
      * @param \PayPal\Api\PaymentCard $payment_card
      * 
@@ -171,7 +167,6 @@ class FundingInstrument extends PPModel
 
     /**
      * Payment card token information.
-     * 
      *
      * @param \PayPal\Api\PaymentCardToken $payment_card_token
      * 
@@ -220,7 +215,6 @@ class FundingInstrument extends PPModel
 
     /**
      * Bank Account information.
-     * 
      *
      * @param \PayPal\Api\ExtendedBankAccount $bank_account
      * 
@@ -269,7 +263,6 @@ class FundingInstrument extends PPModel
 
     /**
      * Bank Account information.
-     * 
      *
      * @param \PayPal\Api\BankToken $bank_account_token
      * 
@@ -318,7 +311,6 @@ class FundingInstrument extends PPModel
 
     /**
      * Credit funding information.
-     * 
      *
      * @param \PayPal\Api\Credit $credit
      * 

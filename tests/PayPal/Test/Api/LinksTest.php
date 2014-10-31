@@ -2,44 +2,87 @@
 
 namespace PayPal\Test\Api;
 
+use PayPal\Common\PPModel;
 use PayPal\Api\Links;
-use PayPal\Test\Constants;
 
+/**
+ * Class Links
+ *
+ * @package PayPal\Test\Api
+ */
 class LinksTest extends \PHPUnit_Framework_TestCase
 {
-
-    private $links;
-
-    public static $href = "USD";
-    public static $rel = "1.12";
-    public static $method = "1.12";
-
-    public static function createLinks()
+    /**
+     * Gets Json String of Object Links
+     * @return string
+     */
+    public static function getJson()
     {
-        $links = new Links();
-        $links->setHref(self::$href);
-        $links->setRel(self::$rel);
-        $links->setMethod(self::$method);
-
-        return $links;
+        return '{"href":"TestSample","rel":"TestSample","targetSchema":' .HyperSchemaTest::getJson() . ',"method":"TestSample","enctype":"TestSample","schema":' .HyperSchemaTest::getJson() . '}';
     }
 
-    public function setup()
+    /**
+     * Gets Object Instance with Json data filled in
+     * @return Links
+     */
+    public static function getObject()
     {
-        $this->links = self::createLinks();
+        return new Links(self::getJson());
     }
 
-    public function testGetterSetters()
+
+    /**
+     * Tests for Serialization and Deserialization Issues
+     * @return Links
+     */
+    public function testSerializationDeserialization()
     {
-        $this->assertEquals(self::$href, $this->links->getHref());
-        $this->assertEquals(self::$rel, $this->links->getRel());
-        $this->assertEquals(self::$method, $this->links->getMethod());
+        $obj = new Links(self::getJson());
+        $this->assertNotNull($obj);
+        $this->assertNotNull($obj->getHref());
+        $this->assertNotNull($obj->getRel());
+        $this->assertNotNull($obj->getTargetSchema());
+        $this->assertNotNull($obj->getMethod());
+        $this->assertNotNull($obj->getEnctype());
+        $this->assertNotNull($obj->getSchema());
+        $this->assertEquals(self::getJson(), $obj->toJson());
+        return $obj;
     }
 
-    public function testSerializeDeserialize()
+    /**
+     * @depends testSerializationDeserialization
+     * @param Links $obj
+     */
+    public function testGetters($obj)
     {
-        $link2 = new Links();
-        $link2->fromJson($this->links->toJSON());
-        $this->assertEquals($this->links, $link2);
+        $this->assertEquals($obj->getHref(), "TestSample");
+        $this->assertEquals($obj->getRel(), "TestSample");
+        $this->assertEquals($obj->getTargetSchema(), HyperSchemaTest::getObject());
+        $this->assertEquals($obj->getMethod(), "TestSample");
+        $this->assertEquals($obj->getEnctype(), "TestSample");
+        $this->assertEquals($obj->getSchema(), HyperSchemaTest::getObject());
     }
+
+    /**
+     * @depends testSerializationDeserialization
+     * @param Links $obj
+     */
+    public function testDeprecatedGetters($obj)
+    {
+    }
+
+    /**
+     * @depends testSerializationDeserialization
+     * @param Links $obj
+     */
+    public function testDeprecatedSetterNormalGetter($obj)
+    {
+
+        //Test All Deprecated Getters and Normal Getters
+        $this->testDeprecatedGetters($obj);
+        $this->testGetters($obj);
+    }
+
+
+
 }

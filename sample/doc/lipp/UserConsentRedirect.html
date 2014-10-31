@@ -18,6 +18,6 @@ The user would then able to retrieve the access token by getting the code, which
             <span class="hljs-keyword">exit</span>(<span class="hljs-number">1</span>);
     }
 
-    print_result(<span class="hljs-string">"Obtained Access Token"</span>, <span class="hljs-string">"Access Token"</span>, <span class="hljs-variable">$accessToken</span>-&gt;getAccessToken(), <span class="hljs-variable">$accessToken</span>);
+    ResultPrinter::printResult(<span class="hljs-string">"Obtained Access Token"</span>, <span class="hljs-string">"Access Token"</span>, <span class="hljs-variable">$accessToken</span>-&gt;getAccessToken(), <span class="hljs-variable">$_GET</span>[<span class="hljs-string">'code'</span>], <span class="hljs-variable">$accessToken</span>);
 
 }</div></div></div></div></body></html>

@@ -3,7 +3,6 @@
 namespace PayPal\Api;
 
 use PayPal\Common\PPModel;
-use PayPal\Rest\ApiContext;
 
 /**
  * Class Links
@@ -23,7 +22,6 @@ class Links extends PPModel
 {
     /**
      * Sets Href
-     * 
      *
      * @param string $href
      * 
@@ -47,7 +45,6 @@ class Links extends PPModel
 
     /**
      * Sets Rel
-     * 
      *
      * @param string $rel
      * 
@@ -71,7 +68,6 @@ class Links extends PPModel
 
     /**
      * Sets TargetSchema
-     * 
      *
      * @param \PayPal\Api\HyperSchema $targetSchema
      * 
@@ -95,7 +91,6 @@ class Links extends PPModel
 
     /**
      * Sets Method
-     * 
      *
      * @param string $method
      * 
@@ -119,7 +114,6 @@ class Links extends PPModel
 
     /**
      * Sets Enctype
-     * 
      *
      * @param string $enctype
      * 
@@ -143,7 +137,6 @@ class Links extends PPModel
 
     /**
      * Sets Schema
-     * 
      *
      * @param \PayPal\Api\HyperSchema $schema
      * 

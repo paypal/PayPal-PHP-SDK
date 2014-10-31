@@ -36,19 +36,17 @@
             </div>
             <div class="col-md-9">
                 <h1> REST API Samples</h1>
-                <p>These examples are created to experiment with the rest-api-sdk-php capabilities. Each examples are designed to demonstrate the default use-cases in each segment.
+                <p>These examples are created to experiment with the PayPal-PHP-SDK capabilities. Each examples are designed to demonstrate the default use-cases in each segment.
                     Many examples should be executable, and should allow you to experience the default behavior of our sdk, to expedite your integration experience.</p>
-                <p>
             </div>
         </div>
-        </p>
     </div>
 </div>
 <div class="container-fluid">
 <div class="container">
 <div class="panel panel-primary">
     <div class="panel-heading">
-        <h3 class="panel-title">Payments</h3>
+        <h3 class="panel-title"><a href="https://developer.paypal.com/webapps/developer/docs/api/#payments" target="_blank">Payments</a></h3>
     </div>
     <!-- List group -->
     <ul class="list-group">
@@ -111,7 +109,7 @@
 
 <div class="panel panel-primary" >
     <div class="panel-heading" >
-        <h3 class="panel-title">Sale</h3>
+        <h3 class="panel-title"><a href="https://developer.paypal.com/webapps/developer/docs/api/#sale-transactions" target="_blank">Sale</a></h3>
     </div>
     <!-- List group -->
     <ul class="list-group">
@@ -136,9 +134,108 @@
     </ul>
 </div>
 
+<div class="panel panel-primary" >
+    <div class="panel-heading" >
+            <h3 class="panel-title"><a href="https://developer.paypal.com/webapps/developer/docs/api/#billing-plans-and-agreements" target="_blank">Billing Plan & Agreements</a></h3>
+    </div>
+    <!-- List group -->
+    <ul class="list-group">
+        <li class="list-group-item">
+            <div class="row">
+                <div class="col-md-9 "><h5>Create Billing Plan</h5></div>
+                <div class="col-md-3">
+                    <a href="billing/CreatePlan.php" class="btn btn-primary pull-left" >Execute <i class="fa fa-play-circle-o"></i></a>
+                    <a href="doc/billing/CreatePlan.html" class="btn btn-default pull-right" >Source <i class="fa fa-file-code-o"></i></a>
+                </div>
+            </div>
+        </li>
+        <li class="list-group-item">
+            <div class="row">
+                <div class="col-md-9 "><h5>Get Billing Plan</h5></div>
+                <div class="col-md-3">
+                    <a href="billing/GetPlan.php" class="btn btn-primary pull-left" >Execute <i class="fa fa-play-circle-o"></i></a>
+                    <a href="doc/billing/GetPlan.html" class="btn btn-default pull-right" >Source <i class="fa fa-file-code-o"></i></a>
+                </div>
+            </div>
+        </li>
+        <li class="list-group-item">
+            <div class="row">
+                <div class="col-md-9 "><h5>Update/Activate Plan</h5></div>
+                <div class="col-md-3">
+                    <a href="billing/UpdatePlan.php" class="btn btn-primary pull-left" >Execute <i class="fa fa-play-circle-o"></i></a>
+                    <a href="doc/billing/UpdatePlan.html" class="btn btn-default pull-right" >Source <i class="fa fa-file-code-o"></i></a>
+                </div>
+            </div>
+        </li>
+        <li class="list-group-item">
+            <div class="row">
+                <div class="col-md-9 "><h5>List Billing Plans</h5></div>
+                <div class="col-md-3">
+                    <a href="billing/ListPlans.php" class="btn btn-primary pull-left" >Execute <i class="fa fa-play-circle-o"></i></a>
+                    <a href="doc/billing/ListPlans.html" class="btn btn-default pull-right" >Source <i class="fa fa-file-code-o"></i></a>
+                </div>
+            </div>
+        </li>
+        <li class="list-group-item">
+            <div class="row">
+                <div class="col-md-9 "><h5>Create Billing Agreement With Credit Card</h5></div>
+                <div class="col-md-3">
+                    <a href="billing/CreateBillingAgreementWithCreditCard.php" class="btn btn-primary pull-left" >Execute <i class="fa fa-play-circle-o"></i></a>
+                    <a href="doc/billing/CreateBillingAgreementWithCreditCard.html" class="btn btn-default pull-right" >Source <i class="fa fa-file-code-o"></i></a>
+                </div>
+            </div>
+        </li>
+        <li class="list-group-item">
+            <div class="row">
+                <div class="col-md-9 "><h5>Create Billing Agreement With PayPal</h5></div>
+                <div class="col-md-3">
+                    <a href="billing/CreateBillingAgreementWithPayPal.php" class="btn btn-primary pull-left" >Execute <i class="fa fa-play-circle-o"></i></a>
+                    <a href="doc/billing/CreateBillingAgreementWithPayPal.html" class="btn btn-default pull-right" >Source <i class="fa fa-file-code-o"></i></a>
+                </div>
+            </div>
+        </li>
+        <li class="list-group-item">
+            <div class="row">
+                <div class="col-md-9 "><h5>Get Billing Agreement</h5></div>
+                <div class="col-md-3">
+                    <a href="billing/GetBillingAgreement.php" class="btn btn-primary pull-left" >Execute <i class="fa fa-play-circle-o"></i></a>
+                    <a href="doc/billing/GetBillingAgreement.html" class="btn btn-default pull-right" >Source <i class="fa fa-file-code-o"></i></a>
+                </div>
+            </div>
+        </li>
+        <li class="list-group-item">
+            <div class="row">
+                <div class="col-md-9 "><h5>Update Billing Agreement</h5></div>
+                <div class="col-md-3">
+                    <a href="billing/UpdateBillingAgreement.php" class="btn btn-primary pull-left" >Execute <i class="fa fa-play-circle-o"></i></a>
+                    <a href="doc/billing/UpdateBillingAgreement.html" class="btn btn-default pull-right" >Source <i class="fa fa-file-code-o"></i></a>
+                </div>
+            </div>
+        </li>
+        <li class="list-group-item">
+            <div class="row">
+                <div class="col-md-9 "><h5>Suspend Billing Agreement</h5></div>
+                <div class="col-md-3">
+                    <a href="billing/SuspendBillingAgreement.php" class="btn btn-primary pull-left" >Execute <i class="fa fa-play-circle-o"></i></a>
+                    <a href="doc/billing/SuspendBillingAgreement.html" class="btn btn-default pull-right" >Source <i class="fa fa-file-code-o"></i></a>
+                </div>
+            </div>
+        </li>
+        <li class="list-group-item">
+            <div class="row">
+                <div class="col-md-9 "><h5>Reactivate Billing Agreement</h5></div>
+                <div class="col-md-3">
+                    <a href="billing/ReactivateBillingAgreement.php" class="btn btn-primary pull-left" >Execute <i class="fa fa-play-circle-o"></i></a>
+                    <a href="doc/billing/ReactivateBillingAgreement.html" class="btn btn-default pull-right" >Source <i class="fa fa-file-code-o"></i></a>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>
+
 <div class="panel panel-primary">
     <div class="panel-heading">
-        <h3 class="panel-title">Vault</h3>
+        <h3 class="panel-title"><a href="https://developer.paypal.com/webapps/developer/docs/api/#vault" target="_blank">Vault</a></h3>
     </div>
     <!-- List group -->
     <ul class="list-group">
@@ -174,7 +271,7 @@
 
 <div class="panel panel-primary">
     <div class="panel-heading">
-        <h3 class="panel-title">Authorization and capture</h3>
+        <h3 class="panel-title"><a href="https://developer.paypal.com/webapps/developer/docs/api/#authorizations" target="_blank">Authorization and capture</a></h3>
     </div>
     <!-- List group -->
     <ul class="list-group">
@@ -237,7 +334,7 @@
 
 <div class="panel panel-primary">
     <div class="panel-heading">
-        <h3 class="panel-title">Payment Experience</h3>
+        <h3 class="panel-title"><a href="https://developer.paypal.com/webapps/developer/docs/api/#payment-experience" target="_blank">Payment Experience</a></h3>
     </div>
     <!-- List group -->
     <ul class="list-group">
@@ -300,7 +397,7 @@
 
 <div class="panel panel-primary">
     <div class="panel-heading">
-        <h3 class="panel-title">Invoice</h3>
+        <h3 class="panel-title"><a href="https://developer.paypal.com/webapps/developer/docs/api/#invoicing" target="_blank">Invoice</a></h3>
     </div>
     <!-- List group -->
     <ul class="list-group">
@@ -363,7 +460,7 @@
 
 <div class="panel panel-primary">
     <div class="panel-heading">
-        <h3 class="panel-title">Identity (LIPP)</h3>
+        <h3 class="panel-title"><a href="https://developer.paypal.com/webapps/developer/docs/api/#identity" target="_blank">Identity (LIPP)</a></h3>
     </div>
     <!-- List group -->
     <ul class="list-group">

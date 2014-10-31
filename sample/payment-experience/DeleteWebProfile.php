@@ -27,4 +27,4 @@ try {
     exit(1);
 }
 
-print_result("Deleted Web Profile", "Web Profile", $createProfileResponse->getId());
+ResultPrinter::printResult("Deleted Web Profile", "Web Profile", $createProfileResponse->getId(), null, null);

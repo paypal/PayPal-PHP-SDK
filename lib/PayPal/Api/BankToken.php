@@ -3,7 +3,6 @@
 namespace PayPal\Api;
 
 use PayPal\Common\PPModel;
-use PayPal\Rest\ApiContext;
 
 /**
  * Class BankToken
@@ -20,7 +19,6 @@ class BankToken extends PPModel
 {
     /**
      * ID of a previously saved Bank resource using /vault/bank API.
-     * 
      *
      * @param string $bank_id
      * 
@@ -69,7 +67,6 @@ class BankToken extends PPModel
 
     /**
      * The unique identifier of the payer used when saving this bank using /vault/bank API.
-     * 
      *
      * @param string $external_customer_id
      * 
@@ -118,7 +115,6 @@ class BankToken extends PPModel
 
     /**
      * Identifier of the direct debit mandate to validate. Currently supported only for EU bank accounts(SEPA).
-     * 
      *
      * @param string $mandate_reference_number
      * 

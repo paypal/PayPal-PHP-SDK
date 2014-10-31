@@ -29,4 +29,4 @@ try {
     exit(1);
 }
 
-print_result("Updated Web Profile", "Web Profile", $updatedWebProfile->getId(), $updatedWebProfile);
+ResultPrinter::printResult("Updated Web Profile", "Web Profile", $updatedWebProfile->getId(), $webProfile, $updatedWebProfile);

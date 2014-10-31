@@ -23,6 +23,6 @@ if (isset($_GET['success']) && $_GET['success'] == 'true') {
             exit(1);
     }
 
-    print_result("Obtained Access Token", "Access Token", $accessToken->getAccessToken(), $accessToken);
+    ResultPrinter::printResult("Obtained Access Token", "Access Token", $accessToken->getAccessToken(), $_GET['code'], $accessToken);
 
 }

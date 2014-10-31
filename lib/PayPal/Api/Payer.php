@@ -3,7 +3,6 @@
 namespace PayPal\Api;
 
 use PayPal\Common\PPModel;
-use PayPal\Rest\ApiContext;
 
 /**
  * Class Payer
@@ -14,15 +13,15 @@ use PayPal\Rest\ApiContext;
  *
  * @property string payment_method
  * @property string status
- * @property \PayPal\Api\FundingInstrument funding_instruments
+ * @property \PayPal\Api\FundingInstrument[] funding_instruments
  * @property string funding_option_id
  * @property \PayPal\Api\PayerInfo payer_info
  */
 class Payer extends PPModel
 {
     /**
-     * Payment method being used - PayPal Wallet payment, Bank Direct Debit  or Direct Credit card.
-     * Valid Values: ["credit_card", "bank", "paypal"] 
+     * Payment method being used - PayPal Wallet payment, Bank Direct Debit, or Direct Credit card.
+     * Valid Values: ["credit_card", "bank", "paypal"]
      *
      * @param string $payment_method
      * 
@@ -35,7 +34,7 @@ class Payer extends PPModel
     }
 
     /**
-     * Payment method being used - PayPal Wallet payment, Bank Direct Debit  or Direct Credit card.
+     * Payment method being used - PayPal Wallet payment, Bank Direct Debit, or Direct Credit card.
      *
      * @return string
      */
@@ -45,7 +44,7 @@ class Payer extends PPModel
     }
 
     /**
-     * Payment method being used - PayPal Wallet payment, Bank Direct Debit  or Direct Credit card.
+     * Payment method being used - PayPal Wallet payment, Bank Direct Debit, or Direct Credit card.
      *
      * @deprecated Instead use setPaymentMethod
      *
@@ -59,7 +58,7 @@ class Payer extends PPModel
     }
 
     /**
-     * Payment method being used - PayPal Wallet payment, Bank Direct Debit  or Direct Credit card.
+     * Payment method being used - PayPal Wallet payment, Bank Direct Debit, or Direct Credit card.
      * @deprecated Instead use getPaymentMethod
      *
      * @return string
@@ -71,7 +70,7 @@ class Payer extends PPModel
 
     /**
      * Status of Payer PayPal Account.
-     * Valid Values: ["VERIFIED", "UNVERIFIED"] 
+     * Valid Values: ["VERIFIED", "UNVERIFIED"]
      *
      * @param string $status
      * 
@@ -94,10 +93,9 @@ class Payer extends PPModel
     }
 
     /**
-     * List of funding instruments from where the funds of the current payment come from. Typically a credit card.
-     * 
+     * List of funding instruments from which the funds of the current payment come. Typically a credit card.
      *
-     * @param \PayPal\Api\FundingInstrument $funding_instruments
+     * @param \PayPal\Api\FundingInstrument[] $funding_instruments
      * 
      * @return $this
      */
@@ -108,7 +106,7 @@ class Payer extends PPModel
     }
 
     /**
-     * List of funding instruments from where the funds of the current payment come from. Typically a credit card.
+     * List of funding instruments from which the funds of the current payment come. Typically a credit card.
      *
      * @return \PayPal\Api\FundingInstrument[]
      */
@@ -118,7 +116,37 @@ class Payer extends PPModel
     }
 
     /**
-     * List of funding instruments from where the funds of the current payment come from. Typically a credit card.
+     * Append FundingInstruments to the list.
+     *
+     * @param \PayPal\Api\FundingInstrument $fundingInstrument
+     * @return $this
+     */
+    public function addFundingInstrument($fundingInstrument)
+    {
+        if (!$this->getFundingInstruments()) {
+            return $this->setFundingInstruments(array($fundingInstrument));
+        } else {
+            return $this->setFundingInstruments(
+                array_merge($this->getFundingInstruments(), array($fundingInstrument))
+            );
+        }
+    }
+
+    /**
+     * Remove FundingInstruments from the list.
+     *
+     * @param \PayPal\Api\FundingInstrument $fundingInstrument
+     * @return $this
+     */
+    public function removeFundingInstrument($fundingInstrument)
+    {
+        return $this->setFundingInstruments(
+            array_diff($this->getFundingInstruments(), array($fundingInstrument))
+        );
+    }
+
+    /**
+     * List of funding instruments from which the funds of the current payment come. Typically a credit card.
      *
      * @deprecated Instead use setFundingInstruments
      *
@@ -132,7 +160,7 @@ class Payer extends PPModel
     }
 
     /**
-     * List of funding instruments from where the funds of the current payment come from. Typically a credit card.
+     * List of funding instruments from which the funds of the current payment come. Typically a credit card.
      * @deprecated Instead use getFundingInstruments
      *
      * @return \PayPal\Api\FundingInstrument
@@ -143,8 +171,7 @@ class Payer extends PPModel
     }
 
     /**
-     * Id of user selected funding option for the payment. 'OneOf' funding_instruments or funding_option_id to be present 
-     * 
+     * Id of user selected funding option for the payment. 'OneOf' funding_instruments or funding_option_id to be present.
      *
      * @param string $funding_option_id
      * 
@@ -157,7 +184,7 @@ class Payer extends PPModel
     }
 
     /**
-     * Id of user selected funding option for the payment. 'OneOf' funding_instruments or funding_option_id to be present 
+     * Id of user selected funding option for the payment. 'OneOf' funding_instruments or funding_option_id to be present.
      *
      * @return string
      */
@@ -167,7 +194,7 @@ class Payer extends PPModel
     }
 
     /**
-     * Id of user selected funding option for the payment. 'OneOf' funding_instruments or funding_option_id to be present 
+     * Id of user selected funding option for the payment. 'OneOf' funding_instruments or funding_option_id to be present.
      *
      * @deprecated Instead use setFundingOptionId
      *
@@ -181,7 +208,7 @@ class Payer extends PPModel
     }
 
     /**
-     * Id of user selected funding option for the payment. 'OneOf' funding_instruments or funding_option_id to be present 
+     * Id of user selected funding option for the payment. 'OneOf' funding_instruments or funding_option_id to be present.
      * @deprecated Instead use getFundingOptionId
      *
      * @return string
@@ -193,7 +220,6 @@ class Payer extends PPModel
 
     /**
      * Information related to the Payer. 
-     * 
      *
      * @param \PayPal\Api\PayerInfo $payer_info
      * 

@@ -21,7 +21,7 @@ class RefundTest extends \PHPUnit_Framework_TestCase
         $refund->setAmount(AmountTest::createAmount());
         $refund->setCaptureId(self::$captureId);
         $refund->setId(self::$id);
-        $refund->setLinks(array(LinksTest::createLinks()));
+        $refund->setLinks(array(LinksTest::getObject()));
         $refund->setParentPayment(self::$parentPayment);
 
         return $refund;
@@ -40,7 +40,6 @@ class RefundTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals(self::$parentPayment, $this->refund->getParentPayment());
         $this->assertEquals(AmountTest::$currency, $this->refund->getAmount()->getCurrency());
         $links = $this->refund->getLinks();
-        $this->assertEquals(LinksTest::$href, $links[0]->getHref());
     }
 
     public function testSerializeDeserialize()

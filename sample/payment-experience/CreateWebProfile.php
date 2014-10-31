@@ -43,6 +43,9 @@ $webProfile->setName("YeowZa! T-Shirt Shop" . uniqid())
     // Parameters for style and presentation.
     ->setPresentation($presentation);
 
+// For Sample Purposes Only.
+$request = clone $webProfile;
+
 try {
     // Use this call to create a profile.
     $createProfileResponse = $webProfile->create($apiContext);
@@ -55,6 +58,6 @@ try {
     exit(1);
 }
 
-print_result("Created Web Profile", "Web Profile", $createProfileResponse->getId(), $createProfileResponse);
+ResultPrinter::printResult("Created Web Profile", "Web Profile", $createProfileResponse->getId(), $request, $createProfileResponse);
 
 return $createProfileResponse;

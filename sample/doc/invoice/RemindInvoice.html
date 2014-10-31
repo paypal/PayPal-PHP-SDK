@@ -29,15 +29,4 @@ notification object
     <span class="hljs-keyword">exit</span>(<span class="hljs-number">1</span>);
 }
 
-<span class="hljs-preprocessor">?&gt;</span>
-
-&lt;html&gt;
-&lt;head&gt;
-    &lt;title&gt;Remind Invoice&lt;/title&gt;
-&lt;/head&gt;
-&lt;body&gt;
-&lt;div&gt;Remind Invoice:&lt;/div&gt;
-&lt;pre&gt;<span class="hljs-preprocessor">&lt;?php</span> <span class="hljs-keyword">echo</span> <span class="hljs-variable">$invoice</span>-&gt;toJSON(128); <span class="hljs-preprocessor">?&gt;</span>&lt;/pre&gt;
-&lt;a href=<span class="hljs-string">'../index.html'</span>&gt;Back&lt;/a&gt;
-&lt;/body&gt;
-&lt;/html&gt;</div></div></div></div></body></html>
+ResultPrinter::printResult(<span class="hljs-string">"Remind Invoice"</span>, <span class="hljs-string">"Invoice"</span>, <span class="hljs-keyword">null</span>, <span class="hljs-variable">$notify</span>, <span class="hljs-keyword">null</span>);</div></div></div></div></body></html>

@@ -19,4 +19,4 @@ try {
     exit(1);
 }
 
-print_result("Obtained Access Token From Refresh Token", "Access Token", $tokenInfo->getAccessToken(), $tokenInfo);
+ResultPrinter::printResult("Obtained Access Token From Refresh Token", "Access Token", $tokenInfo->getAccessToken(), null, $tokenInfo);

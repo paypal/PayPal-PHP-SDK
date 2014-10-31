@@ -19,4 +19,4 @@ $redirectUrl = PPOpenIdSession::getAuthorizationUrl(
     $apiContext
 );
 
-print_result("Generated the User Consent URL", "URL", null, '<a href="'. $redirectUrl . '" >Click Here to Obtain User Consent</a>');
+ResultPrinter::printResult("Generated the User Consent URL", "URL", '<a href="'. $redirectUrl . '" >Click Here to Obtain User Consent</a>', $baseUrl, $redirectUrl);

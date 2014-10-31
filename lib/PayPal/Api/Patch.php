@@ -20,7 +20,7 @@ class Patch extends PPModel
 {
     /**
      * The operation to perform.
-     * Valid Values: ["add", "remove", "replace", "move", "copy", "test"] 
+     * Valid Values: ["add", "remove", "replace", "move", "copy", "test"]
      *
      * @param string $op
      * 
@@ -44,7 +44,6 @@ class Patch extends PPModel
 
     /**
      * String containing a JSON-Pointer value that references a location within the target document where the operation is performed.
-     * 
      *
      * @param string $path
      * 
@@ -68,7 +67,6 @@ class Patch extends PPModel
 
     /**
      * New value to apply based on the operation. op=remove does not require value.
-     * 
      *
      * @param mixed $value
      * 
@@ -92,7 +90,6 @@ class Patch extends PPModel
 
     /**
      * A string containing a JSON Pointer value that references the location in the target document from which to move the value. Required for use where op=move.
-     * 
      *
      * @param string $from
      * 

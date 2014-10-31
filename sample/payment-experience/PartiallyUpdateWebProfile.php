@@ -45,4 +45,4 @@ try {
     exit(1);
 }
 
-print_result("Partially Updated Web Profile", "Web Profile", $webProfile->getId(), $webProfile);
+ResultPrinter::printResult("Partially Updated Web Profile", "Web Profile", $webProfile->getId(), $patches, $webProfile);

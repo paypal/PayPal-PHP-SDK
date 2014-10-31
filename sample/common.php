@@ -12,25 +12,80 @@ use PayPal\Api\Payment;
 use PayPal\Api\Transaction;
 use PayPal\Api\FundingInstrument;
 
+/**
+ * Helper Class for Printing Results
+ *
+ * Class ResultPrinter
+ */
+class ResultPrinter {
 
-function print_result($title, $objectName, $objectId = null, $output = null)
-{
-    echo "<h3>$title</h3>";
+    private static $printResultCounter = 0;
 
-    if ($objectId) {
-        echo "<div> Created " . ($objectName ? $objectName : "Object") . " with ID: $objectId</div>";
+    public static function printResult($title, $objectName, $objectId = null, $request = null, $response = null)
+    {
+        if (self::$printResultCounter == 0) {
+            include "header.html";
+            echo '<br />
+                  <div class="row"><div class="col-md-2 pull-left"><a href="../index.html"><h4>&#10094;&#10094; Back to Samples</h4></a><br /><br /></div>
+                  <div class="col-md-1 pull-right"><img  src="../images/pp_v_rgb.png" height="70" /></div> </div><div class="clearfix visible-xs-block"></div>';
+            echo '<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">';
+        }
+        self::$printResultCounter++;
+        echo '
+        <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="heading-'.self::$printResultCounter.'">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#step-'. self::$printResultCounter .'" aria-expanded="false" aria-controls="step-'.self::$printResultCounter.'">
+            '. self::$printResultCounter .'. '. $title .'</a>
+                </h4>
+            </div>
+            <div id="step-'.self::$printResultCounter.'" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-'. self::$printResultCounter . '">
+                <div class="panel-body">
+            ';
+
+        if ($objectId) {
+            echo '<div>' . ($objectName ? $objectName : "Object") . " with ID: $objectId </div>";
+        }
+
+        echo '<div class="row hidden-xs hidden-sm hidden-md"><div class="col-md-6"><h4>Request Object</h4>';
+        self::printObject($request);
+        echo '</div><div class="col-md-6"><h4>Response Object</h4>';
+        self::printObject($response);
+        echo '</div></div>';
+
+        echo '<div class="hidden-lg"><ul class="nav nav-tabs" role="tablist">
+                        <li role="presentation" ><a href="#step-'.self::$printResultCounter .'-request" role="tab" data-toggle="tab">Request</a></li>
+                        <li role="presentation" class="active"><a href="#step-'.self::$printResultCounter .'-response" role="tab" data-toggle="tab">Response</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane" id="step-'.self::$printResultCounter .'-request"><h4>Request Object</h4>';
+        self::printObject($request) ;
+        echo '</div><div role="tabpanel" class="tab-pane active" id="step-'.self::$printResultCounter .'-response"><h4>Response Object</h4>';
+        self::printObject($response);
+        echo '</div></div></div></div>
+            </div>
+        </div>';
+
+        flush();
     }
 
-    if ($output) {
-        if (is_a($output, 'PayPal\Common\PPModel')) {
-            /** @var $output \PayPal\Common\PPModel */
-            echo "<pre>" . $output->toJSON(128) . "</pre>";
-        } elseif (is_string($output)) {
-            echo "<pre>$output</pre>";
+    protected static function printObject($object)
+    {
+        if ($object) {
+            if (is_a($object, 'PayPal\Common\PPModel')) {
+                /** @var $object \PayPal\Common\PPModel */
+                echo '<pre class="prettyprint">' . $object->toJSON(128) . "</pre>";
+            } elseif (is_string($object)) {
+                echo "<pre>$object</pre>";
+            } else {
+                echo "<pre>";
+                print_r($object);
+                echo "</pre>";
+            }
+        } else {
+            echo "<span>No Data</span>";
         }
     }
-    echo "<hr />";
-
 }
 
 /**
