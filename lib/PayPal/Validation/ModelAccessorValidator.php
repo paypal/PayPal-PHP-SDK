@@ -30,7 +30,7 @@ class ModelAccessorValidator
                 if (!method_exists($class, $methodName)) {
                     //Delegate the error based on the choice
                     $className = is_object($class) ? get_class($class) : (string)$class;
-                    $errorMessage = "Missing Accessor: $className:$methodName. Please let us know by creating an issue at https://github.com/paypal/rest-api-sdk-php/issues";
+                    $errorMessage = "Missing Accessor: $className:$methodName. Please let us know by creating an issue at https://github.com/paypal/PayPal-PHP-SDK/issues";
                     PPLoggingManager::getInstance(__CLASS__)->warning($errorMessage);
                     if ($mode == 'strict') {
                         trigger_error($errorMessage, E_USER_NOTICE);

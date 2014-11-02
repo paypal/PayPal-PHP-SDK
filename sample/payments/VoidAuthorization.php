@@ -4,7 +4,8 @@
 // void an authorized payment.
 // API used: /v1/payments/authorization/<{authorizationid}>/void"
 
-require __DIR__ . '/../bootstrap.php';
+/** @var Authorization $authorization */
+$authorization = require 'AuthorizePayment.php';
 
 use PayPal\Api\Authorization;
 
@@ -14,30 +15,17 @@ use PayPal\Api\Authorization;
 // by invoking the $authorization->void method
 // with a valid ApiContext (See bootstrap.php for more on `ApiContext`)
 try {
-	// create an authorization to get authorization Id
-	// createAuthorization is defined in common.php
-	$authId = createAuthorization($apiContext);
 
-	// Lookup the authorization
-	$authorization = Authorization::get($authId, $apiContext);
+    // Lookup the authorization
+    $authorization = Authorization::get($authorization->getId(), $apiContext);
 
-	// Void the authorization 
-	$voidedAuth = $authorization->void($apiContext);
-} catch (PayPal\Exception\PPConnectionException $ex) {
-	echo "Exception: " . $ex->getMessage() . PHP_EOL;
-	var_dump($ex->getData());
-	exit(1);
+    // Void the authorization
+    $voidedAuth = $authorization->void($apiContext);
+} catch (Exception $ex) {
+    ResultPrinter::printError("Void Authorization", "Authorization", null, null, $ex);
+    exit(1);
 }
-?>
-<html>
-<head>
-	<title>Void an authorization</title>
-</head>
-<body>
-	<div>
-		Voided authorization
-	</div>
-	<pre><?php echo $voidedAuth->toJSON(128);?></pre>
-	<a href='../index.html'>Back</a>
-</body>
-</html>
+
+ResultPrinter::printResult("Void Authorization", "Authorization", $voidedAuth->getId(), null, $voidedAuth);
+
+return $voidedAuth;

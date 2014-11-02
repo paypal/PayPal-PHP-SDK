@@ -10,9 +10,8 @@ if (isset($_GET['success']) && $_GET['success'] == 'true') {
 
     try {
         $agreement->execute($token, $apiContext);
-    } catch (PayPal\Exception\PPConnectionException $ex) {
-        echo "Exception: " . $ex->getMessage() . PHP_EOL;
-        var_dump($ex->getData());
+    } catch (Exception $ex) {
+        ResultPrinter::printError("Executed an Agreement", "Agreement", $agreement->getId(), $_GET['token'], $ex);
         exit(1);
     }
     ResultPrinter::printResult("Executed an Agreement", "Agreement", $agreement->getId(), $_GET['token'], $agreement);

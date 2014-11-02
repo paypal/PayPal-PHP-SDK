@@ -46,7 +46,7 @@ $merchantPreferences = new MerchantPreferences();
 $baseUrl = getBaseUrl();
 $merchantPreferences->setReturnUrl("$baseUrl/ExecuteAgreement.php?success=true")
     ->setCancelUrl("$baseUrl/ExecuteAgreement.php?success=false")
-    ->setAutoBillAmount("YES")
+    ->setAutoBillAmount("yes")
     ->setInitialFailAmountAction("CONTINUE")
     ->setMaxFailAttempts("0")
     ->setSetupFee(new Currency(['value' => '1', 'currency' => 'USD']));
@@ -61,9 +61,8 @@ $request = clone $plan;
 // ### Create Plan
 try {
     $output = $plan->create($apiContext);
-} catch (PayPal\Exception\PPConnectionException $ex) {
-    echo "Exception: " . $ex->getMessage() . PHP_EOL;
-    var_dump($ex->getData());
+} catch (Exception $ex) {
+    ResultPrinter::printError("Created Plan", "Plan", null, $request, $ex);
     exit(1);
 }
 

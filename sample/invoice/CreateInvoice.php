@@ -101,9 +101,8 @@ try {
     // Create an invoice by calling the invoice->create() method
     // with a valid ApiContext (See bootstrap.php for more on `ApiContext`)
     $invoice->create($apiContext);
-} catch (PayPal\Exception\PPConnectionException $ex) {
-    echo "Exception: " . $ex->getMessage() . PHP_EOL;
-    var_dump($ex->getData());
+} catch (Exception $ex) {
+    ResultPrinter::printError("Invoice Creation", "Invoice", null, $request, $ex);
     exit(1);
 }
 

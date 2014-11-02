@@ -37,11 +37,7 @@ try {
         $webProfile = \PayPal\Api\WebProfile::get($webProfile->getId(), $apiContext);
     }
 } catch (\Exception $ex) {
-    echo "Exception: " . $ex->getMessage() . PHP_EOL;
-    if (is_a($ex, '\PayPal\Exception\PPConnectionException')) {
-        /** @var $ex \PayPal\Exception\PPConnectionException */
-        var_dump($ex->getData());
-    }
+    ResultPrinter::printError("Partially Updated Web Profile", "Web Profile", $webProfile->getId(), $patches, $ex);
     exit(1);
 }
 

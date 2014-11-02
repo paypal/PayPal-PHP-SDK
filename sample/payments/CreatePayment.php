@@ -92,7 +92,8 @@ $amount->setCurrency("USD")
 $transaction = new Transaction();
 $transaction->setAmount($amount)
     ->setItemList($itemList)
-    ->setDescription("Payment description");
+    ->setDescription("Payment description")
+    ->setInvoiceNumber(uniqid());
 
 // ### Payment
 // A Payment Resource; create one using
@@ -102,28 +103,20 @@ $payment->setIntent("sale")
     ->setPayer($payer)
     ->setTransactions(array($transaction));
 
+// For Sample Purposes Only.
+$request = clone $payment;
+
 // ### Create Payment
 // Create a payment by calling the payment->create() method
 // with a valid ApiContext (See bootstrap.php for more on `ApiContext`)
 // The return object contains the state.
 try {
     $payment->create($apiContext);
-} catch (PayPal\Exception\PPConnectionException $ex) {
-    echo "Exception: " . $ex->getMessage() . PHP_EOL;
-    var_dump($ex->getData());
+} catch (Exception $ex) {
+    ResultPrinter::printError('Create Payment Using Credit Card', 'Payment', null, $request, $ex);
     exit(1);
 }
-?>
-<html>
-<head>
-    <title>Direct Credit card payments</title>
-</head>
-<body>
-    <div>
-        Created payment:
-        <?php echo $payment->getId();?>
-    </div>
-	<pre><?php echo $payment->toJSON(128);?></pre>
-    <a href='../index.html'>Back</a>
-</body>
-</html>
+
+ResultPrinter::printResult('Create Payment Using Credit Card', 'Payment', $payment->getId(), $request, $payment);
+
+return $payment;

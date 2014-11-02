@@ -34,9 +34,8 @@ try {
 
     $plan = Plan::get($createdPlan->getId(), $apiContext);
 
-} catch (PayPal\Exception\PPConnectionException $ex) {
-    echo "Exception: " . $ex->getMessage() . PHP_EOL;
-    var_dump($ex->getData());
+} catch (Exception $ex) {
+    ResultPrinter::printError("Updated the Plan to Active State", "Plan", null, $patchRequest, $ex);
     exit(1);
 }
 

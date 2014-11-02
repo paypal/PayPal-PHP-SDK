@@ -13,9 +13,8 @@ try {
     $tokenInfo = new PPOpenIdTokeninfo();
     $tokenInfo = $tokenInfo->createFromRefreshToken(array('refresh_token' => $refreshToken), $apiContext);
 
-} catch (PayPal\Exception\PPConnectionException $ex) {
-    echo "Exception: " . $ex->getMessage() . PHP_EOL;
-    var_dump($ex->getData());
+} catch (Exception $ex) {
+    ResultPrinter::printError("Obtained Access Token From Refresh Token", "Access Token", null, null, $ex);
     exit(1);
 }
 

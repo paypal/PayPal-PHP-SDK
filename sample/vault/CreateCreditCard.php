@@ -15,12 +15,15 @@ use PayPal\Api\CreditCard;
 // to be stored with PayPal.
 $card = new CreditCard();
 $card->setType("visa")
-	->setNumber("4417119669820331")
-	->setExpireMonth("11")
-	->setExpireYear("2019")
-	->setCvv2("012")
-	->setFirstName("Joe")
-	->setLastName("Shopper");
+    ->setNumber("4417119669820331")
+    ->setExpireMonth("11")
+    ->setExpireYear("2019")
+    ->setCvv2("012")
+    ->setFirstName("Joe")
+    ->setLastName("Shopper");
+
+// For Sample Purposes Only.
+$request = clone $card;
 
 // ### Save card
 // Creates the credit card as a resource
@@ -29,20 +32,12 @@ $card->setType("visa")
 // in future payments.
 // (See bootstrap.php for more on `ApiContext`)
 try {
-	$card->create($apiContext);	
-} catch (PayPal\Exception\PPConnectionException $ex) {
-	echo "Exception:" . $ex->getMessage() . PHP_EOL;
-	var_dump($ex->getData());
-	exit(1);
+    $card->create($apiContext);
+} catch (Exception $ex) {
+    ResultPrinter::printError("Create Credit Card", "Credit Card", null, $request, $ex);
+    exit(1);
 }
-?>
-<html>
-<head>
-	<title>Save a credit card</title>
-</head>
-<body>
-	<div>Saved a new credit card with id: <?php echo $card->getId();?></div>
-	<pre><?php echo $card->toJSON(128);?></pre>
-	<a href='../index.html'>Back</a>
-</body>
-</html>
+
+ResultPrinter::printResult("Create Credit Card", "Credit Card", $card->getId(), $request, $card);
+
+return $card;

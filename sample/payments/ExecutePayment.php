@@ -31,12 +31,8 @@ if (isset($_GET['success']) && $_GET['success'] == 'true') {
     // (See bootstrap.php for more on `ApiContext`)
     $result = $payment->execute($execution, $apiContext);
 
-    echo "<html><body><pre>";
-    echo $result->toJSON(128);
-    echo "</pre><a href='../index.html'>Back</a></body></html>";
+    ResultPrinter::printResult("Executed Payment", "Payment", $payment->getId(), $execution, $result);
 
 } else {
-    echo "<html><body><h1>";
-    echo "User cancelled payment.";
-    echo "</h1><a href='../index.html'>Back</a></body></html>";
+    ResultPrinter::printResult("User Cancelled the Approval", null);
 }

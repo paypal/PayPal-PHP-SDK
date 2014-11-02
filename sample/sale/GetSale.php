@@ -6,29 +6,28 @@
 // details of completed Sale Transaction.
 // API used: /v1/payments/sale/{sale-id}
 
-require __DIR__ . '/../bootstrap.php';
+/** @var Payment $payment */
+$payment = require __DIR__ . '/../payments/CreatePayment.php';
 use PayPal\Api\Sale;
+use PayPal\Api\Payment;
 
-$saleId = '3RM92092UW5126232';
+// ### Get Sale From Created Payment
+// You can retrieve the sale Id from Related Resources for each transactions.
+$transactions = $payment->getTransactions();
+$relatedResources = $transactions[0]->getRelatedResources();
+$sale = $relatedResources[0]->getSale();
+$saleId = $sale->getId();
 
-try {	
-	// ### Retrieve the sale object
-	// Pass the ID of the sale
-	// transaction from your payment resource.
-	$sale = Sale::get($saleId, $apiContext);
-} catch (PayPal\Exception\PPConnectionException $ex) {
-	echo "Exception:" . $ex->getMessage() . PHP_EOL;
-	var_dump($ex->getData());
-	exit(1);
+try {
+    // ### Retrieve the sale object
+    // Pass the ID of the sale
+    // transaction from your payment resource.
+    $sale = Sale::get($saleId, $apiContext);
+} catch (Exception $ex) {
+    ResultPrinter::printError("Look Up A Sale", "Sale", $sale->getId(), null, $ex);
+    exit(1);
 }
-?>
-<html>
-<head>
-	<title>Lookup a sale</title>
-</head>
-<body>
-	<div>Retrieving sale id: <?php echo $saleId;?></div>
-	<pre><?php echo $sale->toJSON(128)?></pre>
-	<a href='../index.html'>Back</a>
-</body>
-</html>
+
+ResultPrinter::printResult("Look Up A Sale", "Sale", $sale->getId(), null, $sale);
+
+return $sale;

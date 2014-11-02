@@ -1118,6 +1118,46 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "PHP"
             },
+            "sourcePath": "/Users/japatel/Documents/workspace/Server-SDK/rest-api-sdk-php/sample/payments/AuthorizePayment.php",
+            "projectPath": "payments/AuthorizePayment.php",
+            "targetPath": "payments/AuthorizePayment",
+            "pageTitle": "payments/AuthorizePayment",
+            "title": "AuthorizePayment"
+          },
+          "depth": 2,
+          "outline": [
+            {
+              "type": "heading",
+              "data": {
+                "level": 1,
+                "title": "Authorize Payment",
+                "slug": "authorize-payment"
+              },
+              "depth": 1,
+              "children": [
+                {
+                  "type": "heading",
+                  "data": {
+                    "level": 3,
+                    "title": "Create Payment",
+                    "slug": "create-payment"
+                  },
+                  "depth": 3
+                }
+              ]
+            }
+          ]
+        }, {
+          "type": "file",
+          "data": {
+            "language": {
+              "nameMatchers": [{}, ".fbp"],
+              "pygmentsLexer": "php",
+              "singleLineComment": ["//"],
+              "ignorePrefix": "}",
+              "foldPrefix": "^",
+              "name": "PHP"
+            },
             "sourcePath": "/Users/japatel/Documents/workspace/Server-SDK/rest-api-sdk-php/sample/payments/CreateFuturePayment.php",
             "projectPath": "payments/CreateFuturePayment.php",
             "targetPath": "payments/CreateFuturePayment",
@@ -1399,14 +1439,6 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "slug": "get-redirect-url"
                   },
                   "depth": 3
-                }, {
-                  "type": "heading",
-                  "data": {
-                    "level": 3,
-                    "title": "Redirect buyer to PayPal website",
-                    "slug": "redirect-buyer-to-paypal-website"
-                  },
-                  "depth": 3
                 }
               ]
             }
@@ -1616,14 +1648,6 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                   "type": "heading",
                   "data": {
                     "level": 3,
-                    "title": "Create a mock Capture",
-                    "slug": "create-a-mock-capture"
-                  },
-                  "depth": 3
-                }, {
-                  "type": "heading",
-                  "data": {
-                    "level": 3,
                     "title": "Retrieve Capture details",
                     "slug": "retrieve-capture-details"
                   },
@@ -1752,14 +1776,6 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                   "type": "heading",
                   "data": {
                     "level": 3,
-                    "title": "Lookup authorization using the authorization id",
-                    "slug": "lookup-authorization-using-the-authorization-id"
-                  },
-                  "depth": 3
-                }, {
-                  "type": "heading",
-                  "data": {
-                    "level": 3,
                     "title": "Reauthorize with amount being reauthorized",
                     "slug": "reauthorize-with-amount-being-reauthorized"
                   },
@@ -1797,14 +1813,6 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "depth": 1,
               "children": [
                 {
-                  "type": "heading",
-                  "data": {
-                    "level": 3,
-                    "title": "Capture",
-                    "slug": "capture"
-                  },
-                  "depth": 3
-                }, {
                   "type": "heading",
                   "data": {
                     "level": 3,
@@ -1895,6 +1903,14 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "depth": 1,
               "children": [
                 {
+                  "type": "heading",
+                  "data": {
+                    "level": 3,
+                    "title": "Get Sale From Created Payment",
+                    "slug": "get-sale-from-created-payment"
+                  },
+                  "depth": 3
+                }, {
                   "type": "heading",
                   "data": {
                     "level": 3,
@@ -2049,22 +2065,6 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "depth": 1,
               "children": [
                 {
-                  "type": "heading",
-                  "data": {
-                    "level": 3,
-                    "title": "CreditCard",
-                    "slug": "creditcard"
-                  },
-                  "depth": 3
-                }, {
-                  "type": "heading",
-                  "data": {
-                    "level": 3,
-                    "title": "Save card",
-                    "slug": "save-card"
-                  },
-                  "depth": 3
-                }, {
                   "type": "heading",
                   "data": {
                     "level": 3,

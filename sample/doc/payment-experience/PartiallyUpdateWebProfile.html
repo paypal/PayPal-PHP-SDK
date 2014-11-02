@@ -18,11 +18,7 @@ as shown below</p></div></div><div class="code"><div class="wrapper"><span class
         <span class="hljs-variable">$webProfile</span> = \PayPal\Api\WebProfile::get(<span class="hljs-variable">$webProfile</span>-&gt;getId(), <span class="hljs-variable">$apiContext</span>);
     }
 } <span class="hljs-keyword">catch</span> (\<span class="hljs-keyword">Exception</span> <span class="hljs-variable">$ex</span>) {
-    <span class="hljs-keyword">echo</span> <span class="hljs-string">"Exception: "</span> . <span class="hljs-variable">$ex</span>-&gt;getMessage() . PHP_EOL;
-    <span class="hljs-keyword">if</span> (is_a(<span class="hljs-variable">$ex</span>, <span class="hljs-string">'\PayPal\Exception\PPConnectionException'</span>)) {
-        <span class="hljs-comment">/**<span class="hljs-phpdoc"> @var</span> $ex \PayPal\Exception\PPConnectionException */</span>
-        var_dump(<span class="hljs-variable">$ex</span>-&gt;getData());
-    }
+    ResultPrinter::printError(<span class="hljs-string">"Partially Updated Web Profile"</span>, <span class="hljs-string">"Web Profile"</span>, <span class="hljs-variable">$webProfile</span>-&gt;getId(), <span class="hljs-variable">$patches</span>, <span class="hljs-variable">$ex</span>);
     <span class="hljs-keyword">exit</span>(<span class="hljs-number">1</span>);
 }
 

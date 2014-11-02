@@ -41,7 +41,9 @@ $webProfile->setName("YeowZa! T-Shirt Shop" . uniqid())
     // Parameters for flow configuration.
     ->setFlowConfig($flowConfig)
     // Parameters for style and presentation.
-    ->setPresentation($presentation);
+    ->setPresentation($presentation)
+    // Parameters for input field customization.
+    ->setInputFields($inputFields);
 
 // For Sample Purposes Only.
 $request = clone $webProfile;
@@ -49,12 +51,8 @@ $request = clone $webProfile;
 try {
     // Use this call to create a profile.
     $createProfileResponse = $webProfile->create($apiContext);
-} catch (\Exception $ex) {
-    echo "Exception: " . $ex->getMessage() . PHP_EOL;
-    if (is_a($ex, '\PayPal\Exception\PPConnectionException')) {
-        /** @var $ex \PayPal\Exception\PPConnectionException */
-        var_dump($ex->getData());
-    }
+} catch (\PayPal\Exception\PPConnectionException $ex) {
+    ResultPrinter::printError("Created Web Profile", "Web Profile", null, $request, $ex);
     exit(1);
 }
 

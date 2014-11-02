@@ -27,14 +27,14 @@ $payer->setPaymentMethod("paypal");
 // information
 $item1 = new Item();
 $item1->setName('Ground Coffee 40 oz')
-	->setCurrency('USD')
-	->setQuantity(1)
-	->setPrice('7.50');
+    ->setCurrency('USD')
+    ->setQuantity(1)
+    ->setPrice('7.50');
 $item2 = new Item();
 $item2->setName('Granola bars')
-	->setCurrency('USD')
-	->setQuantity(5)
-	->setPrice('2.00');
+    ->setCurrency('USD')
+    ->setQuantity(5)
+    ->setPrice('2.00');
 
 $itemList = new ItemList();
 $itemList->setItems(array($item1, $item2));
@@ -45,8 +45,8 @@ $itemList->setItems(array($item1, $item2));
 // charges etc.
 $details = new Details();
 $details->setShipping('1.20')
-	->setTax('1.30')
-	->setSubtotal('17.50');
+    ->setTax('1.30')
+    ->setSubtotal('17.50');
 
 // ### Amount
 // Lets you specify a payment amount.
@@ -54,8 +54,8 @@ $details->setShipping('1.20')
 // such as shipping, tax.
 $amount = new Amount();
 $amount->setCurrency("USD")
-	->setTotal("20.00")
-	->setDetails($details);
+    ->setTotal("20.00")
+    ->setDetails($details);
 
 // ### Transaction
 // A transaction defines the contract of a
@@ -63,8 +63,9 @@ $amount->setCurrency("USD")
 // is fulfilling it. 
 $transaction = new Transaction();
 $transaction->setAmount($amount)
-	->setItemList($itemList)
-	->setDescription("Payment description");
+    ->setItemList($itemList)
+    ->setDescription("Payment description")
+    ->setInvoiceNumber(uniqid());
 
 // ### Redirect urls
 // Set the urls that the buyer must be redirected to after 
@@ -72,16 +73,20 @@ $transaction->setAmount($amount)
 $baseUrl = getBaseUrl();
 $redirectUrls = new RedirectUrls();
 $redirectUrls->setReturnUrl("$baseUrl/ExecutePayment.php?success=true")
-	->setCancelUrl("$baseUrl/ExecutePayment.php?success=false");
+    ->setCancelUrl("$baseUrl/ExecutePayment.php?success=false");
 
 // ### Payment
 // A Payment Resource; create one using
 // the above types and intent set to 'sale'
 $payment = new Payment();
 $payment->setIntent("sale")
-	->setPayer($payer)
-	->setRedirectUrls($redirectUrls)
-	->setTransactions(array($transaction));
+    ->setPayer($payer)
+    ->setRedirectUrls($redirectUrls)
+    ->setTransactions(array($transaction));
+
+
+// For Sample Purposes Only.
+$request = clone $payment;
 
 // ### Create Payment
 // Create a payment by calling the 'create' method
@@ -91,26 +96,23 @@ $payment->setIntent("sale")
 // url to which the buyer must be redirected to
 // for payment approval
 try {
-	$payment->create($apiContext);
-} catch (PayPal\Exception\PPConnectionException $ex) {
-	echo "Exception: " . $ex->getMessage() . PHP_EOL;
-	var_dump($ex->getData());	
-	exit(1);
+    $payment->create($apiContext);
+} catch (Exception $ex) {
+    ResultPrinter::printError("Created Payment Using PayPal. Please visit the URL to Approve.", "Payment", null, $request, $ex);
+    exit(1);
 }
 
 // ### Get redirect url
 // The API response provides the url that you must redirect
 // the buyer to. Retrieve the url from the $payment->getLinks()
 // method
-foreach($payment->getLinks() as $link) {
-	if($link->getRel() == 'approval_url') {
-		$redirectUrl = $link->getHref();
-		break;
-	}
+foreach ($payment->getLinks() as $link) {
+    if ($link->getRel() == 'approval_url') {
+        $approvalUrl = $link->getHref();
+        break;
+    }
 }
 
-// ### Redirect buyer to PayPal website
-if(isset($redirectUrl)) {
-	header("Location: $redirectUrl");
-	exit;
-}
+ResultPrinter::printResult("Created Payment Using PayPal. Please visit the URL to Approve.", "Payment", "<a href='$approvalUrl' >$approvalUrl</a>", $request, $payment);
+
+return $payment;

@@ -18,9 +18,8 @@ if (isset($_GET['success']) && $_GET['success'] == 'true') {
         // Obtain Authorization Code from Code, Client ID and Client Secret
         $accessToken = PPOpenIdTokeninfo::createFromAuthorizationCode(array('code' => $code), null, null, $apiContext);
     } catch (PPConnectionException $ex) {
-            echo "Exception: " . $ex->getMessage() . PHP_EOL;
-            var_dump($ex->getData());
-            exit(1);
+        ResultPrinter::printError("Obtained Access Token", "Access Token", null, $_GET['code'], $ex);
+        exit(1);
     }
 
     ResultPrinter::printResult("Obtained Access Token", "Access Token", $accessToken->getAccessToken(), $_GET['code'], $accessToken);

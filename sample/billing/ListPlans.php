@@ -19,9 +19,8 @@ try {
     // at https://developer.paypal.com/webapps/developer/docs/api/#list-plans
     $params = array('page_size' => '2');
     $planList = Plan::all($params, $apiContext);
-} catch (PayPal\Exception\PPConnectionException $ex) {
-    echo "Exception: " . $ex->getMessage() . PHP_EOL;
-    var_dump($ex->getData());
+} catch (Exception $ex) {
+    ResultPrinter::printError("List of Plans", "Plan", null, $params, $ex);
     exit(1);
 }
 

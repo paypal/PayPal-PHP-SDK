@@ -37,9 +37,8 @@ try {
     // notification object
     // (See bootstrap.php for more on `ApiContext`)
     $cancelStatus = $invoice->cancel($notify, $apiContext);
-} catch (PayPal\Exception\PPConnectionException $ex) {
-    echo "Exception: " . $ex->getMessage() . PHP_EOL;
-    var_dump($ex->getData());
+} catch (Exception $ex) {
+    ResultPrinter::printError("Cancel Invoice", "Invoice", null, $notify, $ex);
     exit(1);
 }
 

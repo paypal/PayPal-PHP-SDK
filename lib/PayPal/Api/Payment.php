@@ -247,7 +247,7 @@ class Payment extends ResourceModel
      * A payment can have more than one transaction, with each transaction establishing a contract between the payer and a payee
      *
      *
-     * @param \PayPal\Api\Transaction $transactions
+     * @param \PayPal\Api\Transaction[] $transactions
      *
      * @return $this
      */

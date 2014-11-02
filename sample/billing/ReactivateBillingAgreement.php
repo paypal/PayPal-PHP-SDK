@@ -24,9 +24,8 @@ try {
     // Lets get the updated Agreement Object
     $agreement = Agreement::get($suspendedAgreement->getId(), $apiContext);
 
-} catch (PayPal\Exception\PPConnectionException $ex) {
-    echo "Exception: " . $ex->getMessage() . PHP_EOL;
-    var_dump($ex->getData());
+} catch (Exception $ex) {
+    ResultPrinter::printResult("Reactivate the Agreement", "Agreement", $agreement->getId(), $suspendedAgreement, $ex);
     exit(1);
 }
 

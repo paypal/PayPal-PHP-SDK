@@ -14,12 +14,8 @@ $createProfileResponse = require 'CreateWebProfile.php';
 try {
     // If your request is successful, the API returns a web_profile object response that contains the profile details.
     $webProfile = \PayPal\Api\WebProfile::get($createProfileResponse->getId(), $apiContext);
-} catch (\Exception $ex) {
-    echo "Exception: " . $ex->getMessage() . PHP_EOL;
-    if (is_a($ex, '\PayPal\Exception\PPConnectionException')) {
-        /** @var $ex \PayPal\Exception\PPConnectionException */
-        var_dump($ex->getData());
-    }
+} catch (\PayPal\Exception\PPConnectionException $ex) {
+    ResultPrinter::printError("Get Web Profile", "Web Profile", $webProfile->getId(), null, $ex);
     exit(1);
 }
 

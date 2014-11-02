@@ -36,9 +36,8 @@ try {
     // Lets get the updated Agreement Object
     $agreement = Agreement::get($createdAgreement->getId(), $apiContext);
 
-} catch (PayPal\Exception\PPConnectionException $ex) {
-    echo "Exception: " . $ex->getMessage() . PHP_EOL;
-    var_dump($ex->getData());
+} catch (Exception $ex) {
+    ResultPrinter::printError("Updated the Agreement with new Description and Updated Shipping Address", "Agreement", null, $patchRequest, $ex);
     exit(1);
 }
 

@@ -17,9 +17,8 @@ $invoiceId = "INV2-W4LC-6QS9-JZ62-VE4P";
 // (See bootstrap.php for more on `ApiContext`)
 try {
     $invoice = Invoice::get($invoiceId, $apiContext);
-} catch (PayPal\Exception\PPConnectionException $ex) {
-    echo "Exception:" . $ex->getMessage() . PHP_EOL;
-    var_dump($ex->getData());
+} catch (Exception $ex) {
+    ResultPrinter::printError("Get Invoice", "Invoice", $invoice->getId(), $invoiceId, $ex);
     exit(1);
 }
 

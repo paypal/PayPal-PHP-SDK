@@ -6,9 +6,8 @@
     <span class="hljs-variable">$tokenInfo</span> = <span class="hljs-keyword">new</span> PPOpenIdTokeninfo();
     <span class="hljs-variable">$tokenInfo</span> = <span class="hljs-variable">$tokenInfo</span>-&gt;createFromRefreshToken(<span class="hljs-keyword">array</span>(<span class="hljs-string">'refresh_token'</span> =&gt; <span class="hljs-variable">$refreshToken</span>), <span class="hljs-variable">$apiContext</span>);
 
-} <span class="hljs-keyword">catch</span> (PayPal\<span class="hljs-keyword">Exception</span>\PPConnectionException <span class="hljs-variable">$ex</span>) {
-    <span class="hljs-keyword">echo</span> <span class="hljs-string">"Exception: "</span> . <span class="hljs-variable">$ex</span>-&gt;getMessage() . PHP_EOL;
-    var_dump(<span class="hljs-variable">$ex</span>-&gt;getData());
+} <span class="hljs-keyword">catch</span> (<span class="hljs-keyword">Exception</span> <span class="hljs-variable">$ex</span>) {
+    ResultPrinter::printError(<span class="hljs-string">"Obtained Access Token From Refresh Token"</span>, <span class="hljs-string">"Access Token"</span>, <span class="hljs-keyword">null</span>, <span class="hljs-keyword">null</span>, <span class="hljs-variable">$ex</span>);
     <span class="hljs-keyword">exit</span>(<span class="hljs-number">1</span>);
 }
 

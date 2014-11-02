@@ -28,9 +28,8 @@ try {
     $params = array('access_token' => $tokenInfo->getAccessToken());
     $userInfo = PPOpenIdUserinfo::getUserinfo($params, $apiContext);
 
-} catch (PayPal\Exception\PPConnectionException $ex) {
-    echo "Exception: " . $ex->getMessage() . PHP_EOL;
-    var_dump($ex->getData());
+} catch (Exception $ex) {
+    ResultPrinter::printError("User Information", "User Info", null, $params, $ex);
     exit(1);
 }
 

@@ -14,9 +14,8 @@ use PayPal\Api\Agreement;
 
 try {
     $agreement = Agreement::get($createdAgreement->getId(), $apiContext);
-} catch (PayPal\Exception\PPConnectionException $ex) {
-    echo "Exception: " . $ex->getMessage() . PHP_EOL;
-    var_dump($ex->getData());
+} catch (Exception $ex) {
+    ResultPrinter::printError("Retrieved an Agreement", "Agreement", $agreement->getId(), $createdAgreement->getId(), $ex);
     exit(1);
 }
 

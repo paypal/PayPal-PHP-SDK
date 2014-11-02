@@ -4,10 +4,11 @@
 // of an authorized payment.
 // API used: /v1/payments/authorization/<$authorizationId>
 
-require __DIR__ . '/../bootstrap.php';
+/** @var Authorization $authorization */
+$authorization = require 'AuthorizePayment.php';
 
 use PayPal\Api\Authorization;
-
+use PayPal\Api\Payment;
 
 // ### GetAuthorization
 // You can retrieve info about an Authorization
@@ -16,28 +17,13 @@ use PayPal\Api\Authorization;
 // The return object contains the authorization state.
 
 try {
-	// create a authorization to get authorization Id
-	// createAuthorization is defined in common.php
-	$authId = createAuthorization($apiContext);
-	
-	// Retrieve the authorization
-	$authorization = Authorization::get($authId, $apiContext);
-} catch (PayPal\Exception\PPConnectionException $ex) {
-	echo "Exception: " . $ex->getMessage() . PHP_EOL;
-	var_dump($ex->getData());
-	exit(1);
+    // Retrieve the authorization
+    $result = Authorization::get($authorization->getId(), $apiContext);
+} catch (Exception $ex) {
+    ResultPrinter::printError("Get Authorization", "Authorization", null, null, $ex);
+    exit(1);
 }
-?>
-<html>
-<head>
-	<title>Lookup an authorization</title>
-</head>
-<body>
-	<div>
-		Retrieved Authorization:
-		<?php echo $authorization->getId();?>
-	</div>
-	<pre><?php echo $authorization->toJSON(128);?></pre>
-	<a href='../index.html'>Back</a>
-</body>
-</html>
+
+ResultPrinter::printResult("Get Authorization", "Authorization", $authorization->getId(), null, $result);
+
+return $authorization;

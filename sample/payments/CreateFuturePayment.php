@@ -70,6 +70,9 @@ try {
     // Update the access token in apiContext
     $payment->updateAccessToken($refreshToken, $apiContext);
 
+    // For Sample Purposes Only.
+    $request = clone $payment;
+
     // ### Create Future Payment
     // Create a payment by calling the 'create' method
     // passing it a valid apiContext.
@@ -80,23 +83,11 @@ try {
     // Please note that currently future payments works only with PayPal as a funding instrument.
     $payment->create($apiContext, $correlationId);
 
-} catch (PayPal\Exception\PPConnectionException $ex) {
-    echo "Exception: " . $ex->getMessage() . PHP_EOL;
-    var_dump($ex->getData());
+} catch (Exception $ex) {
+    ResultPrinter::printError("Future Payment", "Payment", null, $request, $ex);
     exit(1);
 }
-?>
 
-<html>
-<head>
-    <title>Future payments</title>
-</head>
-<body>
-<div>
-    Created payment:
-    <?php echo $payment->getId();?>
-</div>
-<pre><?php echo $payment->toJSON(128);?></pre>
-<a href='../index.html'>Back</a>
-</body>
-</html>
+ResultPrinter::printResult("Future Payment", "Payment", $payment->getId(), $request, $payment);
+
+return $payment;

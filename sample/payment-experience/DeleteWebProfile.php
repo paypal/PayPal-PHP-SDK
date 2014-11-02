@@ -18,12 +18,8 @@ $webProfile->setId($createProfileResponse->getId());
 try {
     // Execute the delete method
     $webProfile->delete($apiContext);
-} catch (\Exception $ex) {
-    echo "Exception: " . $ex->getMessage() . PHP_EOL;
-    if (is_a($ex, '\PayPal\Exception\PPConnectionException')) {
-        /** @var $ex \PayPal\Exception\PPConnectionException */
-        var_dump($ex->getData());
-    }
+} catch (\PayPal\Exception\PPConnectionException $ex) {
+    ResultPrinter::printError("Deleted Web Profile", "Web Profile", $createProfileResponse->getId(), null, $ex);
     exit(1);
 }
 

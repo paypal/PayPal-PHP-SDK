@@ -3,8 +3,10 @@
 // This sample code demonstrates how you can capture 
 // a previously authorized payment.
 // API used: /v1/payments/payment
+// https://developer.paypal.com/webapps/developer/docs/api/#capture-an-authorization
 
-require __DIR__ . '/../bootstrap.php';
+/** @var Authorization $authorization */
+$authorization = require 'GetAuthorization.php';
 use PayPal\Api\Amount;
 use PayPal\Api\Capture;
 use PayPal\Api\Authorization;
@@ -15,40 +17,23 @@ use PayPal\Api\Authorization;
 // by invoking the $authorization->capture method
 // with a valid ApiContext (See bootstrap.php for more on `ApiContext`)
 try {
-	// Create a new authorization to get authorization Id
-	// createAuthorization defined in common.php
-	$authId = createAuthorization($apiContext);
+    $authId = $authorization->getId();
 
-	$amt = new Amount();
-	$amt->setCurrency("USD")
-		->setTotal("1.00");
+    $amt = new Amount();
+    $amt->setCurrency("USD")
+        ->setTotal("1.00");
 
-	### Capture
-	$capture = new Capture();
-	$capture->setId($authId)
-		->setAmount($amt);
+    ### Capture
+    $capture = new Capture();
+    $capture->setAmount($amt);
 
-	// Lookup the authorization.
-	$authorization = Authorization::get($authId, $apiContext);
-
-	// Perform a capture
-	$getCapture = $authorization->capture($capture, $apiContext);
-} catch (PayPal\Exception\PPConnectionException $ex) {
-	echo "Exception: " . $ex->getMessage() . PHP_EOL;
-	var_dump($ex->getData());
-	exit(1);
+    // Perform a capture
+    $getCapture = $authorization->capture($capture, $apiContext);
+} catch (Exception $ex) {
+    ResultPrinter::printError("Capture Payment", "Authorization", null, $capture, $ex);
+    exit(1);
 }
-?>
-<html>
-<head>
-	<title>Capturing an authorization</title>
-</head>
-<body>
-	<div>
-		Captured payment <?php echo $getCapture->getParentPayment(); ?>. Capture Id:
-		<?php echo $getCapture->getId();?>
-	</div>
-	<pre><?php echo $getCapture->toJSON(128);?></pre>
-	<a href='../index.html'>Back</a>
-</body>
-</html>
+
+ResultPrinter::printResult("Capture Payment", "Authorization", $getCapture->getId(), $capture, $getCapture);
+
+return $getCapture;

@@ -16,9 +16,8 @@ to retreive the information. The short lived access token can be retrieved using
     <span class="hljs-variable">$params</span> = <span class="hljs-keyword">array</span>(<span class="hljs-string">'access_token'</span> =&gt; <span class="hljs-variable">$tokenInfo</span>-&gt;getAccessToken());
     <span class="hljs-variable">$userInfo</span> = PPOpenIdUserinfo::getUserinfo(<span class="hljs-variable">$params</span>, <span class="hljs-variable">$apiContext</span>);
 
-} <span class="hljs-keyword">catch</span> (PayPal\<span class="hljs-keyword">Exception</span>\PPConnectionException <span class="hljs-variable">$ex</span>) {
-    <span class="hljs-keyword">echo</span> <span class="hljs-string">"Exception: "</span> . <span class="hljs-variable">$ex</span>-&gt;getMessage() . PHP_EOL;
-    var_dump(<span class="hljs-variable">$ex</span>-&gt;getData());
+} <span class="hljs-keyword">catch</span> (<span class="hljs-keyword">Exception</span> <span class="hljs-variable">$ex</span>) {
+    ResultPrinter::printError(<span class="hljs-string">"User Information"</span>, <span class="hljs-string">"User Info"</span>, <span class="hljs-keyword">null</span>, <span class="hljs-variable">$params</span>, <span class="hljs-variable">$ex</span>);
     <span class="hljs-keyword">exit</span>(<span class="hljs-number">1</span>);
 }
 

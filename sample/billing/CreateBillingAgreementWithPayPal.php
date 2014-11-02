@@ -80,9 +80,8 @@ try {
         }
     }
 
-} catch (PayPal\Exception\PPConnectionException $ex) {
-    echo "Exception: " . $ex->getMessage() . PHP_EOL;
-    var_dump($ex->getData());
+} catch (Exception $ex) {
+    ResultPrinter::printError("Created Billing Agreement.", "Agreement", null, $request, $ex);
     exit(1);
 }
 

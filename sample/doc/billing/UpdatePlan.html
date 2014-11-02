@@ -26,9 +26,8 @@ API used:  /v1/payments/billing-plans/<Plan-Id></p></div></div></div><div class=
 
     <span class="hljs-variable">$plan</span> = Plan::get(<span class="hljs-variable">$createdPlan</span>-&gt;getId(), <span class="hljs-variable">$apiContext</span>);
 
-} <span class="hljs-keyword">catch</span> (PayPal\<span class="hljs-keyword">Exception</span>\PPConnectionException <span class="hljs-variable">$ex</span>) {
-    <span class="hljs-keyword">echo</span> <span class="hljs-string">"Exception: "</span> . <span class="hljs-variable">$ex</span>-&gt;getMessage() . PHP_EOL;
-    var_dump(<span class="hljs-variable">$ex</span>-&gt;getData());
+} <span class="hljs-keyword">catch</span> (<span class="hljs-keyword">Exception</span> <span class="hljs-variable">$ex</span>) {
+    ResultPrinter::printError(<span class="hljs-string">"Updated the Plan to Active State"</span>, <span class="hljs-string">"Plan"</span>, <span class="hljs-keyword">null</span>, <span class="hljs-variable">$patchRequest</span>, <span class="hljs-variable">$ex</span>);
     <span class="hljs-keyword">exit</span>(<span class="hljs-number">1</span>);
 }
 

@@ -5,7 +5,8 @@
 // Payment using a previously stored credit card token.
 // API used: /v1/payments/payment
 
-require __DIR__ . '/../bootstrap.php';
+/** @var CreditCard $card */
+$card = require __DIR__ . '/../vault/CreateCreditCard.php';
 use PayPal\Api\Amount;
 use PayPal\Api\Details;
 use PayPal\Api\Item;
@@ -15,12 +16,13 @@ use PayPal\Api\Payer;
 use PayPal\Api\Payment;
 use PayPal\Api\FundingInstrument;
 use PayPal\Api\Transaction;
+use PayPal\Api\CreditCard;
 
 // ### Credit card token
 // Saved credit card id from a previous call to
 // CreateCreditCard.php
 $creditCardToken = new CreditCardToken();
-$creditCardToken->setCreditCardId('CARD-17M96700G1952584EKRCTV5Y');
+$creditCardToken->setCreditCardId($card->getId());
 
 // ### FundingInstrument
 // A resource representing a Payer's funding instrument.
@@ -35,21 +37,21 @@ $fi->setCreditCardToken($creditCardToken);
 // to 'credit_card'.
 $payer = new Payer();
 $payer->setPaymentMethod("credit_card")
-	->setFundingInstruments(array($fi));
+    ->setFundingInstruments(array($fi));
 
 // ### Itemized information
 // (Optional) Lets you specify item wise
 // information
 $item1 = new Item();
 $item1->setName('Ground Coffee 40 oz')
-	->setCurrency('USD')
-	->setQuantity(1)
-	->setPrice('7.50');
+    ->setCurrency('USD')
+    ->setQuantity(1)
+    ->setPrice('7.50');
 $item2 = new Item();
 $item2->setName('Granola bars')
-	->setCurrency('USD')
-	->setQuantity(5)
-	->setPrice('2.00');
+    ->setCurrency('USD')
+    ->setQuantity(5)
+    ->setPrice('2.00');
 
 $itemList = new ItemList();
 $itemList->setItems(array($item1, $item2));
@@ -60,8 +62,8 @@ $itemList->setItems(array($item1, $item2));
 // charges etc.
 $details = new Details();
 $details->setShipping('1.20')
-	->setTax('1.30')
-	->setSubtotal('17.50');
+    ->setTax('1.30')
+    ->setSubtotal('17.50');
 
 // ### Amount
 // Lets you specify a payment amount.
@@ -69,8 +71,8 @@ $details->setShipping('1.20')
 // such as shipping, tax.
 $amount = new Amount();
 $amount->setCurrency("USD")
-	->setTotal("20.00")
-	->setDetails($details);
+    ->setTotal("20.00")
+    ->setDetails($details);
 
 // ### Transaction
 // A transaction defines the contract of a
@@ -78,16 +80,21 @@ $amount->setCurrency("USD")
 // is fulfilling it. 
 $transaction = new Transaction();
 $transaction->setAmount($amount)
-	->setItemList($itemList)
-	->setDescription("Payment description");
+    ->setItemList($itemList)
+    ->setDescription("Payment description")
+    ->setInvoiceNumber(uniqid());
 
 // ### Payment
 // A Payment Resource; create one using
 // the above types and intent set to 'sale'
 $payment = new Payment();
 $payment->setIntent("sale")
-	->setPayer($payer)
-	->setTransactions(array($transaction));
+    ->setPayer($payer)
+    ->setTransactions(array($transaction));
+
+
+// For Sample Purposes Only.
+$request = clone $payment;
 
 // ###Create Payment
 // Create a payment by calling the 'create' method
@@ -95,23 +102,12 @@ $payment->setIntent("sale")
 // (See bootstrap.php for more on `ApiContext`)
 // The return object contains the state.
 try {
-	$payment->create($apiContext);
-} catch (PayPal\Exception\PPConnectionException $ex) {
-	echo "Exception: " . $ex->getMessage() . PHP_EOL;
-	var_dump($ex->getData());	
-	exit(1);
+    $payment->create($apiContext);
+} catch (Exception $ex) {
+    ResultPrinter::printError("Create Payment using Saved Card", "Payment", null, $request, $ex);
+    exit(1);
 }
-?>
-<html>
-<head>
-	<title>Saved Credit card payments</title>
-</head>
-<body>
-	<div>
-		Created payment:
-		<?php echo $payment->getId();?>
-	</div>
-	<pre><?php echo $payment->toJSON(128);?></pre>
-	<a href='../index.html'>Back</a>
-</body>
-</html>
+
+ResultPrinter::printResult("Create Payment using Saved Card", "Payment", $payment->getId(), $request, $payment);
+
+return $card;

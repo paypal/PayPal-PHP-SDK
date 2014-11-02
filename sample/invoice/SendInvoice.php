@@ -21,9 +21,8 @@ try {
     // Send a legitimate invoice to the payer
     // with a valid ApiContext (See bootstrap.php for more on `ApiContext`)
     $sendStatus = $invoice->send($apiContext);
-} catch (PayPal\Exception\PPConnectionException $ex) {
-    echo "Exception: " . $ex->getMessage() . PHP_EOL;
-    var_dump($ex->getData());
+} catch (Exception $ex) {
+    ResultPrinter::printResult("Send Invoice", "Invoice", null, null, $ex);
     exit(1);
 }
 

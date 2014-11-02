@@ -6,7 +6,10 @@
 // using the Payments API.
 // API used: /v1/payments/sale/{sale-id}/refund
 
-require __DIR__ . '/../bootstrap.php';
+/** @var Sale $sale */
+$sale = require 'GetSale.php';
+$saleId = $sale->getId();
+
 use PayPal\Api\Amount;
 use PayPal\Api\Refund;
 use PayPal\Api\Sale;
@@ -17,13 +20,11 @@ use PayPal\Api\Sale;
 // field to mention fees refund details.
 $amt = new Amount();
 $amt->setCurrency('USD')
-	->setTotal('0.01');
+    ->setTotal('0.01');
 
 // ### Refund object
 $refund = new Refund();
 $refund->setAmount($amt);
-
-$saleId = '3RM92092UW5126232';
 
 // ###Sale
 // A sale transaction.
@@ -31,23 +32,19 @@ $saleId = '3RM92092UW5126232';
 // given sale transaction id.
 $sale = new Sale();
 $sale->setId($saleId);
-try {	
-	// Refund the sale
-	// (See bootstrap.php for more on `ApiContext`)
-	$sale->refund($refund, $apiContext);
-} catch (PayPal\Exception\PPConnectionException $ex) {
-	echo "Exception:" . $ex->getMessage() . PHP_EOL;
-	var_dump($ex->getData());
-	exit(1);
+try {
+    // Create a new apiContext object so we send a new
+    // PayPal-Request-Id (idempotency) header for this resource
+    $apiContext = getApiContext($clientId, $clientSecret);
+
+    // Refund the sale
+    // (See bootstrap.php for more on `ApiContext`)
+    $refundedSale = $sale->refund($refund, $apiContext);
+} catch (Exception $ex) {
+    ResultPrinter::printError("Refund Sale", "Sale", $refundedSale->getId(), $refund, $ex);
+    exit(1);
 }
-?>
-<html>
-<head>
-	<title>Refund a sale</title>
-</head>
-<body>
-	<div>Refunding sale id: <?php echo $saleId;?></div>
-	<pre><?php echo $sale->toJSON(128);?></pre>
-	<a href='../index.html'>Back</a>
-</body>
-</html>
+
+ResultPrinter::printResult("Refund Sale", "Sale", $refundedSale->getId(), $refund, $refundedSale);
+
+return $refundedSale;

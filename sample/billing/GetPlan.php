@@ -14,9 +14,8 @@ use PayPal\Api\Plan;
 
 try {
     $plan = Plan::get($createdPlan->getId(), $apiContext);
-} catch (PayPal\Exception\PPConnectionException $ex) {
-    echo "Exception: " . $ex->getMessage() . PHP_EOL;
-    var_dump($ex->getData());
+} catch (Exception $ex) {
+    ResultPrinter::printError("Retrieved a Plan", "Plan", $plan->getId(), null, $ex);
     exit(1);
 }
 

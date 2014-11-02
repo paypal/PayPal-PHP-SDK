@@ -100,9 +100,8 @@ try {
     // Please note that as the agreement has not yet activated, we wont be receiving the ID just yet.
     $agreement = $agreement->create($apiContext);
 
-} catch (PayPal\Exception\PPConnectionException $ex) {
-    echo "Exception: " . $ex->getMessage() . PHP_EOL;
-    var_dump($ex->getData());
+} catch (Exception $ex) {
+    ResultPrinter::printError("Created Billing Agreement.", "Agreement", $agreement->getId(), $request, $ex);
     exit(1);
 }
 
