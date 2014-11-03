@@ -44,7 +44,7 @@ $payer->setPaymentMethod("credit_card")
 
 $amount = new Amount();
 $amount->setCurrency("USD")
-    ->setTotal("1.00");
+    ->setTotal(1);
 
 $transaction = new Transaction();
 $transaction->setAmount($amount)

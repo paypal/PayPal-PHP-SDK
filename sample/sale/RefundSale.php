@@ -20,7 +20,7 @@ use PayPal\Api\Sale;
 // field to mention fees refund details.
 $amt = new Amount();
 $amt->setCurrency('USD')
-    ->setTotal('0.01');
+    ->setTotal(0.01);
 
 // ### Refund object
 $refund = new Refund();

@@ -20,7 +20,7 @@ try {
 
     $amount = new Amount();
     $amount->setCurrency("USD");
-    $amount->setTotal("1.00");
+    $amount->setTotal(1);
 
     // ### Reauthorize with amount being reauthorized
     $authorization->setAmount($amount);

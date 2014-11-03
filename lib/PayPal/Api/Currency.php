@@ -3,6 +3,8 @@
 namespace PayPal\Api;
 
 use PayPal\Common\PPModel;
+use PayPal\Common\FormatConverter;
+use PayPal\Validation\NumericValidator;
 
 /**
  * Class Currency
@@ -42,12 +44,14 @@ class Currency extends PPModel
     /**
      * amount up to N digit after the decimals separator as defined in ISO 4217 for the appropriate currency code.
      *
-     * @param string $value
+     * @param string|double $value
      * 
      * @return $this
      */
     public function setValue($value)
     {
+        NumericValidator::validate($value, "Value");
+        $value = FormatConverter::formatToTwoDecimalPlaces($value);
         $this->value = $value;
         return $this;
     }

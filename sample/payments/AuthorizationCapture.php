@@ -21,7 +21,7 @@ try {
 
     $amt = new Amount();
     $amt->setCurrency("USD")
-        ->setTotal("1.00");
+        ->setTotal(1);
 
     ### Capture
     $capture = new Capture();

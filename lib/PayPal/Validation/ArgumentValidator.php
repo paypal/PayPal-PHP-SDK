@@ -21,11 +21,7 @@ class ArgumentValidator
     {
         if (
             $argument != null &&
-            (
-                (gettype($argument) == 'string' && $argument == '')
-                ||
-                is_array($argument) && empty($argument)
-            )
+            ((gettype($argument) == 'string' && $argument == '') || is_array($argument) && empty($argument))
         ) {
             //Throw an Exception for string or array
             throw new \InvalidArgumentException("$argumentName cannot be null or empty");

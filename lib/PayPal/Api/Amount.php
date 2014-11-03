@@ -4,6 +4,8 @@ namespace PayPal\Api;
 
 use PayPal\Common\PPModel;
 use PayPal\Rest\ApiContext;
+use PayPal\Validation\NumericValidator;
+use PayPal\Common\FormatConverter;
 
 /**
  * Class Amount
@@ -46,12 +48,14 @@ class Amount extends PPModel
      * Total amount charged from the Payer account (or card) to Payee. In case of a refund, this is the refunded amount to the original Payer from Payee account.
      * 
      *
-     * @param string $total
+     * @param string|double $total
      * 
      * @return $this
      */
     public function setTotal($total)
     {
+        NumericValidator::validate($total, "Total");
+        $total = FormatConverter::formatToTwoDecimalPlaces($total);
         $this->total = $total;
         return $this;
     }

@@ -4,6 +4,8 @@ namespace PayPal\Api;
 
 use PayPal\Common\PPModel;
 use PayPal\Rest\ApiContext;
+use PayPal\Validation\NumericValidator;
+use PayPal\Common\FormatConverter;
 
 /**
  * Class Details
@@ -27,12 +29,14 @@ class Details extends PPModel
      * Amount being charged for shipping.
      * 
      *
-     * @param string $shipping
+     * @param string|double $shipping
      * 
      * @return $this
      */
     public function setShipping($shipping)
     {
+        NumericValidator::validate($shipping, "Shipping");
+        $shipping = FormatConverter::formatToTwoDecimalPlaces($shipping);
         $this->shipping = $shipping;
         return $this;
     }
@@ -51,12 +55,14 @@ class Details extends PPModel
      * Sub-total (amount) of items being paid for.
      * 
      *
-     * @param string $subtotal
+     * @param string|double $subtotal
      * 
      * @return $this
      */
     public function setSubtotal($subtotal)
     {
+        NumericValidator::validate($subtotal, "SubTotal");
+        $subtotal = FormatConverter::formatToTwoDecimalPlaces($subtotal);
         $this->subtotal = $subtotal;
         return $this;
     }
@@ -68,6 +74,7 @@ class Details extends PPModel
      */
     public function getSubtotal()
     {
+
         return $this->subtotal;
     }
 
@@ -75,12 +82,14 @@ class Details extends PPModel
      * Amount being charged as tax.
      * 
      *
-     * @param string $tax
+     * @param string|double $tax
      * 
      * @return $this
      */
     public function setTax($tax)
     {
+        NumericValidator::validate($tax, "Tax");
+        $tax = FormatConverter::formatToTwoDecimalPlaces($tax);
         $this->tax = $tax;
         return $this;
     }
@@ -99,12 +108,14 @@ class Details extends PPModel
      * Fee charged by PayPal. In case of a refund, this is the fee amount refunded to the original receipient of the payment.
      * 
      *
-     * @param string $fee
+     * @param string|double $fee
      * 
      * @return $this
      */
     public function setFee($fee)
     {
+        NumericValidator::validate($fee, "Fee");
+        $fee = FormatConverter::formatToTwoDecimalPlaces($fee);
         $this->fee = $fee;
         return $this;
     }
@@ -123,12 +134,14 @@ class Details extends PPModel
      * Amount being charged as shipping discount.
      * 
      *
-     * @param string $shipping_discount
+     * @param string|double $shipping_discount
      * 
      * @return $this
      */
     public function setShippingDiscount($shipping_discount)
     {
+        NumericValidator::validate($shipping_discount, "Shipping Discount");
+        $shipping_discount = FormatConverter::formatToTwoDecimalPlaces($shipping_discount);
         $this->shipping_discount = $shipping_discount;
         return $this;
     }
@@ -172,12 +185,14 @@ class Details extends PPModel
      * Amount being charged as insurance.
      * 
      *
-     * @param string $insurance
+     * @param string|double $insurance
      * 
      * @return $this
      */
     public function setInsurance($insurance)
     {
+        NumericValidator::validate($insurance, "Insurance");
+        $insurance = FormatConverter::formatToTwoDecimalPlaces($insurance);
         $this->insurance = $insurance;
         return $this;
     }
@@ -196,12 +211,14 @@ class Details extends PPModel
      * Amount being charged as handling fee.
      * 
      *
-     * @param string $handling_fee
+     * @param string|double $handling_fee
      * 
      * @return $this
      */
     public function setHandlingFee($handling_fee)
     {
+        NumericValidator::validate($handling_fee, "Handling Fee");
+        $handling_fee = FormatConverter::formatToTwoDecimalPlaces($handling_fee);
         $this->handling_fee = $handling_fee;
         return $this;
     }
@@ -243,14 +260,15 @@ class Details extends PPModel
 
     /**
      * Amount being charged as gift wrap fee.
-     * 
      *
-     * @param string $gift_wrap
+     * @param string|double $gift_wrap
      * 
      * @return $this
      */
     public function setGiftWrap($gift_wrap)
     {
+        NumericValidator::validate($gift_wrap, "Gift Wrap");
+        $gift_wrap = FormatConverter::formatToTwoDecimalPlaces($gift_wrap);
         $this->gift_wrap = $gift_wrap;
         return $this;
     }

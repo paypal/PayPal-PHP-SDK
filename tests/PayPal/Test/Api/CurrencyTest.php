@@ -18,7 +18,7 @@ class CurrencyTest extends \PHPUnit_Framework_TestCase
      */
     public static function getJson()
     {
-        return '{"currency":"TestSample","value":"TestSample"}';
+        return '{"currency":"TestSample","value":"12.34"}';
     }
 
     /**

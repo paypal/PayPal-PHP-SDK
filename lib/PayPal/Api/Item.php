@@ -5,6 +5,8 @@ namespace PayPal\Api;
 use PayPal\Common\PPModel;
 use PayPal\Rest\ApiContext;
 use PayPal\Validation\UrlValidator;
+use PayPal\Validation\NumericValidator;
+use PayPal\Common\FormatConverter;
 
 /**
  * Class Item
@@ -103,12 +105,15 @@ class Item extends PPModel
      * Cost of the item.
      * 
      *
-     * @param string $price
+     * @param double $price
      * 
      * @return $this
      */
     public function setPrice($price)
     {
+
+        NumericValidator::validate($price, "Price");
+        $price = FormatConverter::formatToTwoDecimalPlaces($price);
         $this->price = $price;
         return $this;
     }
@@ -127,12 +132,14 @@ class Item extends PPModel
      * tax of the item.
      * 
      *
-     * @param string $tax
+     * @param double $tax
      * 
      * @return $this
      */
     public function setTax($tax)
     {
+        NumericValidator::validate($tax, "Tax");
+        $tax = FormatConverter::formatToTwoDecimalPlaces($tax);
         $this->tax = $tax;
         return $this;
     }

@@ -54,15 +54,15 @@ $item1->setName('Ground Coffee 40 oz')
     ->setDescription('Ground Coffee 40 oz')
     ->setCurrency('USD')
     ->setQuantity(1)
-    ->setTax('0.30')
-    ->setPrice('7.50');
+    ->setTax(0.3)
+    ->setPrice(7.50);
 $item2 = new Item();
 $item2->setName('Granola bars')
     ->setDescription('Granola Bars with Peanuts')
     ->setCurrency('USD')
     ->setQuantity(5)
-    ->setTax('0.20')
-    ->setPrice('2.00');
+    ->setTax(0.2)
+    ->setPrice(2);
 
 $itemList = new ItemList();
 $itemList->setItems(array($item1, $item2));
@@ -72,9 +72,9 @@ $itemList->setItems(array($item1, $item2));
 // payment information such as tax, shipping
 // charges etc.
 $details = new Details();
-$details->setShipping('1.20')
-    ->setTax('1.30')
-    ->setSubtotal('17.50');
+$details->setShipping(1.2)
+    ->setTax(1.3)
+    ->setSubtotal(17.5);
 
 // ### Amount
 // Lets you specify a payment amount.
@@ -82,7 +82,7 @@ $details->setShipping('1.20')
 // such as shipping, tax.
 $amount = new Amount();
 $amount->setCurrency("USD")
-    ->setTotal("20.00")
+    ->setTotal(20)
     ->setDetails($details);
 
 // ### Transaction
