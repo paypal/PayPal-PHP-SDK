@@ -9,6 +9,7 @@ use PayPal\Auth\OAuthTokenCredential;
 use PayPal\Common\PPUserAgent;
 use PayPal\Core\PPConstants;
 use PayPal\Core\PPCredentialManager;
+use PayPal\Core\PPHttpConfig;
 use PayPal\Exception\PPConfigurationException;
 use PayPal\Exception\PPInvalidCredentialException;
 use PayPal\Exception\PPMissingCredentialException;
@@ -27,20 +28,6 @@ class RestHandler implements IPPHandler
     private $apiContext;
 
     /**
-     * Public Variable
-     *
-     * @var string $sdkName
-     */
-    public static $sdkName = "rest-sdk-php";
-
-    /**
-     * Public Variable
-     *
-     * @var string $sdkVersion
-     */
-    public static $sdkVersion = "0.13.2";
-
-    /**
      * Construct
      *
      * @param \Paypal\Rest\ApiContext $apiContext
@@ -51,7 +38,7 @@ class RestHandler implements IPPHandler
     }
 
     /**
-     * @param \Paypal\Core\PPHttpConfig $httpConfig
+     * @param PPHttpConfig $httpConfig
      * @param string                    $request
      * @param mixed                     $options
      * @return mixed|void
@@ -87,7 +74,7 @@ class RestHandler implements IPPHandler
         );
 
         if (!array_key_exists("User-Agent", $httpConfig->getHeaders())) {
-            $httpConfig->addHeader("User-Agent", PPUserAgent::getValue(self::$sdkName, self::$sdkVersion));
+            $httpConfig->addHeader("User-Agent", PPUserAgent::getValue(PPConstants::SDK_NAME, PPConstants::SDK_VERSION));
         }
 
         if (!is_null($credential) && $credential instanceof OAuthTokenCredential && is_null($httpConfig->getHeader('Authorization'))) {

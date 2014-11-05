@@ -30,19 +30,35 @@ class ResultPrinter
      * @param string    $objectId
      * @param mixed     $request
      * @param mixed     $response
-     * @param string $error
+     * @param string $errorMessage
      */
     public static function printOutput($title, $objectName, $objectId = null, $request = null, $response = null, $errorMessage = null)
     {
-        if (self::$printResultCounter == 0) {
-            include "header.html";
-            echo '<br />
+        if (PHP_SAPI == 'cli') {
+            self::$printResultCounter++;
+            printf("\n+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++\n");
+            printf("(%d) %s", self::$printResultCounter, strtoupper($title));
+            printf("\n-------------------------------------------------------------\n\n");
+            if ($objectId) {
+                printf("Object with ID: %s \n", $objectId);
+            }
+            printf("-------------------------------------------------------------\n");
+            printf("\tREQUEST:\n");
+            self::printConsoleObject($request);
+            printf("\n\n\tRESPONSE:\n");
+            self::printConsoleObject($response, $errorMessage);
+            printf("\n-------------------------------------------------------------\n\n");
+        } else {
+
+            if (self::$printResultCounter == 0) {
+                include "header.html";
+                echo '<br />
                   <div class="row"><div class="col-md-2 pull-left"><a href="../index.html"><h4>&#10094;&#10094; Back to Samples</h4></a><br /><br /></div>
                   <div class="col-md-1 pull-right"><img  src="../images/pp_v_rgb.png" height="70" /></div> </div><div class="clearfix visible-xs-block"></div>';
-            echo '<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">';
-        }
-        self::$printResultCounter++;
-        echo '
+                echo '<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">';
+            }
+            self::$printResultCounter++;
+            echo '
         <div class="panel panel-default">
             <div class="panel-heading '. ($errorMessage ? 'error' : '') .'" role="tab" id="heading-'.self::$printResultCounter.'">
                 <h4 class="panel-title">
@@ -54,29 +70,29 @@ class ResultPrinter
                 <div class="panel-body">
             ';
 
-        if ($objectId) {
-            echo "<div>" . ($objectName ? $objectName : "Object") . " with ID: $objectId </div>";
-        }
+            if ($objectId) {
+                echo "<div>" . ($objectName ? $objectName : "Object") . " with ID: $objectId </div>";
+            }
 
-        echo '<div class="row hidden-xs hidden-sm hidden-md"><div class="col-md-6"><h4>Request Object</h4>';
-        self::printObject($request);
-        echo '</div><div class="col-md-6"><h4 class="'. ($errorMessage ? 'error' : '') .'">Response Object</h4>';
-        self::printObject($response, $errorMessage);
-        echo '</div></div>';
+            echo '<div class="row hidden-xs hidden-sm hidden-md"><div class="col-md-6"><h4>Request Object</h4>';
+            self::printObject($request);
+            echo '</div><div class="col-md-6"><h4 class="'. ($errorMessage ? 'error' : '') .'">Response Object</h4>';
+            self::printObject($response, $errorMessage);
+            echo '</div></div>';
 
-        echo '<div class="hidden-lg"><ul class="nav nav-tabs" role="tablist">
+            echo '<div class="hidden-lg"><ul class="nav nav-tabs" role="tablist">
                         <li role="presentation" ><a href="#step-'.self::$printResultCounter .'-request" role="tab" data-toggle="tab">Request</a></li>
                         <li role="presentation" class="active"><a href="#step-'.self::$printResultCounter .'-response" role="tab" data-toggle="tab">Response</a></li>
                     </ul>
                     <div class="tab-content">
                         <div role="tabpanel" class="tab-pane" id="step-'.self::$printResultCounter .'-request"><h4>Request Object</h4>';
-        self::printObject($request) ;
-        echo '</div><div role="tabpanel" class="tab-pane active" id="step-'.self::$printResultCounter .'-response"><h4>Response Object</h4>';
-        self::printObject($response, $errorMessage);
-        echo '</div></div></div></div>
+            self::printObject($request) ;
+            echo '</div><div role="tabpanel" class="tab-pane active" id="step-'.self::$printResultCounter .'-response"><h4>Response Object</h4>';
+            self::printObject($response, $errorMessage);
+            echo '</div></div></div></div>
             </div>
         </div>';
-
+        }
         flush();
     }
 
@@ -112,6 +128,27 @@ class ResultPrinter
         self::printOutput($title, $objectName, $objectId, $request, $data, $exception->getMessage());
     }
 
+    protected static function printConsoleObject($object, $error = null)
+    {
+        if ($error) {
+            echo 'ERROR:'. $error;
+        }
+        if ($object) {
+            if (is_a($object, 'PayPal\Common\PPModel')) {
+                /** @var $object \PayPal\Common\PPModel */
+                echo $object->toJSON(128);
+            } elseif (is_string($object) && \PayPal\Validation\JsonValidator::validate($object, true)) {
+                echo str_replace('\\/', '/', json_encode(json_decode($object), 128));
+            } elseif (is_string($object)) {
+                echo $object;
+            } else {
+                print_r($object);
+            }
+        } else {
+            echo "No Data";
+        }
+    }
+
     protected static function printObject($object, $error = null)
     {
         if ($error) {
@@ -145,7 +182,12 @@ class ResultPrinter
  */
 function getBaseUrl()
 {
-
+    if (PHP_SAPI == 'cli') {
+        $trace=debug_backtrace();
+        $relativePath = substr(dirname($trace[0]['file']), strlen(dirname(dirname(__FILE__))));
+        echo "Warning: This sample may require a server to handle return URL. Cannot execute in command line. Defaulting URL to http://localhost$relativePath \n";
+        return "http://localhost" . $relativePath;
+    }
     $protocol = 'http';
     if ($_SERVER['SERVER_PORT'] == 443 || (!empty($_SERVER['HTTPS']) && strtolower($_SERVER['HTTPS']) == 'on')) {
         $protocol .= 's';

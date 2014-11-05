@@ -67,7 +67,7 @@ $agreement->setPlan($plan);
 // Add Payer
 $payer = new Payer();
 $payer->setPaymentMethod('credit_card')
-    ->setPayerInfo(new PayerInfo(['email' => 'jaypatel512-facilitator@hotmail.com']));
+    ->setPayerInfo(new PayerInfo(array('email' => 'jaypatel512-facilitator@hotmail.com')));
 
 // Add Credit Card to Funding Instruments
 $creditCard = new CreditCard();

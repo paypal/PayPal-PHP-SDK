@@ -184,7 +184,7 @@ class OAuthTokenCredential extends ResourceModel
     {
         $base64ClientID = base64_encode($clientId . ":" . $clientSecret);
         $headers = array(
-            "User-Agent"    => PPUserAgent::getValue(RestHandler::$sdkName, RestHandler::$sdkVersion),
+            "User-Agent"    => PPUserAgent::getValue(PPConstants::SDK_NAME, PPConstants::SDK_VERSION),
             "Authorization" => "Basic " . $base64ClientID,
             "Accept"        => "*/*"
         );

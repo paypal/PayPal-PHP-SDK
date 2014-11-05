@@ -33,12 +33,12 @@ $paymentDefinition->setName('Regular Payments')
     ->setFrequency('Month')
     ->setFrequencyInterval("2")
     ->setCycles("12")
-    ->setAmount(new Currency(['value' => 100, 'currency' => 'USD']));
+    ->setAmount(new Currency(array('value' => 100, 'currency' => 'USD')));
 
 // Charge Models
 $chargeModel = new ChargeModel();
 $chargeModel->setType('SHIPPING')
-    ->setAmount(new Currency(['value' => 10, 'currency' => 'USD']));
+    ->setAmount(new Currency(array('value' => 10, 'currency' => 'USD')));
 
 $paymentDefinition->setChargeModels(array($chargeModel));
 
@@ -49,7 +49,7 @@ $merchantPreferences->setReturnUrl("$baseUrl/ExecuteAgreement.php?success=true")
     ->setAutoBillAmount("yes")
     ->setInitialFailAmountAction("CONTINUE")
     ->setMaxFailAttempts("0")
-    ->setSetupFee(new Currency(['value' => 1, 'currency' => 'USD']));
+    ->setSetupFee(new Currency(array('value' => 1, 'currency' => 'USD')));
 
 
 $plan->setPaymentDefinitions(array($paymentDefinition));

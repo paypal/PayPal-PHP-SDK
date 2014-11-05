@@ -390,6 +390,46 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               ]
             }
           ]
+        }, {
+          "type": "file",
+          "data": {
+            "language": {
+              "nameMatchers": [{}, ".fbp"],
+              "pygmentsLexer": "php",
+              "singleLineComment": ["//"],
+              "ignorePrefix": "}",
+              "foldPrefix": "^",
+              "name": "PHP"
+            },
+            "sourcePath": "/Users/japatel/Documents/workspace/Server-SDK/rest-api-sdk-php/sample/billing/UpdatePlanPaymentDefinitions.php",
+            "projectPath": "billing/UpdatePlanPaymentDefinitions.php",
+            "targetPath": "billing/UpdatePlanPaymentDefinitions",
+            "pageTitle": "billing/UpdatePlanPaymentDefinitions",
+            "title": "UpdatePlanPaymentDefinitions"
+          },
+          "depth": 2,
+          "outline": [
+            {
+              "type": "heading",
+              "data": {
+                "level": 1,
+                "title": "Update a plan",
+                "slug": "update-a-plan"
+              },
+              "depth": 1,
+              "children": [
+                {
+                  "type": "heading",
+                  "data": {
+                    "level": 3,
+                    "title": "Changing Plan Amount",
+                    "slug": "changing-plan-amount"
+                  },
+                  "depth": 3
+                }
+              ]
+            }
+          ]
         }
       ]
     }, {

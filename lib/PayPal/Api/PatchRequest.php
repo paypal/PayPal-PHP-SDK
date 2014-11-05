@@ -81,6 +81,6 @@ class PatchRequest extends PPModel
         foreach ($this->getPatches() as $patch) {
             $json[] = $patch->toArray();
         }
-        return json_encode($json, $options);
+        return str_replace('\\/', '/', json_encode($json, $options));
     }
 }
