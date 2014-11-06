@@ -151,29 +151,31 @@ class PPModel
      */
     public function fromArray($arr)
     {
-        foreach ($arr as $k => $v) {
-            if (is_array($v)) {
-                $clazz = PPReflectionUtil::getPropertyClass(get_class($this), $k);
-                if (PPArrayUtil::isAssocArray($v)) {
-                    /** @var self $o */
-                    $o = new $clazz();
-                    $o->fromArray($v);
-                    $this->assignValue($k, $o);
-                } else {
-                    $arr = array();
-                    foreach ($v as $nk => $nv) {
-                        if (is_array($nv)) {
-                            $o = new $clazz();
-                            $o->fromArray($nv);
-                            $arr[$nk] = $o;
-                        } else {
-                            $arr[$nk] = $nv;
+        if (!empty($arr)) {
+            foreach ($arr as $k => $v) {
+                if (is_array($v)) {
+                    $clazz = PPReflectionUtil::getPropertyClass(get_class($this), $k);
+                    if (PPArrayUtil::isAssocArray($v)) {
+                        /** @var self $o */
+                        $o = new $clazz();
+                        $o->fromArray($v);
+                        $this->assignValue($k, $o);
+                    } else {
+                        $arr = array();
+                        foreach ($v as $nk => $nv) {
+                            if (is_array($nv)) {
+                                $o = new $clazz();
+                                $o->fromArray($nv);
+                                $arr[$nk] = $o;
+                            } else {
+                                $arr[$nk] = $nv;
+                            }
                         }
+                        $this->assignValue($k, $arr);
                     }
-                    $this->assignValue($k, $arr);
+                } else {
+                    $this->assignValue($k, $v);
                 }
-            } else {
-                $this->assignValue($k, $v);
             }
         }
         return $this;

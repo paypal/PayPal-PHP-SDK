@@ -158,7 +158,7 @@ class ResultPrinter
             if (is_a($object, 'PayPal\Common\PPModel')) {
                 /** @var $object \PayPal\Common\PPModel */
                 echo '<pre class="prettyprint '. ($error ? 'error' : '') .'">' . $object->toJSON(128) . "</pre>";
-            } elseif (\PayPal\Validation\JsonValidator::validate($object, true)) {
+            } elseif (is_string($object) && \PayPal\Validation\JsonValidator::validate($object, true)) {
                 echo '<pre class="prettyprint '. ($error ? 'error' : '') .'">'. str_replace('\\/', '/', json_encode(json_decode($object), 128)) . "</pre>";
             } elseif (is_string($object)) {
                 echo '<pre class="prettyprint '. ($error ? 'error' : '') .'">' . $object . '</pre>';
