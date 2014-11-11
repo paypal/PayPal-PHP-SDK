@@ -26,7 +26,10 @@ class PPHttpConfig
         CURLOPT_USERAGENT => 'PayPal-PHP-SDK',
         CURLOPT_HTTPHEADER => array(),
         CURLOPT_SSL_VERIFYHOST => 2,
-        CURLOPT_SSL_VERIFYPEER => 1
+        CURLOPT_SSL_VERIFYPEER => 1,
+        CURLOPT_SSL_CIPHER_LIST => 'TLSv1'
+        //Allowing TLSv1 cipher list.
+        //Adding it like this for backward compatibility with older versions of curl
     );
 
 
