@@ -32,6 +32,19 @@ class ApiContext
      */
     private $credential;
 
+
+    /**
+     * Construct
+     *
+     * @param \PayPal\Auth\OAuthTokenCredential $credential
+     * @param string|null                       $requestId
+     */
+    public function __construct($credential = null, $requestId = null)
+    {
+        $this->requestId = $requestId;
+        $this->credential = $credential;
+    }
+
     /**
      * Get Credential
      *
@@ -60,15 +73,16 @@ class ApiContext
     }
 
     /**
-     * Construct
+     * Resets the requestId that can be used to set the PayPal-request-id
+     * header used for idempotency. In cases where you need to make multiple create calls
+     * using the same ApiContext object, you need to reset request Id.
      *
-     * @param \PayPal\Auth\OAuthTokenCredential $credential
-     * @param string|null                       $requestId
+     * @return string
      */
-    public function __construct($credential = null, $requestId = null)
+    public function resetRequestId()
     {
-        $this->requestId = $requestId;
-        $this->credential = $credential;
+        $this->requestId = $this->generateRequestId();
+        return $this->getrequestId();
     }
 
     /**
