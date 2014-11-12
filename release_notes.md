@@ -1,5 +1,12 @@
 PayPal PHP SDK release notes
 ============================
+v0.14.1
+----
+* Updated HttpConfig to use TLSv1 as Cipher List
+* Added resetRequestId in ApiContext to enable multiple create calls in succession
+* Sanitize Input for Price Variables
+* Made samples look better and work best
+
 v0.14.0
 ----
 * Enabled Billing Plans and Agreements APIs
