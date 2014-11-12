@@ -12,7 +12,7 @@ class PPConstants
 {
 
     const SDK_NAME = 'PayPal-PHP-SDK';
-    const SDK_VERSION = '0.14.1';
+    const SDK_VERSION = '0.14.2';
 
     const REST_SANDBOX_ENDPOINT = "https://api.sandbox.paypal.com/";
     const OPENID_REDIRECT_SANDBOX_URL = "https://www.sandbox.paypal.com/webapps/auth/protocol/openidconnect";

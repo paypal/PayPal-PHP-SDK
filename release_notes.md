@@ -1,5 +1,9 @@
 PayPal PHP SDK release notes
 ============================
+v0.14.2
+----
+* Quick Patch to Unset Cipher List for NSS
+
 v0.14.1
 ----
 * Updated HttpConfig to use TLSv1 as Cipher List

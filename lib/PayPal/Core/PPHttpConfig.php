@@ -32,7 +32,6 @@ class PPHttpConfig
         //Adding it like this for backward compatibility with older versions of curl
     );
 
-
     const HEADER_SEPARATOR = ';';
     const HTTP_GET = 'GET';
     const HTTP_POST = 'POST';
@@ -61,6 +60,13 @@ class PPHttpConfig
         $this->url = $url;
         $this->method = $method;
         $this->curlOptions = self::$defaultCurlOptions;
+        // Update the Cipher List based on OpenSSL or NSS settings
+        $curl = curl_version();
+        $sslVersion = isset($curl['ssl_version']) ? $curl['ssl_version'] : '';
+        if (substr_compare($sslVersion, "NSS/", 0, strlen("NSS/")) === 0) {
+            //Remove the Cipher List for NSS
+            $this->removeCurlOption(CURLOPT_SSL_CIPHER_LIST);
+        }
     }
 
     /**
@@ -167,11 +173,21 @@ class PPHttpConfig
      * Add Curl Option
      *
      * @param string $name
-     * @param mixed $value
+     * @param mixed  $value
      */
     public function addCurlOption($name, $value)
     {
         $this->curlOptions[$name] = $value;
+    }
+
+    /**
+     * Removes a curl option from the list
+     *
+     * @param $name
+     */
+    public function removeCurlOption($name)
+    {
+        unset($this->curlOptions[$name]);
     }
 
     /**

@@ -1,11 +1,14 @@
 <?php
+
+namespace PayPal\Test\Core;
+
 use PayPal\Core\PPHttpConfig;
 
 /**
  * Test class for PPAPIService.
  *
  */
-class PPHttpConfigTest extends PHPUnit_Framework_TestCase
+class PPHttpConfigTest extends \PHPUnit_Framework_TestCase
 {
 
     protected $object;
@@ -70,6 +73,19 @@ class PPHttpConfigTest extends PHPUnit_Framework_TestCase
         $curlOpts = $o->getCurlOptions();
         $this->assertEquals(1, count($curlOpts));
         $this->assertEquals('v', $curlOpts['k']);
+    }
+
+    public function testRemoveCurlOpts()
+    {
+        $o = new PPHttpConfig();
+        $o->setCurlOptions(array('k' => 'v'));
+        $curlOpts = $o->getCurlOptions();
+        $this->assertEquals(1, count($curlOpts));
+        $this->assertEquals('v', $curlOpts['k']);
+
+        $o->removeCurlOption('k');
+        $curlOpts = $o->getCurlOptions();
+        $this->assertEquals(0, count($curlOpts));
     }
 
     /**
