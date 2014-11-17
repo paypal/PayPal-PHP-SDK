@@ -58,12 +58,17 @@ If you do not want to use composer, you can grab the SDK zip that contains Paypa
 
 - This *autoload.php* file registers a custom autoloader that can autoload the PayPal SDK files, that allows you to access PHP SDK system in your application.
 
-## Running the sample
+## Samples
 
+### View
+   * Using the [htmlpreview](https://github.com/htmlpreview/htmlpreview.github.com) tool you can now [view sample source codes here](http://htmlpreview.github.io/?https://github.com/paypal/PayPal-PHP-SDK/blob/master/sample/index.html)
+
+### Running Locally
    * Clone the repo and navigate to the samples folder.
    * Samples have dependency on the sdk and you can use [`composer`](http://getcomposer.org) to get the dependencies. Ensure that you have composer installed on your machine, navigate to the root folder and run `composer update --no-dev`  to fetch the SDK.
    * Optionally, update the bootstrap.php file with your own client Id and client secret, that you could find from the [developer portal](https://developer.paypal.com)
-   * Run any of the samples in the 'samples' folder to see what the APIs can do.
+   * You need to host this project locally using any server, e.g. Apache.
+   * Open the `index.html` page under `/sample` directory and checkout the samples.
 
 ## Usage
 
@@ -162,6 +167,7 @@ PayPal\Validation\ModelAccessorValidator: WARNING: Missing Accessor: PayPal\Api\
 
 ## More help
 
+   * [Sample Source Codes](http://htmlpreview.github.io/?https://github.com/paypal/PayPal-PHP-SDK/blob/master/sample/index.html)
    * [API Reference](https://developer.paypal.com/webapps/developer/docs/api/)
    * [Reporting issues / feature requests] (https://github.com/paypal/PayPal-PHP-SDK/issues)
    * [Pizza App Using Paypal REST API] (https://github.com/paypal/rest-api-sample-app-php)
