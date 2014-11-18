@@ -62,6 +62,12 @@ class FormatConverterTest extends \PHPUnit_Framework_TestCase
 
     }
 
+    public function testFormat()
+    {
+        $result = FormatConverter::format("12.0123", "%0.2f");
+        $this->assertEquals("12.01", $result);
+    }
+
     /**
      * @dataProvider apiModelSettersProvider
      *

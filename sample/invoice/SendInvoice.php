@@ -10,13 +10,6 @@ $invoice = require 'CreateInvoice.php';
 use PayPal\Api\Invoice;
 
 try {
-    // ### Retrieve Invoice
-    // Retrieve the invoice object by calling the
-    // static `get` method
-    // on the Invoice class by passing a valid
-    // Invoice ID
-    // (See bootstrap.php for more on `ApiContext`)
-    $invoice = Invoice::get($invoice->getId(), $apiContext);
 
     // ### Send Invoice
     // Send a legitimate invoice to the payer

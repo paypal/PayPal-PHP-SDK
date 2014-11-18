@@ -4,8 +4,6 @@ namespace PayPal\Api;
 
 use PayPal\Common\ResourceModel;
 use PayPal\Validation\ArgumentValidator;
-use PayPal\Api\Invoices;
-use PayPal\Api\object;
 use PayPal\Rest\ApiContext;
 use PayPal\Transport\PPRestCall;
 use PayPal\Validation\UrlValidator;
@@ -1096,7 +1094,7 @@ class Invoice extends ResourceModel
      * @param Search $search
      * @param ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
      * @param PPRestCall $restCall is the Rest Call Service that is used to make rest calls
-     * @return Invoices
+     * @return InvoiceSearchResponse
      */
     public function search($search, $apiContext = null, $restCall = null)
     {
@@ -1110,7 +1108,7 @@ class Invoice extends ResourceModel
             $apiContext,
             $restCall
         );
-        $ret = new Invoices();
+        $ret = new InvoiceSearchResponse();
         $ret->fromJson($json);
         return $ret;
     }
@@ -1261,24 +1259,47 @@ class Invoice extends ResourceModel
     /**
      * List some or all invoices for a merchant according to optional query string parameters specified.
      *
+     * @param array $params
      * @param ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
      * @param PPRestCall $restCall is the Rest Call Service that is used to make rest calls
-     * @return Invoices
+     * @return InvoiceSearchResponse
      */
-    public static function getAll($apiContext = null, $restCall = null)
+    public static function getAll($params = array(), $apiContext = null, $restCall = null)
     {
+        ArgumentValidator::validate($params, 'params');
+
+        $allowedParams = array(
+            'page' => 1,
+            'page_size' => 1,
+            'total_count_required' => 1
+        );
+
         $payLoad = "";
         $json = self::executeCall(
-            "/v1/invoicing/invoices/",
+            "/v1/invoicing/invoices/?" . http_build_query(array_intersect_key($params, $allowedParams)),
             "GET",
             $payLoad,
             null,
             $apiContext,
             $restCall
         );
-        $ret = new Invoices();
+        $ret = new InvoiceSearchResponse();
         $ret->fromJson($json);
         return $ret;
+    }
+
+    /**
+     * @deprecated Use getAll instead
+     *
+     * List some or all invoices for a merchant according to optional query string parameters specified.
+     *
+     * @param ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
+     * @param PPRestCall $restCall is the Rest Call Service that is used to make rest calls
+     * @return InvoiceSearchResponse
+     */
+    public static function get_all($apiContext = null, $restCall = null)
+    {
+        return self::getAll(null, $apiContext, $restCall);
     }
 
     /**
@@ -1329,24 +1350,33 @@ class Invoice extends ResourceModel
     /**
      * Generate a QR code for an invoice by passing the invoice ID to the request URI. The request generates a QR code that is 500 pixels in width and height. You can change the dimensions of the returned code by specifying optional query parameters.
      *
+     * @param array $params
      * @param string $invoiceId
      * @param ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
      * @param PPRestCall $restCall is the Rest Call Service that is used to make rest calls
-     * @return object
+     * @return Image
      */
-    public static function qrCode($invoiceId, $apiContext = null, $restCall = null)
+    public static function qrCode($invoiceId, $params = array(), $apiContext = null, $restCall = null)
     {
         ArgumentValidator::validate($invoiceId, 'invoiceId');
+        ArgumentValidator::validate($params, 'params');
+
+        $allowedParams = array(
+            'width' => 1,
+            'height' => 1,
+            'action' => 1
+        );
+
         $payLoad = "";
         $json = self::executeCall(
-            "/v1/invoicing/invoices/$invoiceId/qr-code",
+            "/v1/invoicing/invoices/$invoiceId/qr-code?" . http_build_query(array_intersect_key($params, $allowedParams)),
             "GET",
             $payLoad,
             null,
             $apiContext,
             $restCall
         );
-        $ret = new object();
+        $ret = new Image();
         $ret->fromJson($json);
         return $ret;
     }

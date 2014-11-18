@@ -4,8 +4,6 @@ namespace PayPal\Common;
 
 class FormatConverter {
 
-    const TWO_DECIMAL_PLACES = '%0.2f';
-
     /**
      * Format the data based on the input formatter value
      *
@@ -27,7 +25,7 @@ class FormatConverter {
     public static function formatToTwoDecimalPlaces($value)
     {
         if (trim($value) != null) {
-            return static::format($value, self::TWO_DECIMAL_PLACES);
+            return number_format($value, 2, '.', '');
         }
         return null;
     }
