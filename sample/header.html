@@ -44,6 +44,43 @@
             margin-right: 0px;
             margin-left: 0px;
         }
+        .header {
+            background: -webkit-linear-gradient(-9deg, #428bca 75%,  white 35%);
+            color: #EEE;
+        }
+        .header a:link, .header a:visited, .header a:hover, .header a:active {
+            text-decoration: none;
+            color: #EEE;
+        }
+        /* Sticky footer styles
+-------------------------------------------------- */
+        html {
+            position: relative;
+            min-height: 100%;
+        }
+
+        body {
+            /* Margin bottom by footer height */
+            margin-bottom: 60px;
+        }
+
+        .footer {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            /* Set the fixed height of the footer here */
+            min-height: 60px;
+            background: -webkit-linear-gradient(-9deg, #428bca 70%, white 25%);
+        }
+        .footer .footer-links, .footer .footer-links li {
+            display: inline-block;
+            padding: 5px 8px;
+            font-size: 110%;
+        }
+        .footer a {
+            color: #EEE;
+            text-decoration: none;
+        }
         /*
         .string { color: green; }
         .number { color: darkorange; }
@@ -65,6 +102,7 @@
         $( document ).ready(function() {
             $("#accordion .panel-collapse:last").collapse('toggle');
 
+            $(document.body).append('<footer class="footer"> <div class="container"> <div class="footer-div"> <ul class="footer-links"> <li> <a href="https://github.com/paypal/PayPal-PHP-SDK" target="_blank"><i class="fa fa-github"></i> Github</a></li><li> <a href="https://developer.paypal.com/webapps/developer/docs/api/" target="_blank"><i class="fa fa-book"></i> REST API Reference</a> </li><li> <a href="https://github.com/paypal/PayPal-PHP-SDK/issues" target="_blank"><i class="fa fa-exclamation-triangle"></i> Report Issues </a> </li></ul> </div></div></footer>');
             /*
 
             $(".prettyprint").each(function() {

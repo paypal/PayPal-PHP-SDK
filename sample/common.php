@@ -52,9 +52,9 @@ class ResultPrinter
 
             if (self::$printResultCounter == 0) {
                 include "header.html";
-                echo '<br />
-                  <div class="row"><div class="col-md-2 pull-left"><a href="../index.html"><h4>&#10094;&#10094; Back to Samples</h4></a><br /><br /></div>
-                  <div class="col-md-1 pull-right"><img  src="../images/pp_v_rgb.png" height="70" /></div> </div><div class="clearfix visible-xs-block"></div>';
+                echo '
+                  <div class="row header"><div class="col-md-3 pull-left"><br /><a href="../index.html"><h3>&#10094;&#10094; Back to Samples</h3></a><br /><br /></div> <br />
+                  <div class="col-md-2 pull-right"><img  src="../images/pp_v_rgb.png" height="70" /></div> </div><div class="clearfix visible-xs-block"></div><br />';
                 echo '<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">';
             }
             self::$printResultCounter++;

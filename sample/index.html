@@ -18,6 +18,62 @@
             font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
             -webkit-font-smoothing: antialiased;
         }
+        @media (max-width: 992px) {
+            .jumbotron {
+                background: white;
+                color: #000;
+            }
+            .footer {
+                background: #428bca;
+                color: #000;
+            }
+        }
+
+        @media (min-width: 992px) {
+            .jumbotron {
+                background: -webkit-linear-gradient(-9deg, white 30%, #428bca 25%);
+                color: #EEE;
+            }
+        }
+
+        @media (max-width: 1600px) {
+            .logo {
+                position: relative;
+            }
+        }
+        @media (min-width: 1600px) {
+            .logo {
+                position: fixed;
+                top: 40px;
+            }
+        }
+        html {
+            position: relative;
+            min-height: 100%;
+        }
+
+        body {
+            /* Margin bottom by footer height */
+            margin-bottom: 60px;
+        }
+        .footer {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            min-height: 60px;
+            background: -webkit-linear-gradient(-9deg, #428bca 70%, white 25%);
+        }
+        .footer .footer-links, .footer .footer-links li {
+            display: inline-block;
+            padding: 5px 8px;
+            font-size: 110%;
+        }
+        .footer a {
+            color: #EEE;
+            text-decoration: none;
+        }
+
+
     </style>
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -29,12 +85,12 @@
 <body>
 <!-- Main component for a primary marketing message or call to action -->
 <div class="jumbotron">
-    <div class="container">
+    <div class="container-fluid">
         <div class="row">
-            <div class="col-md-3">
-                <img src="images/pp_v_rgb.png" height="200" />
+            <div class="col-md-4 pull-left">
+                <img src="images/pp_v_rgb.png" class="logo" height="200" />
             </div>
-            <div class="col-md-9">
+            <div class="col-md-8 pull-right">
                 <h1> REST API Samples</h1>
                 <p>These examples are created to experiment with the PayPal-PHP-SDK capabilities. Each examples are designed to demonstrate the default use-cases in each segment.
                     Many examples should be executable, and should allow you to experience the default behavior of our sdk, to expedite your integration experience.</p>
@@ -521,7 +577,23 @@
 </div>
 </div>
 </div> <!-- /container -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-div">
+            <ul class="footer-links">
+                <li>
+                    <a href="https://github.com/paypal/PayPal-PHP-SDK" target="_blank"><i class="fa fa-github"></i> Github</a></li>
+                <li>
+                    <a href="https://developer.paypal.com/webapps/developer/docs/api/" target="_blank"><i class="fa fa-book"></i> REST API Reference</a>
+                </li>
+                <li>
+                    <a href="https://github.com/paypal/PayPal-PHP-SDK/issues" target="_blank"><i class="fa fa-exclamation-triangle"></i> Report Issues </a>
+                </li>
 
+            </ul>
+        </div>
+    </div>
+</footer>
 <!-- Bootstrap core JavaScript
 ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
