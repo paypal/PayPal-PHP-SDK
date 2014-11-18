@@ -4,7 +4,8 @@
 // This sample code demonstrate how you can get
 // all invoice from history.
 
-require __DIR__ . '/../bootstrap.php';
+/** @var Invoice $invoice */
+$invoice = require 'CreateInvoice.php';
 use PayPal\Api\Invoice;
 
 try {

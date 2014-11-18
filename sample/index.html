@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,14 +17,20 @@
             font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
             -webkit-font-smoothing: antialiased;
         }
+
         @media (max-width: 992px) {
             .jumbotron {
                 background: white;
                 color: #000;
             }
+
             .footer {
                 background: #428bca;
                 color: #000;
+            }
+
+            .logo {
+                position: relative;
             }
         }
 
@@ -34,19 +39,13 @@
                 background: -webkit-linear-gradient(-9deg, white 30%, #428bca 25%);
                 color: #EEE;
             }
-        }
 
-        @media (max-width: 1600px) {
-            .logo {
-                position: relative;
-            }
-        }
-        @media (min-width: 1600px) {
             .logo {
                 position: fixed;
                 top: 40px;
             }
         }
+
         html {
             position: relative;
             min-height: 100%;
@@ -56,6 +55,7 @@
             /* Margin bottom by footer height */
             margin-bottom: 60px;
         }
+
         .footer {
             position: absolute;
             bottom: 0;
@@ -63,11 +63,13 @@
             min-height: 60px;
             background: -webkit-linear-gradient(-9deg, #428bca 70%, white 25%);
         }
+
         .footer .footer-links, .footer .footer-links li {
             display: inline-block;
             padding: 5px 8px;
             font-size: 110%;
         }
+
         .footer a {
             color: #EEE;
             text-decoration: none;
@@ -88,210 +90,97 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-4 pull-left">
-                <img src="images/pp_v_rgb.png" class="logo" height="200" />
+                <img src="images/pp_v_rgb.png" class="logo" height="200"/>
             </div>
             <div class="col-md-8 pull-right">
                 <h1> REST API Samples</h1>
-                <p>These examples are created to experiment with the PayPal-PHP-SDK capabilities. Each examples are designed to demonstrate the default use-cases in each segment.
-                    Many examples should be executable, and should allow you to experience the default behavior of our sdk, to expedite your integration experience.</p>
+
+                <p>These examples are created to experiment with the PayPal-PHP-SDK capabilities. Each examples are
+                    designed to demonstrate the default use-cases in each segment.
+                    Many examples should be executable, and should allow you to experience the default behavior of our
+                    sdk, to expedite your integration experience.</p>
             </div>
         </div>
     </div>
 </div>
 <div class="container-fluid">
-<div class="container">
+<div class="row">
+<div class="col-md-3">&nbsp;</div>
+<div class="col-md-9">
 <div class="panel panel-primary">
     <div class="panel-heading">
-        <h3 class="panel-title"><a href="https://developer.paypal.com/webapps/developer/docs/api/#payments" target="_blank">Payments</a></h3>
+        <h3 class="panel-title"><a href="https://developer.paypal.com/webapps/developer/docs/api/#payments"
+                                   target="_blank">Payments</a></h3>
     </div>
     <!-- List group -->
     <ul class="list-group">
         <li class="list-group-item">
             <div class="row">
-                <div class="col-md-9 "><h5>Direct credit card payments</h5></div>
-                <div class="col-md-3">
-                    <a href="payments/CreatePayment.php" class="btn btn-primary pull-left execute" > Execute <i class="fa fa-play-circle-o"></i></a>
-                    <a href="doc/payments/CreatePayment.html" class="btn btn-default pull-right" >Source <i class="fa fa-file-code-o"></i></a>
+                <div class="col-md-8"><h5>Direct credit card payments</h5></div>
+                <div class="col-md-4">
+                    <a href="payments/CreatePayment.php" class="btn btn-primary pull-left execute"> Execute <i
+                            class="fa fa-play-circle-o"></i></a>
+                    <a href="doc/payments/CreatePayment.html" class="btn btn-default pull-right">Source <i
+                            class="fa fa-file-code-o"></i></a>
                 </div>
             </div>
         </li>
         <li class="list-group-item">
             <div class="row">
-                <div class="col-md-9 "><h5>PayPal account payments</h5></div>
-                <div class="col-md-3">
-                    <a href="payments/CreatePaymentUsingPayPal.php" class="btn btn-primary pull-left execute" > Execute <i class="fa fa-play-circle-o"></i></a><a href="doc/payments/CreatePaymentUsingPayPal.html" class="btn btn-default pull-right" >Source <i class="fa fa-file-code-o"></i></a>
+                <div class="col-md-8"><h5>PayPal account payments</h5></div>
+                <div class="col-md-4">
+                    <a href="payments/CreatePaymentUsingPayPal.php" class="btn btn-primary pull-left execute"> Execute
+                        <i class="fa fa-play-circle-o"></i></a><a href="doc/payments/CreatePaymentUsingPayPal.html"
+                                                                  class="btn btn-default pull-right">Source <i
+                        class="fa fa-file-code-o"></i></a>
                 </div>
             </div>
         </li>
         <li class="list-group-item">
             <div class="row">
-                <div class="col-md-9 "><h5>Stored credit card payments</h5></div>
-                <div class="col-md-3">
-                    <a href="payments/CreatePaymentUsingSavedCard.php" class="btn btn-primary pull-left execute" > Execute <i class="fa fa-play-circle-o"></i></a>
-                    <a href="doc/payments/CreatePayment.html" class="btn btn-default pull-right" >Source <i class="fa fa-file-code-o"></i></a>
+                <div class="col-md-8"><h5>Stored credit card payments</h5></div>
+                <div class="col-md-4">
+                    <a href="payments/CreatePaymentUsingSavedCard.php" class="btn btn-primary pull-left execute">
+                        Execute <i class="fa fa-play-circle-o"></i></a>
+                    <a href="doc/payments/CreatePayment.html" class="btn btn-default pull-right">Source <i
+                            class="fa fa-file-code-o"></i></a>
                 </div>
             </div>
         </li>
         <li class="list-group-item">
             <div class="row">
-                <div class="col-md-9 "><h5>Future payments* <small> (needs Authorization Code from Mobile SDK)</small></h5></div>
-                <div class="col-md-3"></div>
-                <div class="col-md-3">
-                    <a href="doc/payments/CreateFuturePayment.html" class="btn btn-default pull-right" >Source <i class="fa fa-file-code-o"></i></a>
+                <div class="col-md-8">
+                    <h5>Future payments*
+                        <small> (needs Authorization Code from Mobile SDK)</small>
+                    </h5>
+                </div>
+                <div class="col-md-4"></div>
+                <div class="col-md-4">
+                    <a href="doc/payments/CreateFuturePayment.html" class="btn btn-default pull-right">Source <i
+                            class="fa fa-file-code-o"></i></a>
                 </div>
 
             </div>
         </li>
         <li class="list-group-item">
             <div class="row">
-                <div class="col-md-9 "><h5>Get payment details</h5></div>
-                <div class="col-md-3">
-                    <a href="payments/GetPayment.php" class="btn btn-primary pull-left execute" > Execute <i class="fa fa-play-circle-o"></i></a>
-                    <a href="doc/payments/CreatePayment.html" class="btn btn-default pull-right" >Source <i class="fa fa-file-code-o"></i></a>
+                <div class="col-md-8"><h5>Get payment details</h5></div>
+                <div class="col-md-4">
+                    <a href="payments/GetPayment.php" class="btn btn-primary pull-left execute"> Execute <i
+                            class="fa fa-play-circle-o"></i></a>
+                    <a href="doc/payments/CreatePayment.html" class="btn btn-default pull-right">Source <i
+                            class="fa fa-file-code-o"></i></a>
                 </div>
             </div>
         </li>
         <li class="list-group-item">
             <div class="row">
-                <div class="col-md-9 "><h5>Get payment history</h5></div>
-                <div class="col-md-3">
-                    <a href="payments/ListPayments.php" class="btn btn-primary pull-left execute" > Execute <i class="fa fa-play-circle-o"></i></a>
-                    <a href="doc/payments/CreatePayment.html" class="btn btn-default pull-right" >Source <i class="fa fa-file-code-o"></i></a>
-                </div>
-            </div>
-        </li>
-    </ul>
-</div>
-
-<div class="panel panel-primary" >
-    <div class="panel-heading" >
-        <h3 class="panel-title"><a href="https://developer.paypal.com/webapps/developer/docs/api/#sale-transactions" target="_blank">Sale</a></h3>
-    </div>
-    <!-- List group -->
-    <ul class="list-group">
-        <li class="list-group-item">
-            <div class="row">
-                <div class="col-md-9 "><h5>Get Sale details</h5></div>
-                <div class="col-md-3">
-                    <a href="sale/GetSale.php" class="btn btn-primary pull-left execute" > Execute <i class="fa fa-play-circle-o"></i></a>
-                    <a href="doc/sale/GetSale.html" class="btn btn-default pull-right" >Source <i class="fa fa-file-code-o"></i></a>
-                </div>
-            </div>
-        </li>
-        <li class="list-group-item">
-            <div class="row">
-                <div class="col-md-9 "><h5>Refund a Sale</h5></div>
-                <div class="col-md-3">
-                    <a href="sale/RefundSale.php" class="btn btn-primary pull-left execute" > Execute <i class="fa fa-play-circle-o"></i></a>
-                    <a href="doc/sale/RefundSale.html" class="btn btn-default pull-right" >Source <i class="fa fa-file-code-o"></i></a>
-                </div>
-            </div>
-        </li>
-    </ul>
-</div>
-
-<div class="panel panel-primary" >
-    <div class="panel-heading" >
-            <h3 class="panel-title"><a href="https://developer.paypal.com/webapps/developer/docs/api/#billing-plans-and-agreements" target="_blank">Billing Plan & Agreements</a></h3>
-    </div>
-    <!-- List group -->
-    <ul class="list-group">
-        <li class="list-group-item">
-            <div class="row">
-                <div class="col-md-9 "><h5>Create Billing Plan</h5></div>
-                <div class="col-md-3">
-                    <a href="billing/CreatePlan.php" class="btn btn-primary pull-left execute" > Execute <i class="fa fa-play-circle-o"></i></a>
-                    <a href="doc/billing/CreatePlan.html" class="btn btn-default pull-right" >Source <i class="fa fa-file-code-o"></i></a>
-                </div>
-            </div>
-        </li>
-        <li class="list-group-item">
-            <div class="row">
-                <div class="col-md-9 "><h5>Get Billing Plan</h5></div>
-                <div class="col-md-3">
-                    <a href="billing/GetPlan.php" class="btn btn-primary pull-left execute" > Execute <i class="fa fa-play-circle-o"></i></a>
-                    <a href="doc/billing/GetPlan.html" class="btn btn-default pull-right" >Source <i class="fa fa-file-code-o"></i></a>
-                </div>
-            </div>
-        </li>
-        <li class="list-group-item">
-            <div class="row">
-                <div class="col-md-9 "><h5>Update/Activate Plan</h5></div>
-                <div class="col-md-3">
-                    <a href="billing/UpdatePlan.php" class="btn btn-primary pull-left execute" > Execute <i class="fa fa-play-circle-o"></i></a>
-                    <a href="doc/billing/UpdatePlan.html" class="btn btn-default pull-right" >Source <i class="fa fa-file-code-o"></i></a>
-                </div>
-            </div>
-        </li>
-        <li class="list-group-item">
-            <div class="row">
-                <div class="col-md-9 "><h5>Update Plan Payment Definitions/Amount</h5></div>
-                <div class="col-md-3">
-                    <a href="billing/UpdatePlanPaymentDefinitions.php" class="btn btn-primary pull-left execute" > Execute <i class="fa fa-play-circle-o"></i></a>
-                    <a href="doc/billing/UpdatePlanPaymentDefinitions.html" class="btn btn-default pull-right" >Source <i class="fa fa-file-code-o"></i></a>
-                </div>
-            </div>
-        </li>
-        <li class="list-group-item">
-            <div class="row">
-                <div class="col-md-9 "><h5>List Billing Plans</h5></div>
-                <div class="col-md-3">
-                    <a href="billing/ListPlans.php" class="btn btn-primary pull-left execute" > Execute <i class="fa fa-play-circle-o"></i></a>
-                    <a href="doc/billing/ListPlans.html" class="btn btn-default pull-right" >Source <i class="fa fa-file-code-o"></i></a>
-                </div>
-            </div>
-        </li>
-        <li class="list-group-item">
-            <div class="row">
-                <div class="col-md-9 "><h5>Create Billing Agreement With Credit Card</h5></div>
-                <div class="col-md-3">
-                    <a href="billing/CreateBillingAgreementWithCreditCard.php" class="btn btn-primary pull-left execute" > Execute <i class="fa fa-play-circle-o"></i></a>
-                    <a href="doc/billing/CreateBillingAgreementWithCreditCard.html" class="btn btn-default pull-right" >Source <i class="fa fa-file-code-o"></i></a>
-                </div>
-            </div>
-        </li>
-        <li class="list-group-item">
-            <div class="row">
-                <div class="col-md-9 "><h5>Create Billing Agreement With PayPal</h5></div>
-                <div class="col-md-3">
-                    <a href="billing/CreateBillingAgreementWithPayPal.php" class="btn btn-primary pull-left execute" > Execute <i class="fa fa-play-circle-o"></i></a>
-                    <a href="doc/billing/CreateBillingAgreementWithPayPal.html" class="btn btn-default pull-right" >Source <i class="fa fa-file-code-o"></i></a>
-                </div>
-            </div>
-        </li>
-        <li class="list-group-item">
-            <div class="row">
-                <div class="col-md-9 "><h5>Get Billing Agreement</h5></div>
-                <div class="col-md-3">
-                    <a href="billing/GetBillingAgreement.php" class="btn btn-primary pull-left execute" > Execute <i class="fa fa-play-circle-o"></i></a>
-                    <a href="doc/billing/GetBillingAgreement.html" class="btn btn-default pull-right" >Source <i class="fa fa-file-code-o"></i></a>
-                </div>
-            </div>
-        </li>
-        <li class="list-group-item">
-            <div class="row">
-                <div class="col-md-9 "><h5>Update Billing Agreement</h5></div>
-                <div class="col-md-3">
-                    <a href="billing/UpdateBillingAgreement.php" class="btn btn-primary pull-left execute" > Execute <i class="fa fa-play-circle-o"></i></a>
-                    <a href="doc/billing/UpdateBillingAgreement.html" class="btn btn-default pull-right" >Source <i class="fa fa-file-code-o"></i></a>
-                </div>
-            </div>
-        </li>
-        <li class="list-group-item">
-            <div class="row">
-                <div class="col-md-9 "><h5>Suspend Billing Agreement</h5></div>
-                <div class="col-md-3">
-                    <a href="billing/SuspendBillingAgreement.php" class="btn btn-primary pull-left execute" > Execute <i class="fa fa-play-circle-o"></i></a>
-                    <a href="doc/billing/SuspendBillingAgreement.html" class="btn btn-default pull-right" >Source <i class="fa fa-file-code-o"></i></a>
-                </div>
-            </div>
-        </li>
-        <li class="list-group-item">
-            <div class="row">
-                <div class="col-md-9 "><h5>Reactivate Billing Agreement</h5></div>
-                <div class="col-md-3">
-                    <a href="billing/ReactivateBillingAgreement.php" class="btn btn-primary pull-left execute" > Execute <i class="fa fa-play-circle-o"></i></a>
-                    <a href="doc/billing/ReactivateBillingAgreement.html" class="btn btn-default pull-right" >Source <i class="fa fa-file-code-o"></i></a>
+                <div class="col-md-8"><h5>Get payment history</h5></div>
+                <div class="col-md-4">
+                    <a href="payments/ListPayments.php" class="btn btn-primary pull-left execute"> Execute <i
+                            class="fa fa-play-circle-o"></i></a>
+                    <a href="doc/payments/CreatePayment.html" class="btn btn-default pull-right">Source <i
+                            class="fa fa-file-code-o"></i></a>
                 </div>
             </div>
         </li>
@@ -300,34 +189,30 @@
 
 <div class="panel panel-primary">
     <div class="panel-heading">
-        <h3 class="panel-title"><a href="https://developer.paypal.com/webapps/developer/docs/api/#vault" target="_blank">Vault</a></h3>
+        <h3 class="panel-title"><a href="https://developer.paypal.com/webapps/developer/docs/api/#sale-transactions"
+                                   target="_blank">Sale</a></h3>
     </div>
     <!-- List group -->
     <ul class="list-group">
         <li class="list-group-item">
             <div class="row">
-                <div class="col-md-9 "><h5>Save a credit card</h5></div>
-                <div class="col-md-3">
-                    <a href="vault/CreateCreditCard.php" class="btn btn-primary pull-left execute" > Execute <i class="fa fa-play-circle-o"></i></a>
-                    <a href="doc/vault/CreateCreditCard.html" class="btn btn-default pull-right" >Source <i class="fa fa-file-code-o"></i></a>
+                <div class="col-md-8"><h5>Get Sale details</h5></div>
+                <div class="col-md-4">
+                    <a href="sale/GetSale.php" class="btn btn-primary pull-left execute"> Execute <i
+                            class="fa fa-play-circle-o"></i></a>
+                    <a href="doc/sale/GetSale.html" class="btn btn-default pull-right">Source <i
+                            class="fa fa-file-code-o"></i></a>
                 </div>
             </div>
         </li>
         <li class="list-group-item">
             <div class="row">
-                <div class="col-md-9 "><h5>Retrieve saved credit card</h5></div>
-                <div class="col-md-3">
-                    <a href="vault/GetCreditCard.php" class="btn btn-primary pull-left execute" > Execute <i class="fa fa-play-circle-o"></i></a>
-                    <a href="doc/vault/GetCreditCard.html" class="btn btn-default pull-right" >Source <i class="fa fa-file-code-o"></i></a>
-                </div>
-            </div>
-        </li>
-        <li class="list-group-item">
-            <div class="row">
-                <div class="col-md-9 "><h5>Delete saved credit card</h5></div>
-                <div class="col-md-3">
-                    <a href="vault/DeleteCreditCard.php" class="btn btn-primary pull-left execute" > Execute <i class="fa fa-play-circle-o"></i></a>
-                    <a href="doc/vault/DeleteCreditCard.html" class="btn btn-default pull-right" >Source <i class="fa fa-file-code-o"></i></a>
+                <div class="col-md-8"><h5>Refund a Sale</h5></div>
+                <div class="col-md-4">
+                    <a href="sale/RefundSale.php" class="btn btn-primary pull-left execute"> Execute <i
+                            class="fa fa-play-circle-o"></i></a>
+                    <a href="doc/sale/RefundSale.html" class="btn btn-default pull-right">Source <i
+                            class="fa fa-file-code-o"></i></a>
                 </div>
             </div>
         </li>
@@ -336,70 +221,130 @@
 
 <div class="panel panel-primary">
     <div class="panel-heading">
-        <h3 class="panel-title"><a href="https://developer.paypal.com/webapps/developer/docs/api/#authorizations" target="_blank">Authorization and capture</a></h3>
+        <h3 class="panel-title"><a
+                href="https://developer.paypal.com/webapps/developer/docs/api/#billing-plans-and-agreements"
+                target="_blank">Billing Plan & Agreements</a></h3>
     </div>
     <!-- List group -->
     <ul class="list-group">
         <li class="list-group-item">
             <div class="row">
-                <div class="col-md-9 "><h5>Authorize Payment</h5></div>
-                <div class="col-md-3">
-                    <a href="payments/AuthorizePayment.php" class="btn btn-primary pull-left execute" > Execute <i class="fa fa-play-circle-o"></i></a>
-                    <a href="doc/payments/AuthorizePayment.html" class="btn btn-default pull-right" >Source <i class="fa fa-file-code-o"></i></a>
+                <div class="col-md-8"><h5>Create Billing Plan</h5></div>
+                <div class="col-md-4">
+                    <a href="billing/CreatePlan.php" class="btn btn-primary pull-left execute"> Execute <i
+                            class="fa fa-play-circle-o"></i></a>
+                    <a href="doc/billing/CreatePlan.html" class="btn btn-default pull-right">Source <i
+                            class="fa fa-file-code-o"></i></a>
                 </div>
             </div>
         </li>
         <li class="list-group-item">
             <div class="row">
-                <div class="col-md-9 "><h5>Get details of an authorized payment</h5></div>
-                <div class="col-md-3">
-                    <a href="payments/GetAuthorization.php" class="btn btn-primary pull-left execute" > Execute <i class="fa fa-play-circle-o"></i></a>
-                    <a href="doc/payments/GetAuthorization.html" class="btn btn-default pull-right" >Source <i class="fa fa-file-code-o"></i></a>
+                <div class="col-md-8"><h5>Get Billing Plan</h5></div>
+                <div class="col-md-4">
+                    <a href="billing/GetPlan.php" class="btn btn-primary pull-left execute"> Execute <i
+                            class="fa fa-play-circle-o"></i></a>
+                    <a href="doc/billing/GetPlan.html" class="btn btn-default pull-right">Source <i
+                            class="fa fa-file-code-o"></i></a>
                 </div>
             </div>
         </li>
         <li class="list-group-item">
             <div class="row">
-                <div class="col-md-9 "><h5>Capture an authorized payment</h5></div>
-                <div class="col-md-3">
-                    <a href="payments/AuthorizationCapture.php" class="btn btn-primary pull-left execute" > Execute <i class="fa fa-play-circle-o"></i></a>
-                    <a href="doc/payments/AuthorizationCapture.html" class="btn btn-default pull-right" >Source <i class="fa fa-file-code-o"></i></a>
+                <div class="col-md-8"><h5>Update/Activate Plan</h5></div>
+                <div class="col-md-4">
+                    <a href="billing/UpdatePlan.php" class="btn btn-primary pull-left execute"> Execute <i
+                            class="fa fa-play-circle-o"></i></a>
+                    <a href="doc/billing/UpdatePlan.html" class="btn btn-default pull-right">Source <i
+                            class="fa fa-file-code-o"></i></a>
                 </div>
             </div>
         </li>
         <li class="list-group-item">
             <div class="row">
-                <div class="col-md-9 "><h5>Get details of a captured payment</h5></div>
-                <div class="col-md-3">
-                    <a href="payments/GetCapture.php" class="btn btn-primary pull-left execute" > Execute <i class="fa fa-play-circle-o"></i></a>
-                    <a href="doc/payments/GetCapture.html" class="btn btn-default pull-right" >Source <i class="fa fa-file-code-o"></i></a>
+                <div class="col-md-8"><h5>Update Plan Payment Definitions/Amount</h5></div>
+                <div class="col-md-4">
+                    <a href="billing/UpdatePlanPaymentDefinitions.php" class="btn btn-primary pull-left execute">
+                        Execute <i class="fa fa-play-circle-o"></i></a>
+                    <a href="doc/billing/UpdatePlanPaymentDefinitions.html" class="btn btn-default pull-right">Source <i
+                            class="fa fa-file-code-o"></i></a>
                 </div>
             </div>
         </li>
         <li class="list-group-item">
             <div class="row">
-                <div class="col-md-9 "><h5>Void an authorized payment</h5></div>
-                <div class="col-md-3">
-                    <a href="payments/VoidAuthorization.php" class="btn btn-primary pull-left execute" > Execute <i class="fa fa-play-circle-o"></i></a>
-                    <a href="doc/payments/VoidAuthorization.html" class="btn btn-default pull-right" >Source <i class="fa fa-file-code-o"></i></a>
+                <div class="col-md-8"><h5>List Billing Plans</h5></div>
+                <div class="col-md-4">
+                    <a href="billing/ListPlans.php" class="btn btn-primary pull-left execute"> Execute <i
+                            class="fa fa-play-circle-o"></i></a>
+                    <a href="doc/billing/ListPlans.html" class="btn btn-default pull-right">Source <i
+                            class="fa fa-file-code-o"></i></a>
                 </div>
             </div>
         </li>
         <li class="list-group-item">
             <div class="row">
-                <div class="col-md-9 "><h5>Reauthorize a payment</h5></div>
-                <div class="col-md-3">
-                    <a href="payments/Reauthorization.php" class="btn btn-primary pull-left execute" > Execute <i class="fa fa-play-circle-o"></i></a>
-                    <a href="doc/payments/Reauthorization.html" class="btn btn-default pull-right" >Source <i class="fa fa-file-code-o"></i></a>
+                <div class="col-md-8"><h5>Create Billing Agreement With Credit Card</h5></div>
+                <div class="col-md-4">
+                    <a href="billing/CreateBillingAgreementWithCreditCard.php"
+                       class="btn btn-primary pull-left execute"> Execute <i class="fa fa-play-circle-o"></i></a>
+                    <a href="doc/billing/CreateBillingAgreementWithCreditCard.html" class="btn btn-default pull-right">Source
+                        <i class="fa fa-file-code-o"></i></a>
                 </div>
             </div>
         </li>
         <li class="list-group-item">
             <div class="row">
-                <div class="col-md-9 "><h5>Refund captured payment</h5></div>
-                <div class="col-md-3">
-                    <a href="payments/RefundCapture.php" class="btn btn-primary pull-left execute" > Execute <i class="fa fa-play-circle-o"></i></a>
-                    <a href="doc/payments/RefundCapture.html" class="btn btn-default pull-right" >Source <i class="fa fa-file-code-o"></i></a>
+                <div class="col-md-8"><h5>Create Billing Agreement With PayPal</h5></div>
+                <div class="col-md-4">
+                    <a href="billing/CreateBillingAgreementWithPayPal.php" class="btn btn-primary pull-left execute">
+                        Execute <i class="fa fa-play-circle-o"></i></a>
+                    <a href="doc/billing/CreateBillingAgreementWithPayPal.html" class="btn btn-default pull-right">Source
+                        <i class="fa fa-file-code-o"></i></a>
+                </div>
+            </div>
+        </li>
+        <li class="list-group-item">
+            <div class="row">
+                <div class="col-md-8"><h5>Get Billing Agreement</h5></div>
+                <div class="col-md-4">
+                    <a href="billing/GetBillingAgreement.php" class="btn btn-primary pull-left execute"> Execute <i
+                            class="fa fa-play-circle-o"></i></a>
+                    <a href="doc/billing/GetBillingAgreement.html" class="btn btn-default pull-right">Source <i
+                            class="fa fa-file-code-o"></i></a>
+                </div>
+            </div>
+        </li>
+        <li class="list-group-item">
+            <div class="row">
+                <div class="col-md-8"><h5>Update Billing Agreement</h5></div>
+                <div class="col-md-4">
+                    <a href="billing/UpdateBillingAgreement.php" class="btn btn-primary pull-left execute"> Execute <i
+                            class="fa fa-play-circle-o"></i></a>
+                    <a href="doc/billing/UpdateBillingAgreement.html" class="btn btn-default pull-right">Source <i
+                            class="fa fa-file-code-o"></i></a>
+                </div>
+            </div>
+        </li>
+        <li class="list-group-item">
+            <div class="row">
+                <div class="col-md-8"><h5>Suspend Billing Agreement</h5></div>
+                <div class="col-md-4">
+                    <a href="billing/SuspendBillingAgreement.php" class="btn btn-primary pull-left execute"> Execute <i
+                            class="fa fa-play-circle-o"></i></a>
+                    <a href="doc/billing/SuspendBillingAgreement.html" class="btn btn-default pull-right">Source <i
+                            class="fa fa-file-code-o"></i></a>
+                </div>
+            </div>
+        </li>
+        <li class="list-group-item">
+            <div class="row">
+                <div class="col-md-8"><h5>Reactivate Billing Agreement</h5></div>
+                <div class="col-md-4">
+                    <a href="billing/ReactivateBillingAgreement.php" class="btn btn-primary pull-left execute"> Execute
+                        <i class="fa fa-play-circle-o"></i></a>
+                    <a href="doc/billing/ReactivateBillingAgreement.html" class="btn btn-default pull-right">Source <i
+                            class="fa fa-file-code-o"></i></a>
                 </div>
             </div>
         </li>
@@ -408,61 +353,41 @@
 
 <div class="panel panel-primary">
     <div class="panel-heading">
-        <h3 class="panel-title"><a href="https://developer.paypal.com/webapps/developer/docs/api/#payment-experience" target="_blank">Payment Experience</a></h3>
+        <h3 class="panel-title"><a href="https://developer.paypal.com/webapps/developer/docs/api/#vault"
+                                   target="_blank">Vault</a></h3>
     </div>
     <!-- List group -->
     <ul class="list-group">
         <li class="list-group-item">
             <div class="row">
-                <div class="col-md-9 "><h5>Create a web experience profile</h5></div>
-                <div class="col-md-3">
-                    <a href="payment-experience/CreateWebProfile.php" class="btn btn-primary pull-left execute" > Execute <i class="fa fa-play-circle-o"></i></a>
-                    <a href="doc/payment-experience/CreateWebProfile.html" class="btn btn-default pull-right" >Source <i class="fa fa-file-code-o"></i></a>
+                <div class="col-md-8"><h5>Save a credit card</h5></div>
+                <div class="col-md-4">
+                    <a href="vault/CreateCreditCard.php" class="btn btn-primary pull-left execute"> Execute <i
+                            class="fa fa-play-circle-o"></i></a>
+                    <a href="doc/vault/CreateCreditCard.html" class="btn btn-default pull-right">Source <i
+                            class="fa fa-file-code-o"></i></a>
                 </div>
             </div>
         </li>
         <li class="list-group-item">
             <div class="row">
-                <div class="col-md-9 "><h5>Retrieve a web experience profile</h5></div>
-                <div class="col-md-3">
-                    <a href="payment-experience/GetWebProfile.php" class="btn btn-primary pull-left execute" > Execute <i class="fa fa-play-circle-o"></i></a>
-                    <a href="doc/payment-experience/GetWebProfile.html" class="btn btn-default pull-right" >Source <i class="fa fa-file-code-o"></i></a>
+                <div class="col-md-8"><h5>Retrieve saved credit card</h5></div>
+                <div class="col-md-4">
+                    <a href="vault/GetCreditCard.php" class="btn btn-primary pull-left execute"> Execute <i
+                            class="fa fa-play-circle-o"></i></a>
+                    <a href="doc/vault/GetCreditCard.html" class="btn btn-default pull-right">Source <i
+                            class="fa fa-file-code-o"></i></a>
                 </div>
             </div>
         </li>
         <li class="list-group-item">
             <div class="row">
-                <div class="col-md-9 "><h5>List web experience profiles</h5></div>
-                <div class="col-md-3">
-                    <a href="payment-experience/ListWebProfiles.php" class="btn btn-primary pull-left execute" > Execute <i class="fa fa-play-circle-o"></i></a>
-                    <a href="doc/payment-experience/ListWebProfiles.html" class="btn btn-default pull-right" >Source <i class="fa fa-file-code-o"></i></a>
-                </div>
-            </div>
-        </li>
-        <li class="list-group-item">
-            <div class="row">
-                <div class="col-md-9 "><h5>Update a web experience profile</h5></div>
-                <div class="col-md-3">
-                    <a href="payment-experience/UpdateWebProfile.php" class="btn btn-primary pull-left execute" > Execute <i class="fa fa-play-circle-o"></i></a>
-                    <a href="doc/payment-experience/UpdateWebProfile.html" class="btn btn-default pull-right" >Source <i class="fa fa-file-code-o"></i></a>
-                </div>
-            </div>
-        </li>
-        <li class="list-group-item">
-            <div class="row">
-                <div class="col-md-9 "><h5>Partially update a web experience profile</h5></div>
-                <div class="col-md-3">
-                    <a href="payment-experience/PartiallyUpdateWebProfile.php" class="btn btn-primary pull-left execute" > Execute <i class="fa fa-play-circle-o"></i></a>
-                    <a href="doc/payment-experience/PartiallyUpdateWebProfile.html" class="btn btn-default pull-right" >Source <i class="fa fa-file-code-o"></i></a>
-                </div>
-            </div>
-        </li>
-        <li class="list-group-item">
-            <div class="row">
-                <div class="col-md-9 "><h5>Delete a web experience profile</h5></div>
-                <div class="col-md-3">
-                    <a href="payment-experience/DeleteWebProfile.php" class="btn btn-primary pull-left execute" > Execute <i class="fa fa-play-circle-o"></i></a>
-                    <a href="doc/payment-experience/DeleteWebProfile.html" class="btn btn-default pull-right" >Source <i class="fa fa-file-code-o"></i></a>
+                <div class="col-md-8"><h5>Delete saved credit card</h5></div>
+                <div class="col-md-4">
+                    <a href="vault/DeleteCreditCard.php" class="btn btn-primary pull-left execute"> Execute <i
+                            class="fa fa-play-circle-o"></i></a>
+                    <a href="doc/vault/DeleteCreditCard.html" class="btn btn-default pull-right">Source <i
+                            class="fa fa-file-code-o"></i></a>
                 </div>
             </div>
         </li>
@@ -471,61 +396,85 @@
 
 <div class="panel panel-primary">
     <div class="panel-heading">
-        <h3 class="panel-title"><a href="https://developer.paypal.com/webapps/developer/docs/api/#invoicing" target="_blank">Invoice</a></h3>
+        <h3 class="panel-title"><a href="https://developer.paypal.com/webapps/developer/docs/api/#authorizations"
+                                   target="_blank">Authorization and capture</a></h3>
     </div>
     <!-- List group -->
     <ul class="list-group">
         <li class="list-group-item">
             <div class="row">
-                <div class="col-md-9 "><h5>Create Invoice</h5></div>
-                <div class="col-md-3">
-                    <a href="invoice/CreateInvoice.php" class="btn btn-primary pull-left execute" > Execute <i class="fa fa-play-circle-o"></i></a>
-                    <a href="doc/invoice/CreateInvoice.html" class="btn btn-default pull-right" >Source <i class="fa fa-file-code-o"></i></a>
+                <div class="col-md-8"><h5>Authorize Payment</h5></div>
+                <div class="col-md-4">
+                    <a href="payments/AuthorizePayment.php" class="btn btn-primary pull-left execute"> Execute <i
+                            class="fa fa-play-circle-o"></i></a>
+                    <a href="doc/payments/AuthorizePayment.html" class="btn btn-default pull-right">Source <i
+                            class="fa fa-file-code-o"></i></a>
                 </div>
             </div>
         </li>
         <li class="list-group-item">
             <div class="row">
-                <div class="col-md-9 "><h5>Get Invoice</h5></div>
-                <div class="col-md-3">
-                    <a href="invoice/GetInvoice.php" class="btn btn-primary pull-left execute" > Execute <i class="fa fa-play-circle-o"></i></a>
-                    <a href="doc/invoice/GetInvoice.html" class="btn btn-default pull-right" >Source <i class="fa fa-file-code-o"></i></a>
+                <div class="col-md-8"><h5>Get details of an authorized payment</h5></div>
+                <div class="col-md-4">
+                    <a href="payments/GetAuthorization.php" class="btn btn-primary pull-left execute"> Execute <i
+                            class="fa fa-play-circle-o"></i></a>
+                    <a href="doc/payments/GetAuthorization.html" class="btn btn-default pull-right">Source <i
+                            class="fa fa-file-code-o"></i></a>
                 </div>
             </div>
         </li>
         <li class="list-group-item">
             <div class="row">
-                <div class="col-md-9 "><h5>List All Invoice</h5></div>
-                <div class="col-md-3">
-                    <a href="invoice/ListInvoice.php" class="btn btn-primary pull-left execute" > Execute <i class="fa fa-play-circle-o"></i></a>
-                    <a href="doc/invoice/ListInvoice.html" class="btn btn-default pull-right" >Source <i class="fa fa-file-code-o"></i></a>
+                <div class="col-md-8"><h5>Capture an authorized payment</h5></div>
+                <div class="col-md-4">
+                    <a href="payments/AuthorizationCapture.php" class="btn btn-primary pull-left execute"> Execute <i
+                            class="fa fa-play-circle-o"></i></a>
+                    <a href="doc/payments/AuthorizationCapture.html" class="btn btn-default pull-right">Source <i
+                            class="fa fa-file-code-o"></i></a>
                 </div>
             </div>
         </li>
         <li class="list-group-item">
             <div class="row">
-                <div class="col-md-9 "><h5>Send Invoice</h5></div>
-                <div class="col-md-3">
-                    <a href="invoice/SendInvoice.php" class="btn btn-primary pull-left execute" > Execute <i class="fa fa-play-circle-o"></i></a>
-                    <a href="doc/invoice/SendInvoice.html" class="btn btn-default pull-right" >Source <i class="fa fa-file-code-o"></i></a>
+                <div class="col-md-8"><h5>Get details of a captured payment</h5></div>
+                <div class="col-md-4">
+                    <a href="payments/GetCapture.php" class="btn btn-primary pull-left execute"> Execute <i
+                            class="fa fa-play-circle-o"></i></a>
+                    <a href="doc/payments/GetCapture.html" class="btn btn-default pull-right">Source <i
+                            class="fa fa-file-code-o"></i></a>
                 </div>
             </div>
         </li>
         <li class="list-group-item">
             <div class="row">
-                <div class="col-md-9 "><h5>Remind Invoice</h5></div>
-                <div class="col-md-3">
-                    <a href="invoice/RemindInvoice.php" class="btn btn-primary pull-left execute" > Execute <i class="fa fa-play-circle-o"></i></a>
-                    <a href="doc/invoice/RemindInvoice.html" class="btn btn-default pull-right" >Source <i class="fa fa-file-code-o"></i></a>
+                <div class="col-md-8"><h5>Void an authorized payment</h5></div>
+                <div class="col-md-4">
+                    <a href="payments/VoidAuthorization.php" class="btn btn-primary pull-left execute"> Execute <i
+                            class="fa fa-play-circle-o"></i></a>
+                    <a href="doc/payments/VoidAuthorization.html" class="btn btn-default pull-right">Source <i
+                            class="fa fa-file-code-o"></i></a>
                 </div>
             </div>
         </li>
         <li class="list-group-item">
             <div class="row">
-                <div class="col-md-9 "><h5>Cancel Invoice</h5></div>
-                <div class="col-md-3">
-                    <a href="invoice/CancelInvoice.php" class="btn btn-primary pull-left execute" > Execute <i class="fa fa-play-circle-o"></i></a>
-                    <a href="doc/invoice/CancelInvoice.html" class="btn btn-default pull-right" >Source <i class="fa fa-file-code-o"></i></a>
+                <div class="col-md-8"><h5>Reauthorize a payment</h5></div>
+                <div class="col-md-4">
+                    <a href="payments/Reauthorization.php" class="btn btn-primary pull-left execute"> Execute <i
+                            class="fa fa-play-circle-o"></i></a>
+                    <a href="doc/payments/Reauthorization.html" class="btn btn-default pull-right">Source <i
+                            class="fa fa-file-code-o"></i></a>
+                </div>
+            </div>
+        </li>
+        <li class="list-group-item">
+            <div class="row">
+                <div class="col-md-8"><h5>Refund captured payment</h5></div>
+                <div class="col-md-4">
+                    <a href="payments/RefundCapture.php" class="btn btn-primary pull-left execute"> Execute <i
+                            class="fa fa-play-circle-o"></i></a>
+                    <a href="doc/payments/RefundCapture.html" class="btn btn-default pull-right">Source <i
+                            class="fa fa-file-code-o"></i></a>
                 </div>
             </div>
         </li>
@@ -534,60 +483,225 @@
 
 <div class="panel panel-primary">
     <div class="panel-heading">
-        <h3 class="panel-title"><a href="https://developer.paypal.com/webapps/developer/docs/api/#identity" target="_blank">Identity (LIPP)</a></h3>
+        <h3 class="panel-title"><a href="https://developer.paypal.com/webapps/developer/docs/api/#payment-experience"
+                                   target="_blank">Payment Experience</a></h3>
     </div>
     <!-- List group -->
     <ul class="list-group">
         <li class="list-group-item">
             <div class="row">
-                <div class="col-md-9 "><h5>Obtain User's Consent</h5></div>
-                <div class="col-md-3">
-                    <a href="lipp/ObtainUserConsent.php" class="btn btn-primary pull-left execute" > Execute <i class="fa fa-play-circle-o"></i></a>
-                    <a href="doc/lipp/ObtainUserConsent.html" class="btn btn-default pull-right" >Source <i class="fa fa-file-code-o"></i></a>
+                <div class="col-md-8"><h5>Create a web experience profile</h5></div>
+                <div class="col-md-4">
+                    <a href="payment-experience/CreateWebProfile.php" class="btn btn-primary pull-left execute"> Execute
+                        <i class="fa fa-play-circle-o"></i></a>
+                    <a href="doc/payment-experience/CreateWebProfile.html" class="btn btn-default pull-right">Source <i
+                            class="fa fa-file-code-o"></i></a>
                 </div>
             </div>
         </li>
         <li class="list-group-item">
             <div class="row">
-                <div class="col-md-9 "><h5>User Consent Redirect</h5></div>
-                <div class="col-md-3">
-                    <a href="doc/lipp/UserConsentRedirect.html" class="btn btn-default pull-right" >Source <i class="fa fa-file-code-o"></i></a>
+                <div class="col-md-8"><h5>Retrieve a web experience profile</h5></div>
+                <div class="col-md-4">
+                    <a href="payment-experience/GetWebProfile.php" class="btn btn-primary pull-left execute"> Execute <i
+                            class="fa fa-play-circle-o"></i></a>
+                    <a href="doc/payment-experience/GetWebProfile.html" class="btn btn-default pull-right">Source <i
+                            class="fa fa-file-code-o"></i></a>
                 </div>
             </div>
         </li>
         <li class="list-group-item">
             <div class="row">
-                <div class="col-md-9 "><h5>Get User Info</h5></div>
-                <div class="col-md-3">
-                    <a href="lipp/GetUserInfo.php" class="btn btn-primary pull-left execute" > Execute <i class="fa fa-play-circle-o"></i></a>
-                    <a href="doc/lipp/GetUserInfo.html" class="btn btn-default pull-right" >Source <i class="fa fa-file-code-o"></i></a>
+                <div class="col-md-8"><h5>List web experience profiles</h5></div>
+                <div class="col-md-4">
+                    <a href="payment-experience/ListWebProfiles.php" class="btn btn-primary pull-left execute"> Execute
+                        <i class="fa fa-play-circle-o"></i></a>
+                    <a href="doc/payment-experience/ListWebProfiles.html" class="btn btn-default pull-right">Source <i
+                            class="fa fa-file-code-o"></i></a>
                 </div>
             </div>
         </li>
         <li class="list-group-item">
             <div class="row">
-                <div class="col-md-9 "><h5>Obtain Access Token From Refresh Token</h5></div>
-                <div class="col-md-3">
-                    <a href="lipp/GenerateAccessTokenFromRefreshToken.php" class="btn btn-primary pull-left execute" > Execute <i class="fa fa-play-circle-o"></i></a>
-                    <a href="doc/lipp/GenerateAccessTokenFromRefreshToken.html" class="btn btn-default pull-right" >Source <i class="fa fa-file-code-o"></i></a>
+                <div class="col-md-8"><h5>Update a web experience profile</h5></div>
+                <div class="col-md-4">
+                    <a href="payment-experience/UpdateWebProfile.php" class="btn btn-primary pull-left execute"> Execute
+                        <i class="fa fa-play-circle-o"></i></a>
+                    <a href="doc/payment-experience/UpdateWebProfile.html" class="btn btn-default pull-right">Source <i
+                            class="fa fa-file-code-o"></i></a>
+                </div>
+            </div>
+        </li>
+        <li class="list-group-item">
+            <div class="row">
+                <div class="col-md-8"><h5>Partially update a web experience profile</h5></div>
+                <div class="col-md-4">
+                    <a href="payment-experience/PartiallyUpdateWebProfile.php"
+                       class="btn btn-primary pull-left execute"> Execute <i class="fa fa-play-circle-o"></i></a>
+                    <a href="doc/payment-experience/PartiallyUpdateWebProfile.html" class="btn btn-default pull-right">Source
+                        <i class="fa fa-file-code-o"></i></a>
+                </div>
+            </div>
+        </li>
+        <li class="list-group-item">
+            <div class="row">
+                <div class="col-md-8"><h5>Delete a web experience profile</h5></div>
+                <div class="col-md-4">
+                    <a href="payment-experience/DeleteWebProfile.php" class="btn btn-primary pull-left execute"> Execute
+                        <i class="fa fa-play-circle-o"></i></a>
+                    <a href="doc/payment-experience/DeleteWebProfile.html" class="btn btn-default pull-right">Source <i
+                            class="fa fa-file-code-o"></i></a>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>
+
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h3 class="panel-title"><a href="https://developer.paypal.com/webapps/developer/docs/api/#invoicing"
+                                   target="_blank">Invoice</a></h3>
+    </div>
+    <!-- List group -->
+    <ul class="list-group">
+        <li class="list-group-item">
+            <div class="row">
+                <div class="col-md-8"><h5>Create Invoice</h5></div>
+                <div class="col-md-4">
+                    <a href="invoice/CreateInvoice.php" class="btn btn-primary pull-left execute"> Execute <i
+                            class="fa fa-play-circle-o"></i></a>
+                    <a href="doc/invoice/CreateInvoice.html" class="btn btn-default pull-right">Source <i
+                            class="fa fa-file-code-o"></i></a>
+                </div>
+            </div>
+        </li>
+        <li class="list-group-item">
+            <div class="row">
+                <div class="col-md-8"><h5>Get Invoice</h5></div>
+                <div class="col-md-4">
+                    <a href="invoice/GetInvoice.php" class="btn btn-primary pull-left execute"> Execute <i
+                            class="fa fa-play-circle-o"></i></a>
+                    <a href="doc/invoice/GetInvoice.html" class="btn btn-default pull-right">Source <i
+                            class="fa fa-file-code-o"></i></a>
+                </div>
+            </div>
+        </li>
+        <li class="list-group-item">
+            <div class="row">
+                <div class="col-md-8"><h5>List All Invoice</h5></div>
+                <div class="col-md-4">
+                    <a href="invoice/ListInvoice.php" class="btn btn-primary pull-left execute"> Execute <i
+                            class="fa fa-play-circle-o"></i></a>
+                    <a href="doc/invoice/ListInvoice.html" class="btn btn-default pull-right">Source <i
+                            class="fa fa-file-code-o"></i></a>
+                </div>
+            </div>
+        </li>
+        <li class="list-group-item">
+            <div class="row">
+                <div class="col-md-8"><h5>Send Invoice</h5></div>
+                <div class="col-md-4">
+                    <a href="invoice/SendInvoice.php" class="btn btn-primary pull-left execute"> Execute <i
+                            class="fa fa-play-circle-o"></i></a>
+                    <a href="doc/invoice/SendInvoice.html" class="btn btn-default pull-right">Source <i
+                            class="fa fa-file-code-o"></i></a>
+                </div>
+            </div>
+        </li>
+        <li class="list-group-item">
+            <div class="row">
+                <div class="col-md-8"><h5>Remind Invoice</h5></div>
+                <div class="col-md-4">
+                    <a href="invoice/RemindInvoice.php" class="btn btn-primary pull-left execute"> Execute <i
+                            class="fa fa-play-circle-o"></i></a>
+                    <a href="doc/invoice/RemindInvoice.html" class="btn btn-default pull-right">Source <i
+                            class="fa fa-file-code-o"></i></a>
+                </div>
+            </div>
+        </li>
+        <li class="list-group-item">
+            <div class="row">
+                <div class="col-md-8"><h5>Cancel Invoice</h5></div>
+                <div class="col-md-4">
+                    <a href="invoice/CancelInvoice.php" class="btn btn-primary pull-left execute"> Execute <i
+                            class="fa fa-play-circle-o"></i></a>
+                    <a href="doc/invoice/CancelInvoice.html" class="btn btn-default pull-right">Source <i
+                            class="fa fa-file-code-o"></i></a>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>
+
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h3 class="panel-title"><a href="https://developer.paypal.com/webapps/developer/docs/api/#identity"
+                                   target="_blank">Identity (LIPP)</a></h3>
+    </div>
+    <!-- List group -->
+    <ul class="list-group">
+        <li class="list-group-item">
+            <div class="row">
+                <div class="col-md-8"><h5>Obtain User's Consent</h5></div>
+                <div class="col-md-4">
+                    <a href="lipp/ObtainUserConsent.php" class="btn btn-primary pull-left execute"> Execute <i
+                            class="fa fa-play-circle-o"></i></a>
+                    <a href="doc/lipp/ObtainUserConsent.html" class="btn btn-default pull-right">Source <i
+                            class="fa fa-file-code-o"></i></a>
+                </div>
+            </div>
+        </li>
+        <li class="list-group-item">
+            <div class="row">
+                <div class="col-md-8"><h5>User Consent Redirect</h5></div>
+                <div class="col-md-4">
+                    <a href="doc/lipp/UserConsentRedirect.html" class="btn btn-default pull-right">Source <i
+                            class="fa fa-file-code-o"></i></a>
+                </div>
+            </div>
+        </li>
+        <li class="list-group-item">
+            <div class="row">
+                <div class="col-md-8"><h5>Get User Info</h5></div>
+                <div class="col-md-4">
+                    <a href="lipp/GetUserInfo.php" class="btn btn-primary pull-left execute"> Execute <i
+                            class="fa fa-play-circle-o"></i></a>
+                    <a href="doc/lipp/GetUserInfo.html" class="btn btn-default pull-right">Source <i
+                            class="fa fa-file-code-o"></i></a>
+                </div>
+            </div>
+        </li>
+        <li class="list-group-item">
+            <div class="row">
+                <div class="col-md-8"><h5>Obtain Access Token From Refresh Token</h5></div>
+                <div class="col-md-4">
+                    <a href="lipp/GenerateAccessTokenFromRefreshToken.php" class="btn btn-primary pull-left execute">
+                        Execute <i class="fa fa-play-circle-o"></i></a>
+                    <a href="doc/lipp/GenerateAccessTokenFromRefreshToken.html" class="btn btn-default pull-right">Source
+                        <i class="fa fa-file-code-o"></i></a>
                 </div>
             </div>
         </li>
     </ul>
 </div>
 </div>
-</div> <!-- /container -->
+</div>
+</div>
+<!-- /container -->
 <footer class="footer">
     <div class="container">
         <div class="footer-div">
             <ul class="footer-links">
                 <li>
-                    <a href="https://github.com/paypal/PayPal-PHP-SDK" target="_blank"><i class="fa fa-github"></i> Github</a></li>
+                    <a href="https://github.com/paypal/PayPal-PHP-SDK" target="_blank"><i class="fa fa-github"></i>
+                        Github</a></li>
                 <li>
-                    <a href="https://developer.paypal.com/webapps/developer/docs/api/" target="_blank"><i class="fa fa-book"></i> REST API Reference</a>
+                    <a href="https://developer.paypal.com/webapps/developer/docs/api/" target="_blank"><i
+                            class="fa fa-book"></i> REST API Reference</a>
                 </li>
                 <li>
-                    <a href="https://github.com/paypal/PayPal-PHP-SDK/issues" target="_blank"><i class="fa fa-exclamation-triangle"></i> Report Issues </a>
+                    <a href="https://github.com/paypal/PayPal-PHP-SDK/issues" target="_blank"><i
+                            class="fa fa-exclamation-triangle"></i> Report Issues </a>
                 </li>
 
             </ul>
@@ -603,7 +717,7 @@
 
 <script>
     $(document).ready(function () {
-        if(window.location.href.indexOf("htmlpreview.github.io") >= 0) {
+        if (window.location.href.indexOf("htmlpreview.github.io") >= 0) {
             $(".execute").hide();
         }
     });

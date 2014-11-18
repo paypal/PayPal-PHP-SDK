@@ -4,10 +4,11 @@
 // This sample code demonstrate how you can retrieve
 // an invoice.
 
-require __DIR__ . '/../bootstrap.php';
+/** @var Invoice $invoice */
+$invoice = require 'CreateInvoice.php';
 use PayPal\Api\Invoice;
 
-$invoiceId = "INV2-W4LC-6QS9-JZ62-VE4P";
+$invoiceId = $invoice->getId();
 
 // ### Retrieve Invoice
 // Retrieve the invoice object by calling the
@@ -23,3 +24,5 @@ try {
 }
 
 ResultPrinter::printResult("Get Invoice", "Invoice", $invoice->getId(), $invoiceId, $invoice);
+
+return $invoice;

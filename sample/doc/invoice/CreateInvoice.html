@@ -79,4 +79,6 @@ with a valid ApiContext (See bootstrap.php for more on <code>ApiContext</code>)<
     <span class="hljs-keyword">exit</span>(<span class="hljs-number">1</span>);
 }
 
-ResultPrinter::printResult(<span class="hljs-string">"Invoice Creation"</span>, <span class="hljs-string">"Invoice"</span>, <span class="hljs-variable">$invoice</span>-&gt;getId(), <span class="hljs-variable">$request</span>, <span class="hljs-variable">$invoice</span>);</div></div></div></div></body></html>
+ResultPrinter::printResult(<span class="hljs-string">"Invoice Creation"</span>, <span class="hljs-string">"Invoice"</span>, <span class="hljs-variable">$invoice</span>-&gt;getId(), <span class="hljs-variable">$request</span>, <span class="hljs-variable">$invoice</span>);
+
+<span class="hljs-keyword">return</span> <span class="hljs-variable">$invoice</span>;</div></div></div></div></body></html>

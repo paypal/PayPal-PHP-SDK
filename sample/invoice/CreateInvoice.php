@@ -108,3 +108,4 @@ try {
 
 ResultPrinter::printResult("Invoice Creation", "Invoice", $invoice->getId(), $request, $invoice);
 
+return $invoice;

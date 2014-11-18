@@ -4,7 +4,8 @@
 // This sample code demonstrate how you can send
 // a legitimate invoice to the payer
 
-require __DIR__ . '/../bootstrap.php';
+/** @var Invoice $invoice */
+$invoice = require 'CreateInvoice.php';
 
 use PayPal\Api\Invoice;
 
@@ -15,7 +16,7 @@ try {
     // on the Invoice class by passing a valid
     // Invoice ID
     // (See bootstrap.php for more on `ApiContext`)
-    $invoice = Invoice::get("INV2-W4LC-6QS9-JZ62-VE4P", $apiContext);
+    $invoice = Invoice::get($invoice->getId(), $apiContext);
 
     // ### Send Invoice
     // Send a legitimate invoice to the payer
@@ -27,3 +28,5 @@ try {
 }
 
 ResultPrinter::printResult("Send Invoice", "Invoice", $invoice->getId(), null, null);
+
+return $invoice;

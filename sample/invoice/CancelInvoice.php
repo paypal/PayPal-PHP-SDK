@@ -4,19 +4,13 @@
 // This sample code demonstrate how you can cancel
 // an invoice.
 
-require __DIR__ . '/../bootstrap.php';
+/** @var Invoice $invoice */
+$invoice = require 'SendInvoice.php';
 
 use PayPal\Api\Invoice;
 use PayPal\Api\CancelNotification;
 
 try {
-    // ### Retrieve Invoice
-    // Retrieve the invoice object by calling the
-    // static `get` method
-    // on the Payment class by passing a valid
-    // Invoice ID
-    // (See bootstrap.php for more on `ApiContext`)
-    $invoice = Invoice::get("INV2-CJL7-PF4G-BLQF-5FWG", $apiContext);
 
     // ### Cancel Notification Object
     // This would send a notification to both merchant as well
