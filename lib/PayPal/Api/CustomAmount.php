@@ -1,15 +1,27 @@
 <?php
+
 namespace PayPal\Api;
 
 use PayPal\Common\PPModel;
-use PayPal\Rest\ApiContext;
 
+/**
+ * Class CustomAmount
+ *
+ * Custom amount applied on an invoice. If a label is included then the amount cannot be empty.
+ *
+ * @package PayPal\Api
+ *
+ * @property string label
+ * @property \PayPal\Api\Currency amount
+ */
 class CustomAmount extends PPModel
 {
     /**
      * Custom amount label. 25 characters max.
      *
      * @param string $label
+     * 
+     * @return $this
      */
     public function setLabel($label)
     {
@@ -27,11 +39,12 @@ class CustomAmount extends PPModel
         return $this->label;
     }
 
-
     /**
      * Custom amount value. Range of 0 to 999999.99.
      *
-     * @param PayPal\Api\Currency $amount
+     * @param \PayPal\Api\Currency $amount
+     * 
+     * @return $this
      */
     public function setAmount($amount)
     {
@@ -42,12 +55,11 @@ class CustomAmount extends PPModel
     /**
      * Custom amount value. Range of 0 to 999999.99.
      *
-     * @return PayPal\Api\Currency
+     * @return \PayPal\Api\Currency
      */
     public function getAmount()
     {
         return $this->amount;
     }
-
 
 }

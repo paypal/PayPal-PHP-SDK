@@ -1,15 +1,44 @@
 <?php
+
 namespace PayPal\Api;
 
 use PayPal\Common\PPModel;
-use PayPal\Rest\ApiContext;
 
+/**
+ * Class Search
+ *
+ * Invoice search parameters.
+ *
+ * @package PayPal\Api
+ *
+ * @property string email
+ * @property string recipient_first_name
+ * @property string recipient_last_name
+ * @property string recipient_business_name
+ * @property string number
+ * @property string status
+ * @property \PayPal\Api\Currency lower_total_amount
+ * @property \PayPal\Api\Currency upper_total_amount
+ * @property string start_invoice_date
+ * @property string end_invoice_date
+ * @property string start_due_date
+ * @property string end_due_date
+ * @property string start_payment_date
+ * @property string end_payment_date
+ * @property string start_creation_date
+ * @property string end_creation_date
+ * @property \PayPal\Api\number page
+ * @property \PayPal\Api\number page_size
+ * @property bool total_count_required
+ */
 class Search extends PPModel
 {
     /**
      * Initial letters of the email address.
      *
      * @param string $email
+     * 
+     * @return $this
      */
     public function setEmail($email)
     {
@@ -27,11 +56,12 @@ class Search extends PPModel
         return $this->email;
     }
 
-
     /**
      * Initial letters of the recipient's first name.
      *
      * @param string $recipient_first_name
+     * 
+     * @return $this
      */
     public function setRecipientFirstName($recipient_first_name)
     {
@@ -52,8 +82,10 @@ class Search extends PPModel
     /**
      * Initial letters of the recipient's first name.
      *
+     * @deprecated Instead use setRecipientFirstName
+     *
      * @param string $recipient_first_name
-     * @deprecated. Instead use setRecipientFirstName
+     * @return $this
      */
     public function setRecipient_first_name($recipient_first_name)
     {
@@ -63,9 +95,9 @@ class Search extends PPModel
 
     /**
      * Initial letters of the recipient's first name.
+     * @deprecated Instead use getRecipientFirstName
      *
      * @return string
-     * @deprecated. Instead use getRecipientFirstName
      */
     public function getRecipient_first_name()
     {
@@ -76,6 +108,8 @@ class Search extends PPModel
      * Initial letters of the recipient's last name.
      *
      * @param string $recipient_last_name
+     * 
+     * @return $this
      */
     public function setRecipientLastName($recipient_last_name)
     {
@@ -96,8 +130,10 @@ class Search extends PPModel
     /**
      * Initial letters of the recipient's last name.
      *
+     * @deprecated Instead use setRecipientLastName
+     *
      * @param string $recipient_last_name
-     * @deprecated. Instead use setRecipientLastName
+     * @return $this
      */
     public function setRecipient_last_name($recipient_last_name)
     {
@@ -107,9 +143,9 @@ class Search extends PPModel
 
     /**
      * Initial letters of the recipient's last name.
+     * @deprecated Instead use getRecipientLastName
      *
      * @return string
-     * @deprecated. Instead use getRecipientLastName
      */
     public function getRecipient_last_name()
     {
@@ -120,6 +156,8 @@ class Search extends PPModel
      * Initial letters of the recipient's business name.
      *
      * @param string $recipient_business_name
+     * 
+     * @return $this
      */
     public function setRecipientBusinessName($recipient_business_name)
     {
@@ -140,8 +178,10 @@ class Search extends PPModel
     /**
      * Initial letters of the recipient's business name.
      *
+     * @deprecated Instead use setRecipientBusinessName
+     *
      * @param string $recipient_business_name
-     * @deprecated. Instead use setRecipientBusinessName
+     * @return $this
      */
     public function setRecipient_business_name($recipient_business_name)
     {
@@ -151,9 +191,9 @@ class Search extends PPModel
 
     /**
      * Initial letters of the recipient's business name.
+     * @deprecated Instead use getRecipientBusinessName
      *
      * @return string
-     * @deprecated. Instead use getRecipientBusinessName
      */
     public function getRecipient_business_name()
     {
@@ -164,6 +204,8 @@ class Search extends PPModel
      * The invoice number that appears on the invoice.
      *
      * @param string $number
+     * 
+     * @return $this
      */
     public function setNumber($number)
     {
@@ -181,11 +223,13 @@ class Search extends PPModel
         return $this->number;
     }
 
-
     /**
      * Status of the invoice.
+     * Valid Values: ["DRAFT", "SENT", "PAID", "MARKED_AS_PAID", "CANCELLED", "REFUNDED", "PARTIALLY_REFUNDED", "MARKED_AS_REFUNDED"]
      *
      * @param string $status
+     * 
+     * @return $this
      */
     public function setStatus($status)
     {
@@ -203,11 +247,12 @@ class Search extends PPModel
         return $this->status;
     }
 
-
     /**
      * Lower limit of total amount.
      *
-     * @param PayPal\Api\Currency $lower_total_amount
+     * @param \PayPal\Api\Currency $lower_total_amount
+     * 
+     * @return $this
      */
     public function setLowerTotalAmount($lower_total_amount)
     {
@@ -218,7 +263,7 @@ class Search extends PPModel
     /**
      * Lower limit of total amount.
      *
-     * @return PayPal\Api\Currency
+     * @return \PayPal\Api\Currency
      */
     public function getLowerTotalAmount()
     {
@@ -228,8 +273,10 @@ class Search extends PPModel
     /**
      * Lower limit of total amount.
      *
-     * @param PayPal\Api\Currency $lower_total_amount
-     * @deprecated. Instead use setLowerTotalAmount
+     * @deprecated Instead use setLowerTotalAmount
+     *
+     * @param \PayPal\Api\Currency $lower_total_amount
+     * @return $this
      */
     public function setLower_total_amount($lower_total_amount)
     {
@@ -239,9 +286,9 @@ class Search extends PPModel
 
     /**
      * Lower limit of total amount.
+     * @deprecated Instead use getLowerTotalAmount
      *
-     * @return PayPal\Api\Currency
-     * @deprecated. Instead use getLowerTotalAmount
+     * @return \PayPal\Api\Currency
      */
     public function getLower_total_amount()
     {
@@ -251,7 +298,9 @@ class Search extends PPModel
     /**
      * Upper limit of total amount.
      *
-     * @param PayPal\Api\Currency $upper_total_amount
+     * @param \PayPal\Api\Currency $upper_total_amount
+     * 
+     * @return $this
      */
     public function setUpperTotalAmount($upper_total_amount)
     {
@@ -262,7 +311,7 @@ class Search extends PPModel
     /**
      * Upper limit of total amount.
      *
-     * @return PayPal\Api\Currency
+     * @return \PayPal\Api\Currency
      */
     public function getUpperTotalAmount()
     {
@@ -272,8 +321,10 @@ class Search extends PPModel
     /**
      * Upper limit of total amount.
      *
-     * @param PayPal\Api\Currency $upper_total_amount
-     * @deprecated. Instead use setUpperTotalAmount
+     * @deprecated Instead use setUpperTotalAmount
+     *
+     * @param \PayPal\Api\Currency $upper_total_amount
+     * @return $this
      */
     public function setUpper_total_amount($upper_total_amount)
     {
@@ -283,9 +334,9 @@ class Search extends PPModel
 
     /**
      * Upper limit of total amount.
+     * @deprecated Instead use getUpperTotalAmount
      *
-     * @return PayPal\Api\Currency
-     * @deprecated. Instead use getUpperTotalAmount
+     * @return \PayPal\Api\Currency
      */
     public function getUpper_total_amount()
     {
@@ -293,9 +344,11 @@ class Search extends PPModel
     }
 
     /**
-     * Start invoice date.
+     * Start invoice date. Date format yyyy-MM-dd z, as defined in [ISO8601](http://tools.ietf.org/html/rfc3339#section-5.6).
      *
      * @param string $start_invoice_date
+     * 
+     * @return $this
      */
     public function setStartInvoiceDate($start_invoice_date)
     {
@@ -304,7 +357,7 @@ class Search extends PPModel
     }
 
     /**
-     * Start invoice date.
+     * Start invoice date. Date format yyyy-MM-dd z, as defined in [ISO8601](http://tools.ietf.org/html/rfc3339#section-5.6).
      *
      * @return string
      */
@@ -314,10 +367,12 @@ class Search extends PPModel
     }
 
     /**
-     * Start invoice date.
+     * Start invoice date. Date format yyyy-MM-dd z, as defined in [ISO8601](http://tools.ietf.org/html/rfc3339#section-5.6).
+     *
+     * @deprecated Instead use setStartInvoiceDate
      *
      * @param string $start_invoice_date
-     * @deprecated. Instead use setStartInvoiceDate
+     * @return $this
      */
     public function setStart_invoice_date($start_invoice_date)
     {
@@ -326,10 +381,10 @@ class Search extends PPModel
     }
 
     /**
-     * Start invoice date.
+     * Start invoice date. Date format yyyy-MM-dd z, as defined in [ISO8601](http://tools.ietf.org/html/rfc3339#section-5.6).
+     * @deprecated Instead use getStartInvoiceDate
      *
      * @return string
-     * @deprecated. Instead use getStartInvoiceDate
      */
     public function getStart_invoice_date()
     {
@@ -337,9 +392,11 @@ class Search extends PPModel
     }
 
     /**
-     * End invoice date.
+     * End invoice date. Date format yyyy-MM-dd z, as defined in [ISO8601](http://tools.ietf.org/html/rfc3339#section-5.6).
      *
      * @param string $end_invoice_date
+     * 
+     * @return $this
      */
     public function setEndInvoiceDate($end_invoice_date)
     {
@@ -348,7 +405,7 @@ class Search extends PPModel
     }
 
     /**
-     * End invoice date.
+     * End invoice date. Date format yyyy-MM-dd z, as defined in [ISO8601](http://tools.ietf.org/html/rfc3339#section-5.6).
      *
      * @return string
      */
@@ -358,10 +415,12 @@ class Search extends PPModel
     }
 
     /**
-     * End invoice date.
+     * End invoice date. Date format yyyy-MM-dd z, as defined in [ISO8601](http://tools.ietf.org/html/rfc3339#section-5.6).
+     *
+     * @deprecated Instead use setEndInvoiceDate
      *
      * @param string $end_invoice_date
-     * @deprecated. Instead use setEndInvoiceDate
+     * @return $this
      */
     public function setEnd_invoice_date($end_invoice_date)
     {
@@ -370,10 +429,10 @@ class Search extends PPModel
     }
 
     /**
-     * End invoice date.
+     * End invoice date. Date format yyyy-MM-dd z, as defined in [ISO8601](http://tools.ietf.org/html/rfc3339#section-5.6).
+     * @deprecated Instead use getEndInvoiceDate
      *
      * @return string
-     * @deprecated. Instead use getEndInvoiceDate
      */
     public function getEnd_invoice_date()
     {
@@ -381,9 +440,11 @@ class Search extends PPModel
     }
 
     /**
-     * Start invoice due date.
+     * Start invoice due date. Date format yyyy-MM-dd z, as defined in [ISO8601](http://tools.ietf.org/html/rfc3339#section-5.6).
      *
      * @param string $start_due_date
+     * 
+     * @return $this
      */
     public function setStartDueDate($start_due_date)
     {
@@ -392,7 +453,7 @@ class Search extends PPModel
     }
 
     /**
-     * Start invoice due date.
+     * Start invoice due date. Date format yyyy-MM-dd z, as defined in [ISO8601](http://tools.ietf.org/html/rfc3339#section-5.6).
      *
      * @return string
      */
@@ -402,10 +463,12 @@ class Search extends PPModel
     }
 
     /**
-     * Start invoice due date.
+     * Start invoice due date. Date format yyyy-MM-dd z, as defined in [ISO8601](http://tools.ietf.org/html/rfc3339#section-5.6).
+     *
+     * @deprecated Instead use setStartDueDate
      *
      * @param string $start_due_date
-     * @deprecated. Instead use setStartDueDate
+     * @return $this
      */
     public function setStart_due_date($start_due_date)
     {
@@ -414,10 +477,10 @@ class Search extends PPModel
     }
 
     /**
-     * Start invoice due date.
+     * Start invoice due date. Date format yyyy-MM-dd z, as defined in [ISO8601](http://tools.ietf.org/html/rfc3339#section-5.6).
+     * @deprecated Instead use getStartDueDate
      *
      * @return string
-     * @deprecated. Instead use getStartDueDate
      */
     public function getStart_due_date()
     {
@@ -425,9 +488,11 @@ class Search extends PPModel
     }
 
     /**
-     * End invoice due date.
+     * End invoice due date. Date format yyyy-MM-dd z, as defined in [ISO8601](http://tools.ietf.org/html/rfc3339#section-5.6).
      *
      * @param string $end_due_date
+     * 
+     * @return $this
      */
     public function setEndDueDate($end_due_date)
     {
@@ -436,7 +501,7 @@ class Search extends PPModel
     }
 
     /**
-     * End invoice due date.
+     * End invoice due date. Date format yyyy-MM-dd z, as defined in [ISO8601](http://tools.ietf.org/html/rfc3339#section-5.6).
      *
      * @return string
      */
@@ -446,10 +511,12 @@ class Search extends PPModel
     }
 
     /**
-     * End invoice due date.
+     * End invoice due date. Date format yyyy-MM-dd z, as defined in [ISO8601](http://tools.ietf.org/html/rfc3339#section-5.6).
+     *
+     * @deprecated Instead use setEndDueDate
      *
      * @param string $end_due_date
-     * @deprecated. Instead use setEndDueDate
+     * @return $this
      */
     public function setEnd_due_date($end_due_date)
     {
@@ -458,10 +525,10 @@ class Search extends PPModel
     }
 
     /**
-     * End invoice due date.
+     * End invoice due date. Date format yyyy-MM-dd z, as defined in [ISO8601](http://tools.ietf.org/html/rfc3339#section-5.6).
+     * @deprecated Instead use getEndDueDate
      *
      * @return string
-     * @deprecated. Instead use getEndDueDate
      */
     public function getEnd_due_date()
     {
@@ -469,9 +536,11 @@ class Search extends PPModel
     }
 
     /**
-     * Start invoice payment date.
+     * Start invoice payment date. Date format yyyy-MM-dd z, as defined in [ISO8601](http://tools.ietf.org/html/rfc3339#section-5.6).
      *
      * @param string $start_payment_date
+     * 
+     * @return $this
      */
     public function setStartPaymentDate($start_payment_date)
     {
@@ -480,7 +549,7 @@ class Search extends PPModel
     }
 
     /**
-     * Start invoice payment date.
+     * Start invoice payment date. Date format yyyy-MM-dd z, as defined in [ISO8601](http://tools.ietf.org/html/rfc3339#section-5.6).
      *
      * @return string
      */
@@ -490,10 +559,12 @@ class Search extends PPModel
     }
 
     /**
-     * Start invoice payment date.
+     * Start invoice payment date. Date format yyyy-MM-dd z, as defined in [ISO8601](http://tools.ietf.org/html/rfc3339#section-5.6).
+     *
+     * @deprecated Instead use setStartPaymentDate
      *
      * @param string $start_payment_date
-     * @deprecated. Instead use setStartPaymentDate
+     * @return $this
      */
     public function setStart_payment_date($start_payment_date)
     {
@@ -502,10 +573,10 @@ class Search extends PPModel
     }
 
     /**
-     * Start invoice payment date.
+     * Start invoice payment date. Date format yyyy-MM-dd z, as defined in [ISO8601](http://tools.ietf.org/html/rfc3339#section-5.6).
+     * @deprecated Instead use getStartPaymentDate
      *
      * @return string
-     * @deprecated. Instead use getStartPaymentDate
      */
     public function getStart_payment_date()
     {
@@ -513,9 +584,11 @@ class Search extends PPModel
     }
 
     /**
-     * End invoice payment date.
+     * End invoice payment date. Date format yyyy-MM-dd z, as defined in [ISO8601](http://tools.ietf.org/html/rfc3339#section-5.6).
      *
      * @param string $end_payment_date
+     * 
+     * @return $this
      */
     public function setEndPaymentDate($end_payment_date)
     {
@@ -524,7 +597,7 @@ class Search extends PPModel
     }
 
     /**
-     * End invoice payment date.
+     * End invoice payment date. Date format yyyy-MM-dd z, as defined in [ISO8601](http://tools.ietf.org/html/rfc3339#section-5.6).
      *
      * @return string
      */
@@ -534,10 +607,12 @@ class Search extends PPModel
     }
 
     /**
-     * End invoice payment date.
+     * End invoice payment date. Date format yyyy-MM-dd z, as defined in [ISO8601](http://tools.ietf.org/html/rfc3339#section-5.6).
+     *
+     * @deprecated Instead use setEndPaymentDate
      *
      * @param string $end_payment_date
-     * @deprecated. Instead use setEndPaymentDate
+     * @return $this
      */
     public function setEnd_payment_date($end_payment_date)
     {
@@ -546,10 +621,10 @@ class Search extends PPModel
     }
 
     /**
-     * End invoice payment date.
+     * End invoice payment date. Date format yyyy-MM-dd z, as defined in [ISO8601](http://tools.ietf.org/html/rfc3339#section-5.6).
+     * @deprecated Instead use getEndPaymentDate
      *
      * @return string
-     * @deprecated. Instead use getEndPaymentDate
      */
     public function getEnd_payment_date()
     {
@@ -557,9 +632,11 @@ class Search extends PPModel
     }
 
     /**
-     * Start invoice creation date.
+     * Start invoice creation date. Date format yyyy-MM-dd z, as defined in [ISO8601](http://tools.ietf.org/html/rfc3339#section-5.6).
      *
      * @param string $start_creation_date
+     * 
+     * @return $this
      */
     public function setStartCreationDate($start_creation_date)
     {
@@ -568,7 +645,7 @@ class Search extends PPModel
     }
 
     /**
-     * Start invoice creation date.
+     * Start invoice creation date. Date format yyyy-MM-dd z, as defined in [ISO8601](http://tools.ietf.org/html/rfc3339#section-5.6).
      *
      * @return string
      */
@@ -578,10 +655,12 @@ class Search extends PPModel
     }
 
     /**
-     * Start invoice creation date.
+     * Start invoice creation date. Date format yyyy-MM-dd z, as defined in [ISO8601](http://tools.ietf.org/html/rfc3339#section-5.6).
+     *
+     * @deprecated Instead use setStartCreationDate
      *
      * @param string $start_creation_date
-     * @deprecated. Instead use setStartCreationDate
+     * @return $this
      */
     public function setStart_creation_date($start_creation_date)
     {
@@ -590,10 +669,10 @@ class Search extends PPModel
     }
 
     /**
-     * Start invoice creation date.
+     * Start invoice creation date. Date format yyyy-MM-dd z, as defined in [ISO8601](http://tools.ietf.org/html/rfc3339#section-5.6).
+     * @deprecated Instead use getStartCreationDate
      *
      * @return string
-     * @deprecated. Instead use getStartCreationDate
      */
     public function getStart_creation_date()
     {
@@ -601,9 +680,11 @@ class Search extends PPModel
     }
 
     /**
-     * End invoice creation date.
+     * End invoice creation date. Date format yyyy-MM-dd z, as defined in [ISO8601](http://tools.ietf.org/html/rfc3339#section-5.6).
      *
      * @param string $end_creation_date
+     * 
+     * @return $this
      */
     public function setEndCreationDate($end_creation_date)
     {
@@ -612,7 +693,7 @@ class Search extends PPModel
     }
 
     /**
-     * End invoice creation date.
+     * End invoice creation date. Date format yyyy-MM-dd z, as defined in [ISO8601](http://tools.ietf.org/html/rfc3339#section-5.6).
      *
      * @return string
      */
@@ -622,10 +703,12 @@ class Search extends PPModel
     }
 
     /**
-     * End invoice creation date.
+     * End invoice creation date. Date format yyyy-MM-dd z, as defined in [ISO8601](http://tools.ietf.org/html/rfc3339#section-5.6).
+     *
+     * @deprecated Instead use setEndCreationDate
      *
      * @param string $end_creation_date
-     * @deprecated. Instead use setEndCreationDate
+     * @return $this
      */
     public function setEnd_creation_date($end_creation_date)
     {
@@ -634,10 +717,10 @@ class Search extends PPModel
     }
 
     /**
-     * End invoice creation date.
+     * End invoice creation date. Date format yyyy-MM-dd z, as defined in [ISO8601](http://tools.ietf.org/html/rfc3339#section-5.6).
+     * @deprecated Instead use getEndCreationDate
      *
      * @return string
-     * @deprecated. Instead use getEndCreationDate
      */
     public function getEnd_creation_date()
     {
@@ -647,7 +730,9 @@ class Search extends PPModel
     /**
      * Offset of the search results.
      *
-     * @param PayPal\Api\number $page
+     * @param \PayPal\Api\number $page
+     * 
+     * @return $this
      */
     public function setPage($page)
     {
@@ -658,18 +743,19 @@ class Search extends PPModel
     /**
      * Offset of the search results.
      *
-     * @return PayPal\Api\number
+     * @return \PayPal\Api\number
      */
     public function getPage()
     {
         return $this->page;
     }
 
-
     /**
      * Page size of the search results.
      *
-     * @param PayPal\Api\number $page_size
+     * @param \PayPal\Api\number $page_size
+     * 
+     * @return $this
      */
     public function setPageSize($page_size)
     {
@@ -680,7 +766,7 @@ class Search extends PPModel
     /**
      * Page size of the search results.
      *
-     * @return PayPal\Api\number
+     * @return \PayPal\Api\number
      */
     public function getPageSize()
     {
@@ -690,8 +776,10 @@ class Search extends PPModel
     /**
      * Page size of the search results.
      *
-     * @param PayPal\Api\number $page_size
-     * @deprecated. Instead use setPageSize
+     * @deprecated Instead use setPageSize
+     *
+     * @param \PayPal\Api\number $page_size
+     * @return $this
      */
     public function setPage_size($page_size)
     {
@@ -701,9 +789,9 @@ class Search extends PPModel
 
     /**
      * Page size of the search results.
+     * @deprecated Instead use getPageSize
      *
-     * @return PayPal\Api\number
-     * @deprecated. Instead use getPageSize
+     * @return \PayPal\Api\number
      */
     public function getPage_size()
     {
@@ -713,7 +801,9 @@ class Search extends PPModel
     /**
      * A flag indicating whether total count is required in the response.
      *
-     * @param boolean $total_count_required
+     * @param bool $total_count_required
+     * 
+     * @return $this
      */
     public function setTotalCountRequired($total_count_required)
     {
@@ -724,7 +814,7 @@ class Search extends PPModel
     /**
      * A flag indicating whether total count is required in the response.
      *
-     * @return boolean
+     * @return bool
      */
     public function getTotalCountRequired()
     {
@@ -734,8 +824,10 @@ class Search extends PPModel
     /**
      * A flag indicating whether total count is required in the response.
      *
-     * @param boolean $total_count_required
-     * @deprecated. Instead use setTotalCountRequired
+     * @deprecated Instead use setTotalCountRequired
+     *
+     * @param bool $total_count_required
+     * @return $this
      */
     public function setTotal_count_required($total_count_required)
     {
@@ -745,9 +837,9 @@ class Search extends PPModel
 
     /**
      * A flag indicating whether total count is required in the response.
+     * @deprecated Instead use getTotalCountRequired
      *
-     * @return boolean
-     * @deprecated. Instead use getTotalCountRequired
+     * @return bool
      */
     public function getTotal_count_required()
     {

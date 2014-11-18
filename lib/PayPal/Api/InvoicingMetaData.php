@@ -1,15 +1,36 @@
 <?php
+
 namespace PayPal\Api;
 
 use PayPal\Common\PPModel;
-use PayPal\Rest\ApiContext;
+use PayPal\Validation\UrlValidator;
 
+/**
+ * Class InvoicingMetaData
+ *
+ * Audit information of the resource.
+ *
+ * @package PayPal\Api
+ *
+ * @property string created_date
+ * @property string created_by
+ * @property string cancelled_date
+ * @property string cancelled_by
+ * @property string last_updated_date
+ * @property string last_updated_by
+ * @property string first_sent_date
+ * @property string last_sent_date
+ * @property string last_sent_by
+ * @property string payer_view_url
+ */
 class InvoicingMetaData extends PPModel
 {
     /**
      * Date when the resource was created.
      *
      * @param string $created_date
+     * 
+     * @return $this
      */
     public function setCreatedDate($created_date)
     {
@@ -30,8 +51,10 @@ class InvoicingMetaData extends PPModel
     /**
      * Date when the resource was created.
      *
+     * @deprecated Instead use setCreatedDate
+     *
      * @param string $created_date
-     * @deprecated. Instead use setCreatedDate
+     * @return $this
      */
     public function setCreated_date($created_date)
     {
@@ -41,9 +64,9 @@ class InvoicingMetaData extends PPModel
 
     /**
      * Date when the resource was created.
+     * @deprecated Instead use getCreatedDate
      *
      * @return string
-     * @deprecated. Instead use getCreatedDate
      */
     public function getCreated_date()
     {
@@ -54,6 +77,8 @@ class InvoicingMetaData extends PPModel
      * Email address of the account that created the resource.
      *
      * @param string $created_by
+     * 
+     * @return $this
      */
     public function setCreatedBy($created_by)
     {
@@ -74,8 +99,10 @@ class InvoicingMetaData extends PPModel
     /**
      * Email address of the account that created the resource.
      *
+     * @deprecated Instead use setCreatedBy
+     *
      * @param string $created_by
-     * @deprecated. Instead use setCreatedBy
+     * @return $this
      */
     public function setCreated_by($created_by)
     {
@@ -85,9 +112,9 @@ class InvoicingMetaData extends PPModel
 
     /**
      * Email address of the account that created the resource.
+     * @deprecated Instead use getCreatedBy
      *
      * @return string
-     * @deprecated. Instead use getCreatedBy
      */
     public function getCreated_by()
     {
@@ -98,6 +125,8 @@ class InvoicingMetaData extends PPModel
      * Date when the resource was cancelled.
      *
      * @param string $cancelled_date
+     * 
+     * @return $this
      */
     public function setCancelledDate($cancelled_date)
     {
@@ -118,8 +147,10 @@ class InvoicingMetaData extends PPModel
     /**
      * Date when the resource was cancelled.
      *
+     * @deprecated Instead use setCancelledDate
+     *
      * @param string $cancelled_date
-     * @deprecated. Instead use setCancelledDate
+     * @return $this
      */
     public function setCancelled_date($cancelled_date)
     {
@@ -129,9 +160,9 @@ class InvoicingMetaData extends PPModel
 
     /**
      * Date when the resource was cancelled.
+     * @deprecated Instead use getCancelledDate
      *
      * @return string
-     * @deprecated. Instead use getCancelledDate
      */
     public function getCancelled_date()
     {
@@ -142,6 +173,8 @@ class InvoicingMetaData extends PPModel
      * Actor who cancelled the resource.
      *
      * @param string $cancelled_by
+     * 
+     * @return $this
      */
     public function setCancelledBy($cancelled_by)
     {
@@ -162,8 +195,10 @@ class InvoicingMetaData extends PPModel
     /**
      * Actor who cancelled the resource.
      *
+     * @deprecated Instead use setCancelledBy
+     *
      * @param string $cancelled_by
-     * @deprecated. Instead use setCancelledBy
+     * @return $this
      */
     public function setCancelled_by($cancelled_by)
     {
@@ -173,9 +208,9 @@ class InvoicingMetaData extends PPModel
 
     /**
      * Actor who cancelled the resource.
+     * @deprecated Instead use getCancelledBy
      *
      * @return string
-     * @deprecated. Instead use getCancelledBy
      */
     public function getCancelled_by()
     {
@@ -186,6 +221,8 @@ class InvoicingMetaData extends PPModel
      * Date when the resource was last edited.
      *
      * @param string $last_updated_date
+     * 
+     * @return $this
      */
     public function setLastUpdatedDate($last_updated_date)
     {
@@ -206,8 +243,10 @@ class InvoicingMetaData extends PPModel
     /**
      * Date when the resource was last edited.
      *
+     * @deprecated Instead use setLastUpdatedDate
+     *
      * @param string $last_updated_date
-     * @deprecated. Instead use setLastUpdatedDate
+     * @return $this
      */
     public function setLast_updated_date($last_updated_date)
     {
@@ -217,9 +256,9 @@ class InvoicingMetaData extends PPModel
 
     /**
      * Date when the resource was last edited.
+     * @deprecated Instead use getLastUpdatedDate
      *
      * @return string
-     * @deprecated. Instead use getLastUpdatedDate
      */
     public function getLast_updated_date()
     {
@@ -230,6 +269,8 @@ class InvoicingMetaData extends PPModel
      * Email address of the account that last edited the resource.
      *
      * @param string $last_updated_by
+     * 
+     * @return $this
      */
     public function setLastUpdatedBy($last_updated_by)
     {
@@ -250,8 +291,10 @@ class InvoicingMetaData extends PPModel
     /**
      * Email address of the account that last edited the resource.
      *
+     * @deprecated Instead use setLastUpdatedBy
+     *
      * @param string $last_updated_by
-     * @deprecated. Instead use setLastUpdatedBy
+     * @return $this
      */
     public function setLast_updated_by($last_updated_by)
     {
@@ -261,9 +304,9 @@ class InvoicingMetaData extends PPModel
 
     /**
      * Email address of the account that last edited the resource.
+     * @deprecated Instead use getLastUpdatedBy
      *
      * @return string
-     * @deprecated. Instead use getLastUpdatedBy
      */
     public function getLast_updated_by()
     {
@@ -274,6 +317,8 @@ class InvoicingMetaData extends PPModel
      * Date when the resource was first sent.
      *
      * @param string $first_sent_date
+     * 
+     * @return $this
      */
     public function setFirstSentDate($first_sent_date)
     {
@@ -294,8 +339,10 @@ class InvoicingMetaData extends PPModel
     /**
      * Date when the resource was first sent.
      *
+     * @deprecated Instead use setFirstSentDate
+     *
      * @param string $first_sent_date
-     * @deprecated. Instead use setFirstSentDate
+     * @return $this
      */
     public function setFirst_sent_date($first_sent_date)
     {
@@ -305,9 +352,9 @@ class InvoicingMetaData extends PPModel
 
     /**
      * Date when the resource was first sent.
+     * @deprecated Instead use getFirstSentDate
      *
      * @return string
-     * @deprecated. Instead use getFirstSentDate
      */
     public function getFirst_sent_date()
     {
@@ -318,6 +365,8 @@ class InvoicingMetaData extends PPModel
      * Date when the resource was last sent.
      *
      * @param string $last_sent_date
+     * 
+     * @return $this
      */
     public function setLastSentDate($last_sent_date)
     {
@@ -338,8 +387,10 @@ class InvoicingMetaData extends PPModel
     /**
      * Date when the resource was last sent.
      *
+     * @deprecated Instead use setLastSentDate
+     *
      * @param string $last_sent_date
-     * @deprecated. Instead use setLastSentDate
+     * @return $this
      */
     public function setLast_sent_date($last_sent_date)
     {
@@ -349,9 +400,9 @@ class InvoicingMetaData extends PPModel
 
     /**
      * Date when the resource was last sent.
+     * @deprecated Instead use getLastSentDate
      *
      * @return string
-     * @deprecated. Instead use getLastSentDate
      */
     public function getLast_sent_date()
     {
@@ -362,6 +413,8 @@ class InvoicingMetaData extends PPModel
      * Email address of the account that last sent the resource.
      *
      * @param string $last_sent_by
+     * 
+     * @return $this
      */
     public function setLastSentBy($last_sent_by)
     {
@@ -382,8 +435,10 @@ class InvoicingMetaData extends PPModel
     /**
      * Email address of the account that last sent the resource.
      *
+     * @deprecated Instead use setLastSentBy
+     *
      * @param string $last_sent_by
-     * @deprecated. Instead use setLastSentBy
+     * @return $this
      */
     public function setLast_sent_by($last_sent_by)
     {
@@ -393,13 +448,62 @@ class InvoicingMetaData extends PPModel
 
     /**
      * Email address of the account that last sent the resource.
+     * @deprecated Instead use getLastSentBy
      *
      * @return string
-     * @deprecated. Instead use getLastSentBy
      */
     public function getLast_sent_by()
     {
         return $this->last_sent_by;
+    }
+
+    /**
+     * URL representing the payer's view of the invoice.
+     *
+     * @param string $payer_view_url
+     * @throws \InvalidArgumentException
+     * @return $this
+     */
+    public function setPayerViewUrl($payer_view_url)
+    {
+        UrlValidator::validate($payer_view_url, "PayerViewUrl");
+        $this->payer_view_url = $payer_view_url;
+        return $this;
+    }
+
+    /**
+     * URL representing the payer's view of the invoice.
+     *
+     * @return string
+     */
+    public function getPayerViewUrl()
+    {
+        return $this->payer_view_url;
+    }
+
+    /**
+     * URL representing the payer's view of the invoice.
+     *
+     * @deprecated Instead use setPayerViewUrl
+     *
+     * @param string $payer_view_url
+     * @return $this
+     */
+    public function setPayer_view_url($payer_view_url)
+    {
+        $this->payer_view_url = $payer_view_url;
+        return $this;
+    }
+
+    /**
+     * URL representing the payer's view of the invoice.
+     * @deprecated Instead use getPayerViewUrl
+     *
+     * @return string
+     */
+    public function getPayer_view_url()
+    {
+        return $this->payer_view_url;
     }
 
 }

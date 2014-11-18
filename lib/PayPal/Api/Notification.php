@@ -1,15 +1,28 @@
 <?php
+
 namespace PayPal\Api;
 
 use PayPal\Common\PPModel;
-use PayPal\Rest\ApiContext;
 
+/**
+ * Class Notification
+ *
+ * Email/SMS notification.
+ *
+ * @package PayPal\Api
+ *
+ * @property string subject
+ * @property string note
+ * @property bool send_to_merchant
+ */
 class Notification extends PPModel
 {
     /**
      * Subject of the notification.
      *
      * @param string $subject
+     * 
+     * @return $this
      */
     public function setSubject($subject)
     {
@@ -27,11 +40,12 @@ class Notification extends PPModel
         return $this->subject;
     }
 
-
     /**
      * Note to the payer.
      *
      * @param string $note
+     * 
+     * @return $this
      */
     public function setNote($note)
     {
@@ -49,11 +63,12 @@ class Notification extends PPModel
         return $this->note;
     }
 
-
     /**
      * A flag indicating whether a copy of the email has to be sent to the merchant.
      *
-     * @param boolean $send_to_merchant
+     * @param bool $send_to_merchant
+     * 
+     * @return $this
      */
     public function setSendToMerchant($send_to_merchant)
     {
@@ -64,7 +79,7 @@ class Notification extends PPModel
     /**
      * A flag indicating whether a copy of the email has to be sent to the merchant.
      *
-     * @return boolean
+     * @return bool
      */
     public function getSendToMerchant()
     {
@@ -74,8 +89,10 @@ class Notification extends PPModel
     /**
      * A flag indicating whether a copy of the email has to be sent to the merchant.
      *
-     * @param boolean $send_to_merchant
-     * @deprecated. Instead use setSendToMerchant
+     * @deprecated Instead use setSendToMerchant
+     *
+     * @param bool $send_to_merchant
+     * @return $this
      */
     public function setSend_to_merchant($send_to_merchant)
     {
@@ -85,9 +102,9 @@ class Notification extends PPModel
 
     /**
      * A flag indicating whether a copy of the email has to be sent to the merchant.
+     * @deprecated Instead use getSendToMerchant
      *
-     * @return boolean
-     * @deprecated. Instead use getSendToMerchant
+     * @return bool
      */
     public function getSend_to_merchant()
     {

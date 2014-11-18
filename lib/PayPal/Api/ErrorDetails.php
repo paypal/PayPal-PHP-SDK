@@ -1,15 +1,27 @@
 <?php
+
 namespace PayPal\Api;
 
 use PayPal\Common\PPModel;
-use PayPal\Rest\ApiContext;
 
+/**
+ * Class ErrorDetails
+ *
+ * Details about a specific error.
+ *
+ * @package PayPal\Api
+ *
+ * @property string field
+ * @property string issue
+ */
 class ErrorDetails extends PPModel
 {
     /**
      * Name of the field that caused the error.
      *
      * @param string $field
+     * 
+     * @return $this
      */
     public function setField($field)
     {
@@ -27,11 +39,12 @@ class ErrorDetails extends PPModel
         return $this->field;
     }
 
-
     /**
      * Reason for the error.
      *
      * @param string $issue
+     * 
+     * @return $this
      */
     public function setIssue($issue)
     {
@@ -48,6 +61,5 @@ class ErrorDetails extends PPModel
     {
         return $this->issue;
     }
-
 
 }

@@ -1,15 +1,32 @@
 <?php
+
 namespace PayPal\Api;
 
 use PayPal\Common\PPModel;
-use PayPal\Rest\ApiContext;
 
+/**
+ * Class InvoiceItem
+ *
+ * Information about a single line item.
+ *
+ * @package PayPal\Api
+ *
+ * @property string name
+ * @property string description
+ * @property \PayPal\Api\number quantity
+ * @property \PayPal\Api\Currency unit_price
+ * @property \PayPal\Api\Tax tax
+ * @property string date
+ * @property \PayPal\Api\Cost discount
+ */
 class InvoiceItem extends PPModel
 {
     /**
      * Name of the item. 60 characters max.
      *
      * @param string $name
+     * 
+     * @return $this
      */
     public function setName($name)
     {
@@ -27,11 +44,12 @@ class InvoiceItem extends PPModel
         return $this->name;
     }
 
-
     /**
      * Description of the item. 1000 characters max.
      *
      * @param string $description
+     * 
+     * @return $this
      */
     public function setDescription($description)
     {
@@ -49,11 +67,12 @@ class InvoiceItem extends PPModel
         return $this->description;
     }
 
-
     /**
      * Quantity of the item. Range of 0 to 9999.999.
      *
-     * @param PayPal\Api\number $quantity
+     * @param \PayPal\Api\number $quantity
+     * 
+     * @return $this
      */
     public function setQuantity($quantity)
     {
@@ -64,18 +83,19 @@ class InvoiceItem extends PPModel
     /**
      * Quantity of the item. Range of 0 to 9999.999.
      *
-     * @return PayPal\Api\number
+     * @return \PayPal\Api\number
      */
     public function getQuantity()
     {
         return $this->quantity;
     }
 
-
     /**
      * Unit price of the item. Range of -999999.99 to 999999.99.
      *
-     * @param PayPal\Api\Currency $unit_price
+     * @param \PayPal\Api\Currency $unit_price
+     * 
+     * @return $this
      */
     public function setUnitPrice($unit_price)
     {
@@ -86,7 +106,7 @@ class InvoiceItem extends PPModel
     /**
      * Unit price of the item. Range of -999999.99 to 999999.99.
      *
-     * @return PayPal\Api\Currency
+     * @return \PayPal\Api\Currency
      */
     public function getUnitPrice()
     {
@@ -96,8 +116,10 @@ class InvoiceItem extends PPModel
     /**
      * Unit price of the item. Range of -999999.99 to 999999.99.
      *
-     * @param PayPal\Api\Currency $unit_price
-     * @deprecated. Instead use setUnitPrice
+     * @deprecated Instead use setUnitPrice
+     *
+     * @param \PayPal\Api\Currency $unit_price
+     * @return $this
      */
     public function setUnit_price($unit_price)
     {
@@ -107,9 +129,9 @@ class InvoiceItem extends PPModel
 
     /**
      * Unit price of the item. Range of -999999.99 to 999999.99.
+     * @deprecated Instead use getUnitPrice
      *
-     * @return PayPal\Api\Currency
-     * @deprecated. Instead use getUnitPrice
+     * @return \PayPal\Api\Currency
      */
     public function getUnit_price()
     {
@@ -119,7 +141,9 @@ class InvoiceItem extends PPModel
     /**
      * Tax associated with the item.
      *
-     * @param PayPal\Api\Tax $tax
+     * @param \PayPal\Api\Tax $tax
+     * 
+     * @return $this
      */
     public function setTax($tax)
     {
@@ -130,18 +154,19 @@ class InvoiceItem extends PPModel
     /**
      * Tax associated with the item.
      *
-     * @return PayPal\Api\Tax
+     * @return \PayPal\Api\Tax
      */
     public function getTax()
     {
         return $this->tax;
     }
 
-
     /**
-     * Date on which the item or service was provided. Date format: yyyy-MM-dd z. For example, 2014-02-27 PST.
+     * Date on which the item or service was provided. Date format yyyy-MM-dd z, as defined in [ISO8601](http://tools.ietf.org/html/rfc3339#section-5.6).
      *
      * @param string $date
+     * 
+     * @return $this
      */
     public function setDate($date)
     {
@@ -150,7 +175,7 @@ class InvoiceItem extends PPModel
     }
 
     /**
-     * Date on which the item or service was provided. Date format: yyyy-MM-dd z. For example, 2014-02-27 PST.
+     * Date on which the item or service was provided. Date format yyyy-MM-dd z, as defined in [ISO8601](http://tools.ietf.org/html/rfc3339#section-5.6).
      *
      * @return string
      */
@@ -159,11 +184,12 @@ class InvoiceItem extends PPModel
         return $this->date;
     }
 
-
     /**
      * Item discount in percent or amount.
      *
-     * @param PayPal\Api\Cost $discount
+     * @param \PayPal\Api\Cost $discount
+     * 
+     * @return $this
      */
     public function setDiscount($discount)
     {
@@ -174,12 +200,11 @@ class InvoiceItem extends PPModel
     /**
      * Item discount in percent or amount.
      *
-     * @return PayPal\Api\Cost
+     * @return \PayPal\Api\Cost
      */
     public function getDiscount()
     {
         return $this->discount;
     }
-
 
 }

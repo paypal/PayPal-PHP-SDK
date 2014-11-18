@@ -1,15 +1,29 @@
 <?php
+
 namespace PayPal\Api;
 
 use PayPal\Common\PPModel;
-use PayPal\Rest\ApiContext;
 
+/**
+ * Class Tax
+ *
+ * Tax information.
+ *
+ * @package PayPal\Api
+ *
+ * @property string id
+ * @property string name
+ * @property \PayPal\Api\number percent
+ * @property \PayPal\Api\Currency amount
+ */
 class Tax extends PPModel
 {
     /**
      * Identifier of the resource.
      *
      * @param string $id
+     * 
+     * @return $this
      */
     public function setId($id)
     {
@@ -27,11 +41,12 @@ class Tax extends PPModel
         return $this->id;
     }
 
-
     /**
      * Name of the tax. 10 characters max.
      *
      * @param string $name
+     * 
+     * @return $this
      */
     public function setName($name)
     {
@@ -49,11 +64,12 @@ class Tax extends PPModel
         return $this->name;
     }
 
-
     /**
      * Rate of the specified tax. Range of 0.001 to 99.999.
      *
-     * @param PayPal\Api\number $percent
+     * @param \PayPal\Api\number $percent
+     * 
+     * @return $this
      */
     public function setPercent($percent)
     {
@@ -64,18 +80,19 @@ class Tax extends PPModel
     /**
      * Rate of the specified tax. Range of 0.001 to 99.999.
      *
-     * @return PayPal\Api\number
+     * @return \PayPal\Api\number
      */
     public function getPercent()
     {
         return $this->percent;
     }
 
-
     /**
      * Tax in the form of money. Cannot be specified in a request.
      *
-     * @param PayPal\Api\Currency $amount
+     * @param \PayPal\Api\Currency $amount
+     * 
+     * @return $this
      */
     public function setAmount($amount)
     {
@@ -86,12 +103,11 @@ class Tax extends PPModel
     /**
      * Tax in the form of money. Cannot be specified in a request.
      *
-     * @return PayPal\Api\Currency
+     * @return \PayPal\Api\Currency
      */
     public function getAmount()
     {
         return $this->amount;
     }
-
 
 }

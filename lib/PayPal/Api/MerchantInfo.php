@@ -1,15 +1,35 @@
 <?php
+
 namespace PayPal\Api;
 
 use PayPal\Common\PPModel;
-use PayPal\Rest\ApiContext;
 
+/**
+ * Class MerchantInfo
+ *
+ * Business information of the merchant that will appear on the invoice.
+ *
+ * @package PayPal\Api
+ *
+ * @property string email
+ * @property string first_name
+ * @property string last_name
+ * @property \PayPal\Api\Address address
+ * @property string business_name
+ * @property \PayPal\Api\Phone phone
+ * @property \PayPal\Api\Phone fax
+ * @property string website
+ * @property string tax_id
+ * @property string additional_info
+ */
 class MerchantInfo extends PPModel
 {
     /**
      * Email address of the merchant. 260 characters max.
      *
      * @param string $email
+     * 
+     * @return $this
      */
     public function setEmail($email)
     {
@@ -27,11 +47,12 @@ class MerchantInfo extends PPModel
         return $this->email;
     }
 
-
     /**
      * First name of the merchant. 30 characters max.
      *
      * @param string $first_name
+     * 
+     * @return $this
      */
     public function setFirstName($first_name)
     {
@@ -52,8 +73,10 @@ class MerchantInfo extends PPModel
     /**
      * First name of the merchant. 30 characters max.
      *
+     * @deprecated Instead use setFirstName
+     *
      * @param string $first_name
-     * @deprecated. Instead use setFirstName
+     * @return $this
      */
     public function setFirst_name($first_name)
     {
@@ -63,9 +86,9 @@ class MerchantInfo extends PPModel
 
     /**
      * First name of the merchant. 30 characters max.
+     * @deprecated Instead use getFirstName
      *
      * @return string
-     * @deprecated. Instead use getFirstName
      */
     public function getFirst_name()
     {
@@ -76,6 +99,8 @@ class MerchantInfo extends PPModel
      * Last name of the merchant. 30 characters max.
      *
      * @param string $last_name
+     * 
+     * @return $this
      */
     public function setLastName($last_name)
     {
@@ -96,8 +121,10 @@ class MerchantInfo extends PPModel
     /**
      * Last name of the merchant. 30 characters max.
      *
+     * @deprecated Instead use setLastName
+     *
      * @param string $last_name
-     * @deprecated. Instead use setLastName
+     * @return $this
      */
     public function setLast_name($last_name)
     {
@@ -107,9 +134,9 @@ class MerchantInfo extends PPModel
 
     /**
      * Last name of the merchant. 30 characters max.
+     * @deprecated Instead use getLastName
      *
      * @return string
-     * @deprecated. Instead use getLastName
      */
     public function getLast_name()
     {
@@ -119,7 +146,9 @@ class MerchantInfo extends PPModel
     /**
      * Address of the merchant.
      *
-     * @param PayPal\Api\Address $address
+     * @param \PayPal\Api\Address $address
+     * 
+     * @return $this
      */
     public function setAddress($address)
     {
@@ -130,18 +159,19 @@ class MerchantInfo extends PPModel
     /**
      * Address of the merchant.
      *
-     * @return PayPal\Api\Address
+     * @return \PayPal\Api\Address
      */
     public function getAddress()
     {
         return $this->address;
     }
 
-
     /**
      * Company business name of the merchant. 100 characters max.
      *
      * @param string $business_name
+     * 
+     * @return $this
      */
     public function setBusinessName($business_name)
     {
@@ -162,8 +192,10 @@ class MerchantInfo extends PPModel
     /**
      * Company business name of the merchant. 100 characters max.
      *
+     * @deprecated Instead use setBusinessName
+     *
      * @param string $business_name
-     * @deprecated. Instead use setBusinessName
+     * @return $this
      */
     public function setBusiness_name($business_name)
     {
@@ -173,9 +205,9 @@ class MerchantInfo extends PPModel
 
     /**
      * Company business name of the merchant. 100 characters max.
+     * @deprecated Instead use getBusinessName
      *
      * @return string
-     * @deprecated. Instead use getBusinessName
      */
     public function getBusiness_name()
     {
@@ -185,7 +217,9 @@ class MerchantInfo extends PPModel
     /**
      * Phone number of the merchant.
      *
-     * @param PayPal\Api\Phone $phone
+     * @param \PayPal\Api\Phone $phone
+     * 
+     * @return $this
      */
     public function setPhone($phone)
     {
@@ -196,18 +230,19 @@ class MerchantInfo extends PPModel
     /**
      * Phone number of the merchant.
      *
-     * @return PayPal\Api\Phone
+     * @return \PayPal\Api\Phone
      */
     public function getPhone()
     {
         return $this->phone;
     }
 
-
     /**
      * Fax number of the merchant.
      *
-     * @param PayPal\Api\Phone $fax
+     * @param \PayPal\Api\Phone $fax
+     * 
+     * @return $this
      */
     public function setFax($fax)
     {
@@ -218,18 +253,19 @@ class MerchantInfo extends PPModel
     /**
      * Fax number of the merchant.
      *
-     * @return PayPal\Api\Phone
+     * @return \PayPal\Api\Phone
      */
     public function getFax()
     {
         return $this->fax;
     }
 
-
     /**
      * Website of the merchant. 2048 characters max.
      *
      * @param string $website
+     * 
+     * @return $this
      */
     public function setWebsite($website)
     {
@@ -247,11 +283,12 @@ class MerchantInfo extends PPModel
         return $this->website;
     }
 
-
     /**
      * Tax ID of the merchant. 100 characters max.
      *
      * @param string $tax_id
+     * 
+     * @return $this
      */
     public function setTaxId($tax_id)
     {
@@ -272,8 +309,10 @@ class MerchantInfo extends PPModel
     /**
      * Tax ID of the merchant. 100 characters max.
      *
+     * @deprecated Instead use setTaxId
+     *
      * @param string $tax_id
-     * @deprecated. Instead use setTaxId
+     * @return $this
      */
     public function setTax_id($tax_id)
     {
@@ -283,9 +322,9 @@ class MerchantInfo extends PPModel
 
     /**
      * Tax ID of the merchant. 100 characters max.
+     * @deprecated Instead use getTaxId
      *
      * @return string
-     * @deprecated. Instead use getTaxId
      */
     public function getTax_id()
     {
@@ -296,6 +335,8 @@ class MerchantInfo extends PPModel
      * Option to display additional information such as business hours. 40 characters max.
      *
      * @param string $additional_info
+     * 
+     * @return $this
      */
     public function setAdditionalInfo($additional_info)
     {
@@ -316,8 +357,10 @@ class MerchantInfo extends PPModel
     /**
      * Option to display additional information such as business hours. 40 characters max.
      *
+     * @deprecated Instead use setAdditionalInfo
+     *
      * @param string $additional_info
-     * @deprecated. Instead use setAdditionalInfo
+     * @return $this
      */
     public function setAdditional_info($additional_info)
     {
@@ -327,9 +370,9 @@ class MerchantInfo extends PPModel
 
     /**
      * Option to display additional information such as business hours. 40 characters max.
+     * @deprecated Instead use getAdditionalInfo
      *
      * @return string
-     * @deprecated. Instead use getAdditionalInfo
      */
     public function getAdditional_info()
     {

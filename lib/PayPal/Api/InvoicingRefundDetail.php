@@ -1,15 +1,29 @@
 <?php
+
 namespace PayPal\Api;
 
 use PayPal\Common\PPModel;
-use PayPal\Rest\ApiContext;
 
+/**
+ * Class InvoicingRefundDetail
+ *
+ * Invoicing refund information.
+ *
+ * @package PayPal\Api
+ *
+ * @property string type
+ * @property string date
+ * @property string note
+ */
 class InvoicingRefundDetail extends PPModel
 {
     /**
      * PayPal refund type indicating whether refund was done in invoicing flow via PayPal or externally. In the case of the mark-as-refunded API, refund type is EXTERNAL and this is what is now supported. The PAYPAL value is provided for backward compatibility.
+     * Valid Values: ["PAYPAL", "EXTERNAL"]
      *
      * @param string $type
+     * 
+     * @return $this
      */
     public function setType($type)
     {
@@ -27,11 +41,12 @@ class InvoicingRefundDetail extends PPModel
         return $this->type;
     }
 
-
     /**
-     * Date when the invoice was marked as refunded. If no date is specified, the current date and time is used as the default. In addition, the date must be after the invoice payment date.
+     * Date when the invoice was marked as refunded. If no date is specified, the current date and time is used as the default. In addition, the date must be after the invoice payment date. Date format yyyy-MM-dd z, as defined in [ISO8601](http://tools.ietf.org/html/rfc3339#section-5.6).
      *
      * @param string $date
+     * 
+     * @return $this
      */
     public function setDate($date)
     {
@@ -40,7 +55,7 @@ class InvoicingRefundDetail extends PPModel
     }
 
     /**
-     * Date when the invoice was marked as refunded. If no date is specified, the current date and time is used as the default. In addition, the date must be after the invoice payment date.
+     * Date when the invoice was marked as refunded. If no date is specified, the current date and time is used as the default. In addition, the date must be after the invoice payment date. Date format yyyy-MM-dd z, as defined in [ISO8601](http://tools.ietf.org/html/rfc3339#section-5.6).
      *
      * @return string
      */
@@ -49,11 +64,12 @@ class InvoicingRefundDetail extends PPModel
         return $this->date;
     }
 
-
     /**
      * Optional note associated with the refund.
      *
      * @param string $note
+     * 
+     * @return $this
      */
     public function setNote($note)
     {
@@ -70,6 +86,5 @@ class InvoicingRefundDetail extends PPModel
     {
         return $this->note;
     }
-
 
 }

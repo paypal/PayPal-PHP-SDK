@@ -1,15 +1,34 @@
 <?php
+
 namespace PayPal\Api;
 
 use PayPal\Common\PPModel;
-use PayPal\Rest\ApiContext;
 
+/**
+ * Class BillingInfo
+ *
+ * Billing information for the invoice recipient.
+ *
+ * @package PayPal\Api
+ *
+ * @property string email
+ * @property string first_name
+ * @property string last_name
+ * @property string business_name
+ * @property \PayPal\Api\Address address
+ * @property string language
+ * @property string additional_info
+ * @property string notification_channel
+ * @property \PayPal\Api\Phone phone
+ */
 class BillingInfo extends PPModel
 {
     /**
      * Email address of the invoice recipient. 260 characters max.
      *
      * @param string $email
+     * 
+     * @return $this
      */
     public function setEmail($email)
     {
@@ -27,11 +46,12 @@ class BillingInfo extends PPModel
         return $this->email;
     }
 
-
     /**
      * First name of the invoice recipient. 30 characters max.
      *
      * @param string $first_name
+     * 
+     * @return $this
      */
     public function setFirstName($first_name)
     {
@@ -52,8 +72,10 @@ class BillingInfo extends PPModel
     /**
      * First name of the invoice recipient. 30 characters max.
      *
+     * @deprecated Instead use setFirstName
+     *
      * @param string $first_name
-     * @deprecated. Instead use setFirstName
+     * @return $this
      */
     public function setFirst_name($first_name)
     {
@@ -63,9 +85,9 @@ class BillingInfo extends PPModel
 
     /**
      * First name of the invoice recipient. 30 characters max.
+     * @deprecated Instead use getFirstName
      *
      * @return string
-     * @deprecated. Instead use getFirstName
      */
     public function getFirst_name()
     {
@@ -76,6 +98,8 @@ class BillingInfo extends PPModel
      * Last name of the invoice recipient. 30 characters max.
      *
      * @param string $last_name
+     * 
+     * @return $this
      */
     public function setLastName($last_name)
     {
@@ -96,8 +120,10 @@ class BillingInfo extends PPModel
     /**
      * Last name of the invoice recipient. 30 characters max.
      *
+     * @deprecated Instead use setLastName
+     *
      * @param string $last_name
-     * @deprecated. Instead use setLastName
+     * @return $this
      */
     public function setLast_name($last_name)
     {
@@ -107,9 +133,9 @@ class BillingInfo extends PPModel
 
     /**
      * Last name of the invoice recipient. 30 characters max.
+     * @deprecated Instead use getLastName
      *
      * @return string
-     * @deprecated. Instead use getLastName
      */
     public function getLast_name()
     {
@@ -120,6 +146,8 @@ class BillingInfo extends PPModel
      * Company business name of the invoice recipient. 100 characters max.
      *
      * @param string $business_name
+     * 
+     * @return $this
      */
     public function setBusinessName($business_name)
     {
@@ -140,8 +168,10 @@ class BillingInfo extends PPModel
     /**
      * Company business name of the invoice recipient. 100 characters max.
      *
+     * @deprecated Instead use setBusinessName
+     *
      * @param string $business_name
-     * @deprecated. Instead use setBusinessName
+     * @return $this
      */
     public function setBusiness_name($business_name)
     {
@@ -151,9 +181,9 @@ class BillingInfo extends PPModel
 
     /**
      * Company business name of the invoice recipient. 100 characters max.
+     * @deprecated Instead use getBusinessName
      *
      * @return string
-     * @deprecated. Instead use getBusinessName
      */
     public function getBusiness_name()
     {
@@ -163,7 +193,9 @@ class BillingInfo extends PPModel
     /**
      * Address of the invoice recipient.
      *
-     * @param PayPal\Api\Address $address
+     * @param \PayPal\Api\Address $address
+     * 
+     * @return $this
      */
     public function setAddress($address)
     {
@@ -174,18 +206,20 @@ class BillingInfo extends PPModel
     /**
      * Address of the invoice recipient.
      *
-     * @return PayPal\Api\Address
+     * @return \PayPal\Api\Address
      */
     public function getAddress()
     {
         return $this->address;
     }
 
-
     /**
      * Language of the email sent to the payer. Will only be used if payer doesn't have a PayPal account.
+     * Valid Values: ["da_DK", "de_DE", "en_AU", "en_GB", "en_US", "es_ES", "es_XC", "fr_CA", "fr_FR", "fr_XC", "he_IL", "id_ID", "it_IT", "ja_JP", "nl_NL", "no_NO", "pl_PL", "pt_BR", "pt_PT", "ru_RU", "sv_SE", "th_TH", "tr_TR", "zh_CN", "zh_HK", "zh_TW", "zh_XC"]
      *
      * @param string $language
+     * 
+     * @return $this
      */
     public function setLanguage($language)
     {
@@ -203,11 +237,12 @@ class BillingInfo extends PPModel
         return $this->language;
     }
 
-
     /**
      * Option to display additional information such as business hours. 40 characters max.
      *
      * @param string $additional_info
+     * 
+     * @return $this
      */
     public function setAdditionalInfo($additional_info)
     {
@@ -228,8 +263,10 @@ class BillingInfo extends PPModel
     /**
      * Option to display additional information such as business hours. 40 characters max.
      *
+     * @deprecated Instead use setAdditionalInfo
+     *
      * @param string $additional_info
-     * @deprecated. Instead use setAdditionalInfo
+     * @return $this
      */
     public function setAdditional_info($additional_info)
     {
@@ -239,13 +276,85 @@ class BillingInfo extends PPModel
 
     /**
      * Option to display additional information such as business hours. 40 characters max.
+     * @deprecated Instead use getAdditionalInfo
      *
      * @return string
-     * @deprecated. Instead use getAdditionalInfo
      */
     public function getAdditional_info()
     {
         return $this->additional_info;
+    }
+
+    /**
+     * Preferred notification channel of the payer. Email by default.
+     * Valid Values: ["SMS", "EMAIL"]
+     *
+     * @param string $notification_channel
+     * 
+     * @return $this
+     */
+    public function setNotificationChannel($notification_channel)
+    {
+        $this->notification_channel = $notification_channel;
+        return $this;
+    }
+
+    /**
+     * Preferred notification channel of the payer. Email by default.
+     *
+     * @return string
+     */
+    public function getNotificationChannel()
+    {
+        return $this->notification_channel;
+    }
+
+    /**
+     * Preferred notification channel of the payer. Email by default.
+     *
+     * @deprecated Instead use setNotificationChannel
+     *
+     * @param string $notification_channel
+     * @return $this
+     */
+    public function setNotification_channel($notification_channel)
+    {
+        $this->notification_channel = $notification_channel;
+        return $this;
+    }
+
+    /**
+     * Preferred notification channel of the payer. Email by default.
+     * @deprecated Instead use getNotificationChannel
+     *
+     * @return string
+     */
+    public function getNotification_channel()
+    {
+        return $this->notification_channel;
+    }
+
+    /**
+     * Mobile Phone number of the recipient to which SMS will be sent if notification_channel is SMS.
+     *
+     * @param \PayPal\Api\Phone $phone
+     * 
+     * @return $this
+     */
+    public function setPhone($phone)
+    {
+        $this->phone = $phone;
+        return $this;
+    }
+
+    /**
+     * Mobile Phone number of the recipient to which SMS will be sent if notification_channel is SMS.
+     *
+     * @return \PayPal\Api\Phone
+     */
+    public function getPhone()
+    {
+        return $this->phone;
     }
 
 }

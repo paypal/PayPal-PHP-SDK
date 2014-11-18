@@ -1,15 +1,29 @@
 <?php
+
 namespace PayPal\Api;
 
 use PayPal\Common\PPModel;
-use PayPal\Rest\ApiContext;
 
+/**
+ * Class CancelNotification
+ *
+ * Email/SMS notification.
+ *
+ * @package PayPal\Api
+ *
+ * @property string subject
+ * @property string note
+ * @property bool send_to_merchant
+ * @property bool send_to_payer
+ */
 class CancelNotification extends PPModel
 {
     /**
      * Subject of the notification.
      *
      * @param string $subject
+     * 
+     * @return $this
      */
     public function setSubject($subject)
     {
@@ -27,11 +41,12 @@ class CancelNotification extends PPModel
         return $this->subject;
     }
 
-
     /**
      * Note to the payer.
      *
      * @param string $note
+     * 
+     * @return $this
      */
     public function setNote($note)
     {
@@ -49,11 +64,12 @@ class CancelNotification extends PPModel
         return $this->note;
     }
 
-
     /**
      * A flag indicating whether a copy of the email has to be sent to the merchant.
      *
-     * @param boolean $send_to_merchant
+     * @param bool $send_to_merchant
+     * 
+     * @return $this
      */
     public function setSendToMerchant($send_to_merchant)
     {
@@ -64,7 +80,7 @@ class CancelNotification extends PPModel
     /**
      * A flag indicating whether a copy of the email has to be sent to the merchant.
      *
-     * @return boolean
+     * @return bool
      */
     public function getSendToMerchant()
     {
@@ -74,8 +90,10 @@ class CancelNotification extends PPModel
     /**
      * A flag indicating whether a copy of the email has to be sent to the merchant.
      *
-     * @param boolean $send_to_merchant
-     * @deprecated. Instead use setSendToMerchant
+     * @deprecated Instead use setSendToMerchant
+     *
+     * @param bool $send_to_merchant
+     * @return $this
      */
     public function setSend_to_merchant($send_to_merchant)
     {
@@ -85,9 +103,9 @@ class CancelNotification extends PPModel
 
     /**
      * A flag indicating whether a copy of the email has to be sent to the merchant.
+     * @deprecated Instead use getSendToMerchant
      *
-     * @return boolean
-     * @deprecated. Instead use getSendToMerchant
+     * @return bool
      */
     public function getSend_to_merchant()
     {
@@ -97,7 +115,9 @@ class CancelNotification extends PPModel
     /**
      * A flag indicating whether a copy of the email has to be sent to the payer.
      *
-     * @param boolean $send_to_payer
+     * @param bool $send_to_payer
+     * 
+     * @return $this
      */
     public function setSendToPayer($send_to_payer)
     {
@@ -108,7 +128,7 @@ class CancelNotification extends PPModel
     /**
      * A flag indicating whether a copy of the email has to be sent to the payer.
      *
-     * @return boolean
+     * @return bool
      */
     public function getSendToPayer()
     {
@@ -118,8 +138,10 @@ class CancelNotification extends PPModel
     /**
      * A flag indicating whether a copy of the email has to be sent to the payer.
      *
-     * @param boolean $send_to_payer
-     * @deprecated. Instead use setSendToPayer
+     * @deprecated Instead use setSendToPayer
+     *
+     * @param bool $send_to_payer
+     * @return $this
      */
     public function setSend_to_payer($send_to_payer)
     {
@@ -129,9 +151,9 @@ class CancelNotification extends PPModel
 
     /**
      * A flag indicating whether a copy of the email has to be sent to the payer.
+     * @deprecated Instead use getSendToPayer
      *
-     * @return boolean
-     * @deprecated. Instead use getSendToPayer
+     * @return bool
      */
     public function getSend_to_payer()
     {

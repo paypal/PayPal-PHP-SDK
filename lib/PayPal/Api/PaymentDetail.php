@@ -1,15 +1,32 @@
 <?php
+
 namespace PayPal\Api;
 
 use PayPal\Common\PPModel;
-use PayPal\Rest\ApiContext;
 
+/**
+ * Class PaymentDetail
+ *
+ * Invoicing payment information.
+ *
+ * @package PayPal\Api
+ *
+ * @property string type
+ * @property string transaction_id
+ * @property string transaction_type
+ * @property string date
+ * @property string method
+ * @property string note
+ */
 class PaymentDetail extends PPModel
 {
     /**
      * PayPal payment detail indicating whether payment was made in an invoicing flow via PayPal or externally. In the case of the mark-as-paid API, payment type is EXTERNAL and this is what is now supported. The PAYPAL value is provided for backward compatibility.
+     * Valid Values: ["PAYPAL", "EXTERNAL"]
      *
      * @param string $type
+     * 
+     * @return $this
      */
     public function setType($type)
     {
@@ -27,11 +44,12 @@ class PaymentDetail extends PPModel
         return $this->type;
     }
 
-
     /**
      * PayPal payment transaction id. Mandatory field in case the type value is PAYPAL.
      *
      * @param string $transaction_id
+     * 
+     * @return $this
      */
     public function setTransactionId($transaction_id)
     {
@@ -52,8 +70,10 @@ class PaymentDetail extends PPModel
     /**
      * PayPal payment transaction id. Mandatory field in case the type value is PAYPAL.
      *
+     * @deprecated Instead use setTransactionId
+     *
      * @param string $transaction_id
-     * @deprecated. Instead use setTransactionId
+     * @return $this
      */
     public function setTransaction_id($transaction_id)
     {
@@ -63,9 +83,9 @@ class PaymentDetail extends PPModel
 
     /**
      * PayPal payment transaction id. Mandatory field in case the type value is PAYPAL.
+     * @deprecated Instead use getTransactionId
      *
      * @return string
-     * @deprecated. Instead use getTransactionId
      */
     public function getTransaction_id()
     {
@@ -74,8 +94,11 @@ class PaymentDetail extends PPModel
 
     /**
      * Type of the transaction.
+     * Valid Values: ["SALE", "AUTHORIZATION", "CAPTURE"]
      *
      * @param string $transaction_type
+     * 
+     * @return $this
      */
     public function setTransactionType($transaction_type)
     {
@@ -96,8 +119,10 @@ class PaymentDetail extends PPModel
     /**
      * Type of the transaction.
      *
+     * @deprecated Instead use setTransactionType
+     *
      * @param string $transaction_type
-     * @deprecated. Instead use setTransactionType
+     * @return $this
      */
     public function setTransaction_type($transaction_type)
     {
@@ -107,9 +132,9 @@ class PaymentDetail extends PPModel
 
     /**
      * Type of the transaction.
+     * @deprecated Instead use getTransactionType
      *
      * @return string
-     * @deprecated. Instead use getTransactionType
      */
     public function getTransaction_type()
     {
@@ -117,9 +142,11 @@ class PaymentDetail extends PPModel
     }
 
     /**
-     * Date when the invoice was paid. Date format: yyyy-MM-dd z. For example, 2014-02-27 PST.
+     * Date when the invoice was paid. Date format yyyy-MM-dd z, as defined in [ISO8601](http://tools.ietf.org/html/rfc3339#section-5.6).
      *
      * @param string $date
+     * 
+     * @return $this
      */
     public function setDate($date)
     {
@@ -128,7 +155,7 @@ class PaymentDetail extends PPModel
     }
 
     /**
-     * Date when the invoice was paid. Date format: yyyy-MM-dd z. For example, 2014-02-27 PST.
+     * Date when the invoice was paid. Date format yyyy-MM-dd z, as defined in [ISO8601](http://tools.ietf.org/html/rfc3339#section-5.6).
      *
      * @return string
      */
@@ -137,11 +164,13 @@ class PaymentDetail extends PPModel
         return $this->date;
     }
 
-
     /**
-     * Payment mode or method. This field is mandatory if the value of the type field is OTHER.
+     * Payment mode or method. This field is mandatory if the value of the type field is EXTERNAL.
+     * Valid Values: ["BANK_TRANSFER", "CASH", "CHECK", "CREDIT_CARD", "DEBIT_CARD", "PAYPAL", "WIRE_TRANSFER", "OTHER"]
      *
      * @param string $method
+     * 
+     * @return $this
      */
     public function setMethod($method)
     {
@@ -150,7 +179,7 @@ class PaymentDetail extends PPModel
     }
 
     /**
-     * Payment mode or method. This field is mandatory if the value of the type field is OTHER.
+     * Payment mode or method. This field is mandatory if the value of the type field is EXTERNAL.
      *
      * @return string
      */
@@ -159,11 +188,12 @@ class PaymentDetail extends PPModel
         return $this->method;
     }
 
-
     /**
      * Optional note associated with the payment.
      *
      * @param string $note
+     * 
+     * @return $this
      */
     public function setNote($note)
     {
@@ -180,6 +210,5 @@ class PaymentDetail extends PPModel
     {
         return $this->note;
     }
-
 
 }

@@ -1,15 +1,29 @@
 <?php
+
 namespace PayPal\Api;
 
 use PayPal\Common\PPModel;
-use PayPal\Rest\ApiContext;
 
+/**
+ * Class ShippingInfo
+ *
+ * Shipping information for the invoice recipient.
+ *
+ * @package PayPal\Api
+ *
+ * @property string first_name
+ * @property string last_name
+ * @property string business_name
+ * @property \PayPal\Api\Address address
+ */
 class ShippingInfo extends PPModel
 {
     /**
      * First name of the invoice recipient. 30 characters max.
      *
      * @param string $first_name
+     * 
+     * @return $this
      */
     public function setFirstName($first_name)
     {
@@ -30,8 +44,10 @@ class ShippingInfo extends PPModel
     /**
      * First name of the invoice recipient. 30 characters max.
      *
+     * @deprecated Instead use setFirstName
+     *
      * @param string $first_name
-     * @deprecated. Instead use setFirstName
+     * @return $this
      */
     public function setFirst_name($first_name)
     {
@@ -41,9 +57,9 @@ class ShippingInfo extends PPModel
 
     /**
      * First name of the invoice recipient. 30 characters max.
+     * @deprecated Instead use getFirstName
      *
      * @return string
-     * @deprecated. Instead use getFirstName
      */
     public function getFirst_name()
     {
@@ -54,6 +70,8 @@ class ShippingInfo extends PPModel
      * Last name of the invoice recipient. 30 characters max.
      *
      * @param string $last_name
+     * 
+     * @return $this
      */
     public function setLastName($last_name)
     {
@@ -74,8 +92,10 @@ class ShippingInfo extends PPModel
     /**
      * Last name of the invoice recipient. 30 characters max.
      *
+     * @deprecated Instead use setLastName
+     *
      * @param string $last_name
-     * @deprecated. Instead use setLastName
+     * @return $this
      */
     public function setLast_name($last_name)
     {
@@ -85,9 +105,9 @@ class ShippingInfo extends PPModel
 
     /**
      * Last name of the invoice recipient. 30 characters max.
+     * @deprecated Instead use getLastName
      *
      * @return string
-     * @deprecated. Instead use getLastName
      */
     public function getLast_name()
     {
@@ -98,6 +118,8 @@ class ShippingInfo extends PPModel
      * Company business name of the invoice recipient. 100 characters max.
      *
      * @param string $business_name
+     * 
+     * @return $this
      */
     public function setBusinessName($business_name)
     {
@@ -118,8 +140,10 @@ class ShippingInfo extends PPModel
     /**
      * Company business name of the invoice recipient. 100 characters max.
      *
+     * @deprecated Instead use setBusinessName
+     *
      * @param string $business_name
-     * @deprecated. Instead use setBusinessName
+     * @return $this
      */
     public function setBusiness_name($business_name)
     {
@@ -129,9 +153,9 @@ class ShippingInfo extends PPModel
 
     /**
      * Company business name of the invoice recipient. 100 characters max.
+     * @deprecated Instead use getBusinessName
      *
      * @return string
-     * @deprecated. Instead use getBusinessName
      */
     public function getBusiness_name()
     {
@@ -141,7 +165,7 @@ class ShippingInfo extends PPModel
     /**
      *
      *
-     * @param PayPal\Api\Phone $phone
+     * @param \PayPal\Api\Phone $phone
      */
     public function setPhone($phone)
     {
@@ -152,18 +176,19 @@ class ShippingInfo extends PPModel
     /**
      *
      *
-     * @return PayPal\Api\Phone
+     * @return \PayPal\Api\Phone
      */
     public function getPhone()
     {
         return $this->phone;
     }
 
-
     /**
      * Address of the invoice recipient.
      *
-     * @param PayPal\Api\Address $address
+     * @param \PayPal\Api\Address $address
+     * 
+     * @return $this
      */
     public function setAddress($address)
     {
@@ -174,12 +199,11 @@ class ShippingInfo extends PPModel
     /**
      * Address of the invoice recipient.
      *
-     * @return PayPal\Api\Address
+     * @return \PayPal\Api\Address
      */
     public function getAddress()
     {
         return $this->address;
     }
-
 
 }
