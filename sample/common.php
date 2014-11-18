@@ -152,7 +152,9 @@ class ResultPrinter
     protected static function printObject($object, $error = null)
     {
         if ($error) {
-            echo '<pre class="error">'. $error . '</pre>';
+            echo '<p class="error"><i class="fa fa-exclamation-triangle"></i> '.
+             $error.
+            '</p>';
         }
         if ($object) {
             if (is_a($object, 'PayPal\Common\PPModel')) {
