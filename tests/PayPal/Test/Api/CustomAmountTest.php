@@ -3,63 +3,61 @@
 namespace PayPal\Test\Api;
 
 use PayPal\Common\PPModel;
-use PayPal\Common\FormatConverter;
-use PayPal\Validation\NumericValidator;
-use PayPal\Api\Currency;
+use PayPal\Api\CustomAmount;
 
 /**
- * Class Currency
+ * Class CustomAmount
  *
  * @package PayPal\Test\Api
  */
-class CurrencyTest extends \PHPUnit_Framework_TestCase
+class CustomAmountTest extends \PHPUnit_Framework_TestCase
 {
     /**
-     * Gets Json String of Object Currency
+     * Gets Json String of Object CustomAmount
      * @return string
      */
     public static function getJson()
     {
-        return '{"currency":"TestSample","value":"12.34"}';
+        return '{"label":"TestSample","amount":' .CurrencyTest::getJson() . '}';
     }
 
     /**
      * Gets Object Instance with Json data filled in
-     * @return Currency
+     * @return CustomAmount
      */
     public static function getObject()
     {
-        return new Currency(self::getJson());
+        return new CustomAmount(self::getJson());
     }
 
 
     /**
      * Tests for Serialization and Deserialization Issues
-     * @return Currency
+     * @return CustomAmount
      */
     public function testSerializationDeserialization()
     {
-        $obj = new Currency(self::getJson());
+        $obj = new CustomAmount(self::getJson());
         $this->assertNotNull($obj);
-        $this->assertNotNull($obj->getCurrency());
-        $this->assertNotNull($obj->getValue());
+        $this->assertNotNull($obj->getLabel());
+        $this->assertNotNull($obj->getAmount());
         $this->assertEquals(self::getJson(), $obj->toJson());
         return $obj;
     }
 
     /**
      * @depends testSerializationDeserialization
-     * @param Currency $obj
+     * @param CustomAmount $obj
      */
     public function testGetters($obj)
     {
-        $this->assertEquals($obj->getCurrency(), "TestSample");
-        $this->assertEquals($obj->getValue(), "TestSample");
+        $this->assertEquals($obj->getLabel(), "TestSample");
+        $this->assertEquals($obj->getAmount(), CurrencyTest::getObject());
     }
 
     /**
      * @depends testSerializationDeserialization
-     * @param Currency $obj
+     * @param CustomAmount $obj
      */
     public function testDeprecatedGetters($obj)
     {
@@ -67,7 +65,7 @@ class CurrencyTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @depends testSerializationDeserialization
-     * @param Currency $obj
+     * @param CustomAmount $obj
      */
     public function testDeprecatedSetterNormalGetter($obj)
     {

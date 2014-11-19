@@ -3,6 +3,8 @@
 namespace PayPal\Api;
 
 use PayPal\Common\PPModel;
+use PayPal\Validation\NumericValidator;
+use PayPal\Common\FormatConverter;
 
 /**
  * Class Cost
@@ -11,7 +13,7 @@ use PayPal\Common\PPModel;
  *
  * @package PayPal\Api
  *
- * @property \PayPal\Api\number percent
+ * @property string percent
  * @property \PayPal\Api\Currency amount
  */
 class Cost extends PPModel
@@ -19,12 +21,14 @@ class Cost extends PPModel
     /**
      * Cost in percent. Range of 0 to 100.
      *
-     * @param \PayPal\Api\number $percent
+     * @param string $percent
      * 
      * @return $this
      */
     public function setPercent($percent)
     {
+        NumericValidator::validate($percent, "Percent");
+        $percent = FormatConverter::formatToTwoDecimalPlaces($percent);
         $this->percent = $percent;
         return $this;
     }
@@ -32,7 +36,7 @@ class Cost extends PPModel
     /**
      * Cost in percent. Range of 0 to 100.
      *
-     * @return \PayPal\Api\number
+     * @return string
      */
     public function getPercent()
     {

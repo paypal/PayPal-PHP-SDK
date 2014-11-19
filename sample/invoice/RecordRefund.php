@@ -29,7 +29,7 @@ try {
     // (See bootstrap.php for more on `ApiContext`)
     $refundStatus = $invoice->recordRefund($refund, $apiContext);
 } catch (Exception $ex) {
-    ResultPrinter::printError("Refund for Invoice", "Invoice", null, $refundStatus, $ex);
+    ResultPrinter::printError("Refund for Invoice", "Invoice", null, null, $ex);
     exit(1);
 }
 

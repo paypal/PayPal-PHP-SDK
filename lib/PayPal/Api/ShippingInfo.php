@@ -208,4 +208,24 @@ class ShippingInfo extends PPModel
         return $this->address;
     }
 
+    /**
+     * @deprecated This will not be supported soon. Kept for backward Compatibility
+     *
+     * @param string $email
+     */
+    public function setEmail($email)
+    {
+        $this->email = $email;
+    }
+
+    /**
+     * @deprecated This will not be supported soon. Kept for backward Compatibility
+     *
+     * @return string
+     */
+    public function getEmail()
+    {
+        return $this->email;
+    }
+
 }

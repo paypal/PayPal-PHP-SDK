@@ -30,7 +30,7 @@ try {
     // (See bootstrap.php for more on `ApiContext`)
     $recordStatus = $invoice->recordPayment($record, $apiContext);
 } catch (Exception $ex) {
-    ResultPrinter::printError("Payment for Invoice", "Invoice", null, $recordStatus, $ex);
+    ResultPrinter::printError("Payment for Invoice", "Invoice", null, null, $ex);
     exit(1);
 }
 

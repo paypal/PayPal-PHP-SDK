@@ -3,63 +3,63 @@
 namespace PayPal\Test\Api;
 
 use PayPal\Common\PPModel;
-use PayPal\Common\FormatConverter;
-use PayPal\Validation\NumericValidator;
-use PayPal\Api\Currency;
+use PayPal\Api\RefundDetail;
 
 /**
- * Class Currency
+ * Class RefundDetail
  *
  * @package PayPal\Test\Api
  */
-class CurrencyTest extends \PHPUnit_Framework_TestCase
+class RefundDetailTest extends \PHPUnit_Framework_TestCase
 {
     /**
-     * Gets Json String of Object Currency
+     * Gets Json String of Object RefundDetail
      * @return string
      */
     public static function getJson()
     {
-        return '{"currency":"TestSample","value":"12.34"}';
+        return '{"type":"TestSample","date":"TestSample","note":"TestSample"}';
     }
 
     /**
      * Gets Object Instance with Json data filled in
-     * @return Currency
+     * @return RefundDetail
      */
     public static function getObject()
     {
-        return new Currency(self::getJson());
+        return new RefundDetail(self::getJson());
     }
 
 
     /**
      * Tests for Serialization and Deserialization Issues
-     * @return Currency
+     * @return RefundDetail
      */
     public function testSerializationDeserialization()
     {
-        $obj = new Currency(self::getJson());
+        $obj = new RefundDetail(self::getJson());
         $this->assertNotNull($obj);
-        $this->assertNotNull($obj->getCurrency());
-        $this->assertNotNull($obj->getValue());
+        $this->assertNotNull($obj->getType());
+        $this->assertNotNull($obj->getDate());
+        $this->assertNotNull($obj->getNote());
         $this->assertEquals(self::getJson(), $obj->toJson());
         return $obj;
     }
 
     /**
      * @depends testSerializationDeserialization
-     * @param Currency $obj
+     * @param RefundDetail $obj
      */
     public function testGetters($obj)
     {
-        $this->assertEquals($obj->getCurrency(), "TestSample");
-        $this->assertEquals($obj->getValue(), "TestSample");
+        $this->assertEquals($obj->getType(), "TestSample");
+        $this->assertEquals($obj->getDate(), "TestSample");
+        $this->assertEquals($obj->getNote(), "TestSample");
     }
 
     /**
      * @depends testSerializationDeserialization
-     * @param Currency $obj
+     * @param RefundDetail $obj
      */
     public function testDeprecatedGetters($obj)
     {
@@ -67,7 +67,7 @@ class CurrencyTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @depends testSerializationDeserialization
-     * @param Currency $obj
+     * @param RefundDetail $obj
      */
     public function testDeprecatedSetterNormalGetter($obj)
     {
