@@ -1,5 +1,12 @@
 PayPal PHP SDK release notes
 ============================
+v0.15.0
+----
+* Extended Invoicing Capabilities
+* Allows QR Code Generation for Invoices
+* Updated Formatter to work with multiple locales
+* Removed Future Payments mandate on Correlation Id
+
 v0.14.2
 ----
 * Quick Patch to Unset Cipher List for NSS
