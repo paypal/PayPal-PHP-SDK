@@ -26,8 +26,11 @@ class FuturePayment extends Payment
         if ($apiContext == null) {
             $apiContext = new ApiContext(self::$credential);
         }
-        if (($correlationId == null || trim($correlationId) == "")) {
-            throw new \InvalidArgumentException("correlationId cannot be null or empty");
+        $headers = array();
+        if ($correlationId != null) {
+            $headers = array(
+                'PAYPAL-CLIENT-METADATA-ID' => $correlationId
+            );
         }
         $payLoad = $this->toJSON();
         $call = new PPRestCall($apiContext);
@@ -36,10 +39,7 @@ class FuturePayment extends Payment
             "/v1/payments/payment",
             "POST",
             $payLoad,
-            array(
-                'Paypal-Application-Correlation-Id' => $correlationId,
-                'PAYPAL-CLIENT-METADATA-ID' => $correlationId
-            )
+            $headers
         );
         $this->fromJson($json);
 
