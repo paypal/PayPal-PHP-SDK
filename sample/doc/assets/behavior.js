@@ -587,6 +587,46 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "PHP"
             },
+            "sourcePath": "/Users/japatel/Documents/workspace/Server-SDK/PayPal-PHP-SDK/sample/invoice/DeleteInvoice.php",
+            "projectPath": "invoice/DeleteInvoice.php",
+            "targetPath": "invoice/DeleteInvoice",
+            "pageTitle": "invoice/DeleteInvoice",
+            "title": "DeleteInvoice"
+          },
+          "depth": 2,
+          "outline": [
+            {
+              "type": "heading",
+              "data": {
+                "level": 1,
+                "title": "Delete Invoice Sample",
+                "slug": "delete-invoice-sample"
+              },
+              "depth": 1,
+              "children": [
+                {
+                  "type": "heading",
+                  "data": {
+                    "level": 3,
+                    "title": "Delete Invoice",
+                    "slug": "delete-invoice"
+                  },
+                  "depth": 3
+                }
+              ]
+            }
+          ]
+        }, {
+          "type": "file",
+          "data": {
+            "language": {
+              "nameMatchers": [{}, ".fbp"],
+              "pygmentsLexer": "php",
+              "singleLineComment": ["//"],
+              "ignorePrefix": "}",
+              "foldPrefix": "^",
+              "name": "PHP"
+            },
             "sourcePath": "/Users/japatel/Documents/workspace/Server-SDK/PayPal-PHP-SDK/sample/invoice/GetInvoice.php",
             "projectPath": "invoice/GetInvoice.php",
             "targetPath": "invoice/GetInvoice",
@@ -667,6 +707,102 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "PHP"
             },
+            "sourcePath": "/Users/japatel/Documents/workspace/Server-SDK/PayPal-PHP-SDK/sample/invoice/RecordPayment.php",
+            "projectPath": "invoice/RecordPayment.php",
+            "targetPath": "invoice/RecordPayment",
+            "pageTitle": "invoice/RecordPayment",
+            "title": "RecordPayment"
+          },
+          "depth": 2,
+          "outline": [
+            {
+              "type": "heading",
+              "data": {
+                "level": 1,
+                "title": "Record Payment Sample",
+                "slug": "record-payment-sample"
+              },
+              "depth": 1,
+              "children": [
+                {
+                  "type": "heading",
+                  "data": {
+                    "level": 3,
+                    "title": "Record Object",
+                    "slug": "record-object"
+                  },
+                  "depth": 3
+                }, {
+                  "type": "heading",
+                  "data": {
+                    "level": 3,
+                    "title": "Record Payment for Invoice",
+                    "slug": "record-payment-for-invoice"
+                  },
+                  "depth": 3
+                }
+              ]
+            }
+          ]
+        }, {
+          "type": "file",
+          "data": {
+            "language": {
+              "nameMatchers": [{}, ".fbp"],
+              "pygmentsLexer": "php",
+              "singleLineComment": ["//"],
+              "ignorePrefix": "}",
+              "foldPrefix": "^",
+              "name": "PHP"
+            },
+            "sourcePath": "/Users/japatel/Documents/workspace/Server-SDK/PayPal-PHP-SDK/sample/invoice/RecordRefund.php",
+            "projectPath": "invoice/RecordRefund.php",
+            "targetPath": "invoice/RecordRefund",
+            "pageTitle": "invoice/RecordRefund",
+            "title": "RecordRefund"
+          },
+          "depth": 2,
+          "outline": [
+            {
+              "type": "heading",
+              "data": {
+                "level": 1,
+                "title": "Record Refund Sample",
+                "slug": "record-refund-sample"
+              },
+              "depth": 1,
+              "children": [
+                {
+                  "type": "heading",
+                  "data": {
+                    "level": 3,
+                    "title": "Record Object",
+                    "slug": "record-object"
+                  },
+                  "depth": 3
+                }, {
+                  "type": "heading",
+                  "data": {
+                    "level": 3,
+                    "title": "Record Refund for Invoice",
+                    "slug": "record-refund-for-invoice"
+                  },
+                  "depth": 3
+                }
+              ]
+            }
+          ]
+        }, {
+          "type": "file",
+          "data": {
+            "language": {
+              "nameMatchers": [{}, ".fbp"],
+              "pygmentsLexer": "php",
+              "singleLineComment": ["//"],
+              "ignorePrefix": "}",
+              "foldPrefix": "^",
+              "name": "PHP"
+            },
             "sourcePath": "/Users/japatel/Documents/workspace/Server-SDK/PayPal-PHP-SDK/sample/invoice/RemindInvoice.php",
             "projectPath": "invoice/RemindInvoice.php",
             "targetPath": "invoice/RemindInvoice",
@@ -688,14 +824,6 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                   "type": "heading",
                   "data": {
                     "level": 3,
-                    "title": "Retrieve Invoice",
-                    "slug": "retrieve-invoice"
-                  },
-                  "depth": 3
-                }, {
-                  "type": "heading",
-                  "data": {
-                    "level": 3,
                     "title": "Notification Object",
                     "slug": "notification-object"
                   },
@@ -706,6 +834,110 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "level": 3,
                     "title": "Remind Invoice",
                     "slug": "remind-invoice"
+                  },
+                  "depth": 3
+                }
+              ]
+            }
+          ]
+        }, {
+          "type": "file",
+          "data": {
+            "language": {
+              "nameMatchers": [{}, ".fbp"],
+              "pygmentsLexer": "php",
+              "singleLineComment": ["//"],
+              "ignorePrefix": "}",
+              "foldPrefix": "^",
+              "name": "PHP"
+            },
+            "sourcePath": "/Users/japatel/Documents/workspace/Server-SDK/PayPal-PHP-SDK/sample/invoice/RetrieveQRCode.php",
+            "projectPath": "invoice/RetrieveQRCode.php",
+            "targetPath": "invoice/RetrieveQRCode",
+            "pageTitle": "invoice/RetrieveQRCode",
+            "title": "RetrieveQRCode"
+          },
+          "depth": 2,
+          "outline": [
+            {
+              "type": "heading",
+              "data": {
+                "level": 1,
+                "title": "Retrieve QR Code for Invoice Sample",
+                "slug": "retrieve-qr-code-for-invoice-sample"
+              },
+              "depth": 1,
+              "children": [
+                {
+                  "type": "heading",
+                  "data": {
+                    "level": 3,
+                    "title": "Retrieve QR Code of Sent Invoice",
+                    "slug": "retrieve-qr-code-of-sent-invoice"
+                  },
+                  "depth": 3
+                }, {
+                  "type": "heading",
+                  "data": {
+                    "level": 3,
+                    "title": "Optionally Save to File",
+                    "slug": "optionally-save-to-file"
+                  },
+                  "depth": 3
+                }, {
+                  "type": "heading",
+                  "data": {
+                    "level": 3,
+                    "title": "Show the Image",
+                    "slug": "show-the-image"
+                  },
+                  "depth": 3
+                }
+              ]
+            }
+          ]
+        }, {
+          "type": "file",
+          "data": {
+            "language": {
+              "nameMatchers": [{}, ".fbp"],
+              "pygmentsLexer": "php",
+              "singleLineComment": ["//"],
+              "ignorePrefix": "}",
+              "foldPrefix": "^",
+              "name": "PHP"
+            },
+            "sourcePath": "/Users/japatel/Documents/workspace/Server-SDK/PayPal-PHP-SDK/sample/invoice/SearchInvoices.php",
+            "projectPath": "invoice/SearchInvoices.php",
+            "targetPath": "invoice/SearchInvoices",
+            "pageTitle": "invoice/SearchInvoices",
+            "title": "SearchInvoices"
+          },
+          "depth": 2,
+          "outline": [
+            {
+              "type": "heading",
+              "data": {
+                "level": 1,
+                "title": "Search Invoices Sample",
+                "slug": "search-invoices-sample"
+              },
+              "depth": 1,
+              "children": [
+                {
+                  "type": "heading",
+                  "data": {
+                    "level": 3,
+                    "title": "Search Object",
+                    "slug": "search-object"
+                  },
+                  "depth": 3
+                }, {
+                  "type": "heading",
+                  "data": {
+                    "level": 3,
+                    "title": "Search Invoices",
+                    "slug": "search-invoices"
                   },
                   "depth": 3
                 }
@@ -744,16 +976,56 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                   "type": "heading",
                   "data": {
                     "level": 3,
-                    "title": "Retrieve Invoice",
-                    "slug": "retrieve-invoice"
+                    "title": "Send Invoice",
+                    "slug": "send-invoice"
+                  },
+                  "depth": 3
+                }
+              ]
+            }
+          ]
+        }, {
+          "type": "file",
+          "data": {
+            "language": {
+              "nameMatchers": [{}, ".fbp"],
+              "pygmentsLexer": "php",
+              "singleLineComment": ["//"],
+              "ignorePrefix": "}",
+              "foldPrefix": "^",
+              "name": "PHP"
+            },
+            "sourcePath": "/Users/japatel/Documents/workspace/Server-SDK/PayPal-PHP-SDK/sample/invoice/UpdateInvoice.php",
+            "projectPath": "invoice/UpdateInvoice.php",
+            "targetPath": "invoice/UpdateInvoice",
+            "pageTitle": "invoice/UpdateInvoice",
+            "title": "UpdateInvoice"
+          },
+          "depth": 2,
+          "outline": [
+            {
+              "type": "heading",
+              "data": {
+                "level": 1,
+                "title": "Update Invoice Sample",
+                "slug": "update-invoice-sample"
+              },
+              "depth": 1,
+              "children": [
+                {
+                  "type": "heading",
+                  "data": {
+                    "level": 3,
+                    "title": "Update Invoice",
+                    "slug": "update-invoice"
                   },
                   "depth": 3
                 }, {
                   "type": "heading",
                   "data": {
                     "level": 3,
-                    "title": "Send Invoice",
-                    "slug": "send-invoice"
+                    "title": "Update Invoice",
+                    "slug": "update-invoice"
                   },
                   "depth": 3
                 }

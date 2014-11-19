@@ -1096,7 +1096,7 @@ class Invoice extends ResourceModel
      * @param PPRestCall $restCall is the Rest Call Service that is used to make rest calls
      * @return InvoiceSearchResponse
      */
-    public function search($search, $apiContext = null, $restCall = null)
+    public static function search($search, $apiContext = null, $restCall = null)
     {
         ArgumentValidator::validate($search, 'search');
         $payLoad = $search->toJSON();

@@ -20,7 +20,7 @@ class Image extends PPModel
      * 
      * @return $this
      */
-    public function setImageBase64($imageBase64String)
+    public function setImage($imageBase64String)
     {
         $this->image = $imageBase64String;
         return $this;
@@ -31,7 +31,7 @@ class Image extends PPModel
      *
      * @return string
      */
-    public function getImageBase64()
+    public function getImage()
     {
         return $this->image;
     }
@@ -40,6 +40,7 @@ class Image extends PPModel
      * Stores the Image to file
      *
      * @param string $name File Name
+     * @return string File name
      */
     public function saveToFile($name = null)
     {
@@ -48,7 +49,7 @@ class Image extends PPModel
             $name = uniqid() . '.png';
         }
         // Save to File
-        file_put_contents($name, base64_decode($this->getImageBase64()));
+        file_put_contents($name, base64_decode($this->getImage()));
         return $name;
     }
 

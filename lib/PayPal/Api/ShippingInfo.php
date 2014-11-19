@@ -14,6 +14,7 @@ use PayPal\Common\PPModel;
  * @property string first_name
  * @property string last_name
  * @property string business_name
+ * @property \PayPal\Api\Phone phone
  * @property \PayPal\Api\Address address
  */
 class ShippingInfo extends PPModel
@@ -166,6 +167,7 @@ class ShippingInfo extends PPModel
      *
      *
      * @param \PayPal\Api\Phone $phone
+     * @return $this
      */
     public function setPhone($phone)
     {

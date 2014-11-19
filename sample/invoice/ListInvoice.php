@@ -14,7 +14,7 @@ try {
     // static `get_all` method on the Invoice class.
     // Refer the method doc for valid values for keys
     // (See bootstrap.php for more on `ApiContext`)
-    $invoices = Invoice::getAll(array('page' => 0, 'page_size' => 4, 'total_count_required' => true), $apiContext);
+    $invoices = Invoice::getAll(array('page' => 0, 'page_size' => 4, 'total_count_required' => "true"), $apiContext);
 } catch (Exception $ex) {
     ResultPrinter::printError("Lookup Invoice History", "Invoice", null, null, $ex);
     exit(1);
