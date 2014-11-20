@@ -18,7 +18,7 @@ class BillingInfoTest extends \PHPUnit_Framework_TestCase
      */
     public static function getJson()
     {
-        return '{"email":"TestSample","first_name":"TestSample","last_name":"TestSample","business_name":"TestSample","address":' .AddressTest::getJson() . ',"language":"TestSample","additional_info":"TestSample","notification_channel":"TestSample","phone":' .PhoneTest::getJson() . '}';
+        return '{"email":"TestSample","first_name":"TestSample","last_name":"TestSample","business_name":"TestSample","address":' .InvoiceAddressTest::getJson() . ',"language":"TestSample","additional_info":"TestSample","notification_channel":"TestSample","phone":' .PhoneTest::getJson() . '}';
     }
 
     /**
@@ -62,7 +62,7 @@ class BillingInfoTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($obj->getFirstName(), "TestSample");
         $this->assertEquals($obj->getLastName(), "TestSample");
         $this->assertEquals($obj->getBusinessName(), "TestSample");
-        $this->assertEquals($obj->getAddress(), AddressTest::getObject());
+        $this->assertEquals($obj->getAddress(), InvoiceAddressTest::getObject());
         $this->assertEquals($obj->getLanguage(), "TestSample");
         $this->assertEquals($obj->getAdditionalInfo(), "TestSample");
         $this->assertEquals($obj->getNotificationChannel(), "TestSample");

@@ -5,20 +5,20 @@ namespace PayPal\Api;
 use PayPal\Common\PPModel;
 
 /**
- * Class Address
+ * Class InvoiceAddress
  *
  * Base Address object used as billing address in a payment or extended for Shipping Address.
  *
  * @package PayPal\Api
  *
- * @property string phone
+ * @property \PayPal\Api\Phone phone
  */
-class Address extends BaseAddress 
+class InvoiceAddress extends BaseAddress 
 {
     /**
      * Phone number in E.123 format.
      *
-     * @param string $phone
+     * @param \PayPal\Api\Phone $phone
      * 
      * @return $this
      */
@@ -31,7 +31,7 @@ class Address extends BaseAddress
     /**
      * Phone number in E.123 format.
      *
-     * @return string
+     * @return \PayPal\Api\Phone
      */
     public function getPhone()
     {

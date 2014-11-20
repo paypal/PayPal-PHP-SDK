@@ -87,7 +87,11 @@ class PPModel
     public function __set($key, $value)
     {
         ModelAccessorValidator::validate($this, $this->convertToCamelCase($key));
-        $this->_propMap[$key] = $value;
+        if ($value == null) {
+            $this->__unset($key);
+        } else {
+            $this->_propMap[$key] = $value;
+        }
     }
 
     /**

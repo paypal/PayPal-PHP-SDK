@@ -13,6 +13,7 @@ use PayPal\Common\PPModel;
  *
  * @property string country_code
  * @property string national_number
+ * @property string extension
  */
 class Phone extends PPModel
 {
