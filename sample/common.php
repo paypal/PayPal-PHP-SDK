@@ -53,7 +53,7 @@ class ResultPrinter
             if (self::$printResultCounter == 0) {
                 include "header.html";
                 echo '
-                  <div class="row header"><div class="col-md-3 pull-left"><br /><a href="../index.html"><h3>&#10094;&#10094; Back to Samples</h3></a><br /><br /></div> <br />
+                  <div class="row header"><div class="col-md-3 pull-left"><br /><a href="../index.php"><h3>&#10094;&#10094; Back to Samples</h3></a><br /><br /></div> <br />
                   <div class="col-md-2 pull-right"><img  src="../images/pp_v_rgb.png" height="70" /></div> </div><div class="clearfix visible-xs-block"></div><br />';
                 echo '<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">';
             }
@@ -193,13 +193,8 @@ function getBaseUrl()
     $protocol = 'http';
     if ($_SERVER['SERVER_PORT'] == 443 || (!empty($_SERVER['HTTPS']) && strtolower($_SERVER['HTTPS']) == 'on')) {
         $protocol .= 's';
-        $protocol_port = $_SERVER['SERVER_PORT'];
-    } else {
-        $protocol_port = 80;
     }
-
     $host = $_SERVER['HTTP_HOST'];
-    $port = $_SERVER['SERVER_PORT'];
     $request = $_SERVER['PHP_SELF'];
-    return dirname($protocol . '://' . $host . ($port == $protocol_port ? '' : ':' . $port) . $request);
+    return dirname($protocol . '://' . $host . $request);
 }

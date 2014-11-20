@@ -23,7 +23,7 @@ You can download composer using instructions on [Composer Official Website.](htt
 
 #### Steps to Install :
 
-Currently, Paypal PHP Rest API SDK is available at [https://packagist.org](https://packagist.org/packages/paypal/rest-api-sdk-php). To use it in your project, you need to include it as a dependency in your project composer.json file. It can be done in two ways :
+Currently, Paypal PHP Rest API SDK is available at [https://packagist.org](https://packagist.org/packages/paypal/rest-api-sdk-php). To use it in your project, you need to include it as a dependency in your project composer.json file. It can be done either:
 
 * Running `composer require paypal/rest-api-sdk-php:*` command on your project root location (where project composer.json is located.)
 
@@ -64,11 +64,21 @@ If you do not want to use composer, you can grab the SDK zip that contains Paypa
    * Using the [htmlpreview](https://github.com/htmlpreview/htmlpreview.github.com) tool you can now [view sample source codes here](http://htmlpreview.github.io/?https://github.com/paypal/PayPal-PHP-SDK/blob/master/sample/index.html)
 
 ### Running Locally
-   * Clone the repo and navigate to the samples folder.
-   * Samples have dependency on the sdk and you can use [`composer`](http://getcomposer.org) to get the dependencies. Ensure that you have composer installed on your machine, navigate to the root folder and run `composer update --no-dev`  to fetch the SDK.
-   * Optionally, update the bootstrap.php file with your own client Id and client secret, that you could find from the [developer portal](https://developer.paypal.com)
-   * You need to host this project locally using any server, e.g. Apache.
-   * Open the `index.html` page under `/sample` directory and checkout the samples.
+
+* Clone the [PayPal-PHP-SDK repository](https://github.com/paypal/PayPal-PHP-SDK)
+```
+git clone https://github.com/paypal/PayPal-PHP-SDK
+```
+* Run Composer installer on PayPal-PHP-SDK directory
+```
+composer install
+```
+* Run PHP Built-in web server by running
+```
+php -f sample/index.php
+```
+
+  * If you are using PHP version older than 5.4, you can follow the instructions described [here](sample/).
 
 ## Usage
 
@@ -129,8 +139,8 @@ You can intialize the API objects by passing JSON string or Array representation
 
 ```
 $obj = new SimpleClass('{"name":"test","description":"description"}');
-$obj->getName();
-$obj->getDescription();
+$obj->getName(); // test
+$obj->getDescription();  // description
 ```
 
 ### Accessor Validation
