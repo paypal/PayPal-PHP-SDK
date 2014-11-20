@@ -61,7 +61,7 @@ If you do not want to use composer, you can grab the SDK zip that contains Paypa
 ## Samples
 
 ### View
-   * Using the [htmlpreview](https://github.com/htmlpreview/htmlpreview.github.com) tool you can now [view sample source codes here](http://htmlpreview.github.io/?https://github.com/paypal/PayPal-PHP-SDK/blob/master/sample/index.html)
+   * Using the [htmlpreview](https://github.com/htmlpreview/htmlpreview.github.com) tool you can now [view sample source codes here](http://htmlpreview.github.io/?https://github.com/paypal/PayPal-PHP-SDK/blob/master/sample/index.php)
 
 ### Running Locally
 
