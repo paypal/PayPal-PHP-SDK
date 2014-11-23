@@ -177,7 +177,7 @@ PayPal\Validation\ModelAccessorValidator: WARNING: Missing Accessor: PayPal\Api\
 
 ## More help
 
-   * [Sample Source Codes](http://htmlpreview.github.io/?https://github.com/paypal/PayPal-PHP-SDK/blob/master/sample/index.html)
+   * [Sample Source Codes](http://htmlpreview.github.io/?https://github.com/paypal/PayPal-PHP-SDK/blob/master/sample/index.php)
    * [API Reference](https://developer.paypal.com/webapps/developer/docs/api/)
    * [Reporting issues / feature requests] (https://github.com/paypal/PayPal-PHP-SDK/issues)
    * [Pizza App Using Paypal REST API] (https://github.com/paypal/rest-api-sample-app-php)
