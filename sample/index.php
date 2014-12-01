@@ -4,7 +4,7 @@ if (PHP_SAPI == 'cli') {
     // the built in PHP Server
     if (version_compare(phpversion(), '5.4.0', '>=') === true) {
         //exec('php -S -t ' . __DIR__ . '/');
-        $cmd = "php -S localhost:5000 -t " . __DIR__ . '/';
+        $cmd = "php -S localhost:5000 -t " . __DIR__;
         $descriptors = array(
             0 => array("pipe", "r"),
             1 => STDOUT,
@@ -453,6 +453,17 @@ if (PHP_SAPI == 'cli') {
                             Try It <i class="fa fa-play-circle-o"></i></a>
                         <a href="doc/billing/UpdatePlanPaymentDefinitions.html" class="btn btn-default pull-right">Source
                             <i
+                                class="fa fa-file-code-o"></i></a>
+                    </div>
+                </div>
+            </li>
+            <li class="list-group-item">
+                <div class="row">
+                    <div class="col-md-8"><h5>Delete Billing Plan</h5></div>
+                    <div class="col-md-4">
+                        <a href="billing/DeletePlan.php" class="btn btn-primary pull-left execute"> Try It <i
+                                class="fa fa-play-circle-o"></i></a>
+                        <a href="doc/billing/DeletePlan.html" class="btn btn-default pull-right">Source <i
                                 class="fa fa-file-code-o"></i></a>
                     </div>
                 </div>

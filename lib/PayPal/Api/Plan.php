@@ -2,6 +2,7 @@
 
 namespace PayPal\Api;
 
+use PayPal\Common\PPModel;
 use PayPal\Common\ResourceModel;
 use PayPal\Validation\ArgumentValidator;
 use PayPal\Api\PlanList;
@@ -541,6 +542,28 @@ class Plan extends ResourceModel
             $restCall
         );
         return true;
+    }
+
+    /**
+     * Delete a billing plan by passing the ID of the billing plan to the request URI.
+     *
+     * @param ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
+     * @param PPRestCall $restCall is the Rest Call Service that is used to make rest calls
+     * @return bool
+     */
+    public function delete($apiContext = null, $restCall = null)
+    {
+        ArgumentValidator::validate($this->getId(), "Id");
+        $patchRequest = new PatchRequest();
+        $patch = new Patch();
+        $value = new PPModel('{
+            "state":"DELETED"
+        }');
+        $patch->setOp('replace')
+            ->setPath('/')
+            ->setValue($value);
+        $patchRequest->addPatch($patch);
+        return $this->update($patchRequest, $apiContext, $restCall);
     }
 
     /**

@@ -168,6 +168,35 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "PHP"
             },
+            "sourcePath": "/Users/japatel/Documents/workspace/Server-SDK/PayPal-PHP-SDK/sample/billing/DeletePlan.php",
+            "projectPath": "billing/DeletePlan.php",
+            "targetPath": "billing/DeletePlan",
+            "pageTitle": "billing/DeletePlan",
+            "title": "DeletePlan"
+          },
+          "depth": 2,
+          "outline": [
+            {
+              "type": "heading",
+              "data": {
+                "level": 1,
+                "title": "Delete Plan Sample",
+                "slug": "delete-plan-sample"
+              },
+              "depth": 1
+            }
+          ]
+        }, {
+          "type": "file",
+          "data": {
+            "language": {
+              "nameMatchers": [{}, ".fbp"],
+              "pygmentsLexer": "php",
+              "singleLineComment": ["//"],
+              "ignorePrefix": "}",
+              "foldPrefix": "^",
+              "name": "PHP"
+            },
             "sourcePath": "/Users/japatel/Documents/workspace/Server-SDK/PayPal-PHP-SDK/sample/billing/ExecuteAgreement.php",
             "projectPath": "billing/ExecuteAgreement.php",
             "targetPath": "billing/ExecuteAgreement",
