@@ -1,5 +1,10 @@
 PayPal PHP SDK release notes
 ============================
+v0.15.1
+----
+* Enabled Deleting Billing Plans
+* Updated Samples
+
 v0.15.0
 ----
 * Extended Invoicing Capabilities

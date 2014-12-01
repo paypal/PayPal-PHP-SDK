@@ -204,7 +204,36 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
             "title": "ExecuteAgreement"
           },
           "depth": 2,
-          "outline": []
+          "outline": [
+            {
+              "type": "heading",
+              "data": {
+                "level": 1,
+                "title": "Execute Agreement",
+                "slug": "execute-agreement"
+              },
+              "depth": 1,
+              "children": [
+                {
+                  "type": "heading",
+                  "data": {
+                    "level": 2,
+                    "title": "Approval Status",
+                    "slug": "approval-status"
+                  },
+                  "depth": 2
+                }, {
+                  "type": "heading",
+                  "data": {
+                    "level": 2,
+                    "title": "Execute Agreement",
+                    "slug": "execute-agreement"
+                  },
+                  "depth": 2
+                }
+              ]
+            }
+          ]
         }, {
           "type": "file",
           "data": {
@@ -1914,7 +1943,26 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 "title": "Execute Payment Sample",
                 "slug": "execute-payment-sample"
               },
-              "depth": 1
+              "depth": 1,
+              "children": [
+                {
+                  "type": "heading",
+                  "data": {
+                    "level": 3,
+                    "title": "Approval Status",
+                    "slug": "approval-status"
+                  },
+                  "depth": 3
+                }, {
+                  "type": "heading",
+                  "data": {
+                    "level": 3,
+                    "title": "Payment Execute",
+                    "slug": "payment-execute"
+                  },
+                  "depth": 3
+                }
+              ]
             }
           ]
         }, {
@@ -2340,6 +2388,54 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "PHP"
             },
+            "sourcePath": "/Users/japatel/Documents/workspace/Server-SDK/PayPal-PHP-SDK/sample/vault/CreateBankAccount.php",
+            "projectPath": "vault/CreateBankAccount.php",
+            "targetPath": "vault/CreateBankAccount",
+            "pageTitle": "vault/CreateBankAccount",
+            "title": "CreateBankAccount"
+          },
+          "depth": 2,
+          "outline": [
+            {
+              "type": "heading",
+              "data": {
+                "level": 1,
+                "title": "Create Bank Account Sample",
+                "slug": "create-bank-account-sample"
+              },
+              "depth": 1,
+              "children": [
+                {
+                  "type": "heading",
+                  "data": {
+                    "level": 3,
+                    "title": "Bank Account",
+                    "slug": "bank-account"
+                  },
+                  "depth": 3
+                }, {
+                  "type": "heading",
+                  "data": {
+                    "level": 3,
+                    "title": "Save bank account",
+                    "slug": "save-bank-account"
+                  },
+                  "depth": 3
+                }
+              ]
+            }
+          ]
+        }, {
+          "type": "file",
+          "data": {
+            "language": {
+              "nameMatchers": [{}, ".fbp"],
+              "pygmentsLexer": "php",
+              "singleLineComment": ["//"],
+              "ignorePrefix": "}",
+              "foldPrefix": "^",
+              "name": "PHP"
+            },
             "sourcePath": "/Users/japatel/Documents/workspace/Server-SDK/PayPal-PHP-SDK/sample/vault/CreateCreditCard.php",
             "projectPath": "vault/CreateCreditCard.php",
             "targetPath": "vault/CreateCreditCard",
@@ -2388,6 +2484,46 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "PHP"
             },
+            "sourcePath": "/Users/japatel/Documents/workspace/Server-SDK/PayPal-PHP-SDK/sample/vault/DeleteBankAccount.php",
+            "projectPath": "vault/DeleteBankAccount.php",
+            "targetPath": "vault/DeleteBankAccount",
+            "pageTitle": "vault/DeleteBankAccount",
+            "title": "DeleteBankAccount"
+          },
+          "depth": 2,
+          "outline": [
+            {
+              "type": "heading",
+              "data": {
+                "level": 1,
+                "title": "Delete Bank Account Sample",
+                "slug": "delete-bank-account-sample"
+              },
+              "depth": 1,
+              "children": [
+                {
+                  "type": "heading",
+                  "data": {
+                    "level": 3,
+                    "title": "Delete Card",
+                    "slug": "delete-card"
+                  },
+                  "depth": 3
+                }
+              ]
+            }
+          ]
+        }, {
+          "type": "file",
+          "data": {
+            "language": {
+              "nameMatchers": [{}, ".fbp"],
+              "pygmentsLexer": "php",
+              "singleLineComment": ["//"],
+              "ignorePrefix": "}",
+              "foldPrefix": "^",
+              "name": "PHP"
+            },
             "sourcePath": "/Users/japatel/Documents/workspace/Server-SDK/PayPal-PHP-SDK/sample/vault/DeleteCreditCard.php",
             "projectPath": "vault/DeleteCreditCard.php",
             "targetPath": "vault/DeleteCreditCard",
@@ -2415,6 +2551,35 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                   "depth": 3
                 }
               ]
+            }
+          ]
+        }, {
+          "type": "file",
+          "data": {
+            "language": {
+              "nameMatchers": [{}, ".fbp"],
+              "pygmentsLexer": "php",
+              "singleLineComment": ["//"],
+              "ignorePrefix": "}",
+              "foldPrefix": "^",
+              "name": "PHP"
+            },
+            "sourcePath": "/Users/japatel/Documents/workspace/Server-SDK/PayPal-PHP-SDK/sample/vault/GetBankAccount.php",
+            "projectPath": "vault/GetBankAccount.php",
+            "targetPath": "vault/GetBankAccount",
+            "pageTitle": "vault/GetBankAccount",
+            "title": "GetBankAccount"
+          },
+          "depth": 2,
+          "outline": [
+            {
+              "type": "heading",
+              "data": {
+                "level": 1,
+                "title": "Get Bank Account Sample",
+                "slug": "get-bank-account-sample"
+              },
+              "depth": 1
             }
           ]
         }, {

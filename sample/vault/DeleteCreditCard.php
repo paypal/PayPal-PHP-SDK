@@ -13,12 +13,10 @@ try {
     // ### Delete Card
     // Lookup and delete a saved credit card.
     // (See bootstrap.php for more on `ApiContext`)
-    $creditCard = CreditCard::get($card->getId(), $apiContext);
-
-    $creditCard->delete($apiContext);
+    $card->delete($apiContext);
 } catch (Exception $ex) {
     ResultPrinter::printError("Delete Credit Card", "Credit Card", null, null, $ex);
     exit(1);
 }
 
-ResultPrinter::printResult("Delete Credit Card", "Credit Card", $card->getId(), null, $creditCard);
+ResultPrinter::printResult("Delete Credit Card", "Credit Card", $card->getId(), null, null);

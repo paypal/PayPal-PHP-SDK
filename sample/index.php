@@ -203,7 +203,35 @@ if (PHP_SAPI == 'cli') {
         <ul class="list-group">
             <li class="list-group-item">
                 <div class="row">
-                    <div class="col-md-8"><h5>Direct credit card payments</h5></div>
+                    <div class="col-md-8"><h5>PayPal Payments - similar to Express Checkout in Classic APIs</small></h5>
+                    </div>
+                    <div class="col-md-4">
+                        <a href="payments/CreatePaymentUsingPayPal.php" class="btn btn-primary pull-left execute">
+                            Try It
+                            <i class="fa fa-play-circle-o"></i></a><a
+                            href="doc/payments/CreatePaymentUsingPayPal.html"
+                            class="btn btn-default pull-right">Source <i
+                                class="fa fa-file-code-o"></i></a>
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-8">
+                        <h6>Step II: Execute after Success
+                        <small>(required step after user approval)</small></h6>
+                    </div>
+                    <div class="col-md-4">
+                        <a
+                            href="doc/payments/ExecutePayment.html"
+                            class="btn btn-default pull-right">Part II : Source <i
+                                class="fa fa-file-code-o"></i></a>
+
+                    </div>
+                </div>
+            </li>
+            <li class="list-group-item">
+                <div class="row">
+                    <div class="col-md-8"><h5>Payments using credit card information</h5></div>
                     <div class="col-md-4">
                         <a href="payments/CreatePayment.php" class="btn btn-primary pull-left execute"> Try It <i
                                 class="fa fa-play-circle-o"></i></a>
@@ -214,20 +242,7 @@ if (PHP_SAPI == 'cli') {
             </li>
             <li class="list-group-item">
                 <div class="row">
-                    <div class="col-md-8"><h5>PayPal account payments</h5></div>
-                    <div class="col-md-4">
-                        <a href="payments/CreatePaymentUsingPayPal.php" class="btn btn-primary pull-left execute">
-                            Try It
-                            <i class="fa fa-play-circle-o"></i></a><a
-                            href="doc/payments/CreatePaymentUsingPayPal.html"
-                            class="btn btn-default pull-right">Source <i
-                                class="fa fa-file-code-o"></i></a>
-                    </div>
-                </div>
-            </li>
-            <li class="list-group-item">
-                <div class="row">
-                    <div class="col-md-8"><h5>Stored credit card payments</h5></div>
+                    <div class="col-md-8"><h5>Payments using saved credit card <small>(using Vault APIs)</small></h5></div>
                     <div class="col-md-4">
                         <a href="payments/CreatePaymentUsingSavedCard.php"
                            class="btn btn-primary pull-left execute">
@@ -504,6 +519,19 @@ if (PHP_SAPI == 'cli') {
                             <i class="fa fa-file-code-o"></i></a>
                     </div>
                 </div>
+                <div class="row">
+                    <div class="col-md-8">
+                        <h6>Step II: Execute after Success
+                            <small>(required step after user approval)</small></h6>
+                    </div>
+                    <div class="col-md-4">
+                        <a
+                            href="doc/billing/ExecuteAgreement.html"
+                            class="btn btn-default pull-right">Part II : Source <i
+                                class="fa fa-file-code-o"></i></a>
+
+                    </div>
+                </div>
             </li>
             <li class="list-group-item">
                 <div class="row">
@@ -568,7 +596,7 @@ if (PHP_SAPI == 'cli') {
         <ul class="list-group">
             <li class="list-group-item">
                 <div class="row">
-                    <div class="col-md-8"><h5>Save a credit card</h5></div>
+                    <div class="col-md-8"><h5>Credit Card - Save</h5></div>
                     <div class="col-md-4">
                         <a href="vault/CreateCreditCard.php" class="btn btn-primary pull-left execute"> Try It <i
                                 class="fa fa-play-circle-o"></i></a>
@@ -579,7 +607,7 @@ if (PHP_SAPI == 'cli') {
             </li>
             <li class="list-group-item">
                 <div class="row">
-                    <div class="col-md-8"><h5>Retrieve saved credit card</h5></div>
+                    <div class="col-md-8"><h5>Credit Card - Retrieve</h5></div>
                     <div class="col-md-4">
                         <a href="vault/GetCreditCard.php" class="btn btn-primary pull-left execute"> Try It <i
                                 class="fa fa-play-circle-o"></i></a>
@@ -590,11 +618,44 @@ if (PHP_SAPI == 'cli') {
             </li>
             <li class="list-group-item">
                 <div class="row">
-                    <div class="col-md-8"><h5>Delete saved credit card</h5></div>
+                    <div class="col-md-8"><h5>Credit Card - Delete</h5></div>
                     <div class="col-md-4">
                         <a href="vault/DeleteCreditCard.php" class="btn btn-primary pull-left execute"> Try It <i
                                 class="fa fa-play-circle-o"></i></a>
                         <a href="doc/vault/DeleteCreditCard.html" class="btn btn-default pull-right">Source <i
+                                class="fa fa-file-code-o"></i></a>
+                    </div>
+                </div>
+            </li>
+            <li class="list-group-item">
+                <div class="row">
+                    <div class="col-md-8"><h5>Bank Account - Save</h5></div>
+                    <div class="col-md-4">
+                        <a href="vault/CreateCreditCard.php" class="btn btn-primary pull-left execute"> Try It <i
+                                class="fa fa-play-circle-o"></i></a>
+                        <a href="doc/vault/CreateCreditCard.html" class="btn btn-default pull-right">Source <i
+                                class="fa fa-file-code-o"></i></a>
+                    </div>
+                </div>
+            </li>
+            <li class="list-group-item">
+                <div class="row">
+                    <div class="col-md-8"><h5>Bank Account - Retrieve</h5></div>
+                    <div class="col-md-4">
+                        <a href="vault/CreateBankAccount.php" class="btn btn-primary pull-left execute"> Try It <i
+                                class="fa fa-play-circle-o"></i></a>
+                        <a href="doc/vault/CreateBankAccount.html" class="btn btn-default pull-right">Source <i
+                                class="fa fa-file-code-o"></i></a>
+                    </div>
+                </div>
+            </li>
+            <li class="list-group-item">
+                <div class="row">
+                    <div class="col-md-8"><h5>Bank Account - Delete</h5></div>
+                    <div class="col-md-4">
+                        <a href="vault/DeleteBankAccount.php" class="btn btn-primary pull-left execute"> Try It <i
+                                class="fa fa-play-circle-o"></i></a>
+                        <a href="doc/vault/GetBankAccount.html" class="btn btn-default pull-right">Source <i
                                 class="fa fa-file-code-o"></i></a>
                     </div>
                 </div>
