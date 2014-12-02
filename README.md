@@ -133,6 +133,28 @@ There are two kinds of tests that we include in our sdk package. Unit tests, and
 
 ## Developer Notes
 
+### Caching - Performance Improvement
+
+PayPal API SDK now has the ability to cache Access Tokens for multiple request uses. Generally, an access token is valid for approximately 15 min to 8 hours based on security settings by PayPal. However, by default PHP requests a new access token each time a new process/request is made in your website. To re-use the access token, we enabled cache storage via file under /var/auth.cache.
+
+To enable this, you need to configure by updating the configuration settings in your sdk_config.ini file or dynamic values as shown below:
+
+Please visit our [sample sdk_config.ini](https://github.com/paypal/PayPal-PHP-SDK/blob/master/sample/sdk_config.ini)
+```
+;Caching Configuration
+[cache]
+; If Cache is enabled, it stores the access token retrieved from ClientId and Secret from the
+; server into a file provided in constant $CACHE_PATH in PayPal/Cache/AuthorizationCache.
+; If the value is set to 'true', it would try to create a file and store the information.
+; For any other value, it would disable it
+; Please note, this is a very good performance improvement, and we would encourage you to
+; set this up properly to reduce the number of calls, to almost 50% on normal use cases
+; PLEASE NOTE: You may need to provide proper write permissions to /var directory under PayPal-PHP-SDK on
+; your hosting server
+cache.enabled=true
+```
+##### PLEASE NOTE: You may need to provide proper write permissions to /var directory under PayPal-PHP-SDK on your hosting server
+
 ### API Model Constructor
 
 You can intialize the API objects by passing JSON string or Array representation of object to the constructor. E.g.:

@@ -1,5 +1,9 @@
 PayPal PHP SDK release notes
 ============================
+v0.16.0
+----
+* Enabled Caching Abilities for Access Tokens
+
 v0.15.1
 ----
 * Enabled Deleting Billing Plans

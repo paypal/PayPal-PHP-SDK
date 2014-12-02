@@ -40,6 +40,14 @@ return $apiContext;
  */
 function getApiContext($clientId, $clientSecret)
 {
+    // Register the sdk_config.ini file in current directory
+    // as the configuration source.
+    /*
+    if(!defined("PP_CONFIG_PATH")) {
+        define("PP_CONFIG_PATH", __DIR__);
+    }
+    */
+
 
     // ### Api context
     // Use an ApiContext object to authenticate
@@ -60,7 +68,6 @@ function getApiContext($clientId, $clientSecret)
     // Comment this line out and uncomment the PP_CONFIG_PATH
     // 'define' block if you want to use static file
     // based configuration
-
     $apiContext->setConfig(
         array(
             'mode' => 'sandbox',
@@ -68,17 +75,10 @@ function getApiContext($clientId, $clientSecret)
             'log.LogEnabled' => true,
             'log.FileName' => '../PayPal.log',
             'log.LogLevel' => 'FINE',
-            'validation.level' => 'log'
+            'validation.level' => 'log',
+            'cache.enabled' => 'true'
         )
     );
-
-    /*
-    // Register the sdk_config.ini file in current directory
-    // as the configuration source.
-    if(!defined("PP_CONFIG_PATH")) {
-        define("PP_CONFIG_PATH", __DIR__);
-    }
-    */
 
     return $apiContext;
 }
