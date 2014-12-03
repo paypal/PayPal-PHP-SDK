@@ -1,6 +1,6 @@
 # REST API SDK for PHP
 
-[![Build Status](https://travis-ci.org/paypal/PayPal-PHP-SDK.png?branch=master)](https://travis-ci.org/paypal/PayPal-PHP-SDK) [![Coverage Status](https://img.shields.io/coveralls/paypal/PayPal-PHP-SDK.svg)](https://coveralls.io/r/paypal/PayPal-PHP-SDK?branch=master) [![Latest Stable Version](https://poser.pugx.org/paypal/rest-api-sdk-php/v/stable.png)](https://packagist.org/packages/paypal/rest-api-sdk-php) [![Total Downloads](https://poser.pugx.org/paypal/rest-api-sdk-php/downloads.png)](https://packagist.org/packages/paypal/rest-api-sdk-php)
+[![Build Status](https://travis-ci.org/paypal/PayPal-PHP-SDK.png?branch=master)](https://travis-ci.org/paypal/PayPal-PHP-SDK) [![Coverage Status](https://img.shields.io/coveralls/paypal/PayPal-PHP-SDK.svg)](https://coveralls.io/r/paypal/PayPal-PHP-SDK?branch=master)
 
 This repository contains PayPal's PHP SDK and samples for REST API.
 
