@@ -23,8 +23,9 @@ You should be able to see the acceptable values in the comments.</p></div></div>
 <span class="hljs-variable">$paymentDefinition</span>-&gt;setChargeModels(<span class="hljs-keyword">array</span>(<span class="hljs-variable">$chargeModel</span>));
 
 <span class="hljs-variable">$merchantPreferences</span> = <span class="hljs-keyword">new</span> MerchantPreferences();
-<span class="hljs-variable">$baseUrl</span> = getBaseUrl();
-<span class="hljs-variable">$merchantPreferences</span>-&gt;setReturnUrl(<span class="hljs-string">"$baseUrl/ExecuteAgreement.php?success=true"</span>)
+<span class="hljs-variable">$baseUrl</span> = getBaseUrl();</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>ReturnURL and CancelURL are not required and used when creating billing agreement with payment_method as &quot;credit_card&quot;.
+However, it is generally a good idea to set these values, in case you plan to create billing agreements which accepts &quot;paypal&quot; as payment_method.
+This will keep your plan compatible with both the possible scenarios on how it is being used in agreement.</p></div></div><div class="code"><div class="wrapper"><span class="hljs-variable">$merchantPreferences</span>-&gt;setReturnUrl(<span class="hljs-string">"$baseUrl/ExecuteAgreement.php?success=true"</span>)
     -&gt;setCancelUrl(<span class="hljs-string">"$baseUrl/ExecuteAgreement.php?success=false"</span>)
     -&gt;setAutoBillAmount(<span class="hljs-string">"yes"</span>)
     -&gt;setInitialFailAmountAction(<span class="hljs-string">"CONTINUE"</span>)
