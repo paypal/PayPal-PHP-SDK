@@ -36,7 +36,7 @@ class Details extends PPModel
     public function setShipping($shipping)
     {
         NumericValidator::validate($shipping, "Shipping");
-        $shipping = FormatConverter::formatToTwoDecimalPlaces($shipping);
+        $shipping = FormatConverter::formatToPrice($shipping);
         $this->shipping = $shipping;
         return $this;
     }
@@ -62,7 +62,7 @@ class Details extends PPModel
     public function setSubtotal($subtotal)
     {
         NumericValidator::validate($subtotal, "SubTotal");
-        $subtotal = FormatConverter::formatToTwoDecimalPlaces($subtotal);
+        $subtotal = FormatConverter::formatToPrice($subtotal);
         $this->subtotal = $subtotal;
         return $this;
     }
@@ -89,7 +89,7 @@ class Details extends PPModel
     public function setTax($tax)
     {
         NumericValidator::validate($tax, "Tax");
-        $tax = FormatConverter::formatToTwoDecimalPlaces($tax);
+        $tax = FormatConverter::formatToPrice($tax);
         $this->tax = $tax;
         return $this;
     }
@@ -115,7 +115,7 @@ class Details extends PPModel
     public function setFee($fee)
     {
         NumericValidator::validate($fee, "Fee");
-        $fee = FormatConverter::formatToTwoDecimalPlaces($fee);
+        $fee = FormatConverter::formatToPrice($fee);
         $this->fee = $fee;
         return $this;
     }
@@ -141,7 +141,7 @@ class Details extends PPModel
     public function setShippingDiscount($shipping_discount)
     {
         NumericValidator::validate($shipping_discount, "Shipping Discount");
-        $shipping_discount = FormatConverter::formatToTwoDecimalPlaces($shipping_discount);
+        $shipping_discount = FormatConverter::formatToPrice($shipping_discount);
         $this->shipping_discount = $shipping_discount;
         return $this;
     }
@@ -192,7 +192,7 @@ class Details extends PPModel
     public function setInsurance($insurance)
     {
         NumericValidator::validate($insurance, "Insurance");
-        $insurance = FormatConverter::formatToTwoDecimalPlaces($insurance);
+        $insurance = FormatConverter::formatToPrice($insurance);
         $this->insurance = $insurance;
         return $this;
     }
@@ -218,7 +218,7 @@ class Details extends PPModel
     public function setHandlingFee($handling_fee)
     {
         NumericValidator::validate($handling_fee, "Handling Fee");
-        $handling_fee = FormatConverter::formatToTwoDecimalPlaces($handling_fee);
+        $handling_fee = FormatConverter::formatToPrice($handling_fee);
         $this->handling_fee = $handling_fee;
         return $this;
     }
@@ -268,7 +268,7 @@ class Details extends PPModel
     public function setGiftWrap($gift_wrap)
     {
         NumericValidator::validate($gift_wrap, "Gift Wrap");
-        $gift_wrap = FormatConverter::formatToTwoDecimalPlaces($gift_wrap);
+        $gift_wrap = FormatConverter::formatToPrice($gift_wrap);
         $this->gift_wrap = $gift_wrap;
         return $this;
     }

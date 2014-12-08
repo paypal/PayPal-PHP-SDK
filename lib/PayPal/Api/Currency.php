@@ -51,7 +51,7 @@ class Currency extends PPModel
     public function setValue($value)
     {
         NumericValidator::validate($value, "Value");
-        $value = FormatConverter::formatToTwoDecimalPlaces($value);
+        $value = FormatConverter::formatToPrice($value, $this->getCurrency());
         $this->value = $value;
         return $this;
     }
