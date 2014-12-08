@@ -26,7 +26,7 @@ class ModelAccessorValidator
         if ($mode != 'disabled') {
             //If the mode is disabled, bypass the validation
             foreach (array('set' . $attributeName, 'get' . $attributeName) as $methodName) {
-                if (get_class($class) == "PayPal\\Common\\PPModel") {
+                if (get_class($class) == PPModel::class) {
                     // Silently return false on cases where you are using PPModel instance directly
                     return false;
                 }
