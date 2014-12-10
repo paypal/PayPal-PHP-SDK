@@ -1,3 +1,4 @@
+<!-- Welcome to PayPal REST SDK -- >
 <?php
 if (PHP_SAPI == 'cli') {
     // If the index.php is called using console, we would try to host
@@ -24,6 +25,7 @@ if (PHP_SAPI == 'cli') {
         exit(2);
     }
 } ?>
+-->
     <!DOCTYPE html>
     <html lang="en">
     <head>
