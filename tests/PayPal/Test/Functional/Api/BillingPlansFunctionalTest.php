@@ -5,10 +5,13 @@ namespace PayPal\Test\Functional\Api;
 use PayPal\Api\Patch;
 use PayPal\Api\PatchRequest;
 use PayPal\Api\Plan;
+use PayPal\Auth\OAuthTokenCredential;
 use PayPal\Common\PPModel;
+use PayPal\Core\PPCredentialManager;
 use PayPal\Rest\ApiContext;
 use PayPal\Rest\IResource;
 use PayPal\Api\CreateProfileResponse;
+use PayPal\Test\Functional\Setup;
 use PayPal\Transport\PPRestCall;
 use PayPal\Api\WebProfile;
 
@@ -30,6 +33,8 @@ class BillingPlansFunctionalTest extends \PHPUnit_Framework_TestCase
 
     public $mockPPRestCall;
 
+    public $context;
+
     public function setUp()
     {
         $className = $this->getClassName();
@@ -46,20 +51,7 @@ class BillingPlansFunctionalTest extends \PHPUnit_Framework_TestCase
             $this->response = json_encode($this->operation['response']['body']);
         }
 
-        $this->mode = getenv('REST_MODE') ? getenv('REST_MODE') : 'mock';
-        if ($this->mode != 'sandbox') {
-
-            // Mock PPRest Caller if mode set to mock
-            $this->mockPPRestCall = $this->getMockBuilder('\PayPal\Transport\PPRestCall')
-                ->disableOriginalConstructor()
-                ->getMock();
-
-            $this->mockPPRestCall->expects($this->any())
-                ->method('execute')
-                ->will($this->returnValue(
-                    $this->response
-                ));
-        }
+        Setup::SetUpForFunctionalTests($this);
     }
 
     /**

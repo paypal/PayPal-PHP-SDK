@@ -13,6 +13,7 @@ use PayPal\Common\PPModel;
 use PayPal\Rest\ApiContext;
 use PayPal\Rest\IResource;
 use PayPal\Api\CreateProfileResponse;
+use PayPal\Test\Functional\Setup;
 use PayPal\Transport\PPRestCall;
 use PayPal\Api\WebProfile;
 
@@ -28,8 +29,6 @@ class PaymentsFunctionalTest extends \PHPUnit_Framework_TestCase
 
     public $response;
 
-    public $mode = 'mock';
-
     public $mockPPRestCall;
 
     public function setUp()
@@ -42,21 +41,7 @@ class PaymentsFunctionalTest extends \PHPUnit_Framework_TestCase
         if (array_key_exists('body', $this->operation['response'])) {
             $this->response = json_encode($this->operation['response']['body']);
         }
-
-        $this->mode = getenv('REST_MODE') ? getenv('REST_MODE') : 'mock';
-        if ($this->mode != 'sandbox') {
-
-            // Mock PPRest Caller if mode set to mock
-            $this->mockPPRestCall = $this->getMockBuilder('\PayPal\Transport\PPRestCall')
-                ->disableOriginalConstructor()
-                ->getMock();
-
-            $this->mockPPRestCall->expects($this->any())
-                ->method('execute')
-                ->will($this->returnValue(
-                    $this->response
-                ));
-        }
+        Setup::SetUpForFunctionalTests($this);
     }
 
     /**
@@ -139,7 +124,7 @@ class PaymentsFunctionalTest extends \PHPUnit_Framework_TestCase
      */
     public function testExecute($payment)
     {
-        if ($this->mode == 'sandbox') {
+        if (Setup::$mode == 'sandbox') {
             $this->markTestSkipped('Not executable on sandbox environment. Needs human interaction');
         }
     }

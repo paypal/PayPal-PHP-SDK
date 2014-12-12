@@ -93,7 +93,7 @@ class WebhookEventTypeTest extends \PHPUnit_Framework_TestCase
         $mockPPRestCall->expects($this->any())
             ->method('execute')
             ->will($this->returnValue(
-                    WebhookEventListTest::getJson()
+                    WebhookEventTypeListTest::getJson()
             ));
 
         $result = $obj->subscribedEventTypes("webhookId", $mockApiContext, $mockPPRestCall);
@@ -112,7 +112,7 @@ class WebhookEventTypeTest extends \PHPUnit_Framework_TestCase
         $mockPPRestCall->expects($this->any())
             ->method('execute')
             ->will($this->returnValue(
-                    WebhookEventListTest::getJson()
+                WebhookEventTypeListTest::getJson()
             ));
 
         $result = $obj->availableEventTypes($mockApiContext, $mockPPRestCall);
