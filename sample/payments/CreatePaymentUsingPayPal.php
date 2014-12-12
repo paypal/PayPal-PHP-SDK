@@ -79,7 +79,7 @@ $redirectUrls->setReturnUrl("$baseUrl/ExecutePayment.php?success=true")
 // A Payment Resource; create one using
 // the above types and intent set to 'sale'
 $payment = new Payment();
-$payment->setIntent("sale")
+$payment->setIntent("authorize")
     ->setPayer($payer)
     ->setRedirectUrls($redirectUrls)
     ->setTransactions(array($transaction));

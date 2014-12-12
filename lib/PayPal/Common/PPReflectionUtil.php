@@ -34,6 +34,10 @@ class PPReflectionUtil
      */
     public static function getPropertyClass($class, $propertyName)
     {
+        if ($class == get_class(new PPModel())) {
+            // Make it generic if PPModel is used for generating this
+            return get_class(new PPModel());
+        }
 
         if (($annotations = self::propertyAnnotations($class, $propertyName)) && isset($annotations['return'])) {
             $param = $annotations['return'];

@@ -137,7 +137,7 @@ if (PHP_SAPI == 'cli') {
         <![endif]-->
     </head>
 
-    <body data-spy="scroll" data-target="#leftNavigation" data-offset="0" class="scrollspy-example">
+    <body data-spy="scroll" data-target="#leftNavigation" data-offset="10" class="scrollspy-example">
     <!-- Main component for a primary marketing message or call to action -->
     <div class="jumbotron">
         <div class="container-fluid">
@@ -188,6 +188,7 @@ if (PHP_SAPI == 'cli') {
                 <li><a href="#billing">Billing Plan & Agreements</a></li>
                 <li><a href="#vault">Vault</a></li>
                 <li><a href="#experience">Payment Experience</a></li>
+                <li><a href="#notifications">Notifications</a></li>
                 <li><a href="#invoice">Invoice</a></li>
                 <li><a href="#identity">Identity (LIPP)</a></li>
             </ul>
@@ -249,7 +250,7 @@ if (PHP_SAPI == 'cli') {
                         <a href="payments/CreatePaymentUsingSavedCard.php"
                            class="btn btn-primary pull-left execute">
                             Try It <i class="fa fa-play-circle-o"></i></a>
-                        <a href="doc/payments/CreatePayment.html" class="btn btn-default pull-right">Source <i
+                        <a href="doc/payments/CreatePaymentUsingSavedCard.html" class="btn btn-default pull-right">Source <i
                                 class="fa fa-file-code-o"></i></a>
                     </div>
                 </div>
@@ -275,7 +276,7 @@ if (PHP_SAPI == 'cli') {
                     <div class="col-md-4">
                         <a href="payments/GetPayment.php" class="btn btn-primary pull-left execute"> Try It <i
                                 class="fa fa-play-circle-o"></i></a>
-                        <a href="doc/payments/CreatePayment.html" class="btn btn-default pull-right">Source <i
+                        <a href="doc/payments/GetPayment.html" class="btn btn-default pull-right">Source <i
                                 class="fa fa-file-code-o"></i></a>
                     </div>
                 </div>
@@ -286,7 +287,7 @@ if (PHP_SAPI == 'cli') {
                     <div class="col-md-4">
                         <a href="payments/ListPayments.php" class="btn btn-primary pull-left execute"> Try It <i
                                 class="fa fa-play-circle-o"></i></a>
-                        <a href="doc/payments/CreatePayment.html" class="btn btn-default pull-right">Source <i
+                        <a href="doc/payments/ListPayments.html" class="btn btn-default pull-right">Source <i
                                 class="fa fa-file-code-o"></i></a>
                     </div>
                 </div>
@@ -747,6 +748,111 @@ if (PHP_SAPI == 'cli') {
                             <i class="fa fa-play-circle-o"></i></a>
                         <a href="doc/payment-experience/DeleteWebProfile.html" class="btn btn-default pull-right">Source
                             <i
+                                class="fa fa-file-code-o"></i></a>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 id="notifications" class="panel-title"><a
+                    href="https://developer.paypal.com/webapps/developer/docs/api/#notifications"
+                    target="_blank">Notifications</a></h3>
+        </div>
+        <!-- List group -->
+        <ul class="list-group">
+            <li class="list-group-item">
+                <div class="row">
+                    <div class="col-md-8"><h5>Get a reference list of webhook event types</h5></div>
+                    <div class="col-md-4">
+                        <a href="notifications/WebhookEventTypesList.php" class="btn btn-primary pull-left execute"> Try It
+                            <i
+                                class="fa fa-play-circle-o"></i></a>
+                        <a href="doc/notifications/WebhookEventTypesList.html" class="btn btn-default pull-right">Source <i
+                                class="fa fa-file-code-o"></i></a>
+                    </div>
+                </div>
+            </li>
+            <li class="list-group-item">
+                <div class="row">
+                    <div class="col-md-8"><h5>Create a webhook</h5></div>
+                    <div class="col-md-4">
+                        <a href="notifications/CreateWebhook.php" class="btn btn-primary pull-left execute"> Try It
+                            <i
+                                class="fa fa-play-circle-o"></i></a>
+                        <a href="doc/notifications/CreateWebhook.html" class="btn btn-default pull-right">Source <i
+                                class="fa fa-file-code-o"></i></a>
+                    </div>
+                </div>
+            </li>
+            <li class="list-group-item">
+                <div class="row">
+                    <div class="col-md-8"><h5>Get a webhook</h5></div>
+                    <div class="col-md-4">
+                        <a href="notifications/GetWebhook.php" class="btn btn-primary pull-left execute"> Try It
+                            <i
+                                class="fa fa-play-circle-o"></i></a>
+                        <a href="doc/payments/GetAuthorization.html" class="btn btn-default pull-right">Source <i
+                                class="fa fa-file-code-o"></i></a>
+                    </div>
+                </div>
+            </li>
+            <li class="list-group-item">
+                <div class="row">
+                    <div class="col-md-8"><h5>List subscribed webhook event types</h5></div>
+                    <div class="col-md-4">
+                        <a href="notifications/ListSubscribedWebhookEventTypes.php" class="btn btn-primary pull-left execute"> Try It <i
+                                class="fa fa-play-circle-o"></i></a>
+                        <a href="doc/payments/GetCapture.html" class="btn btn-default pull-right">Source <i
+                                class="fa fa-file-code-o"></i></a>
+                    </div>
+                </div>
+            </li>
+            <li class="list-group-item">
+                <div class="row">
+                    <div class="col-md-8"><h5>List all webhooks</h5></div>
+                    <div class="col-md-4">
+                        <a href="notifications/ListWebhooks.php" class="btn btn-primary pull-left execute">
+                            Try It <i
+                                class="fa fa-play-circle-o"></i></a>
+                        <a href="doc/payments/AuthorizationCapture.html" class="btn btn-default pull-right">Source
+                            <i
+                                class="fa fa-file-code-o"></i></a>
+                    </div>
+                </div>
+            </li>
+            <li class="list-group-item">
+                <div class="row">
+                    <div class="col-md-8"><h5>Update a webhook</h5></div>
+                    <div class="col-md-4">
+                        <a href="notifications/UpdateWebhook.php" class="btn btn-primary pull-left execute"> Try It
+                            <i
+                                class="fa fa-play-circle-o"></i></a>
+                        <a href="doc/payments/VoidAuthorization.html" class="btn btn-default pull-right">Source <i
+                                class="fa fa-file-code-o"></i></a>
+                    </div>
+                </div>
+            </li>
+            <li class="list-group-item">
+                <div class="row">
+                    <div class="col-md-8"><h5>Delete a webhook</h5></div>
+                    <div class="col-md-4">
+                        <a href="notifications/DeleteWebhook.php" class="btn btn-primary pull-left execute"> Try It <i
+                                class="fa fa-play-circle-o"></i></a>
+                        <a href="doc/payments/Reauthorization.html" class="btn btn-default pull-right">Source <i
+                                class="fa fa-file-code-o"></i></a>
+                    </div>
+                </div>
+            </li>
+            <li class="list-group-item">
+                <div class="row">
+                    <div class="col-md-8"><h5>Search webhook events</h5></div>
+                    <div class="col-md-4">
+                        <a href="notifications/SearchWebhookEvents.php" class="btn btn-primary pull-left execute"> Try It <i
+                                class="fa fa-play-circle-o"></i></a>
+                        <a href="doc/payments/RefundCapture.html" class="btn btn-default pull-right">Source <i
                                 class="fa fa-file-code-o"></i></a>
                     </div>
                 </div>

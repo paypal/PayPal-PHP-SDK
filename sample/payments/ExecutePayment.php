@@ -39,6 +39,18 @@ if (isset($_GET['success']) && $_GET['success'] == 'true') {
 
     ResultPrinter::printResult("Executed Payment", "Payment", $payment->getId(), $execution, $result);
 
+    try {
+        $payment = Payment::get($paymentId, $apiContext);
+    } catch (Exception $ex) {
+        ResultPrinter::printError("Get Payment", "Payment", null, null, $ex);
+        exit(1);
+    }
+
+    ResultPrinter::printResult("Get Payment", "Payment", $payment->getId(), null, $payment);
+
+    return $payment;
+
+
 } else {
     ResultPrinter::printResult("User Cancelled the Approval", null);
 }

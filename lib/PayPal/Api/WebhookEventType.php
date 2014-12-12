@@ -72,7 +72,7 @@ class WebhookEventType extends ResourceModel
      * @param string $webhookId
      * @param ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
      * @param PPRestCall $restCall is the Rest Call Service that is used to make rest calls
-     * @return WebhookEventList
+     * @return WebhookEventTypeList
      */
     public static function subscribedEventTypes($webhookId, $apiContext = null, $restCall = null)
     {
@@ -86,7 +86,7 @@ class WebhookEventType extends ResourceModel
             $apiContext,
             $restCall
         );
-        $ret = new WebhookEventList();
+        $ret = new WebhookEventTypeList();
         $ret->fromJson($json);
         return $ret;
     }
@@ -96,7 +96,7 @@ class WebhookEventType extends ResourceModel
      *
      * @param ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
      * @param PPRestCall $restCall is the Rest Call Service that is used to make rest calls
-     * @return WebhookEventList
+     * @return WebhookEventTypeList
      */
     public static function availableEventTypes($apiContext = null, $restCall = null)
     {
@@ -109,7 +109,7 @@ class WebhookEventType extends ResourceModel
             $apiContext,
             $restCall
         );
-        $ret = new WebhookEventList();
+        $ret = new WebhookEventTypeList();
         $ret->fromJson($json);
         return $ret;
     }

@@ -2,6 +2,7 @@
 
 namespace PayPal\Api;
 
+use PayPal\Common\PPModel;
 use PayPal\Common\ResourceModel;
 use PayPal\Validation\ArgumentValidator;
 use PayPal\Api\WebhookEventList;
@@ -218,7 +219,7 @@ class WebhookEvent extends ResourceModel
     /**
      * This contains the resource that is identified by resource_type element.
      *
-     * @param mixed $resource
+     * @param \PayPal\Common\PPModel $resource
      * 
      * @return $this
      */
@@ -231,7 +232,7 @@ class WebhookEvent extends ResourceModel
     /**
      * This contains the resource that is identified by resource_type element.
      *
-     * @return mixed
+     * @return \PayPal\Common\PPModel
      */
     public function getResource()
     {
