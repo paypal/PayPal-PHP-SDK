@@ -44,6 +44,9 @@ $paymentDefinition->setChargeModels(array($chargeModel));
 
 $merchantPreferences = new MerchantPreferences();
 $baseUrl = getBaseUrl();
+// ReturnURL and CancelURL are not required and used when creating billing agreement with payment_method as "credit_card".
+// However, it is generally a good idea to set these values, in case you plan to create billing agreements which accepts "paypal" as payment_method.
+// This will keep your plan compatible with both the possible scenarios on how it is being used in agreement.
 $merchantPreferences->setReturnUrl("$baseUrl/ExecuteAgreement.php?success=true")
     ->setCancelUrl("$baseUrl/ExecuteAgreement.php?success=false")
     ->setAutoBillAmount("yes")

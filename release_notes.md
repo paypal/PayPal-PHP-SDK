@@ -1,5 +1,15 @@
 PayPal PHP SDK release notes
 ============================
+v0.16.0
+----
+* Enabled Webhook Management Capabilities
+* Enabled Caching Abilities for Access Tokens
+
+v0.15.1
+----
+* Enabled Deleting Billing Plans
+* Updated Samples
+
 v0.15.0
 ----
 * Extended Invoicing Capabilities

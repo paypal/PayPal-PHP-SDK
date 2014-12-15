@@ -55,7 +55,7 @@ class Amount extends PPModel
     public function setTotal($total)
     {
         NumericValidator::validate($total, "Total");
-        $total = FormatConverter::formatToTwoDecimalPlaces($total);
+        $total = FormatConverter::formatToPrice($total, $this->getCurrency());
         $this->total = $total;
         return $this;
     }

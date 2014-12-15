@@ -7,6 +7,7 @@ use PayPal\Api\Notification;
 use PayPal\Api\PaymentDetail;
 use PayPal\Api\RefundDetail;
 use PayPal\Api\Search;
+use PayPal\Test\Functional\Setup;
 
 /**
  * Class Invoice
@@ -21,8 +22,6 @@ class InvoiceFunctionalTest extends \PHPUnit_Framework_TestCase
     public $operation;
 
     public $response;
-
-    public $mode = 'mock';
 
     public $mockPPRestCall;
 
@@ -42,20 +41,7 @@ class InvoiceFunctionalTest extends \PHPUnit_Framework_TestCase
             $this->response = json_encode($this->operation['response']['body']);
         }
 
-        $this->mode = getenv('REST_MODE') ? getenv('REST_MODE') : 'mock';
-        if ($this->mode != 'sandbox') {
-
-            // Mock PPRest Caller if mode set to mock
-            $this->mockPPRestCall = $this->getMockBuilder('\PayPal\Transport\PPRestCall')
-                ->disableOriginalConstructor()
-                ->getMock();
-
-            $this->mockPPRestCall->expects($this->any())
-                ->method('execute')
-                ->will($this->returnValue(
-                    $this->response
-                ));
-        }
+        Setup::SetUpForFunctionalTests($this);
     }
 
 

@@ -15,7 +15,7 @@ use PayPal\Common\PPModel;
  * @property string last_name
  * @property string business_name
  * @property \PayPal\Api\Phone phone
- * @property \PayPal\Api\Address address
+ * @property \PayPal\Api\InvoiceAddress address
  */
 class ShippingInfo extends PPModel
 {
@@ -188,7 +188,7 @@ class ShippingInfo extends PPModel
     /**
      * Address of the invoice recipient.
      *
-     * @param \PayPal\Api\Address $address
+     * @param \PayPal\Api\InvoiceAddress $address
      * 
      * @return $this
      */
@@ -201,7 +201,7 @@ class ShippingInfo extends PPModel
     /**
      * Address of the invoice recipient.
      *
-     * @return \PayPal\Api\Address
+     * @return \PayPal\Api\InvoiceAddress
      */
     public function getAddress()
     {

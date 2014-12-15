@@ -49,8 +49,8 @@ The result would be as shown below:
 
 The sample comes pre-configured with a test account but in case you need to try them against your account, you must
 
-   * Obtain your client id and client secret from the developer portal
-   * Update the bootstrap.php file with your new client id and secret.
+   * Obtain your client id and client secret from the [developer portal](https://developer.paypal.com/webapps/developer/applications/myapps)
+   * Update the [bootstrap.php](https://github.com/paypal/PayPal-PHP-SDK/blob/master/sample/bootstrap.php#L29) file with your new client id and secret.
 
 #### More Help
 

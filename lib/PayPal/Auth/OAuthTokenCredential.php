@@ -2,6 +2,8 @@
 
 namespace PayPal\Auth;
 
+use PayPal\Cache\AuthorizationCache;
+use PayPal\Common\PPModel;
 use PayPal\Common\PPUserAgent;
 use PayPal\Common\ResourceModel;
 use PayPal\Core\PPConstants;
@@ -10,12 +12,15 @@ use PayPal\Core\PPHttpConnection;
 use PayPal\Core\PPLoggingManager;
 use PayPal\Exception\PPConfigurationException;
 use PayPal\Rest\RestHandler;
+use PayPal\Validation\JsonValidator;
 
 /**
  * Class OAuthTokenCredential
  */
 class OAuthTokenCredential extends ResourceModel
 {
+
+    public static $CACHE_PATH = '/../../../var/auth.cache';
     /**
      * Private Variable
      *
@@ -107,6 +112,15 @@ class OAuthTokenCredential extends ResourceModel
      */
     public function getAccessToken($config)
     {
+        // Check for persisted data first
+        $token = AuthorizationCache::pull($config, $this->clientId);
+        if ($token) {
+            // We found it
+            $this->accessToken = $token['accessToken'];
+            $this->tokenCreateTime = $token['tokenCreateTime'];
+            $this->tokenExpiresIn = $token['tokenExpiresIn'];
+        }
+
         // Check if Access Token is not null and has not expired.
         // The API returns expiry time as a relative time unit
         // We use a buffer time when checking for token expiry to account
@@ -121,11 +135,14 @@ class OAuthTokenCredential extends ResourceModel
 
         // If accessToken is Null, obtain a new token
         if ($this->accessToken == null) {
+            // Get a new one by making calls to API
             $this->updateAccessToken($config);
+            AuthorizationCache::push($config, $this->clientId, $this->accessToken, $this->tokenCreateTime, $this->tokenExpiresIn);
         }
 
         return $this->accessToken;
     }
+
 
     /**
      * Get a Refresh Token from Authorization Code

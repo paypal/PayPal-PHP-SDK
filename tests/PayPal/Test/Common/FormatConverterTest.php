@@ -12,7 +12,8 @@ use PayPal\Test\Validation\NumericValidatorTest;
 class FormatConverterTest extends \PHPUnit_Framework_TestCase
 {
 
-    public static function classMethodListProvider(){
+    public static function classMethodListProvider()
+    {
         return array(
             array(new Item(), 'Price'),
             array(new Item(), 'Tax'),
@@ -26,6 +27,14 @@ class FormatConverterTest extends \PHPUnit_Framework_TestCase
             array(new Details(), 'Insurance'),
             array(new Details(), 'HandlingFee'),
             array(new Details(), 'GiftWrap'),
+        );
+    }
+
+    public static function CurrencyListWithNoDecimalsProvider()
+    {
+        return array(
+            array('JPY'),
+            array('TWD')
         );
     }
 
@@ -61,6 +70,44 @@ class FormatConverterTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($expected, $result);
 
     }
+
+    /**
+     * @dataProvider CurrencyListWithNoDecimalsProvider
+     */
+    public function testPriceWithNoDecimalCurrencyInvalid($input)
+    {
+        try {
+            FormatConverter::formatToPrice("1.234", $input);
+        } catch (\InvalidArgumentException $ex) {
+            $this->assertContains("value cannot have decimals for", $ex->getMessage());
+        }
+    }
+
+    /**
+     * @dataProvider CurrencyListWithNoDecimalsProvider
+     */
+    public function testPriceWithNoDecimalCurrencyValid($input)
+    {
+        $result = FormatConverter::formatToPrice("1.0000000", $input);
+        $this->assertEquals("1", $result);
+    }
+
+    /**
+     *
+     * @dataProvider \PayPal\Test\Validation\NumericValidatorTest::positiveProvider
+     */
+    public function testFormatToNumber($input, $expected)
+    {
+        $result = FormatConverter::formatToNumber($input);
+        $this->assertEquals($expected, $result);
+    }
+
+    public function testFormatToNumberDecimals()
+    {
+        $result = FormatConverter::formatToNumber("0.0", 4);
+        $this->assertEquals("0.0000", $result);
+    }
+
 
     public function testFormat()
     {

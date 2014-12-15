@@ -28,7 +28,7 @@ class Cost extends PPModel
     public function setPercent($percent)
     {
         NumericValidator::validate($percent, "Percent");
-        $percent = FormatConverter::formatToTwoDecimalPlaces($percent);
+        $percent = FormatConverter::formatToNumber($percent);
         $this->percent = $percent;
         return $this;
     }

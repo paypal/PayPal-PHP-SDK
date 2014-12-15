@@ -1,7 +1,10 @@
 <?php
 // #Execute Payment Sample
-// This sample shows how you can complete
-// a payment that has been approved by
+// This is the second step required to complete
+// PayPal checkout. Once user completes the payment, paypal
+// redirects the browser to "redirectUrl" provided in the request.
+// This sample will show you how to execute the payment
+// that has been approved by
 // the buyer by logging into paypal site.
 // You can optionally update transaction
 // information by passing in one or more transactions.
@@ -12,6 +15,8 @@ use PayPal\Api\ExecutePayment;
 use PayPal\Api\Payment;
 use PayPal\Api\PaymentExecution;
 
+// ### Approval Status
+// Determine if the user approved the payment or not
 if (isset($_GET['success']) && $_GET['success'] == 'true') {
 
     // Get the payment Object by passing paymentId
@@ -20,6 +25,7 @@ if (isset($_GET['success']) && $_GET['success'] == 'true') {
     $paymentId = $_GET['paymentId'];
     $payment = Payment::get($paymentId, $apiContext);
 
+    // ### Payment Execute
     // PaymentExecution object includes information necessary
     // to execute a PayPal account payment.
     // The payer_id is added to the request query parameters
@@ -27,11 +33,23 @@ if (isset($_GET['success']) && $_GET['success'] == 'true') {
     $execution = new PaymentExecution();
     $execution->setPayerId($_GET['PayerID']);
 
-    //Execute the payment
+    // Execute the payment
     // (See bootstrap.php for more on `ApiContext`)
     $result = $payment->execute($execution, $apiContext);
 
     ResultPrinter::printResult("Executed Payment", "Payment", $payment->getId(), $execution, $result);
+
+    try {
+        $payment = Payment::get($paymentId, $apiContext);
+    } catch (Exception $ex) {
+        ResultPrinter::printError("Get Payment", "Payment", null, null, $ex);
+        exit(1);
+    }
+
+    ResultPrinter::printResult("Get Payment", "Payment", $payment->getId(), null, $payment);
+
+    return $payment;
+
 
 } else {
     ResultPrinter::printResult("User Cancelled the Approval", null);

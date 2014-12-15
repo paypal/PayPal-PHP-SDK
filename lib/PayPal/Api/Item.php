@@ -113,7 +113,7 @@ class Item extends PPModel
     {
 
         NumericValidator::validate($price, "Price");
-        $price = FormatConverter::formatToTwoDecimalPlaces($price);
+        $price = FormatConverter::formatToPrice($price, $this->getCurrency());
         $this->price = $price;
         return $this;
     }
@@ -139,7 +139,7 @@ class Item extends PPModel
     public function setTax($tax)
     {
         NumericValidator::validate($tax, "Tax");
-        $tax = FormatConverter::formatToTwoDecimalPlaces($tax);
+        $tax = FormatConverter::formatToPrice($tax, $this->getCurrency());
         $this->tax = $tax;
         return $this;
     }

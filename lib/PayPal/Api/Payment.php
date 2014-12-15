@@ -23,7 +23,7 @@ use PayPal\Validation\ArgumentValidator;
  * @property string intent
  * @property \PayPal\Api\Payer payer
  * @property \PayPal\Api\object cart
- * @property \PayPal\Api\Transaction transactions
+ * @property \PayPal\Api\Transaction[] transactions
  * @property string state
  * @property \PayPal\Api\RedirectUrls redirect_urls
  * @property \PayPal\Api\Links links

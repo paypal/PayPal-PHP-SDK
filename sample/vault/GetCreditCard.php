@@ -8,6 +8,7 @@
 // the process of retrieving a saved CreditCard
 /** @var CreditCard $card */
 $card = require 'CreateCreditCard.php';
+$id = $card->getId();
 
 use PayPal\Api\CreditCard;
 

@@ -15,7 +15,7 @@ use PayPal\Common\PPModel;
  * @property string first_name
  * @property string last_name
  * @property string business_name
- * @property \PayPal\Api\Address address
+ * @property \PayPal\Api\InvoiceAddress address
  * @property string language
  * @property string additional_info
  * @property string notification_channel
@@ -193,7 +193,7 @@ class BillingInfo extends PPModel
     /**
      * Address of the invoice recipient.
      *
-     * @param \PayPal\Api\Address $address
+     * @param \PayPal\Api\InvoiceAddress $address
      * 
      * @return $this
      */
@@ -206,7 +206,7 @@ class BillingInfo extends PPModel
     /**
      * Address of the invoice recipient.
      *
-     * @return \PayPal\Api\Address
+     * @return \PayPal\Api\InvoiceAddress
      */
     public function getAddress()
     {
