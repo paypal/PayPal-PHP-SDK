@@ -33,7 +33,7 @@
          "id":"8PT597110X687430LKGECATA",
          "create_time":"2013-06-25T21:41:28Z",
          "resource_type":"authorization",
-         "trigger_event":"PAYMENT.AUTHORIZATION.CREATED",
+         "event_type":"PAYMENT.AUTHORIZATION.CREATED",
          "summary":"A payment authorization was created",
          "resource":{
             "id":"2DC87612EK520411B",

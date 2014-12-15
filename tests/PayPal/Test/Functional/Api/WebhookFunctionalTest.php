@@ -12,7 +12,11 @@ use PayPal\Api\Sale;
 use PayPal\Api\Webhook;
 use PayPal\Api\WebhookEvent;
 use PayPal\Api\WebhookEventList;
+use PayPal\Api\WebhookEventType;
+use PayPal\Api\WebhookEventTypeList;
+use PayPal\Api\WebhookList;
 use PayPal\Common\PPModel;
+use PayPal\Exception\PPConnectionException;
 use PayPal\Rest\ApiContext;
 use PayPal\Rest\IResource;
 use PayPal\Api\CreateProfileResponse;
@@ -62,9 +66,28 @@ class WebhookFunctionalTest extends \PHPUnit_Framework_TestCase
         $obj = new Webhook($request);
         // Adding a random url request to make it unique
         $obj->setUrl($obj->getUrl() . '?rand=' . uniqid());
-        $result = $obj->create(null, $this->mockPPRestCall);
+        $result = null;
+        try {
+            $result = $obj->create(null, $this->mockPPRestCall);
+        } catch (PPConnectionException $ex) {
+            $data = $ex->getData();
+            if (strpos($data,'WEBHOOK_NUMBER_LIMIT_EXCEEDED') !== false) {
+                $this->deleteAll();
+                $result = $obj->create(null, $this->mockPPRestCall);
+            } else {
+                $this->fail($ex->getMessage());
+            }
+        }
         $this->assertNotNull($result);
         return $result;
+    }
+
+    public function deleteAll()
+    {
+        $result = Webhook::getAll(null, $this->mockPPRestCall);
+        foreach ($result->getWebhooks() as $webhookObject) {
+            $webhookObject->delete(null, $this->mockPPRestCall);
+        }
     }
 
     /**
@@ -84,6 +107,20 @@ class WebhookFunctionalTest extends \PHPUnit_Framework_TestCase
     /**
      * @depends testGet
      * @param $webhook Webhook
+     * @return WebhookEventTypeList
+     */
+    public function testGetSubscribedEventTypes($webhook)
+    {
+        $result = WebhookEventType::subscribedEventTypes($webhook->getId(), null, $this->mockPPRestCall);
+        $this->assertNotNull($result);
+        $this->assertEquals(2, sizeof($result->getEventTypes()));
+        return $result;
+    }
+
+    /**
+     * @depends testGet
+     * @param $webhook Webhook
+     * @return WebhookList
      */
     public function testGetAll($webhook)
     {
@@ -100,7 +137,7 @@ class WebhookFunctionalTest extends \PHPUnit_Framework_TestCase
         }
         $this->assertTrue($found, "The Created Web Profile was not found in the get list");
         $this->assertEquals($webhook->getId(), $foundObject->getId());
-
+        return $result;
     }
 
     /**

@@ -6,7 +6,8 @@
 
 /** @var Authorization $authorization */
 $authorization = require 'AuthorizePayment.php';
-
+// Replace $authorizationid with any static Id you might already have. It will do a void on it
+$authorizationId = '1BF65516U6866543H'; // $authorization->getId();
 use PayPal\Api\Authorization;
 
 
@@ -17,7 +18,7 @@ use PayPal\Api\Authorization;
 try {
 
     // Lookup the authorization
-    $authorization = Authorization::get($authorization->getId(), $apiContext);
+    $authorization = Authorization::get($authorizationId, $apiContext);
 
     // Void the authorization
     $voidedAuth = $authorization->void($apiContext);

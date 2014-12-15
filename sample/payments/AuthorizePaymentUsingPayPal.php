@@ -1,9 +1,11 @@
 <?php
 
-// # Create Payment using PayPal as payment method
+// # Authorize Payment using PayPal as payment method
 // This sample code demonstrates how you can process a 
 // PayPal Account based Payment.
 // API used: /v1/payments/payment
+// As you can see, there is only one difference between creating a payment using PayPal with sale or authorize as intent.
+// You need to set the proper intent in the request, and the remaining data would be the same
 
 require __DIR__ . '/../bootstrap.php';
 use PayPal\Api\Amount;
@@ -79,7 +81,7 @@ $redirectUrls->setReturnUrl("$baseUrl/ExecutePayment.php?success=true")
 // A Payment Resource; create one using
 // the above types and intent set to 'sale'
 $payment = new Payment();
-$payment->setIntent("sale")
+$payment->setIntent("authorize")
     ->setPayer($payer)
     ->setRedirectUrls($redirectUrls)
     ->setTransactions(array($transaction));
@@ -98,7 +100,7 @@ $request = clone $payment;
 try {
     $payment->create($apiContext);
 } catch (Exception $ex) {
-    ResultPrinter::printError("Created Payment Using PayPal. Please visit the URL to Approve.", "Payment", null, $request, $ex);
+    ResultPrinter::printError("Created Payment Authorization Using PayPal. Please visit the URL to Authorize.", "Payment", null, $request, $ex);
     exit(1);
 }
 
@@ -113,6 +115,6 @@ foreach ($payment->getLinks() as $link) {
     }
 }
 
-ResultPrinter::printResult("Created Payment Using PayPal. Please visit the URL to Approve.", "Payment", "<a href='$approvalUrl' >$approvalUrl</a>", $request, $payment);
+ResultPrinter::printResult("Created Payment Authorization Using PayPal. Please visit the URL to Authorize.", "Payment", "<a href='$approvalUrl' >$approvalUrl</a>", $request, $payment);
 
 return $payment;

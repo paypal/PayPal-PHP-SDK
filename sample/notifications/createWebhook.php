@@ -25,6 +25,10 @@ $webhook = new \PayPal\Api\Webhook();
 //      }
 // Fill up the basic information that is required for the webhook
 // The URL should be actually accessible over the internet. Having a localhost here would not work.
+// #### There is an open source tool http://requestb.in/ that allows you to receive any web requests to a url given there.
+// #### NOTE: Please note that you need an https url for paypal webhooks. You can however override the url with https, and accept
+// any warnings your browser might show you. Also, please note that this is entirely for demo purposes, and you should not
+// be using this in production
 $webhook->setUrl("https://requestb.in/10ujt3c1?uniqid=" . uniqid());
 
 // # Event Types
