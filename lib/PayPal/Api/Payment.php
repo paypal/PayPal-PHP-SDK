@@ -439,6 +439,30 @@ class Payment extends ResourceModel
     }
 
     /**
+     * Partially update a payment resource by by passing the payment_id in the request URI. In addition, pass a patch_request_object in the body of the request JSON that specifies the operation to perform, path of the target location, and new value to apply. Please note that it is not possible to use patch after execute has been called.
+     *
+     * @param PatchRequest $patchRequest
+     * @param ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
+     * @param PPRestCall $restCall is the Rest Call Service that is used to make rest calls
+     * @return boolean
+     */
+    public function update($patchRequest, $apiContext = null, $restCall = null)
+    {
+        ArgumentValidator::validate($this->getId(), "Id");
+        ArgumentValidator::validate($patchRequest, 'patchRequest');
+        $payLoad = $patchRequest->toJSON();
+        self::executeCall(
+            "/v1/payments/payment/{$this->getId()}",
+            "PATCH",
+            $payLoad,
+            null,
+            $apiContext,
+            $restCall
+        );
+        return true;
+    }
+
+    /**
      * Executes the payment (after approved by the Payer) associated with this resource when the payment method is PayPal.
      *
      * @param PaymentExecution $paymentExecution
