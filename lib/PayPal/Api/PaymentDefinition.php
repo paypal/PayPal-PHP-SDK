@@ -2,7 +2,7 @@
 
 namespace PayPal\Api;
 
-use PayPal\Common\PPModel;
+use PayPal\Common\PayPalModel;
 
 /**
  * Class PaymentDefinition
@@ -20,7 +20,7 @@ use PayPal\Common\PPModel;
  * @property \PayPal\Api\Currency amount
  * @property \PayPal\Api\ChargeModel[] charge_models
  */
-class PaymentDefinition extends PPModel
+class PaymentDefinition extends PayPalModel
 {
     /**
      * Identifier of the payment_definition. 128 characters max.

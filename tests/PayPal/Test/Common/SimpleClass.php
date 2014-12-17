@@ -1,9 +1,9 @@
 <?php
 namespace PayPal\Test\Common;
 
-use PayPal\Common\PPModel;
+use PayPal\Common\PayPalModel;
 
-class SimpleClass extends PPModel
+class SimpleClass extends PayPalModel
 {
 
     public function setName($name)

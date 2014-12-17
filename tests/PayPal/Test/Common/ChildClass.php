@@ -1,7 +1,7 @@
 <?php
 namespace PayPal\Test\Common;
 
-use PayPal\Common\PPModel;
+use PayPal\Common\PayPalModel;
 
 class ChildClass extends SimpleClass
 {

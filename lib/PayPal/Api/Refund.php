@@ -2,10 +2,10 @@
 
 namespace PayPal\Api;
 
-use PayPal\Common\PPModel;
+use PayPal\Common\PayPalModel;
 use PayPal\Rest\ApiContext;
 use PayPal\Rest\IResource;
-use PayPal\Transport\PPRestCall;
+use PayPal\Transport\PayPalRestCall;
 use PayPal\Validation\ArgumentValidator;
 
 /**
@@ -26,7 +26,7 @@ use PayPal\Validation\ArgumentValidator;
  * @property string description
  * @property \PayPal\Api\Links links
  */
-class Refund extends PPModel implements IResource
+class Refund extends PayPalModel implements IResource
 {
     /**
      * OAuth Credentials to use for this call
@@ -426,8 +426,8 @@ class Refund extends PPModel implements IResource
         if ($apiContext == null) {
             $apiContext = new ApiContext(self::$credential);
         }
-        $call = new PPRestCall($apiContext);
-        $json = $call->execute(array('PayPal\Rest\RestHandler'), "/v1/payments/refund/$refundId", "GET", $payLoad);
+        $call = new PayPalRestCall($apiContext);
+        $json = $call->execute(array('PayPal\Handler\RestHandler'), "/v1/payments/refund/$refundId", "GET", $payLoad);
         $ret = new Refund();
         $ret->fromJson($json);
         return $ret;

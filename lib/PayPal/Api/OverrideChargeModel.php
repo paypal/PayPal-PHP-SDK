@@ -2,7 +2,7 @@
 
 namespace PayPal\Api;
 
-use PayPal\Common\PPModel;
+use PayPal\Common\PayPalModel;
 
 /**
  * Class OverrideChargeModel
@@ -14,7 +14,7 @@ use PayPal\Common\PPModel;
  * @property string charge_id
  * @property \PayPal\Api\Currency amount
  */
-class OverrideChargeModel extends PPModel
+class OverrideChargeModel extends PayPalModel
 {
     /**
      * ID of charge model.

@@ -2,9 +2,9 @@
 
 namespace PayPal\Api;
 
-use PayPal\Common\PPModel;
+use PayPal\Common\PayPalModel;
 use PayPal\Validation\NumericValidator;
-use PayPal\Common\FormatConverter;
+use PayPal\Converter\FormatConverter;
 
 /**
  * Class Cost
@@ -16,7 +16,7 @@ use PayPal\Common\FormatConverter;
  * @property string percent
  * @property \PayPal\Api\Currency amount
  */
-class Cost extends PPModel
+class Cost extends PayPalModel
 {
     /**
      * Cost in percent. Range of 0 to 100.

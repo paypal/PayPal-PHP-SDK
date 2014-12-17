@@ -2,7 +2,7 @@
 
 namespace PayPal\Cache;
 
-use PayPal\Core\PPConfigManager;
+use PayPal\Core\PayPalConfigManager;
 use PayPal\Validation\JsonValidator;
 
 abstract class AuthorizationCache
@@ -82,7 +82,7 @@ abstract class AuthorizationCache
      */
     public static function isEnabled($config)
     {
-        $config = ($config && is_array($config)) ? $config : PPConfigManager::getInstance()->getConfigHashmap();
+        $config = ($config && is_array($config)) ? $config : PayPalConfigManager::getInstance()->getConfigHashmap();
         if (array_key_exists("cache.enabled", $config)) {
             $value = $config['cache.enabled'];
             return (trim($value) == 'true') ?  true : false;

@@ -2,11 +2,11 @@
 
 namespace PayPal\Api;
 
-use PayPal\Common\ResourceModel;
+use PayPal\Common\PayPalResourceModel;
 use PayPal\Validation\ArgumentValidator;
 use PayPal\Api\WebhookEventList;
 use PayPal\Rest\ApiContext;
-use PayPal\Transport\PPRestCall;
+use PayPal\Transport\PayPalRestCall;
 
 /**
  * Class WebhookEventType
@@ -18,7 +18,7 @@ use PayPal\Transport\PPRestCall;
  * @property string name
  * @property string description
  */
-class WebhookEventType extends ResourceModel
+class WebhookEventType extends PayPalResourceModel
 {
     /**
      * Unique event-type name.
@@ -71,7 +71,7 @@ class WebhookEventType extends ResourceModel
      *
      * @param string $webhookId
      * @param ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
-     * @param PPRestCall $restCall is the Rest Call Service that is used to make rest calls
+     * @param PayPalRestCall $restCall is the Rest Call Service that is used to make rest calls
      * @return WebhookEventTypeList
      */
     public static function subscribedEventTypes($webhookId, $apiContext = null, $restCall = null)
@@ -95,7 +95,7 @@ class WebhookEventType extends ResourceModel
      * Retrieves the master list of available Webhooks events-types resources for any webhook to subscribe to.
      *
      * @param ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
-     * @param PPRestCall $restCall is the Rest Call Service that is used to make rest calls
+     * @param PayPalRestCall $restCall is the Rest Call Service that is used to make rest calls
      * @return WebhookEventTypeList
      */
     public static function availableEventTypes($apiContext = null, $restCall = null)

@@ -3,12 +3,12 @@
 namespace PayPal\Test\Functional\Api;
 
 use PayPal\Api\Patch;
-use PayPal\Common\PPModel;
+use PayPal\Common\PayPalModel;
 use PayPal\Rest\ApiContext;
 use PayPal\Rest\IResource;
 use PayPal\Api\CreateProfileResponse;
 use PayPal\Test\Functional\Setup;
-use PayPal\Transport\PPRestCall;
+use PayPal\Transport\PayPalRestCall;
 use PayPal\Api\WebProfile;
 
 /**
@@ -23,7 +23,7 @@ class WebProfileFunctionalTest extends \PHPUnit_Framework_TestCase
 
     public $response;
 
-    public $mockPPRestCall;
+    public $mockPayPalRestCall;
 
     public function setUp()
     {
@@ -53,7 +53,7 @@ class WebProfileFunctionalTest extends \PHPUnit_Framework_TestCase
         $request = $this->operation['request']['body'];
         $obj = new WebProfile($request);
         $obj->setName(uniqid());
-        $result = $obj->create(null, $this->mockPPRestCall);
+        $result = $obj->create(null, $this->mockPayPalRestCall);
         $this->assertNotNull($result);
         return $result;
     }
@@ -65,7 +65,7 @@ class WebProfileFunctionalTest extends \PHPUnit_Framework_TestCase
      */
     public function testGet($createProfileResponse)
     {
-        $result = WebProfile::get($createProfileResponse->getId(), null, $this->mockPPRestCall);
+        $result = WebProfile::get($createProfileResponse->getId(), null, $this->mockPayPalRestCall);
         $this->assertNotNull($result);
         $this->assertEquals($createProfileResponse->getId(), $result->getId());
         $this->assertEquals($this->operation['response']['body']['presentation']['logo_image'], $result->getPresentation()->getLogoImage());
@@ -82,7 +82,7 @@ class WebProfileFunctionalTest extends \PHPUnit_Framework_TestCase
      */
     public function testGetList($webProfile)
     {
-        $result = WebProfile::get_list(null, $this->mockPPRestCall);
+        $result = WebProfile::get_list(null, $this->mockPayPalRestCall);
         $this->assertNotNull($result);
         $found = false;
         $foundObject = null;
@@ -110,7 +110,7 @@ class WebProfileFunctionalTest extends \PHPUnit_Framework_TestCase
         $boolValue = $webProfile->getInputFields()->getNoShipping();
         $newValue = ($boolValue + 1) % 2;
         $webProfile->getInputFields()->setNoShipping($newValue);
-        $result = $webProfile->update(null, $this->mockPPRestCall);
+        $result = $webProfile->update(null, $this->mockPayPalRestCall);
         $this->assertNotNull($result);
         $this->assertEquals($webProfile->getInputFields()->getNoShipping(), $newValue);
     }
@@ -132,7 +132,7 @@ class WebProfileFunctionalTest extends \PHPUnit_Framework_TestCase
             "path": "/flow_config/landing_page_type"
 
           }');
-        $result = $webProfile->partial_update($patches, null, $this->mockPPRestCall);
+        $result = $webProfile->partial_update($patches, null, $this->mockPayPalRestCall);
         $this->assertTrue($result);
     }
 
@@ -144,7 +144,7 @@ class WebProfileFunctionalTest extends \PHPUnit_Framework_TestCase
     {
         $webProfile = new WebProfile();
         $webProfile->setId($createProfileResponse->getId());
-        $result = $webProfile->delete(null, $this->mockPPRestCall);
+        $result = $webProfile->delete(null, $this->mockPayPalRestCall);
         $this->assertTrue($result);
     }
 

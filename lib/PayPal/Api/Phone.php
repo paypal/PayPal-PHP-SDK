@@ -2,7 +2,7 @@
 
 namespace PayPal\Api;
 
-use PayPal\Common\PPModel;
+use PayPal\Common\PayPalModel;
 
 /**
  * Class Phone
@@ -15,7 +15,7 @@ use PayPal\Common\PPModel;
  * @property string national_number
  * @property string extension
  */
-class Phone extends PPModel
+class Phone extends PayPalModel
 {
     /**
      * Country code (in E.164 format). Assume length is n.

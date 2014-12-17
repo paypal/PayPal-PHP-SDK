@@ -51,7 +51,7 @@ $request = clone $webProfile;
 try {
     // Use this call to create a profile.
     $createProfileResponse = $webProfile->create($apiContext);
-} catch (\PayPal\Exception\PPConnectionException $ex) {
+} catch (\PayPal\Exception\PayPalConnectionException $ex) {
     ResultPrinter::printError("Created Web Profile", "Web Profile", null, $request, $ex);
     exit(1);
 }

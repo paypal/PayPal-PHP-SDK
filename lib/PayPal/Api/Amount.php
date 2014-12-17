@@ -2,10 +2,10 @@
 
 namespace PayPal\Api;
 
-use PayPal\Common\PPModel;
+use PayPal\Common\PayPalModel;
 use PayPal\Rest\ApiContext;
 use PayPal\Validation\NumericValidator;
-use PayPal\Common\FormatConverter;
+use PayPal\Converter\FormatConverter;
 
 /**
  * Class Amount
@@ -18,7 +18,7 @@ use PayPal\Common\FormatConverter;
  * @property string total
  * @property \PayPal\Api\Details details
  */
-class Amount extends PPModel
+class Amount extends PayPalModel
 {
     /**
      * 3 letter currency code

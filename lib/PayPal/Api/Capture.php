@@ -2,11 +2,11 @@
 
 namespace PayPal\Api;
 
-use PayPal\Common\PPModel;
+use PayPal\Common\PayPalModel;
 use PayPal\Rest\ApiContext;
 use PayPal\Rest\IResource;
 use PayPal\Api\Refund;
-use PayPal\Transport\PPRestCall;
+use PayPal\Transport\PayPalRestCall;
 use PayPal\Validation\ArgumentValidator;
 
 /**
@@ -25,7 +25,7 @@ use PayPal\Validation\ArgumentValidator;
  * @property string parent_payment
  * @property \PayPal\Api\Links links
  */
-class Capture extends PPModel implements IResource
+class Capture extends PayPalModel implements IResource
 {
     /**
      * OAuth Credentials to use for this call
@@ -352,8 +352,8 @@ class Capture extends PPModel implements IResource
         if ($apiContext == null) {
             $apiContext = new ApiContext(self::$credential);
         }
-        $call = new PPRestCall($apiContext);
-        $json = $call->execute(array('PayPal\Rest\RestHandler'), "/v1/payments/capture/$captureId", "GET", $payLoad);
+        $call = new PayPalRestCall($apiContext);
+        $json = $call->execute(array('PayPal\Handler\RestHandler'), "/v1/payments/capture/$captureId", "GET", $payLoad);
         $ret = new Capture();
         $ret->fromJson($json);
         return $ret;
@@ -375,8 +375,8 @@ class Capture extends PPModel implements IResource
         if ($apiContext == null) {
             $apiContext = new ApiContext(self::$credential);
         }
-        $call = new PPRestCall($apiContext);
-        $json = $call->execute(array('PayPal\Rest\RestHandler'), "/v1/payments/capture/{$this->getId()}/refund", "POST", $payLoad);
+        $call = new PayPalRestCall($apiContext);
+        $json = $call->execute(array('PayPal\Handler\RestHandler'), "/v1/payments/capture/{$this->getId()}/refund", "POST", $payLoad);
         $ret = new Refund();
         $ret->fromJson($json);
         return $ret;

@@ -2,7 +2,7 @@
 
 namespace PayPal\Api;
 
-use PayPal\Common\PPModel;
+use PayPal\Common\PayPalModel;
 use PayPal\Validation\UrlValidator;
 
 /**
@@ -23,7 +23,7 @@ use PayPal\Validation\UrlValidator;
  * @property string accepted_payment_type
  * @property string char_set
  */
-class MerchantPreferences extends PPModel
+class MerchantPreferences extends PayPalModel
 {
     /**
      * Identifier of the merchant_preferences. 128 characters max.

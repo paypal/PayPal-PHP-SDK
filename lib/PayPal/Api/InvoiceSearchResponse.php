@@ -2,7 +2,7 @@
 
 namespace PayPal\Api;
 
-use PayPal\Common\PPModel;
+use PayPal\Common\PayPalModel;
 
 /**
  * Class InvoiceSearchResponse
@@ -14,7 +14,7 @@ use PayPal\Common\PPModel;
  * @property int total_count
  * @property \PayPal\Api\Invoice[] invoices
  */
-class InvoiceSearchResponse extends PPModel
+class InvoiceSearchResponse extends PayPalModel
 {
     /**
      * Total number of invoices.

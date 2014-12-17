@@ -2,7 +2,7 @@
 
 namespace PayPal\Api;
 
-use PayPal\Common\PPModel;
+use PayPal\Common\PayPalModel;
 
 /**
  * Class PaymentCard
@@ -27,7 +27,7 @@ use PayPal\Common\PPModel;
  * @property string valid_until
  * @property \PayPal\Api\Links[] links
  */
-class PaymentCard extends PPModel
+class PaymentCard extends PayPalModel
 {
     /**
      * ID of the credit card being saved for later use.

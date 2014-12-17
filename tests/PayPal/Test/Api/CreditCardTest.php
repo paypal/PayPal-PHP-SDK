@@ -2,10 +2,10 @@
 
 namespace PayPal\Test\Api;
 
-use PayPal\Common\ResourceModel;
+use PayPal\Common\PayPalResourceModel;
 use PayPal\Validation\ArgumentValidator;
 use PayPal\Rest\ApiContext;
-use PayPal\Transport\PPRestCall;
+use PayPal\Transport\PayPalRestCall;
 use PayPal\Api\CreditCard;
 
 /**
@@ -192,17 +192,17 @@ class CreditCardTest extends \PHPUnit_Framework_TestCase
      */
     public function testCreate($obj, $mockApiContext)
     {
-        $mockPPRestCall = $this->getMockBuilder('\PayPal\Transport\PPRestCall')
+        $mockPayPalRestCall = $this->getMockBuilder('\PayPal\Transport\PayPalRestCall')
             ->disableOriginalConstructor()
             ->getMock();
 
-        $mockPPRestCall->expects($this->any())
+        $mockPayPalRestCall->expects($this->any())
             ->method('execute')
             ->will($this->returnValue(
                     self::getJson()
             ));
 
-        $result = $obj->create($mockApiContext, $mockPPRestCall);
+        $result = $obj->create($mockApiContext, $mockPayPalRestCall);
         $this->assertNotNull($result);
     }
     /**
@@ -211,17 +211,17 @@ class CreditCardTest extends \PHPUnit_Framework_TestCase
      */
     public function testGet($obj, $mockApiContext)
     {
-        $mockPPRestCall = $this->getMockBuilder('\PayPal\Transport\PPRestCall')
+        $mockPayPalRestCall = $this->getMockBuilder('\PayPal\Transport\PayPalRestCall')
             ->disableOriginalConstructor()
             ->getMock();
 
-        $mockPPRestCall->expects($this->any())
+        $mockPayPalRestCall->expects($this->any())
             ->method('execute')
             ->will($this->returnValue(
                     CreditCardTest::getJson()
             ));
 
-        $result = $obj->get("creditCardId", $mockApiContext, $mockPPRestCall);
+        $result = $obj->get("creditCardId", $mockApiContext, $mockPayPalRestCall);
         $this->assertNotNull($result);
     }
     /**
@@ -230,17 +230,17 @@ class CreditCardTest extends \PHPUnit_Framework_TestCase
      */
     public function testDelete($obj, $mockApiContext)
     {
-        $mockPPRestCall = $this->getMockBuilder('\PayPal\Transport\PPRestCall')
+        $mockPayPalRestCall = $this->getMockBuilder('\PayPal\Transport\PayPalRestCall')
             ->disableOriginalConstructor()
             ->getMock();
 
-        $mockPPRestCall->expects($this->any())
+        $mockPayPalRestCall->expects($this->any())
             ->method('execute')
             ->will($this->returnValue(
                     true
             ));
 
-        $result = $obj->delete($mockApiContext, $mockPPRestCall);
+        $result = $obj->delete($mockApiContext, $mockPayPalRestCall);
         $this->assertNotNull($result);
     }
     /**
@@ -249,17 +249,17 @@ class CreditCardTest extends \PHPUnit_Framework_TestCase
      */
     public function testUpdate($obj, $mockApiContext)
     {
-        $mockPPRestCall = $this->getMockBuilder('\PayPal\Transport\PPRestCall')
+        $mockPayPalRestCall = $this->getMockBuilder('\PayPal\Transport\PayPalRestCall')
             ->disableOriginalConstructor()
             ->getMock();
 
-        $mockPPRestCall->expects($this->any())
+        $mockPayPalRestCall->expects($this->any())
             ->method('execute')
             ->will($this->returnValue(
                     self::getJson()
             ));
 
-        $result = $obj->update($mockApiContext, $mockPPRestCall);
+        $result = $obj->update($mockApiContext, $mockPayPalRestCall);
         $this->assertNotNull($result);
     }
 

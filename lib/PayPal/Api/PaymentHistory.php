@@ -2,7 +2,7 @@
 
 namespace PayPal\Api;
 
-use PayPal\Common\PPModel;
+use PayPal\Common\PayPalModel;
 use PayPal\Rest\ApiContext;
 
 /**
@@ -16,7 +16,7 @@ use PayPal\Rest\ApiContext;
  * @property int count
  * @property string next_id
  */
-class PaymentHistory extends PPModel
+class PaymentHistory extends PayPalModel
 {
     /**
      * A list of Payment resources

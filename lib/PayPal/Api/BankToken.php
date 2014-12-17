@@ -2,7 +2,7 @@
 
 namespace PayPal\Api;
 
-use PayPal\Common\PPModel;
+use PayPal\Common\PayPalModel;
 
 /**
  * Class BankToken
@@ -15,7 +15,7 @@ use PayPal\Common\PPModel;
  * @property string external_customer_id
  * @property string mandate_reference_number
  */
-class BankToken extends PPModel
+class BankToken extends PayPalModel
 {
     /**
      * ID of a previously saved Bank resource using /vault/bank API.

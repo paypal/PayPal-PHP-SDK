@@ -2,7 +2,7 @@
 
 namespace PayPal\Api;
 
-use PayPal\Common\PPModel;
+use PayPal\Common\PayPalModel;
 
 /**
  * Class CreditCardToken
@@ -18,7 +18,7 @@ use PayPal\Common\PPModel;
  * @property int expire_month
  * @property int expire_year
  */
-class CreditCardToken extends PPModel
+class CreditCardToken extends PayPalModel
 {
     /**
      * ID of a previously saved Credit Card resource using /vault/credit-card API.

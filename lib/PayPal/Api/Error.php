@@ -2,7 +2,7 @@
 
 namespace PayPal\Api;
 
-use PayPal\Common\PPModel;
+use PayPal\Common\PayPalModel;
 
 /**
  * Class Error
@@ -18,7 +18,7 @@ use PayPal\Common\PPModel;
  * @property \PayPal\Api\ErrorDetails[] details
  * @property \PayPal\Api\Links[] links
  */
-class Error extends PPModel
+class Error extends PayPalModel
 {
     /**
      * Human readable, unique name of the error.

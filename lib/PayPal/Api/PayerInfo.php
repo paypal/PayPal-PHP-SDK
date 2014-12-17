@@ -2,7 +2,7 @@
 
 namespace PayPal\Api;
 
-use PayPal\Common\PPModel;
+use PayPal\Common\PayPalModel;
 
 /**
  * Class PayerInfo
@@ -25,7 +25,7 @@ use PayPal\Common\PPModel;
  * @property \PayPal\Api\Address billing_address
  * @property \PayPal\Api\ShippingAddress shipping_address
  */
-class PayerInfo extends PPModel
+class PayerInfo extends PayPalModel
 {
     /**
      * Email address representing the Payer.

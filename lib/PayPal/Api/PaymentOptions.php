@@ -2,7 +2,7 @@
 
 namespace PayPal\Api;
 
-use PayPal\Common\PPModel;
+use PayPal\Common\PayPalModel;
 use PayPal\Rest\ApiContext;
 
 /**
@@ -14,7 +14,7 @@ use PayPal\Rest\ApiContext;
  *
  * @property string allowed_payment_method
  */
-class PaymentOptions extends PPModel
+class PaymentOptions extends PayPalModel
 {
     /**
      * Payment method requested for this purchase unit

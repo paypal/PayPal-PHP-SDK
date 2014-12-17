@@ -2,7 +2,7 @@
 
 namespace PayPal\Api;
 
-use PayPal\Common\PPModel;
+use PayPal\Common\PayPalModel;
 
 /**
  * Class Presentation
@@ -15,7 +15,7 @@ use PayPal\Common\PPModel;
  * @property string logo_image
  * @property string locale_code
  */
-class Presentation extends PPModel
+class Presentation extends PayPalModel
 {
     /**
      * A label that overrides the business name in the PayPal account on the PayPal pages.

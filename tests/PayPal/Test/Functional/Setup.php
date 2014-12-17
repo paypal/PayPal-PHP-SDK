@@ -3,7 +3,7 @@
 namespace PayPal\Test\Functional;
 
 use PayPal\Auth\OAuthTokenCredential;
-use PayPal\Core\PPCredentialManager;
+use PayPal\Core\PayPalCredentialManager;
 use PayPal\Rest\ApiContext;
 
 class Setup
@@ -24,7 +24,7 @@ class Setup
             'log.LogLevel' => 'FINE',
             'validation.level' => 'warning'
         ));
-        PPCredentialManager::getInstance()->setCredentialObject(
+        PayPalCredentialManager::getInstance()->setCredentialObject(
             new OAuthTokenCredential(
                 "AYSq3RDGsmBLJE-otTkBtM-jBRd1TCQwFf9RGfwddNXWz0uFU9ztymylOhRS",
                 "EGnHDxD_qRPdaLdZz8iCr8N7_MzF-YHPTkjs6NKYQvQSBngp4PTTVWkPZRbL"
@@ -34,12 +34,12 @@ class Setup
         self::$mode = getenv('REST_MODE') ? getenv('REST_MODE') : 'mock';
         if (self::$mode != 'sandbox') {
 
-            // Mock PPRest Caller if mode set to mock
-            $test->mockPPRestCall = $test->getMockBuilder('\PayPal\Transport\PPRestCall')
+            // Mock PayPalRest Caller if mode set to mock
+            $test->mockPayPalRestCall = $test->getMockBuilder('\PayPal\Transport\PayPalRestCall')
                 ->disableOriginalConstructor()
                 ->getMock();
 
-            $test->mockPPRestCall->expects($test->any())
+            $test->mockPayPalRestCall->expects($test->any())
                 ->method('execute')
                 ->will($test->returnValue(
                     $test->response

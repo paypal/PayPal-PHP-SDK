@@ -2,7 +2,7 @@
 
 namespace PayPal\Api;
 
-use PayPal\Common\PPModel;
+use PayPal\Common\PayPalModel;
 use PayPal\Rest\ApiContext;
 
 /**
@@ -22,7 +22,7 @@ use PayPal\Rest\ApiContext;
  * @property \PayPal\Api\PaymentOptions payment_options
  * @property \PayPal\Api\ItemList item_list
  */
-class CartBase extends PPModel
+class CartBase extends PayPalModel
 {
     /**
      * Amount being collected.

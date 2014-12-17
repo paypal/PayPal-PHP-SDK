@@ -2,7 +2,7 @@
 
 namespace PayPal\Api;
 
-use PayPal\Common\PPModel;
+use PayPal\Common\PayPalModel;
 use PayPal\Validation\UrlValidator;
 
 /**
@@ -23,7 +23,7 @@ use PayPal\Validation\UrlValidator;
  * @property string last_sent_by
  * @property string payer_view_url
  */
-class Metadata extends PPModel
+class Metadata extends PayPalModel
 {
     /**
      * Date when the resource was created.

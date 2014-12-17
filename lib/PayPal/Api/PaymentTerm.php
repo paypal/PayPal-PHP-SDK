@@ -2,7 +2,7 @@
 
 namespace PayPal\Api;
 
-use PayPal\Common\PPModel;
+use PayPal\Common\PayPalModel;
 
 /**
  * Class PaymentTerm
@@ -14,7 +14,7 @@ use PayPal\Common\PPModel;
  * @property string term_type
  * @property string due_date
  */
-class PaymentTerm extends PPModel
+class PaymentTerm extends PayPalModel
 {
     /**
      * Terms by which the invoice payment is due.

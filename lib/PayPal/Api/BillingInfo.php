@@ -2,7 +2,7 @@
 
 namespace PayPal\Api;
 
-use PayPal\Common\PPModel;
+use PayPal\Common\PayPalModel;
 
 /**
  * Class BillingInfo
@@ -21,7 +21,7 @@ use PayPal\Common\PPModel;
  * @property string notification_channel
  * @property \PayPal\Api\Phone phone
  */
-class BillingInfo extends PPModel
+class BillingInfo extends PayPalModel
 {
     /**
      * Email address of the invoice recipient. 260 characters max.

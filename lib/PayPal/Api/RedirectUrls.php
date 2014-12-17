@@ -2,7 +2,7 @@
 
 namespace PayPal\Api;
 
-use PayPal\Common\PPModel;
+use PayPal\Common\PayPalModel;
 use PayPal\Rest\ApiContext;
 use PayPal\Validation\UrlValidator;
 
@@ -16,7 +16,7 @@ use PayPal\Validation\UrlValidator;
  * @property string return_url
  * @property string cancel_url
  */
-class RedirectUrls extends PPModel
+class RedirectUrls extends PayPalModel
 {
     /**
      * Url where the payer would be redirected to after approving the payment.

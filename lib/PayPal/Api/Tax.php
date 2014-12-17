@@ -2,7 +2,7 @@
 
 namespace PayPal\Api;
 
-use PayPal\Common\PPModel;
+use PayPal\Common\PayPalModel;
 
 /**
  * Class Tax
@@ -16,7 +16,7 @@ use PayPal\Common\PPModel;
  * @property \PayPal\Api\number percent
  * @property \PayPal\Api\Currency amount
  */
-class Tax extends PPModel
+class Tax extends PayPalModel
 {
     /**
      * Identifier of the resource.

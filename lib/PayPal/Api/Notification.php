@@ -2,7 +2,7 @@
 
 namespace PayPal\Api;
 
-use PayPal\Common\PPModel;
+use PayPal\Common\PayPalModel;
 
 /**
  * Class Notification
@@ -15,7 +15,7 @@ use PayPal\Common\PPModel;
  * @property string note
  * @property bool send_to_merchant
  */
-class Notification extends PPModel
+class Notification extends PayPalModel
 {
     /**
      * Subject of the notification.

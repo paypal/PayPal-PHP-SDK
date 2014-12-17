@@ -2,7 +2,7 @@
 
 namespace PayPal\Api;
 
-use PayPal\Common\PPModel;
+use PayPal\Common\PayPalModel;
 
 /**
  * Class PaymentDetail
@@ -18,7 +18,7 @@ use PayPal\Common\PPModel;
  * @property string method
  * @property string note
  */
-class PaymentDetail extends PPModel
+class PaymentDetail extends PayPalModel
 {
     /**
      * PayPal payment detail indicating whether payment was made in an invoicing flow via PayPal or externally. In the case of the mark-as-paid API, payment type is EXTERNAL and this is what is now supported. The PAYPAL value is provided for backward compatibility.

@@ -2,7 +2,7 @@
 
 namespace PayPal\Api;
 
-use PayPal\Common\PPModel;
+use PayPal\Common\PayPalModel;
 
 /**
  * Class Search
@@ -31,7 +31,7 @@ use PayPal\Common\PPModel;
  * @property \PayPal\Api\number page_size
  * @property bool total_count_required
  */
-class Search extends PPModel
+class Search extends PayPalModel
 {
     /**
      * Initial letters of the email address.

@@ -2,11 +2,11 @@
 
 namespace PayPal\Api;
 
-use PayPal\Common\ResourceModel;
+use PayPal\Common\PayPalResourceModel;
 use PayPal\Validation\ArgumentValidator;
 use PayPal\Api\CreateProfileResponse;
 use PayPal\Rest\ApiContext;
-use PayPal\Transport\PPRestCall;
+use PayPal\Transport\PayPalRestCall;
 
 /**
  * Class WebProfile
@@ -21,7 +21,7 @@ use PayPal\Transport\PPRestCall;
  * @property \PayPal\Api\InputFields input_fields
  * @property \PayPal\Api\Presentation presentation
  */
-class WebProfile extends ResourceModel
+class WebProfile extends PayPalResourceModel
 {
     /**
      * ID of the web experience profile.
@@ -197,7 +197,7 @@ class WebProfile extends ResourceModel
      * Create a web experience profile by passing the name of the profile and other profile details in the request JSON to the request URI.
      *
      * @param ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
-     * @param PPRestCall $restCall is the Rest Call Service that is used to make rest calls
+     * @param PayPalRestCall $restCall is the Rest Call Service that is used to make rest calls
      * @return CreateProfileResponse
      */
     public function create($apiContext = null, $restCall = null)
@@ -220,7 +220,7 @@ class WebProfile extends ResourceModel
      * Update a web experience profile by passing the ID of the profile to the request URI. In addition, pass the profile details in the request JSON. If your request does not include values for all profile detail fields, the previously set values for the omitted fields are removed by this operation.
      *
      * @param ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
-     * @param PPRestCall $restCall is the Rest Call Service that is used to make rest calls
+     * @param PayPalRestCall $restCall is the Rest Call Service that is used to make rest calls
      * @return bool
      */
     public function update($apiContext = null, $restCall = null)
@@ -243,7 +243,7 @@ class WebProfile extends ResourceModel
      *
      * @param Patch[] $patch
      * @param ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
-     * @param PPRestCall $restCall is the Rest Call Service that is used to make rest calls
+     * @param PayPalRestCall $restCall is the Rest Call Service that is used to make rest calls
      * @return bool
      */
     public function partial_update($patch, $apiContext = null, $restCall = null)
@@ -271,7 +271,7 @@ class WebProfile extends ResourceModel
      *
      * @param string $profileId
      * @param ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
-     * @param PPRestCall $restCall is the Rest Call Service that is used to make rest calls
+     * @param PayPalRestCall $restCall is the Rest Call Service that is used to make rest calls
      * @return WebProfile
      */
     public static function get($profileId, $apiContext = null, $restCall = null)
@@ -295,7 +295,7 @@ class WebProfile extends ResourceModel
      * Lists all web experience profiles that exist for a merchant (or subject).
      *
      * @param ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
-     * @param PPRestCall $restCall is the Rest Call Service that is used to make rest calls
+     * @param PayPalRestCall $restCall is the Rest Call Service that is used to make rest calls
      * @return WebProfile[]
      */
     public static function get_list($apiContext = null, $restCall = null)
@@ -316,7 +316,7 @@ class WebProfile extends ResourceModel
      * Delete an existing web experience profile by passing the profile ID to the request URI.
      *
      * @param ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
-     * @param PPRestCall $restCall is the Rest Call Service that is used to make rest calls
+     * @param PayPalRestCall $restCall is the Rest Call Service that is used to make rest calls
      * @return bool
      */
     public function delete($apiContext = null, $restCall = null)

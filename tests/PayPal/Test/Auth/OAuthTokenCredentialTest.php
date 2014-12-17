@@ -4,8 +4,8 @@
 
 use PayPal\Auth\OAuthTokenCredential;
 use PayPal\Test\Constants;
-use PayPal\Core\PPConfigManager;
-use PayPal\Exception\PPConnectionException;
+use PayPal\Core\PayPalConfigManager;
+use PayPal\Exception\PayPalConnectionException;
 
 class OAuthTokenCredentialTest extends PHPUnit_Framework_TestCase
 {
@@ -16,7 +16,7 @@ class OAuthTokenCredentialTest extends PHPUnit_Framework_TestCase
     public function testGetAccessToken()
     {
         $cred = new OAuthTokenCredential(Constants::CLIENT_ID, Constants::CLIENT_SECRET);
-        $config = PPConfigManager::getInstance()->getConfigHashmap();
+        $config = PayPalConfigManager::getInstance()->getConfigHashmap();
         $token = $cred->getAccessToken($config);
         $this->assertNotNull($token);
 
@@ -31,8 +31,8 @@ class OAuthTokenCredentialTest extends PHPUnit_Framework_TestCase
      */
     public function testInvalidCredentials()
     {
-        $this->setExpectedException('PayPal\Exception\PPConnectionException');
+        $this->setExpectedException('PayPal\Exception\PayPalConnectionException');
         $cred = new OAuthTokenCredential('dummy', 'secret');
-        $this->assertNull($cred->getAccessToken(PPConfigManager::getInstance()->getConfigHashmap()));
+        $this->assertNull($cred->getAccessToken(PayPalConfigManager::getInstance()->getConfigHashmap()));
     }
 }

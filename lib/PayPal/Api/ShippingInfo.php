@@ -2,7 +2,7 @@
 
 namespace PayPal\Api;
 
-use PayPal\Common\PPModel;
+use PayPal\Common\PayPalModel;
 
 /**
  * Class ShippingInfo
@@ -17,7 +17,7 @@ use PayPal\Common\PPModel;
  * @property \PayPal\Api\Phone phone
  * @property \PayPal\Api\InvoiceAddress address
  */
-class ShippingInfo extends PPModel
+class ShippingInfo extends PayPalModel
 {
     /**
      * First name of the invoice recipient. 30 characters max.

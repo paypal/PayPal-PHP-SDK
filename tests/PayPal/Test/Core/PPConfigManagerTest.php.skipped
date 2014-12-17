@@ -1,10 +1,10 @@
 <?php
-use PayPal\Core\PPConfigManager;
+use PayPal\Core\PayPalConfigManager;
 
 class PPConfigManagerTest extends \PHPUnit_Framework_TestCase
 {
     /**
-     * @var PPConfigManager
+     * @var PayPalConfigManager
      */
     protected $object;
 
@@ -14,7 +14,7 @@ class PPConfigManagerTest extends \PHPUnit_Framework_TestCase
      */
     protected function setUp()
     {
-        $this->object = new \ReflectionClass('PayPal\Core\PPConfigManager');
+        $this->object = new \ReflectionClass('PayPal\Core\PayPalConfigManager');
         runkit_constant_remove('PP_CONFIG_PATH');
     }
 
@@ -32,10 +32,10 @@ class PPConfigManagerTest extends \PHPUnit_Framework_TestCase
     public function testGetInstance()
     {
         define("PP_CONFIG_PATH", dirname(dirname(dirname(__DIR__))));
-        $this->object = PPConfigManager::getInstance();
+        $this->object = PayPalConfigManager::getInstance();
         $instance = $this->object->getInstance();
         $instance2 = $this->object->getInstance();
-        $this->assertTrue($instance instanceof PPConfigManager);
+        $this->assertTrue($instance instanceof PayPalConfigManager);
         $this->assertSame($instance, $instance2);
     }
 
@@ -43,7 +43,7 @@ class PPConfigManagerTest extends \PHPUnit_Framework_TestCase
     public function testGet()
     {
         define("PP_CONFIG_PATH", dirname(dirname(dirname(__DIR__))));
-        $this->object = PPConfigManager::getInstance();
+        $this->object = PayPalConfigManager::getInstance();
         $ret = $this->object->get('acct2');
         $this->assertConfiguration(
             array('acct2.ClientId' => 'TestClientId', 'acct2.ClientSecret' => 'TestClientSecret'),
@@ -57,7 +57,7 @@ class PPConfigManagerTest extends \PHPUnit_Framework_TestCase
     public function testGetIniPrefix()
     {
         define("PP_CONFIG_PATH", dirname(dirname(dirname(__DIR__))));
-        $this->object = PPConfigManager::getInstance();
+        $this->object = PayPalConfigManager::getInstance();
 
         $ret = $this->object->getIniPrefix();
         $this->assertContains('acct1', $ret);
@@ -71,10 +71,10 @@ class PPConfigManagerTest extends \PHPUnit_Framework_TestCase
     public function testConfigByDefault()
     {
         define("PP_CONFIG_PATH", dirname(dirname(dirname(__DIR__))));
-        $this->object = PPConfigManager::getInstance();
+        $this->object = PayPalConfigManager::getInstance();
 
         // Test file based config params and defaults
-        $config = PPConfigManager::getInstance()->getConfigHashmap();
+        $config = PayPalConfigManager::getInstance()->getConfigHashmap();
         $this->assertConfiguration(array('mode' => 'sandbox', 'http.ConnectionTimeOut' => '60'), $config);
     }
 
@@ -82,25 +82,25 @@ class PPConfigManagerTest extends \PHPUnit_Framework_TestCase
     public function testConfigByCustom()
     {
         define("PP_CONFIG_PATH", dirname(dirname(dirname(__DIR__))));
-        $this->object = PPConfigManager::getInstance();
+        $this->object = PayPalConfigManager::getInstance();
 
         // Test custom config params and defaults
-        $config = PPConfigManager::getInstance()->addConfigs(array('mode' => 'custom', 'http.ConnectionTimeOut' => 900))->getConfigHashmap();
+        $config = PayPalConfigManager::getInstance()->addConfigs(array('mode' => 'custom', 'http.ConnectionTimeOut' => 900))->getConfigHashmap();
         $this->assertConfiguration(array('mode' => 'custom', 'http.ConnectionTimeOut' => '900'), $config);
     }
 
 
     public function testConfigByFileAndCustom() {
         define("PP_CONFIG_PATH", __DIR__. '/non_existent/');
-        $this->object = PPConfigManager::getInstance();
+        $this->object = PayPalConfigManager::getInstance();
 
-        $config = PPConfigManager::getInstance()->getConfigHashmap();
+        $config = PayPalConfigManager::getInstance()->getConfigHashmap();
         $this->assertArrayHasKey('http.ConnectionTimeOut', $config);
         $this->assertEquals('30', $config['http.ConnectionTimeOut']);
         $this->assertEquals('5', $config['http.Retry']);
 
         //Add more configs
-        $config = PPConfigManager::getInstance()->addConfigs(array('http.Retry' => "10", 'mode' => 'sandbox'))->getConfigHashmap();
+        $config = PayPalConfigManager::getInstance()->addConfigs(array('http.Retry' => "10", 'mode' => 'sandbox'))->getConfigHashmap();
         $this->assertConfiguration(array('http.ConnectionTimeOut' => "30", 'http.Retry' => "10", 'mode' => 'sandbox'), $config);
     }
 

@@ -2,7 +2,7 @@
 
 namespace PayPal\Api;
 
-use PayPal\Common\PPModel;
+use PayPal\Common\PayPalModel;
 
 /**
  * Class Credit
@@ -15,7 +15,7 @@ use PayPal\Common\PPModel;
  * @property string type
  * @property string terms
  */
-class Credit extends PPModel
+class Credit extends PayPalModel
 {
     /**
      * Unique identifier of credit resource.

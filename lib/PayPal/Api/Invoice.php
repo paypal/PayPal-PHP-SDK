@@ -2,10 +2,10 @@
 
 namespace PayPal\Api;
 
-use PayPal\Common\ResourceModel;
+use PayPal\Common\PayPalResourceModel;
 use PayPal\Validation\ArgumentValidator;
 use PayPal\Rest\ApiContext;
-use PayPal\Transport\PPRestCall;
+use PayPal\Transport\PayPalRestCall;
 use PayPal\Validation\UrlValidator;
 
 /**
@@ -40,7 +40,7 @@ use PayPal\Validation\UrlValidator;
  * @property \PayPal\Api\Metadata metadata
  * @property string additional_data
  */
-class Invoice extends ResourceModel
+class Invoice extends PayPalResourceModel
 {
     /**
      * Unique invoice resource identifier.
@@ -1070,7 +1070,7 @@ class Invoice extends ResourceModel
      * Create a new invoice by passing the details for the invoice, including the merchant_info, to the request URI.
      *
      * @param ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
-     * @param PPRestCall $restCall is the Rest Call Service that is used to make rest calls
+     * @param PayPalRestCall $restCall is the Rest Call Service that is used to make rest calls
      * @return Invoice
      */
     public function create($apiContext = null, $restCall = null)
@@ -1093,7 +1093,7 @@ class Invoice extends ResourceModel
      *
      * @param Search $search
      * @param ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
-     * @param PPRestCall $restCall is the Rest Call Service that is used to make rest calls
+     * @param PayPalRestCall $restCall is the Rest Call Service that is used to make rest calls
      * @return InvoiceSearchResponse
      */
     public static function search($search, $apiContext = null, $restCall = null)
@@ -1117,7 +1117,7 @@ class Invoice extends ResourceModel
      * Send a specific invoice to its intended recipient by passing the invoice ID to the request URI. Optionally, you can specify whether to send the merchant an invoice update notification by using the notify_merchant query parameter. By default, notify_merchant is true.
      *
      * @param ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
-     * @param PPRestCall $restCall is the Rest Call Service that is used to make rest calls
+     * @param PayPalRestCall $restCall is the Rest Call Service that is used to make rest calls
      * @return bool
      */
     public function send($apiContext = null, $restCall = null)
@@ -1140,7 +1140,7 @@ class Invoice extends ResourceModel
      *
      * @param Notification $notification
      * @param ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
-     * @param PPRestCall $restCall is the Rest Call Service that is used to make rest calls
+     * @param PayPalRestCall $restCall is the Rest Call Service that is used to make rest calls
      * @return bool
      */
     public function remind($notification, $apiContext = null, $restCall = null)
@@ -1164,7 +1164,7 @@ class Invoice extends ResourceModel
      *
      * @param CancelNotification $cancelNotification
      * @param ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
-     * @param PPRestCall $restCall is the Rest Call Service that is used to make rest calls
+     * @param PayPalRestCall $restCall is the Rest Call Service that is used to make rest calls
      * @return bool
      */
     public function cancel($cancelNotification, $apiContext = null, $restCall = null)
@@ -1188,7 +1188,7 @@ class Invoice extends ResourceModel
      *
      * @param PaymentDetail $paymentDetail
      * @param ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
-     * @param PPRestCall $restCall is the Rest Call Service that is used to make rest calls
+     * @param PayPalRestCall $restCall is the Rest Call Service that is used to make rest calls
      * @return bool
      */
     public function recordPayment($paymentDetail, $apiContext = null, $restCall = null)
@@ -1212,7 +1212,7 @@ class Invoice extends ResourceModel
      *
      * @param RefundDetail $refundDetail
      * @param ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
-     * @param PPRestCall $restCall is the Rest Call Service that is used to make rest calls
+     * @param PayPalRestCall $restCall is the Rest Call Service that is used to make rest calls
      * @return bool
      */
     public function recordRefund($refundDetail, $apiContext = null, $restCall = null)
@@ -1236,7 +1236,7 @@ class Invoice extends ResourceModel
      *
      * @param string $invoiceId
      * @param ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
-     * @param PPRestCall $restCall is the Rest Call Service that is used to make rest calls
+     * @param PayPalRestCall $restCall is the Rest Call Service that is used to make rest calls
      * @return Invoice
      */
     public static function get($invoiceId, $apiContext = null, $restCall = null)
@@ -1261,7 +1261,7 @@ class Invoice extends ResourceModel
      *
      * @param array $params
      * @param ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
-     * @param PPRestCall $restCall is the Rest Call Service that is used to make rest calls
+     * @param PayPalRestCall $restCall is the Rest Call Service that is used to make rest calls
      * @return InvoiceSearchResponse
      */
     public static function getAll($params = array(), $apiContext = null, $restCall = null)
@@ -1294,7 +1294,7 @@ class Invoice extends ResourceModel
      * List some or all invoices for a merchant according to optional query string parameters specified.
      *
      * @param ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
-     * @param PPRestCall $restCall is the Rest Call Service that is used to make rest calls
+     * @param PayPalRestCall $restCall is the Rest Call Service that is used to make rest calls
      * @return InvoiceSearchResponse
      */
     public static function get_all($apiContext = null, $restCall = null)
@@ -1306,7 +1306,7 @@ class Invoice extends ResourceModel
      * Fully update an invoice by passing the invoice ID to the request URI. In addition, pass a complete invoice object in the request JSON. Partial updates are not supported.
      *
      * @param ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
-     * @param PPRestCall $restCall is the Rest Call Service that is used to make rest calls
+     * @param PayPalRestCall $restCall is the Rest Call Service that is used to make rest calls
      * @return Invoice
      */
     public function update($apiContext = null, $restCall = null)
@@ -1329,7 +1329,7 @@ class Invoice extends ResourceModel
      * Delete a particular invoice by passing the invoice ID to the request URI.
      *
      * @param ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
-     * @param PPRestCall $restCall is the Rest Call Service that is used to make rest calls
+     * @param PayPalRestCall $restCall is the Rest Call Service that is used to make rest calls
      * @return bool
      */
     public function delete($apiContext = null, $restCall = null)
@@ -1353,7 +1353,7 @@ class Invoice extends ResourceModel
      * @param array $params
      * @param string $invoiceId
      * @param ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
-     * @param PPRestCall $restCall is the Rest Call Service that is used to make rest calls
+     * @param PayPalRestCall $restCall is the Rest Call Service that is used to make rest calls
      * @return Image
      */
     public static function qrCode($invoiceId, $params = array(), $apiContext = null, $restCall = null)

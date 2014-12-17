@@ -2,7 +2,7 @@
 
 namespace PayPal\Test\Api;
 
-use PayPal\Common\PPModel;
+use PayPal\Common\PayPalModel;
 use PayPal\Api\InvoiceItem;
 
 /**

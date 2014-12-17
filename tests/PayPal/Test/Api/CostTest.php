@@ -2,8 +2,8 @@
 
 namespace PayPal\Test\Api;
 
-use PayPal\Common\PPModel;
-use PayPal\Common\FormatConverter;
+use PayPal\Common\PayPalModel;
+use PayPal\Converter\FormatConverter;
 use PayPal\Validation\NumericValidator;
 use PayPal\Api\Cost;
 

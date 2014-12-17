@@ -2,11 +2,11 @@
 
 namespace PayPal\Api;
 
-use PayPal\Common\PPModel;
+use PayPal\Common\PayPalModel;
 use PayPal\Rest\ApiContext;
 use PayPal\Rest\IResource;
 use PayPal\Api\Capture;
-use PayPal\Transport\PPRestCall;
+use PayPal\Transport\PayPalRestCall;
 use PayPal\Validation\ArgumentValidator;
 
 /**
@@ -29,7 +29,7 @@ use PayPal\Validation\ArgumentValidator;
  * @property string valid_until
  * @property \PayPal\Api\Links links
  */
-class Authorization extends PPModel implements IResource
+class Authorization extends PayPalModel implements IResource
 {
     /**
      * OAuth Credentials to use for this call
@@ -552,8 +552,8 @@ class Authorization extends PPModel implements IResource
         if ($apiContext == null) {
             $apiContext = new ApiContext(self::$credential);
         }
-        $call = new PPRestCall($apiContext);
-        $json = $call->execute(array('PayPal\Rest\RestHandler'), "/v1/payments/authorization/$authorizationId", "GET", $payLoad);
+        $call = new PayPalRestCall($apiContext);
+        $json = $call->execute(array('PayPal\Handler\RestHandler'), "/v1/payments/authorization/$authorizationId", "GET", $payLoad);
         $ret = new Authorization();
         $ret->fromJson($json);
         return $ret;
@@ -575,8 +575,8 @@ class Authorization extends PPModel implements IResource
         if ($apiContext == null) {
             $apiContext = new ApiContext(self::$credential);
         }
-        $call = new PPRestCall($apiContext);
-        $json = $call->execute(array('PayPal\Rest\RestHandler'), "/v1/payments/authorization/{$this->getId()}/capture", "POST", $payLoad);
+        $call = new PayPalRestCall($apiContext);
+        $json = $call->execute(array('PayPal\Handler\RestHandler'), "/v1/payments/authorization/{$this->getId()}/capture", "POST", $payLoad);
         $ret = new Capture();
         $ret->fromJson($json);
         return $ret;
@@ -596,8 +596,8 @@ class Authorization extends PPModel implements IResource
         if ($apiContext == null) {
             $apiContext = new ApiContext(self::$credential);
         }
-        $call = new PPRestCall($apiContext);
-        $json = $call->execute(array('PayPal\Rest\RestHandler'), "/v1/payments/authorization/{$this->getId()}/void", "POST", $payLoad);
+        $call = new PayPalRestCall($apiContext);
+        $json = $call->execute(array('PayPal\Handler\RestHandler'), "/v1/payments/authorization/{$this->getId()}/void", "POST", $payLoad);
         $this->fromJson($json);
         return $this;
     }
@@ -616,8 +616,8 @@ class Authorization extends PPModel implements IResource
         if ($apiContext == null) {
             $apiContext = new ApiContext(self::$credential);
         }
-        $call = new PPRestCall($apiContext);
-        $json = $call->execute(array('PayPal\Rest\RestHandler'), "/v1/payments/authorization/{$this->getId()}/reauthorize", "POST", $payLoad);
+        $call = new PayPalRestCall($apiContext);
+        $json = $call->execute(array('PayPal\Handler\RestHandler'), "/v1/payments/authorization/{$this->getId()}/reauthorize", "POST", $payLoad);
         $this->fromJson($json);
         return $this;
     }

@@ -2,12 +2,12 @@
 
 namespace PayPal\Api;
 
-use PayPal\Common\PPModel;
-use PayPal\Common\ResourceModel;
+use PayPal\Common\PayPalModel;
+use PayPal\Common\PayPalResourceModel;
 use PayPal\Validation\ArgumentValidator;
 use PayPal\Api\PlanList;
 use PayPal\Rest\ApiContext;
-use PayPal\Transport\PPRestCall;
+use PayPal\Transport\PayPalRestCall;
 
 /**
  * Class Plan
@@ -28,7 +28,7 @@ use PayPal\Transport\PPRestCall;
  * @property \PayPal\Api\MerchantPreferences merchant_preferences
  * @property \PayPal\Api\Links[] links
  */
-class Plan extends ResourceModel
+class Plan extends PayPalResourceModel
 {
     /**
      * Identifier of the billing plan. 128 characters max.
@@ -478,7 +478,7 @@ class Plan extends ResourceModel
      *
      * @param string $planId
      * @param ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
-     * @param PPRestCall $restCall is the Rest Call Service that is used to make rest calls
+     * @param PayPalRestCall $restCall is the Rest Call Service that is used to make rest calls
      * @return Plan
      */
     public static function get($planId, $apiContext = null, $restCall = null)
@@ -502,7 +502,7 @@ class Plan extends ResourceModel
      * Create a new billing plan by passing the details for the plan, including the plan name, description, and type, to the request URI.
      *
      * @param ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
-     * @param PPRestCall $restCall is the Rest Call Service that is used to make rest calls
+     * @param PayPalRestCall $restCall is the Rest Call Service that is used to make rest calls
      * @return Plan
      */
     public function create($apiContext = null, $restCall = null)
@@ -525,7 +525,7 @@ class Plan extends ResourceModel
      *
      * @param PatchRequest $patchRequest
      * @param ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
-     * @param PPRestCall $restCall is the Rest Call Service that is used to make rest calls
+     * @param PayPalRestCall $restCall is the Rest Call Service that is used to make rest calls
      * @return bool
      */
     public function update($patchRequest, $apiContext = null, $restCall = null)
@@ -548,7 +548,7 @@ class Plan extends ResourceModel
      * Delete a billing plan by passing the ID of the billing plan to the request URI.
      *
      * @param ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
-     * @param PPRestCall $restCall is the Rest Call Service that is used to make rest calls
+     * @param PayPalRestCall $restCall is the Rest Call Service that is used to make rest calls
      * @return bool
      */
     public function delete($apiContext = null, $restCall = null)
@@ -556,7 +556,7 @@ class Plan extends ResourceModel
         ArgumentValidator::validate($this->getId(), "Id");
         $patchRequest = new PatchRequest();
         $patch = new Patch();
-        $value = new PPModel('{
+        $value = new PayPalModel('{
             "state":"DELETED"
         }');
         $patch->setOp('replace')
@@ -571,7 +571,7 @@ class Plan extends ResourceModel
      *
      * @param array $params
      * @param ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
-     * @param PPRestCall $restCall is the Rest Call Service that is used to make rest calls
+     * @param PayPalRestCall $restCall is the Rest Call Service that is used to make rest calls
      * @return PlanList
      */
     public static function all($params, $apiContext = null, $restCall = null)

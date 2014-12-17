@@ -2,7 +2,7 @@
 
 namespace PayPal\Api;
 
-use PayPal\Common\PPModel;
+use PayPal\Common\PayPalModel;
 
 /**
  * Class CancelNotification
@@ -16,7 +16,7 @@ use PayPal\Common\PPModel;
  * @property bool send_to_merchant
  * @property bool send_to_payer
  */
-class CancelNotification extends PPModel
+class CancelNotification extends PayPalModel
 {
     /**
      * Subject of the notification.

@@ -2,7 +2,7 @@
 
 namespace PayPal\Api;
 
-use PayPal\Common\PPModel;
+use PayPal\Common\PayPalModel;
 
 /**
  * Class FundingInstrument
@@ -19,7 +19,7 @@ use PayPal\Common\PPModel;
  * @property \PayPal\Api\BankToken bank_account_token
  * @property \PayPal\Api\Credit credit
  */
-class FundingInstrument extends PPModel
+class FundingInstrument extends PayPalModel
 {
     /**
      * Credit Card information.

@@ -1,13 +1,13 @@
 <?php
 
-use PayPal\Common\PPUserAgent;
+use PayPal\Common\PayPalUserAgent;
 
 class UserAgentTest extends PHPUnit_Framework_TestCase
 {
 
     public function testGetValue()
     {
-        $ua = PPUserAgent::getValue("name", "version");
+        $ua = PayPalUserAgent::getValue("name", "version");
         list($id, $version, $features) = sscanf($ua, "PayPalSDK/%s %s (%s)");
 
         // Check that we pass the useragent in the expected format

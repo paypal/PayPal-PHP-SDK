@@ -2,7 +2,7 @@
 
 namespace PayPal\Api;
 
-use PayPal\Common\PPModel;
+use PayPal\Common\PayPalModel;
 
 /**
  * Class WebhookEventTypeList
@@ -13,7 +13,7 @@ use PayPal\Common\PPModel;
  *
  * @property \PayPal\Api\WebhookEventType[] event_types
  */
-class WebhookEventTypeList extends PPModel
+class WebhookEventTypeList extends PayPalModel
 {
     /**
      * A list of Webhooks event-types
