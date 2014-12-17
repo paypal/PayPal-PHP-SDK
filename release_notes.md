@@ -1,5 +1,11 @@
 PayPal PHP SDK release notes
 ============================
+v0.16.1
+----
+* Configurable Headers for all requests to PayPal
+* Allows adding additional headers to every call to PayPal APIs
+* SDK Config to add headers with http.headers.* syntax
+
 v0.16.0
 ----
 * Enabled Webhook Management Capabilities

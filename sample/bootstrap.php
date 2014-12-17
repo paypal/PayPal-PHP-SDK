@@ -62,6 +62,11 @@ function getApiContext($clientId, $clientSecret)
         )
     );
 
+    // Partner Attribution Id
+    // Use this header if you are a PayPal partner. Specify a unique BN Code to receive revenue attribution. To learn more or to request a BN Code, contact your Partner Manager or visit the PayPal Partner Portal .
+
+    $apiContext->addRequestHeader('PayPal-Partner-Attribution-Id', '123123123');
+
 
     // #### SDK configuration
 
@@ -76,7 +81,8 @@ function getApiContext($clientId, $clientSecret)
             'log.FileName' => '../PayPal.log',
             'log.LogLevel' => 'FINE',
             'validation.level' => 'log',
-            'cache.enabled' => 'true'
+            'cache.enabled' => 'true',
+            // 'http.headers.PayPal-Partner-Attribution-Id' => '123123123'
         )
     );
 

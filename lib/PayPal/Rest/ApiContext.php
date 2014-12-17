@@ -58,6 +58,26 @@ class ApiContext
         return $this->credential;
     }
 
+    public function getRequestHeaders()
+    {
+        $result = PPConfigManager::getInstance()->get('http.headers');
+        $headers = array();
+        foreach ($result as $header => $value) {
+            $headerName = ltrim($header, 'http.headers');
+            $headers[$headerName] = $value;
+        }
+        return $headers;
+    }
+
+    public function addRequestHeader($name, $value)
+    {
+        // Determine if the name already has a 'http.headers' prefix. If not, add one.
+        if (!(substr($name, 0, strlen('http.headers')) === 'http.headers')) {
+            $name = 'http.headers.' . $name;
+        }
+        PPConfigManager::getInstance()->addConfigs(array($name => $value));
+    }
+
     /**
      * Get Request ID
      *
