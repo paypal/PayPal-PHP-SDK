@@ -413,6 +413,49 @@ class Payment extends ResourceModel
     }
 
     /**
+     * Update (or patch) current Payment Resource.
+     * Updates Amount and adds ShippingAddress to ItemList (both should be set before the update call).
+     *
+     * @param \PayPal\Rest\ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
+     * @param PPRestCall              $restCall   is the Rest Call Service that is used to make rest calls
+     *
+     * @return Payment
+     */
+    public function update($apiContext = null, $restCall = null)
+    {
+        $paymentData = $this->toArray();
+        $patchRequest = new PatchRequest();
+
+        if (isset($paymentData['transactions'][0]['amount'])) {
+            $patch = new Patch();
+            $patch->setOp('replace')
+                ->setPath('/transactions/0/amount')
+                ->setValue($paymentData['transactions'][0]['amount']);
+            $patchRequest->addPatch($patch);
+        }
+
+        if (isset($paymentData['transactions'][0]['item_list']['shipping_address'])) {
+            $patch = new Patch();
+            $patch->setOp('add')
+                ->setPath('/transactions/0/item_list/shipping_address')
+                ->setValue($paymentData['transactions'][0]['item_list']['shipping_address']);
+            $patchRequest->addPatch($patch);
+        }
+
+        $payLoad = $patchRequest->toJSON();
+        self::executeCall(
+            "/v1/payments/payment/{$this->getId()}",
+            "PATCH",
+            $payLoad,
+            null,
+            $apiContext,
+            $restCall
+        );
+
+        return true;
+    }
+
+    /**
      * Obtain the Payment resource for the given identifier.
      *
      * @param string $paymentId
