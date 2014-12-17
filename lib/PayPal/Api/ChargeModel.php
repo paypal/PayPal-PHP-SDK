@@ -2,7 +2,7 @@
 
 namespace PayPal\Api;
 
-use PayPal\Common\PPModel;
+use PayPal\Common\PayPalModel;
 
 /**
  * Class ChargeModel
@@ -15,7 +15,7 @@ use PayPal\Common\PPModel;
  * @property string type
  * @property \PayPal\Api\Currency amount
  */
-class ChargeModel extends PPModel
+class ChargeModel extends PayPalModel
 {
     /**
      * Identifier of the charge model. 128 characters max.

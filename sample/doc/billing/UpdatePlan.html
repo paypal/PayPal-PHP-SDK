@@ -8,11 +8,11 @@ API used:  /v1/payments/billing-plans/<Plan-Id></p></div></div></div><div class=
 <span class="hljs-keyword">use</span> <span class="hljs-title">PayPal</span>\<span class="hljs-title">Api</span>\<span class="hljs-title">Plan</span>;
 <span class="hljs-keyword">use</span> <span class="hljs-title">PayPal</span>\<span class="hljs-title">Api</span>\<span class="hljs-title">PatchRequest</span>;
 <span class="hljs-keyword">use</span> <span class="hljs-title">PayPal</span>\<span class="hljs-title">Api</span>\<span class="hljs-title">Patch</span>;
-<span class="hljs-keyword">use</span> <span class="hljs-title">PayPal</span>\<span class="hljs-title">Common</span>\<span class="hljs-title">PPModel</span>;
+<span class="hljs-keyword">use</span> <span class="hljs-title">PayPal</span>\<span class="hljs-title">Common</span>\<span class="hljs-title">PayPalModel</span>;
 <span class="hljs-keyword">try</span> {
     <span class="hljs-variable">$patch</span> = <span class="hljs-keyword">new</span> Patch();
 
-    <span class="hljs-variable">$value</span> = <span class="hljs-keyword">new</span> PPModel(<span class="hljs-string">'{
+    <span class="hljs-variable">$value</span> = <span class="hljs-keyword">new</span> PayPalModel(<span class="hljs-string">'{
 	       "state":"ACTIVE"
 	     }'</span>);
 

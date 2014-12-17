@@ -2,7 +2,7 @@
 
 namespace PayPal\Api;
 
-use PayPal\Common\PPModel;
+use PayPal\Common\PayPalModel;
 
 /**
  * Class Payer
@@ -17,7 +17,7 @@ use PayPal\Common\PPModel;
  * @property string funding_option_id
  * @property \PayPal\Api\PayerInfo payer_info
  */
-class Payer extends PPModel
+class Payer extends PayPalModel
 {
     /**
      * Payment method being used - PayPal Wallet payment, Bank Direct Debit, or Direct Credit card.

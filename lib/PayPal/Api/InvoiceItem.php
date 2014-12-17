@@ -2,7 +2,7 @@
 
 namespace PayPal\Api;
 
-use PayPal\Common\PPModel;
+use PayPal\Common\PayPalModel;
 
 /**
  * Class InvoiceItem
@@ -19,7 +19,7 @@ use PayPal\Common\PPModel;
  * @property string date
  * @property \PayPal\Api\Cost discount
  */
-class InvoiceItem extends PPModel
+class InvoiceItem extends PayPalModel
 {
     /**
      * Name of the item. 60 characters max.

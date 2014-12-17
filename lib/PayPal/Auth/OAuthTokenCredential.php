@@ -3,18 +3,18 @@
 namespace PayPal\Auth;
 
 use PayPal\Cache\AuthorizationCache;
-use PayPal\Common\ResourceModel;
-use PayPal\Core\PPHttpConfig;
-use PayPal\Core\PPHttpConnection;
-use PayPal\Core\PPLoggingManager;
-use PayPal\Exception\PPConfigurationException;
-use PayPal\Handler\IPPHandler;
+use PayPal\Common\PayPalResourceModel;
+use PayPal\Core\PayPalHttpConfig;
+use PayPal\Core\PayPalHttpConnection;
+use PayPal\Core\PayPalLoggingManager;
+use PayPal\Exception\PayPalConfigurationException;
+use PayPal\Handler\IPayPalHandler;
 use PayPal\Rest\ApiContext;
 
 /**
  * Class OAuthTokenCredential
  */
-class OAuthTokenCredential extends ResourceModel
+class OAuthTokenCredential extends PayPalResourceModel
 {
 
     public static $CACHE_PATH = '/../../../var/auth.cache';
@@ -22,7 +22,7 @@ class OAuthTokenCredential extends ResourceModel
     /**
      * @var string Default Auth Handler
      */
-    public static $AUTH_HANDLER = 'PayPal\Rest\OauthHandler';
+    public static $AUTH_HANDLER = 'PayPal\Handler\OauthHandler';
 
     /**
      * Private Variable
@@ -34,7 +34,7 @@ class OAuthTokenCredential extends ResourceModel
     /**
      * Private Variable
      *
-     * @var \PayPal\Core\PPLoggingManager $logger
+     * @var \PayPal\Core\PayPalLoggingManager $logger
      */
     private $logger;
 
@@ -83,7 +83,7 @@ class OAuthTokenCredential extends ResourceModel
     {
         $this->clientId = $clientId;
         $this->clientSecret = $clientSecret;
-        $this->logger = PPLoggingManager::getInstance(__CLASS__);
+        $this->logger = PayPalLoggingManager::getInstance(__CLASS__);
     }
 
     /**
@@ -199,16 +199,16 @@ class OAuthTokenCredential extends ResourceModel
      * @param string $clientSecret
      * @param string $payload
      * @return mixed
-     * @throws PPConfigurationException
-     * @throws \PayPal\Exception\PPConnectionException
+     * @throws PayPalConfigurationException
+     * @throws \PayPal\Exception\PayPalConnectionException
      */
     private function getToken($config, $clientId, $clientSecret, $payload)
     {
-        $httpConfig = new PPHttpConfig(null, 'POST');
+        $httpConfig = new PayPalHttpConfig(null, 'POST');
 
         $handlers = array(self::$AUTH_HANDLER);
 
-        /** @var IPPHandler $handler */
+        /** @var IPayPalHandler $handler */
         foreach ($handlers as $handler) {
             if (!is_object($handler)) {
                 $fullHandler = "\\" . (string)$handler;
@@ -217,7 +217,7 @@ class OAuthTokenCredential extends ResourceModel
             $handler->handle($httpConfig, $payload, array('clientId' => $clientId, 'clientSecret' => $clientSecret));
         }
 
-        $connection = new PPHttpConnection($httpConfig, $config);
+        $connection = new PayPalHttpConnection($httpConfig, $config);
         $res = $connection->execute($payload);
         $response = json_decode($res, true);
 

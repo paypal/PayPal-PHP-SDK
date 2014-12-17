@@ -2,7 +2,7 @@
 
 namespace PayPal\Api;
 
-use PayPal\Common\PPModel;
+use PayPal\Common\PayPalModel;
 
 /**
  * Class PatchRequest
@@ -13,7 +13,7 @@ use PayPal\Common\PPModel;
  *
  * @property \PayPal\Api\Patch[] patches
  */
-class PatchRequest extends PPModel
+class PatchRequest extends PayPalModel
 {
     /**
      * Placeholder for holding array of patch objects

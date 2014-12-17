@@ -2,7 +2,7 @@
 
 namespace PayPal\Api;
 
-use PayPal\Common\PPModel;
+use PayPal\Common\PayPalModel;
 
 /**
  * Class AgreementTransaction
@@ -22,7 +22,7 @@ use PayPal\Common\PPModel;
  * @property string time_updated
  * @property string time_zone
  */
-class AgreementTransaction extends PPModel
+class AgreementTransaction extends PayPalModel
 {
     /**
      * Id corresponding to this transaction.

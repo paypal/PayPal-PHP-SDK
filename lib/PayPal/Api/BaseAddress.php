@@ -2,7 +2,7 @@
 
 namespace PayPal\Api;
 
-use PayPal\Common\PPModel;
+use PayPal\Common\PayPalModel;
 
 /**
  * Class BaseAddress
@@ -18,7 +18,7 @@ use PayPal\Common\PPModel;
  * @property string postal_code
  * @property string state
  */
-class BaseAddress extends PPModel
+class BaseAddress extends PayPalModel
 {
     /**
      * Line 1 of the Address (eg. number, street, etc).

@@ -2,9 +2,9 @@
 
 namespace PayPal\Api;
 
-use PayPal\Common\PPModel;
+use PayPal\Common\PayPalModel;
 use PayPal\Rest\ApiContext;
-use PayPal\Transport\PPRestCall;
+use PayPal\Transport\PayPalRestCall;
 
 /**
  * Class FuturePayment
@@ -33,9 +33,9 @@ class FuturePayment extends Payment
             );
         }
         $payLoad = $this->toJSON();
-        $call = new PPRestCall($apiContext);
+        $call = new PayPalRestCall($apiContext);
         $json = $call->execute(
-            array('PayPal\Rest\RestHandler'),
+            array('PayPal\Handler\RestHandler'),
             "/v1/payments/payment",
             "POST",
             $payLoad,

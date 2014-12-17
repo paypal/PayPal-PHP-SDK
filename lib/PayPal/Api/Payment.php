@@ -2,12 +2,12 @@
 
 namespace PayPal\Api;
 
-use PayPal\Common\PPModel;
-use PayPal\Common\ResourceModel;
+use PayPal\Common\PayPalModel;
+use PayPal\Common\PayPalResourceModel;
 use PayPal\Rest\ApiContext;
 use PayPal\Rest\IResource;
 use PayPal\Api\PaymentHistory;
-use PayPal\Transport\PPRestCall;
+use PayPal\Transport\PayPalRestCall;
 use PayPal\Validation\ArgumentValidator;
 
 /**
@@ -29,7 +29,7 @@ use PayPal\Validation\ArgumentValidator;
  * @property \PayPal\Api\Links links
  * @property string experience_profile_id
  */
-class Payment extends ResourceModel
+class Payment extends PayPalResourceModel
 {
     /**
      * OAuth Credentials to use for this call
@@ -393,7 +393,7 @@ class Payment extends ResourceModel
      * Creates (and processes) a new Payment Resource.
      *
      * @param \PayPal\Rest\ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
-     * @param PPRestCall $restCall is the Rest Call Service that is used to make rest calls
+     * @param PayPalRestCall $restCall is the Rest Call Service that is used to make rest calls
      * @return Payment
      */
     public function create($apiContext = null, $restCall = null)
@@ -417,7 +417,7 @@ class Payment extends ResourceModel
      *
      * @param string $paymentId
      * @param \PayPal\Rest\ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
-     * @param PPRestCall $restCall is the Rest Call Service that is used to make rest calls
+     * @param PayPalRestCall $restCall is the Rest Call Service that is used to make rest calls
      * @return Payment
      */
     public static function get($paymentId, $apiContext = null, $restCall = null)
@@ -443,7 +443,7 @@ class Payment extends ResourceModel
      *
      * @param PatchRequest $patchRequest
      * @param ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
-     * @param PPRestCall $restCall is the Rest Call Service that is used to make rest calls
+     * @param PayPalRestCall $restCall is the Rest Call Service that is used to make rest calls
      * @return boolean
      */
     public function update($patchRequest, $apiContext = null, $restCall = null)
@@ -467,7 +467,7 @@ class Payment extends ResourceModel
      *
      * @param PaymentExecution $paymentExecution
      * @param \PayPal\Rest\ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
-     * @param PPRestCall $restCall is the Rest Call Service that is used to make rest calls
+     * @param PayPalRestCall $restCall is the Rest Call Service that is used to make rest calls
      * @return Payment
      */
     public function execute($paymentExecution, $apiContext = null, $restCall = null)
@@ -493,7 +493,7 @@ class Payment extends ResourceModel
      *
      * @param array $params
      * @param \PayPal\Rest\ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
-     * @param PPRestCall $restCall is the Rest Call Service that is used to make rest calls
+     * @param PayPalRestCall $restCall is the Rest Call Service that is used to make rest calls
      * @return PaymentHistory
      */
     public static function all($params, $apiContext = null, $restCall = null)

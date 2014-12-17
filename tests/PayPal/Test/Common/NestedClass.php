@@ -1,9 +1,9 @@
 <?php
 namespace PayPal\Test\Common;
 
-use PayPal\Common\PPModel;
+use PayPal\Common\PayPalModel;
 
-class NestedClass extends PPModel
+class NestedClass extends PayPalModel
 {
 
     public function setId($id)

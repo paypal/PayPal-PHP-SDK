@@ -2,11 +2,11 @@
 
 namespace PayPal\Test\Api;
 
-use PayPal\Common\ResourceModel;
+use PayPal\Common\PayPalResourceModel;
 use PayPal\Validation\ArgumentValidator;
 use PayPal\Api\InvoiceSearchResponse;
 use PayPal\Rest\ApiContext;
-use PayPal\Transport\PPRestCall;
+use PayPal\Transport\PayPalRestCall;
 use PayPal\Api\Invoice;
 
 /**
@@ -263,17 +263,17 @@ class InvoiceTest extends \PHPUnit_Framework_TestCase
      */
     public function testCreate($obj, $mockApiContext)
     {
-        $mockPPRestCall = $this->getMockBuilder('\PayPal\Transport\PPRestCall')
+        $mockPayPalRestCall = $this->getMockBuilder('\PayPal\Transport\PayPalRestCall')
             ->disableOriginalConstructor()
             ->getMock();
 
-        $mockPPRestCall->expects($this->any())
+        $mockPayPalRestCall->expects($this->any())
             ->method('execute')
             ->will($this->returnValue(
                     self::getJson()
             ));
 
-        $result = $obj->create($mockApiContext, $mockPPRestCall);
+        $result = $obj->create($mockApiContext, $mockPayPalRestCall);
         $this->assertNotNull($result);
     }
     /**
@@ -282,18 +282,18 @@ class InvoiceTest extends \PHPUnit_Framework_TestCase
      */
     public function testSearch($obj, $mockApiContext)
     {
-        $mockPPRestCall = $this->getMockBuilder('\PayPal\Transport\PPRestCall')
+        $mockPayPalRestCall = $this->getMockBuilder('\PayPal\Transport\PayPalRestCall')
             ->disableOriginalConstructor()
             ->getMock();
 
-        $mockPPRestCall->expects($this->any())
+        $mockPayPalRestCall->expects($this->any())
             ->method('execute')
             ->will($this->returnValue(
                     InvoiceSearchResponseTest::getJson()
             ));
         $search = SearchTest::getObject();
 
-        $result = $obj->search($search, $mockApiContext, $mockPPRestCall);
+        $result = $obj->search($search, $mockApiContext, $mockPayPalRestCall);
         $this->assertNotNull($result);
     }
     /**
@@ -302,17 +302,17 @@ class InvoiceTest extends \PHPUnit_Framework_TestCase
      */
     public function testSend($obj, $mockApiContext)
     {
-        $mockPPRestCall = $this->getMockBuilder('\PayPal\Transport\PPRestCall')
+        $mockPayPalRestCall = $this->getMockBuilder('\PayPal\Transport\PayPalRestCall')
             ->disableOriginalConstructor()
             ->getMock();
 
-        $mockPPRestCall->expects($this->any())
+        $mockPayPalRestCall->expects($this->any())
             ->method('execute')
             ->will($this->returnValue(
                     true
             ));
 
-        $result = $obj->send($mockApiContext, $mockPPRestCall);
+        $result = $obj->send($mockApiContext, $mockPayPalRestCall);
         $this->assertNotNull($result);
     }
     /**
@@ -321,18 +321,18 @@ class InvoiceTest extends \PHPUnit_Framework_TestCase
      */
     public function testRemind($obj, $mockApiContext)
     {
-        $mockPPRestCall = $this->getMockBuilder('\PayPal\Transport\PPRestCall')
+        $mockPayPalRestCall = $this->getMockBuilder('\PayPal\Transport\PayPalRestCall')
             ->disableOriginalConstructor()
             ->getMock();
 
-        $mockPPRestCall->expects($this->any())
+        $mockPayPalRestCall->expects($this->any())
             ->method('execute')
             ->will($this->returnValue(
                     true
             ));
         $notification = NotificationTest::getObject();
 
-        $result = $obj->remind($notification, $mockApiContext, $mockPPRestCall);
+        $result = $obj->remind($notification, $mockApiContext, $mockPayPalRestCall);
         $this->assertNotNull($result);
     }
     /**
@@ -341,18 +341,18 @@ class InvoiceTest extends \PHPUnit_Framework_TestCase
      */
     public function testCancel($obj, $mockApiContext)
     {
-        $mockPPRestCall = $this->getMockBuilder('\PayPal\Transport\PPRestCall')
+        $mockPayPalRestCall = $this->getMockBuilder('\PayPal\Transport\PayPalRestCall')
             ->disableOriginalConstructor()
             ->getMock();
 
-        $mockPPRestCall->expects($this->any())
+        $mockPayPalRestCall->expects($this->any())
             ->method('execute')
             ->will($this->returnValue(
                     true
             ));
         $cancelNotification = CancelNotificationTest::getObject();
 
-        $result = $obj->cancel($cancelNotification, $mockApiContext, $mockPPRestCall);
+        $result = $obj->cancel($cancelNotification, $mockApiContext, $mockPayPalRestCall);
         $this->assertNotNull($result);
     }
     /**
@@ -361,18 +361,18 @@ class InvoiceTest extends \PHPUnit_Framework_TestCase
      */
     public function testRecordPayment($obj, $mockApiContext)
     {
-        $mockPPRestCall = $this->getMockBuilder('\PayPal\Transport\PPRestCall')
+        $mockPayPalRestCall = $this->getMockBuilder('\PayPal\Transport\PayPalRestCall')
             ->disableOriginalConstructor()
             ->getMock();
 
-        $mockPPRestCall->expects($this->any())
+        $mockPayPalRestCall->expects($this->any())
             ->method('execute')
             ->will($this->returnValue(
                     true
             ));
         $paymentDetail = PaymentDetailTest::getObject();
 
-        $result = $obj->recordPayment($paymentDetail, $mockApiContext, $mockPPRestCall);
+        $result = $obj->recordPayment($paymentDetail, $mockApiContext, $mockPayPalRestCall);
         $this->assertNotNull($result);
     }
     /**
@@ -381,18 +381,18 @@ class InvoiceTest extends \PHPUnit_Framework_TestCase
      */
     public function testRecordRefund($obj, $mockApiContext)
     {
-        $mockPPRestCall = $this->getMockBuilder('\PayPal\Transport\PPRestCall')
+        $mockPayPalRestCall = $this->getMockBuilder('\PayPal\Transport\PayPalRestCall')
             ->disableOriginalConstructor()
             ->getMock();
 
-        $mockPPRestCall->expects($this->any())
+        $mockPayPalRestCall->expects($this->any())
             ->method('execute')
             ->will($this->returnValue(
                     true
             ));
         $refundDetail = RefundDetailTest::getObject();
 
-        $result = $obj->recordRefund($refundDetail, $mockApiContext, $mockPPRestCall);
+        $result = $obj->recordRefund($refundDetail, $mockApiContext, $mockPayPalRestCall);
         $this->assertNotNull($result);
     }
     /**
@@ -401,17 +401,17 @@ class InvoiceTest extends \PHPUnit_Framework_TestCase
      */
     public function testGet($obj, $mockApiContext)
     {
-        $mockPPRestCall = $this->getMockBuilder('\PayPal\Transport\PPRestCall')
+        $mockPayPalRestCall = $this->getMockBuilder('\PayPal\Transport\PayPalRestCall')
             ->disableOriginalConstructor()
             ->getMock();
 
-        $mockPPRestCall->expects($this->any())
+        $mockPayPalRestCall->expects($this->any())
             ->method('execute')
             ->will($this->returnValue(
                     InvoiceTest::getJson()
             ));
 
-        $result = $obj->get("invoiceId", $mockApiContext, $mockPPRestCall);
+        $result = $obj->get("invoiceId", $mockApiContext, $mockPayPalRestCall);
         $this->assertNotNull($result);
     }
     /**
@@ -420,17 +420,17 @@ class InvoiceTest extends \PHPUnit_Framework_TestCase
      */
     public function testGetAll($obj, $mockApiContext)
     {
-        $mockPPRestCall = $this->getMockBuilder('\PayPal\Transport\PPRestCall')
+        $mockPayPalRestCall = $this->getMockBuilder('\PayPal\Transport\PayPalRestCall')
             ->disableOriginalConstructor()
             ->getMock();
 
-        $mockPPRestCall->expects($this->any())
+        $mockPayPalRestCall->expects($this->any())
             ->method('execute')
             ->will($this->returnValue(
                     InvoiceSearchResponseTest::getJson()
             ));
 
-        $result = $obj->getAll(array(), $mockApiContext, $mockPPRestCall);
+        $result = $obj->getAll(array(), $mockApiContext, $mockPayPalRestCall);
         $this->assertNotNull($result);
     }
     /**
@@ -439,17 +439,17 @@ class InvoiceTest extends \PHPUnit_Framework_TestCase
      */
     public function testUpdate($obj, $mockApiContext)
     {
-        $mockPPRestCall = $this->getMockBuilder('\PayPal\Transport\PPRestCall')
+        $mockPayPalRestCall = $this->getMockBuilder('\PayPal\Transport\PayPalRestCall')
             ->disableOriginalConstructor()
             ->getMock();
 
-        $mockPPRestCall->expects($this->any())
+        $mockPayPalRestCall->expects($this->any())
             ->method('execute')
             ->will($this->returnValue(
                     self::getJson()
             ));
 
-        $result = $obj->update($mockApiContext, $mockPPRestCall);
+        $result = $obj->update($mockApiContext, $mockPayPalRestCall);
         $this->assertNotNull($result);
     }
     /**
@@ -458,17 +458,17 @@ class InvoiceTest extends \PHPUnit_Framework_TestCase
      */
     public function testDelete($obj, $mockApiContext)
     {
-        $mockPPRestCall = $this->getMockBuilder('\PayPal\Transport\PPRestCall')
+        $mockPayPalRestCall = $this->getMockBuilder('\PayPal\Transport\PayPalRestCall')
             ->disableOriginalConstructor()
             ->getMock();
 
-        $mockPPRestCall->expects($this->any())
+        $mockPayPalRestCall->expects($this->any())
             ->method('execute')
             ->will($this->returnValue(
                     true
             ));
 
-        $result = $obj->delete($mockApiContext, $mockPPRestCall);
+        $result = $obj->delete($mockApiContext, $mockPayPalRestCall);
         $this->assertNotNull($result);
     }
     /**
@@ -477,17 +477,17 @@ class InvoiceTest extends \PHPUnit_Framework_TestCase
      */
     public function testQrCode($obj, $mockApiContext)
     {
-        $mockPPRestCall = $this->getMockBuilder('\PayPal\Transport\PPRestCall')
+        $mockPayPalRestCall = $this->getMockBuilder('\PayPal\Transport\PayPalRestCall')
             ->disableOriginalConstructor()
             ->getMock();
 
-        $mockPPRestCall->expects($this->any())
+        $mockPayPalRestCall->expects($this->any())
             ->method('execute')
             ->will($this->returnValue(
                     ImageTest::getJson()
             ));
 
-        $result = $obj->qrCode("invoiceId", array(), $mockApiContext, $mockPPRestCall);
+        $result = $obj->qrCode("invoiceId", array(), $mockApiContext, $mockPayPalRestCall);
         $this->assertNotNull($result);
     }
 

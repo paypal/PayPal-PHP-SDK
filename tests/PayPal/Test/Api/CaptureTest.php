@@ -5,7 +5,7 @@ use PayPal\Api\Capture;
 use PayPal\Api\Refund;
 use PayPal\Api\Authorization;
 use PayPal\Api\Amount;
-use PayPal\Exception\PPConnectionException;
+use PayPal\Exception\PayPalConnectionException;
 use PayPal\Test\Constants;
 
 class CaptureTest extends \PHPUnit_Framework_TestCase
@@ -91,7 +91,7 @@ class CaptureTest extends \PHPUnit_Framework_TestCase
 
             $retund = $capture->refund($refund);
             $this->assertNotNull($retund->getId());
-        } catch (PPConnectionException $ex) {
+        } catch (PayPalConnectionException $ex) {
             $this->markTestSkipped(
                 'Tests failing because of intermittent failures in Paypal Sandbox environment.' . $ex->getMessage()
             );

@@ -2,7 +2,7 @@
 
 namespace PayPal\Api;
 
-use PayPal\Common\PPModel;
+use PayPal\Common\PayPalModel;
 
 /**
  * Class CreditCardList
@@ -15,7 +15,7 @@ use PayPal\Common\PPModel;
  * @property int count
  * @property string next_id
  */
-class CreditCardList extends PPModel
+class CreditCardList extends PayPalModel
 {
     /**
      * A list of credit card resources

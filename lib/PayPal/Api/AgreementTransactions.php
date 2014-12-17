@@ -2,7 +2,7 @@
 
 namespace PayPal\Api;
 
-use PayPal\Common\PPModel;
+use PayPal\Common\PayPalModel;
 
 /**
  * Class AgreementTransactions
@@ -13,7 +13,7 @@ use PayPal\Common\PPModel;
  *
  * @property \PayPal\Api\AgreementTransaction[] agreement_transaction_list
  */
-class AgreementTransactions extends PPModel
+class AgreementTransactions extends PayPalModel
 {
     /**
      * Array of agreement_transaction object.

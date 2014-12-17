@@ -2,7 +2,7 @@
 
 namespace PayPal\Api;
 
-use PayPal\Common\PPModel;
+use PayPal\Common\PayPalModel;
 use PayPal\Rest\ApiContext;
 
 /**
@@ -15,7 +15,7 @@ use PayPal\Rest\ApiContext;
  * @property string payer_id
  * @property \PayPal\Api\Transactions transactions
  */
-class PaymentExecution extends PPModel
+class PaymentExecution extends PayPalModel
 {
     /**
      * PayPal assigned Payer ID returned in the approval return url.

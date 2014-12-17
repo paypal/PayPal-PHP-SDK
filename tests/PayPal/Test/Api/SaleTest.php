@@ -7,7 +7,7 @@ use PayPal\Test\Constants;
 use PayPal\Test\Api\AmountTest;
 use PayPal\Test\Api\PaymentTest;
 use PayPal\Test\Api\LinksTest;
-use PayPal\Exception\PPConnectionException;
+use PayPal\Exception\PayPalConnectionException;
 
 class SaleTest extends \PHPUnit_Framework_TestCase
 {

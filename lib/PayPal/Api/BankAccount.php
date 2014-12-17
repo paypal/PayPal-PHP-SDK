@@ -2,10 +2,10 @@
 
 namespace PayPal\Api;
 
-use PayPal\Common\ResourceModel;
+use PayPal\Common\PayPalResourceModel;
 use PayPal\Validation\ArgumentValidator;
 use PayPal\Rest\ApiContext;
-use PayPal\Transport\PPRestCall;
+use PayPal\Transport\PayPalRestCall;
 
 /**
  * Class BankAccount
@@ -39,7 +39,7 @@ use PayPal\Transport\PPRestCall;
  * @property string valid_until
  * @property \PayPal\Api\Links[] links
  */
-class BankAccount extends ResourceModel
+class BankAccount extends PayPalResourceModel
 {
     /**
      * ID of the bank account being saved for later use.
@@ -1158,7 +1158,7 @@ class BankAccount extends ResourceModel
      * Creates a new Bank Account Resource.
      *
      * @param ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
-     * @param PPRestCall $restCall is the Rest Call Service that is used to make rest calls
+     * @param PayPalRestCall $restCall is the Rest Call Service that is used to make rest calls
      * @return BankAccount
      */
     public function create($apiContext = null, $restCall = null)
@@ -1181,7 +1181,7 @@ class BankAccount extends ResourceModel
      *
      * @param string $bankAccountId
      * @param ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
-     * @param PPRestCall $restCall is the Rest Call Service that is used to make rest calls
+     * @param PayPalRestCall $restCall is the Rest Call Service that is used to make rest calls
      * @return BankAccount
      */
     public static function get($bankAccountId, $apiContext = null, $restCall = null)
@@ -1205,7 +1205,7 @@ class BankAccount extends ResourceModel
      * Delete the bank account resource for the given identifier.
      *
      * @param ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
-     * @param PPRestCall $restCall is the Rest Call Service that is used to make rest calls
+     * @param PayPalRestCall $restCall is the Rest Call Service that is used to make rest calls
      * @return bool
      */
     public function delete($apiContext = null, $restCall = null)
@@ -1228,7 +1228,7 @@ class BankAccount extends ResourceModel
      *
      * @param PatchRequest $patchRequest
      * @param ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
-     * @param PPRestCall $restCall is the Rest Call Service that is used to make rest calls
+     * @param PayPalRestCall $restCall is the Rest Call Service that is used to make rest calls
      * @return BankAccount
      */
     public function update($patchRequest, $apiContext = null, $restCall = null)

@@ -2,7 +2,7 @@
 
 namespace PayPal\Api;
 
-use PayPal\Common\PPModel;
+use PayPal\Common\PayPalModel;
 use PayPal\Rest\ApiContext;
 
 /**
@@ -24,7 +24,7 @@ use PayPal\Rest\ApiContext;
  * @property string protection_eligibility_type
  * @property \PayPal\Api\Links links
  */
-class Order extends PPModel
+class Order extends PayPalModel
 {
     /**
      * Identifier of the order transaction.

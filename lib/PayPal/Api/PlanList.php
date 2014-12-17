@@ -2,7 +2,7 @@
 
 namespace PayPal\Api;
 
-use PayPal\Common\PPModel;
+use PayPal\Common\PayPalModel;
 
 /**
  * Class PlanList
@@ -16,7 +16,7 @@ use PayPal\Common\PPModel;
  * @property string total_pages
  * @property \PayPal\Api\Links[] links
  */
-class PlanList extends PPModel
+class PlanList extends PayPalModel
 {
     /**
      * Array of billing plans.

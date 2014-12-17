@@ -2,7 +2,7 @@
 
 namespace PayPal\Api;
 
-use PayPal\Common\PPModel;
+use PayPal\Common\PayPalModel;
 
 /**
  * Class AgreementDetails
@@ -20,7 +20,7 @@ use PayPal\Common\PPModel;
  * @property string final_payment_date
  * @property string failed_payment_count
  */
-class AgreementDetails extends PPModel
+class AgreementDetails extends PayPalModel
 {
     /**
      * The outstanding balance for this agreement.

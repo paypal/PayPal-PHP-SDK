@@ -2,7 +2,7 @@
 
 namespace PayPal\Api;
 
-use PayPal\Common\PPModel;
+use PayPal\Common\PayPalModel;
 
 /**
  * Class MerchantInfo
@@ -22,7 +22,7 @@ use PayPal\Common\PPModel;
  * @property string tax_id
  * @property string additional_info
  */
-class MerchantInfo extends PPModel
+class MerchantInfo extends PayPalModel
 {
     /**
      * Email address of the merchant. 260 characters max.

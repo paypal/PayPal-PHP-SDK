@@ -122,7 +122,7 @@ class ResultPrinter
     public static function printError($title, $objectName, $objectId = null, $request = null, $exception = null)
     {
         $data = null;
-        if ($exception instanceof \PayPal\Exception\PPConnectionException) {
+        if ($exception instanceof \PayPal\Exception\PayPalConnectionException) {
             $data = $exception->getData();
         }
         self::printOutput($title, $objectName, $objectId, $request, $data, $exception->getMessage());
@@ -134,8 +134,8 @@ class ResultPrinter
             echo 'ERROR:'. $error;
         }
         if ($object) {
-            if (is_a($object, 'PayPal\Common\PPModel')) {
-                /** @var $object \PayPal\Common\PPModel */
+            if (is_a($object, 'PayPal\Common\PayPalModel')) {
+                /** @var $object \PayPal\Common\PayPalModel */
                 echo $object->toJSON(128);
             } elseif (is_string($object) && \PayPal\Validation\JsonValidator::validate($object, true)) {
                 echo str_replace('\\/', '/', json_encode(json_decode($object), 128));
@@ -157,8 +157,8 @@ class ResultPrinter
             '</p>';
         }
         if ($object) {
-            if (is_a($object, 'PayPal\Common\PPModel')) {
-                /** @var $object \PayPal\Common\PPModel */
+            if (is_a($object, 'PayPal\Common\PayPalModel')) {
+                /** @var $object \PayPal\Common\PayPalModel */
                 echo '<pre class="prettyprint '. ($error ? 'error' : '') .'">' . $object->toJSON(128) . "</pre>";
             } elseif (is_string($object) && \PayPal\Validation\JsonValidator::validate($object, true)) {
                 echo '<pre class="prettyprint '. ($error ? 'error' : '') .'">'. str_replace('\\/', '/', json_encode(json_decode($object), 128)) . "</pre>";

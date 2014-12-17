@@ -2,7 +2,7 @@
 
 namespace PayPal\Api;
 
-use PayPal\Common\PPModel;
+use PayPal\Common\PayPalModel;
 use PayPal\Rest\ApiContext;
 
 
@@ -16,7 +16,7 @@ use PayPal\Rest\ApiContext;
  * @property string carrier_account_id
  * @property string external_customer_id
  */
-class CarrierAccountToken extends PPModel
+class CarrierAccountToken extends PayPalModel
 {
     /**
      * ID of a previously saved carrier account resource.

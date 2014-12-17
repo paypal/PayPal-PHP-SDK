@@ -2,7 +2,7 @@
 
 namespace PayPal\Api;
 
-use PayPal\Common\PPModel;
+use PayPal\Common\PayPalModel;
 use PayPal\Rest\ApiContext;
 
 /**
@@ -15,7 +15,7 @@ use PayPal\Rest\ApiContext;
  * @property \PayPal\Api\Item[]            items
  * @property \PayPal\Api\ShippingAddress shipping_address
  */
-class ItemList extends PPModel
+class ItemList extends PayPalModel
 {
     /**
      * Is this list empty?

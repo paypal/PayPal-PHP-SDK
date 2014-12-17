@@ -2,10 +2,10 @@
 
 namespace PayPal\Api;
 
-use PayPal\Common\PPModel;
+use PayPal\Common\PayPalModel;
 use PayPal\Rest\ApiContext;
 use PayPal\Validation\NumericValidator;
-use PayPal\Common\FormatConverter;
+use PayPal\Converter\FormatConverter;
 
 /**
  * Class Details
@@ -23,7 +23,7 @@ use PayPal\Common\FormatConverter;
  * @property string handling_fee
  * @property string gift_wrap
  */
-class Details extends PPModel
+class Details extends PayPalModel
 {
     /**
      * Amount being charged for shipping.

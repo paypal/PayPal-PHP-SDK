@@ -2,7 +2,7 @@
 
 namespace PayPal\Api;
 
-use PayPal\Common\PPModel;
+use PayPal\Common\PayPalModel;
 use PayPal\Rest\ApiContext;
 
 /**
@@ -18,7 +18,7 @@ use PayPal\Rest\ApiContext;
  * @property \PayPal\Api\Capture capture
  * @property \PayPal\Api\Refund refund
  */
-class RelatedResources extends PPModel
+class RelatedResources extends PayPalModel
 {
     /**
      * A sale transaction

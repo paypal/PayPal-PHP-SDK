@@ -2,7 +2,7 @@
 
 namespace PayPal\Api;
 
-use PayPal\Common\PPModel;
+use PayPal\Common\PayPalModel;
 
 /**
  * Class Terms
@@ -18,7 +18,7 @@ use PayPal\Common\PPModel;
  * @property \PayPal\Api\Currency amount_range
  * @property string buyer_editable
  */
-class Terms extends PPModel
+class Terms extends PayPalModel
 {
     /**
      * Identifier of the terms. 128 characters max.

@@ -2,7 +2,7 @@
 
 namespace PayPal\Api;
 
-use PayPal\Common\PPModel;
+use PayPal\Common\PayPalModel;
 
 /**
  * Class WebhookList
@@ -13,7 +13,7 @@ use PayPal\Common\PPModel;
  *
  * @property \PayPal\Api\Webhook[] webhooks
  */
-class WebhookList extends PPModel
+class WebhookList extends PayPalModel
 {
     /**
      * A list of Webhooks

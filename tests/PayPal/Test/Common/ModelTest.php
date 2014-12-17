@@ -1,7 +1,7 @@
 <?php
 namespace PayPal\Test\Common;
 
-use PayPal\Core\PPConfigManager;
+use PayPal\Core\PayPalConfigManager;
 
 class ModelTest extends \PHPUnit_Framework_TestCase
 {
@@ -90,7 +90,7 @@ class ModelTest extends \PHPUnit_Framework_TestCase
         try {
             $obj->invalid = "value2";
             $this->assertEquals($obj->invalid, "value2");
-            if (PPConfigManager::getInstance()->get('validation.level') == 'strict') {
+            if (PayPalConfigManager::getInstance()->get('validation.level') == 'strict') {
                 $this->fail("It should have thrown a Notice Error");
             }
         } catch (\PHPUnit_Framework_Error_Notice $ex) {
@@ -100,7 +100,7 @@ class ModelTest extends \PHPUnit_Framework_TestCase
 
     public function testInvalidMagicMethodWithDisabledValidation()
     {
-        PPConfigManager::getInstance()->addConfigs(array('validation.level' => 'disabled'));
+        PayPalConfigManager::getInstance()->addConfigs(array('validation.level' => 'disabled'));
         $obj = new SimpleClass();
         try {
             $obj->invalid = "value2";
@@ -108,16 +108,16 @@ class ModelTest extends \PHPUnit_Framework_TestCase
         } catch (\PHPUnit_Framework_Error_Notice $ex) {
             $this->fail("It should not have thrown a Notice Error as it is disabled.");
         }
-        PPConfigManager::getInstance()->addConfigs(array('validation.level' => 'strict'));
+        PayPalConfigManager::getInstance()->addConfigs(array('validation.level' => 'strict'));
     }
 
     public function testInvalidMagicMethodWithValidationLevel()
     {
-        PPConfigManager::getInstance()->addConfigs(array('validation.level' => 'log'));
+        PayPalConfigManager::getInstance()->addConfigs(array('validation.level' => 'log'));
         $obj = new SimpleClass();
         $obj->invalid2 = "value2";
         $this->assertEquals($obj->invalid2, "value2");
-        PPConfigManager::getInstance()->addConfigs(array('validation.level' => 'strict'));
+        PayPalConfigManager::getInstance()->addConfigs(array('validation.level' => 'strict'));
     }
 
     public function testArrayClassConversion()

@@ -2,11 +2,11 @@
 
 namespace PayPal\Api;
 
-use PayPal\Common\ResourceModel;
+use PayPal\Common\PayPalResourceModel;
 use PayPal\Validation\ArgumentValidator;
 use PayPal\Api\WebhookList;
 use PayPal\Rest\ApiContext;
-use PayPal\Transport\PPRestCall;
+use PayPal\Transport\PayPalRestCall;
 use PayPal\Validation\UrlValidator;
 
 /**
@@ -21,7 +21,7 @@ use PayPal\Validation\UrlValidator;
  * @property \PayPal\Api\WebhookEventType[] event_types
  * @property \PayPal\Api\Links[] links
  */
-class Webhook extends ResourceModel
+class Webhook extends PayPalResourceModel
 {
     /**
      * Identifier of the webhook resource.
@@ -205,7 +205,7 @@ class Webhook extends ResourceModel
      * Creates the Webhook for the application associated with the access token.
      *
      * @param ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
-     * @param PPRestCall $restCall is the Rest Call Service that is used to make rest calls
+     * @param PayPalRestCall $restCall is the Rest Call Service that is used to make rest calls
      * @return Webhook
      */
     public function create($apiContext = null, $restCall = null)
@@ -228,7 +228,7 @@ class Webhook extends ResourceModel
      *
      * @param string $webhookId
      * @param ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
-     * @param PPRestCall $restCall is the Rest Call Service that is used to make rest calls
+     * @param PayPalRestCall $restCall is the Rest Call Service that is used to make rest calls
      * @return Webhook
      */
     public static function get($webhookId, $apiContext = null, $restCall = null)
@@ -252,7 +252,7 @@ class Webhook extends ResourceModel
      * Retrieves all Webhooks for the application associated with access token.
      *
      * @param ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
-     * @param PPRestCall $restCall is the Rest Call Service that is used to make rest calls
+     * @param PayPalRestCall $restCall is the Rest Call Service that is used to make rest calls
      * @return WebhookList
      */
     public static function getAll($apiContext = null, $restCall = null)
@@ -276,7 +276,7 @@ class Webhook extends ResourceModel
      *
      * @param PatchRequest $patchRequest
      * @param ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
-     * @param PPRestCall $restCall is the Rest Call Service that is used to make rest calls
+     * @param PayPalRestCall $restCall is the Rest Call Service that is used to make rest calls
      * @return Webhook
      */
     public function update($patchRequest, $apiContext = null, $restCall = null)
@@ -300,7 +300,7 @@ class Webhook extends ResourceModel
      * Deletes the Webhook identified by webhook_id for the application associated with access token.
      *
      * @param ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
-     * @param PPRestCall $restCall is the Rest Call Service that is used to make rest calls
+     * @param PayPalRestCall $restCall is the Rest Call Service that is used to make rest calls
      * @return bool
      */
     public function delete($apiContext = null, $restCall = null)

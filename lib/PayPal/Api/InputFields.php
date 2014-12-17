@@ -2,7 +2,7 @@
 
 namespace PayPal\Api;
 
-use PayPal\Common\PPModel;
+use PayPal\Common\PayPalModel;
 
 /**
  * Class InputFields
@@ -15,7 +15,7 @@ use PayPal\Common\PPModel;
  * @property int no_shipping
  * @property int address_override
  */
-class InputFields extends PPModel
+class InputFields extends PayPalModel
 {
     /**
      * Enables the buyer to enter a note to the merchant on the PayPal page during checkout.

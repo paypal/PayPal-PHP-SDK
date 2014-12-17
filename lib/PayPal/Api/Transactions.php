@@ -2,7 +2,7 @@
 
 namespace PayPal\Api;
 
-use PayPal\Common\PPModel;
+use PayPal\Common\PayPalModel;
 use PayPal\Rest\ApiContext;
 
 /**
@@ -14,7 +14,7 @@ use PayPal\Rest\ApiContext;
  *
  * @property \PayPal\Api\Amount amount
  */
-class Transactions extends PPModel
+class Transactions extends PayPalModel
 {
     /**
      * Amount being collected.

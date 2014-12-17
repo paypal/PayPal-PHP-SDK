@@ -5,8 +5,8 @@ use PayPal\Api\Amount;
 use PayPal\Api\Currency;
 use PayPal\Api\Details;
 use PayPal\Api\Item;
-use PayPal\Common\FormatConverter;
-use PayPal\Common\PPModel;
+use PayPal\Converter\FormatConverter;
+use PayPal\Common\PayPalModel;
 use PayPal\Test\Validation\NumericValidatorTest;
 
 class FormatConverterTest extends \PHPUnit_Framework_TestCase
@@ -118,7 +118,7 @@ class FormatConverterTest extends \PHPUnit_Framework_TestCase
     /**
      * @dataProvider apiModelSettersProvider
      *
-     * @param PPModel $class Class Object
+     * @param PayPalModel $class Class Object
      * @param string $method Method Name where the format is being applied
      * @param array $values array of ['input', 'expectedResponse'] is provided
      */

@@ -3,7 +3,7 @@
 use PayPal\Rest\ApiContext;
 
 /**
- * Test class for PPAPIService.
+ * Test class for ApiContextTest.
  *
  */
 class ApiContextTest extends PHPUnit_Framework_TestCase

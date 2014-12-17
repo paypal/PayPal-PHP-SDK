@@ -2,7 +2,7 @@
 
 namespace PayPal\Api;
 
-use PayPal\Common\PPModel;
+use PayPal\Common\PayPalModel;
 
 /**
  * Class CreateProfileResponse
@@ -13,7 +13,7 @@ use PayPal\Common\PPModel;
  *
  * @property string id
  */
-class CreateProfileResponse extends PPModel
+class CreateProfileResponse extends PayPalModel
 {
     /**
      * ID of the payment web experience profile.

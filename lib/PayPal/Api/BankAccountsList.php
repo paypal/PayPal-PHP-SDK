@@ -2,7 +2,7 @@
 
 namespace PayPal\Api;
 
-use PayPal\Common\PPModel;
+use PayPal\Common\PayPalModel;
 
 /**
  * Class BankAccountsList
@@ -15,7 +15,7 @@ use PayPal\Common\PPModel;
  * @property int count
  * @property string next_id
  */
-class BankAccountsList extends PPModel
+class BankAccountsList extends PayPalModel
 {
     /**
      * A list of bank account resources

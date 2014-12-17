@@ -2,10 +2,10 @@
 
 namespace PayPal\Api;
 
-use PayPal\Common\ResourceModel;
+use PayPal\Common\PayPalResourceModel;
 use PayPal\Rest\ApiContext;
 use PayPal\Api\Refund;
-use PayPal\Transport\PPRestCall;
+use PayPal\Transport\PayPalRestCall;
 use PayPal\Validation\ArgumentValidator;
 
 /**
@@ -29,7 +29,7 @@ use PayPal\Validation\ArgumentValidator;
  * @property string parent_payment
  * @property \PayPal\Api\Links links
  */
-class Sale extends ResourceModel
+class Sale extends PayPalResourceModel
 {
     /**
      * OAuth Credentials to use for this call
@@ -591,7 +591,7 @@ class Sale extends ResourceModel
      *
      * @param string $saleId
      * @param \PayPal\Rest\ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
-     * @param PPRestCall $restCall is the Rest Call Service that is used to make rest calls
+     * @param PayPalRestCall $restCall is the Rest Call Service that is used to make rest calls
      * @return Sale
      */
     public static function get($saleId, $apiContext = null, $restCall = null)
@@ -617,7 +617,7 @@ class Sale extends ResourceModel
      *
      * @param Refund $refund
      * @param \PayPal\Rest\ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
-     * @param PPRestCall $restCall is the Rest Call Service that is used to make rest calls
+     * @param PayPalRestCall $restCall is the Rest Call Service that is used to make rest calls
      * @return Refund
      */
     public function refund($refund, $apiContext = null, $restCall = null)

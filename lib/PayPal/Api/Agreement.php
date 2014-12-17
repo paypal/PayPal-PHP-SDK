@@ -2,11 +2,11 @@
 
 namespace PayPal\Api;
 
-use PayPal\Common\ResourceModel;
+use PayPal\Common\PayPalResourceModel;
 use PayPal\Validation\ArgumentValidator;
 use PayPal\Api\AgreementTransactions;
 use PayPal\Rest\ApiContext;
-use PayPal\Transport\PPRestCall;
+use PayPal\Transport\PayPalRestCall;
 
 /**
  * Class Agreement
@@ -30,7 +30,7 @@ use PayPal\Transport\PPRestCall;
  * @property \PayPal\Api\AgreementDetails agreement_details
  * @property \PayPal\Api\Links[] links
  */
-class Agreement extends ResourceModel
+class Agreement extends PayPalResourceModel
 {
     /**
      * Identifier of the agreement.
@@ -593,7 +593,7 @@ class Agreement extends ResourceModel
      * Create a new billing agreement by passing the details for the agreement, including the name, description, start date, payer, and billing plan in the request JSON.
      *
      * @param ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
-     * @param PPRestCall $restCall is the Rest Call Service that is used to make rest calls
+     * @param PayPalRestCall $restCall is the Rest Call Service that is used to make rest calls
      * @return Agreement
      */
     public function create($apiContext = null, $restCall = null)
@@ -616,7 +616,7 @@ class Agreement extends ResourceModel
      *
      * @param  $paymentToken
      * @param ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
-     * @param PPRestCall $restCall is the Rest Call Service that is used to make rest calls
+     * @param PayPalRestCall $restCall is the Rest Call Service that is used to make rest calls
      * @return Agreement
      */
     public function execute($paymentToken, $apiContext = null, $restCall = null)
@@ -640,7 +640,7 @@ class Agreement extends ResourceModel
      *
      * @param string $agreementId
      * @param ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
-     * @param PPRestCall $restCall is the Rest Call Service that is used to make rest calls
+     * @param PayPalRestCall $restCall is the Rest Call Service that is used to make rest calls
      * @return Agreement
      */
     public static function get($agreementId, $apiContext = null, $restCall = null)
@@ -665,7 +665,7 @@ class Agreement extends ResourceModel
      *
      * @param PatchRequest $patchRequest
      * @param ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
-     * @param PPRestCall $restCall is the Rest Call Service that is used to make rest calls
+     * @param PayPalRestCall $restCall is the Rest Call Service that is used to make rest calls
      * @return bool
      */
     public function update($patchRequest, $apiContext = null, $restCall = null)
@@ -689,7 +689,7 @@ class Agreement extends ResourceModel
      *
      * @param AgreementStateDescriptor $agreementStateDescriptor
      * @param ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
-     * @param PPRestCall $restCall is the Rest Call Service that is used to make rest calls
+     * @param PayPalRestCall $restCall is the Rest Call Service that is used to make rest calls
      * @return bool
      */
     public function suspend($agreementStateDescriptor, $apiContext = null, $restCall = null)
@@ -713,7 +713,7 @@ class Agreement extends ResourceModel
      *
      * @param AgreementStateDescriptor $agreementStateDescriptor
      * @param ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
-     * @param PPRestCall $restCall is the Rest Call Service that is used to make rest calls
+     * @param PayPalRestCall $restCall is the Rest Call Service that is used to make rest calls
      * @return bool
      */
     public function reActivate($agreementStateDescriptor, $apiContext = null, $restCall = null)
@@ -737,7 +737,7 @@ class Agreement extends ResourceModel
      *
      * @param AgreementStateDescriptor $agreementStateDescriptor
      * @param ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
-     * @param PPRestCall $restCall is the Rest Call Service that is used to make rest calls
+     * @param PayPalRestCall $restCall is the Rest Call Service that is used to make rest calls
      * @return bool
      */
     public function cancel($agreementStateDescriptor, $apiContext = null, $restCall = null)
@@ -761,7 +761,7 @@ class Agreement extends ResourceModel
      *
      * @param AgreementStateDescriptor $agreementStateDescriptor
      * @param ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
-     * @param PPRestCall $restCall is the Rest Call Service that is used to make rest calls
+     * @param PayPalRestCall $restCall is the Rest Call Service that is used to make rest calls
      * @return bool
      */
     public function billBalance($agreementStateDescriptor, $apiContext = null, $restCall = null)
@@ -785,7 +785,7 @@ class Agreement extends ResourceModel
      *
      * @param Currency $currency
      * @param ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
-     * @param PPRestCall $restCall is the Rest Call Service that is used to make rest calls
+     * @param PayPalRestCall $restCall is the Rest Call Service that is used to make rest calls
      * @return bool
      */
     public function setBalance($currency, $apiContext = null, $restCall = null)
@@ -809,7 +809,7 @@ class Agreement extends ResourceModel
      *
      * @param string $agreementId
      * @param ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
-     * @param PPRestCall $restCall is the Rest Call Service that is used to make rest calls
+     * @param PayPalRestCall $restCall is the Rest Call Service that is used to make rest calls
      * @return AgreementTransactions
      */
     public static function transactions($agreementId, $apiContext = null, $restCall = null)

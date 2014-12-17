@@ -2,7 +2,7 @@
 
 namespace PayPal\Api;
 
-use PayPal\Common\PPModel;
+use PayPal\Common\PayPalModel;
 use PayPal\Validation\UrlValidator;
 
 /**
@@ -15,7 +15,7 @@ use PayPal\Validation\UrlValidator;
  * @property string landing_page_type
  * @property string bank_txn_pending_url
  */
-class FlowConfig extends PPModel
+class FlowConfig extends PayPalModel
 {
     /**
      * Type of PayPal page to be displayed when a user lands on the PayPal site for checkout. Allowed values: `Billing` or `Login`. When set to `Billing`, the Non-PayPal account landing page is used. When set to `Login`, the PayPal account login landing page is used.

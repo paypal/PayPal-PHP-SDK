@@ -2,11 +2,11 @@
 
 namespace PayPal\Api;
 
-use PayPal\Common\PPModel;
+use PayPal\Common\PayPalModel;
 use PayPal\Rest\ApiContext;
 use PayPal\Validation\UrlValidator;
 use PayPal\Validation\NumericValidator;
-use PayPal\Common\FormatConverter;
+use PayPal\Converter\FormatConverter;
 
 /**
  * Class Item
@@ -27,7 +27,7 @@ use PayPal\Common\FormatConverter;
  * @property \PayPal\Api\NameValuePair supplementary_data
  * @property \PayPal\Api\NameValuePair postback_data
  */
-class Item extends PPModel
+class Item extends PayPalModel
 {
     /**
      * Number of items.
