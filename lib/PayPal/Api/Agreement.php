@@ -3,6 +3,7 @@
 namespace PayPal\Api;
 
 use PayPal\Common\PayPalResourceModel;
+use PayPal\Core\PayPalConstants;
 use PayPal\Validation\ArgumentValidator;
 use PayPal\Api\AgreementTransactions;
 use PayPal\Rest\ApiContext;
@@ -542,7 +543,7 @@ class Agreement extends PayPalResourceModel
      */
     public function getApprovalLink()
     {
-        return $this->getLink(Payment::APPROVAL_URL);
+        return $this->getLink(PayPalConstants::APPROVAL_URL);
     }
 
     /**

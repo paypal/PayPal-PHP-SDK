@@ -4,6 +4,7 @@ namespace PayPal\Api;
 
 use PayPal\Common\PayPalModel;
 use PayPal\Common\PayPalResourceModel;
+use PayPal\Core\PayPalConstants;
 use PayPal\Rest\ApiContext;
 use PayPal\Rest\IResource;
 use PayPal\Api\PaymentHistory;
@@ -30,11 +31,6 @@ use PayPal\Validation\ArgumentValidator;
  */
 class Payment extends PayPalResourceModel
 {
-
-    /**
-     * Approval URL for Payment
-     */
-     const APPROVAL_URL = 'approval_url';
 
     /**
      * OAuth Credentials to use for this call
@@ -377,7 +373,7 @@ class Payment extends PayPalResourceModel
      */
     public function getApprovalLink()
     {
-        return $this->getLink(Payment::APPROVAL_URL);
+        return $this->getLink(PayPalConstants::APPROVAL_URL);
     }
     
     /**
