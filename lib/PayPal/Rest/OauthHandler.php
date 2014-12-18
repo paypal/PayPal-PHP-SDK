@@ -93,9 +93,8 @@ class OauthHandler implements IPPHandler
                     throw new PPConfigurationException('The mode config parameter must be set to either sandbox/live');
             }
         } else {
-            throw new PPConfigurationException(
-                'You must set one of service.endpoint or mode parameters in your configuration'
-            );
+            // Defaulting to Sandbox
+            $baseEndpoint = PPConstants::REST_SANDBOX_ENDPOINT;
         }
 
         $baseEndpoint = rtrim(trim($baseEndpoint), '/') . "/v1/oauth2/token";

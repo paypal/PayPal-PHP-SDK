@@ -116,9 +116,8 @@ class RestHandler implements IPPHandler
                     break;
             }
         } else {
-            throw new PPConfigurationException(
-                'You must set one of service.endpoint or mode parameters in your configuration'
-            );
+            // Defaulting to Sandbox
+            return PPConstants::REST_SANDBOX_ENDPOINT;
         }
     }
 }
