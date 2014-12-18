@@ -28,7 +28,6 @@ use PayPal\Transport\PayPalRestCall;
  * @property string create_time
  * @property string update_time
  * @property \PayPal\Api\AgreementDetails agreement_details
- * @property \PayPal\Api\Links[] links
  */
 class Agreement extends PayPalResourceModel
 {
@@ -537,56 +536,13 @@ class Agreement extends PayPalResourceModel
     }
 
     /**
-     * Sets Links
+     * Get Approval Link
      *
-     * @param \PayPal\Api\Links[] $links
-     * 
-     * @return $this
+     * @return null|string
      */
-    public function setLinks($links)
+    public function getApprovalLink()
     {
-        $this->links = $links;
-        return $this;
-    }
-
-    /**
-     * Gets Links
-     *
-     * @return \PayPal\Api\Links[]
-     */
-    public function getLinks()
-    {
-        return $this->links;
-    }
-
-    /**
-     * Append Links to the list.
-     *
-     * @param \PayPal\Api\Links $links
-     * @return $this
-     */
-    public function addLink($links)
-    {
-        if (!$this->getLinks()) {
-            return $this->setLinks(array($links));
-        } else {
-            return $this->setLinks(
-                array_merge($this->getLinks(), array($links))
-            );
-        }
-    }
-
-    /**
-     * Remove Links from the list.
-     *
-     * @param \PayPal\Api\Links $links
-     * @return $this
-     */
-    public function removeLink($links)
-    {
-        return $this->setLinks(
-            array_diff($this->getLinks(), array($links))
-        );
+        return $this->getLink(Payment::APPROVAL_URL);
     }
 
     /**

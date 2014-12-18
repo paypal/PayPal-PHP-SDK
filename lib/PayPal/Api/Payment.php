@@ -26,11 +26,16 @@ use PayPal\Validation\ArgumentValidator;
  * @property \PayPal\Api\Transaction[] transactions
  * @property string state
  * @property \PayPal\Api\RedirectUrls redirect_urls
- * @property \PayPal\Api\Links links
  * @property string experience_profile_id
  */
 class Payment extends PayPalResourceModel
 {
+
+    /**
+     * Approval URL for Payment
+     */
+     const APPROVAL_URL = 'approval_url';
+
     /**
      * OAuth Credentials to use for this call
      *
@@ -341,30 +346,6 @@ class Payment extends PayPalResourceModel
     }
 
     /**
-     * Sets Links
-     *
-     *
-     * @param \PayPal\Api\Links $links
-     *
-     * @return $this
-     */
-    public function setLinks($links)
-    {
-        $this->links = $links;
-        return $this;
-    }
-
-    /**
-     * Gets Links
-     *
-     * @return \PayPal\Api\Links[]
-     */
-    public function getLinks()
-    {
-        return $this->links;
-    }
-
-    /**
      * Set Experience_profile_id
      * experience_profile_id of the payment
      *
@@ -387,6 +368,16 @@ class Payment extends PayPalResourceModel
     public function getExperienceProfileId()
     {
         return $this->experience_profile_id;
+    }
+
+    /**
+     * Get Approval Link
+     *
+     * @return null|string
+     */
+    public function getApprovalLink()
+    {
+        return $this->getLink(Payment::APPROVAL_URL);
     }
     
     /**

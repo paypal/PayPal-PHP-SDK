@@ -26,7 +26,6 @@ use PayPal\Transport\PayPalRestCall;
  * @property \PayPal\Api\PaymentDefinition[] payment_definitions
  * @property \PayPal\Api\Terms[] terms
  * @property \PayPal\Api\MerchantPreferences merchant_preferences
- * @property \PayPal\Api\Links[] links
  */
 class Plan extends PayPalResourceModel
 {
@@ -418,59 +417,6 @@ class Plan extends PayPalResourceModel
     public function getMerchant_preferences()
     {
         return $this->merchant_preferences;
-    }
-
-    /**
-     * Sets Links
-     *
-     * @param \PayPal\Api\Links[] $links
-     * 
-     * @return $this
-     */
-    public function setLinks($links)
-    {
-        $this->links = $links;
-        return $this;
-    }
-
-    /**
-     * Gets Links
-     *
-     * @return \PayPal\Api\Links[]
-     */
-    public function getLinks()
-    {
-        return $this->links;
-    }
-
-    /**
-     * Append Links to the list.
-     *
-     * @param \PayPal\Api\Links $links
-     * @return $this
-     */
-    public function addLink($links)
-    {
-        if (!$this->getLinks()) {
-            return $this->setLinks(array($links));
-        } else {
-            return $this->setLinks(
-                array_merge($this->getLinks(), array($links))
-            );
-        }
-    }
-
-    /**
-     * Remove Links from the list.
-     *
-     * @param \PayPal\Api\Links $links
-     * @return $this
-     */
-    public function removeLink($links)
-    {
-        return $this->setLinks(
-            array_diff($this->getLinks(), array($links))
-        );
     }
 
     /**

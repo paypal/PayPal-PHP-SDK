@@ -11,6 +11,7 @@ use PayPal\Transport\PayPalRestCall;
  * Class PayPalResourceModel
  * An Executable PayPalModel Class
  *
+ * @property \PayPal\Api\Links[] links
  * @package PayPal\Common
  */
 class PayPalResourceModel extends PayPalModel implements IResource
@@ -32,6 +33,69 @@ class PayPalResourceModel extends PayPalModel implements IResource
     public static function setCredential($credential)
     {
         self::$credential = $credential;
+    }
+
+    /**
+     * Sets Links
+     *
+     * @param \PayPal\Api\Links[] $links
+     *
+     * @return $this
+     */
+    public function setLinks($links)
+    {
+        $this->links = $links;
+        return $this;
+    }
+
+    /**
+     * Gets Links
+     *
+     * @return \PayPal\Api\Links[]
+     */
+    public function getLinks()
+    {
+        return $this->links;
+    }
+
+    public function getLink($rel)
+    {
+        foreach ($this->links as $link) {
+            if ($link->getRel() == $rel) {
+                return $link->getHref();
+            }
+        }
+        return null;
+    }
+
+    /**
+     * Append Links to the list.
+     *
+     * @param \PayPal\Api\Links $links
+     * @return $this
+     */
+    public function addLink($links)
+    {
+        if (!$this->getLinks()) {
+            return $this->setLinks(array($links));
+        } else {
+            return $this->setLinks(
+                array_merge($this->getLinks(), array($links))
+            );
+        }
+    }
+
+    /**
+     * Remove Links from the list.
+     *
+     * @param \PayPal\Api\Links $links
+     * @return $this
+     */
+    public function removeLink($links)
+    {
+        return $this->setLinks(
+            array_diff($this->getLinks(), array($links))
+        );
     }
 
 

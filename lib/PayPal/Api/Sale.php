@@ -27,7 +27,6 @@ use PayPal\Validation\ArgumentValidator;
  * @property string protection_eligibility_type
  * @property string clearing_time
  * @property string parent_payment
- * @property \PayPal\Api\Links links
  */
 class Sale extends PayPalResourceModel
 {
@@ -560,30 +559,6 @@ class Sale extends PayPalResourceModel
     public function getParent_payment()
     {
         return $this->parent_payment;
-    }
-
-    /**
-     * Sets Links
-     * 
-     *
-     * @param \PayPal\Api\Links $links
-     * 
-     * @return $this
-     */
-    public function setLinks($links)
-    {
-        $this->links = $links;
-        return $this;
-    }
-
-    /**
-     * Gets Links
-     *
-     * @return \PayPal\Api\Links[]
-     */
-    public function getLinks()
-    {
-        return $this->links;
     }
 
     /**
