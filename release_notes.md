@@ -1,5 +1,11 @@
 PayPal PHP SDK release notes
 ============================
+v1.0.0-beta
+----
+* Namespace Changes and Class Naming Convention
+* Helper Functions to retrieve specific HATEOS Links
+* Default Mode set to Sandbox
+
 v0.16.1
 ----
 * Configurable Headers for all requests to PayPal
