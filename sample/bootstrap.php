@@ -77,7 +77,7 @@ function getApiContext($clientId, $clientSecret)
             'log.FileName' => '../PayPal.log',
             'log.LogLevel' => 'FINE',
             'validation.level' => 'log',
-            'cache.enabled' => 'true',
+            'cache.enabled' => true,
             // 'http.headers.PayPal-Partner-Attribution-Id' => '123123123'
         )
     );

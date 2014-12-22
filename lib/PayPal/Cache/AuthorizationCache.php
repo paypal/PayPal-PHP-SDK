@@ -85,7 +85,7 @@ abstract class AuthorizationCache
         $config = ($config && is_array($config)) ? $config : PPConfigManager::getInstance()->getConfigHashmap();
         if (array_key_exists("cache.enabled", $config)) {
             $value = $config['cache.enabled'];
-            return (trim($value) == 'true') ?  true : false;
+            return (trim($value) == true || trim($value) == 'true') ?  true : false;
         }
         return false;
     }
