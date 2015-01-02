@@ -3,6 +3,7 @@
 namespace PayPal\Test\Functional;
 
 use PayPal\Auth\OAuthTokenCredential;
+use PayPal\Core\PayPalConfigManager;
 use PayPal\Core\PayPalCredentialManager;
 use PayPal\Rest\ApiContext;
 
@@ -16,20 +17,14 @@ class Setup
         $context = new ApiContext();
         $context->setConfig(array(
             'mode' => 'sandbox',
-            'acct1.ClientId' => 'AYSq3RDGsmBLJE-otTkBtM-jBRd1TCQwFf9RGfwddNXWz0uFU9ztymylOhRS',
-            'acct1.ClientSecret' => 'EGnHDxD_qRPdaLdZz8iCr8N7_MzF-YHPTkjs6NKYQvQSBngp4PTTVWkPZRbL',
             'http.ConnectionTimeOut' => 30,
             'log.LogEnabled' => true,
             'log.FileName' => '../PayPal.log',
             'log.LogLevel' => 'FINE',
             'validation.level' => 'warning'
         ));
-        PayPalCredentialManager::getInstance()->setCredentialObject(
-            new OAuthTokenCredential(
-                "AYSq3RDGsmBLJE-otTkBtM-jBRd1TCQwFf9RGfwddNXWz0uFU9ztymylOhRS",
-                "EGnHDxD_qRPdaLdZz8iCr8N7_MzF-YHPTkjs6NKYQvQSBngp4PTTVWkPZRbL"
-            )
-        );
+
+        PayPalCredentialManager::getInstance()->setCredentialObject(PayPalCredentialManager::getInstance()->getCredentialObject('acct1'));
 
         self::$mode = getenv('REST_MODE') ? getenv('REST_MODE') : 'mock';
         if (self::$mode != 'sandbox') {

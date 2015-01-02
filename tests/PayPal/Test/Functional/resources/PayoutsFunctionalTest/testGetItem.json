@@ -1,0 +1,66 @@
+{
+    "description" : "Sender needs status of one item.",
+    "title" : "GET item sample",
+    "runnable" : true,
+    "operationId" : "payouts.item",
+    "user" : {
+        "scopes" : [ ]
+    },
+    "credentials" : {
+        "oauth": {
+            "path" : "/v1/oauth/token",
+            "clientId":"",
+            "clientSecret":""
+        }
+    },
+    "request" : {
+        "path" : "v1/payments/payouts-item/452345",
+        "method" : "GET",
+        "headers" : {
+            "Content-Type": "application/json",
+            "Content-Encoding": "gzip"
+        },
+        "body" : {}
+    },
+    "response" : {
+        "status" : "200 OK",
+        "headers" : {
+            "Content-Type": "application/json",
+            "Content-Encoding": "gzip"
+        },
+        "body" : {
+            "items":[
+                {
+                    "payout_item_id":"1421342",
+                    "transaction_id":"4345",
+                    "transaction_status":"SUCCESS",
+                    "payout_item_fee":{"currency":"USD","value":"0.35"},
+                    "payout_batch_id":"20140724",
+                    "sender_batch_id":"2014021801",
+                    "payout_item":{
+                        "recipient_type":"EMAIL",
+                        "amount":{ "value":"9.87", "currency":"USD"},
+                        "note":"Thanks for your patronage!",
+                        "receiver":"anybody01@gmail.com",
+                        "payouts_item_id":"1421342",
+                        "sender_item_id":"14Feb_234"
+                    },
+                    "time_created":"2014-01-27T10:17:00Z",
+                    "time_processed":"2014-01-27T10:17:41Z",
+                    "links": [
+            {
+                "rel": "self",
+                "href": "payouts-batch/{payout_batch_id}",
+                "method": "GET"
+            },
+            {
+                "rel": "self",
+                "href": "payouts-item/{payout_item_id}",
+                "method": "GET"
+            }
+        ]
+                }
+            ]
+        }
+    }
+}
