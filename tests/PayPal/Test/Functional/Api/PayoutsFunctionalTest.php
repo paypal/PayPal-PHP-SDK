@@ -89,7 +89,8 @@ class PayoutsFunctionalTest extends \PHPUnit_Framework_TestCase
      */
     public function testGetItem($payoutBatch)
     {
-        $item = $payoutBatch->getItems()[0];
+        $items = $payoutBatch->getItems();
+        $item = $items[0];
         $result = PayoutItem::get($item->getPayoutItemId(), null, $this->mockPayPalRestCall);
         $this->assertNotNull($result);
         $this->assertEquals($item->getPayoutItemId(), $result->getPayoutItemId());

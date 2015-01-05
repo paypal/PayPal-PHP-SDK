@@ -18,7 +18,7 @@ class PayoutItemDetailsTest extends \PHPUnit_Framework_TestCase
      */
     public static function getJson()
     {
-        return '{"payout_item_id":"TestSample","transaction_id":"TestSample","transaction_status":"TestSample","payout_item_fee":' .CurrencyTest::getJson() . ',"payout_batch_id":"TestSample","sender_batch_id":"TestSample","payout_item":' .PayoutItemTest::getJson() . ',"time_processed":"TestSample","error":' .ErrorTest::getJson() . ',"links":' .LinksTest::getJson() . '}';
+        return '{"payout_item_id":"TestSample","transaction_id":"TestSample","transaction_status":"TestSample","payout_item_fee":' .CurrencyTest::getJson() . ',"payout_batch_id":"TestSample","sender_batch_id":"TestSample","payout_item":' .PayoutItemTest::getJson() . ',"time_processed":"TestSample","errors":' .ErrorTest::getJson() . ',"links":' .LinksTest::getJson() . '}';
     }
 
     /**
@@ -47,7 +47,7 @@ class PayoutItemDetailsTest extends \PHPUnit_Framework_TestCase
         $this->assertNotNull($obj->getSenderBatchId());
         $this->assertNotNull($obj->getPayoutItem());
         $this->assertNotNull($obj->getTimeProcessed());
-        $this->assertNotNull($obj->getError());
+        $this->assertNotNull($obj->getErrors());
         $this->assertNotNull($obj->getLinks());
         $this->assertEquals(self::getJson(), $obj->toJson());
         return $obj;
@@ -67,7 +67,7 @@ class PayoutItemDetailsTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($obj->getSenderBatchId(), "TestSample");
         $this->assertEquals($obj->getPayoutItem(), PayoutItemTest::getObject());
         $this->assertEquals($obj->getTimeProcessed(), "TestSample");
-        $this->assertEquals($obj->getError(), ErrorTest::getObject());
+        $this->assertEquals($obj->getErrors(), ErrorTest::getObject());
         $this->assertEquals($obj->getLinks(), LinksTest::getObject());
     }
 
