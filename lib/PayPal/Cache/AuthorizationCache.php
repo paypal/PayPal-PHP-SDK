@@ -84,12 +84,8 @@ abstract class AuthorizationCache
      */
     public static function isEnabled($config)
     {
-        $config = ($config && is_array($config)) ? $config : PayPalConfigManager::getInstance()->getConfigHashmap();
-        if (array_key_exists("cache.enabled", $config)) {
-            $value = $config['cache.enabled'];
-            return (trim($value) == true || trim($value) == 'true') ?  true : false;
-        }
-        return false;
+        $value = self::getConfigValue('cache.enabled', $config);
+        return empty($value) ? false : ((trim($value) == true || trim($value) == 'true') ?  true : false);
     }
     
     /**
@@ -100,9 +96,22 @@ abstract class AuthorizationCache
      */
     public static function cachePath($config)
     {
-        $config = ($config && is_array($config)) ? $config : PPConfigManager::getInstance()->getConfigHashmap();
-        $cachePath = (array_key_exists("cache.FileName", $config)) ? trim($config['cache.FileName']) : null;
+        $cachePath = self::getConfigValue('cache.FileName', $config);
         return empty($cachePath) ? __DIR__ . self::$CACHE_PATH : $cachePath;
+    }
+
+    /**
+     * Returns the Value of the key if found in given config, or from PayPal Config Manager
+     * Returns null if not found
+     *
+     * @param $key
+     * @param $config
+     * @return null|string
+     */
+    private static function getConfigValue($key, $config)
+    {
+        $config = ($config && is_array($config)) ? $config : PayPalConfigManager::getInstance()->getConfigHashmap();
+        return (array_key_exists($key, $config)) ? trim($config[$key]) : null;
     }
 
 
