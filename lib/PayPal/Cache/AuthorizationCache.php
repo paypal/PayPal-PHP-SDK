@@ -23,9 +23,10 @@ abstract class AuthorizationCache
         if (!self::isEnabled($config)) { return null; }
 
         $tokens = null;
-        if (file_exists(__DIR__ . self::$CACHE_PATH)) {
+        $cachePath = self::cachePath($config);
+        if (file_exists($cachePath)) {
             // Read from the file
-            $cachedToken = file_get_contents(__DIR__ . self::$CACHE_PATH);
+            $cachedToken = file_get_contents($cachePath);
             if ($cachedToken && JsonValidator::validate($cachedToken, true)) {
                 $tokens = json_decode($cachedToken, true);
                 if ($clientId && is_array($tokens) && array_key_exists($clientId, $tokens)) {
@@ -54,8 +55,9 @@ abstract class AuthorizationCache
         // Return if not enabled
         if (!self::isEnabled($config)) { return; }
 
-        if (!is_dir(dirname(__DIR__ . self::$CACHE_PATH))) {
-            if (mkdir(dirname(__DIR__ . self::$CACHE_PATH), 0755, true) == false) {
+        $cachePath = self::cachePath($config);
+        if (!is_dir(dirname($cachePath))) {
+            if (mkdir(dirname($cachePath), 0755, true) == false) {
                 return;
             }
         }
@@ -71,7 +73,7 @@ abstract class AuthorizationCache
                 'tokenExpiresIn' => $tokenExpiresIn
             );
         }
-        file_put_contents(__DIR__ . self::$CACHE_PATH, json_encode($tokens));
+        file_put_contents($cachePath, json_encode($tokens));
     }
 
     /**
@@ -88,6 +90,19 @@ abstract class AuthorizationCache
             return (trim($value) == true || trim($value) == 'true') ?  true : false;
         }
         return false;
+    }
+    
+    /**
+     * Returns the cache file path
+     *
+     * @param $config
+     * @return string
+     */
+    public static function cachePath($config)
+    {
+        $config = ($config && is_array($config)) ? $config : PPConfigManager::getInstance()->getConfigHashmap();
+        $cachePath = (array_key_exists("cache.FileName", $config)) ? trim($config['cache.FileName']) : null;
+        return empty($cachePath) ? __DIR__ . self::$CACHE_PATH : $cachePath;
     }
 
 
