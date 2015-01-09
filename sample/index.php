@@ -115,8 +115,13 @@ if (PHP_SAPI == 'cli') {
                 text-decoration: none;
             }
 
-            .logo {
+            .img-div {
                 position: fixed;
+                margin-left: 0px;
+                padding-left: 0px;
+            }
+
+            .logo {
                 top: 80px;
             }
         }
@@ -177,8 +182,8 @@ if (PHP_SAPI == 'cli') {
 <div class="jumbotron">
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-3 pull-left">
-                <img src="https://www.paypalobjects.com/webstatic/developer/logo2_paypal_developer_2x.png" class="logo" width="300"/>
+            <div class="col-md-3 pull-left img-div">
+                <img src="https://www.paypalobjects.com/webstatic/developer/logo2_paypal_developer_2x.png" class="logo img-responsive"/>
             </div>
             <div class="col-md-9 pull-right">
                 <h2>// REST API Samples</h2>
