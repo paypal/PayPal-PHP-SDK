@@ -2,11 +2,11 @@
 
 namespace PayPal\Api;
 
-use PayPal\Common\ResourceModel;
+use PayPal\Common\PayPalResourceModel;
 use PayPal\Validation\ArgumentValidator;
 use PayPal\Api\WebhookList;
 use PayPal\Rest\ApiContext;
-use PayPal\Transport\PPRestCall;
+use PayPal\Transport\PayPalRestCall;
 use PayPal\Validation\UrlValidator;
 
 /**
@@ -19,9 +19,8 @@ use PayPal\Validation\UrlValidator;
  * @property string id
  * @property string url
  * @property \PayPal\Api\WebhookEventType[] event_types
- * @property \PayPal\Api\Links[] links
  */
-class Webhook extends ResourceModel
+class Webhook extends PayPalResourceModel
 {
     /**
      * Identifier of the webhook resource.
@@ -124,88 +123,10 @@ class Webhook extends ResourceModel
     }
 
     /**
-     * List of Webhooks event-types.
-     *
-     * @deprecated Instead use setEventTypes
-     *
-     * @param \PayPal\Api\WebhookEventType $event_types
-     * @return $this
-     */
-    public function setEvent_types($event_types)
-    {
-        $this->event_types = $event_types;
-        return $this;
-    }
-
-    /**
-     * List of Webhooks event-types.
-     * @deprecated Instead use getEventTypes
-     *
-     * @return \PayPal\Api\WebhookEventType
-     */
-    public function getEvent_types()
-    {
-        return $this->event_types;
-    }
-
-    /**
-     * Sets Links
-     *
-     * @param \PayPal\Api\Links[] $links
-     * 
-     * @return $this
-     */
-    public function setLinks($links)
-    {
-        $this->links = $links;
-        return $this;
-    }
-
-    /**
-     * Gets Links
-     *
-     * @return \PayPal\Api\Links[]
-     */
-    public function getLinks()
-    {
-        return $this->links;
-    }
-
-    /**
-     * Append Links to the list.
-     *
-     * @param \PayPal\Api\Links $links
-     * @return $this
-     */
-    public function addLink($links)
-    {
-        if (!$this->getLinks()) {
-            return $this->setLinks(array($links));
-        } else {
-            return $this->setLinks(
-                array_merge($this->getLinks(), array($links))
-            );
-        }
-    }
-
-    /**
-     * Remove Links from the list.
-     *
-     * @param \PayPal\Api\Links $links
-     * @return $this
-     */
-    public function removeLink($links)
-    {
-        return $this->setLinks(
-            array_diff($this->getLinks(), array($links))
-        );
-    }
-
-    /**
      * Creates the Webhook for the application associated with the access token.
      *
      * @param ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
-     * @param PPRestCall $restCall is the Rest Call Service that is used to make rest calls
+     * @param PayPalRestCall $restCall is the Rest Call Service that is used to make rest calls
      * @return Webhook
      */
     public function create($apiContext = null, $restCall = null)
@@ -228,7 +149,7 @@ class Webhook extends ResourceModel
      *
      * @param string $webhookId
      * @param ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
-     * @param PPRestCall $restCall is the Rest Call Service that is used to make rest calls
+     * @param PayPalRestCall $restCall is the Rest Call Service that is used to make rest calls
      * @return Webhook
      */
     public static function get($webhookId, $apiContext = null, $restCall = null)
@@ -252,7 +173,7 @@ class Webhook extends ResourceModel
      * Retrieves all Webhooks for the application associated with access token.
      *
      * @param ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
-     * @param PPRestCall $restCall is the Rest Call Service that is used to make rest calls
+     * @param PayPalRestCall $restCall is the Rest Call Service that is used to make rest calls
      * @return WebhookList
      */
     public static function getAll($apiContext = null, $restCall = null)
@@ -276,7 +197,7 @@ class Webhook extends ResourceModel
      *
      * @param PatchRequest $patchRequest
      * @param ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
-     * @param PPRestCall $restCall is the Rest Call Service that is used to make rest calls
+     * @param PayPalRestCall $restCall is the Rest Call Service that is used to make rest calls
      * @return Webhook
      */
     public function update($patchRequest, $apiContext = null, $restCall = null)
@@ -300,7 +221,7 @@ class Webhook extends ResourceModel
      * Deletes the Webhook identified by webhook_id for the application associated with access token.
      *
      * @param ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
-     * @param PPRestCall $restCall is the Rest Call Service that is used to make rest calls
+     * @param PayPalRestCall $restCall is the Rest Call Service that is used to make rest calls
      * @return bool
      */
     public function delete($apiContext = null, $restCall = null)

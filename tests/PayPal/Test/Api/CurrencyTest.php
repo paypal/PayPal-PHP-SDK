@@ -2,8 +2,8 @@
 
 namespace PayPal\Test\Api;
 
-use PayPal\Common\PPModel;
-use PayPal\Common\FormatConverter;
+use PayPal\Common\PayPalModel;
+use PayPal\Converter\FormatConverter;
 use PayPal\Validation\NumericValidator;
 use PayPal\Api\Currency;
 
@@ -56,27 +56,5 @@ class CurrencyTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($obj->getCurrency(), "TestSample");
         $this->assertEquals($obj->getValue(), "TestSample");
     }
-
-    /**
-     * @depends testSerializationDeserialization
-     * @param Currency $obj
-     */
-    public function testDeprecatedGetters($obj)
-    {
-    }
-
-    /**
-     * @depends testSerializationDeserialization
-     * @param Currency $obj
-     */
-    public function testDeprecatedSetterNormalGetter($obj)
-    {
-
-        //Test All Deprecated Getters and Normal Getters
-        $this->testDeprecatedGetters($obj);
-        $this->testGetters($obj);
-    }
-
-
 
 }

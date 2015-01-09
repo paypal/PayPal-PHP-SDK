@@ -2,7 +2,7 @@
 
 require __DIR__ . '/../bootstrap.php';
 
-use PayPal\Auth\Openid\PPOpenIdSession;
+use PayPal\Api\OpenIdSession;
 
 $baseUrl = getBaseUrl() . '/UserConsentRedirect.php?success=true';
 
@@ -10,7 +10,7 @@ $baseUrl = getBaseUrl() . '/UserConsentRedirect.php?success=true';
 // The clientId is stored in the bootstrap file
 
 //Get Authorization URL returns the redirect URL that could be used to get user's consent
-$redirectUrl = PPOpenIdSession::getAuthorizationUrl(
+$redirectUrl = OpenIdSession::getAuthorizationUrl(
     $baseUrl,
     array('profile', 'email', 'phone'),
     null,

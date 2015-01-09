@@ -2,7 +2,7 @@
 
 namespace PayPal\Api;
 
-use PayPal\Common\PPModel;
+use PayPal\Common\PayPalModel;
 use PayPal\Rest\ApiContext;
 
 /**
@@ -22,7 +22,7 @@ use PayPal\Rest\ApiContext;
  * @property \PayPal\Api\PaymentOptions payment_options
  * @property \PayPal\Api\ItemList item_list
  */
-class CartBase extends PPModel
+class CartBase extends PayPalModel
 {
     /**
      * Amount being collected.
@@ -121,31 +121,6 @@ class CartBase extends PPModel
     }
 
     /**
-     * Note to the recipient of the funds in this transaction.
-     *
-     * @deprecated Instead use setNoteToPayee
-     *
-     * @param string $note_to_payee
-     * @return $this
-     */
-    public function setNote_to_payee($note_to_payee)
-    {
-        $this->note_to_payee = $note_to_payee;
-        return $this;
-    }
-
-    /**
-     * Note to the recipient of the funds in this transaction.
-     * @deprecated Instead use getNoteToPayee
-     *
-     * @return string
-     */
-    public function getNote_to_payee()
-    {
-        return $this->note_to_payee;
-    }
-
-    /**
      * free-form field for the use of clients
      * 
      *
@@ -194,31 +169,6 @@ class CartBase extends PPModel
     }
 
     /**
-     * invoice number to track this payment
-     *
-     * @deprecated Instead use setInvoiceNumber
-     *
-     * @param string $invoice_number
-     * @return $this
-     */
-    public function setInvoice_number($invoice_number)
-    {
-        $this->invoice_number = $invoice_number;
-        return $this;
-    }
-
-    /**
-     * invoice number to track this payment
-     * @deprecated Instead use getInvoiceNumber
-     *
-     * @return string
-     */
-    public function getInvoice_number()
-    {
-        return $this->invoice_number;
-    }
-
-    /**
      * Soft descriptor used when charging this funding source.
      * 
      *
@@ -238,31 +188,6 @@ class CartBase extends PPModel
      * @return string
      */
     public function getSoftDescriptor()
-    {
-        return $this->soft_descriptor;
-    }
-
-    /**
-     * Soft descriptor used when charging this funding source.
-     *
-     * @deprecated Instead use setSoftDescriptor
-     *
-     * @param string $soft_descriptor
-     * @return $this
-     */
-    public function setSoft_descriptor($soft_descriptor)
-    {
-        $this->soft_descriptor = $soft_descriptor;
-        return $this;
-    }
-
-    /**
-     * Soft descriptor used when charging this funding source.
-     * @deprecated Instead use getSoftDescriptor
-     *
-     * @return string
-     */
-    public function getSoft_descriptor()
     {
         return $this->soft_descriptor;
     }
@@ -292,31 +217,6 @@ class CartBase extends PPModel
     }
 
     /**
-     * Payment options requested for this purchase unit
-     *
-     * @deprecated Instead use setPaymentOptions
-     *
-     * @param \PayPal\Api\PaymentOptions $payment_options
-     * @return $this
-     */
-    public function setPayment_options($payment_options)
-    {
-        $this->payment_options = $payment_options;
-        return $this;
-    }
-
-    /**
-     * Payment options requested for this purchase unit
-     * @deprecated Instead use getPaymentOptions
-     *
-     * @return \PayPal\Api\PaymentOptions
-     */
-    public function getPayment_options()
-    {
-        return $this->payment_options;
-    }
-
-    /**
      * List of items being paid for.
      * 
      *
@@ -336,31 +236,6 @@ class CartBase extends PPModel
      * @return \PayPal\Api\ItemList
      */
     public function getItemList()
-    {
-        return $this->item_list;
-    }
-
-    /**
-     * List of items being paid for.
-     *
-     * @deprecated Instead use setItemList
-     *
-     * @param \PayPal\Api\ItemList $item_list
-     * @return $this
-     */
-    public function setItem_list($item_list)
-    {
-        $this->item_list = $item_list;
-        return $this;
-    }
-
-    /**
-     * List of items being paid for.
-     * @deprecated Instead use getItemList
-     *
-     * @return \PayPal\Api\ItemList
-     */
-    public function getItem_list()
     {
         return $this->item_list;
     }

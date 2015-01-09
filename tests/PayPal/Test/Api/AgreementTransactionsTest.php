@@ -2,7 +2,7 @@
 
 namespace PayPal\Test\Api;
 
-use PayPal\Common\PPModel;
+use PayPal\Common\PayPalModel;
 use PayPal\Api\AgreementTransactions;
 
 /**
@@ -52,36 +52,5 @@ class AgreementTransactionsTest extends \PHPUnit_Framework_TestCase
     {
         $this->assertEquals($obj->getAgreementTransactionList(), AgreementTransactionTest::getObject());
     }
-
-    /**
-     * @depends testSerializationDeserialization
-     * @param AgreementTransactions $obj
-     */
-    public function testDeprecatedGetters($obj)
-    {
-        $this->assertEquals($obj->getAgreement_transaction_list(), AgreementTransactionTest::getObject());
-    }
-
-    /**
-     * @depends testSerializationDeserialization
-     * @param AgreementTransactions $obj
-     */
-    public function testDeprecatedSetterNormalGetter($obj)
-    {
-
-        // Check for Agreement_transaction_list
-        $obj->setAgreementTransactionList(null);
-        $this->assertNull($obj->getAgreement_transaction_list());
-        $this->assertNull($obj->getAgreementTransactionList());
-        $this->assertSame($obj->getAgreementTransactionList(), $obj->getAgreement_transaction_list());
-        $obj->setAgreement_transaction_list(AgreementTransactionTest::getObject());
-        $this->assertEquals($obj->getAgreement_transaction_list(), AgreementTransactionTest::getObject());
-
-        //Test All Deprecated Getters and Normal Getters
-        $this->testDeprecatedGetters($obj);
-        $this->testGetters($obj);
-    }
-
-
 
 }

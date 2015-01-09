@@ -11,6 +11,33 @@ This repository contains PayPal's PHP SDK and samples for REST API.
    - PHP 5.3 or above
    - [curl](http://php.net/manual/en/book.curl.php), [json](http://php.net/manual/en/book.json.php) & [openssl](http://php.net/manual/en/book.openssl.php) extensions must be enabled
 
+## Breaking Changes to 1.* Release
+   * Removed Deprecated Getter Setters from all Model Classes
+     * All Camelcase getters and setters are removed. Please use first letter uppercase syntax
+     * E.g. instead of using get_notify_url(), use getNotifyUrl() instead
+   * Renamed Classes
+     * PayPal\Common\PPModel => PayPal\Common\PayPalModel
+     * PayPal\Common\ResourceModel => PayPal\Common\PayPalResourceModel
+     * PayPal\Common\PPUserAgent => PayPal\Common\PayPalUserAgent
+     * PayPal\Core\PPConfigManager => PayPal\Core\PayPalConfigManager
+     * PayPal\Core\PPConstants  => PayPal\Core\PayPalConstants
+     * PayPal\Core\PPCredentialManager => PayPal\Core\PayPalCredentialManager
+     * PayPal\Core\PPHttpConfig => PayPal\Core\PayPalHttpConfig
+     * PayPal\Core\PPHttpConnection => PayPal\Core\PayPalHttpConnection
+     * PayPal\Core\PPLoggingLevel => PayPal\Core\PayPalLoggingLevel
+     * PayPal\Core\PPLoggingManager => PayPal\Core\PayPalLoggingManager
+     * PayPal\Exception\PPConfigurationException => PayPal\Exception\PayPalConfigurationException
+     * PayPal\Exception\PPConnectionException => PayPal\Exception\PayPalConnectionException
+     * PayPal\Exception\PPInvalidCredentialException => PayPal\Exception\PayPalInvalidCredentialException
+     * PayPal\Exception\PPMissingCredentialException => PayPal\Exception\PayPalMissingCredentialException
+     * PayPal\Handler\IPPHandler => PayPal\Handler\IPayPalHandler
+     * PayPal\Transport\PPRestCall => PayPal\Transport\PayPalRestCall
+   * Namespace Changes and Class Naming Convention
+     * PayPal\Common\FormatConverter => PayPal\Converter\FormatConverter
+     * PayPal\Rest\RestHandler => PayPal\Handler\RestHandler
+     * PayPal\Rest\OauthHandler => PayPal\Handler\OauthHandler
+
+
 ## Installation
 
 ### - Using Composer
@@ -144,16 +171,22 @@ Please visit our [sample sdk_config.ini](https://github.com/paypal/PayPal-PHP-SD
 ;Caching Configuration
 [cache]
 ; If Cache is enabled, it stores the access token retrieved from ClientId and Secret from the
-; server into a file provided in constant $CACHE_PATH in PayPal/Cache/AuthorizationCache.
+; server into a file provided by the cache.FileName option or by using
+; the constant $CACHE_PATH value in PayPal/Cache/AuthorizationCache if the option is omitted/empty.
 ; If the value is set to 'true', it would try to create a file and store the information.
 ; For any other value, it would disable it
 ; Please note, this is a very good performance improvement, and we would encourage you to
 ; set this up properly to reduce the number of calls, to almost 50% on normal use cases
 ; PLEASE NOTE: You may need to provide proper write permissions to /var directory under PayPal-PHP-SDK on
-; your hosting server
+; your hosting server or whichever custom directory you choose
 cache.enabled=true
+; When using a relative path, the cache file is created
+; relative to the .php file that is the entry point
+; for this request. You can also provide an absolute
+; path here
+cache.FileName=../auth.cache
 ```
-##### PLEASE NOTE: You may need to provide proper write permissions to /var directory under PayPal-PHP-SDK on your hosting server
+##### PLEASE NOTE: You may need to provide proper write permissions to /var directory under PayPal-PHP-SDK (or your custom directory) on your hosting server
 
 ### API Model Constructor
 

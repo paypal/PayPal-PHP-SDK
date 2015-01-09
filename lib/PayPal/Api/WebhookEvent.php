@@ -2,12 +2,12 @@
 
 namespace PayPal\Api;
 
-use PayPal\Common\PPModel;
-use PayPal\Common\ResourceModel;
+use PayPal\Common\PayPalModel;
+use PayPal\Common\PayPalResourceModel;
 use PayPal\Validation\ArgumentValidator;
 use PayPal\Api\WebhookEventList;
 use PayPal\Rest\ApiContext;
-use PayPal\Transport\PPRestCall;
+use PayPal\Transport\PayPalRestCall;
 
 /**
  * Class WebhookEvent
@@ -22,9 +22,8 @@ use PayPal\Transport\PPRestCall;
  * @property string event_type
  * @property string summary
  * @property mixed resource
- * @property \PayPal\Api\Links[] links
  */
-class WebhookEvent extends ResourceModel
+class WebhookEvent extends PayPalResourceModel
 {
     /**
      * Identifier of the Webhooks event resource.
@@ -73,31 +72,6 @@ class WebhookEvent extends ResourceModel
     }
 
     /**
-     * Time the resource was created.
-     *
-     * @deprecated Instead use setCreateTime
-     *
-     * @param string $create_time
-     * @return $this
-     */
-    public function setCreate_time($create_time)
-    {
-        $this->create_time = $create_time;
-        return $this;
-    }
-
-    /**
-     * Time the resource was created.
-     * @deprecated Instead use getCreateTime
-     *
-     * @return string
-     */
-    public function getCreate_time()
-    {
-        return $this->create_time;
-    }
-
-    /**
      * Name of the resource contained in resource element.
      *
      * @param string $resource_type
@@ -121,31 +95,6 @@ class WebhookEvent extends ResourceModel
     }
 
     /**
-     * Name of the resource contained in resource element.
-     *
-     * @deprecated Instead use setResourceType
-     *
-     * @param string $resource_type
-     * @return $this
-     */
-    public function setResource_type($resource_type)
-    {
-        $this->resource_type = $resource_type;
-        return $this;
-    }
-
-    /**
-     * Name of the resource contained in resource element.
-     * @deprecated Instead use getResourceType
-     *
-     * @return string
-     */
-    public function getResource_type()
-    {
-        return $this->resource_type;
-    }
-
-    /**
      * Name of the event type that occurred on resource, identified by data_resource element, to trigger the Webhooks event.
      *
      * @param string $event_type
@@ -164,31 +113,6 @@ class WebhookEvent extends ResourceModel
      * @return string
      */
     public function getEventType()
-    {
-        return $this->event_type;
-    }
-
-    /**
-     * Name of the event type that occurred on resource, identified by data_resource element, to trigger the Webhooks event.
-     *
-     * @deprecated Instead use setEventType
-     *
-     * @param string $event_type
-     * @return $this
-     */
-    public function setEvent_type($event_type)
-    {
-        $this->event_type = $event_type;
-        return $this;
-    }
-
-    /**
-     * Name of the event type that occurred on resource, identified by data_resource element, to trigger the Webhooks event.
-     * @deprecated Instead use getEventType
-     *
-     * @return string
-     */
-    public function getEvent_type()
     {
         return $this->event_type;
     }
@@ -219,7 +143,7 @@ class WebhookEvent extends ResourceModel
     /**
      * This contains the resource that is identified by resource_type element.
      *
-     * @param \PayPal\Common\PPModel $resource
+     * @param \PayPal\Common\PayPalModel $resource
      * 
      * @return $this
      */
@@ -232,7 +156,7 @@ class WebhookEvent extends ResourceModel
     /**
      * This contains the resource that is identified by resource_type element.
      *
-     * @return \PayPal\Common\PPModel
+     * @return \PayPal\Common\PayPalModel
      */
     public function getResource()
     {
@@ -240,64 +164,11 @@ class WebhookEvent extends ResourceModel
     }
 
     /**
-     * Sets Links
-     *
-     * @param \PayPal\Api\Links[] $links
-     * 
-     * @return $this
-     */
-    public function setLinks($links)
-    {
-        $this->links = $links;
-        return $this;
-    }
-
-    /**
-     * Gets Links
-     *
-     * @return \PayPal\Api\Links[]
-     */
-    public function getLinks()
-    {
-        return $this->links;
-    }
-
-    /**
-     * Append Links to the list.
-     *
-     * @param \PayPal\Api\Links $links
-     * @return $this
-     */
-    public function addLink($links)
-    {
-        if (!$this->getLinks()) {
-            return $this->setLinks(array($links));
-        } else {
-            return $this->setLinks(
-                array_merge($this->getLinks(), array($links))
-            );
-        }
-    }
-
-    /**
-     * Remove Links from the list.
-     *
-     * @param \PayPal\Api\Links $links
-     * @return $this
-     */
-    public function removeLink($links)
-    {
-        return $this->setLinks(
-            array_diff($this->getLinks(), array($links))
-        );
-    }
-
-    /**
      * Retrieves the Webhooks event resource identified by event_id. Can be used to retrieve the payload for an event.
      *
      * @param string $eventId
      * @param ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
-     * @param PPRestCall $restCall is the Rest Call Service that is used to make rest calls
+     * @param PayPalRestCall $restCall is the Rest Call Service that is used to make rest calls
      * @return WebhookEvent
      */
     public static function get($eventId, $apiContext = null, $restCall = null)
@@ -321,7 +192,7 @@ class WebhookEvent extends ResourceModel
      * Resends the Webhooks event resource identified by event_id.
      *
      * @param ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
-     * @param PPRestCall $restCall is the Rest Call Service that is used to make rest calls
+     * @param PayPalRestCall $restCall is the Rest Call Service that is used to make rest calls
      * @return WebhookEvent
      */
     public function resend($apiContext = null, $restCall = null)
@@ -345,7 +216,7 @@ class WebhookEvent extends ResourceModel
      *
      * @param array $params
      * @param ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
-     * @param PPRestCall $restCall is the Rest Call Service that is used to make rest calls
+     * @param PayPalRestCall $restCall is the Rest Call Service that is used to make rest calls
      * @return WebhookEventList
      */
     public static function all($params, $apiContext = null, $restCall = null)

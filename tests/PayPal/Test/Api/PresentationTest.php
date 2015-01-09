@@ -2,7 +2,7 @@
 
 namespace PayPal\Test\Api;
 
-use PayPal\Common\PPModel;
+use PayPal\Common\PayPalModel;
 use PayPal\Api\Presentation;
 
 /**
@@ -56,54 +56,5 @@ class PresentationTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($obj->getLogoImage(), "TestSample");
         $this->assertEquals($obj->getLocaleCode(), "TestSample");
     }
-
-    /**
-     * @depends testSerializationDeserialization
-     * @param Presentation $obj
-     */
-    public function testDeprecatedGetters($obj)
-    {
-        $this->assertEquals($obj->getBrand_name(), "TestSample");
-        $this->assertEquals($obj->getLogo_image(), "TestSample");
-        $this->assertEquals($obj->getLocale_code(), "TestSample");
-    }
-
-    /**
-     * @depends testSerializationDeserialization
-     * @param Presentation $obj
-     */
-    public function testDeprecatedSetterNormalGetter($obj)
-    {
-
-        // Check for Brand_name
-        $obj->setBrandName(null);
-        $this->assertNull($obj->getBrand_name());
-        $this->assertNull($obj->getBrandName());
-        $this->assertSame($obj->getBrandName(), $obj->getBrand_name());
-        $obj->setBrand_name("TestSample");
-        $this->assertEquals($obj->getBrand_name(), "TestSample");
-
-        // Check for Logo_image
-        $obj->setLogoImage(null);
-        $this->assertNull($obj->getLogo_image());
-        $this->assertNull($obj->getLogoImage());
-        $this->assertSame($obj->getLogoImage(), $obj->getLogo_image());
-        $obj->setLogo_image("TestSample");
-        $this->assertEquals($obj->getLogo_image(), "TestSample");
-
-        // Check for Locale_code
-        $obj->setLocaleCode(null);
-        $this->assertNull($obj->getLocale_code());
-        $this->assertNull($obj->getLocaleCode());
-        $this->assertSame($obj->getLocaleCode(), $obj->getLocale_code());
-        $obj->setLocale_code("TestSample");
-        $this->assertEquals($obj->getLocale_code(), "TestSample");
-
-        //Test All Deprecated Getters and Normal Getters
-        $this->testDeprecatedGetters($obj);
-        $this->testGetters($obj);
-    }
-
-
 
 }

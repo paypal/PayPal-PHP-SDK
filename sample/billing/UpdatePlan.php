@@ -16,11 +16,11 @@ $createdPlan = require 'CreatePlan.php';
 use PayPal\Api\Plan;
 use PayPal\Api\PatchRequest;
 use PayPal\Api\Patch;
-use PayPal\Common\PPModel;
+use PayPal\Common\PayPalModel;
 try {
     $patch = new Patch();
 
-    $value = new PPModel('{
+    $value = new PayPalModel('{
 	       "state":"ACTIVE"
 	     }');
 

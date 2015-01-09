@@ -2,7 +2,7 @@
 
 namespace PayPal\Api;
 
-use PayPal\Common\PPModel;
+use PayPal\Common\PayPalModel;
 
 /**
  * Class Error
@@ -18,7 +18,7 @@ use PayPal\Common\PPModel;
  * @property \PayPal\Api\ErrorDetails[] details
  * @property \PayPal\Api\Links[] links
  */
-class Error extends PPModel
+class Error extends PayPalModel
 {
     /**
      * Human readable, unique name of the error.
@@ -67,31 +67,6 @@ class Error extends PPModel
     }
 
     /**
-     * PayPal internal identifier used for correlation purposes.
-     *
-     * @deprecated Instead use setDebugId
-     *
-     * @param string $debug_id
-     * @return $this
-     */
-    public function setDebug_id($debug_id)
-    {
-        $this->debug_id = $debug_id;
-        return $this;
-    }
-
-    /**
-     * PayPal internal identifier used for correlation purposes.
-     * @deprecated Instead use getDebugId
-     *
-     * @return string
-     */
-    public function getDebug_id()
-    {
-        return $this->debug_id;
-    }
-
-    /**
      * Message describing the error.
      *
      * @param string $message
@@ -133,31 +108,6 @@ class Error extends PPModel
      * @return string
      */
     public function getInformationLink()
-    {
-        return $this->information_link;
-    }
-
-    /**
-     * URI for detailed information related to this error for the developer.
-     *
-     * @deprecated Instead use setInformationLink
-     *
-     * @param string $information_link
-     * @return $this
-     */
-    public function setInformation_link($information_link)
-    {
-        $this->information_link = $information_link;
-        return $this;
-    }
-
-    /**
-     * URI for detailed information related to this error for the developer.
-     * @deprecated Instead use getInformationLink
-     *
-     * @return string
-     */
-    public function getInformation_link()
     {
         return $this->information_link;
     }

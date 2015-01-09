@@ -2,7 +2,7 @@
 
 namespace PayPal\Api;
 
-use PayPal\Common\PPModel;
+use PayPal\Common\PayPalModel;
 
 /**
  * Class PlanList
@@ -16,7 +16,7 @@ use PayPal\Common\PPModel;
  * @property string total_pages
  * @property \PayPal\Api\Links[] links
  */
-class PlanList extends PPModel
+class PlanList extends PayPalModel
 {
     /**
      * Array of billing plans.
@@ -95,31 +95,6 @@ class PlanList extends PPModel
     }
 
     /**
-     * Total number of items.
-     *
-     * @deprecated Instead use setTotalItems
-     *
-     * @param string $total_items
-     * @return $this
-     */
-    public function setTotal_items($total_items)
-    {
-        $this->total_items = $total_items;
-        return $this;
-    }
-
-    /**
-     * Total number of items.
-     * @deprecated Instead use getTotalItems
-     *
-     * @return string
-     */
-    public function getTotal_items()
-    {
-        return $this->total_items;
-    }
-
-    /**
      * Total number of pages.
      *
      * @param string $total_pages
@@ -138,31 +113,6 @@ class PlanList extends PPModel
      * @return string
      */
     public function getTotalPages()
-    {
-        return $this->total_pages;
-    }
-
-    /**
-     * Total number of pages.
-     *
-     * @deprecated Instead use setTotalPages
-     *
-     * @param string $total_pages
-     * @return $this
-     */
-    public function setTotal_pages($total_pages)
-    {
-        $this->total_pages = $total_pages;
-        return $this;
-    }
-
-    /**
-     * Total number of pages.
-     * @deprecated Instead use getTotalPages
-     *
-     * @return string
-     */
-    public function getTotal_pages()
     {
         return $this->total_pages;
     }

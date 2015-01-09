@@ -10,7 +10,7 @@ $apiContext = require __DIR__ . '/../bootstrap.php';
 // (See bootstrap.php for more on `ApiContext`)
 try {
     $list = \PayPal\Api\WebProfile::get_list($apiContext);
-} catch (\PayPal\Exception\PPConnectionException $ex) {
+} catch (\PayPal\Exception\PayPalConnectionException $ex) {
     ResultPrinter::printError("Get List of All Web Profiles", "Web Profiles", null, null, $ex);
     exit(1);
 }

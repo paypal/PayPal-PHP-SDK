@@ -2,7 +2,7 @@
 
 namespace PayPal\Api;
 
-use PayPal\Common\PPModel;
+use PayPal\Common\PayPalModel;
 
 /**
  * Class BaseAddress
@@ -18,7 +18,7 @@ use PayPal\Common\PPModel;
  * @property string postal_code
  * @property string state
  */
-class BaseAddress extends PPModel
+class BaseAddress extends PayPalModel
 {
     /**
      * Line 1 of the Address (eg. number, street, etc).
@@ -113,31 +113,6 @@ class BaseAddress extends PPModel
     }
 
     /**
-     * 2 letter country code.
-     *
-     * @deprecated Instead use setCountryCode
-     *
-     * @param string $country_code
-     * @return $this
-     */
-    public function setCountry_code($country_code)
-    {
-        $this->country_code = $country_code;
-        return $this;
-    }
-
-    /**
-     * 2 letter country code.
-     * @deprecated Instead use getCountryCode
-     *
-     * @return string
-     */
-    public function getCountry_code()
-    {
-        return $this->country_code;
-    }
-
-    /**
      * Zip code or equivalent is usually required for countries that have them. For list of countries that do not have postal codes please refer to http://en.wikipedia.org/wiki/Postal_code.
      *
      * @param string $postal_code
@@ -156,31 +131,6 @@ class BaseAddress extends PPModel
      * @return string
      */
     public function getPostalCode()
-    {
-        return $this->postal_code;
-    }
-
-    /**
-     * Zip code or equivalent is usually required for countries that have them. For list of countries that do not have postal codes please refer to http://en.wikipedia.org/wiki/Postal_code.
-     *
-     * @deprecated Instead use setPostalCode
-     *
-     * @param string $postal_code
-     * @return $this
-     */
-    public function setPostal_code($postal_code)
-    {
-        $this->postal_code = $postal_code;
-        return $this;
-    }
-
-    /**
-     * Zip code or equivalent is usually required for countries that have them. For list of countries that do not have postal codes please refer to http://en.wikipedia.org/wiki/Postal_code.
-     * @deprecated Instead use getPostalCode
-     *
-     * @return string
-     */
-    public function getPostal_code()
     {
         return $this->postal_code;
     }

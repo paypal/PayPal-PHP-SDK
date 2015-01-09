@@ -18,7 +18,7 @@ $webProfile->setId($createProfileResponse->getId());
 try {
     // Execute the delete method
     $webProfile->delete($apiContext);
-} catch (\PayPal\Exception\PPConnectionException $ex) {
+} catch (\PayPal\Exception\PayPalConnectionException $ex) {
     ResultPrinter::printError("Deleted Web Profile", "Web Profile", $createProfileResponse->getId(), null, $ex);
     exit(1);
 }

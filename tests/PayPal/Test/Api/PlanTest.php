@@ -2,11 +2,11 @@
 
 namespace PayPal\Test\Api;
 
-use PayPal\Common\ResourceModel;
+use PayPal\Common\PayPalResourceModel;
 use PayPal\Validation\ArgumentValidator;
 use PayPal\Api\PlanList;
 use PayPal\Rest\ApiContext;
-use PayPal\Transport\PPRestCall;
+use PayPal\Transport\PayPalRestCall;
 use PayPal\Api\Plan;
 
 /**
@@ -78,79 +78,22 @@ class PlanTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @depends testSerializationDeserialization
-     * @param Plan $obj
-     */
-    public function testDeprecatedGetters($obj)
-    {
-        $this->assertEquals($obj->getCreate_time(), "TestSample");
-        $this->assertEquals($obj->getUpdate_time(), "TestSample");
-        $this->assertEquals($obj->getPayment_definitions(), PaymentDefinitionTest::getObject());
-        $this->assertEquals($obj->getMerchant_preferences(), MerchantPreferencesTest::getObject());
-    }
-
-    /**
-     * @depends testSerializationDeserialization
-     * @param Plan $obj
-     */
-    public function testDeprecatedSetterNormalGetter($obj)
-    {
-
-        // Check for Create_time
-        $obj->setCreateTime(null);
-        $this->assertNull($obj->getCreate_time());
-        $this->assertNull($obj->getCreateTime());
-        $this->assertSame($obj->getCreateTime(), $obj->getCreate_time());
-        $obj->setCreate_time("TestSample");
-        $this->assertEquals($obj->getCreate_time(), "TestSample");
-
-        // Check for Update_time
-        $obj->setUpdateTime(null);
-        $this->assertNull($obj->getUpdate_time());
-        $this->assertNull($obj->getUpdateTime());
-        $this->assertSame($obj->getUpdateTime(), $obj->getUpdate_time());
-        $obj->setUpdate_time("TestSample");
-        $this->assertEquals($obj->getUpdate_time(), "TestSample");
-
-        // Check for Payment_definitions
-        $obj->setPaymentDefinitions(null);
-        $this->assertNull($obj->getPayment_definitions());
-        $this->assertNull($obj->getPaymentDefinitions());
-        $this->assertSame($obj->getPaymentDefinitions(), $obj->getPayment_definitions());
-        $obj->setPayment_definitions(PaymentDefinitionTest::getObject());
-        $this->assertEquals($obj->getPayment_definitions(), PaymentDefinitionTest::getObject());
-
-        // Check for Merchant_preferences
-        $obj->setMerchantPreferences(null);
-        $this->assertNull($obj->getMerchant_preferences());
-        $this->assertNull($obj->getMerchantPreferences());
-        $this->assertSame($obj->getMerchantPreferences(), $obj->getMerchant_preferences());
-        $obj->setMerchant_preferences(MerchantPreferencesTest::getObject());
-        $this->assertEquals($obj->getMerchant_preferences(), MerchantPreferencesTest::getObject());
-
-        //Test All Deprecated Getters and Normal Getters
-        $this->testDeprecatedGetters($obj);
-        $this->testGetters($obj);
-    }
-
-
-    /**
      * @dataProvider mockProvider
      * @param Plan $obj
      */
     public function testGet($obj, $mockApiContext)
     {
-        $mockPPRestCall = $this->getMockBuilder('\PayPal\Transport\PPRestCall')
+        $mockPayPalRestCall = $this->getMockBuilder('\PayPal\Transport\PayPalRestCall')
             ->disableOriginalConstructor()
             ->getMock();
 
-        $mockPPRestCall->expects($this->any())
+        $mockPayPalRestCall->expects($this->any())
             ->method('execute')
             ->will($this->returnValue(
                     PlanTest::getJson()
             ));
 
-        $result = $obj->get("planId", $mockApiContext, $mockPPRestCall);
+        $result = $obj->get("planId", $mockApiContext, $mockPayPalRestCall);
         $this->assertNotNull($result);
     }
     /**
@@ -159,17 +102,17 @@ class PlanTest extends \PHPUnit_Framework_TestCase
      */
     public function testCreate($obj, $mockApiContext)
     {
-        $mockPPRestCall = $this->getMockBuilder('\PayPal\Transport\PPRestCall')
+        $mockPayPalRestCall = $this->getMockBuilder('\PayPal\Transport\PayPalRestCall')
             ->disableOriginalConstructor()
             ->getMock();
 
-        $mockPPRestCall->expects($this->any())
+        $mockPayPalRestCall->expects($this->any())
             ->method('execute')
             ->will($this->returnValue(
                     self::getJson()
             ));
 
-        $result = $obj->create($mockApiContext, $mockPPRestCall);
+        $result = $obj->create($mockApiContext, $mockPayPalRestCall);
         $this->assertNotNull($result);
     }
     /**
@@ -178,18 +121,18 @@ class PlanTest extends \PHPUnit_Framework_TestCase
      */
     public function testUpdate($obj, $mockApiContext)
     {
-        $mockPPRestCall = $this->getMockBuilder('\PayPal\Transport\PPRestCall')
+        $mockPayPalRestCall = $this->getMockBuilder('\PayPal\Transport\PayPalRestCall')
             ->disableOriginalConstructor()
             ->getMock();
 
-        $mockPPRestCall->expects($this->any())
+        $mockPayPalRestCall->expects($this->any())
             ->method('execute')
             ->will($this->returnValue(
                     true
             ));
         $patchRequest = PatchRequestTest::getObject();
 
-        $result = $obj->update($patchRequest, $mockApiContext, $mockPPRestCall);
+        $result = $obj->update($patchRequest, $mockApiContext, $mockPayPalRestCall);
         $this->assertNotNull($result);
     }
     /**
@@ -198,18 +141,18 @@ class PlanTest extends \PHPUnit_Framework_TestCase
      */
     public function testList($obj, $mockApiContext)
     {
-        $mockPPRestCall = $this->getMockBuilder('\PayPal\Transport\PPRestCall')
+        $mockPayPalRestCall = $this->getMockBuilder('\PayPal\Transport\PayPalRestCall')
             ->disableOriginalConstructor()
             ->getMock();
 
-        $mockPPRestCall->expects($this->any())
+        $mockPayPalRestCall->expects($this->any())
             ->method('execute')
             ->will($this->returnValue(
                     PlanListTest::getJson()
             ));
         $params = ParamsTest::getObject();
 
-        $result = $obj->all($params, $mockApiContext, $mockPPRestCall);
+        $result = $obj->all($params, $mockApiContext, $mockPayPalRestCall);
         $this->assertNotNull($result);
     }
 

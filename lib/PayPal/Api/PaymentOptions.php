@@ -2,7 +2,7 @@
 
 namespace PayPal\Api;
 
-use PayPal\Common\PPModel;
+use PayPal\Common\PayPalModel;
 use PayPal\Rest\ApiContext;
 
 /**
@@ -14,7 +14,7 @@ use PayPal\Rest\ApiContext;
  *
  * @property string allowed_payment_method
  */
-class PaymentOptions extends PPModel
+class PaymentOptions extends PayPalModel
 {
     /**
      * Payment method requested for this purchase unit
@@ -36,31 +36,6 @@ class PaymentOptions extends PPModel
      * @return string
      */
     public function getAllowedPaymentMethod()
-    {
-        return $this->allowed_payment_method;
-    }
-
-    /**
-     * Payment method requested for this purchase unit
-     *
-     * @deprecated Instead use setAllowedPaymentMethod
-     *
-     * @param string $allowed_payment_method
-     * @return $this
-     */
-    public function setAllowed_payment_method($allowed_payment_method)
-    {
-        $this->allowed_payment_method = $allowed_payment_method;
-        return $this;
-    }
-
-    /**
-     * Payment method requested for this purchase unit
-     * @deprecated Instead use getAllowedPaymentMethod
-     *
-     * @return string
-     */
-    public function getAllowed_payment_method()
     {
         return $this->allowed_payment_method;
     }

@@ -2,7 +2,7 @@
 
 namespace PayPal\Api;
 
-use PayPal\Common\PPModel;
+use PayPal\Common\PayPalModel;
 
 /**
  * Class Phone
@@ -15,7 +15,7 @@ use PayPal\Common\PPModel;
  * @property string national_number
  * @property string extension
  */
-class Phone extends PPModel
+class Phone extends PayPalModel
 {
     /**
      * Country code (in E.164 format). Assume length is n.
@@ -41,31 +41,6 @@ class Phone extends PPModel
     }
 
     /**
-     * Country code (in E.164 format). Assume length is n.
-     *
-     * @deprecated Instead use setCountryCode
-     *
-     * @param string $country_code
-     * @return $this
-     */
-    public function setCountry_code($country_code)
-    {
-        $this->country_code = $country_code;
-        return $this;
-    }
-
-    /**
-     * Country code (in E.164 format). Assume length is n.
-     * @deprecated Instead use getCountryCode
-     *
-     * @return string
-     */
-    public function getCountry_code()
-    {
-        return $this->country_code;
-    }
-
-    /**
      * In-country phone number (in E.164 format). Maximum (15 - n) digits.
      *
      * @param string $national_number
@@ -84,31 +59,6 @@ class Phone extends PPModel
      * @return string
      */
     public function getNationalNumber()
-    {
-        return $this->national_number;
-    }
-
-    /**
-     * In-country phone number (in E.164 format). Maximum (15 - n) digits.
-     *
-     * @deprecated Instead use setNationalNumber
-     *
-     * @param string $national_number
-     * @return $this
-     */
-    public function setNational_number($national_number)
-    {
-        $this->national_number = $national_number;
-        return $this;
-    }
-
-    /**
-     * In-country phone number (in E.164 format). Maximum (15 - n) digits.
-     * @deprecated Instead use getNationalNumber
-     *
-     * @return string
-     */
-    public function getNational_number()
     {
         return $this->national_number;
     }

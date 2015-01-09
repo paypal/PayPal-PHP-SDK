@@ -1,5 +1,46 @@
 PayPal PHP SDK release notes
 ============================
+v1.0.0
+----
+* Enabled Payouts API Support
+* Authorization Cache Custom Path Directory Configuration
+* Helper Functions to retrieve specific HATEOS Links
+* Default Mode set to Sandbox
+* Enabled Rest SDK to work nicely with Classic SDKs.
+* If missing annotation of return type in Getters, it throws a proper exception
+
+> ## Breaking Changes
+* Removed Deprecated Getter Setters from all Model Classes
+  * All Camelcase getters and setters are removed. Please use first letter uppercase syntax
+  * E.g. instead of using get_notify_url(), use getNotifyUrl() instead
+* Renamed Classes
+  * PayPal\Common\PPModel => PayPal\Common\PayPalModel
+  * PayPal\Common\ResourceModel => PayPal\Common\PayPalResourceModel
+  * PayPal\Common\PPUserAgent => PayPal\Common\PayPalUserAgent
+  * PayPal\Core\PPConfigManager => PayPal\Core\PayPalConfigManager
+  * PayPal\Core\PPConstants  => PayPal\Core\PayPalConstants
+  * PayPal\Core\PPCredentialManager => PayPal\Core\PayPalCredentialManager
+  * PayPal\Core\PPHttpConfig => PayPal\Core\PayPalHttpConfig
+  * PayPal\Core\PPHttpConnection => PayPal\Core\PayPalHttpConnection
+  * PayPal\Core\PPLoggingLevel => PayPal\Core\PayPalLoggingLevel
+  * PayPal\Core\PPLoggingManager => PayPal\Core\PayPalLoggingManager
+  * PayPal\Exception\PPConfigurationException => PayPal\Exception\PayPalConfigurationException
+  * PayPal\Exception\PPConnectionException => PayPal\Exception\PayPalConnectionException
+  * PayPal\Exception\PPInvalidCredentialException => PayPal\Exception\PayPalInvalidCredentialException
+  * PayPal\Exception\PPMissingCredentialException => PayPal\Exception\PayPalMissingCredentialException
+  * PayPal\Handler\IPPHandler => PayPal\Handler\IPayPalHandler
+  * PayPal\Transport\PPRestCall => PayPal\Transport\PayPalRestCall
+* Namespace Changes and Class Naming Convention
+  * PayPal\Common\FormatConverter => PayPal\Converter\FormatConverter
+  * PayPal\Rest\RestHandler => PayPal\Handler\RestHandler
+  * PayPal\Rest\OauthHandler => PayPal\Handler\OauthHandler
+
+v1.0.0-beta
+----
+* Namespace Changes and Class Naming Convention
+* Helper Functions to retrieve specific HATEOS Links
+* Default Mode set to Sandbox
+
 v0.16.1
 ----
 * Configurable Headers for all requests to PayPal

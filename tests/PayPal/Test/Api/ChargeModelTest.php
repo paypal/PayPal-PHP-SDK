@@ -2,7 +2,7 @@
 
 namespace PayPal\Test\Api;
 
-use PayPal\Common\PPModel;
+use PayPal\Common\PayPalModel;
 use PayPal\Api\ChargeModel;
 
 /**
@@ -56,27 +56,5 @@ class ChargeModelTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($obj->getType(), "TestSample");
         $this->assertEquals($obj->getAmount(), CurrencyTest::getObject());
     }
-
-    /**
-     * @depends testSerializationDeserialization
-     * @param ChargeModel $obj
-     */
-    public function testDeprecatedGetters($obj)
-    {
-    }
-
-    /**
-     * @depends testSerializationDeserialization
-     * @param ChargeModel $obj
-     */
-    public function testDeprecatedSetterNormalGetter($obj)
-    {
-
-        //Test All Deprecated Getters and Normal Getters
-        $this->testDeprecatedGetters($obj);
-        $this->testGetters($obj);
-    }
-
-
 
 }

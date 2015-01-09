@@ -2,7 +2,7 @@
 
 namespace PayPal\Api;
 
-use PayPal\Common\PPModel;
+use PayPal\Common\PayPalModel;
 
 /**
  * Class CustomAmount
@@ -14,7 +14,7 @@ use PayPal\Common\PPModel;
  * @property string label
  * @property \PayPal\Api\Currency amount
  */
-class CustomAmount extends PPModel
+class CustomAmount extends PayPalModel
 {
     /**
      * Custom amount label. 25 characters max.

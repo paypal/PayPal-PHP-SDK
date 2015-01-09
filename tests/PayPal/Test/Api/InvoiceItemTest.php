@@ -2,7 +2,7 @@
 
 namespace PayPal\Test\Api;
 
-use PayPal\Common\PPModel;
+use PayPal\Common\PayPalModel;
 use PayPal\Api\InvoiceItem;
 
 /**
@@ -64,36 +64,5 @@ class InvoiceItemTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($obj->getDate(), "TestSample");
         $this->assertEquals($obj->getDiscount(), CostTest::getObject());
     }
-
-    /**
-     * @depends testSerializationDeserialization
-     * @param InvoiceItem $obj
-     */
-    public function testDeprecatedGetters($obj)
-    {
-        $this->assertEquals($obj->getUnit_price(), CurrencyTest::getObject());
-    }
-
-    /**
-     * @depends testSerializationDeserialization
-     * @param InvoiceItem $obj
-     */
-    public function testDeprecatedSetterNormalGetter($obj)
-    {
-
-        // Check for Unit_price
-        $obj->setUnitPrice(null);
-        $this->assertNull($obj->getUnit_price());
-        $this->assertNull($obj->getUnitPrice());
-        $this->assertSame($obj->getUnitPrice(), $obj->getUnit_price());
-        $obj->setUnit_price(CurrencyTest::getObject());
-        $this->assertEquals($obj->getUnit_price(), CurrencyTest::getObject());
-
-        //Test All Deprecated Getters and Normal Getters
-        $this->testDeprecatedGetters($obj);
-        $this->testGetters($obj);
-    }
-
-
 
 }

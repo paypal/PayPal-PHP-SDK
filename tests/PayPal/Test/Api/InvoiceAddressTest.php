@@ -2,7 +2,7 @@
 
 namespace PayPal\Test\Api;
 
-use PayPal\Common\PPModel;
+use PayPal\Common\PayPalModel;
 use PayPal\Api\InvoiceAddress;
 
 /**
@@ -64,45 +64,5 @@ class InvoiceAddressTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($obj->getState(), "TestSample");
         $this->assertEquals($obj->getPhone(), PhoneTest::getObject());
     }
-
-    /**
-     * @depends testSerializationDeserialization
-     * @param InvoiceAddress $obj
-     */
-    public function testDeprecatedGetters($obj)
-    {
-        $this->assertEquals($obj->getCountry_code(), "TestSample");
-        $this->assertEquals($obj->getPostal_code(), "TestSample");
-    }
-
-    /**
-     * @depends testSerializationDeserialization
-     * @param InvoiceAddress $obj
-     */
-    public function testDeprecatedSetterNormalGetter($obj)
-    {
-
-        // Check for Country_code
-        $obj->setCountryCode(null);
-        $this->assertNull($obj->getCountry_code());
-        $this->assertNull($obj->getCountryCode());
-        $this->assertSame($obj->getCountryCode(), $obj->getCountry_code());
-        $obj->setCountry_code("TestSample");
-        $this->assertEquals($obj->getCountry_code(), "TestSample");
-
-        // Check for Postal_code
-        $obj->setPostalCode(null);
-        $this->assertNull($obj->getPostal_code());
-        $this->assertNull($obj->getPostalCode());
-        $this->assertSame($obj->getPostalCode(), $obj->getPostal_code());
-        $obj->setPostal_code("TestSample");
-        $this->assertEquals($obj->getPostal_code(), "TestSample");
-
-        //Test All Deprecated Getters and Normal Getters
-        $this->testDeprecatedGetters($obj);
-        $this->testGetters($obj);
-    }
-
-
 
 }

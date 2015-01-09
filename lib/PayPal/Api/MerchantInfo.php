@@ -2,7 +2,7 @@
 
 namespace PayPal\Api;
 
-use PayPal\Common\PPModel;
+use PayPal\Common\PayPalModel;
 
 /**
  * Class MerchantInfo
@@ -22,7 +22,7 @@ use PayPal\Common\PPModel;
  * @property string tax_id
  * @property string additional_info
  */
-class MerchantInfo extends PPModel
+class MerchantInfo extends PayPalModel
 {
     /**
      * Email address of the merchant. 260 characters max.
@@ -71,31 +71,6 @@ class MerchantInfo extends PPModel
     }
 
     /**
-     * First name of the merchant. 30 characters max.
-     *
-     * @deprecated Instead use setFirstName
-     *
-     * @param string $first_name
-     * @return $this
-     */
-    public function setFirst_name($first_name)
-    {
-        $this->first_name = $first_name;
-        return $this;
-    }
-
-    /**
-     * First name of the merchant. 30 characters max.
-     * @deprecated Instead use getFirstName
-     *
-     * @return string
-     */
-    public function getFirst_name()
-    {
-        return $this->first_name;
-    }
-
-    /**
      * Last name of the merchant. 30 characters max.
      *
      * @param string $last_name
@@ -114,31 +89,6 @@ class MerchantInfo extends PPModel
      * @return string
      */
     public function getLastName()
-    {
-        return $this->last_name;
-    }
-
-    /**
-     * Last name of the merchant. 30 characters max.
-     *
-     * @deprecated Instead use setLastName
-     *
-     * @param string $last_name
-     * @return $this
-     */
-    public function setLast_name($last_name)
-    {
-        $this->last_name = $last_name;
-        return $this;
-    }
-
-    /**
-     * Last name of the merchant. 30 characters max.
-     * @deprecated Instead use getLastName
-     *
-     * @return string
-     */
-    public function getLast_name()
     {
         return $this->last_name;
     }
@@ -185,31 +135,6 @@ class MerchantInfo extends PPModel
      * @return string
      */
     public function getBusinessName()
-    {
-        return $this->business_name;
-    }
-
-    /**
-     * Company business name of the merchant. 100 characters max.
-     *
-     * @deprecated Instead use setBusinessName
-     *
-     * @param string $business_name
-     * @return $this
-     */
-    public function setBusiness_name($business_name)
-    {
-        $this->business_name = $business_name;
-        return $this;
-    }
-
-    /**
-     * Company business name of the merchant. 100 characters max.
-     * @deprecated Instead use getBusinessName
-     *
-     * @return string
-     */
-    public function getBusiness_name()
     {
         return $this->business_name;
     }
@@ -307,31 +232,6 @@ class MerchantInfo extends PPModel
     }
 
     /**
-     * Tax ID of the merchant. 100 characters max.
-     *
-     * @deprecated Instead use setTaxId
-     *
-     * @param string $tax_id
-     * @return $this
-     */
-    public function setTax_id($tax_id)
-    {
-        $this->tax_id = $tax_id;
-        return $this;
-    }
-
-    /**
-     * Tax ID of the merchant. 100 characters max.
-     * @deprecated Instead use getTaxId
-     *
-     * @return string
-     */
-    public function getTax_id()
-    {
-        return $this->tax_id;
-    }
-
-    /**
      * Option to display additional information such as business hours. 40 characters max.
      *
      * @param string $additional_info
@@ -350,31 +250,6 @@ class MerchantInfo extends PPModel
      * @return string
      */
     public function getAdditionalInfo()
-    {
-        return $this->additional_info;
-    }
-
-    /**
-     * Option to display additional information such as business hours. 40 characters max.
-     *
-     * @deprecated Instead use setAdditionalInfo
-     *
-     * @param string $additional_info
-     * @return $this
-     */
-    public function setAdditional_info($additional_info)
-    {
-        $this->additional_info = $additional_info;
-        return $this;
-    }
-
-    /**
-     * Option to display additional information such as business hours. 40 characters max.
-     * @deprecated Instead use getAdditionalInfo
-     *
-     * @return string
-     */
-    public function getAdditional_info()
     {
         return $this->additional_info;
     }

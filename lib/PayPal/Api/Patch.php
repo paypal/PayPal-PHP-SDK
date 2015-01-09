@@ -2,7 +2,7 @@
 
 namespace PayPal\Api;
 
-use PayPal\Common\PPModel;
+use PayPal\Common\PayPalModel;
 
 /**
  * Class Patch
@@ -16,7 +16,7 @@ use PayPal\Common\PPModel;
  * @property mixed value
  * @property string from
  */
-class Patch extends PPModel
+class Patch extends PayPalModel
 {
     /**
      * The operation to perform.

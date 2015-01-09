@@ -2,7 +2,7 @@
 
 namespace PayPal\Api;
 
-use PayPal\Common\PPModel;
+use PayPal\Common\PayPalModel;
 
 /**
  * Class ShippingCost
@@ -14,7 +14,7 @@ use PayPal\Common\PPModel;
  * @property \PayPal\Api\Currency amount
  * @property \PayPal\Api\Tax tax
  */
-class ShippingCost extends PPModel
+class ShippingCost extends PayPalModel
 {
     /**
      * Shipping cost in amount. Range of 0 to 999999.99.

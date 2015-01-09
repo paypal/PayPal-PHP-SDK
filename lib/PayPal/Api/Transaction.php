@@ -2,7 +2,7 @@
 
 namespace PayPal\Api;
 
-use PayPal\Common\PPModel;
+use PayPal\Common\PayPalModel;
 use PayPal\Rest\ApiContext;
 
 /**
@@ -12,7 +12,7 @@ use PayPal\Rest\ApiContext;
  *
  * @package PayPal\Api
  *
- * @property self transactions
+ * @property Transaction transactions
  */
 class Transaction extends TransactionBase 
 {

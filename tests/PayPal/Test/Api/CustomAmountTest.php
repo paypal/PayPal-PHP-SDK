@@ -2,7 +2,7 @@
 
 namespace PayPal\Test\Api;
 
-use PayPal\Common\PPModel;
+use PayPal\Common\PayPalModel;
 use PayPal\Api\CustomAmount;
 
 /**
@@ -54,27 +54,5 @@ class CustomAmountTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($obj->getLabel(), "TestSample");
         $this->assertEquals($obj->getAmount(), CurrencyTest::getObject());
     }
-
-    /**
-     * @depends testSerializationDeserialization
-     * @param CustomAmount $obj
-     */
-    public function testDeprecatedGetters($obj)
-    {
-    }
-
-    /**
-     * @depends testSerializationDeserialization
-     * @param CustomAmount $obj
-     */
-    public function testDeprecatedSetterNormalGetter($obj)
-    {
-
-        //Test All Deprecated Getters and Normal Getters
-        $this->testDeprecatedGetters($obj);
-        $this->testGetters($obj);
-    }
-
-
 
 }

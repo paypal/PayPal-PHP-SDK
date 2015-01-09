@@ -1,9 +1,9 @@
 <?php
 namespace PayPal\Test\Common;
 
-use PayPal\Common\PPModel;
+use PayPal\Common\PayPalModel;
 
-class ArrayClass extends PPModel
+class ArrayClass extends PayPalModel
 {
 
     public function setName($name)
@@ -34,6 +34,9 @@ class ArrayClass extends PPModel
         $this->tags = $tags;
     }
 
+    /**
+     * @return array
+     */
     public function getTags()
     {
         return $this->tags;

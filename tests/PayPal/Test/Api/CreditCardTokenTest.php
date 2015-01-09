@@ -2,7 +2,7 @@
 
 namespace PayPal\Test\Api;
 
-use PayPal\Common\PPModel;
+use PayPal\Common\PayPalModel;
 use PayPal\Api\CreditCardToken;
 
 /**
@@ -62,63 +62,5 @@ class CreditCardTokenTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($obj->getExpireMonth(), 123);
         $this->assertEquals($obj->getExpireYear(), 123);
     }
-
-    /**
-     * @depends testSerializationDeserialization
-     * @param CreditCardToken $obj
-     */
-    public function testDeprecatedGetters($obj)
-    {
-        $this->assertEquals($obj->getCredit_card_id(), "TestSample");
-        $this->assertEquals($obj->getPayer_id(), "TestSample");
-        $this->assertEquals($obj->getExpire_month(), 123);
-        $this->assertEquals($obj->getExpire_year(), 123);
-    }
-
-    /**
-     * @depends testSerializationDeserialization
-     * @param CreditCardToken $obj
-     */
-    public function testDeprecatedSetterNormalGetter($obj)
-    {
-
-        // Check for Credit_card_id
-        $obj->setCreditCardId(null);
-        $this->assertNull($obj->getCredit_card_id());
-        $this->assertNull($obj->getCreditCardId());
-        $this->assertSame($obj->getCreditCardId(), $obj->getCredit_card_id());
-        $obj->setCredit_card_id("TestSample");
-        $this->assertEquals($obj->getCredit_card_id(), "TestSample");
-
-        // Check for Payer_id
-        $obj->setPayerId(null);
-        $this->assertNull($obj->getPayer_id());
-        $this->assertNull($obj->getPayerId());
-        $this->assertSame($obj->getPayerId(), $obj->getPayer_id());
-        $obj->setPayer_id("TestSample");
-        $this->assertEquals($obj->getPayer_id(), "TestSample");
-
-        // Check for Expire_month
-        $obj->setExpireMonth(null);
-        $this->assertNull($obj->getExpire_month());
-        $this->assertNull($obj->getExpireMonth());
-        $this->assertSame($obj->getExpireMonth(), $obj->getExpire_month());
-        $obj->setExpire_month(123);
-        $this->assertEquals($obj->getExpire_month(), 123);
-
-        // Check for Expire_year
-        $obj->setExpireYear(null);
-        $this->assertNull($obj->getExpire_year());
-        $this->assertNull($obj->getExpireYear());
-        $this->assertSame($obj->getExpireYear(), $obj->getExpire_year());
-        $obj->setExpire_year(123);
-        $this->assertEquals($obj->getExpire_year(), 123);
-
-        //Test All Deprecated Getters and Normal Getters
-        $this->testDeprecatedGetters($obj);
-        $this->testGetters($obj);
-    }
-
-
 
 }

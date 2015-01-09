@@ -2,7 +2,7 @@
 
 namespace PayPal\Test\Api;
 
-use PayPal\Common\PPModel;
+use PayPal\Common\PayPalModel;
 use PayPal\Api\Image;
 
 /**
@@ -52,27 +52,5 @@ class ImageTest extends \PHPUnit_Framework_TestCase
     {
         $this->assertEquals($obj->getImage(), "TestSample");
     }
-
-    /**
-     * @depends testSerializationDeserialization
-     * @param Image $obj
-     */
-    public function testDeprecatedGetters($obj)
-    {
-    }
-
-    /**
-     * @depends testSerializationDeserialization
-     * @param Image $obj
-     */
-    public function testDeprecatedSetterNormalGetter($obj)
-    {
-
-        //Test All Deprecated Getters and Normal Getters
-        $this->testDeprecatedGetters($obj);
-        $this->testGetters($obj);
-    }
-
-
 
 }

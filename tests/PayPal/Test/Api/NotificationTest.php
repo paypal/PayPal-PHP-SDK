@@ -2,7 +2,7 @@
 
 namespace PayPal\Test\Api;
 
-use PayPal\Common\PPModel;
+use PayPal\Common\PayPalModel;
 use PayPal\Api\Notification;
 
 /**
@@ -56,36 +56,6 @@ class NotificationTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($obj->getNote(), "TestSample");
         $this->assertEquals($obj->getSendToMerchant(), true);
     }
-
-    /**
-     * @depends testSerializationDeserialization
-     * @param Notification $obj
-     */
-    public function testDeprecatedGetters($obj)
-    {
-        $this->assertEquals($obj->getSend_to_merchant(), true);
-    }
-
-    /**
-     * @depends testSerializationDeserialization
-     * @param Notification $obj
-     */
-    public function testDeprecatedSetterNormalGetter($obj)
-    {
-
-        // Check for Send_to_merchant
-        $obj->setSendToMerchant(null);
-        $this->assertNull($obj->getSend_to_merchant());
-        $this->assertNull($obj->getSendToMerchant());
-        $this->assertSame($obj->getSendToMerchant(), $obj->getSend_to_merchant());
-        $obj->setSend_to_merchant(true);
-        $this->assertEquals($obj->getSend_to_merchant(), true);
-
-        //Test All Deprecated Getters and Normal Getters
-        $this->testDeprecatedGetters($obj);
-        $this->testGetters($obj);
-    }
-
 
 
 }

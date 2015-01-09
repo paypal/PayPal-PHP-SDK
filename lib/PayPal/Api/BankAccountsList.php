@@ -2,7 +2,7 @@
 
 namespace PayPal\Api;
 
-use PayPal\Common\PPModel;
+use PayPal\Common\PayPalModel;
 
 /**
  * Class BankAccountsList
@@ -15,7 +15,7 @@ use PayPal\Common\PPModel;
  * @property int count
  * @property string next_id
  */
-class BankAccountsList extends PPModel
+class BankAccountsList extends PayPalModel
 {
     /**
      * A list of bank account resources
@@ -71,31 +71,6 @@ class BankAccountsList extends PPModel
     }
 
     /**
-     * A list of bank account resources
-     *
-     * @deprecated Instead use setBankAccounts
-     *
-     * @param \PayPal\Api\BankAccount $bank-accounts
-     * @return $this
-     */
-    public function setBank_accounts($bank_accounts)
-    {
-        $this->{"bank-accounts"} = $bank_accounts;
-        return $this;
-    }
-
-    /**
-     * A list of bank account resources
-     * @deprecated Instead use getBankAccounts
-     *
-     * @return \PayPal\Api\BankAccount
-     */
-    public function getBank_accounts()
-    {
-        return $this->{"bank-accounts"};
-    }
-
-    /**
      * Number of items returned in each range of results. Note that the last results range could have fewer items than the requested number of items.
      *
      * @param int $count
@@ -137,31 +112,6 @@ class BankAccountsList extends PPModel
      * @return string
      */
     public function getNextId()
-    {
-        return $this->next_id;
-    }
-
-    /**
-     * Identifier of the next element to get the next range of results.
-     *
-     * @deprecated Instead use setNextId
-     *
-     * @param string $next_id
-     * @return $this
-     */
-    public function setNext_id($next_id)
-    {
-        $this->next_id = $next_id;
-        return $this;
-    }
-
-    /**
-     * Identifier of the next element to get the next range of results.
-     * @deprecated Instead use getNextId
-     *
-     * @return string
-     */
-    public function getNext_id()
     {
         return $this->next_id;
     }

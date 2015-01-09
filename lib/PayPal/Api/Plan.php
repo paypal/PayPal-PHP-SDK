@@ -2,12 +2,12 @@
 
 namespace PayPal\Api;
 
-use PayPal\Common\PPModel;
-use PayPal\Common\ResourceModel;
+use PayPal\Common\PayPalModel;
+use PayPal\Common\PayPalResourceModel;
 use PayPal\Validation\ArgumentValidator;
 use PayPal\Api\PlanList;
 use PayPal\Rest\ApiContext;
-use PayPal\Transport\PPRestCall;
+use PayPal\Transport\PayPalRestCall;
 
 /**
  * Class Plan
@@ -26,9 +26,8 @@ use PayPal\Transport\PPRestCall;
  * @property \PayPal\Api\PaymentDefinition[] payment_definitions
  * @property \PayPal\Api\Terms[] terms
  * @property \PayPal\Api\MerchantPreferences merchant_preferences
- * @property \PayPal\Api\Links[] links
  */
-class Plan extends ResourceModel
+class Plan extends PayPalResourceModel
 {
     /**
      * Identifier of the billing plan. 128 characters max.
@@ -169,31 +168,6 @@ class Plan extends ResourceModel
     }
 
     /**
-     * Time when the billing plan was created. Format YYYY-MM-DDTimeTimezone, as defined in [ISO8601](http://tools.ietf.org/html/rfc3339#section-5.6).
-     *
-     * @deprecated Instead use setCreateTime
-     *
-     * @param string $create_time
-     * @return $this
-     */
-    public function setCreate_time($create_time)
-    {
-        $this->create_time = $create_time;
-        return $this;
-    }
-
-    /**
-     * Time when the billing plan was created. Format YYYY-MM-DDTimeTimezone, as defined in [ISO8601](http://tools.ietf.org/html/rfc3339#section-5.6).
-     * @deprecated Instead use getCreateTime
-     *
-     * @return string
-     */
-    public function getCreate_time()
-    {
-        return $this->create_time;
-    }
-
-    /**
      * Time when this billing plan was updated. Format YYYY-MM-DDTimeTimezone, as defined in [ISO8601](http://tools.ietf.org/html/rfc3339#section-5.6).
      *
      * @param string $update_time
@@ -212,31 +186,6 @@ class Plan extends ResourceModel
      * @return string
      */
     public function getUpdateTime()
-    {
-        return $this->update_time;
-    }
-
-    /**
-     * Time when this billing plan was updated. Format YYYY-MM-DDTimeTimezone, as defined in [ISO8601](http://tools.ietf.org/html/rfc3339#section-5.6).
-     *
-     * @deprecated Instead use setUpdateTime
-     *
-     * @param string $update_time
-     * @return $this
-     */
-    public function setUpdate_time($update_time)
-    {
-        $this->update_time = $update_time;
-        return $this;
-    }
-
-    /**
-     * Time when this billing plan was updated. Format YYYY-MM-DDTimeTimezone, as defined in [ISO8601](http://tools.ietf.org/html/rfc3339#section-5.6).
-     * @deprecated Instead use getUpdateTime
-     *
-     * @return string
-     */
-    public function getUpdate_time()
     {
         return $this->update_time;
     }
@@ -292,31 +241,6 @@ class Plan extends ResourceModel
         return $this->setPaymentDefinitions(
             array_diff($this->getPaymentDefinitions(), array($paymentDefinition))
         );
-    }
-
-    /**
-     * Array of payment definitions for this billing plan.
-     *
-     * @deprecated Instead use setPaymentDefinitions
-     *
-     * @param \PayPal\Api\PaymentDefinition $payment_definitions
-     * @return $this
-     */
-    public function setPayment_definitions($payment_definitions)
-    {
-        $this->payment_definitions = $payment_definitions;
-        return $this;
-    }
-
-    /**
-     * Array of payment definitions for this billing plan.
-     * @deprecated Instead use getPaymentDefinitions
-     *
-     * @return \PayPal\Api\PaymentDefinition
-     */
-    public function getPayment_definitions()
-    {
-        return $this->payment_definitions;
     }
 
     /**
@@ -396,89 +320,11 @@ class Plan extends ResourceModel
     }
 
     /**
-     * Specific preferences such as: set up fee, max fail attempts, autobill amount, and others that are configured for this billing plan.
-     *
-     * @deprecated Instead use setMerchantPreferences
-     *
-     * @param \PayPal\Api\MerchantPreferences $merchant_preferences
-     * @return $this
-     */
-    public function setMerchant_preferences($merchant_preferences)
-    {
-        $this->merchant_preferences = $merchant_preferences;
-        return $this;
-    }
-
-    /**
-     * Specific preferences such as: set up fee, max fail attempts, autobill amount, and others that are configured for this billing plan.
-     * @deprecated Instead use getMerchantPreferences
-     *
-     * @return \PayPal\Api\MerchantPreferences
-     */
-    public function getMerchant_preferences()
-    {
-        return $this->merchant_preferences;
-    }
-
-    /**
-     * Sets Links
-     *
-     * @param \PayPal\Api\Links[] $links
-     * 
-     * @return $this
-     */
-    public function setLinks($links)
-    {
-        $this->links = $links;
-        return $this;
-    }
-
-    /**
-     * Gets Links
-     *
-     * @return \PayPal\Api\Links[]
-     */
-    public function getLinks()
-    {
-        return $this->links;
-    }
-
-    /**
-     * Append Links to the list.
-     *
-     * @param \PayPal\Api\Links $links
-     * @return $this
-     */
-    public function addLink($links)
-    {
-        if (!$this->getLinks()) {
-            return $this->setLinks(array($links));
-        } else {
-            return $this->setLinks(
-                array_merge($this->getLinks(), array($links))
-            );
-        }
-    }
-
-    /**
-     * Remove Links from the list.
-     *
-     * @param \PayPal\Api\Links $links
-     * @return $this
-     */
-    public function removeLink($links)
-    {
-        return $this->setLinks(
-            array_diff($this->getLinks(), array($links))
-        );
-    }
-
-    /**
      * Retrieve the details for a particular billing plan by passing the billing plan ID to the request URI.
      *
      * @param string $planId
      * @param ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
-     * @param PPRestCall $restCall is the Rest Call Service that is used to make rest calls
+     * @param PayPalRestCall $restCall is the Rest Call Service that is used to make rest calls
      * @return Plan
      */
     public static function get($planId, $apiContext = null, $restCall = null)
@@ -502,7 +348,7 @@ class Plan extends ResourceModel
      * Create a new billing plan by passing the details for the plan, including the plan name, description, and type, to the request URI.
      *
      * @param ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
-     * @param PPRestCall $restCall is the Rest Call Service that is used to make rest calls
+     * @param PayPalRestCall $restCall is the Rest Call Service that is used to make rest calls
      * @return Plan
      */
     public function create($apiContext = null, $restCall = null)
@@ -525,7 +371,7 @@ class Plan extends ResourceModel
      *
      * @param PatchRequest $patchRequest
      * @param ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
-     * @param PPRestCall $restCall is the Rest Call Service that is used to make rest calls
+     * @param PayPalRestCall $restCall is the Rest Call Service that is used to make rest calls
      * @return bool
      */
     public function update($patchRequest, $apiContext = null, $restCall = null)
@@ -548,7 +394,7 @@ class Plan extends ResourceModel
      * Delete a billing plan by passing the ID of the billing plan to the request URI.
      *
      * @param ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
-     * @param PPRestCall $restCall is the Rest Call Service that is used to make rest calls
+     * @param PayPalRestCall $restCall is the Rest Call Service that is used to make rest calls
      * @return bool
      */
     public function delete($apiContext = null, $restCall = null)
@@ -556,7 +402,7 @@ class Plan extends ResourceModel
         ArgumentValidator::validate($this->getId(), "Id");
         $patchRequest = new PatchRequest();
         $patch = new Patch();
-        $value = new PPModel('{
+        $value = new PayPalModel('{
             "state":"DELETED"
         }');
         $patch->setOp('replace')
@@ -571,7 +417,7 @@ class Plan extends ResourceModel
      *
      * @param array $params
      * @param ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
-     * @param PPRestCall $restCall is the Rest Call Service that is used to make rest calls
+     * @param PayPalRestCall $restCall is the Rest Call Service that is used to make rest calls
      * @return PlanList
      */
     public static function all($params, $apiContext = null, $restCall = null)

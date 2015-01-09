@@ -14,7 +14,7 @@ use PayPal\Api\CreditCard;
 use PayPal\Api\Payment;
 use PayPal\Api\FundingInstrument;
 use PayPal\Api\Transaction;
-use PayPal\Exception\PPConnectionException;
+use PayPal\Exception\PayPalConnectionException;
 
 class AuthorizationTest extends \PHPUnit_Framework_TestCase
 {
@@ -165,7 +165,7 @@ class AuthorizationTest extends \PHPUnit_Framework_TestCase
             } catch (\InvalidArgumentException $ex) {
                 $this->assertEquals($ex->getMessage(), "Id cannot be null");
             }
-        } catch (PPConnectionException $ex) {
+        } catch (PayPalConnectionException $ex) {
             $this->markTestSkipped(
                 'Tests failing because of intermittent failures in Paypal Sandbox environment.' . $ex->getMessage()
             );
@@ -186,7 +186,7 @@ class AuthorizationTest extends \PHPUnit_Framework_TestCase
         $authorization->setAmount($amount);
         try {
             $authorization->reauthorize();
-        } catch (PPConnectionException $ex) {
+        } catch (PayPalConnectionException $ex) {
             //var_dump($ex->getMessage());
             $this->assertEquals(strpos($ex->getMessage(), "500"), false);
         }

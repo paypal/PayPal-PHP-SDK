@@ -2,7 +2,7 @@
 
 namespace PayPal\Api;
 
-use PayPal\Common\PPModel;
+use PayPal\Common\PayPalModel;
 
 /**
  * Class WebhookEventList
@@ -15,7 +15,7 @@ use PayPal\Common\PPModel;
  * @property int count
  * @property \PayPal\Api\Links[] links
  */
-class WebhookEventList extends PPModel
+class WebhookEventList extends PayPalModel
 {
     /**
      * A list of Webhooks event resources

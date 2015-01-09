@@ -2,10 +2,10 @@
 
 namespace PayPal\Test\Api;
 
-use PayPal\Common\ResourceModel;
+use PayPal\Common\PayPalResourceModel;
 use PayPal\Validation\ArgumentValidator;
 use PayPal\Rest\ApiContext;
-use PayPal\Transport\PPRestCall;
+use PayPal\Transport\PayPalRestCall;
 use PayPal\Api\BankAccount;
 
 /**
@@ -103,232 +103,22 @@ class BankAccountTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @depends testSerializationDeserialization
-     * @param BankAccount $obj
-     */
-    public function testDeprecatedGetters($obj)
-    {
-        $this->assertEquals($obj->getAccount_number(), "TestSample");
-        $this->assertEquals($obj->getAccount_number_type(), "TestSample");
-        $this->assertEquals($obj->getRouting_number(), "TestSample");
-        $this->assertEquals($obj->getAccount_type(), "TestSample");
-        $this->assertEquals($obj->getAccount_name(), "TestSample");
-        $this->assertEquals($obj->getCheck_type(), "TestSample");
-        $this->assertEquals($obj->getAuth_type(), "TestSample");
-        $this->assertEquals($obj->getAuth_capture_timestamp(), "TestSample");
-        $this->assertEquals($obj->getBank_name(), "TestSample");
-        $this->assertEquals($obj->getCountry_code(), "TestSample");
-        $this->assertEquals($obj->getFirst_name(), "TestSample");
-        $this->assertEquals($obj->getLast_name(), "TestSample");
-        $this->assertEquals($obj->getBirth_date(), "TestSample");
-        $this->assertEquals($obj->getBilling_address(), AddressTest::getObject());
-        $this->assertEquals($obj->getConfirmation_status(), "TestSample");
-        $this->assertEquals($obj->getPayer_id(), "TestSample");
-        $this->assertEquals($obj->getExternal_customer_id(), "TestSample");
-        $this->assertEquals($obj->getMerchant_id(), "TestSample");
-        $this->assertEquals($obj->getCreate_time(), "TestSample");
-        $this->assertEquals($obj->getUpdate_time(), "TestSample");
-        $this->assertEquals($obj->getValid_until(), "TestSample");
-    }
-
-    /**
-     * @depends testSerializationDeserialization
-     * @param BankAccount $obj
-     */
-    public function testDeprecatedSetterNormalGetter($obj)
-    {
-
-        // Check for Account_number
-        $obj->setAccountNumber(null);
-        $this->assertNull($obj->getAccount_number());
-        $this->assertNull($obj->getAccountNumber());
-        $this->assertSame($obj->getAccountNumber(), $obj->getAccount_number());
-        $obj->setAccount_number("TestSample");
-        $this->assertEquals($obj->getAccount_number(), "TestSample");
-
-        // Check for Account_number_type
-        $obj->setAccountNumberType(null);
-        $this->assertNull($obj->getAccount_number_type());
-        $this->assertNull($obj->getAccountNumberType());
-        $this->assertSame($obj->getAccountNumberType(), $obj->getAccount_number_type());
-        $obj->setAccount_number_type("TestSample");
-        $this->assertEquals($obj->getAccount_number_type(), "TestSample");
-
-        // Check for Routing_number
-        $obj->setRoutingNumber(null);
-        $this->assertNull($obj->getRouting_number());
-        $this->assertNull($obj->getRoutingNumber());
-        $this->assertSame($obj->getRoutingNumber(), $obj->getRouting_number());
-        $obj->setRouting_number("TestSample");
-        $this->assertEquals($obj->getRouting_number(), "TestSample");
-
-        // Check for Account_type
-        $obj->setAccountType(null);
-        $this->assertNull($obj->getAccount_type());
-        $this->assertNull($obj->getAccountType());
-        $this->assertSame($obj->getAccountType(), $obj->getAccount_type());
-        $obj->setAccount_type("TestSample");
-        $this->assertEquals($obj->getAccount_type(), "TestSample");
-
-        // Check for Account_name
-        $obj->setAccountName(null);
-        $this->assertNull($obj->getAccount_name());
-        $this->assertNull($obj->getAccountName());
-        $this->assertSame($obj->getAccountName(), $obj->getAccount_name());
-        $obj->setAccount_name("TestSample");
-        $this->assertEquals($obj->getAccount_name(), "TestSample");
-
-        // Check for Check_type
-        $obj->setCheckType(null);
-        $this->assertNull($obj->getCheck_type());
-        $this->assertNull($obj->getCheckType());
-        $this->assertSame($obj->getCheckType(), $obj->getCheck_type());
-        $obj->setCheck_type("TestSample");
-        $this->assertEquals($obj->getCheck_type(), "TestSample");
-
-        // Check for Auth_type
-        $obj->setAuthType(null);
-        $this->assertNull($obj->getAuth_type());
-        $this->assertNull($obj->getAuthType());
-        $this->assertSame($obj->getAuthType(), $obj->getAuth_type());
-        $obj->setAuth_type("TestSample");
-        $this->assertEquals($obj->getAuth_type(), "TestSample");
-
-        // Check for Auth_capture_timestamp
-        $obj->setAuthCaptureTimestamp(null);
-        $this->assertNull($obj->getAuth_capture_timestamp());
-        $this->assertNull($obj->getAuthCaptureTimestamp());
-        $this->assertSame($obj->getAuthCaptureTimestamp(), $obj->getAuth_capture_timestamp());
-        $obj->setAuth_capture_timestamp("TestSample");
-        $this->assertEquals($obj->getAuth_capture_timestamp(), "TestSample");
-
-        // Check for Bank_name
-        $obj->setBankName(null);
-        $this->assertNull($obj->getBank_name());
-        $this->assertNull($obj->getBankName());
-        $this->assertSame($obj->getBankName(), $obj->getBank_name());
-        $obj->setBank_name("TestSample");
-        $this->assertEquals($obj->getBank_name(), "TestSample");
-
-        // Check for Country_code
-        $obj->setCountryCode(null);
-        $this->assertNull($obj->getCountry_code());
-        $this->assertNull($obj->getCountryCode());
-        $this->assertSame($obj->getCountryCode(), $obj->getCountry_code());
-        $obj->setCountry_code("TestSample");
-        $this->assertEquals($obj->getCountry_code(), "TestSample");
-
-        // Check for First_name
-        $obj->setFirstName(null);
-        $this->assertNull($obj->getFirst_name());
-        $this->assertNull($obj->getFirstName());
-        $this->assertSame($obj->getFirstName(), $obj->getFirst_name());
-        $obj->setFirst_name("TestSample");
-        $this->assertEquals($obj->getFirst_name(), "TestSample");
-
-        // Check for Last_name
-        $obj->setLastName(null);
-        $this->assertNull($obj->getLast_name());
-        $this->assertNull($obj->getLastName());
-        $this->assertSame($obj->getLastName(), $obj->getLast_name());
-        $obj->setLast_name("TestSample");
-        $this->assertEquals($obj->getLast_name(), "TestSample");
-
-        // Check for Birth_date
-        $obj->setBirthDate(null);
-        $this->assertNull($obj->getBirth_date());
-        $this->assertNull($obj->getBirthDate());
-        $this->assertSame($obj->getBirthDate(), $obj->getBirth_date());
-        $obj->setBirth_date("TestSample");
-        $this->assertEquals($obj->getBirth_date(), "TestSample");
-
-        // Check for Billing_address
-        $obj->setBillingAddress(null);
-        $this->assertNull($obj->getBilling_address());
-        $this->assertNull($obj->getBillingAddress());
-        $this->assertSame($obj->getBillingAddress(), $obj->getBilling_address());
-        $obj->setBilling_address(AddressTest::getObject());
-        $this->assertEquals($obj->getBilling_address(), AddressTest::getObject());
-
-        // Check for Confirmation_status
-        $obj->setConfirmationStatus(null);
-        $this->assertNull($obj->getConfirmation_status());
-        $this->assertNull($obj->getConfirmationStatus());
-        $this->assertSame($obj->getConfirmationStatus(), $obj->getConfirmation_status());
-        $obj->setConfirmation_status("TestSample");
-        $this->assertEquals($obj->getConfirmation_status(), "TestSample");
-
-        // Check for Payer_id
-        $obj->setPayerId(null);
-        $this->assertNull($obj->getPayer_id());
-        $this->assertNull($obj->getPayerId());
-        $this->assertSame($obj->getPayerId(), $obj->getPayer_id());
-        $obj->setPayer_id("TestSample");
-        $this->assertEquals($obj->getPayer_id(), "TestSample");
-
-        // Check for External_customer_id
-        $obj->setExternalCustomerId(null);
-        $this->assertNull($obj->getExternal_customer_id());
-        $this->assertNull($obj->getExternalCustomerId());
-        $this->assertSame($obj->getExternalCustomerId(), $obj->getExternal_customer_id());
-        $obj->setExternal_customer_id("TestSample");
-        $this->assertEquals($obj->getExternal_customer_id(), "TestSample");
-
-        // Check for Merchant_id
-        $obj->setMerchantId(null);
-        $this->assertNull($obj->getMerchant_id());
-        $this->assertNull($obj->getMerchantId());
-        $this->assertSame($obj->getMerchantId(), $obj->getMerchant_id());
-        $obj->setMerchant_id("TestSample");
-        $this->assertEquals($obj->getMerchant_id(), "TestSample");
-
-        // Check for Create_time
-        $obj->setCreateTime(null);
-        $this->assertNull($obj->getCreate_time());
-        $this->assertNull($obj->getCreateTime());
-        $this->assertSame($obj->getCreateTime(), $obj->getCreate_time());
-        $obj->setCreate_time("TestSample");
-        $this->assertEquals($obj->getCreate_time(), "TestSample");
-
-        // Check for Update_time
-        $obj->setUpdateTime(null);
-        $this->assertNull($obj->getUpdate_time());
-        $this->assertNull($obj->getUpdateTime());
-        $this->assertSame($obj->getUpdateTime(), $obj->getUpdate_time());
-        $obj->setUpdate_time("TestSample");
-        $this->assertEquals($obj->getUpdate_time(), "TestSample");
-
-        // Check for Valid_until
-        $obj->setValidUntil(null);
-        $this->assertNull($obj->getValid_until());
-        $this->assertNull($obj->getValidUntil());
-        $this->assertSame($obj->getValidUntil(), $obj->getValid_until());
-        $obj->setValid_until("TestSample");
-        $this->assertEquals($obj->getValid_until(), "TestSample");
-
-        //Test All Deprecated Getters and Normal Getters
-        $this->testDeprecatedGetters($obj);
-        $this->testGetters($obj);
-    }
-
-
-    /**
      * @dataProvider mockProvider
      * @param BankAccount $obj
      */
     public function testCreate($obj, $mockApiContext)
     {
-        $mockPPRestCall = $this->getMockBuilder('\PayPal\Transport\PPRestCall')
+        $mockPayPalRestCall = $this->getMockBuilder('\PayPal\Transport\PayPalRestCall')
             ->disableOriginalConstructor()
             ->getMock();
 
-        $mockPPRestCall->expects($this->any())
+        $mockPayPalRestCall->expects($this->any())
             ->method('execute')
             ->will($this->returnValue(
                     self::getJson()
             ));
 
-        $result = $obj->create($mockApiContext, $mockPPRestCall);
+        $result = $obj->create($mockApiContext, $mockPayPalRestCall);
         $this->assertNotNull($result);
     }
     /**
@@ -337,17 +127,17 @@ class BankAccountTest extends \PHPUnit_Framework_TestCase
      */
     public function testGet($obj, $mockApiContext)
     {
-        $mockPPRestCall = $this->getMockBuilder('\PayPal\Transport\PPRestCall')
+        $mockPayPalRestCall = $this->getMockBuilder('\PayPal\Transport\PayPalRestCall')
             ->disableOriginalConstructor()
             ->getMock();
 
-        $mockPPRestCall->expects($this->any())
+        $mockPayPalRestCall->expects($this->any())
             ->method('execute')
             ->will($this->returnValue(
                     BankAccountTest::getJson()
             ));
 
-        $result = $obj->get("bankAccountId", $mockApiContext, $mockPPRestCall);
+        $result = $obj->get("bankAccountId", $mockApiContext, $mockPayPalRestCall);
         $this->assertNotNull($result);
     }
     /**
@@ -356,17 +146,17 @@ class BankAccountTest extends \PHPUnit_Framework_TestCase
      */
     public function testDelete($obj, $mockApiContext)
     {
-        $mockPPRestCall = $this->getMockBuilder('\PayPal\Transport\PPRestCall')
+        $mockPayPalRestCall = $this->getMockBuilder('\PayPal\Transport\PayPalRestCall')
             ->disableOriginalConstructor()
             ->getMock();
 
-        $mockPPRestCall->expects($this->any())
+        $mockPayPalRestCall->expects($this->any())
             ->method('execute')
             ->will($this->returnValue(
                     true
             ));
 
-        $result = $obj->delete($mockApiContext, $mockPPRestCall);
+        $result = $obj->delete($mockApiContext, $mockPayPalRestCall);
         $this->assertNotNull($result);
     }
     /**
@@ -375,18 +165,18 @@ class BankAccountTest extends \PHPUnit_Framework_TestCase
      */
     public function testUpdate($obj, $mockApiContext)
     {
-        $mockPPRestCall = $this->getMockBuilder('\PayPal\Transport\PPRestCall')
+        $mockPayPalRestCall = $this->getMockBuilder('\PayPal\Transport\PayPalRestCall')
             ->disableOriginalConstructor()
             ->getMock();
 
-        $mockPPRestCall->expects($this->any())
+        $mockPayPalRestCall->expects($this->any())
             ->method('execute')
             ->will($this->returnValue(
                     self::getJson()
             ));
         $patchRequest = PatchRequestTest::getObject();
 
-        $result = $obj->update($patchRequest, $mockApiContext, $mockPPRestCall);
+        $result = $obj->update($patchRequest, $mockApiContext, $mockPayPalRestCall);
         $this->assertNotNull($result);
     }
 

@@ -2,7 +2,7 @@
 
 namespace PayPal\Api;
 
-use PayPal\Common\PPModel;
+use PayPal\Common\PayPalModel;
 
 /**
  * Class OverrideChargeModel
@@ -14,7 +14,7 @@ use PayPal\Common\PPModel;
  * @property string charge_id
  * @property \PayPal\Api\Currency amount
  */
-class OverrideChargeModel extends PPModel
+class OverrideChargeModel extends PayPalModel
 {
     /**
      * ID of charge model.
@@ -35,31 +35,6 @@ class OverrideChargeModel extends PPModel
      * @return string
      */
     public function getChargeId()
-    {
-        return $this->charge_id;
-    }
-
-    /**
-     * ID of charge model.
-     *
-     * @deprecated Instead use setChargeId
-     *
-     * @param string $charge_id
-     * @return $this
-     */
-    public function setCharge_id($charge_id)
-    {
-        $this->charge_id = $charge_id;
-        return $this;
-    }
-
-    /**
-     * ID of charge model.
-     * @deprecated Instead use getChargeId
-     *
-     * @return string
-     */
-    public function getCharge_id()
     {
         return $this->charge_id;
     }

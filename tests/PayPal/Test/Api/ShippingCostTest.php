@@ -2,7 +2,7 @@
 
 namespace PayPal\Test\Api;
 
-use PayPal\Common\PPModel;
+use PayPal\Common\PayPalModel;
 use PayPal\Api\ShippingCost;
 
 /**
@@ -54,27 +54,5 @@ class ShippingCostTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($obj->getAmount(), CurrencyTest::getObject());
         $this->assertEquals($obj->getTax(), TaxTest::getObject());
     }
-
-    /**
-     * @depends testSerializationDeserialization
-     * @param ShippingCost $obj
-     */
-    public function testDeprecatedGetters($obj)
-    {
-    }
-
-    /**
-     * @depends testSerializationDeserialization
-     * @param ShippingCost $obj
-     */
-    public function testDeprecatedSetterNormalGetter($obj)
-    {
-
-        //Test All Deprecated Getters and Normal Getters
-        $this->testDeprecatedGetters($obj);
-        $this->testGetters($obj);
-    }
-
-
 
 }
