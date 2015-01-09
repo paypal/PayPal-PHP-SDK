@@ -123,32 +123,6 @@ class Webhook extends PayPalResourceModel
     }
 
     /**
-     * List of Webhooks event-types.
-     *
-     * @deprecated Instead use setEventTypes
-     *
-     * @param \PayPal\Api\WebhookEventType $event_types
-     * @return $this
-     */
-    public function setEvent_types($event_types)
-    {
-        $this->event_types = $event_types;
-        return $this;
-    }
-
-    /**
-     * List of Webhooks event-types.
-     * @deprecated Instead use getEventTypes
-     *
-     * @return \PayPal\Api\WebhookEventType
-     */
-    public function getEvent_types()
-    {
-        return $this->event_types;
-    }
-
-
-    /**
      * Creates the Webhook for the application associated with the access token.
      *
      * @param ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.

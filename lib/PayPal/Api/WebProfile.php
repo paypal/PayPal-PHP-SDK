@@ -96,31 +96,6 @@ class WebProfile extends PayPalResourceModel
     }
 
     /**
-     * Parameters for flow configuration.
-     *
-     * @deprecated Instead use setFlowConfig
-     *
-     * @param \PayPal\Api\FlowConfig $flow_config
-     * @return $this
-     */
-    public function setFlow_config($flow_config)
-    {
-        $this->flow_config = $flow_config;
-        return $this;
-    }
-
-    /**
-     * Parameters for flow configuration.
-     * @deprecated Instead use getFlowConfig
-     *
-     * @return \PayPal\Api\FlowConfig
-     */
-    public function getFlow_config()
-    {
-        return $this->flow_config;
-    }
-
-    /**
      * Parameters for input fields customization.
      * 
      *
@@ -140,31 +115,6 @@ class WebProfile extends PayPalResourceModel
      * @return \PayPal\Api\InputFields
      */
     public function getInputFields()
-    {
-        return $this->input_fields;
-    }
-
-    /**
-     * Parameters for input fields customization.
-     *
-     * @deprecated Instead use setInputFields
-     *
-     * @param \PayPal\Api\InputFields $input_fields
-     * @return $this
-     */
-    public function setInput_fields($input_fields)
-    {
-        $this->input_fields = $input_fields;
-        return $this;
-    }
-
-    /**
-     * Parameters for input fields customization.
-     * @deprecated Instead use getInputFields
-     *
-     * @return \PayPal\Api\InputFields
-     */
-    public function getInput_fields()
     {
         return $this->input_fields;
     }

@@ -44,31 +44,6 @@ class CreditCardToken extends PayPalModel
     }
 
     /**
-     * ID of a previously saved Credit Card resource using /vault/credit-card API.
-     *
-     * @deprecated Instead use setCreditCardId
-     *
-     * @param string $credit_card_id
-     * @return $this
-     */
-    public function setCredit_card_id($credit_card_id)
-    {
-        $this->credit_card_id = $credit_card_id;
-        return $this;
-    }
-
-    /**
-     * ID of a previously saved Credit Card resource using /vault/credit-card API.
-     * @deprecated Instead use getCreditCardId
-     *
-     * @return string
-     */
-    public function getCredit_card_id()
-    {
-        return $this->credit_card_id;
-    }
-
-    /**
      * The unique identifier of the payer used when saving this credit card using /vault/credit-card API.
      *
      * @param string $payer_id
@@ -87,31 +62,6 @@ class CreditCardToken extends PayPalModel
      * @return string
      */
     public function getPayerId()
-    {
-        return $this->payer_id;
-    }
-
-    /**
-     * The unique identifier of the payer used when saving this credit card using /vault/credit-card API.
-     *
-     * @deprecated Instead use setPayerId
-     *
-     * @param string $payer_id
-     * @return $this
-     */
-    public function setPayer_id($payer_id)
-    {
-        $this->payer_id = $payer_id;
-        return $this;
-    }
-
-    /**
-     * The unique identifier of the payer used when saving this credit card using /vault/credit-card API.
-     * @deprecated Instead use getPayerId
-     *
-     * @return string
-     */
-    public function getPayer_id()
     {
         return $this->payer_id;
     }
@@ -186,31 +136,6 @@ class CreditCardToken extends PayPalModel
     }
 
     /**
-     * Expiry month from the saved card, represented as 1 - 12.
-     *
-     * @deprecated Instead use setExpireMonth
-     *
-     * @param int $expire_month
-     * @return $this
-     */
-    public function setExpire_month($expire_month)
-    {
-        $this->expire_month = $expire_month;
-        return $this;
-    }
-
-    /**
-     * Expiry month from the saved card, represented as 1 - 12.
-     * @deprecated Instead use getExpireMonth
-     *
-     * @return int
-     */
-    public function getExpire_month()
-    {
-        return $this->expire_month;
-    }
-
-    /**
      * Expiry year from the saved card, represented as YYYY format.
      *
      * @param int $expire_year
@@ -229,31 +154,6 @@ class CreditCardToken extends PayPalModel
      * @return int
      */
     public function getExpireYear()
-    {
-        return $this->expire_year;
-    }
-
-    /**
-     * Expiry year from the saved card, represented as YYYY format.
-     *
-     * @deprecated Instead use setExpireYear
-     *
-     * @param int $expire_year
-     * @return $this
-     */
-    public function setExpire_year($expire_year)
-    {
-        $this->expire_year = $expire_year;
-        return $this;
-    }
-
-    /**
-     * Expiry year from the saved card, represented as YYYY format.
-     * @deprecated Instead use getExpireYear
-     *
-     * @return int
-     */
-    public function getExpire_year()
     {
         return $this->expire_year;
     }

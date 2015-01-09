@@ -55,35 +55,4 @@ class PayoutBatchTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($obj->getItems(), PayoutItemDetailsTest::getObject());
     }
 
-    /**
-     * @depends testSerializationDeserialization
-     * @param PayoutBatch $obj
-     */
-    public function testDeprecatedGetters($obj)
-    {
-        $this->assertEquals($obj->getBatch_header(), PayoutBatchHeaderTest::getObject());
-    }
-
-    /**
-     * @depends testSerializationDeserialization
-     * @param PayoutBatch $obj
-     */
-    public function testDeprecatedSetterNormalGetter($obj)
-    {
-
-        // Check for Batch_header
-        $obj->setBatchHeader(null);
-        $this->assertNull($obj->getBatch_header());
-        $this->assertNull($obj->getBatchHeader());
-        $this->assertSame($obj->getBatchHeader(), $obj->getBatch_header());
-        $obj->setBatch_header(PayoutBatchHeaderTest::getObject());
-        $this->assertEquals($obj->getBatch_header(), PayoutBatchHeaderTest::getObject());
-
-        //Test All Deprecated Getters and Normal Getters
-        $this->testDeprecatedGetters($obj);
-        $this->testGetters($obj);
-    }
-
-
-
 }

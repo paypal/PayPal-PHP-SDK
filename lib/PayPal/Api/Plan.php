@@ -168,31 +168,6 @@ class Plan extends PayPalResourceModel
     }
 
     /**
-     * Time when the billing plan was created. Format YYYY-MM-DDTimeTimezone, as defined in [ISO8601](http://tools.ietf.org/html/rfc3339#section-5.6).
-     *
-     * @deprecated Instead use setCreateTime
-     *
-     * @param string $create_time
-     * @return $this
-     */
-    public function setCreate_time($create_time)
-    {
-        $this->create_time = $create_time;
-        return $this;
-    }
-
-    /**
-     * Time when the billing plan was created. Format YYYY-MM-DDTimeTimezone, as defined in [ISO8601](http://tools.ietf.org/html/rfc3339#section-5.6).
-     * @deprecated Instead use getCreateTime
-     *
-     * @return string
-     */
-    public function getCreate_time()
-    {
-        return $this->create_time;
-    }
-
-    /**
      * Time when this billing plan was updated. Format YYYY-MM-DDTimeTimezone, as defined in [ISO8601](http://tools.ietf.org/html/rfc3339#section-5.6).
      *
      * @param string $update_time
@@ -211,31 +186,6 @@ class Plan extends PayPalResourceModel
      * @return string
      */
     public function getUpdateTime()
-    {
-        return $this->update_time;
-    }
-
-    /**
-     * Time when this billing plan was updated. Format YYYY-MM-DDTimeTimezone, as defined in [ISO8601](http://tools.ietf.org/html/rfc3339#section-5.6).
-     *
-     * @deprecated Instead use setUpdateTime
-     *
-     * @param string $update_time
-     * @return $this
-     */
-    public function setUpdate_time($update_time)
-    {
-        $this->update_time = $update_time;
-        return $this;
-    }
-
-    /**
-     * Time when this billing plan was updated. Format YYYY-MM-DDTimeTimezone, as defined in [ISO8601](http://tools.ietf.org/html/rfc3339#section-5.6).
-     * @deprecated Instead use getUpdateTime
-     *
-     * @return string
-     */
-    public function getUpdate_time()
     {
         return $this->update_time;
     }
@@ -291,31 +241,6 @@ class Plan extends PayPalResourceModel
         return $this->setPaymentDefinitions(
             array_diff($this->getPaymentDefinitions(), array($paymentDefinition))
         );
-    }
-
-    /**
-     * Array of payment definitions for this billing plan.
-     *
-     * @deprecated Instead use setPaymentDefinitions
-     *
-     * @param \PayPal\Api\PaymentDefinition $payment_definitions
-     * @return $this
-     */
-    public function setPayment_definitions($payment_definitions)
-    {
-        $this->payment_definitions = $payment_definitions;
-        return $this;
-    }
-
-    /**
-     * Array of payment definitions for this billing plan.
-     * @deprecated Instead use getPaymentDefinitions
-     *
-     * @return \PayPal\Api\PaymentDefinition
-     */
-    public function getPayment_definitions()
-    {
-        return $this->payment_definitions;
     }
 
     /**
@@ -390,31 +315,6 @@ class Plan extends PayPalResourceModel
      * @return \PayPal\Api\MerchantPreferences
      */
     public function getMerchantPreferences()
-    {
-        return $this->merchant_preferences;
-    }
-
-    /**
-     * Specific preferences such as: set up fee, max fail attempts, autobill amount, and others that are configured for this billing plan.
-     *
-     * @deprecated Instead use setMerchantPreferences
-     *
-     * @param \PayPal\Api\MerchantPreferences $merchant_preferences
-     * @return $this
-     */
-    public function setMerchant_preferences($merchant_preferences)
-    {
-        $this->merchant_preferences = $merchant_preferences;
-        return $this;
-    }
-
-    /**
-     * Specific preferences such as: set up fee, max fail attempts, autobill amount, and others that are configured for this billing plan.
-     * @deprecated Instead use getMerchantPreferences
-     *
-     * @return \PayPal\Api\MerchantPreferences
-     */
-    public function getMerchant_preferences()
     {
         return $this->merchant_preferences;
     }

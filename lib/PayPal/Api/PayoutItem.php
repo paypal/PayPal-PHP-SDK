@@ -46,31 +46,6 @@ class PayoutItem extends PayPalResourceModel
     }
 
     /**
-     * The type of identification for the payment receiver. If this field is provided, the payout items without a `recipient_type` will use the provided value. If this field is not provided, each payout item must include a value for the `recipient_type`.
-     *
-     * @deprecated Instead use setRecipientType
-     *
-     * @param string $recipient_type
-     * @return $this
-     */
-    public function setRecipient_type($recipient_type)
-    {
-        $this->recipient_type = $recipient_type;
-        return $this;
-    }
-
-    /**
-     * The type of identification for the payment receiver. If this field is provided, the payout items without a `recipient_type` will use the provided value. If this field is not provided, each payout item must include a value for the `recipient_type`.
-     * @deprecated Instead use getRecipientType
-     *
-     * @return string
-     */
-    public function getRecipient_type()
-    {
-        return $this->recipient_type;
-    }
-
-    /**
      * The amount of money to pay a receiver.
      *
      * @param \PayPal\Api\Currency $amount
@@ -158,31 +133,6 @@ class PayoutItem extends PayPalResourceModel
      * @return string
      */
     public function getSenderItemId()
-    {
-        return $this->sender_item_id;
-    }
-
-    /**
-     * A sender-specific ID number, used in an accounting system for tracking purposes. 30 characters max.
-     *
-     * @deprecated Instead use setSenderItemId
-     *
-     * @param string $sender_item_id
-     * @return $this
-     */
-    public function setSender_item_id($sender_item_id)
-    {
-        $this->sender_item_id = $sender_item_id;
-        return $this;
-    }
-
-    /**
-     * A sender-specific ID number, used in an accounting system for tracking purposes. 30 characters max.
-     * @deprecated Instead use getSenderItemId
-     *
-     * @return string
-     */
-    public function getSender_item_id()
     {
         return $this->sender_item_id;
     }

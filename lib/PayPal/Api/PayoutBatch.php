@@ -41,31 +41,6 @@ class PayoutBatch extends PayPalModel
     }
 
     /**
-     * A batch header that includes the generated batch status.
-     *
-     * @deprecated Instead use setBatchHeader
-     *
-     * @param \PayPal\Api\PayoutBatchHeader $batch_header
-     * @return $this
-     */
-    public function setBatch_header($batch_header)
-    {
-        $this->batch_header = $batch_header;
-        return $this;
-    }
-
-    /**
-     * A batch header that includes the generated batch status.
-     * @deprecated Instead use getBatchHeader
-     *
-     * @return \PayPal\Api\PayoutBatchHeader
-     */
-    public function getBatch_header()
-    {
-        return $this->batch_header;
-    }
-
-    /**
      * Array of the items in a batch payout.
      *
      * @param \PayPal\Api\PayoutItemDetails[] $items

@@ -55,35 +55,4 @@ class InvoiceSearchResponseTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($obj->getInvoices(), InvoiceTest::getObject());
     }
 
-    /**
-     * @depends testSerializationDeserialization
-     * @param InvoiceSearchResponse $obj
-     */
-    public function testDeprecatedGetters($obj)
-    {
-        $this->assertEquals($obj->getTotal_count(), 123);
-    }
-
-    /**
-     * @depends testSerializationDeserialization
-     * @param InvoiceSearchResponse $obj
-     */
-    public function testDeprecatedSetterNormalGetter($obj)
-    {
-
-        // Check for Total_count
-        $obj->setTotalCount(null);
-        $this->assertNull($obj->getTotal_count());
-        $this->assertNull($obj->getTotalCount());
-        $this->assertSame($obj->getTotalCount(), $obj->getTotal_count());
-        $obj->setTotal_count(123);
-        $this->assertEquals($obj->getTotal_count(), 123);
-
-        //Test All Deprecated Getters and Normal Getters
-        $this->testDeprecatedGetters($obj);
-        $this->testGetters($obj);
-    }
-
-
-
 }

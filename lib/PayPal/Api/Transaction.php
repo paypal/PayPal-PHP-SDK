@@ -12,7 +12,7 @@ use PayPal\Rest\ApiContext;
  *
  * @package PayPal\Api
  *
- * @property self transactions
+ * @property Transaction transactions
  */
 class Transaction extends TransactionBase 
 {

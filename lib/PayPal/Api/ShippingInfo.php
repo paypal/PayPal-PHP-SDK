@@ -43,31 +43,6 @@ class ShippingInfo extends PayPalModel
     }
 
     /**
-     * First name of the invoice recipient. 30 characters max.
-     *
-     * @deprecated Instead use setFirstName
-     *
-     * @param string $first_name
-     * @return $this
-     */
-    public function setFirst_name($first_name)
-    {
-        $this->first_name = $first_name;
-        return $this;
-    }
-
-    /**
-     * First name of the invoice recipient. 30 characters max.
-     * @deprecated Instead use getFirstName
-     *
-     * @return string
-     */
-    public function getFirst_name()
-    {
-        return $this->first_name;
-    }
-
-    /**
      * Last name of the invoice recipient. 30 characters max.
      *
      * @param string $last_name
@@ -91,31 +66,6 @@ class ShippingInfo extends PayPalModel
     }
 
     /**
-     * Last name of the invoice recipient. 30 characters max.
-     *
-     * @deprecated Instead use setLastName
-     *
-     * @param string $last_name
-     * @return $this
-     */
-    public function setLast_name($last_name)
-    {
-        $this->last_name = $last_name;
-        return $this;
-    }
-
-    /**
-     * Last name of the invoice recipient. 30 characters max.
-     * @deprecated Instead use getLastName
-     *
-     * @return string
-     */
-    public function getLast_name()
-    {
-        return $this->last_name;
-    }
-
-    /**
      * Company business name of the invoice recipient. 100 characters max.
      *
      * @param string $business_name
@@ -134,31 +84,6 @@ class ShippingInfo extends PayPalModel
      * @return string
      */
     public function getBusinessName()
-    {
-        return $this->business_name;
-    }
-
-    /**
-     * Company business name of the invoice recipient. 100 characters max.
-     *
-     * @deprecated Instead use setBusinessName
-     *
-     * @param string $business_name
-     * @return $this
-     */
-    public function setBusiness_name($business_name)
-    {
-        $this->business_name = $business_name;
-        return $this;
-    }
-
-    /**
-     * Company business name of the invoice recipient. 100 characters max.
-     * @deprecated Instead use getBusinessName
-     *
-     * @return string
-     */
-    public function getBusiness_name()
     {
         return $this->business_name;
     }
@@ -206,26 +131,6 @@ class ShippingInfo extends PayPalModel
     public function getAddress()
     {
         return $this->address;
-    }
-
-    /**
-     * @deprecated This will not be supported soon. Kept for backward Compatibility
-     *
-     * @param string $email
-     */
-    public function setEmail($email)
-    {
-        $this->email = $email;
-    }
-
-    /**
-     * @deprecated This will not be supported soon. Kept for backward Compatibility
-     *
-     * @return string
-     */
-    public function getEmail()
-    {
-        return $this->email;
     }
 
 }

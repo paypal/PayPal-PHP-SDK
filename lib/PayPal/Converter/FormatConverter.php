@@ -17,18 +17,6 @@ class FormatConverter {
     }
 
     /**
-     * Format the input data to two decimal places
-     *
-     * @deprecated Use formatToNumber instead
-     * @param $value
-     * @return string
-     */
-    public static function formatToTwoDecimalPlaces($value)
-    {
-        return self::formatToNumber($value);
-    }
-
-    /**
      * Format the input data with decimal places
      *
      * Defaults to 2 decimal places

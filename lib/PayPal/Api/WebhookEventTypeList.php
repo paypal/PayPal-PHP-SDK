@@ -68,29 +68,4 @@ class WebhookEventTypeList extends PayPalModel
         );
     }
 
-    /**
-     * A list of Webhooks event-types
-     *
-     * @deprecated Instead use setEventTypes
-     *
-     * @param \PayPal\Api\WebhookEventType $event_types
-     * @return $this
-     */
-    public function setEvent_types($event_types)
-    {
-        $this->event_types = $event_types;
-        return $this;
-    }
-
-    /**
-     * A list of Webhooks event-types
-     * @deprecated Instead use getEventTypes
-     *
-     * @return \PayPal\Api\WebhookEventType
-     */
-    public function getEvent_types()
-    {
-        return $this->event_types;
-    }
-
 }

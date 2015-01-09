@@ -44,31 +44,6 @@ class Payout extends PayPalResourceModel
     }
 
     /**
-     * The original batch header as provided by the payment sender.
-     *
-     * @deprecated Instead use setSenderBatchHeader
-     *
-     * @param \PayPal\Api\PayoutSenderBatchHeader $sender_batch_header
-     * @return $this
-     */
-    public function setSender_batch_header($sender_batch_header)
-    {
-        $this->sender_batch_header = $sender_batch_header;
-        return $this;
-    }
-
-    /**
-     * The original batch header as provided by the payment sender.
-     * @deprecated Instead use getSenderBatchHeader
-     *
-     * @return \PayPal\Api\PayoutSenderBatchHeader
-     */
-    public function getSender_batch_header()
-    {
-        return $this->sender_batch_header;
-    }
-
-    /**
      * An array of payout items (that is, a set of individual payouts).
      *
      * @param \PayPal\Api\PayoutItem[] $items

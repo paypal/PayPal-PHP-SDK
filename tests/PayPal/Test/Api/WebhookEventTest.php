@@ -70,54 +70,6 @@ class WebhookEventTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @depends testSerializationDeserialization
-     * @param WebhookEvent $obj
-     */
-    public function testDeprecatedGetters($obj)
-    {
-        $this->assertEquals($obj->getCreate_time(), "TestSample");
-        $this->assertEquals($obj->getResource_type(), "TestSample");
-        $this->assertEquals($obj->getEvent_type(), "TestSample");
-    }
-
-    /**
-     * @depends testSerializationDeserialization
-     * @param WebhookEvent $obj
-     */
-    public function testDeprecatedSetterNormalGetter($obj)
-    {
-
-        // Check for Create_time
-        $obj->setCreateTime(null);
-        $this->assertNull($obj->getCreate_time());
-        $this->assertNull($obj->getCreateTime());
-        $this->assertSame($obj->getCreateTime(), $obj->getCreate_time());
-        $obj->setCreate_time("TestSample");
-        $this->assertEquals($obj->getCreate_time(), "TestSample");
-
-        // Check for Resource_type
-        $obj->setResourceType(null);
-        $this->assertNull($obj->getResource_type());
-        $this->assertNull($obj->getResourceType());
-        $this->assertSame($obj->getResourceType(), $obj->getResource_type());
-        $obj->setResource_type("TestSample");
-        $this->assertEquals($obj->getResource_type(), "TestSample");
-
-        // Check for Event_type
-        $obj->setEventType(null);
-        $this->assertNull($obj->getEvent_type());
-        $this->assertNull($obj->getEventType());
-        $this->assertSame($obj->getEventType(), $obj->getEvent_type());
-        $obj->setEvent_type("TestSample");
-        $this->assertEquals($obj->getEvent_type(), "TestSample");
-
-        //Test All Deprecated Getters and Normal Getters
-        $this->testDeprecatedGetters($obj);
-        $this->testGetters($obj);
-    }
-
-
-    /**
      * @dataProvider mockProvider
      * @param WebhookEvent $obj
      */

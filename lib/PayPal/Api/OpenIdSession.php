@@ -19,6 +19,7 @@ class OpenIdSession
      * @param string     $clientId      client id from developer portal
      *                                  See https://developer.paypal.com/webapps/developer/docs/integration/direct/log-in-with-paypal/detailed/#attributes for more
      * @param ApiContext $apiContext    Optional API Context
+     * @return string Authorization URL
      */
     public static function getAuthorizationUrl($redirectUri, $scope, $clientId, $nonce = null, $state = null, $apiContext = null)
     {

@@ -66,45 +66,6 @@ class PayoutItemTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @depends testSerializationDeserialization
-     * @param PayoutItem $obj
-     */
-    public function testDeprecatedGetters($obj)
-    {
-        $this->assertEquals($obj->getRecipient_type(), "TestSample");
-        $this->assertEquals($obj->getSender_item_id(), "TestSample");
-    }
-
-    /**
-     * @depends testSerializationDeserialization
-     * @param PayoutItem $obj
-     */
-    public function testDeprecatedSetterNormalGetter($obj)
-    {
-
-        // Check for Recipient_type
-        $obj->setRecipientType(null);
-        $this->assertNull($obj->getRecipient_type());
-        $this->assertNull($obj->getRecipientType());
-        $this->assertSame($obj->getRecipientType(), $obj->getRecipient_type());
-        $obj->setRecipient_type("TestSample");
-        $this->assertEquals($obj->getRecipient_type(), "TestSample");
-
-        // Check for Sender_item_id
-        $obj->setSenderItemId(null);
-        $this->assertNull($obj->getSender_item_id());
-        $this->assertNull($obj->getSenderItemId());
-        $this->assertSame($obj->getSenderItemId(), $obj->getSender_item_id());
-        $obj->setSender_item_id("TestSample");
-        $this->assertEquals($obj->getSender_item_id(), "TestSample");
-
-        //Test All Deprecated Getters and Normal Getters
-        $this->testDeprecatedGetters($obj);
-        $this->testGetters($obj);
-    }
-
-
-    /**
      * @dataProvider mockProvider
      * @param PayoutItem $obj
      */

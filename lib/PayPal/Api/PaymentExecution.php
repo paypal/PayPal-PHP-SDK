@@ -42,31 +42,6 @@ class PaymentExecution extends PayPalModel
     }
 
     /**
-     * PayPal assigned Payer ID returned in the approval return url.
-     *
-     * @deprecated Instead use setPayerId
-     *
-     * @param string $payer_id
-     * @return $this
-     */
-    public function setPayer_id($payer_id)
-    {
-        $this->payer_id = $payer_id;
-        return $this;
-    }
-
-    /**
-     * PayPal assigned Payer ID returned in the approval return url.
-     * @deprecated Instead use getPayerId
-     *
-     * @return string
-     */
-    public function getPayer_id()
-    {
-        return $this->payer_id;
-    }
-
-    /**
      * If the amount needs to be updated after obtaining the PayPal Payer info (eg. shipping address), it can be updated using this element.
      * 
      *

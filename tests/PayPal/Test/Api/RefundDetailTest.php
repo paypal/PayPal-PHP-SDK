@@ -57,26 +57,4 @@ class RefundDetailTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($obj->getNote(), "TestSample");
     }
 
-    /**
-     * @depends testSerializationDeserialization
-     * @param RefundDetail $obj
-     */
-    public function testDeprecatedGetters($obj)
-    {
-    }
-
-    /**
-     * @depends testSerializationDeserialization
-     * @param RefundDetail $obj
-     */
-    public function testDeprecatedSetterNormalGetter($obj)
-    {
-
-        //Test All Deprecated Getters and Normal Getters
-        $this->testDeprecatedGetters($obj);
-        $this->testGetters($obj);
-    }
-
-
-
 }

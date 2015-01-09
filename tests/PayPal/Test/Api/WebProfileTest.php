@@ -66,45 +66,6 @@ class WebProfileTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @depends testSerializationDeserialization
-     * @param WebProfile $obj
-     */
-    public function testDeprecatedGetters($obj)
-    {
-        $this->assertEquals($obj->getFlow_config(), FlowConfigTest::getObject());
-        $this->assertEquals($obj->getInput_fields(), InputFieldsTest::getObject());
-    }
-
-    /**
-     * @depends testSerializationDeserialization
-     * @param WebProfile $obj
-     */
-    public function testDeprecatedSetterNormalGetter($obj)
-    {
-
-        // Check for Flow_config
-        $obj->setFlowConfig(null);
-        $this->assertNull($obj->getFlow_config());
-        $this->assertNull($obj->getFlowConfig());
-        $this->assertSame($obj->getFlowConfig(), $obj->getFlow_config());
-        $obj->setFlow_config(FlowConfigTest::getObject());
-        $this->assertEquals($obj->getFlow_config(), FlowConfigTest::getObject());
-
-        // Check for Input_fields
-        $obj->setInputFields(null);
-        $this->assertNull($obj->getInput_fields());
-        $this->assertNull($obj->getInputFields());
-        $this->assertSame($obj->getInputFields(), $obj->getInput_fields());
-        $obj->setInput_fields(InputFieldsTest::getObject());
-        $this->assertEquals($obj->getInput_fields(), InputFieldsTest::getObject());
-
-        //Test All Deprecated Getters and Normal Getters
-        $this->testDeprecatedGetters($obj);
-        $this->testGetters($obj);
-    }
-
-
-    /**
      * @dataProvider mockProvider
      * @param WebProfile $obj
      */

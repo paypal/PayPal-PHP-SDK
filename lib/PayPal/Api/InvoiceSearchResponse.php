@@ -40,31 +40,6 @@ class InvoiceSearchResponse extends PayPalModel
     }
 
     /**
-     * Total number of invoices.
-     *
-     * @deprecated Instead use setTotalCount
-     *
-     * @param int $total_count
-     * @return $this
-     */
-    public function setTotal_count($total_count)
-    {
-        $this->total_count = $total_count;
-        return $this;
-    }
-
-    /**
-     * Total number of invoices.
-     * @deprecated Instead use getTotalCount
-     *
-     * @return int
-     */
-    public function getTotal_count()
-    {
-        return $this->total_count;
-    }
-
-    /**
      * List of invoices belonging to a merchant.
      *
      * @param \PayPal\Api\Invoice[] $invoices

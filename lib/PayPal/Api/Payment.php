@@ -31,25 +31,6 @@ use PayPal\Validation\ArgumentValidator;
  */
 class Payment extends PayPalResourceModel
 {
-
-    /**
-     * OAuth Credentials to use for this call
-     *
-     * @var \PayPal\Auth\OAuthTokenCredential $credential
-     */
-    protected static $credential;
-
-    /**
-     * Sets Credential
-     *
-     * @deprecated Pass ApiContext to create/get methods instead
-     * @param \PayPal\Auth\OAuthTokenCredential $credential
-     */
-    public static function setCredential($credential)
-    {
-        self::$credential = $credential;
-    }
-
     /**
      * Identifier of the payment resource created.
      *
@@ -99,31 +80,6 @@ class Payment extends PayPalResourceModel
     }
 
     /**
-     * Time the resource was created in UTC ISO8601 format.
-     *
-     * @deprecated Instead use setCreateTime
-     *
-     * @param string $create_time
-     * @return $this
-     */
-    public function setCreate_time($create_time)
-    {
-        $this->create_time = $create_time;
-        return $this;
-    }
-
-    /**
-     * Time the resource was created in UTC ISO8601 format.
-     * @deprecated Instead use getCreateTime
-     *
-     * @return string
-     */
-    public function getCreate_time()
-    {
-        return $this->create_time;
-    }
-
-    /**
      * Time the resource was last updated in UTC ISO8601 format.
      *
      *
@@ -143,31 +99,6 @@ class Payment extends PayPalResourceModel
      * @return string
      */
     public function getUpdateTime()
-    {
-        return $this->update_time;
-    }
-
-    /**
-     * Time the resource was last updated in UTC ISO8601 format.
-     *
-     * @deprecated Instead use setUpdateTime
-     *
-     * @param string $update_time
-     * @return $this
-     */
-    public function setUpdate_time($update_time)
-    {
-        $this->update_time = $update_time;
-        return $this;
-    }
-
-    /**
-     * Time the resource was last updated in UTC ISO8601 format.
-     * @deprecated Instead use getUpdateTime
-     *
-     * @return string
-     */
-    public function getUpdate_time()
     {
         return $this->update_time;
     }
@@ -312,31 +243,6 @@ class Payment extends PayPalResourceModel
      * @return \PayPal\Api\RedirectUrls
      */
     public function getRedirectUrls()
-    {
-        return $this->redirect_urls;
-    }
-
-    /**
-     * Redirect urls required only when using payment_method as PayPal - the only settings supported are return and cancel urls.
-     *
-     * @deprecated Instead use setRedirectUrls
-     *
-     * @param \PayPal\Api\RedirectUrls $redirect_urls
-     * @return $this
-     */
-    public function setRedirect_urls($redirect_urls)
-    {
-        $this->redirect_urls = $redirect_urls;
-        return $this;
-    }
-
-    /**
-     * Redirect urls required only when using payment_method as PayPal - the only settings supported are return and cancel urls.
-     * @deprecated Instead use getRedirectUrls
-     *
-     * @return \PayPal\Api\RedirectUrls
-     */
-    public function getRedirect_urls()
     {
         return $this->redirect_urls;
     }

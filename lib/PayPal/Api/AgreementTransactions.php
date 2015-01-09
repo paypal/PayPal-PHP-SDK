@@ -68,29 +68,4 @@ class AgreementTransactions extends PayPalModel
         );
     }
 
-    /**
-     * Array of agreement_transaction object.
-     *
-     * @deprecated Instead use setAgreementTransactionList
-     *
-     * @param \PayPal\Api\AgreementTransaction $agreement_transaction_list
-     * @return $this
-     */
-    public function setAgreement_transaction_list($agreement_transaction_list)
-    {
-        $this->agreement_transaction_list = $agreement_transaction_list;
-        return $this;
-    }
-
-    /**
-     * Array of agreement_transaction object.
-     * @deprecated Instead use getAgreementTransactionList
-     *
-     * @return \PayPal\Api\AgreementTransaction
-     */
-    public function getAgreement_transaction_list()
-    {
-        return $this->agreement_transaction_list;
-    }
-
 }

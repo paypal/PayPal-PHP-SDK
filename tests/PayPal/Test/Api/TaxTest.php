@@ -59,26 +59,4 @@ class TaxTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($obj->getAmount(), CurrencyTest::getObject());
     }
 
-    /**
-     * @depends testSerializationDeserialization
-     * @param Tax $obj
-     */
-    public function testDeprecatedGetters($obj)
-    {
-    }
-
-    /**
-     * @depends testSerializationDeserialization
-     * @param Tax $obj
-     */
-    public function testDeprecatedSetterNormalGetter($obj)
-    {
-
-        //Test All Deprecated Getters and Normal Getters
-        $this->testDeprecatedGetters($obj);
-        $this->testGetters($obj);
-    }
-
-
-
 }

@@ -63,44 +63,4 @@ class PaymentDetailTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($obj->getNote(), "TestSample");
     }
 
-    /**
-     * @depends testSerializationDeserialization
-     * @param PaymentDetail $obj
-     */
-    public function testDeprecatedGetters($obj)
-    {
-        $this->assertEquals($obj->getTransaction_id(), "TestSample");
-        $this->assertEquals($obj->getTransaction_type(), "TestSample");
-    }
-
-    /**
-     * @depends testSerializationDeserialization
-     * @param PaymentDetail $obj
-     */
-    public function testDeprecatedSetterNormalGetter($obj)
-    {
-
-        // Check for Transaction_id
-        $obj->setTransactionId(null);
-        $this->assertNull($obj->getTransaction_id());
-        $this->assertNull($obj->getTransactionId());
-        $this->assertSame($obj->getTransactionId(), $obj->getTransaction_id());
-        $obj->setTransaction_id("TestSample");
-        $this->assertEquals($obj->getTransaction_id(), "TestSample");
-
-        // Check for Transaction_type
-        $obj->setTransactionType(null);
-        $this->assertNull($obj->getTransaction_type());
-        $this->assertNull($obj->getTransactionType());
-        $this->assertSame($obj->getTransactionType(), $obj->getTransaction_type());
-        $obj->setTransaction_type("TestSample");
-        $this->assertEquals($obj->getTransaction_type(), "TestSample");
-
-        //Test All Deprecated Getters and Normal Getters
-        $this->testDeprecatedGetters($obj);
-        $this->testGetters($obj);
-    }
-
-
-
 }

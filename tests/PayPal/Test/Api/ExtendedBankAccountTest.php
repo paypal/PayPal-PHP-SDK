@@ -53,35 +53,4 @@ class ExtendedBankAccountTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($obj->getMandateReferenceNumber(), "TestSample");
     }
 
-    /**
-     * @depends testSerializationDeserialization
-     * @param ExtendedBankAccount $obj
-     */
-    public function testDeprecatedGetters($obj)
-    {
-        $this->assertEquals($obj->getMandate_reference_number(), "TestSample");
-    }
-
-    /**
-     * @depends testSerializationDeserialization
-     * @param ExtendedBankAccount $obj
-     */
-    public function testDeprecatedSetterNormalGetter($obj)
-    {
-
-        // Check for Mandate_reference_number
-        $obj->setMandateReferenceNumber(null);
-        $this->assertNull($obj->getMandate_reference_number());
-        $this->assertNull($obj->getMandateReferenceNumber());
-        $this->assertSame($obj->getMandateReferenceNumber(), $obj->getMandate_reference_number());
-        $obj->setMandate_reference_number("TestSample");
-        $this->assertEquals($obj->getMandate_reference_number(), "TestSample");
-
-        //Test All Deprecated Getters and Normal Getters
-        $this->testDeprecatedGetters($obj);
-        $this->testGetters($obj);
-    }
-
-
-
 }

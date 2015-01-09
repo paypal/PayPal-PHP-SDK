@@ -55,35 +55,4 @@ class OverrideChargeModelTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($obj->getAmount(), CurrencyTest::getObject());
     }
 
-    /**
-     * @depends testSerializationDeserialization
-     * @param OverrideChargeModel $obj
-     */
-    public function testDeprecatedGetters($obj)
-    {
-        $this->assertEquals($obj->getCharge_id(), "TestSample");
-    }
-
-    /**
-     * @depends testSerializationDeserialization
-     * @param OverrideChargeModel $obj
-     */
-    public function testDeprecatedSetterNormalGetter($obj)
-    {
-
-        // Check for Charge_id
-        $obj->setChargeId(null);
-        $this->assertNull($obj->getCharge_id());
-        $this->assertNull($obj->getChargeId());
-        $this->assertSame($obj->getChargeId(), $obj->getCharge_id());
-        $obj->setCharge_id("TestSample");
-        $this->assertEquals($obj->getCharge_id(), "TestSample");
-
-        //Test All Deprecated Getters and Normal Getters
-        $this->testDeprecatedGetters($obj);
-        $this->testGetters($obj);
-    }
-
-
-
 }

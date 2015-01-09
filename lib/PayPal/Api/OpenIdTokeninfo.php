@@ -16,6 +16,7 @@ class OpenIdTokeninfo extends PayPalResourceModel
      * OPTIONAL, if identical to the scope requested by the client; otherwise, REQUIRED.
      *
      * @param string $scope
+     * @return self
      */
     public function setScope($scope)
     {
@@ -37,6 +38,7 @@ class OpenIdTokeninfo extends PayPalResourceModel
      * The access token issued by the authorization server.
      *
      * @param string $access_token
+     * @return self
      */
     public function setAccessToken($access_token)
     {
@@ -58,6 +60,7 @@ class OpenIdTokeninfo extends PayPalResourceModel
      * The refresh token, which can be used to obtain new access tokens using the same authorization grant as described in OAuth2.0 RFC6749 in Section 6.
      *
      * @param string $refresh_token
+     * @return self
      */
     public function setRefreshToken($refresh_token)
     {
@@ -79,6 +82,7 @@ class OpenIdTokeninfo extends PayPalResourceModel
      * The type of the token issued as described in OAuth2.0 RFC6749 (Section 7.1).  Value is case insensitive.
      *
      * @param string $token_type
+     * @return self
      */
     public function setTokenType($token_type)
     {
@@ -100,6 +104,7 @@ class OpenIdTokeninfo extends PayPalResourceModel
      * The id_token is a session token assertion that denotes the user's authentication status
      *
      * @param string $id_token
+     * @return self
      */
     public function setIdToken($id_token)
     {
@@ -121,6 +126,7 @@ class OpenIdTokeninfo extends PayPalResourceModel
      * The lifetime in seconds of the access token.
      *
      * @param integer $expires_in
+     * @return self
      */
     public function setExpiresIn($expires_in)
     {

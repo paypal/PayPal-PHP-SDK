@@ -40,29 +40,4 @@ class PaymentOptions extends PayPalModel
         return $this->allowed_payment_method;
     }
 
-    /**
-     * Payment method requested for this purchase unit
-     *
-     * @deprecated Instead use setAllowedPaymentMethod
-     *
-     * @param string $allowed_payment_method
-     * @return $this
-     */
-    public function setAllowed_payment_method($allowed_payment_method)
-    {
-        $this->allowed_payment_method = $allowed_payment_method;
-        return $this;
-    }
-
-    /**
-     * Payment method requested for this purchase unit
-     * @deprecated Instead use getAllowedPaymentMethod
-     *
-     * @return string
-     */
-    public function getAllowed_payment_method()
-    {
-        return $this->allowed_payment_method;
-    }
-
 }

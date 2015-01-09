@@ -114,31 +114,6 @@ class InvoiceItem extends PayPalModel
     }
 
     /**
-     * Unit price of the item. Range of -999999.99 to 999999.99.
-     *
-     * @deprecated Instead use setUnitPrice
-     *
-     * @param \PayPal\Api\Currency $unit_price
-     * @return $this
-     */
-    public function setUnit_price($unit_price)
-    {
-        $this->unit_price = $unit_price;
-        return $this;
-    }
-
-    /**
-     * Unit price of the item. Range of -999999.99 to 999999.99.
-     * @deprecated Instead use getUnitPrice
-     *
-     * @return \PayPal\Api\Currency
-     */
-    public function getUnit_price()
-    {
-        return $this->unit_price;
-    }
-
-    /**
      * Tax associated with the item.
      *
      * @param \PayPal\Api\Tax $tax

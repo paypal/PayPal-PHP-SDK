@@ -115,31 +115,6 @@ class PaymentDefinition extends PayPalModel
     }
 
     /**
-     * How frequently the customer should be charged.
-     *
-     * @deprecated Instead use setFrequencyInterval
-     *
-     * @param string $frequency_interval
-     * @return $this
-     */
-    public function setFrequency_interval($frequency_interval)
-    {
-        $this->frequency_interval = $frequency_interval;
-        return $this;
-    }
-
-    /**
-     * How frequently the customer should be charged.
-     * @deprecated Instead use getFrequencyInterval
-     *
-     * @return string
-     */
-    public function getFrequency_interval()
-    {
-        return $this->frequency_interval;
-    }
-
-    /**
      * Frequency of the payment definition offered. Allowed values: `WEEK`, `DAY`, `YEAR`, `MONTH`.
      *
      * @param string $frequency
@@ -259,31 +234,6 @@ class PaymentDefinition extends PayPalModel
         return $this->setChargeModels(
             array_diff($this->getChargeModels(), array($chargeModel))
         );
-    }
-
-    /**
-     * Array of charge_models for this payment definition.
-     *
-     * @deprecated Instead use setChargeModels
-     *
-     * @param \PayPal\Api\ChargeModel $charge_models
-     * @return $this
-     */
-    public function setCharge_models($charge_models)
-    {
-        $this->charge_models = $charge_models;
-        return $this;
-    }
-
-    /**
-     * Array of charge_models for this payment definition.
-     * @deprecated Instead use getChargeModels
-     *
-     * @return \PayPal\Api\ChargeModel
-     */
-    public function getCharge_models()
-    {
-        return $this->charge_models;
     }
 
 }

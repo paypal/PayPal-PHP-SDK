@@ -72,31 +72,6 @@ class WebhookEvent extends PayPalResourceModel
     }
 
     /**
-     * Time the resource was created.
-     *
-     * @deprecated Instead use setCreateTime
-     *
-     * @param string $create_time
-     * @return $this
-     */
-    public function setCreate_time($create_time)
-    {
-        $this->create_time = $create_time;
-        return $this;
-    }
-
-    /**
-     * Time the resource was created.
-     * @deprecated Instead use getCreateTime
-     *
-     * @return string
-     */
-    public function getCreate_time()
-    {
-        return $this->create_time;
-    }
-
-    /**
      * Name of the resource contained in resource element.
      *
      * @param string $resource_type
@@ -120,31 +95,6 @@ class WebhookEvent extends PayPalResourceModel
     }
 
     /**
-     * Name of the resource contained in resource element.
-     *
-     * @deprecated Instead use setResourceType
-     *
-     * @param string $resource_type
-     * @return $this
-     */
-    public function setResource_type($resource_type)
-    {
-        $this->resource_type = $resource_type;
-        return $this;
-    }
-
-    /**
-     * Name of the resource contained in resource element.
-     * @deprecated Instead use getResourceType
-     *
-     * @return string
-     */
-    public function getResource_type()
-    {
-        return $this->resource_type;
-    }
-
-    /**
      * Name of the event type that occurred on resource, identified by data_resource element, to trigger the Webhooks event.
      *
      * @param string $event_type
@@ -163,31 +113,6 @@ class WebhookEvent extends PayPalResourceModel
      * @return string
      */
     public function getEventType()
-    {
-        return $this->event_type;
-    }
-
-    /**
-     * Name of the event type that occurred on resource, identified by data_resource element, to trigger the Webhooks event.
-     *
-     * @deprecated Instead use setEventType
-     *
-     * @param string $event_type
-     * @return $this
-     */
-    public function setEvent_type($event_type)
-    {
-        $this->event_type = $event_type;
-        return $this;
-    }
-
-    /**
-     * Name of the event type that occurred on resource, identified by data_resource element, to trigger the Webhooks event.
-     * @deprecated Instead use getEventType
-     *
-     * @return string
-     */
-    public function getEvent_type()
     {
         return $this->event_type;
     }

@@ -63,26 +63,4 @@ class LinksTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($obj->getSchema(), HyperSchemaTest::getObject());
     }
 
-    /**
-     * @depends testSerializationDeserialization
-     * @param Links $obj
-     */
-    public function testDeprecatedGetters($obj)
-    {
-    }
-
-    /**
-     * @depends testSerializationDeserialization
-     * @param Links $obj
-     */
-    public function testDeprecatedSetterNormalGetter($obj)
-    {
-
-        //Test All Deprecated Getters and Normal Getters
-        $this->testDeprecatedGetters($obj);
-        $this->testGetters($obj);
-    }
-
-
-
 }

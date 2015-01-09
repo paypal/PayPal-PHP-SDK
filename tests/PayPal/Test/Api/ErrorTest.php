@@ -63,44 +63,4 @@ class ErrorTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($obj->getLinks(), LinksTest::getObject());
     }
 
-    /**
-     * @depends testSerializationDeserialization
-     * @param Error $obj
-     */
-    public function testDeprecatedGetters($obj)
-    {
-        $this->assertEquals($obj->getDebug_id(), "TestSample");
-        $this->assertEquals($obj->getInformation_link(), "TestSample");
-    }
-
-    /**
-     * @depends testSerializationDeserialization
-     * @param Error $obj
-     */
-    public function testDeprecatedSetterNormalGetter($obj)
-    {
-
-        // Check for Debug_id
-        $obj->setDebugId(null);
-        $this->assertNull($obj->getDebug_id());
-        $this->assertNull($obj->getDebugId());
-        $this->assertSame($obj->getDebugId(), $obj->getDebug_id());
-        $obj->setDebug_id("TestSample");
-        $this->assertEquals($obj->getDebug_id(), "TestSample");
-
-        // Check for Information_link
-        $obj->setInformationLink(null);
-        $this->assertNull($obj->getInformation_link());
-        $this->assertNull($obj->getInformationLink());
-        $this->assertSame($obj->getInformationLink(), $obj->getInformation_link());
-        $obj->setInformation_link("TestSample");
-        $this->assertEquals($obj->getInformation_link(), "TestSample");
-
-        //Test All Deprecated Getters and Normal Getters
-        $this->testDeprecatedGetters($obj);
-        $this->testGetters($obj);
-    }
-
-
-
 }

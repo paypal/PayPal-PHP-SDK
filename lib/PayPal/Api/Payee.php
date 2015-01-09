@@ -67,31 +67,6 @@ class Payee extends PayPalModel
     }
 
     /**
-     * Encrypted PayPal Account identifier for the Payee.
-     *
-     * @deprecated Instead use setMerchantId
-     *
-     * @param string $merchant_id
-     * @return $this
-     */
-    public function setMerchant_id($merchant_id)
-    {
-        $this->merchant_id = $merchant_id;
-        return $this;
-    }
-
-    /**
-     * Encrypted PayPal Account identifier for the Payee.
-     * @deprecated Instead use getMerchantId
-     *
-     * @return string
-     */
-    public function getMerchant_id()
-    {
-        return $this->merchant_id;
-    }
-
-    /**
      * Information related to the Payer. In case of PayPal Wallet payment, this information will be filled in by PayPal after the user approves the payment using their PayPal Wallet. 
      * 
      *

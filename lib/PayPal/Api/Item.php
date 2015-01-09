@@ -276,31 +276,6 @@ class Item extends PayPalModel
     }
 
     /**
-     * Set of optional data used for PayPal risk determination.
-     *
-     * @deprecated Instead use setSupplementaryData
-     *
-     * @param \PayPal\Api\NameValuePair $supplementary_data
-     * @return $this
-     */
-    public function setSupplementary_data($supplementary_data)
-    {
-        $this->supplementary_data = $supplementary_data;
-        return $this;
-    }
-
-    /**
-     * Set of optional data used for PayPal risk determination.
-     * @deprecated Instead use getSupplementaryData
-     *
-     * @return \PayPal\Api\NameValuePair
-     */
-    public function getSupplementary_data()
-    {
-        return $this->supplementary_data;
-    }
-
-    /**
      * Set of optional data used for PayPal post-transaction notifications.
      * 
      *
@@ -320,31 +295,6 @@ class Item extends PayPalModel
      * @return \PayPal\Api\NameValuePair[]
      */
     public function getPostbackData()
-    {
-        return $this->postback_data;
-    }
-
-    /**
-     * Set of optional data used for PayPal post-transaction notifications.
-     *
-     * @deprecated Instead use setPostbackData
-     *
-     * @param \PayPal\Api\NameValuePair $postback_data
-     * @return $this
-     */
-    public function setPostback_data($postback_data)
-    {
-        $this->postback_data = $postback_data;
-        return $this;
-    }
-
-    /**
-     * Set of optional data used for PayPal post-transaction notifications.
-     * @deprecated Instead use getPostbackData
-     *
-     * @return \PayPal\Api\NameValuePair
-     */
-    public function getPostback_data()
     {
         return $this->postback_data;
     }

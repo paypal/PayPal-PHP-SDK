@@ -53,35 +53,4 @@ class WebhookEventTypeListTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($obj->getEventTypes(), WebhookEventTypeTest::getObject());
     }
 
-    /**
-     * @depends testSerializationDeserialization
-     * @param WebhookEventTypeList $obj
-     */
-    public function testDeprecatedGetters($obj)
-    {
-        $this->assertEquals($obj->getEvent_types(), WebhookEventTypeTest::getObject());
-    }
-
-    /**
-     * @depends testSerializationDeserialization
-     * @param WebhookEventTypeList $obj
-     */
-    public function testDeprecatedSetterNormalGetter($obj)
-    {
-
-        // Check for Event_types
-        $obj->setEventTypes(null);
-        $this->assertNull($obj->getEvent_types());
-        $this->assertNull($obj->getEventTypes());
-        $this->assertSame($obj->getEventTypes(), $obj->getEvent_types());
-        $obj->setEvent_types(WebhookEventTypeTest::getObject());
-        $this->assertEquals($obj->getEvent_types(), WebhookEventTypeTest::getObject());
-
-        //Test All Deprecated Getters and Normal Getters
-        $this->testDeprecatedGetters($obj);
-        $this->testGetters($obj);
-    }
-
-
-
 }

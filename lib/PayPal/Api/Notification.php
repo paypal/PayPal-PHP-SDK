@@ -86,29 +86,4 @@ class Notification extends PayPalModel
         return $this->send_to_merchant;
     }
 
-    /**
-     * A flag indicating whether a copy of the email has to be sent to the merchant.
-     *
-     * @deprecated Instead use setSendToMerchant
-     *
-     * @param bool $send_to_merchant
-     * @return $this
-     */
-    public function setSend_to_merchant($send_to_merchant)
-    {
-        $this->send_to_merchant = $send_to_merchant;
-        return $this;
-    }
-
-    /**
-     * A flag indicating whether a copy of the email has to be sent to the merchant.
-     * @deprecated Instead use getSendToMerchant
-     *
-     * @return bool
-     */
-    public function getSend_to_merchant()
-    {
-        return $this->send_to_merchant;
-    }
-
 }

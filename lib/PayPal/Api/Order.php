@@ -75,31 +75,6 @@ class Order extends PayPalModel
     }
 
     /**
-     * Identifier to the purchase unit associated with this object
-     *
-     * @deprecated Instead use setPurchaseUnitReferenceId
-     *
-     * @param string $purchase_unit_reference_id
-     * @return $this
-     */
-    public function setPurchase_unit_reference_id($purchase_unit_reference_id)
-    {
-        $this->purchase_unit_reference_id = $purchase_unit_reference_id;
-        return $this;
-    }
-
-    /**
-     * Identifier to the purchase unit associated with this object
-     * @deprecated Instead use getPurchaseUnitReferenceId
-     *
-     * @return string
-     */
-    public function getPurchase_unit_reference_id()
-    {
-        return $this->purchase_unit_reference_id;
-    }
-
-    /**
      * Time the resource was created in UTC ISO8601 format.
      * 
      *
@@ -124,31 +99,6 @@ class Order extends PayPalModel
     }
 
     /**
-     * Time the resource was created in UTC ISO8601 format.
-     *
-     * @deprecated Instead use setCreateTime
-     *
-     * @param string $create_time
-     * @return $this
-     */
-    public function setCreate_time($create_time)
-    {
-        $this->create_time = $create_time;
-        return $this;
-    }
-
-    /**
-     * Time the resource was created in UTC ISO8601 format.
-     * @deprecated Instead use getCreateTime
-     *
-     * @return string
-     */
-    public function getCreate_time()
-    {
-        return $this->create_time;
-    }
-
-    /**
      * Time the resource was last updated in UTC ISO8601 format.
      * 
      *
@@ -168,31 +118,6 @@ class Order extends PayPalModel
      * @return string
      */
     public function getUpdateTime()
-    {
-        return $this->update_time;
-    }
-
-    /**
-     * Time the resource was last updated in UTC ISO8601 format.
-     *
-     * @deprecated Instead use setUpdateTime
-     *
-     * @param string $update_time
-     * @return $this
-     */
-    public function setUpdate_time($update_time)
-    {
-        $this->update_time = $update_time;
-        return $this;
-    }
-
-    /**
-     * Time the resource was last updated in UTC ISO8601 format.
-     * @deprecated Instead use getUpdateTime
-     *
-     * @return string
-     */
-    public function getUpdate_time()
     {
         return $this->update_time;
     }
@@ -246,31 +171,6 @@ class Order extends PayPalModel
     }
 
     /**
-     * specifies payment mode of the transaction
-     *
-     * @deprecated Instead use setPaymentMode
-     *
-     * @param string $payment_mode
-     * @return $this
-     */
-    public function setPayment_mode($payment_mode)
-    {
-        $this->payment_mode = $payment_mode;
-        return $this;
-    }
-
-    /**
-     * specifies payment mode of the transaction
-     * @deprecated Instead use getPaymentMode
-     *
-     * @return string
-     */
-    public function getPayment_mode()
-    {
-        return $this->payment_mode;
-    }
-
-    /**
      * State of the order transaction.
      * Valid Values: ["PENDING", "COMPLETED", "REFUNDED", "PARTIALLY_REFUNDED"] 
      *
@@ -319,31 +219,6 @@ class Order extends PayPalModel
     }
 
     /**
-     * Reason code for the transaction state being Pending or Reversed.
-     *
-     * @deprecated Instead use setReasonCode
-     *
-     * @param string $reason_code
-     * @return $this
-     */
-    public function setReason_code($reason_code)
-    {
-        $this->reason_code = $reason_code;
-        return $this;
-    }
-
-    /**
-     * Reason code for the transaction state being Pending or Reversed.
-     * @deprecated Instead use getReasonCode
-     *
-     * @return string
-     */
-    public function getReason_code()
-    {
-        return $this->reason_code;
-    }
-
-    /**
      * Protection Eligibility of the Payer 
      * Valid Values: ["ELIGIBLE", "PARTIALLY_ELIGIBLE", "INELIGIBLE"] 
      *
@@ -368,31 +243,6 @@ class Order extends PayPalModel
     }
 
     /**
-     * Protection Eligibility of the Payer 
-     *
-     * @deprecated Instead use setProtectionEligibility
-     *
-     * @param string $protection-eligibility
-     * @return $this
-     */
-    public function setProtection_eligibility($protection_eligibility)
-    {
-        $this->{"protection-eligibility"} = $protection_eligibility;
-        return $this;
-    }
-
-    /**
-     * Protection Eligibility of the Payer 
-     * @deprecated Instead use getProtectionEligibility
-     *
-     * @return string
-     */
-    public function getProtection_eligibility()
-    {
-        return $this->{"protection-eligibility"};
-    }
-
-    /**
      * Protection Eligibility Type of the Payer 
      * Valid Values: ["ELIGIBLE", "ITEM_NOT_RECEIVED_ELIGIBLE", "INELIGIBLE", "UNAUTHORIZED_PAYMENT_ELIGIBLE"] 
      *
@@ -412,31 +262,6 @@ class Order extends PayPalModel
      * @return string
      */
     public function getProtectionEligibilityType()
-    {
-        return $this->{"protection-eligibility_type"};
-    }
-
-    /**
-     * Protection Eligibility Type of the Payer 
-     *
-     * @deprecated Instead use setProtectionEligibilityType
-     *
-     * @param string $protection-eligibility_type
-     * @return $this
-     */
-    public function setProtection_eligibility_type($protection_eligibility_type)
-    {
-        $this->{"protection-eligibility_type"} = $protection_eligibility_type;
-        return $this;
-    }
-
-    /**
-     * Protection Eligibility Type of the Payer 
-     * @deprecated Instead use getProtectionEligibilityType
-     *
-     * @return string
-     */
-    public function getProtection_eligibility_type()
     {
         return $this->{"protection-eligibility_type"};
     }

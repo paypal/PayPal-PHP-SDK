@@ -31,24 +31,6 @@ use PayPal\Validation\ArgumentValidator;
 class Sale extends PayPalResourceModel
 {
     /**
-     * OAuth Credentials to use for this call
-     *
-     * @var \PayPal\Auth\OAuthTokenCredential $credential
-     */
-    protected static $credential;
-
-    /**
-     * Sets Credential
-     *
-     * @deprecated Pass ApiContext to create/get methods instead
-     * @param \PayPal\Auth\OAuthTokenCredential $credential
-     */
-    public static function setCredential($credential)
-    {
-        self::$credential = $credential;
-    }
-
-    /**
      * Identifier of the authorization transaction.
      * 
      *
@@ -97,31 +79,6 @@ class Sale extends PayPalResourceModel
     }
 
     /**
-     * Time the resource was created.
-     *
-     * @deprecated Instead use setCreateTime
-     *
-     * @param string $create_time
-     * @return $this
-     */
-    public function setCreate_time($create_time)
-    {
-        $this->create_time = $create_time;
-        return $this;
-    }
-
-    /**
-     * Time the resource was created.
-     * @deprecated Instead use getCreateTime
-     *
-     * @return string
-     */
-    public function getCreate_time()
-    {
-        return $this->create_time;
-    }
-
-    /**
      * Time the resource was last updated.
      * 
      *
@@ -141,31 +98,6 @@ class Sale extends PayPalResourceModel
      * @return string
      */
     public function getUpdateTime()
-    {
-        return $this->update_time;
-    }
-
-    /**
-     * Time the resource was last updated.
-     *
-     * @deprecated Instead use setUpdateTime
-     *
-     * @param string $update_time
-     * @return $this
-     */
-    public function setUpdate_time($update_time)
-    {
-        $this->update_time = $update_time;
-        return $this;
-    }
-
-    /**
-     * Time the resource was last updated.
-     * @deprecated Instead use getUpdateTime
-     *
-     * @return string
-     */
-    public function getUpdate_time()
     {
         return $this->update_time;
     }
@@ -219,31 +151,6 @@ class Sale extends PayPalResourceModel
     }
 
     /**
-     * specifies payment mode of the transaction
-     *
-     * @deprecated Instead use setPaymentMode
-     *
-     * @param string $payment_mode
-     * @return $this
-     */
-    public function setPayment_mode($payment_mode)
-    {
-        $this->payment_mode = $payment_mode;
-        return $this;
-    }
-
-    /**
-     * specifies payment mode of the transaction
-     * @deprecated Instead use getPaymentMode
-     *
-     * @return string
-     */
-    public function getPayment_mode()
-    {
-        return $this->payment_mode;
-    }
-
-    /**
      * Reason of Pending transaction.
      * 
      *
@@ -263,31 +170,6 @@ class Sale extends PayPalResourceModel
      * @return string
      */
     public function getPendingReason()
-    {
-        return $this->pending_reason;
-    }
-
-    /**
-     * Reason of Pending transaction.
-     *
-     * @deprecated Instead use setPendingReason
-     *
-     * @param string $pending_reason
-     * @return $this
-     */
-    public function setPending_reason($pending_reason)
-    {
-        $this->pending_reason = $pending_reason;
-        return $this;
-    }
-
-    /**
-     * Reason of Pending transaction.
-     * @deprecated Instead use getPendingReason
-     *
-     * @return string
-     */
-    public function getPending_reason()
     {
         return $this->pending_reason;
     }
@@ -341,31 +223,6 @@ class Sale extends PayPalResourceModel
     }
 
     /**
-     * Reason code for the transaction state being Pending or Reversed.
-     *
-     * @deprecated Instead use setReasonCode
-     *
-     * @param string $reason_code
-     * @return $this
-     */
-    public function setReason_code($reason_code)
-    {
-        $this->reason_code = $reason_code;
-        return $this;
-    }
-
-    /**
-     * Reason code for the transaction state being Pending or Reversed.
-     * @deprecated Instead use getReasonCode
-     *
-     * @return string
-     */
-    public function getReason_code()
-    {
-        return $this->reason_code;
-    }
-
-    /**
      * Protection Eligibility of the Payer 
      * Valid Values: ["ELIGIBLE", "PARTIALLY_ELIGIBLE", "INELIGIBLE"] 
      *
@@ -385,31 +242,6 @@ class Sale extends PayPalResourceModel
      * @return string
      */
     public function getProtectionEligibility()
-    {
-        return $this->protection_eligibility;
-    }
-
-    /**
-     * Protection Eligibility of the Payer 
-     *
-     * @deprecated Instead use setProtectionEligibility
-     *
-     * @param string $protection_eligibility
-     * @return $this
-     */
-    public function setProtection_eligibility($protection_eligibility)
-    {
-        $this->protection_eligibility = $protection_eligibility;
-        return $this;
-    }
-
-    /**
-     * Protection Eligibility of the Payer 
-     * @deprecated Instead use getProtectionEligibility
-     *
-     * @return string
-     */
-    public function getProtection_eligibility()
     {
         return $this->protection_eligibility;
     }
@@ -439,31 +271,6 @@ class Sale extends PayPalResourceModel
     }
 
     /**
-     * Protection Eligibility Type of the Payer 
-     *
-     * @deprecated Instead use setProtectionEligibilityType
-     *
-     * @param string $protection_eligibility_type
-     * @return $this
-     */
-    public function setProtection_eligibility_type($protection_eligibility_type)
-    {
-        $this->protection_eligibility_type = $protection_eligibility_type;
-        return $this;
-    }
-
-    /**
-     * Protection Eligibility Type of the Payer 
-     * @deprecated Instead use getProtectionEligibilityType
-     *
-     * @return string
-     */
-    public function getProtection_eligibility_type()
-    {
-        return $this->protection_eligibility_type;
-    }
-
-    /**
      * Expected clearing time for eCheck Transactions
      * 
      *
@@ -488,31 +295,6 @@ class Sale extends PayPalResourceModel
     }
 
     /**
-     * Expected clearing time for eCheck Transactions
-     *
-     * @deprecated Instead use setClearingTime
-     *
-     * @param string $clearing_time
-     * @return $this
-     */
-    public function setClearing_time($clearing_time)
-    {
-        $this->clearing_time = $clearing_time;
-        return $this;
-    }
-
-    /**
-     * Expected clearing time for eCheck Transactions
-     * @deprecated Instead use getClearingTime
-     *
-     * @return string
-     */
-    public function getClearing_time()
-    {
-        return $this->clearing_time;
-    }
-
-    /**
      * ID of the Payment resource that this transaction is based on.
      * 
      *
@@ -532,31 +314,6 @@ class Sale extends PayPalResourceModel
      * @return string
      */
     public function getParentPayment()
-    {
-        return $this->parent_payment;
-    }
-
-    /**
-     * ID of the Payment resource that this transaction is based on.
-     *
-     * @deprecated Instead use setParentPayment
-     *
-     * @param string $parent_payment
-     * @return $this
-     */
-    public function setParent_payment($parent_payment)
-    {
-        $this->parent_payment = $parent_payment;
-        return $this;
-    }
-
-    /**
-     * ID of the Payment resource that this transaction is based on.
-     * @deprecated Instead use getParentPayment
-     *
-     * @return string
-     */
-    public function getParent_payment()
     {
         return $this->parent_payment;
     }

@@ -124,31 +124,6 @@ class CreditCard extends PayPalResourceModel
     }
 
     /**
-     * 2 digit card expiry month.
-     *
-     * @deprecated Instead use setExpireMonth
-     *
-     * @param int $expire_month
-     * @return $this
-     */
-    public function setExpire_month($expire_month)
-    {
-        $this->expire_month = $expire_month;
-        return $this;
-    }
-
-    /**
-     * 2 digit card expiry month.
-     * @deprecated Instead use getExpireMonth
-     *
-     * @return int
-     */
-    public function getExpire_month()
-    {
-        return $this->expire_month;
-    }
-
-    /**
      * 4 digit card expiry year
      *
      * @param int $expire_year
@@ -167,31 +142,6 @@ class CreditCard extends PayPalResourceModel
      * @return int
      */
     public function getExpireYear()
-    {
-        return $this->expire_year;
-    }
-
-    /**
-     * 4 digit card expiry year
-     *
-     * @deprecated Instead use setExpireYear
-     *
-     * @param int $expire_year
-     * @return $this
-     */
-    public function setExpire_year($expire_year)
-    {
-        $this->expire_year = $expire_year;
-        return $this;
-    }
-
-    /**
-     * 4 digit card expiry year
-     * @deprecated Instead use getExpireYear
-     *
-     * @return int
-     */
-    public function getExpire_year()
     {
         return $this->expire_year;
     }
@@ -243,31 +193,6 @@ class CreditCard extends PayPalResourceModel
     }
 
     /**
-     * Card holder's first name.
-     *
-     * @deprecated Instead use setFirstName
-     *
-     * @param string $first_name
-     * @return $this
-     */
-    public function setFirst_name($first_name)
-    {
-        $this->first_name = $first_name;
-        return $this;
-    }
-
-    /**
-     * Card holder's first name.
-     * @deprecated Instead use getFirstName
-     *
-     * @return string
-     */
-    public function getFirst_name()
-    {
-        return $this->first_name;
-    }
-
-    /**
      * Card holder's last name.
      *
      * @param string $last_name
@@ -286,31 +211,6 @@ class CreditCard extends PayPalResourceModel
      * @return string
      */
     public function getLastName()
-    {
-        return $this->last_name;
-    }
-
-    /**
-     * Card holder's last name.
-     *
-     * @deprecated Instead use setLastName
-     *
-     * @param string $last_name
-     * @return $this
-     */
-    public function setLast_name($last_name)
-    {
-        $this->last_name = $last_name;
-        return $this;
-    }
-
-    /**
-     * Card holder's last name.
-     * @deprecated Instead use getLastName
-     *
-     * @return string
-     */
-    public function getLast_name()
     {
         return $this->last_name;
     }
@@ -339,31 +239,6 @@ class CreditCard extends PayPalResourceModel
     }
 
     /**
-     * Billing Address associated with this card.
-     *
-     * @deprecated Instead use setBillingAddress
-     *
-     * @param \PayPal\Api\Address $billing_address
-     * @return $this
-     */
-    public function setBilling_address($billing_address)
-    {
-        $this->billing_address = $billing_address;
-        return $this;
-    }
-
-    /**
-     * Billing Address associated with this card.
-     * @deprecated Instead use getBillingAddress
-     *
-     * @return \PayPal\Api\Address
-     */
-    public function getBilling_address()
-    {
-        return $this->billing_address;
-    }
-
-    /**
      * A unique identifier of the customer to whom this bank account belongs to. Generated and provided by the facilitator. This is required when creating or using a stored funding instrument in vault.
      *
      * @param string $external_customer_id
@@ -382,31 +257,6 @@ class CreditCard extends PayPalResourceModel
      * @return string
      */
     public function getExternalCustomerId()
-    {
-        return $this->external_customer_id;
-    }
-
-    /**
-     * A unique identifier of the customer to whom this bank account belongs to. Generated and provided by the facilitator. This is required when creating or using a stored funding instrument in vault.
-     *
-     * @deprecated Instead use setExternalCustomerId
-     *
-     * @param string $external_customer_id
-     * @return $this
-     */
-    public function setExternal_customer_id($external_customer_id)
-    {
-        $this->external_customer_id = $external_customer_id;
-        return $this;
-    }
-
-    /**
-     * A unique identifier of the customer to whom this bank account belongs to. Generated and provided by the facilitator. This is required when creating or using a stored funding instrument in vault.
-     * @deprecated Instead use getExternalCustomerId
-     *
-     * @return string
-     */
-    public function getExternal_customer_id()
     {
         return $this->external_customer_id;
     }
@@ -459,31 +309,6 @@ class CreditCard extends PayPalResourceModel
     }
 
     /**
-     * Date/Time until this resource can be used fund a payment.
-     *
-     * @deprecated Instead use setValidUntil
-     *
-     * @param string $valid_until
-     * @return $this
-     */
-    public function setValid_until($valid_until)
-    {
-        $this->valid_until = $valid_until;
-        return $this;
-    }
-
-    /**
-     * Date/Time until this resource can be used fund a payment.
-     * @deprecated Instead use getValidUntil
-     *
-     * @return string
-     */
-    public function getValid_until()
-    {
-        return $this->valid_until;
-    }
-
-    /**
      * Time the resource was created in UTC ISO8601 format.
      *
      * @param string $create_time
@@ -509,31 +334,6 @@ class CreditCard extends PayPalResourceModel
     /**
      * Time the resource was created in UTC ISO8601 format.
      *
-     * @deprecated Instead use setCreateTime
-     *
-     * @param string $create_time
-     * @return $this
-     */
-    public function setCreate_time($create_time)
-    {
-        $this->create_time = $create_time;
-        return $this;
-    }
-
-    /**
-     * Time the resource was created in UTC ISO8601 format.
-     * @deprecated Instead use getCreateTime
-     *
-     * @return string
-     */
-    public function getCreate_time()
-    {
-        return $this->create_time;
-    }
-
-    /**
-     * Time the resource was created in UTC ISO8601 format.
-     *
      * @param string $update_time
      * 
      * @return $this
@@ -550,31 +350,6 @@ class CreditCard extends PayPalResourceModel
      * @return string
      */
     public function getUpdateTime()
-    {
-        return $this->update_time;
-    }
-
-    /**
-     * Time the resource was created in UTC ISO8601 format.
-     *
-     * @deprecated Instead use setUpdateTime
-     *
-     * @param string $update_time
-     * @return $this
-     */
-    public function setUpdate_time($update_time)
-    {
-        $this->update_time = $update_time;
-        return $this;
-    }
-
-    /**
-     * Time the resource was created in UTC ISO8601 format.
-     * @deprecated Instead use getUpdateTime
-     *
-     * @return string
-     */
-    public function getUpdate_time()
     {
         return $this->update_time;
     }

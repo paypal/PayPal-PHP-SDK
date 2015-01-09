@@ -56,36 +56,6 @@ class FlowConfigTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @depends testSerializationDeserialization
-     * @param FlowConfig $obj
-     */
-    public function testDeprecatedGetters($obj)
-    {
-        $this->assertEquals($obj->getLanding_page_type(), "TestSample");
-        $this->assertEquals($obj->getBank_txn_pending_url(), "http://www.google.com");
-    }
-
-    /**
-     * @depends testSerializationDeserialization
-     * @param FlowConfig $obj
-     */
-    public function testDeprecatedSetterNormalGetter($obj)
-    {
-
-        // Check for Landing_page_type
-        $obj->setLandingPageType(null);
-        $this->assertNull($obj->getLanding_page_type());
-        $this->assertNull($obj->getLandingPageType());
-        $this->assertSame($obj->getLandingPageType(), $obj->getLanding_page_type());
-        $obj->setLanding_page_type("TestSample");
-        $this->assertEquals($obj->getLanding_page_type(), "TestSample");
-
-        //Test All Deprecated Getters and Normal Getters
-        $this->testDeprecatedGetters($obj);
-        $this->testGetters($obj);
-    }
-
-    /**
      * @expectedException \InvalidArgumentException
      * @expectedExceptionMessage BankTxnPendingUrl is not a fully qualified URL
      */
@@ -93,13 +63,6 @@ class FlowConfigTest extends \PHPUnit_Framework_TestCase
     {
         $obj = new FlowConfig();
         $obj->setBankTxnPendingUrl(null);
-    }
-
-    public function testUrlValidationForBankTxnPendingUrlDeprecated()
-    {
-        $obj = new FlowConfig();
-        $obj->setBank_txn_pending_url(null);
-        $this->assertNull($obj->getBank_txn_pending_url());
     }
 
 }

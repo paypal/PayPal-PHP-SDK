@@ -157,31 +157,6 @@ class Details extends PayPalModel
     }
 
     /**
-     * Amount being charged as shipping discount.
-     *
-     * @deprecated Instead use setShippingDiscount
-     *
-     * @param string $shipping_discount
-     * @return $this
-     */
-    public function setShipping_discount($shipping_discount)
-    {
-        $this->shipping_discount = $shipping_discount;
-        return $this;
-    }
-
-    /**
-     * Amount being charged as shipping discount.
-     * @deprecated Instead use getShippingDiscount
-     *
-     * @return string
-     */
-    public function getShipping_discount()
-    {
-        return $this->shipping_discount;
-    }
-
-    /**
      * Amount being charged as insurance.
      * 
      *
@@ -234,31 +209,6 @@ class Details extends PayPalModel
     }
 
     /**
-     * Amount being charged as handling fee.
-     *
-     * @deprecated Instead use setHandlingFee
-     *
-     * @param string $handling_fee
-     * @return $this
-     */
-    public function setHandling_fee($handling_fee)
-    {
-        $this->handling_fee = $handling_fee;
-        return $this;
-    }
-
-    /**
-     * Amount being charged as handling fee.
-     * @deprecated Instead use getHandlingFee
-     *
-     * @return string
-     */
-    public function getHandling_fee()
-    {
-        return $this->handling_fee;
-    }
-
-    /**
      * Amount being charged as gift wrap fee.
      *
      * @param string|double $gift_wrap
@@ -279,31 +229,6 @@ class Details extends PayPalModel
      * @return string
      */
     public function getGiftWrap()
-    {
-        return $this->gift_wrap;
-    }
-
-    /**
-     * Amount being charged as gift wrap fee.
-     *
-     * @deprecated Instead use setGiftWrap
-     *
-     * @param string $gift_wrap
-     * @return $this
-     */
-    public function setGift_wrap($gift_wrap)
-    {
-        $this->gift_wrap = $gift_wrap;
-        return $this;
-    }
-
-    /**
-     * Amount being charged as gift wrap fee.
-     * @deprecated Instead use getGiftWrap
-     *
-     * @return string
-     */
-    public function getGift_wrap()
     {
         return $this->gift_wrap;
     }

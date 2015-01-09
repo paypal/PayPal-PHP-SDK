@@ -66,7 +66,7 @@ class FormatConverterTest extends \PHPUnit_Framework_TestCase
      */
     public function testFormatToTwoDecimalPlaces($input, $expected)
     {
-        $result = FormatConverter::formatToTwoDecimalPlaces($input);
+        $result = FormatConverter::formatToNumber($input);
         $this->assertEquals($expected, $result);
 
     }

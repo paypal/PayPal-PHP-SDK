@@ -55,26 +55,4 @@ class AgreementStateDescriptorTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($obj->getAmount(), CurrencyTest::getObject());
     }
 
-    /**
-     * @depends testSerializationDeserialization
-     * @param AgreementStateDescriptor $obj
-     */
-    public function testDeprecatedGetters($obj)
-    {
-    }
-
-    /**
-     * @depends testSerializationDeserialization
-     * @param AgreementStateDescriptor $obj
-     */
-    public function testDeprecatedSetterNormalGetter($obj)
-    {
-
-        //Test All Deprecated Getters and Normal Getters
-        $this->testDeprecatedGetters($obj);
-        $this->testGetters($obj);
-    }
-
-
-
 }

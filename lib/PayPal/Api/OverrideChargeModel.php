@@ -40,31 +40,6 @@ class OverrideChargeModel extends PayPalModel
     }
 
     /**
-     * ID of charge model.
-     *
-     * @deprecated Instead use setChargeId
-     *
-     * @param string $charge_id
-     * @return $this
-     */
-    public function setCharge_id($charge_id)
-    {
-        $this->charge_id = $charge_id;
-        return $this;
-    }
-
-    /**
-     * ID of charge model.
-     * @deprecated Instead use getChargeId
-     *
-     * @return string
-     */
-    public function getCharge_id()
-    {
-        return $this->charge_id;
-    }
-
-    /**
      * Updated Amount to be associated with this charge model.
      *
      * @param \PayPal\Api\Currency $amount

@@ -59,44 +59,4 @@ class PlanListTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($obj->getLinks(), LinksTest::getObject());
     }
 
-    /**
-     * @depends testSerializationDeserialization
-     * @param PlanList $obj
-     */
-    public function testDeprecatedGetters($obj)
-    {
-        $this->assertEquals($obj->getTotal_items(), "TestSample");
-        $this->assertEquals($obj->getTotal_pages(), "TestSample");
-    }
-
-    /**
-     * @depends testSerializationDeserialization
-     * @param PlanList $obj
-     */
-    public function testDeprecatedSetterNormalGetter($obj)
-    {
-
-        // Check for Total_items
-        $obj->setTotalItems(null);
-        $this->assertNull($obj->getTotal_items());
-        $this->assertNull($obj->getTotalItems());
-        $this->assertSame($obj->getTotalItems(), $obj->getTotal_items());
-        $obj->setTotal_items("TestSample");
-        $this->assertEquals($obj->getTotal_items(), "TestSample");
-
-        // Check for Total_pages
-        $obj->setTotalPages(null);
-        $this->assertNull($obj->getTotal_pages());
-        $this->assertNull($obj->getTotalPages());
-        $this->assertSame($obj->getTotalPages(), $obj->getTotal_pages());
-        $obj->setTotal_pages("TestSample");
-        $this->assertEquals($obj->getTotal_pages(), "TestSample");
-
-        //Test All Deprecated Getters and Normal Getters
-        $this->testDeprecatedGetters($obj);
-        $this->testGetters($obj);
-    }
-
-
-
 }

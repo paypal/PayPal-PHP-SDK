@@ -57,44 +57,4 @@ class CreditCardListTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($obj->getNextId(), "TestSample");
     }
 
-    /**
-     * @depends testSerializationDeserialization
-     * @param CreditCardList $obj
-     */
-    public function testDeprecatedGetters($obj)
-    {
-        $this->assertEquals($obj->getCredit_cards(), CreditCardTest::getObject());
-        $this->assertEquals($obj->getNext_id(), "TestSample");
-    }
-
-    /**
-     * @depends testSerializationDeserialization
-     * @param CreditCardList $obj
-     */
-    public function testDeprecatedSetterNormalGetter($obj)
-    {
-
-        // Check for Credit_cards
-        $obj->setCreditCards(null);
-        $this->assertNull($obj->getCredit_cards());
-        $this->assertNull($obj->getCreditCards());
-        $this->assertSame($obj->getCreditCards(), $obj->getCredit_cards());
-        $obj->setCredit_cards(CreditCardTest::getObject());
-        $this->assertEquals($obj->getCredit_cards(), CreditCardTest::getObject());
-
-        // Check for Next_id
-        $obj->setNextId(null);
-        $this->assertNull($obj->getNext_id());
-        $this->assertNull($obj->getNextId());
-        $this->assertSame($obj->getNextId(), $obj->getNext_id());
-        $obj->setNext_id("TestSample");
-        $this->assertEquals($obj->getNext_id(), "TestSample");
-
-        //Test All Deprecated Getters and Normal Getters
-        $this->testDeprecatedGetters($obj);
-        $this->testGetters($obj);
-    }
-
-
-
 }

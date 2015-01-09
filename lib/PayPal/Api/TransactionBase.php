@@ -40,29 +40,4 @@ class TransactionBase extends CartBase
         return $this->related_resources;
     }
 
-    /**
-     * List of financial transactions (Sale, Authorization, Capture, Refund) related to the payment.
-     *
-     * @deprecated Instead use setRelatedResources
-     *
-     * @param \PayPal\Api\RelatedResources $related_resources
-     * @return $this
-     */
-    public function setRelated_resources($related_resources)
-    {
-        $this->related_resources = $related_resources;
-        return $this;
-    }
-
-    /**
-     * List of financial transactions (Sale, Authorization, Capture, Refund) related to the payment.
-     * @deprecated Instead use getRelatedResources
-     *
-     * @return \PayPal\Api\RelatedResources
-     */
-    public function getRelated_resources()
-    {
-        return $this->related_resources;
-    }
-
 }

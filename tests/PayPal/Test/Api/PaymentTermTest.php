@@ -54,45 +54,5 @@ class PaymentTermTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($obj->getTermType(), "TestSample");
         $this->assertEquals($obj->getDueDate(), "TestSample");
     }
-
-    /**
-     * @depends testSerializationDeserialization
-     * @param PaymentTerm $obj
-     */
-    public function testDeprecatedGetters($obj)
-    {
-        $this->assertEquals($obj->getTerm_type(), "TestSample");
-        $this->assertEquals($obj->getDue_date(), "TestSample");
-    }
-
-    /**
-     * @depends testSerializationDeserialization
-     * @param PaymentTerm $obj
-     */
-    public function testDeprecatedSetterNormalGetter($obj)
-    {
-
-        // Check for Term_type
-        $obj->setTermType(null);
-        $this->assertNull($obj->getTerm_type());
-        $this->assertNull($obj->getTermType());
-        $this->assertSame($obj->getTermType(), $obj->getTerm_type());
-        $obj->setTerm_type("TestSample");
-        $this->assertEquals($obj->getTerm_type(), "TestSample");
-
-        // Check for Due_date
-        $obj->setDueDate(null);
-        $this->assertNull($obj->getDue_date());
-        $this->assertNull($obj->getDueDate());
-        $this->assertSame($obj->getDueDate(), $obj->getDue_date());
-        $obj->setDue_date("TestSample");
-        $this->assertEquals($obj->getDue_date(), "TestSample");
-
-        //Test All Deprecated Getters and Normal Getters
-        $this->testDeprecatedGetters($obj);
-        $this->testGetters($obj);
-    }
-
-
-
+    
 }

@@ -87,31 +87,6 @@ class BankAccount extends PayPalResourceModel
     }
 
     /**
-     * Account number in either IBAN (max length 34) or BBAN (max length 17) format.
-     *
-     * @deprecated Instead use setAccountNumber
-     *
-     * @param string $account_number
-     * @return $this
-     */
-    public function setAccount_number($account_number)
-    {
-        $this->account_number = $account_number;
-        return $this;
-    }
-
-    /**
-     * Account number in either IBAN (max length 34) or BBAN (max length 17) format.
-     * @deprecated Instead use getAccountNumber
-     *
-     * @return string
-     */
-    public function getAccount_number()
-    {
-        return $this->account_number;
-    }
-
-    /**
      * Type of the bank account number (International or Basic Bank Account Number). For more information refer to http://en.wikipedia.org/wiki/International_Bank_Account_Number.
      * Valid Values: ["BBAN", "IBAN"]
      *
@@ -136,31 +111,6 @@ class BankAccount extends PayPalResourceModel
     }
 
     /**
-     * Type of the bank account number (International or Basic Bank Account Number). For more information refer to http://en.wikipedia.org/wiki/International_Bank_Account_Number.
-     *
-     * @deprecated Instead use setAccountNumberType
-     *
-     * @param string $account_number_type
-     * @return $this
-     */
-    public function setAccount_number_type($account_number_type)
-    {
-        $this->account_number_type = $account_number_type;
-        return $this;
-    }
-
-    /**
-     * Type of the bank account number (International or Basic Bank Account Number). For more information refer to http://en.wikipedia.org/wiki/International_Bank_Account_Number.
-     * @deprecated Instead use getAccountNumberType
-     *
-     * @return string
-     */
-    public function getAccount_number_type()
-    {
-        return $this->account_number_type;
-    }
-
-    /**
      * Routing transit number (aka Bank Code) of the bank (typically for domestic use only - for international use, IBAN includes bank code). For more information refer to http://en.wikipedia.org/wiki/Bank_code.
      *
      * @param string $routing_number
@@ -179,31 +129,6 @@ class BankAccount extends PayPalResourceModel
      * @return string
      */
     public function getRoutingNumber()
-    {
-        return $this->routing_number;
-    }
-
-    /**
-     * Routing transit number (aka Bank Code) of the bank (typically for domestic use only - for international use, IBAN includes bank code). For more information refer to http://en.wikipedia.org/wiki/Bank_code.
-     *
-     * @deprecated Instead use setRoutingNumber
-     *
-     * @param string $routing_number
-     * @return $this
-     */
-    public function setRouting_number($routing_number)
-    {
-        $this->routing_number = $routing_number;
-        return $this;
-    }
-
-    /**
-     * Routing transit number (aka Bank Code) of the bank (typically for domestic use only - for international use, IBAN includes bank code). For more information refer to http://en.wikipedia.org/wiki/Bank_code.
-     * @deprecated Instead use getRoutingNumber
-     *
-     * @return string
-     */
-    public function getRouting_number()
     {
         return $this->routing_number;
     }
@@ -233,31 +158,6 @@ class BankAccount extends PayPalResourceModel
     }
 
     /**
-     * Type of the bank account.
-     *
-     * @deprecated Instead use setAccountType
-     *
-     * @param string $account_type
-     * @return $this
-     */
-    public function setAccount_type($account_type)
-    {
-        $this->account_type = $account_type;
-        return $this;
-    }
-
-    /**
-     * Type of the bank account.
-     * @deprecated Instead use getAccountType
-     *
-     * @return string
-     */
-    public function getAccount_type()
-    {
-        return $this->account_type;
-    }
-
-    /**
      * A customer designated name.
      *
      * @param string $account_name
@@ -276,31 +176,6 @@ class BankAccount extends PayPalResourceModel
      * @return string
      */
     public function getAccountName()
-    {
-        return $this->account_name;
-    }
-
-    /**
-     * A customer designated name.
-     *
-     * @deprecated Instead use setAccountName
-     *
-     * @param string $account_name
-     * @return $this
-     */
-    public function setAccount_name($account_name)
-    {
-        $this->account_name = $account_name;
-        return $this;
-    }
-
-    /**
-     * A customer designated name.
-     * @deprecated Instead use getAccountName
-     *
-     * @return string
-     */
-    public function getAccount_name()
     {
         return $this->account_name;
     }
@@ -330,31 +205,6 @@ class BankAccount extends PayPalResourceModel
     }
 
     /**
-     * Type of the check when this information was obtained through a check by the facilitator or merchant.
-     *
-     * @deprecated Instead use setCheckType
-     *
-     * @param string $check_type
-     * @return $this
-     */
-    public function setCheck_type($check_type)
-    {
-        $this->check_type = $check_type;
-        return $this;
-    }
-
-    /**
-     * Type of the check when this information was obtained through a check by the facilitator or merchant.
-     * @deprecated Instead use getCheckType
-     *
-     * @return string
-     */
-    public function getCheck_type()
-    {
-        return $this->check_type;
-    }
-
-    /**
      * How the check was obtained from the customer, if check was the source of the information provided.
      * Valid Values: ["CCD", "PPD", "TEL", "POP", "ARC", "RCK", "WEB"]
      *
@@ -374,31 +224,6 @@ class BankAccount extends PayPalResourceModel
      * @return string
      */
     public function getAuthType()
-    {
-        return $this->auth_type;
-    }
-
-    /**
-     * How the check was obtained from the customer, if check was the source of the information provided.
-     *
-     * @deprecated Instead use setAuthType
-     *
-     * @param string $auth_type
-     * @return $this
-     */
-    public function setAuth_type($auth_type)
-    {
-        $this->auth_type = $auth_type;
-        return $this;
-    }
-
-    /**
-     * How the check was obtained from the customer, if check was the source of the information provided.
-     * @deprecated Instead use getAuthType
-     *
-     * @return string
-     */
-    public function getAuth_type()
     {
         return $this->auth_type;
     }
@@ -427,31 +252,6 @@ class BankAccount extends PayPalResourceModel
     }
 
     /**
-     * Time at which the authorization (or check) was captured. Use this field if the user authorization needs to be captured due to any privacy requirements.
-     *
-     * @deprecated Instead use setAuthCaptureTimestamp
-     *
-     * @param string $auth_capture_timestamp
-     * @return $this
-     */
-    public function setAuth_capture_timestamp($auth_capture_timestamp)
-    {
-        $this->auth_capture_timestamp = $auth_capture_timestamp;
-        return $this;
-    }
-
-    /**
-     * Time at which the authorization (or check) was captured. Use this field if the user authorization needs to be captured due to any privacy requirements.
-     * @deprecated Instead use getAuthCaptureTimestamp
-     *
-     * @return string
-     */
-    public function getAuth_capture_timestamp()
-    {
-        return $this->auth_capture_timestamp;
-    }
-
-    /**
      * Name of the bank.
      *
      * @param string $bank_name
@@ -470,31 +270,6 @@ class BankAccount extends PayPalResourceModel
      * @return string
      */
     public function getBankName()
-    {
-        return $this->bank_name;
-    }
-
-    /**
-     * Name of the bank.
-     *
-     * @deprecated Instead use setBankName
-     *
-     * @param string $bank_name
-     * @return $this
-     */
-    public function setBank_name($bank_name)
-    {
-        $this->bank_name = $bank_name;
-        return $this;
-    }
-
-    /**
-     * Name of the bank.
-     * @deprecated Instead use getBankName
-     *
-     * @return string
-     */
-    public function getBank_name()
     {
         return $this->bank_name;
     }
@@ -523,31 +298,6 @@ class BankAccount extends PayPalResourceModel
     }
 
     /**
-     * 2 letter country code of the Bank.
-     *
-     * @deprecated Instead use setCountryCode
-     *
-     * @param string $country_code
-     * @return $this
-     */
-    public function setCountry_code($country_code)
-    {
-        $this->country_code = $country_code;
-        return $this;
-    }
-
-    /**
-     * 2 letter country code of the Bank.
-     * @deprecated Instead use getCountryCode
-     *
-     * @return string
-     */
-    public function getCountry_code()
-    {
-        return $this->country_code;
-    }
-
-    /**
      * Account holder's first name.
      *
      * @param string $first_name
@@ -566,31 +316,6 @@ class BankAccount extends PayPalResourceModel
      * @return string
      */
     public function getFirstName()
-    {
-        return $this->first_name;
-    }
-
-    /**
-     * Account holder's first name.
-     *
-     * @deprecated Instead use setFirstName
-     *
-     * @param string $first_name
-     * @return $this
-     */
-    public function setFirst_name($first_name)
-    {
-        $this->first_name = $first_name;
-        return $this;
-    }
-
-    /**
-     * Account holder's first name.
-     * @deprecated Instead use getFirstName
-     *
-     * @return string
-     */
-    public function getFirst_name()
     {
         return $this->first_name;
     }
@@ -619,31 +344,6 @@ class BankAccount extends PayPalResourceModel
     }
 
     /**
-     * Account holder's last name.
-     *
-     * @deprecated Instead use setLastName
-     *
-     * @param string $last_name
-     * @return $this
-     */
-    public function setLast_name($last_name)
-    {
-        $this->last_name = $last_name;
-        return $this;
-    }
-
-    /**
-     * Account holder's last name.
-     * @deprecated Instead use getLastName
-     *
-     * @return string
-     */
-    public function getLast_name()
-    {
-        return $this->last_name;
-    }
-
-    /**
      * Birth date of the bank account holder.
      *
      * @param string $birth_date
@@ -667,31 +367,6 @@ class BankAccount extends PayPalResourceModel
     }
 
     /**
-     * Birth date of the bank account holder.
-     *
-     * @deprecated Instead use setBirthDate
-     *
-     * @param string $birth_date
-     * @return $this
-     */
-    public function setBirth_date($birth_date)
-    {
-        $this->birth_date = $birth_date;
-        return $this;
-    }
-
-    /**
-     * Birth date of the bank account holder.
-     * @deprecated Instead use getBirthDate
-     *
-     * @return string
-     */
-    public function getBirth_date()
-    {
-        return $this->birth_date;
-    }
-
-    /**
      * Billing address.
      *
      * @param \PayPal\Api\Address $billing_address
@@ -710,31 +385,6 @@ class BankAccount extends PayPalResourceModel
      * @return \PayPal\Api\Address
      */
     public function getBillingAddress()
-    {
-        return $this->billing_address;
-    }
-
-    /**
-     * Billing address.
-     *
-     * @deprecated Instead use setBillingAddress
-     *
-     * @param \PayPal\Api\Address $billing_address
-     * @return $this
-     */
-    public function setBilling_address($billing_address)
-    {
-        $this->billing_address = $billing_address;
-        return $this;
-    }
-
-    /**
-     * Billing address.
-     * @deprecated Instead use getBillingAddress
-     *
-     * @return \PayPal\Api\Address
-     */
-    public function getBilling_address()
     {
         return $this->billing_address;
     }
@@ -788,31 +438,6 @@ class BankAccount extends PayPalResourceModel
     }
 
     /**
-     * Confirmation status of a bank account.
-     *
-     * @deprecated Instead use setConfirmationStatus
-     *
-     * @param string $confirmation_status
-     * @return $this
-     */
-    public function setConfirmation_status($confirmation_status)
-    {
-        $this->confirmation_status = $confirmation_status;
-        return $this;
-    }
-
-    /**
-     * Confirmation status of a bank account.
-     * @deprecated Instead use getConfirmationStatus
-     *
-     * @return string
-     */
-    public function getConfirmation_status()
-    {
-        return $this->confirmation_status;
-    }
-
-    /**
      * Deprecated - Use external_customer_id instead.
      *
      * @param string $payer_id
@@ -831,31 +456,6 @@ class BankAccount extends PayPalResourceModel
      * @return string
      */
     public function getPayerId()
-    {
-        return $this->payer_id;
-    }
-
-    /**
-     * Deprecated - Use external_customer_id instead.
-     *
-     * @deprecated Instead use setPayerId
-     *
-     * @param string $payer_id
-     * @return $this
-     */
-    public function setPayer_id($payer_id)
-    {
-        $this->payer_id = $payer_id;
-        return $this;
-    }
-
-    /**
-     * Deprecated - Use external_customer_id instead.
-     * @deprecated Instead use getPayerId
-     *
-     * @return string
-     */
-    public function getPayer_id()
     {
         return $this->payer_id;
     }
@@ -883,30 +483,6 @@ class BankAccount extends PayPalResourceModel
         return $this->external_customer_id;
     }
 
-    /**
-     * A unique identifier of the customer to whom this bank account belongs to. Generated and provided by the facilitator. This is required when creating or using a stored funding instrument in vault.
-     *
-     * @deprecated Instead use setExternalCustomerId
-     *
-     * @param string $external_customer_id
-     * @return $this
-     */
-    public function setExternal_customer_id($external_customer_id)
-    {
-        $this->external_customer_id = $external_customer_id;
-        return $this;
-    }
-
-    /**
-     * A unique identifier of the customer to whom this bank account belongs to. Generated and provided by the facilitator. This is required when creating or using a stored funding instrument in vault.
-     * @deprecated Instead use getExternalCustomerId
-     *
-     * @return string
-     */
-    public function getExternal_customer_id()
-    {
-        return $this->external_customer_id;
-    }
 
     /**
      * A unique identifier of the merchant for which this bank account has been stored for. Generated and provided by the facilitator so it can be used to restrict the usage of the bank account to the specific merchnt.
@@ -927,31 +503,6 @@ class BankAccount extends PayPalResourceModel
      * @return string
      */
     public function getMerchantId()
-    {
-        return $this->merchant_id;
-    }
-
-    /**
-     * A unique identifier of the merchant for which this bank account has been stored for. Generated and provided by the facilitator so it can be used to restrict the usage of the bank account to the specific merchnt.
-     *
-     * @deprecated Instead use setMerchantId
-     *
-     * @param string $merchant_id
-     * @return $this
-     */
-    public function setMerchant_id($merchant_id)
-    {
-        $this->merchant_id = $merchant_id;
-        return $this;
-    }
-
-    /**
-     * A unique identifier of the merchant for which this bank account has been stored for. Generated and provided by the facilitator so it can be used to restrict the usage of the bank account to the specific merchnt.
-     * @deprecated Instead use getMerchantId
-     *
-     * @return string
-     */
-    public function getMerchant_id()
     {
         return $this->merchant_id;
     }
@@ -980,31 +531,6 @@ class BankAccount extends PayPalResourceModel
     }
 
     /**
-     * Time the resource was created.
-     *
-     * @deprecated Instead use setCreateTime
-     *
-     * @param string $create_time
-     * @return $this
-     */
-    public function setCreate_time($create_time)
-    {
-        $this->create_time = $create_time;
-        return $this;
-    }
-
-    /**
-     * Time the resource was created.
-     * @deprecated Instead use getCreateTime
-     *
-     * @return string
-     */
-    public function getCreate_time()
-    {
-        return $this->create_time;
-    }
-
-    /**
      * Time the resource was last updated.
      *
      * @param string $update_time
@@ -1028,31 +554,6 @@ class BankAccount extends PayPalResourceModel
     }
 
     /**
-     * Time the resource was last updated.
-     *
-     * @deprecated Instead use setUpdateTime
-     *
-     * @param string $update_time
-     * @return $this
-     */
-    public function setUpdate_time($update_time)
-    {
-        $this->update_time = $update_time;
-        return $this;
-    }
-
-    /**
-     * Time the resource was last updated.
-     * @deprecated Instead use getUpdateTime
-     *
-     * @return string
-     */
-    public function getUpdate_time()
-    {
-        return $this->update_time;
-    }
-
-    /**
      * Date/Time until this resource can be used to fund a payment.
      *
      * @param string $valid_until
@@ -1071,31 +572,6 @@ class BankAccount extends PayPalResourceModel
      * @return string
      */
     public function getValidUntil()
-    {
-        return $this->valid_until;
-    }
-
-    /**
-     * Date/Time until this resource can be used to fund a payment.
-     *
-     * @deprecated Instead use setValidUntil
-     *
-     * @param string $valid_until
-     * @return $this
-     */
-    public function setValid_until($valid_until)
-    {
-        $this->valid_until = $valid_until;
-        return $this;
-    }
-
-    /**
-     * Date/Time until this resource can be used to fund a payment.
-     * @deprecated Instead use getValidUntil
-     *
-     * @return string
-     */
-    public function getValid_until()
     {
         return $this->valid_until;
     }

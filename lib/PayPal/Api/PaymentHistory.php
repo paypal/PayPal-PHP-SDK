@@ -90,29 +90,4 @@ class PaymentHistory extends PayPalModel
         return $this->next_id;
     }
 
-    /**
-     * Identifier of the next element to get the next range of results.
-     *
-     * @deprecated Instead use setNextId
-     *
-     * @param string $next_id
-     * @return $this
-     */
-    public function setNext_id($next_id)
-    {
-        $this->next_id = $next_id;
-        return $this;
-    }
-
-    /**
-     * Identifier of the next element to get the next range of results.
-     * @deprecated Instead use getNextId
-     *
-     * @return string
-     */
-    public function getNext_id()
-    {
-        return $this->next_id;
-    }
-
 }

@@ -63,26 +63,4 @@ class HyperSchemaTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($obj->getMediaType(), "TestSample");
     }
 
-    /**
-     * @depends testSerializationDeserialization
-     * @param HyperSchema $obj
-     */
-    public function testDeprecatedGetters($obj)
-    {
-    }
-
-    /**
-     * @depends testSerializationDeserialization
-     * @param HyperSchema $obj
-     */
-    public function testDeprecatedSetterNormalGetter($obj)
-    {
-
-        //Test All Deprecated Getters and Normal Getters
-        $this->testDeprecatedGetters($obj);
-        $this->testGetters($obj);
-    }
-
-
-
 }

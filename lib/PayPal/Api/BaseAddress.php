@@ -113,31 +113,6 @@ class BaseAddress extends PayPalModel
     }
 
     /**
-     * 2 letter country code.
-     *
-     * @deprecated Instead use setCountryCode
-     *
-     * @param string $country_code
-     * @return $this
-     */
-    public function setCountry_code($country_code)
-    {
-        $this->country_code = $country_code;
-        return $this;
-    }
-
-    /**
-     * 2 letter country code.
-     * @deprecated Instead use getCountryCode
-     *
-     * @return string
-     */
-    public function getCountry_code()
-    {
-        return $this->country_code;
-    }
-
-    /**
      * Zip code or equivalent is usually required for countries that have them. For list of countries that do not have postal codes please refer to http://en.wikipedia.org/wiki/Postal_code.
      *
      * @param string $postal_code
@@ -156,31 +131,6 @@ class BaseAddress extends PayPalModel
      * @return string
      */
     public function getPostalCode()
-    {
-        return $this->postal_code;
-    }
-
-    /**
-     * Zip code or equivalent is usually required for countries that have them. For list of countries that do not have postal codes please refer to http://en.wikipedia.org/wiki/Postal_code.
-     *
-     * @deprecated Instead use setPostalCode
-     *
-     * @param string $postal_code
-     * @return $this
-     */
-    public function setPostal_code($postal_code)
-    {
-        $this->postal_code = $postal_code;
-        return $this;
-    }
-
-    /**
-     * Zip code or equivalent is usually required for countries that have them. For list of countries that do not have postal codes please refer to http://en.wikipedia.org/wiki/Postal_code.
-     * @deprecated Instead use getPostalCode
-     *
-     * @return string
-     */
-    public function getPostal_code()
     {
         return $this->postal_code;
     }

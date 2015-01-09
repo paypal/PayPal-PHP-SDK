@@ -148,31 +148,6 @@ class Agreement extends PayPalResourceModel
     }
 
     /**
-     * Start date of the agreement. Date format yyyy-MM-dd z, as defined in [ISO8601](http://tools.ietf.org/html/rfc3339#section-5.6).
-     *
-     * @deprecated Instead use setStartDate
-     *
-     * @param string $start_date
-     * @return $this
-     */
-    public function setStart_date($start_date)
-    {
-        $this->start_date = $start_date;
-        return $this;
-    }
-
-    /**
-     * Start date of the agreement. Date format yyyy-MM-dd z, as defined in [ISO8601](http://tools.ietf.org/html/rfc3339#section-5.6).
-     * @deprecated Instead use getStartDate
-     *
-     * @return string
-     */
-    public function getStart_date()
-    {
-        return $this->start_date;
-    }
-
-    /**
      * Details of the buyer who is enrolling in this agreement. This information is gathered from execution of the approval URL.
      *
      * @param \PayPal\Api\Payer $payer
@@ -219,31 +194,6 @@ class Agreement extends PayPalResourceModel
     }
 
     /**
-     * Shipping address object of the agreement, which should be provided if it is different from the default address.
-     *
-     * @deprecated Instead use setShippingAddress
-     *
-     * @param \PayPal\Api\Address $shipping_address
-     * @return $this
-     */
-    public function setShipping_address($shipping_address)
-    {
-        $this->shipping_address = $shipping_address;
-        return $this;
-    }
-
-    /**
-     * Shipping address object of the agreement, which should be provided if it is different from the default address.
-     * @deprecated Instead use getShippingAddress
-     *
-     * @return \PayPal\Api\Address
-     */
-    public function getShipping_address()
-    {
-        return $this->shipping_address;
-    }
-
-    /**
      * Default merchant preferences from the billing plan are used, unless override preferences are provided here.
      *
      * @param \PayPal\Api\MerchantPreferences $override_merchant_preferences
@@ -262,31 +212,6 @@ class Agreement extends PayPalResourceModel
      * @return \PayPal\Api\MerchantPreferences
      */
     public function getOverrideMerchantPreferences()
-    {
-        return $this->override_merchant_preferences;
-    }
-
-    /**
-     * Default merchant preferences from the billing plan are used, unless override preferences are provided here.
-     *
-     * @deprecated Instead use setOverrideMerchantPreferences
-     *
-     * @param \PayPal\Api\MerchantPreferences $override_merchant_preferences
-     * @return $this
-     */
-    public function setOverride_merchant_preferences($override_merchant_preferences)
-    {
-        $this->override_merchant_preferences = $override_merchant_preferences;
-        return $this;
-    }
-
-    /**
-     * Default merchant preferences from the billing plan are used, unless override preferences are provided here.
-     * @deprecated Instead use getOverrideMerchantPreferences
-     *
-     * @return \PayPal\Api\MerchantPreferences
-     */
-    public function getOverride_merchant_preferences()
     {
         return $this->override_merchant_preferences;
     }
@@ -345,31 +270,6 @@ class Agreement extends PayPalResourceModel
     }
 
     /**
-     * Array of override_charge_model for this agreement if needed to change the default models from the billing plan.
-     *
-     * @deprecated Instead use setOverrideChargeModels
-     *
-     * @param \PayPal\Api\OverrideChargeModel $override_charge_models
-     * @return $this
-     */
-    public function setOverride_charge_models($override_charge_models)
-    {
-        $this->override_charge_models = $override_charge_models;
-        return $this;
-    }
-
-    /**
-     * Array of override_charge_model for this agreement if needed to change the default models from the billing plan.
-     * @deprecated Instead use getOverrideChargeModels
-     *
-     * @return \PayPal\Api\OverrideChargeModel
-     */
-    public function getOverride_charge_models()
-    {
-        return $this->override_charge_models;
-    }
-
-    /**
      * Plan details for this agreement.
      *
      * @param \PayPal\Api\Plan $plan
@@ -416,31 +316,6 @@ class Agreement extends PayPalResourceModel
     }
 
     /**
-     * Date and time that this resource was created. Date format yyyy-MM-dd z, as defined in [ISO8601](http://tools.ietf.org/html/rfc3339#section-5.6).
-     *
-     * @deprecated Instead use setCreateTime
-     *
-     * @param string $create_time
-     * @return $this
-     */
-    public function setCreate_time($create_time)
-    {
-        $this->create_time = $create_time;
-        return $this;
-    }
-
-    /**
-     * Date and time that this resource was created. Date format yyyy-MM-dd z, as defined in [ISO8601](http://tools.ietf.org/html/rfc3339#section-5.6).
-     * @deprecated Instead use getCreateTime
-     *
-     * @return string
-     */
-    public function getCreate_time()
-    {
-        return $this->create_time;
-    }
-
-    /**
      * Date and time that this resource was updated. Date format yyyy-MM-dd z, as defined in [ISO8601](http://tools.ietf.org/html/rfc3339#section-5.6).
      *
      * @param string $update_time
@@ -464,31 +339,6 @@ class Agreement extends PayPalResourceModel
     }
 
     /**
-     * Date and time that this resource was updated. Date format yyyy-MM-dd z, as defined in [ISO8601](http://tools.ietf.org/html/rfc3339#section-5.6).
-     *
-     * @deprecated Instead use setUpdateTime
-     *
-     * @param string $update_time
-     * @return $this
-     */
-    public function setUpdate_time($update_time)
-    {
-        $this->update_time = $update_time;
-        return $this;
-    }
-
-    /**
-     * Date and time that this resource was updated. Date format yyyy-MM-dd z, as defined in [ISO8601](http://tools.ietf.org/html/rfc3339#section-5.6).
-     * @deprecated Instead use getUpdateTime
-     *
-     * @return string
-     */
-    public function getUpdate_time()
-    {
-        return $this->update_time;
-    }
-
-    /**
      * Agreement Details
      *
      * @param \PayPal\Api\AgreementDetails $agreement_details
@@ -507,31 +357,6 @@ class Agreement extends PayPalResourceModel
      * @return \PayPal\Api\AgreementDetails
      */
     public function getAgreementDetails()
-    {
-        return $this->{"agreement-details"};
-    }
-
-    /**
-     * Agreement Details
-     *
-     * @deprecated Instead use setAgreementDetails
-     *
-     * @param \PayPal\Api\AgreementDetails $agreement-details
-     * @return $this
-     */
-    public function setAgreement_details($agreement_details)
-    {
-        $this->{"agreement-details"} = $agreement_details;
-        return $this;
-    }
-
-    /**
-     * Agreement Details
-     * @deprecated Instead use getAgreementDetails
-     *
-     * @return \PayPal\Api\AgreementDetails
-     */
-    public function getAgreement_details()
     {
         return $this->{"agreement-details"};
     }
