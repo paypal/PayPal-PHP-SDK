@@ -34,6 +34,9 @@ class ArrayClass extends PayPalModel
         $this->tags = $tags;
     }
 
+    /**
+     * @return array
+     */
     public function getTags()
     {
         return $this->tags;
