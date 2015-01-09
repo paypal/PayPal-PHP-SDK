@@ -15,6 +15,24 @@ class PayPalModel
     private $_propMap = array();
 
     /**
+     * OAuth Credentials to use for this call
+     *
+     * @var \PayPal\Auth\OAuthTokenCredential $credential
+     */
+    protected static $credential;
+
+    /**
+     * Sets Credential
+     *
+     * @deprecated Pass ApiContext to create/get methods instead
+     * @param \PayPal\Auth\OAuthTokenCredential $credential
+     */
+    public static function setCredential($credential)
+    {
+        self::$credential = $credential;
+    }
+
+    /**
      * Default Constructor
      *
      * You can pass data as a json representation or array object. This argument eliminates the need

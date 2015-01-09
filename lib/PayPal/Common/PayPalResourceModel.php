@@ -18,24 +18,6 @@ class PayPalResourceModel extends PayPalModel implements IResource
 {
 
     /**
-     * OAuth Credentials to use for this call
-     *
-     * @var \PayPal\Auth\OAuthTokenCredential $credential
-     */
-    protected static $credential;
-
-    /**
-     * Sets Credential
-     *
-     * @deprecated Pass ApiContext to create/get methods instead
-     * @param \PayPal\Auth\OAuthTokenCredential $credential
-     */
-    public static function setCredential($credential)
-    {
-        self::$credential = $credential;
-    }
-
-    /**
      * Sets Links
      *
      * @param \PayPal\Api\Links[] $links

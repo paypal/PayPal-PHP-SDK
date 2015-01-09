@@ -11,6 +11,33 @@ This repository contains PayPal's PHP SDK and samples for REST API.
    - PHP 5.3 or above
    - [curl](http://php.net/manual/en/book.curl.php), [json](http://php.net/manual/en/book.json.php) & [openssl](http://php.net/manual/en/book.openssl.php) extensions must be enabled
 
+## Breaking Changes to 1.* Release
+   * Removed Deprecated Getter Setters from all Model Classes
+     * All Camelcase getters and setters are removed. Please use first letter uppercase syntax
+     * E.g. instead of using get_notify_url(), use getNotifyUrl() instead
+   * Renamed Classes
+     * PayPal\Common\PPModel => PayPal\Common\PayPalModel
+     * PayPal\Common\ResourceModel => PayPal\Common\PayPalResourceModel
+     * PayPal\Common\PPUserAgent => PayPal\Common\PayPalUserAgent
+     * PayPal\Core\PPConfigManager => PayPal\Core\PayPalConfigManager
+     * PayPal\Core\PPConstants  => PayPal\Core\PayPalConstants
+     * PayPal\Core\PPCredentialManager => PayPal\Core\PayPalCredentialManager
+     * PayPal\Core\PPHttpConfig => PayPal\Core\PayPalHttpConfig
+     * PayPal\Core\PPHttpConnection => PayPal\Core\PayPalHttpConnection
+     * PayPal\Core\PPLoggingLevel => PayPal\Core\PayPalLoggingLevel
+     * PayPal\Core\PPLoggingManager => PayPal\Core\PayPalLoggingManager
+     * PayPal\Exception\PPConfigurationException => PayPal\Exception\PayPalConfigurationException
+     * PayPal\Exception\PPConnectionException => PayPal\Exception\PayPalConnectionException
+     * PayPal\Exception\PPInvalidCredentialException => PayPal\Exception\PayPalInvalidCredentialException
+     * PayPal\Exception\PPMissingCredentialException => PayPal\Exception\PayPalMissingCredentialException
+     * PayPal\Handler\IPPHandler => PayPal\Handler\IPayPalHandler
+     * PayPal\Transport\PPRestCall => PayPal\Transport\PayPalRestCall
+   * Namespace Changes and Class Naming Convention
+     * PayPal\Common\FormatConverter => PayPal\Converter\FormatConverter
+     * PayPal\Rest\RestHandler => PayPal\Handler\RestHandler
+     * PayPal\Rest\OauthHandler => PayPal\Handler\OauthHandler
+
+
 ## Installation
 
 ### - Using Composer
