@@ -1,6 +1,7 @@
 <?php
 
 namespace PayPal\Common;
+use PayPal\Exception\PayPalConfigurationException;
 
 /**
  * Class ReflectionUtil
@@ -47,7 +48,7 @@ class ReflectionUtil
             $anno = preg_split("/[\s\[\]]+/", $param);
             return $anno[0];
         } else {
-            return 'string';
+            throw new PayPalConfigurationException("Getter function for '$propertyName' in '$class' class should have a proper return type.");
         }
     }
 
