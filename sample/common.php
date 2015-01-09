@@ -53,8 +53,8 @@ class ResultPrinter
             if (self::$printResultCounter == 0) {
                 include "header.html";
                 echo '
-                  <div class="row header"><div class="col-md-3 pull-left"><br /><a href="../index.php"><h3>&#10094;&#10094; Back to Samples</h3></a><br /><br /></div> <br />
-                  <div class="col-md-2 pull-right"><img  src="../images/pp_v_rgb.png" height="70" /></div> </div><div class="clearfix visible-xs-block"></div><br />';
+                  <div class="row header"><div class="col-md-5 pull-left"><br /><a href="../index.php"><h1 class="home">&#10094;&#10094; Back to Samples</h1></a><br /></div> <br />
+                  <div class="col-md-4 pull-right"><img src="https://www.paypalobjects.com/webstatic/developer/logo2_paypal_developer_2x.png" class="logo" width="300"/></div> </div>';
                 echo '<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">';
             }
             self::$printResultCounter++;

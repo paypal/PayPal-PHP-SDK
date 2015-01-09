@@ -32,6 +32,9 @@
             background-color: red;
             color: white;
         }
+        .panel-title a, .home{
+            font-family: Menlo,Monaco,Consolas,"Courier New",monospace;
+        }
         h1.error, h2.error, h3.error, h4.error, h5.error {
             color: red;
         }
@@ -45,12 +48,16 @@
             margin-left: 0px;
         }
         .header {
-            background: -webkit-linear-gradient(-9deg, #428bca 75%,  white 35%);
+            background: #fff url("https://www.paypalobjects.com/webstatic/developer/banners/Braintree_desktop_BG_2X.jpg") no-repeat top right;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
             color: #EEE;
         }
         .header a:link, .header a:visited, .header a:hover, .header a:active {
             text-decoration: none;
-            color: #FFF;
+
         }
         /* Sticky footer styles
 -------------------------------------------------- */
@@ -70,7 +77,7 @@
             width: 100%;
             /* Set the fixed height of the footer here */
             min-height: 60px;
-            background: -webkit-linear-gradient(-9deg, #428bca 70%, white 25%);
+            padding-top: 15px;
         }
         .footer .footer-links, .footer .footer-links li {
             display: inline-block;
@@ -78,7 +85,6 @@
             font-size: 110%;
         }
         .footer a {
-            color: #FFF;
             text-decoration: none;
         }
 

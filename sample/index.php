@@ -41,6 +41,28 @@ if (PHP_SAPI == 'cli') {
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <style>
+        /* Header Links */
+        /* Adopted from http://ben.balter.com/2014/03/13/pages-anchor-links/ */
+        .header-link {
+            position: absolute;
+            left: 7px;
+            opacity: 0;
+
+        }
+
+        h2:hover .header-link,
+        h3:hover .header-link,
+        h4:hover .header-link,
+        h5:hover .header-link,
+        h6:hover .header-link {
+            opacity: 1;
+        }
+        .list-group-item h5 {
+            padding-left: 10px;
+        }
+
+        /* End Header Links */
+
         body {
             font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
             -webkit-font-smoothing: antialiased;
@@ -50,19 +72,29 @@ if (PHP_SAPI == 'cli') {
             background-color: #EEE;
         }
 
+        .jumbotron{
+            background: #fff url("https://www.paypalobjects.com/webstatic/developer/banners/Braintree_desktop_BG_2X.jpg") no-repeat top right;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+        }
+        .jumbotron{
+            margin-bottom: 0px;
+            padding-bottom: 20px;
+        }
+
+        .jumbotron h2, .jumbotron p, h5{
+            font-family: Menlo,Monaco,Consolas,"Courier New",monospace;
+        }
+
+        .footer-links a {
+            font-family: Menlo,Monaco,Consolas,"Courier New",monospace;
+        }
+
         @media (max-width: 992px) {
             .jumbotron {
-                background: white;
-                color: #000;
-            }
-
-            .footer {
-                background: #428bca;
-                color: #000;
-            }
-
-            .footer-div a {
-                color: #000;
+                background-color: #FFF;
             }
 
             .logo {
@@ -76,18 +108,16 @@ if (PHP_SAPI == 'cli') {
 
         @media (min-width: 992px) {
             .jumbotron {
-                background: -webkit-linear-gradient(-9deg, white 30%, #428bca 25%);
-                color: #EEE;
+                background-color: #FFF;
             }
 
             .footer-div a {
-                color: #EEE;
                 text-decoration: none;
             }
 
             .logo {
                 position: fixed;
-                top: 40px;
+                top: 80px;
             }
         }
 
@@ -106,7 +136,7 @@ if (PHP_SAPI == 'cli') {
             bottom: 0;
             width: 100%;
             min-height: 60px;
-            background: -webkit-linear-gradient(-9deg, #428bca 70%, white 25%);
+            padding-top: 15px;
         }
 
         .footer-links, .footer-links li {
@@ -119,6 +149,11 @@ if (PHP_SAPI == 'cli') {
         .footer-links li {
             padding-top: 5px;
             padding-left: 5px;
+        }
+
+        .footer-links a {
+            color: #428bca;
+        ;
         }
 
         .fixed {
@@ -142,19 +177,16 @@ if (PHP_SAPI == 'cli') {
 <div class="jumbotron">
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-4 pull-left">
-                <img src="images/pp_v_rgb.png" class="logo" height="200"/>
+            <div class="col-md-3 pull-left">
+                <img src="https://www.paypalobjects.com/webstatic/developer/logo2_paypal_developer_2x.png" class="logo" width="300"/>
             </div>
-            <div class="col-md-8 pull-right">
-                <h1> REST API Samples</h1>
+            <div class="col-md-9 pull-right">
+                <h2>// REST API Samples</h2>
 
                 <p>These examples are created to experiment with the PayPal-PHP-SDK capabilities. Each examples
                     are
-                    designed to demonstrate the default use-cases in each segment.
-                    Many examples should be executable, and should allow you to experience the default behavior
-                    of our
-                    sdk, to expedite your integration experience.</p>
-
+                    designed to demonstrate the default use-cases in each segment.</p>
+                <br />
                 <div class="footer-div">
                     <ul class="footer-links">
                         <li>
@@ -196,7 +228,7 @@ if (PHP_SAPI == 'cli') {
 
             </div>
         </div>
-        <div class="col-md-9">
+        <div class="col-md-9 samples">
             <div class="panel panel-primary">
                 <div class="panel-heading">
                     <h3 id="payments" class="panel-title"><a
@@ -1151,6 +1183,7 @@ if (PHP_SAPI == 'cli') {
     </div>
 </div>
 <!-- /container -->
+<hr />
 <footer class="footer">
     <div class="container">
         <div class="footer-div">
@@ -1178,12 +1211,26 @@ if (PHP_SAPI == 'cli') {
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.2.0/js/scrollspy.min.js"></script>
+<script src="http://crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/md5.js"></script>
 
 <script>
     $(document).ready(function () {
         if (window.location.href.indexOf("htmlpreview.github.io") >= 0) {
             $(".execute").hide();
         }
+    });
+    $(function() {
+        return $(".samples h5, h6").each(function(i, el) {
+            var $el, icon, id;
+            $el = $(el);
+            id = CryptoJS.MD5(($el.html())).toString();
+            //id = $el.attr('id');
+            icon = '<i class="fa fa-link"></i>';
+            if (id) {
+                $el.parent().parent().parent().attr('id', id);
+                return $el.prepend($("<a />").addClass("header-link").attr('title', "Anchor Link for this Sample").attr("href", "#" + id).html(icon));
+            }
+        });
     });
 </script>
 </body>
