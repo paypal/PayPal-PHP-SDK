@@ -24,6 +24,10 @@ class ModelAccessorValidator
     {
         $mode = PayPalConfigManager::getInstance()->get('validation.level');
         if ($mode != 'disabled') {
+            //Check if $attributeName is string
+            if (gettype($attributeName) !== 'string') {
+                return false;
+            }
             //If the mode is disabled, bypass the validation
             foreach (array('set' . $attributeName, 'get' . $attributeName) as $methodName) {
                 if (get_class($class) == get_class(new PayPalModel())) {
