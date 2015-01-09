@@ -18,18 +18,18 @@ class FuturePayment extends Payment
      * Extends the Payment object to create future payments
      *
      * @param null $apiContext
-     * @param      $correlationId
+     * @param string|null  $clientMetadataId
      * @return $this
      */
-    public function create($apiContext = null, $correlationId = null)
+    public function create($apiContext = null, $clientMetadataId = null)
     {
         if ($apiContext == null) {
             $apiContext = new ApiContext(self::$credential);
         }
         $headers = array();
-        if ($correlationId != null) {
+        if ($clientMetadataId != null) {
             $headers = array(
-                'PAYPAL-CLIENT-METADATA-ID' => $correlationId
+                'PAYPAL-CLIENT-METADATA-ID' => $clientMetadataId
             );
         }
         $payLoad = $this->toJSON();
