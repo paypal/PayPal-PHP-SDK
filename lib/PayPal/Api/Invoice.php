@@ -35,8 +35,8 @@ use PayPal\Validation\UrlValidator;
  * @property string merchant_memo
  * @property string logo_url
  * @property \PayPal\Api\Currency total_amount
- * @property \PayPal\Api\PaymentDetail[] payment_details
- * @property \PayPal\Api\RefundDetail[] refund_details
+ * @property \PayPal\Api\PaymentDetail[] payments
+ * @property \PayPal\Api\RefundDetail[] refunds
  * @property \PayPal\Api\Metadata metadata
  * @property string additional_data
  */
@@ -567,13 +567,13 @@ class Invoice extends PayPalResourceModel
     /**
      * List of payment details for the invoice.
      *
-     * @param \PayPal\Api\PaymentDetail[] $payment_details
+     * @param \PayPal\Api\PaymentDetail[] $payments
      * 
      * @return $this
      */
-    public function setPaymentDetails($payment_details)
+    public function setPayments($payments)
     {
-        $this->payment_details = $payment_details;
+        $this->payments = $payments;
         return $this;
     }
 
@@ -582,9 +582,9 @@ class Invoice extends PayPalResourceModel
      *
      * @return \PayPal\Api\PaymentDetail[]
      */
-    public function getPaymentDetails()
+    public function getPayments()
     {
-        return $this->payment_details;
+        return $this->payments;
     }
 
     /**
@@ -595,11 +595,11 @@ class Invoice extends PayPalResourceModel
      */
     public function addPaymentDetail($paymentDetail)
     {
-        if (!$this->getPaymentDetails()) {
-            return $this->setPaymentDetails(array($paymentDetail));
+        if (!$this->getPayments()) {
+            return $this->setPayments(array($paymentDetail));
         } else {
-            return $this->setPaymentDetails(
-                array_merge($this->getPaymentDetails(), array($paymentDetail))
+            return $this->setPayments(
+                array_merge($this->getPayments(), array($paymentDetail))
             );
         }
     }
@@ -612,21 +612,21 @@ class Invoice extends PayPalResourceModel
      */
     public function removePaymentDetail($paymentDetail)
     {
-        return $this->setPaymentDetails(
-            array_diff($this->getPaymentDetails(), array($paymentDetail))
+        return $this->setPayments(
+            array_diff($this->getPayments(), array($paymentDetail))
         );
     }
 
     /**
      * List of refund details for the invoice.
      *
-     * @param \PayPal\Api\RefundDetail[] $refund_details
+     * @param \PayPal\Api\RefundDetail[] $refunds
      * 
      * @return $this
      */
-    public function setRefundDetails($refund_details)
+    public function setRefunds($refunds)
     {
-        $this->refund_details = $refund_details;
+        $this->refunds = $refunds;
         return $this;
     }
 
@@ -635,9 +635,9 @@ class Invoice extends PayPalResourceModel
      *
      * @return \PayPal\Api\RefundDetail[]
      */
-    public function getRefundDetails()
+    public function getRefunds()
     {
-        return $this->refund_details;
+        return $this->refunds;
     }
 
     /**
@@ -648,11 +648,11 @@ class Invoice extends PayPalResourceModel
      */
     public function addRefundDetail($refundDetail)
     {
-        if (!$this->getRefundDetails()) {
-            return $this->setRefundDetails(array($refundDetail));
+        if (!$this->getRefunds()) {
+            return $this->setRefunds(array($refundDetail));
         } else {
-            return $this->setRefundDetails(
-                array_merge($this->getRefundDetails(), array($refundDetail))
+            return $this->setRefunds(
+                array_merge($this->getRefunds(), array($refundDetail))
             );
         }
     }
@@ -665,8 +665,8 @@ class Invoice extends PayPalResourceModel
      */
     public function removeRefundDetail($refundDetail)
     {
-        return $this->setRefundDetails(
-            array_diff($this->getRefundDetails(), array($refundDetail))
+        return $this->setRefunds(
+            array_diff($this->getRefunds(), array($refundDetail))
         );
     }
 

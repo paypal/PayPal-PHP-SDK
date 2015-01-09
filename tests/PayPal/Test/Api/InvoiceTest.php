@@ -22,7 +22,7 @@ class InvoiceTest extends \PHPUnit_Framework_TestCase
      */
     public static function getJson()
     {
-        return '{"id":"TestSample","number":"TestSample","uri":"TestSample","status":"TestSample","merchant_info":' .MerchantInfoTest::getJson() . ',"billing_info":' .BillingInfoTest::getJson() . ',"shipping_info":' .ShippingInfoTest::getJson() . ',"items":' .InvoiceItemTest::getJson() . ',"invoice_date":"TestSample","payment_term":' .PaymentTermTest::getJson() . ',"discount":' .CostTest::getJson() . ',"shipping_cost":' .ShippingCostTest::getJson() . ',"custom":' .CustomAmountTest::getJson() . ',"tax_calculated_after_discount":true,"tax_inclusive":true,"terms":"TestSample","note":"TestSample","merchant_memo":"TestSample","logo_url":"http://www.google.com","total_amount":' .CurrencyTest::getJson() . ',"payment_details":' .PaymentDetailTest::getJson() . ',"refund_details":' .RefundDetailTest::getJson() . ',"metadata":' .MetadataTest::getJson() . ',"additional_data":"TestSample"}';
+        return '{"id":"TestSample","number":"TestSample","uri":"TestSample","status":"TestSample","merchant_info":' .MerchantInfoTest::getJson() . ',"billing_info":' .BillingInfoTest::getJson() . ',"shipping_info":' .ShippingInfoTest::getJson() . ',"items":' .InvoiceItemTest::getJson() . ',"invoice_date":"TestSample","payment_term":' .PaymentTermTest::getJson() . ',"discount":' .CostTest::getJson() . ',"shipping_cost":' .ShippingCostTest::getJson() . ',"custom":' .CustomAmountTest::getJson() . ',"tax_calculated_after_discount":true,"tax_inclusive":true,"terms":"TestSample","note":"TestSample","merchant_memo":"TestSample","logo_url":"http://www.google.com","total_amount":' .CurrencyTest::getJson() . ',"payments":' .PaymentDetailTest::getJson() . ',"refunds":' .RefundDetailTest::getJson() . ',"metadata":' .MetadataTest::getJson() . ',"additional_data":"TestSample"}';
     }
 
     /**
@@ -63,8 +63,8 @@ class InvoiceTest extends \PHPUnit_Framework_TestCase
         $this->assertNotNull($obj->getMerchantMemo());
         $this->assertNotNull($obj->getLogoUrl());
         $this->assertNotNull($obj->getTotalAmount());
-        $this->assertNotNull($obj->getPaymentDetails());
-        $this->assertNotNull($obj->getRefundDetails());
+        $this->assertNotNull($obj->getPayments());
+        $this->assertNotNull($obj->getRefunds());
         $this->assertNotNull($obj->getMetadata());
         $this->assertNotNull($obj->getAdditionalData());
         $this->assertEquals(self::getJson(), $obj->toJson());
@@ -97,8 +97,8 @@ class InvoiceTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($obj->getMerchantMemo(), "TestSample");
         $this->assertEquals($obj->getLogoUrl(), "http://www.google.com");
         $this->assertEquals($obj->getTotalAmount(), CurrencyTest::getObject());
-        $this->assertEquals($obj->getPaymentDetails(), PaymentDetailTest::getObject());
-        $this->assertEquals($obj->getRefundDetails(), RefundDetailTest::getObject());
+        $this->assertEquals($obj->getPayments(), PaymentDetailTest::getObject());
+        $this->assertEquals($obj->getRefunds(), RefundDetailTest::getObject());
         $this->assertEquals($obj->getMetadata(), MetadataTest::getObject());
         $this->assertEquals($obj->getAdditionalData(), "TestSample");
     }

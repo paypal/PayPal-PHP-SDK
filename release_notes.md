@@ -34,6 +34,9 @@ v1.0.0
   * PayPal\Common\FormatConverter => PayPal\Converter\FormatConverter
   * PayPal\Rest\RestHandler => PayPal\Handler\RestHandler
   * PayPal\Rest\OauthHandler => PayPal\Handler\OauthHandler
+* Fixes to Methods
+  * PayPal\Api\Invoice->getPaymentDetails() was renamed to getPayments()
+  * PayPal\Api\Invoice->getRefundDetails() was renamed to getRefunds()
 
 v1.0.0-beta
 ----
