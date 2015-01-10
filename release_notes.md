@@ -8,6 +8,8 @@ v1.0.0
 * Default Mode set to Sandbox
 * Enabled Rest SDK to work nicely with Classic SDKs.
 * If missing annotation of return type in Getters, it throws a proper exception
+* `echo` on PayPalModel Objects will print nice looking JSON
+* Updated Invoice Object to retrieve payments and refunds
 
 > ## Breaking Changes
 * Removed Deprecated Getter Setters from all Model Classes

@@ -1,237 +1,29 @@
 # REST API SDK for PHP
 
+![Home Image](https://raw.githubusercontent.com/wiki/paypal/PayPal-PHP-SDK/images/homepage.jpg)
+
 [![Build Status](https://travis-ci.org/paypal/PayPal-PHP-SDK.png?branch=master)](https://travis-ci.org/paypal/PayPal-PHP-SDK) [![Coverage Status](https://img.shields.io/coveralls/paypal/PayPal-PHP-SDK.svg)](https://coveralls.io/r/paypal/PayPal-PHP-SDK?branch=master)
 
-This repository contains PayPal's PHP SDK and samples for REST API.
+__Welcome to REST API SDK PHP__. This repository contains PayPal's PHP SDK and samples for REST API.
 
 > **Before starting to use the sdk, please be aware of the [existing issues and currently unavailable or upcoming features](https://github.com/paypal/rest-api-sdk-python/wiki/Existing-Issues-and-Unavailable%5CUpcoming-features) for the REST APIs. (which the sdks are based on)**
+
+## Documentations
+
+Everything from Installing, Running Samples, Making first call, etc is covered [ in our Wiki section. ](https://github.com/paypal/PayPal-PHP-SDK/wiki)
+
+## Latest Updates
+
+- Checkout the latest 1.0.0 release. Here are all the [ breaking Changes in v1.0.0 ](https://github.com/paypal/PayPal-PHP-SDK/wiki/Breaking-Changes---1.0.0) if you are migrating from older versions.
 
 ## Prerequisites
 
    - PHP 5.3 or above
    - [curl](http://php.net/manual/en/book.curl.php), [json](http://php.net/manual/en/book.json.php) & [openssl](http://php.net/manual/en/book.openssl.php) extensions must be enabled
 
-## Breaking Changes to 1.* Release
-   * Removed Deprecated Getter Setters from all Model Classes
-     * All Camelcase getters and setters are removed. Please use first letter uppercase syntax
-     * E.g. instead of using get_notify_url(), use getNotifyUrl() instead
-   * Renamed Classes
-     * PayPal\Common\PPModel => PayPal\Common\PayPalModel
-     * PayPal\Common\ResourceModel => PayPal\Common\PayPalResourceModel
-     * PayPal\Common\PPUserAgent => PayPal\Common\PayPalUserAgent
-     * PayPal\Core\PPConfigManager => PayPal\Core\PayPalConfigManager
-     * PayPal\Core\PPConstants  => PayPal\Core\PayPalConstants
-     * PayPal\Core\PPCredentialManager => PayPal\Core\PayPalCredentialManager
-     * PayPal\Core\PPHttpConfig => PayPal\Core\PayPalHttpConfig
-     * PayPal\Core\PPHttpConnection => PayPal\Core\PayPalHttpConnection
-     * PayPal\Core\PPLoggingLevel => PayPal\Core\PayPalLoggingLevel
-     * PayPal\Core\PPLoggingManager => PayPal\Core\PayPalLoggingManager
-     * PayPal\Exception\PPConfigurationException => PayPal\Exception\PayPalConfigurationException
-     * PayPal\Exception\PPConnectionException => PayPal\Exception\PayPalConnectionException
-     * PayPal\Exception\PPInvalidCredentialException => PayPal\Exception\PayPalInvalidCredentialException
-     * PayPal\Exception\PPMissingCredentialException => PayPal\Exception\PayPalMissingCredentialException
-     * PayPal\Handler\IPPHandler => PayPal\Handler\IPayPalHandler
-     * PayPal\Transport\PPRestCall => PayPal\Transport\PayPalRestCall
-   * Namespace Changes and Class Naming Convention
-     * PayPal\Common\FormatConverter => PayPal\Converter\FormatConverter
-     * PayPal\Rest\RestHandler => PayPal\Handler\RestHandler
-     * PayPal\Rest\OauthHandler => PayPal\Handler\OauthHandler
-
-
-## Installation
-
-### - Using Composer
-[**composer**](https://getcomposer.org/) is the recommended way to install the SDK. To use the SDK with project, add the following dependency to your application's composer.json and run `composer update --no-dev` to fetch the SDK.
-
-You can download composer using instructions on [Composer Official Website.](https://getcomposer.org/download/)
-
-#### Prerequisites
-- *composer* for fetching dependencies (See [http://getcomposer.org](http://getcomposer.org))
-
-#### Steps to Install :
-
-Currently, Paypal PHP Rest API SDK is available at [https://packagist.org](https://packagist.org/packages/paypal/rest-api-sdk-php). To use it in your project, you need to include it as a dependency in your project composer.json file. It can be done either:
-
-* Running `composer require paypal/rest-api-sdk-php:*` command on your project root location (where project composer.json is located.)
-
-* Or, manually editing composer.json file `require` field, and adding `"paypal/rest-api-sdk-php" :  "*"` inside it.
-
-The resultant sample *composer.json* would look like this:
-
-```php
-{
-  ...
-
-  "name": "sample/website",
-  "require": {
-  	"paypal/rest-api-sdk-php" : "*"
-  }
-
-  ...
-}
-```
-
-### - Direct Download (without using Composer)
-
-If you do not want to use composer, you can grab the SDK zip that contains Paypal PHP Rest API SDK with all its dependencies with it.
-
-#### Steps to Install :
-- Download zip archive with desired version from our [Releases](https://github.com/paypal/PayPal-PHP-SDK/releases). Each release will have a `direct-download-*.zip` that contains PHP Rest API SDK and its dependencies.
-
-- Unzip and copy vendor directory inside your project, e.g. project root directory.
-
-- If your application has a bootstrap/autoload file, you should add
-`include '<vendor directory location>/vendor/autoload.php'` in it. The location of the `<vendor directory>` should be replaced based on where you downloaded **vendor** directory in your application.
-
-- This *autoload.php* file registers a custom autoloader that can autoload the PayPal SDK files, that allows you to access PHP SDK system in your application.
-
-## Samples
-
-### View
-   * Using the [htmlpreview](https://github.com/htmlpreview/htmlpreview.github.com) tool you can now [view sample source codes here](http://htmlpreview.github.io/?https://github.com/paypal/PayPal-PHP-SDK/blob/master/sample/index.php)
-
-### Running Locally
-
-* Clone the [PayPal-PHP-SDK repository](https://github.com/paypal/PayPal-PHP-SDK)
-```
-git clone https://github.com/paypal/PayPal-PHP-SDK
-```
-* Run Composer installer on PayPal-PHP-SDK directory
-```
-composer install
-```
-* Run PHP Built-in web server by running
-```
-php -f sample/index.php
-```
-
-  * If you are using PHP version older than 5.4, you can follow the instructions described [here](sample/).
-
-## Usage
-
-To write an app that uses the SDK
-
-   * Update your project's composer.json file, and add dependency on PHP Rest API SDK by running `composer require paypal/rest-api-sdk-php:*` and run `composer update --no-dev` to fetch all dependencies.
-   * Copy the sample configuration file `sdk_config.ini` to a location of your choice and let the SDK know your config path using the following define directive.
-
-```php
-    define('PP_CONFIG_PATH', /path/to/your/sdk_config.ini);
-```
-   * Obtain your clientId and client secret from the [developer portal](https://developer.paypal.com). You will use them to create a `OAuthTokenCredential` object.
-   * Now you are all set to make your first API call. Create a resource object as per your need and call the relevant operation or invoke one of the static methods on your resource class.
-
-```php
-
-use PayPal\Rest\ApiContext;
-use PayPal\Auth\OAuthTokenCredential;
-use PayPal\Api\Payment;
-
-
-   $apiContext = new ApiContext(new OAuthTokenCredential('<clientId>', '<clientSecret>'));
-
-    $payment = new Payment();
-
-    $payment->setIntent("Sale");
-
-    ...
-
-    $payment->create($apiContext);
-
-      *OR*
-
-    $payment = Payment::get('payment_id', $apiContext);
-```
-
-## SDK Configuration
-
-The samples in this repo pick the SDK configuration from the `sdk_config.ini` file. If you do not want to use an ini file or want to pick your configuration dynamically, you can use the `$apiContext->setConfig()` method to pass in the configuration as a hashmap. See the `sample/bootstrap.php` file for an example.
-
-## Testing
-
-There are two kinds of tests that we include in our sdk package. Unit tests, and Integration Tests.
-
-* **Unit Tests**
-	* Unit tests can be executed by running this command `phpunit` at Paypal SDK root location.
-	* It executes the tests with configuration stored in `phpunit.xml` file.
-* **Integration Tests**
-	* Integration tests make curl requests to sandbox environments by default. It would test both unit as well as integration tests. To execute, run this command `phpunit -c phpunit.integration.xml` at Paypal SDK root location.
-	* It executes the tests with configuration stored in `phpunit.integration.xml` file.
-	* The configurations could be changed from `tests\sdk_config.ini` file.
-
-## Developer Notes
-
-### Caching - Performance Improvement
-
-PayPal API SDK now has the ability to cache Access Tokens for multiple request uses. Generally, an access token is valid for approximately 15 min to 8 hours based on security settings by PayPal. However, by default PHP requests a new access token each time a new process/request is made in your website. To re-use the access token, we enabled cache storage via file under /var/auth.cache.
-
-To enable this, you need to configure by updating the configuration settings in your sdk_config.ini file or dynamic values as shown below:
-
-Please visit our [sample sdk_config.ini](https://github.com/paypal/PayPal-PHP-SDK/blob/master/sample/sdk_config.ini)
-```
-;Caching Configuration
-[cache]
-; If Cache is enabled, it stores the access token retrieved from ClientId and Secret from the
-; server into a file provided by the cache.FileName option or by using
-; the constant $CACHE_PATH value in PayPal/Cache/AuthorizationCache if the option is omitted/empty.
-; If the value is set to 'true', it would try to create a file and store the information.
-; For any other value, it would disable it
-; Please note, this is a very good performance improvement, and we would encourage you to
-; set this up properly to reduce the number of calls, to almost 50% on normal use cases
-; PLEASE NOTE: You may need to provide proper write permissions to /var directory under PayPal-PHP-SDK on
-; your hosting server or whichever custom directory you choose
-cache.enabled=true
-; When using a relative path, the cache file is created
-; relative to the .php file that is the entry point
-; for this request. You can also provide an absolute
-; path here
-cache.FileName=../auth.cache
-```
-##### PLEASE NOTE: You may need to provide proper write permissions to /var directory under PayPal-PHP-SDK (or your custom directory) on your hosting server
-
-### API Model Constructor
-
-You can intialize the API objects by passing JSON string or Array representation of object to the constructor. E.g.:
-
-```
-$obj = new SimpleClass('{"name":"test","description":"description"}');
-$obj->getName(); // test
-$obj->getDescription();  // description
-```
-
-### Accessor Validation
-
-We recently introduced a validation to determine if Model Object contains all the appropriate accessors (Getters and Setters) when converted from json response that we receive from Server.
-
-This validation could be configured by updating the configuration settings in your sdk_config.ini file
-
-Please visit our [sample sdk_config.ini](https://github.com/paypal/PayPal-PHP-SDK/blob/master/sample/sdk_config.ini)
-```
-;Validation Configuration
-[validation]
-; If validation is set to strict, the PPModel would make sure that
-; there are proper accessors (Getters and Setters) for each model
-; objects. Accepted value is
-; 'log'     : logs the error message to logger only (default)
-; 'strict'  : throws a php notice message
-; 'disable' : disable the validation
-validation.level=strict
-```
-
-The warning message would be logged into your PayPal.log file, for e.g.:
-```
-PayPal\Validation\ModelAccessorValidator: WARNING: Missing Accessor: PayPal\Api\Payment:setFirstName . Please let us know by creating an issue at https://github.com/paypal/PayPal-PHP-SDK/issues
-```
-
-## Contributing
-
-* If you find solution to an [issue/improvements](https://github.com/paypal/PayPal-PHP-SDK/issues) in sdk that would be helpful to everyone, feel free to send us a pull request.
-* The best help we could get from everyone is in writing more and more samples. We have a limited set of samples, and would appreciate if the community can help us write more and more of those, covering corner cases, that may be extremely useful to anyone using this SDK.
-* The ideal approach to create a fix would be to fork the repository, create a branch in your repository, and make a pull request out of it.
-* It is desirable if there is enough comments/documentation and Tests included in the pull request.
-* For general idea of contribution, please follow the guidelines mentioned [here](https://guides.github.com/activities/contributing-to-open-source/).
 
 ## More help
-
+   * [SDK Documentation](https://github.com/paypal/PayPal-PHP-SDK/wiki)
    * [Sample Source Codes](http://htmlpreview.github.io/?https://github.com/paypal/PayPal-PHP-SDK/blob/master/sample/index.php)
    * [API Reference](https://developer.paypal.com/webapps/developer/docs/api/)
    * [Reporting issues / feature requests] (https://github.com/paypal/PayPal-PHP-SDK/issues)
