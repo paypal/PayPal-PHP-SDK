@@ -204,7 +204,7 @@ class OAuthTokenCredential extends PayPalResourceModel
      */
     private function getToken($config, $clientId, $clientSecret, $payload)
     {
-        $httpConfig = new PayPalHttpConfig(null, 'POST');
+        $httpConfig = new PayPalHttpConfig(null, 'POST', $config);
 
         $handlers = array(self::$AUTH_HANDLER);
 

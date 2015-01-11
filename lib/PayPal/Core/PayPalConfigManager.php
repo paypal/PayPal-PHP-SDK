@@ -19,8 +19,6 @@ class PayPalConfigManager
      * @var array
      */
     private $configs = array(
-        "http.ConnectionTimeOut" => "30",
-        "http.Retry" => "5",
     );
 
     /**

@@ -54,12 +54,13 @@ class PayPalHttpConfig
      *
      * @param string $url
      * @param string $method HTTP method (GET, POST etc) defaults to POST
+     * @param array $configs All Configurations
      */
-    public function __construct($url = null, $method = self::HTTP_POST)
+    public function __construct($url = null, $method = self::HTTP_POST, $configs = array())
     {
         $this->url = $url;
         $this->method = $method;
-        $this->curlOptions = self::$defaultCurlOptions;
+        $this->curlOptions = $this->getHttpConstantsFromConfigs($configs, 'http.') + self::$defaultCurlOptions;
         // Update the Cipher List based on OpenSSL or NSS settings
         $curl = curl_version();
         $sslVersion = isset($curl['ssl_version']) ? $curl['ssl_version'] : '';
@@ -273,5 +274,29 @@ class PayPalHttpConfig
     public function setUserAgent($userAgentString)
     {
         $this->curlOptions[CURLOPT_USERAGENT] = $userAgentString;
+    }
+
+    /**
+     * Retrieves an array of constant key, and value based on Prefix
+     *
+     * @param array $configs
+     * @param       $prefix
+     * @return array
+     */
+    public function getHttpConstantsFromConfigs($configs = array(), $prefix)
+    {
+        $arr = array();
+        if ($prefix != null && is_array($configs)) {
+            foreach ($configs as $k => $v) {
+                // Check if it startsWith
+                if (substr($k, 0, strlen($prefix)) === $prefix) {
+                    $newKey = ltrim($k, $prefix);
+                    if (defined($newKey)) {
+                        $arr[constant($newKey)] = $v;
+                    }
+                }
+            }
+        }
+        return $arr;
     }
 }

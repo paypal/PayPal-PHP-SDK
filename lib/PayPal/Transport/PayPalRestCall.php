@@ -54,7 +54,7 @@ class PayPalRestCall
     {
 
         $config = $this->apiContext->getConfig();
-        $httpConfig = new PayPalHttpConfig(null, $method);
+        $httpConfig = new PayPalHttpConfig(null, $method, $config);
         $headers = $headers ? $headers : array();
         $httpConfig->setHeaders($headers +
             array(

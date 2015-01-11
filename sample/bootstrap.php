@@ -72,12 +72,12 @@ function getApiContext($clientId, $clientSecret)
     $apiContext->setConfig(
         array(
             'mode' => 'sandbox',
-            'http.ConnectionTimeOut' => 30,
             'log.LogEnabled' => true,
             'log.FileName' => '../PayPal.log',
             'log.LogLevel' => 'FINE',
             'validation.level' => 'log',
             'cache.enabled' => true,
+            // 'http.CURLOPT_CONNECTTIMEOUT' => 30
             // 'http.headers.PayPal-Partner-Attribution-Id' => '123123123'
         )
     );
