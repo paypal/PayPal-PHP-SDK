@@ -2,8 +2,8 @@
 
 namespace PayPal\Rest;
 
-use PayPal\Core\PPConfigManager;
-use PayPal\Core\PPCredentialManager;
+use PayPal\Core\PayPalConfigManager;
+use PayPal\Core\PayPalCredentialManager;
 
 /**
  * Class ApiContext
@@ -26,7 +26,7 @@ class ApiContext
 
     /**
      * This is a placeholder for holding credential for the request
-     * If the value is not set, it would get the value from @\PayPal\Core\PPCredentialManager
+     * If the value is not set, it would get the value from @\PayPal\Core\PayPalCredentialManager
      *
      * @var \Paypal\Auth\OAuthTokenCredential
      */
@@ -53,9 +53,29 @@ class ApiContext
     public function getCredential()
     {
         if ($this->credential == null) {
-            return PPCredentialManager::getInstance()->getCredentialObject();
+            return PayPalCredentialManager::getInstance()->getCredentialObject();
         }
         return $this->credential;
+    }
+
+    public function getRequestHeaders()
+    {
+        $result = PayPalConfigManager::getInstance()->get('http.headers');
+        $headers = array();
+        foreach ($result as $header => $value) {
+            $headerName = ltrim($header, 'http.headers');
+            $headers[$headerName] = $value;
+        }
+        return $headers;
+    }
+
+    public function addRequestHeader($name, $value)
+    {
+        // Determine if the name already has a 'http.headers' prefix. If not, add one.
+        if (!(substr($name, 0, strlen('http.headers')) === 'http.headers')) {
+            $name = 'http.headers.' . $name;
+        }
+        PayPalConfigManager::getInstance()->addConfigs(array($name => $value));
     }
 
     /**
@@ -92,7 +112,7 @@ class ApiContext
      */
     public function setConfig(array $config)
     {
-        PPConfigManager::getInstance()->addConfigs($config);
+        PayPalConfigManager::getInstance()->addConfigs($config);
     }
 
     /**
@@ -102,7 +122,7 @@ class ApiContext
      */
     public function getConfig()
     {
-        return PPConfigManager::getInstance()->getConfigHashmap();
+        return PayPalConfigManager::getInstance()->getConfigHashmap();
     }
 
     /**
@@ -113,7 +133,7 @@ class ApiContext
      */
     public function get($searchKey)
     {
-        return PPConfigManager::getInstance()->get($searchKey);
+        return PayPalConfigManager::getInstance()->get($searchKey);
     }
 
     /**

@@ -3,24 +3,27 @@
 namespace PayPal\Auth;
 
 use PayPal\Cache\AuthorizationCache;
-use PayPal\Common\PPModel;
-use PayPal\Common\PPUserAgent;
-use PayPal\Common\ResourceModel;
-use PayPal\Core\PPConstants;
-use PayPal\Core\PPHttpConfig;
-use PayPal\Core\PPHttpConnection;
-use PayPal\Core\PPLoggingManager;
-use PayPal\Exception\PPConfigurationException;
-use PayPal\Rest\RestHandler;
-use PayPal\Validation\JsonValidator;
+use PayPal\Common\PayPalResourceModel;
+use PayPal\Core\PayPalHttpConfig;
+use PayPal\Core\PayPalHttpConnection;
+use PayPal\Core\PayPalLoggingManager;
+use PayPal\Exception\PayPalConfigurationException;
+use PayPal\Handler\IPayPalHandler;
+use PayPal\Rest\ApiContext;
 
 /**
  * Class OAuthTokenCredential
  */
-class OAuthTokenCredential extends ResourceModel
+class OAuthTokenCredential extends PayPalResourceModel
 {
 
     public static $CACHE_PATH = '/../../../var/auth.cache';
+
+    /**
+     * @var string Default Auth Handler
+     */
+    public static $AUTH_HANDLER = 'PayPal\Handler\OauthHandler';
+
     /**
      * Private Variable
      *
@@ -31,7 +34,7 @@ class OAuthTokenCredential extends ResourceModel
     /**
      * Private Variable
      *
-     * @var \PayPal\Core\PPLoggingManager $logger
+     * @var \PayPal\Core\PayPalLoggingManager $logger
      */
     private $logger;
 
@@ -80,7 +83,7 @@ class OAuthTokenCredential extends ResourceModel
     {
         $this->clientId = $clientId;
         $this->clientSecret = $clientSecret;
-        $this->logger = PPLoggingManager::getInstance(__CLASS__);
+        $this->logger = PayPalLoggingManager::getInstance(__CLASS__);
     }
 
     /**
@@ -192,24 +195,29 @@ class OAuthTokenCredential extends ResourceModel
      * Retrieves the token based on the input configuration
      *
      * @param array $config
+     * @param string $clientId
+     * @param string $clientSecret
      * @param string $payload
      * @return mixed
-     * @throws PPConfigurationException
-     * @throws \PayPal\Exception\PPConnectionException
+     * @throws PayPalConfigurationException
+     * @throws \PayPal\Exception\PayPalConnectionException
      */
     private function getToken($config, $clientId, $clientSecret, $payload)
     {
-        $base64ClientID = base64_encode($clientId . ":" . $clientSecret);
-        $headers = array(
-            "User-Agent"    => PPUserAgent::getValue(PPConstants::SDK_NAME, PPConstants::SDK_VERSION),
-            "Authorization" => "Basic " . $base64ClientID,
-            "Accept"        => "*/*"
-        );
+        $httpConfig = new PayPalHttpConfig(null, 'POST', $config);
 
-        $httpConfiguration = self::getOAuthHttpConfiguration($config);
-        $httpConfiguration->setHeaders($headers);
+        $handlers = array(self::$AUTH_HANDLER);
 
-        $connection = new PPHttpConnection($httpConfiguration, $config);
+        /** @var IPayPalHandler $handler */
+        foreach ($handlers as $handler) {
+            if (!is_object($handler)) {
+                $fullHandler = "\\" . (string)$handler;
+                $handler = new $fullHandler(new ApiContext($this));
+            }
+            $handler->handle($httpConfig, $payload, array('clientId' => $clientId, 'clientSecret' => $clientSecret));
+        }
+
+        $connection = new PayPalHttpConnection($httpConfig, $config);
         $res = $connection->execute($payload);
         $response = json_decode($res, true);
 
@@ -248,41 +256,5 @@ class OAuthTokenCredential extends ResourceModel
         $this->tokenCreateTime = time();
 
         return $this->accessToken;
-    }
-
-    /**
-     * Get HttpConfiguration object for OAuth API
-     *
-     * @param array $config
-     *
-     * @return PPHttpConfig
-     * @throws \PayPal\Exception\PPConfigurationException
-     */
-    private static function getOAuthHttpConfiguration($config)
-    {
-        if (isset($config['oauth.EndPoint'])) {
-            $baseEndpoint = $config['oauth.EndPoint'];
-        } else if (isset($config['service.EndPoint'])) {
-            $baseEndpoint = $config['service.EndPoint'];
-        } else if (isset($config['mode'])) {
-            switch (strtoupper($config['mode'])) {
-                case 'SANDBOX':
-                    $baseEndpoint = PPConstants::REST_SANDBOX_ENDPOINT;
-                    break;
-                case 'LIVE':
-                    $baseEndpoint = PPConstants::REST_LIVE_ENDPOINT;
-                    break;
-                default:
-                    throw new PPConfigurationException('The mode config parameter must be set to either sandbox/live');
-            }
-        } else {
-            throw new PPConfigurationException(
-                'You must set one of service.endpoint or mode parameters in your configuration'
-            );
-        }
-
-        $baseEndpoint = rtrim(trim($baseEndpoint), '/');
-
-        return new PPHttpConfig($baseEndpoint . "/v1/oauth2/token", "POST");
     }
 }

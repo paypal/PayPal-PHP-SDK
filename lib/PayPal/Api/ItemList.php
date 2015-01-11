@@ -2,7 +2,7 @@
 
 namespace PayPal\Api;
 
-use PayPal\Common\PPModel;
+use PayPal\Common\PayPalModel;
 use PayPal\Rest\ApiContext;
 
 /**
@@ -15,7 +15,7 @@ use PayPal\Rest\ApiContext;
  * @property \PayPal\Api\Item[]            items
  * @property \PayPal\Api\ShippingAddress shipping_address
  */
-class ItemList extends PPModel
+class ItemList extends PayPalModel
 {
     /**
      * Is this list empty?
@@ -96,32 +96,6 @@ class ItemList extends PPModel
      * @return \PayPal\Api\ShippingAddress
      */
     public function getShippingAddress()
-    {
-        return $this->shipping_address;
-    }
-
-    /**
-     * Shipping address.
-     *
-     * @deprecated Instead use setShippingAddress
-     *
-     * @param \PayPal\Api\ShippingAddress $shipping_address
-     * @return $this
-     */
-    public function setShipping_address($shipping_address)
-    {
-        $this->shipping_address = $shipping_address;
-        return $this;
-    }
-
-    /**
-     * Shipping address.
-     *
-     * @deprecated Instead use getShippingAddress
-     *
-     * @return \PayPal\Api\ShippingAddress
-     */
-    public function getShipping_address()
     {
         return $this->shipping_address;
     }

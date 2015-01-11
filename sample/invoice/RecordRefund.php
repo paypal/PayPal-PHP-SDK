@@ -35,4 +35,19 @@ try {
 
 ResultPrinter::printResult("Refund for Invoice", "Invoice", $invoice->getId(), $refund, null);
 
+// ### Retrieve Invoice
+// Retrieve the invoice object by calling the
+// static `get` method
+// on the Invoice class by passing a valid
+// Invoice ID
+// (See bootstrap.php for more on `ApiContext`)
+try {
+    $invoice = Invoice::get($invoice->getId(), $apiContext);
+} catch (Exception $ex) {
+    ResultPrinter::printError("Get Invoice (Not Required - For Sample Only)", "Invoice", $invoice->getId(), $invoice->getId(), $ex);
+    exit(1);
+}
+
+ResultPrinter::printResult("Get Invoice (Not Required - For Sample Only)", "Invoice", $invoice->getId(), $invoice->getId(), $invoice);
+
 return $invoice;

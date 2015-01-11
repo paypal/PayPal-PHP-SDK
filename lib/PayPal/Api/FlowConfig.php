@@ -2,7 +2,7 @@
 
 namespace PayPal\Api;
 
-use PayPal\Common\PPModel;
+use PayPal\Common\PayPalModel;
 use PayPal\Validation\UrlValidator;
 
 /**
@@ -15,7 +15,7 @@ use PayPal\Validation\UrlValidator;
  * @property string landing_page_type
  * @property string bank_txn_pending_url
  */
-class FlowConfig extends PPModel
+class FlowConfig extends PayPalModel
 {
     /**
      * Type of PayPal page to be displayed when a user lands on the PayPal site for checkout. Allowed values: `Billing` or `Login`. When set to `Billing`, the Non-PayPal account landing page is used. When set to `Login`, the PayPal account login landing page is used.
@@ -42,31 +42,6 @@ class FlowConfig extends PPModel
     }
 
     /**
-     * Type of PayPal page to be displayed when a user lands on the PayPal site for checkout. Allowed values: `Billing` or `Login`. When set to `Billing`, the Non-PayPal account landing page is used. When set to `Login`, the PayPal account login landing page is used.
-     *
-     * @deprecated Instead use setLandingPageType
-     *
-     * @param string $landing_page_type
-     * @return $this
-     */
-    public function setLanding_page_type($landing_page_type)
-    {
-        $this->landing_page_type = $landing_page_type;
-        return $this;
-    }
-
-    /**
-     * Type of PayPal page to be displayed when a user lands on the PayPal site for checkout. Allowed values: `Billing` or `Login`. When set to `Billing`, the Non-PayPal account landing page is used. When set to `Login`, the PayPal account login landing page is used.
-     * @deprecated Instead use getLandingPageType
-     *
-     * @return string
-     */
-    public function getLanding_page_type()
-    {
-        return $this->landing_page_type;
-    }
-
-    /**
      * The URL on the merchant site for transferring to after a bank transfer payment.
      * 
      *
@@ -87,31 +62,6 @@ class FlowConfig extends PPModel
      * @return string
      */
     public function getBankTxnPendingUrl()
-    {
-        return $this->bank_txn_pending_url;
-    }
-
-    /**
-     * The URL on the merchant site for transferring to after a bank transfer payment.
-     *
-     * @deprecated Instead use setBankTxnPendingUrl
-     *
-     * @param string $bank_txn_pending_url
-     * @return $this
-     */
-    public function setBank_txn_pending_url($bank_txn_pending_url)
-    {
-        $this->bank_txn_pending_url = $bank_txn_pending_url;
-        return $this;
-    }
-
-    /**
-     * The URL on the merchant site for transferring to after a bank transfer payment.
-     * @deprecated Instead use getBankTxnPendingUrl
-     *
-     * @return string
-     */
-    public function getBank_txn_pending_url()
     {
         return $this->bank_txn_pending_url;
     }

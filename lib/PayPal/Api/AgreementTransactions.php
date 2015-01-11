@@ -2,7 +2,7 @@
 
 namespace PayPal\Api;
 
-use PayPal\Common\PPModel;
+use PayPal\Common\PayPalModel;
 
 /**
  * Class AgreementTransactions
@@ -13,7 +13,7 @@ use PayPal\Common\PPModel;
  *
  * @property \PayPal\Api\AgreementTransaction[] agreement_transaction_list
  */
-class AgreementTransactions extends PPModel
+class AgreementTransactions extends PayPalModel
 {
     /**
      * Array of agreement_transaction object.
@@ -66,31 +66,6 @@ class AgreementTransactions extends PPModel
         return $this->setAgreementTransactionList(
             array_diff($this->getAgreementTransactionList(), array($agreementTransaction))
         );
-    }
-
-    /**
-     * Array of agreement_transaction object.
-     *
-     * @deprecated Instead use setAgreementTransactionList
-     *
-     * @param \PayPal\Api\AgreementTransaction $agreement_transaction_list
-     * @return $this
-     */
-    public function setAgreement_transaction_list($agreement_transaction_list)
-    {
-        $this->agreement_transaction_list = $agreement_transaction_list;
-        return $this;
-    }
-
-    /**
-     * Array of agreement_transaction object.
-     * @deprecated Instead use getAgreementTransactionList
-     *
-     * @return \PayPal\Api\AgreementTransaction
-     */
-    public function getAgreement_transaction_list()
-    {
-        return $this->agreement_transaction_list;
     }
 
 }

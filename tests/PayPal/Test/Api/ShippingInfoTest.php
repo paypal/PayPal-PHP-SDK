@@ -2,7 +2,7 @@
 
 namespace PayPal\Test\Api;
 
-use PayPal\Common\PPModel;
+use PayPal\Common\PayPalModel;
 use PayPal\Api\ShippingInfo;
 
 /**
@@ -58,54 +58,5 @@ class ShippingInfoTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($obj->getBusinessName(), "TestSample");
         $this->assertEquals($obj->getAddress(), AddressTest::getObject());
     }
-
-    /**
-     * @depends testSerializationDeserialization
-     * @param ShippingInfo $obj
-     */
-    public function testDeprecatedGetters($obj)
-    {
-        $this->assertEquals($obj->getFirst_name(), "TestSample");
-        $this->assertEquals($obj->getLast_name(), "TestSample");
-        $this->assertEquals($obj->getBusiness_name(), "TestSample");
-    }
-
-    /**
-     * @depends testSerializationDeserialization
-     * @param ShippingInfo $obj
-     */
-    public function testDeprecatedSetterNormalGetter($obj)
-    {
-
-        // Check for First_name
-        $obj->setFirstName(null);
-        $this->assertNull($obj->getFirst_name());
-        $this->assertNull($obj->getFirstName());
-        $this->assertSame($obj->getFirstName(), $obj->getFirst_name());
-        $obj->setFirst_name("TestSample");
-        $this->assertEquals($obj->getFirst_name(), "TestSample");
-
-        // Check for Last_name
-        $obj->setLastName(null);
-        $this->assertNull($obj->getLast_name());
-        $this->assertNull($obj->getLastName());
-        $this->assertSame($obj->getLastName(), $obj->getLast_name());
-        $obj->setLast_name("TestSample");
-        $this->assertEquals($obj->getLast_name(), "TestSample");
-
-        // Check for Business_name
-        $obj->setBusinessName(null);
-        $this->assertNull($obj->getBusiness_name());
-        $this->assertNull($obj->getBusinessName());
-        $this->assertSame($obj->getBusinessName(), $obj->getBusiness_name());
-        $obj->setBusiness_name("TestSample");
-        $this->assertEquals($obj->getBusiness_name(), "TestSample");
-
-        //Test All Deprecated Getters and Normal Getters
-        $this->testDeprecatedGetters($obj);
-        $this->testGetters($obj);
-    }
-
-
 
 }

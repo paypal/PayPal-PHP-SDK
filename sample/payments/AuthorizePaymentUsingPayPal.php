@@ -108,12 +108,7 @@ try {
 // The API response provides the url that you must redirect
 // the buyer to. Retrieve the url from the $payment->getLinks()
 // method
-foreach ($payment->getLinks() as $link) {
-    if ($link->getRel() == 'approval_url') {
-        $approvalUrl = $link->getHref();
-        break;
-    }
-}
+$approvalUrl = $payment->getApprovalLink();
 
 ResultPrinter::printResult("Created Payment Authorization Using PayPal. Please visit the URL to Authorize.", "Payment", "<a href='$approvalUrl' >$approvalUrl</a>", $request, $payment);
 

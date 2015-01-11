@@ -2,8 +2,8 @@
 
 namespace PayPal\Api;
 
-use PayPal\Common\PPModel;
-use PayPal\Common\FormatConverter;
+use PayPal\Common\PayPalModel;
+use PayPal\Converter\FormatConverter;
 use PayPal\Validation\NumericValidator;
 
 /**
@@ -16,7 +16,7 @@ use PayPal\Validation\NumericValidator;
  * @property string currency
  * @property string value
  */
-class Currency extends PPModel
+class Currency extends PayPalModel
 {
     /**
      * 3 letter currency code as defined by ISO 4217.

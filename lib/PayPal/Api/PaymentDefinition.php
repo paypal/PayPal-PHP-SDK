@@ -2,7 +2,7 @@
 
 namespace PayPal\Api;
 
-use PayPal\Common\PPModel;
+use PayPal\Common\PayPalModel;
 
 /**
  * Class PaymentDefinition
@@ -20,7 +20,7 @@ use PayPal\Common\PPModel;
  * @property \PayPal\Api\Currency amount
  * @property \PayPal\Api\ChargeModel[] charge_models
  */
-class PaymentDefinition extends PPModel
+class PaymentDefinition extends PayPalModel
 {
     /**
      * Identifier of the payment_definition. 128 characters max.
@@ -110,31 +110,6 @@ class PaymentDefinition extends PPModel
      * @return string
      */
     public function getFrequencyInterval()
-    {
-        return $this->frequency_interval;
-    }
-
-    /**
-     * How frequently the customer should be charged.
-     *
-     * @deprecated Instead use setFrequencyInterval
-     *
-     * @param string $frequency_interval
-     * @return $this
-     */
-    public function setFrequency_interval($frequency_interval)
-    {
-        $this->frequency_interval = $frequency_interval;
-        return $this;
-    }
-
-    /**
-     * How frequently the customer should be charged.
-     * @deprecated Instead use getFrequencyInterval
-     *
-     * @return string
-     */
-    public function getFrequency_interval()
     {
         return $this->frequency_interval;
     }
@@ -259,31 +234,6 @@ class PaymentDefinition extends PPModel
         return $this->setChargeModels(
             array_diff($this->getChargeModels(), array($chargeModel))
         );
-    }
-
-    /**
-     * Array of charge_models for this payment definition.
-     *
-     * @deprecated Instead use setChargeModels
-     *
-     * @param \PayPal\Api\ChargeModel $charge_models
-     * @return $this
-     */
-    public function setCharge_models($charge_models)
-    {
-        $this->charge_models = $charge_models;
-        return $this;
-    }
-
-    /**
-     * Array of charge_models for this payment definition.
-     * @deprecated Instead use getChargeModels
-     *
-     * @return \PayPal\Api\ChargeModel
-     */
-    public function getCharge_models()
-    {
-        return $this->charge_models;
     }
 
 }

@@ -2,7 +2,7 @@
 
 namespace PayPal\Api;
 
-use PayPal\Common\PPModel;
+use PayPal\Common\PayPalModel;
 use PayPal\Rest\ApiContext;
 
 /**
@@ -16,7 +16,7 @@ use PayPal\Rest\ApiContext;
  * @property int count
  * @property string next_id
  */
-class CreditCardHistory extends PPModel
+class CreditCardHistory extends PayPalModel
 {
     /**
      * A list of credit card resources
@@ -38,31 +38,6 @@ class CreditCardHistory extends PPModel
      * @return \PayPal\Api\CreditCard
      */
     public function getCreditCards()
-    {
-        return $this->{"credit-cards"};
-    }
-
-    /**
-     * A list of credit card resources
-     *
-     * @deprecated Instead use setCreditCards
-     *
-     * @param \PayPal\Api\CreditCard $credit-cards
-     * @return $this
-     */
-    public function setCredit_cards($credit_cards)
-    {
-        $this->{"credit-cards"} = $credit_cards;
-        return $this;
-    }
-
-    /**
-     * A list of credit card resources
-     * @deprecated Instead use getCreditCards
-     *
-     * @return \PayPal\Api\CreditCard
-     */
-    public function getCredit_cards()
     {
         return $this->{"credit-cards"};
     }
@@ -111,31 +86,6 @@ class CreditCardHistory extends PPModel
      * @return string
      */
     public function getNextId()
-    {
-        return $this->next_id;
-    }
-
-    /**
-     * Identifier of the next element to get the next range of results.
-     *
-     * @deprecated Instead use setNextId
-     *
-     * @param string $next_id
-     * @return $this
-     */
-    public function setNext_id($next_id)
-    {
-        $this->next_id = $next_id;
-        return $this;
-    }
-
-    /**
-     * Identifier of the next element to get the next range of results.
-     * @deprecated Instead use getNextId
-     *
-     * @return string
-     */
-    public function getNext_id()
     {
         return $this->next_id;
     }

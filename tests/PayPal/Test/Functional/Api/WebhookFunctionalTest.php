@@ -15,13 +15,13 @@ use PayPal\Api\WebhookEventList;
 use PayPal\Api\WebhookEventType;
 use PayPal\Api\WebhookEventTypeList;
 use PayPal\Api\WebhookList;
-use PayPal\Common\PPModel;
-use PayPal\Exception\PPConnectionException;
+use PayPal\Common\PayPalModel;
+use PayPal\Exception\PayPalConnectionException;
 use PayPal\Rest\ApiContext;
 use PayPal\Rest\IResource;
 use PayPal\Api\CreateProfileResponse;
 use PayPal\Test\Functional\Setup;
-use PayPal\Transport\PPRestCall;
+use PayPal\Transport\PayPalRestCall;
 use PayPal\Api\WebProfile;
 
 /**
@@ -36,7 +36,7 @@ class WebhookFunctionalTest extends \PHPUnit_Framework_TestCase
 
     public $response;
 
-    public $mockPPRestCall;
+    public $mockPayPalRestCall;
 
     public function setUp()
     {
@@ -68,12 +68,12 @@ class WebhookFunctionalTest extends \PHPUnit_Framework_TestCase
         $obj->setUrl($obj->getUrl() . '?rand=' . uniqid());
         $result = null;
         try {
-            $result = $obj->create(null, $this->mockPPRestCall);
-        } catch (PPConnectionException $ex) {
+            $result = $obj->create(null, $this->mockPayPalRestCall);
+        } catch (PayPalConnectionException $ex) {
             $data = $ex->getData();
             if (strpos($data,'WEBHOOK_NUMBER_LIMIT_EXCEEDED') !== false) {
                 $this->deleteAll();
-                $result = $obj->create(null, $this->mockPPRestCall);
+                $result = $obj->create(null, $this->mockPayPalRestCall);
             } else {
                 $this->fail($ex->getMessage());
             }
@@ -84,9 +84,9 @@ class WebhookFunctionalTest extends \PHPUnit_Framework_TestCase
 
     public function deleteAll()
     {
-        $result = Webhook::getAll(null, $this->mockPPRestCall);
+        $result = Webhook::getAll(null, $this->mockPayPalRestCall);
         foreach ($result->getWebhooks() as $webhookObject) {
-            $webhookObject->delete(null, $this->mockPPRestCall);
+            $webhookObject->delete(null, $this->mockPayPalRestCall);
         }
     }
 
@@ -97,7 +97,7 @@ class WebhookFunctionalTest extends \PHPUnit_Framework_TestCase
      */
     public function testGet($webhook)
     {
-        $result = Webhook::get($webhook->getId(), null, $this->mockPPRestCall);
+        $result = Webhook::get($webhook->getId(), null, $this->mockPayPalRestCall);
         $this->assertNotNull($result);
         $this->assertEquals($webhook->getId(), $result->getId());
         $this->assertEquals($webhook, $result, "", 0, 10, true);
@@ -111,7 +111,7 @@ class WebhookFunctionalTest extends \PHPUnit_Framework_TestCase
      */
     public function testGetSubscribedEventTypes($webhook)
     {
-        $result = WebhookEventType::subscribedEventTypes($webhook->getId(), null, $this->mockPPRestCall);
+        $result = WebhookEventType::subscribedEventTypes($webhook->getId(), null, $this->mockPayPalRestCall);
         $this->assertNotNull($result);
         $this->assertEquals(2, sizeof($result->getEventTypes()));
         return $result;
@@ -124,7 +124,7 @@ class WebhookFunctionalTest extends \PHPUnit_Framework_TestCase
      */
     public function testGetAll($webhook)
     {
-        $result = Webhook::getAll(null, $this->mockPPRestCall);
+        $result = Webhook::getAll(null, $this->mockPayPalRestCall);
         $this->assertNotNull($result);
         $found = false;
         $foundObject = null;
@@ -162,7 +162,7 @@ class WebhookFunctionalTest extends \PHPUnit_Framework_TestCase
 
         $patchRequest = new PatchRequest();
         $patchRequest->setPatches($patches);
-        $result = $webhook->update($patchRequest, null, $this->mockPPRestCall);
+        $result = $webhook->update($patchRequest, null, $this->mockPayPalRestCall);
         $this->assertNotNull($result);
         $found = false;
         $foundObject = null;
@@ -181,13 +181,13 @@ class WebhookFunctionalTest extends \PHPUnit_Framework_TestCase
      */
     public function testDelete($webhook)
     {
-        $result = $webhook->delete(null, $this->mockPPRestCall);
+        $result = $webhook->delete(null, $this->mockPayPalRestCall);
         $this->assertTrue($result);
     }
 
     public function testEventSearch()
     {
-        $result = WebhookEvent::all(array(),null, $this->mockPPRestCall);
+        $result = WebhookEvent::all(array(),null, $this->mockPayPalRestCall);
         $this->assertNotNull($result);
         return $result;
     }

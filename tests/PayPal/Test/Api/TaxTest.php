@@ -2,7 +2,7 @@
 
 namespace PayPal\Test\Api;
 
-use PayPal\Common\PPModel;
+use PayPal\Common\PayPalModel;
 use PayPal\Api\Tax;
 
 /**
@@ -58,27 +58,5 @@ class TaxTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($obj->getPercent(), "12.34");
         $this->assertEquals($obj->getAmount(), CurrencyTest::getObject());
     }
-
-    /**
-     * @depends testSerializationDeserialization
-     * @param Tax $obj
-     */
-    public function testDeprecatedGetters($obj)
-    {
-    }
-
-    /**
-     * @depends testSerializationDeserialization
-     * @param Tax $obj
-     */
-    public function testDeprecatedSetterNormalGetter($obj)
-    {
-
-        //Test All Deprecated Getters and Normal Getters
-        $this->testDeprecatedGetters($obj);
-        $this->testGetters($obj);
-    }
-
-
 
 }

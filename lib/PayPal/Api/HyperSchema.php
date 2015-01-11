@@ -2,7 +2,7 @@
 
 namespace PayPal\Api;
 
-use PayPal\Common\PPModel;
+use PayPal\Common\PayPalModel;
 
 /**
  * Class HyperSchema
@@ -18,7 +18,7 @@ use PayPal\Common\PPModel;
  * @property string pathStart
  * @property string mediaType
  */
-class HyperSchema extends PPModel
+class HyperSchema extends PayPalModel
 {
     /**
      * Sets Links

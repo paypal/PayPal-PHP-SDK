@@ -2,7 +2,7 @@
 
 namespace PayPal\Api;
 
-use PayPal\Common\PPModel;
+use PayPal\Common\PayPalModel;
 use PayPal\Rest\ApiContext;
 
 /**
@@ -16,7 +16,7 @@ use PayPal\Rest\ApiContext;
  * @property string merchant_id
  * @property \PayPal\Api\Phone phone
  */
-class Payee extends PPModel
+class Payee extends PayPalModel
 {
     /**
      * Email Address associated with the Payee's PayPal Account. If the provided email address is not associated with any PayPal Account, the payee can only receiver PayPal Wallet Payments. Direct Credit Card Payments will be denied due to card compliance requirements.
@@ -62,31 +62,6 @@ class Payee extends PPModel
      * @return string
      */
     public function getMerchantId()
-    {
-        return $this->merchant_id;
-    }
-
-    /**
-     * Encrypted PayPal Account identifier for the Payee.
-     *
-     * @deprecated Instead use setMerchantId
-     *
-     * @param string $merchant_id
-     * @return $this
-     */
-    public function setMerchant_id($merchant_id)
-    {
-        $this->merchant_id = $merchant_id;
-        return $this;
-    }
-
-    /**
-     * Encrypted PayPal Account identifier for the Payee.
-     * @deprecated Instead use getMerchantId
-     *
-     * @return string
-     */
-    public function getMerchant_id()
     {
         return $this->merchant_id;
     }

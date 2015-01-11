@@ -2,7 +2,7 @@
 
 namespace PayPal\Cache;
 
-use PayPal\Core\PPConfigManager;
+use PayPal\Core\PayPalConfigManager;
 use PayPal\Validation\JsonValidator;
 
 abstract class AuthorizationCache
@@ -23,9 +23,10 @@ abstract class AuthorizationCache
         if (!self::isEnabled($config)) { return null; }
 
         $tokens = null;
-        if (file_exists(__DIR__ . self::$CACHE_PATH)) {
+        $cachePath = self::cachePath($config);
+        if (file_exists($cachePath)) {
             // Read from the file
-            $cachedToken = file_get_contents(__DIR__ . self::$CACHE_PATH);
+            $cachedToken = file_get_contents($cachePath);
             if ($cachedToken && JsonValidator::validate($cachedToken, true)) {
                 $tokens = json_decode($cachedToken, true);
                 if ($clientId && is_array($tokens) && array_key_exists($clientId, $tokens)) {
@@ -54,8 +55,9 @@ abstract class AuthorizationCache
         // Return if not enabled
         if (!self::isEnabled($config)) { return; }
 
-        if (!is_dir(dirname(__DIR__ . self::$CACHE_PATH))) {
-            if (mkdir(dirname(__DIR__ . self::$CACHE_PATH), 0755, true) == false) {
+        $cachePath = self::cachePath($config);
+        if (!is_dir(dirname($cachePath))) {
+            if (mkdir(dirname($cachePath), 0755, true) == false) {
                 return;
             }
         }
@@ -71,7 +73,7 @@ abstract class AuthorizationCache
                 'tokenExpiresIn' => $tokenExpiresIn
             );
         }
-        file_put_contents(__DIR__ . self::$CACHE_PATH, json_encode($tokens));
+        file_put_contents($cachePath, json_encode($tokens));
     }
 
     /**
@@ -82,12 +84,34 @@ abstract class AuthorizationCache
      */
     public static function isEnabled($config)
     {
-        $config = ($config && is_array($config)) ? $config : PPConfigManager::getInstance()->getConfigHashmap();
-        if (array_key_exists("cache.enabled", $config)) {
-            $value = $config['cache.enabled'];
-            return (trim($value) == 'true') ?  true : false;
-        }
-        return false;
+        $value = self::getConfigValue('cache.enabled', $config);
+        return empty($value) ? false : ((trim($value) == true || trim($value) == 'true') ?  true : false);
+    }
+    
+    /**
+     * Returns the cache file path
+     *
+     * @param $config
+     * @return string
+     */
+    public static function cachePath($config)
+    {
+        $cachePath = self::getConfigValue('cache.FileName', $config);
+        return empty($cachePath) ? __DIR__ . self::$CACHE_PATH : $cachePath;
+    }
+
+    /**
+     * Returns the Value of the key if found in given config, or from PayPal Config Manager
+     * Returns null if not found
+     *
+     * @param $key
+     * @param $config
+     * @return null|string
+     */
+    private static function getConfigValue($key, $config)
+    {
+        $config = ($config && is_array($config)) ? $config : PayPalConfigManager::getInstance()->getConfigHashmap();
+        return (array_key_exists($key, $config)) ? trim($config[$key]) : null;
     }
 
 

@@ -2,7 +2,7 @@
 
 namespace PayPal\Api;
 
-use PayPal\Common\PPModel;
+use PayPal\Common\PayPalModel;
 
 /**
  * Class Image
@@ -11,7 +11,7 @@ use PayPal\Common\PPModel;
  *
  * @property string image
  */
-class Image extends PPModel
+class Image extends PayPalModel
 {
     /**
      * List of invoices belonging to a merchant.

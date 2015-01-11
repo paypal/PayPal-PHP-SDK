@@ -2,7 +2,7 @@
 
 namespace PayPal\Api;
 
-use PayPal\Common\PPModel;
+use PayPal\Common\PayPalModel;
 
 /**
  * Class Terms
@@ -18,7 +18,7 @@ use PayPal\Common\PPModel;
  * @property \PayPal\Api\Currency amount_range
  * @property string buyer_editable
  */
-class Terms extends PPModel
+class Terms extends PayPalModel
 {
     /**
      * Identifier of the terms. 128 characters max.
@@ -90,31 +90,6 @@ class Terms extends PPModel
     }
 
     /**
-     * Max Amount associated with this term.
-     *
-     * @deprecated Instead use setMaxBillingAmount
-     *
-     * @param \PayPal\Api\Currency $max_billing_amount
-     * @return $this
-     */
-    public function setMax_billing_amount($max_billing_amount)
-    {
-        $this->max_billing_amount = $max_billing_amount;
-        return $this;
-    }
-
-    /**
-     * Max Amount associated with this term.
-     * @deprecated Instead use getMaxBillingAmount
-     *
-     * @return \PayPal\Api\Currency
-     */
-    public function getMax_billing_amount()
-    {
-        return $this->max_billing_amount;
-    }
-
-    /**
      * How many times money can be pulled during this term.
      *
      * @param string $occurrences
@@ -161,31 +136,6 @@ class Terms extends PPModel
     }
 
     /**
-     * Amount_range associated with this term.
-     *
-     * @deprecated Instead use setAmountRange
-     *
-     * @param \PayPal\Api\Currency $amount_range
-     * @return $this
-     */
-    public function setAmount_range($amount_range)
-    {
-        $this->amount_range = $amount_range;
-        return $this;
-    }
-
-    /**
-     * Amount_range associated with this term.
-     * @deprecated Instead use getAmountRange
-     *
-     * @return \PayPal\Api\Currency
-     */
-    public function getAmount_range()
-    {
-        return $this->amount_range;
-    }
-
-    /**
      * Buyer's ability to edit the amount in this term.
      *
      * @param string $buyer_editable
@@ -204,31 +154,6 @@ class Terms extends PPModel
      * @return string
      */
     public function getBuyerEditable()
-    {
-        return $this->buyer_editable;
-    }
-
-    /**
-     * Buyer's ability to edit the amount in this term.
-     *
-     * @deprecated Instead use setBuyerEditable
-     *
-     * @param string $buyer_editable
-     * @return $this
-     */
-    public function setBuyer_editable($buyer_editable)
-    {
-        $this->buyer_editable = $buyer_editable;
-        return $this;
-    }
-
-    /**
-     * Buyer's ability to edit the amount in this term.
-     * @deprecated Instead use getBuyerEditable
-     *
-     * @return string
-     */
-    public function getBuyer_editable()
     {
         return $this->buyer_editable;
     }

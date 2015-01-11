@@ -2,7 +2,7 @@
 
 namespace PayPal\Test\Api;
 
-use PayPal\Common\PPModel;
+use PayPal\Common\PayPalModel;
 use PayPal\Api\ErrorDetails;
 
 /**
@@ -54,27 +54,5 @@ class ErrorDetailsTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($obj->getField(), "TestSample");
         $this->assertEquals($obj->getIssue(), "TestSample");
     }
-
-    /**
-     * @depends testSerializationDeserialization
-     * @param ErrorDetails $obj
-     */
-    public function testDeprecatedGetters($obj)
-    {
-    }
-
-    /**
-     * @depends testSerializationDeserialization
-     * @param ErrorDetails $obj
-     */
-    public function testDeprecatedSetterNormalGetter($obj)
-    {
-
-        //Test All Deprecated Getters and Normal Getters
-        $this->testDeprecatedGetters($obj);
-        $this->testGetters($obj);
-    }
-
-
 
 }

@@ -2,9 +2,9 @@
 
 namespace PayPal\Api;
 
-use PayPal\Common\PPModel;
+use PayPal\Common\PayPalModel;
 use PayPal\Rest\ApiContext;
-use PayPal\Transport\PPRestCall;
+use PayPal\Transport\PayPalRestCall;
 
 /**
  * Class FuturePayment
@@ -18,24 +18,24 @@ class FuturePayment extends Payment
      * Extends the Payment object to create future payments
      *
      * @param null $apiContext
-     * @param      $correlationId
+     * @param string|null  $clientMetadataId
      * @return $this
      */
-    public function create($apiContext = null, $correlationId = null)
+    public function create($apiContext = null, $clientMetadataId = null)
     {
         if ($apiContext == null) {
             $apiContext = new ApiContext(self::$credential);
         }
         $headers = array();
-        if ($correlationId != null) {
+        if ($clientMetadataId != null) {
             $headers = array(
-                'PAYPAL-CLIENT-METADATA-ID' => $correlationId
+                'PAYPAL-CLIENT-METADATA-ID' => $clientMetadataId
             );
         }
         $payLoad = $this->toJSON();
-        $call = new PPRestCall($apiContext);
+        $call = new PayPalRestCall($apiContext);
         $json = $call->execute(
-            array('PayPal\Rest\RestHandler'),
+            array('PayPal\Handler\RestHandler'),
             "/v1/payments/payment",
             "POST",
             $payLoad,

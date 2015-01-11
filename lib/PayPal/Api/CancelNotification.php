@@ -2,7 +2,7 @@
 
 namespace PayPal\Api;
 
-use PayPal\Common\PPModel;
+use PayPal\Common\PayPalModel;
 
 /**
  * Class CancelNotification
@@ -16,7 +16,7 @@ use PayPal\Common\PPModel;
  * @property bool send_to_merchant
  * @property bool send_to_payer
  */
-class CancelNotification extends PPModel
+class CancelNotification extends PayPalModel
 {
     /**
      * Subject of the notification.
@@ -88,31 +88,6 @@ class CancelNotification extends PPModel
     }
 
     /**
-     * A flag indicating whether a copy of the email has to be sent to the merchant.
-     *
-     * @deprecated Instead use setSendToMerchant
-     *
-     * @param bool $send_to_merchant
-     * @return $this
-     */
-    public function setSend_to_merchant($send_to_merchant)
-    {
-        $this->send_to_merchant = $send_to_merchant;
-        return $this;
-    }
-
-    /**
-     * A flag indicating whether a copy of the email has to be sent to the merchant.
-     * @deprecated Instead use getSendToMerchant
-     *
-     * @return bool
-     */
-    public function getSend_to_merchant()
-    {
-        return $this->send_to_merchant;
-    }
-
-    /**
      * A flag indicating whether a copy of the email has to be sent to the payer.
      *
      * @param bool $send_to_payer
@@ -131,31 +106,6 @@ class CancelNotification extends PPModel
      * @return bool
      */
     public function getSendToPayer()
-    {
-        return $this->send_to_payer;
-    }
-
-    /**
-     * A flag indicating whether a copy of the email has to be sent to the payer.
-     *
-     * @deprecated Instead use setSendToPayer
-     *
-     * @param bool $send_to_payer
-     * @return $this
-     */
-    public function setSend_to_payer($send_to_payer)
-    {
-        $this->send_to_payer = $send_to_payer;
-        return $this;
-    }
-
-    /**
-     * A flag indicating whether a copy of the email has to be sent to the payer.
-     * @deprecated Instead use getSendToPayer
-     *
-     * @return bool
-     */
-    public function getSend_to_payer()
     {
         return $this->send_to_payer;
     }

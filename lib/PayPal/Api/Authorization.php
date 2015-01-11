@@ -2,11 +2,11 @@
 
 namespace PayPal\Api;
 
-use PayPal\Common\PPModel;
+use PayPal\Common\PayPalModel;
 use PayPal\Rest\ApiContext;
 use PayPal\Rest\IResource;
 use PayPal\Api\Capture;
-use PayPal\Transport\PPRestCall;
+use PayPal\Transport\PayPalRestCall;
 use PayPal\Validation\ArgumentValidator;
 
 /**
@@ -29,26 +29,8 @@ use PayPal\Validation\ArgumentValidator;
  * @property string valid_until
  * @property \PayPal\Api\Links links
  */
-class Authorization extends PPModel implements IResource
+class Authorization extends PayPalModel implements IResource
 {
-    /**
-     * OAuth Credentials to use for this call
-     *
-     * @var \PayPal\Auth\OAuthTokenCredential $credential
-     */
-    protected static $credential;
-
-    /**
-     * Sets Credential
-     *
-     * @deprecated Pass ApiContext to create/get methods instead
-     * @param \PayPal\Auth\OAuthTokenCredential $credential
-     */
-    public static function setCredential($credential)
-    {
-        self::$credential = $credential;
-    }
-
     /**
      * Identifier of the authorization transaction.
      * 
@@ -98,31 +80,6 @@ class Authorization extends PPModel implements IResource
     }
 
     /**
-     * Time the resource was created in UTC ISO8601 format.
-     *
-     * @deprecated Instead use setCreateTime
-     *
-     * @param string $create_time
-     * @return $this
-     */
-    public function setCreate_time($create_time)
-    {
-        $this->create_time = $create_time;
-        return $this;
-    }
-
-    /**
-     * Time the resource was created in UTC ISO8601 format.
-     * @deprecated Instead use getCreateTime
-     *
-     * @return string
-     */
-    public function getCreate_time()
-    {
-        return $this->create_time;
-    }
-
-    /**
      * Time the resource was last updated in UTC ISO8601 format.
      * 
      *
@@ -142,31 +99,6 @@ class Authorization extends PPModel implements IResource
      * @return string
      */
     public function getUpdateTime()
-    {
-        return $this->update_time;
-    }
-
-    /**
-     * Time the resource was last updated in UTC ISO8601 format.
-     *
-     * @deprecated Instead use setUpdateTime
-     *
-     * @param string $update_time
-     * @return $this
-     */
-    public function setUpdate_time($update_time)
-    {
-        $this->update_time = $update_time;
-        return $this;
-    }
-
-    /**
-     * Time the resource was last updated in UTC ISO8601 format.
-     * @deprecated Instead use getUpdateTime
-     *
-     * @return string
-     */
-    public function getUpdate_time()
     {
         return $this->update_time;
     }
@@ -220,31 +152,6 @@ class Authorization extends PPModel implements IResource
     }
 
     /**
-     * specifies payment mode of the transaction
-     *
-     * @deprecated Instead use setPaymentMode
-     *
-     * @param string $payment_mode
-     * @return $this
-     */
-    public function setPayment_mode($payment_mode)
-    {
-        $this->payment_mode = $payment_mode;
-        return $this;
-    }
-
-    /**
-     * specifies payment mode of the transaction
-     * @deprecated Instead use getPaymentMode
-     *
-     * @return string
-     */
-    public function getPayment_mode()
-    {
-        return $this->payment_mode;
-    }
-
-    /**
      * State of the authorization transaction.
      * Valid Values: ["pending", "authorized", "partially_captured", "captured", "expired", "voided"] 
      *
@@ -293,31 +200,6 @@ class Authorization extends PPModel implements IResource
     }
 
     /**
-     * Protection Eligibility of the Payer 
-     *
-     * @deprecated Instead use setProtectionEligibility
-     *
-     * @param string $protection_eligibility
-     * @return $this
-     */
-    public function setProtection_eligibility($protection_eligibility)
-    {
-        $this->protection_eligibility = $protection_eligibility;
-        return $this;
-    }
-
-    /**
-     * Protection Eligibility of the Payer 
-     * @deprecated Instead use getProtectionEligibility
-     *
-     * @return string
-     */
-    public function getProtection_eligibility()
-    {
-        return $this->protection_eligibility;
-    }
-
-    /**
      * Protection Eligibility Type of the Payer 
      * Valid Values: ["ELIGIBLE", "ITEM_NOT_RECEIVED_ELIGIBLE", "INELIGIBLE", "UNAUTHORIZED_PAYMENT_ELIGIBLE"] 
      *
@@ -337,31 +219,6 @@ class Authorization extends PPModel implements IResource
      * @return string
      */
     public function getProtectionEligibilityType()
-    {
-        return $this->protection_eligibility_type;
-    }
-
-    /**
-     * Protection Eligibility Type of the Payer 
-     *
-     * @deprecated Instead use setProtectionEligibilityType
-     *
-     * @param string $protection_eligibility_type
-     * @return $this
-     */
-    public function setProtection_eligibility_type($protection_eligibility_type)
-    {
-        $this->protection_eligibility_type = $protection_eligibility_type;
-        return $this;
-    }
-
-    /**
-     * Protection Eligibility Type of the Payer 
-     * @deprecated Instead use getProtectionEligibilityType
-     *
-     * @return string
-     */
-    public function getProtection_eligibility_type()
     {
         return $this->protection_eligibility_type;
     }
@@ -391,31 +248,6 @@ class Authorization extends PPModel implements IResource
     }
 
     /**
-     * ID of the Payment resource that this transaction is based on.
-     *
-     * @deprecated Instead use setParentPayment
-     *
-     * @param string $parent_payment
-     * @return $this
-     */
-    public function setParent_payment($parent_payment)
-    {
-        $this->parent_payment = $parent_payment;
-        return $this;
-    }
-
-    /**
-     * ID of the Payment resource that this transaction is based on.
-     * @deprecated Instead use getParentPayment
-     *
-     * @return string
-     */
-    public function getParent_payment()
-    {
-        return $this->parent_payment;
-    }
-
-    /**
      * Expected clearing time for eCheck Transactions
      * 
      *
@@ -440,31 +272,6 @@ class Authorization extends PPModel implements IResource
     }
 
     /**
-     * Expected clearing time for eCheck Transactions
-     *
-     * @deprecated Instead use setClearingTime
-     *
-     * @param string $clearing_time
-     * @return $this
-     */
-    public function setClearing_time($clearing_time)
-    {
-        $this->clearing_time = $clearing_time;
-        return $this;
-    }
-
-    /**
-     * Expected clearing time for eCheck Transactions
-     * @deprecated Instead use getClearingTime
-     *
-     * @return string
-     */
-    public function getClearing_time()
-    {
-        return $this->clearing_time;
-    }
-
-    /**
      * Date/Time until which funds may be captured against this resource.
      * 
      *
@@ -484,31 +291,6 @@ class Authorization extends PPModel implements IResource
      * @return string
      */
     public function getValidUntil()
-    {
-        return $this->valid_until;
-    }
-
-    /**
-     * Date/Time until which funds may be captured against this resource.
-     *
-     * @deprecated Instead use setValidUntil
-     *
-     * @param string $valid_until
-     * @return $this
-     */
-    public function setValid_until($valid_until)
-    {
-        $this->valid_until = $valid_until;
-        return $this;
-    }
-
-    /**
-     * Date/Time until which funds may be captured against this resource.
-     * @deprecated Instead use getValidUntil
-     *
-     * @return string
-     */
-    public function getValid_until()
     {
         return $this->valid_until;
     }
@@ -552,8 +334,8 @@ class Authorization extends PPModel implements IResource
         if ($apiContext == null) {
             $apiContext = new ApiContext(self::$credential);
         }
-        $call = new PPRestCall($apiContext);
-        $json = $call->execute(array('PayPal\Rest\RestHandler'), "/v1/payments/authorization/$authorizationId", "GET", $payLoad);
+        $call = new PayPalRestCall($apiContext);
+        $json = $call->execute(array('PayPal\Handler\RestHandler'), "/v1/payments/authorization/$authorizationId", "GET", $payLoad);
         $ret = new Authorization();
         $ret->fromJson($json);
         return $ret;
@@ -575,8 +357,8 @@ class Authorization extends PPModel implements IResource
         if ($apiContext == null) {
             $apiContext = new ApiContext(self::$credential);
         }
-        $call = new PPRestCall($apiContext);
-        $json = $call->execute(array('PayPal\Rest\RestHandler'), "/v1/payments/authorization/{$this->getId()}/capture", "POST", $payLoad);
+        $call = new PayPalRestCall($apiContext);
+        $json = $call->execute(array('PayPal\Handler\RestHandler'), "/v1/payments/authorization/{$this->getId()}/capture", "POST", $payLoad);
         $ret = new Capture();
         $ret->fromJson($json);
         return $ret;
@@ -596,8 +378,8 @@ class Authorization extends PPModel implements IResource
         if ($apiContext == null) {
             $apiContext = new ApiContext(self::$credential);
         }
-        $call = new PPRestCall($apiContext);
-        $json = $call->execute(array('PayPal\Rest\RestHandler'), "/v1/payments/authorization/{$this->getId()}/void", "POST", $payLoad);
+        $call = new PayPalRestCall($apiContext);
+        $json = $call->execute(array('PayPal\Handler\RestHandler'), "/v1/payments/authorization/{$this->getId()}/void", "POST", $payLoad);
         $this->fromJson($json);
         return $this;
     }
@@ -616,8 +398,8 @@ class Authorization extends PPModel implements IResource
         if ($apiContext == null) {
             $apiContext = new ApiContext(self::$credential);
         }
-        $call = new PPRestCall($apiContext);
-        $json = $call->execute(array('PayPal\Rest\RestHandler'), "/v1/payments/authorization/{$this->getId()}/reauthorize", "POST", $payLoad);
+        $call = new PayPalRestCall($apiContext);
+        $json = $call->execute(array('PayPal\Handler\RestHandler'), "/v1/payments/authorization/{$this->getId()}/reauthorize", "POST", $payLoad);
         $this->fromJson($json);
         return $this;
     }

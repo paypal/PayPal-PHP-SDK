@@ -19,7 +19,19 @@ if (isset($_GET['success']) && $_GET['success'] == 'true') {
         ResultPrinter::printError("Executed an Agreement", "Agreement", $agreement->getId(), $_GET['token'], $ex);
         exit(1);
     }
+
     ResultPrinter::printResult("Executed an Agreement", "Agreement", $agreement->getId(), $_GET['token'], $agreement);
+
+    // ## Get Agreement
+    // Make a get call to retrieve the executed agreement details
+    try {
+        $agreement = \PayPal\Api\Agreement::get($agreement->getId(), $apiContext);
+    } catch (Exception $ex) {
+        ResultPrinter::printError("Get Agreement", "Agreement", null, null, $ex);
+        exit(1);
+    }
+
+    ResultPrinter::printResult("Get Agreement", "Agreement", $agreement->getId(), null, $agreement);
 
 } else {
     ResultPrinter::printResult("User Cancelled the Approval", null);

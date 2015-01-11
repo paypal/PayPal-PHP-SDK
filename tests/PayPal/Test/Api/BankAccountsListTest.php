@@ -2,7 +2,7 @@
 
 namespace PayPal\Test\Api;
 
-use PayPal\Common\PPModel;
+use PayPal\Common\PayPalModel;
 use PayPal\Api\BankAccountsList;
 
 /**
@@ -56,45 +56,5 @@ class BankAccountsListTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($obj->getCount(), 123);
         $this->assertEquals($obj->getNextId(), "TestSample");
     }
-
-    /**
-     * @depends testSerializationDeserialization
-     * @param BankAccountsList $obj
-     */
-    public function testDeprecatedGetters($obj)
-    {
-        $this->assertEquals($obj->getBank_accounts(), BankAccountTest::getObject());
-        $this->assertEquals($obj->getNext_id(), "TestSample");
-    }
-
-    /**
-     * @depends testSerializationDeserialization
-     * @param BankAccountsList $obj
-     */
-    public function testDeprecatedSetterNormalGetter($obj)
-    {
-
-        // Check for Bank_accounts
-        $obj->setBankAccounts(null);
-        $this->assertNull($obj->getBank_accounts());
-        $this->assertNull($obj->getBankAccounts());
-        $this->assertSame($obj->getBankAccounts(), $obj->getBank_accounts());
-        $obj->setBank_accounts(BankAccountTest::getObject());
-        $this->assertEquals($obj->getBank_accounts(), BankAccountTest::getObject());
-
-        // Check for Next_id
-        $obj->setNextId(null);
-        $this->assertNull($obj->getNext_id());
-        $this->assertNull($obj->getNextId());
-        $this->assertSame($obj->getNextId(), $obj->getNext_id());
-        $obj->setNext_id("TestSample");
-        $this->assertEquals($obj->getNext_id(), "TestSample");
-
-        //Test All Deprecated Getters and Normal Getters
-        $this->testDeprecatedGetters($obj);
-        $this->testGetters($obj);
-    }
-
-
 
 }

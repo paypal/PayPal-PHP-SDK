@@ -2,7 +2,7 @@
 
 namespace PayPal\Api;
 
-use PayPal\Common\PPModel;
+use PayPal\Common\PayPalModel;
 use PayPal\Rest\ApiContext;
 use PayPal\Validation\UrlValidator;
 
@@ -16,7 +16,7 @@ use PayPal\Validation\UrlValidator;
  * @property string return_url
  * @property string cancel_url
  */
-class RedirectUrls extends PPModel
+class RedirectUrls extends PayPalModel
 {
     /**
      * Url where the payer would be redirected to after approving the payment.
@@ -44,36 +44,11 @@ class RedirectUrls extends PPModel
     }
 
     /**
-     * Url where the payer would be redirected to after approving the payment.
-     *
-     * @deprecated Instead use setReturnUrl
-     *
-     * @param string $return_url
-     * @return $this
-     */
-    public function setReturn_url($return_url)
-    {
-        $this->return_url = $return_url;
-        return $this;
-    }
-
-    /**
-     * Url where the payer would be redirected to after approving the payment.
-     * @deprecated Instead use getReturnUrl
-     *
-     * @return string
-     */
-    public function getReturn_url()
-    {
-        return $this->return_url;
-    }
-
-    /**
      * Url where the payer would be redirected to after canceling the payment.
      * 
      *
      * @param string $cancel_url
-     * @throws InvalidArgumentException
+     * @throws \InvalidArgumentException
      * @return $this
      */
     public function setCancelUrl($cancel_url)
@@ -89,31 +64,6 @@ class RedirectUrls extends PPModel
      * @return string
      */
     public function getCancelUrl()
-    {
-        return $this->cancel_url;
-    }
-
-    /**
-     * Url where the payer would be redirected to after canceling the payment.
-     *
-     * @deprecated Instead use setCancelUrl
-     *
-     * @param string $cancel_url
-     * @return $this
-     */
-    public function setCancel_url($cancel_url)
-    {
-        $this->cancel_url = $cancel_url;
-        return $this;
-    }
-
-    /**
-     * Url where the payer would be redirected to after canceling the payment.
-     * @deprecated Instead use getCancelUrl
-     *
-     * @return string
-     */
-    public function getCancel_url()
     {
         return $this->cancel_url;
     }

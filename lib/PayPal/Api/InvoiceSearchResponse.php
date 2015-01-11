@@ -2,7 +2,7 @@
 
 namespace PayPal\Api;
 
-use PayPal\Common\PPModel;
+use PayPal\Common\PayPalModel;
 
 /**
  * Class InvoiceSearchResponse
@@ -14,7 +14,7 @@ use PayPal\Common\PPModel;
  * @property int total_count
  * @property \PayPal\Api\Invoice[] invoices
  */
-class InvoiceSearchResponse extends PPModel
+class InvoiceSearchResponse extends PayPalModel
 {
     /**
      * Total number of invoices.
@@ -35,31 +35,6 @@ class InvoiceSearchResponse extends PPModel
      * @return int
      */
     public function getTotalCount()
-    {
-        return $this->total_count;
-    }
-
-    /**
-     * Total number of invoices.
-     *
-     * @deprecated Instead use setTotalCount
-     *
-     * @param int $total_count
-     * @return $this
-     */
-    public function setTotal_count($total_count)
-    {
-        $this->total_count = $total_count;
-        return $this;
-    }
-
-    /**
-     * Total number of invoices.
-     * @deprecated Instead use getTotalCount
-     *
-     * @return int
-     */
-    public function getTotal_count()
     {
         return $this->total_count;
     }

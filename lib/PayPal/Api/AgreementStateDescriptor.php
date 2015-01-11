@@ -2,7 +2,7 @@
 
 namespace PayPal\Api;
 
-use PayPal\Common\PPModel;
+use PayPal\Common\PayPalModel;
 
 /**
  * Class AgreementStateDescriptor
@@ -14,7 +14,7 @@ use PayPal\Common\PPModel;
  * @property string note
  * @property \PayPal\Api\Currency amount
  */
-class AgreementStateDescriptor extends PPModel
+class AgreementStateDescriptor extends PayPalModel
 {
     /**
      * Reason for changing the state of the agreement.

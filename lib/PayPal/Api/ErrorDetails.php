@@ -2,7 +2,7 @@
 
 namespace PayPal\Api;
 
-use PayPal\Common\PPModel;
+use PayPal\Common\PayPalModel;
 
 /**
  * Class ErrorDetails
@@ -14,7 +14,7 @@ use PayPal\Common\PPModel;
  * @property string field
  * @property string issue
  */
-class ErrorDetails extends PPModel
+class ErrorDetails extends PayPalModel
 {
     /**
      * Name of the field that caused the error.

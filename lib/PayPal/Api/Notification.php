@@ -2,7 +2,7 @@
 
 namespace PayPal\Api;
 
-use PayPal\Common\PPModel;
+use PayPal\Common\PayPalModel;
 
 /**
  * Class Notification
@@ -15,7 +15,7 @@ use PayPal\Common\PPModel;
  * @property string note
  * @property bool send_to_merchant
  */
-class Notification extends PPModel
+class Notification extends PayPalModel
 {
     /**
      * Subject of the notification.
@@ -82,31 +82,6 @@ class Notification extends PPModel
      * @return bool
      */
     public function getSendToMerchant()
-    {
-        return $this->send_to_merchant;
-    }
-
-    /**
-     * A flag indicating whether a copy of the email has to be sent to the merchant.
-     *
-     * @deprecated Instead use setSendToMerchant
-     *
-     * @param bool $send_to_merchant
-     * @return $this
-     */
-    public function setSend_to_merchant($send_to_merchant)
-    {
-        $this->send_to_merchant = $send_to_merchant;
-        return $this;
-    }
-
-    /**
-     * A flag indicating whether a copy of the email has to be sent to the merchant.
-     * @deprecated Instead use getSendToMerchant
-     *
-     * @return bool
-     */
-    public function getSend_to_merchant()
     {
         return $this->send_to_merchant;
     }

@@ -2,7 +2,7 @@
 
 namespace PayPal\Api;
 
-use PayPal\Common\PPModel;
+use PayPal\Common\PayPalModel;
 
 /**
  * Class PaymentCardToken
@@ -18,7 +18,7 @@ use PayPal\Common\PPModel;
  * @property int expire_month
  * @property int expire_year
  */
-class PaymentCardToken extends PPModel
+class PaymentCardToken extends PayPalModel
 {
     /**
      * ID of a previously saved Payment Card resource.
@@ -44,31 +44,6 @@ class PaymentCardToken extends PPModel
     }
 
     /**
-     * ID of a previously saved Payment Card resource.
-     *
-     * @deprecated Instead use setPaymentCardId
-     *
-     * @param string $payment_card_id
-     * @return $this
-     */
-    public function setPayment_card_id($payment_card_id)
-    {
-        $this->payment_card_id = $payment_card_id;
-        return $this;
-    }
-
-    /**
-     * ID of a previously saved Payment Card resource.
-     * @deprecated Instead use getPaymentCardId
-     *
-     * @return string
-     */
-    public function getPayment_card_id()
-    {
-        return $this->payment_card_id;
-    }
-
-    /**
      * The unique identifier of the payer used when saving this payment card.
      *
      * @param string $external_customer_id
@@ -87,31 +62,6 @@ class PaymentCardToken extends PPModel
      * @return string
      */
     public function getExternalCustomerId()
-    {
-        return $this->external_customer_id;
-    }
-
-    /**
-     * The unique identifier of the payer used when saving this payment card.
-     *
-     * @deprecated Instead use setExternalCustomerId
-     *
-     * @param string $external_customer_id
-     * @return $this
-     */
-    public function setExternal_customer_id($external_customer_id)
-    {
-        $this->external_customer_id = $external_customer_id;
-        return $this;
-    }
-
-    /**
-     * The unique identifier of the payer used when saving this payment card.
-     * @deprecated Instead use getExternalCustomerId
-     *
-     * @return string
-     */
-    public function getExternal_customer_id()
     {
         return $this->external_customer_id;
     }
@@ -187,31 +137,6 @@ class PaymentCardToken extends PPModel
     }
 
     /**
-     * Expiry month from the saved card with value 1 - 12.
-     *
-     * @deprecated Instead use setExpireMonth
-     *
-     * @param int $expire_month
-     * @return $this
-     */
-    public function setExpire_month($expire_month)
-    {
-        $this->expire_month = $expire_month;
-        return $this;
-    }
-
-    /**
-     * Expiry month from the saved card with value 1 - 12.
-     * @deprecated Instead use getExpireMonth
-     *
-     * @return int
-     */
-    public function getExpire_month()
-    {
-        return $this->expire_month;
-    }
-
-    /**
      * Four digit expiry year from the saved card, represented as YYYY format.
      *
      * @param int $expire_year
@@ -230,31 +155,6 @@ class PaymentCardToken extends PPModel
      * @return int
      */
     public function getExpireYear()
-    {
-        return $this->expire_year;
-    }
-
-    /**
-     * Four digit expiry year from the saved card, represented as YYYY format.
-     *
-     * @deprecated Instead use setExpireYear
-     *
-     * @param int $expire_year
-     * @return $this
-     */
-    public function setExpire_year($expire_year)
-    {
-        $this->expire_year = $expire_year;
-        return $this;
-    }
-
-    /**
-     * Four digit expiry year from the saved card, represented as YYYY format.
-     * @deprecated Instead use getExpireYear
-     *
-     * @return int
-     */
-    public function getExpire_year()
     {
         return $this->expire_year;
     }

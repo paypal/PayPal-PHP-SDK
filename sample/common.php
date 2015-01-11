@@ -53,8 +53,8 @@ class ResultPrinter
             if (self::$printResultCounter == 0) {
                 include "header.html";
                 echo '
-                  <div class="row header"><div class="col-md-3 pull-left"><br /><a href="../index.php"><h3>&#10094;&#10094; Back to Samples</h3></a><br /><br /></div> <br />
-                  <div class="col-md-2 pull-right"><img  src="../images/pp_v_rgb.png" height="70" /></div> </div><div class="clearfix visible-xs-block"></div><br />';
+                  <div class="row header"><div class="col-md-5 pull-left"><br /><a href="../index.php"><h1 class="home">&#10094;&#10094; Back to Samples</h1></a><br /></div> <br />
+                  <div class="col-md-4 pull-right"><img src="https://www.paypalobjects.com/webstatic/developer/logo2_paypal_developer_2x.png" class="logo" width="300"/></div> </div>';
                 echo '<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">';
             }
             self::$printResultCounter++;
@@ -122,7 +122,7 @@ class ResultPrinter
     public static function printError($title, $objectName, $objectId = null, $request = null, $exception = null)
     {
         $data = null;
-        if ($exception instanceof \PayPal\Exception\PPConnectionException) {
+        if ($exception instanceof \PayPal\Exception\PayPalConnectionException) {
             $data = $exception->getData();
         }
         self::printOutput($title, $objectName, $objectId, $request, $data, $exception->getMessage());
@@ -134,8 +134,8 @@ class ResultPrinter
             echo 'ERROR:'. $error;
         }
         if ($object) {
-            if (is_a($object, 'PayPal\Common\PPModel')) {
-                /** @var $object \PayPal\Common\PPModel */
+            if (is_a($object, 'PayPal\Common\PayPalModel')) {
+                /** @var $object \PayPal\Common\PayPalModel */
                 echo $object->toJSON(128);
             } elseif (is_string($object) && \PayPal\Validation\JsonValidator::validate($object, true)) {
                 echo str_replace('\\/', '/', json_encode(json_decode($object), 128));
@@ -157,8 +157,8 @@ class ResultPrinter
             '</p>';
         }
         if ($object) {
-            if (is_a($object, 'PayPal\Common\PPModel')) {
-                /** @var $object \PayPal\Common\PPModel */
+            if (is_a($object, 'PayPal\Common\PayPalModel')) {
+                /** @var $object \PayPal\Common\PayPalModel */
                 echo '<pre class="prettyprint '. ($error ? 'error' : '') .'">' . $object->toJSON(128) . "</pre>";
             } elseif (is_string($object) && \PayPal\Validation\JsonValidator::validate($object, true)) {
                 echo '<pre class="prettyprint '. ($error ? 'error' : '') .'">'. str_replace('\\/', '/', json_encode(json_decode($object), 128)) . "</pre>";

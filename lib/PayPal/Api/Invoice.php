@@ -2,10 +2,10 @@
 
 namespace PayPal\Api;
 
-use PayPal\Common\ResourceModel;
+use PayPal\Common\PayPalResourceModel;
 use PayPal\Validation\ArgumentValidator;
 use PayPal\Rest\ApiContext;
-use PayPal\Transport\PPRestCall;
+use PayPal\Transport\PayPalRestCall;
 use PayPal\Validation\UrlValidator;
 
 /**
@@ -35,12 +35,12 @@ use PayPal\Validation\UrlValidator;
  * @property string merchant_memo
  * @property string logo_url
  * @property \PayPal\Api\Currency total_amount
- * @property \PayPal\Api\PaymentDetail[] payment_details
- * @property \PayPal\Api\RefundDetail[] refund_details
+ * @property \PayPal\Api\PaymentDetail[] payments
+ * @property \PayPal\Api\RefundDetail[] refunds
  * @property \PayPal\Api\Metadata metadata
  * @property string additional_data
  */
-class Invoice extends ResourceModel
+class Invoice extends PayPalResourceModel
 {
     /**
      * Unique invoice resource identifier.
@@ -159,31 +159,6 @@ class Invoice extends ResourceModel
     }
 
     /**
-     * Information about the merchant who is sending the invoice.
-     *
-     * @deprecated Instead use setMerchantInfo
-     *
-     * @param \PayPal\Api\MerchantInfo $merchant_info
-     * @return $this
-     */
-    public function setMerchant_info($merchant_info)
-    {
-        $this->merchant_info = $merchant_info;
-        return $this;
-    }
-
-    /**
-     * Information about the merchant who is sending the invoice.
-     * @deprecated Instead use getMerchantInfo
-     *
-     * @return \PayPal\Api\MerchantInfo
-     */
-    public function getMerchant_info()
-    {
-        return $this->merchant_info;
-    }
-
-    /**
      * Email address of invoice recipient (required) and optional billing information. (Note: We currently only allow one recipient).
      *
      * @param \PayPal\Api\BillingInfo[] $billing_info
@@ -237,31 +212,6 @@ class Invoice extends ResourceModel
     }
 
     /**
-     * Email address of invoice recipient (required) and optional billing information. (Note: We currently only allow one recipient).
-     *
-     * @deprecated Instead use setBillingInfo
-     *
-     * @param \PayPal\Api\BillingInfo $billing_info
-     * @return $this
-     */
-    public function setBilling_info($billing_info)
-    {
-        $this->billing_info = $billing_info;
-        return $this;
-    }
-
-    /**
-     * Email address of invoice recipient (required) and optional billing information. (Note: We currently only allow one recipient).
-     * @deprecated Instead use getBillingInfo
-     *
-     * @return \PayPal\Api\BillingInfo
-     */
-    public function getBilling_info()
-    {
-        return $this->billing_info;
-    }
-
-    /**
      * Shipping information for entities to whom items are being shipped.
      *
      * @param \PayPal\Api\ShippingInfo $shipping_info
@@ -280,31 +230,6 @@ class Invoice extends ResourceModel
      * @return \PayPal\Api\ShippingInfo
      */
     public function getShippingInfo()
-    {
-        return $this->shipping_info;
-    }
-
-    /**
-     * Shipping information for entities to whom items are being shipped.
-     *
-     * @deprecated Instead use setShippingInfo
-     *
-     * @param \PayPal\Api\ShippingInfo $shipping_info
-     * @return $this
-     */
-    public function setShipping_info($shipping_info)
-    {
-        $this->shipping_info = $shipping_info;
-        return $this;
-    }
-
-    /**
-     * Shipping information for entities to whom items are being shipped.
-     * @deprecated Instead use getShippingInfo
-     *
-     * @return \PayPal\Api\ShippingInfo
-     */
-    public function getShipping_info()
     {
         return $this->shipping_info;
     }
@@ -386,31 +311,6 @@ class Invoice extends ResourceModel
     }
 
     /**
-     * Date on which the invoice was enabled. Date format yyyy-MM-dd z, as defined in [ISO8601](http://tools.ietf.org/html/rfc3339#section-5.6).
-     *
-     * @deprecated Instead use setInvoiceDate
-     *
-     * @param string $invoice_date
-     * @return $this
-     */
-    public function setInvoice_date($invoice_date)
-    {
-        $this->invoice_date = $invoice_date;
-        return $this;
-    }
-
-    /**
-     * Date on which the invoice was enabled. Date format yyyy-MM-dd z, as defined in [ISO8601](http://tools.ietf.org/html/rfc3339#section-5.6).
-     * @deprecated Instead use getInvoiceDate
-     *
-     * @return string
-     */
-    public function getInvoice_date()
-    {
-        return $this->invoice_date;
-    }
-
-    /**
      * Optional field to pass payment deadline for the invoice. Either term_type or due_date can be passed, but not both.
      *
      * @param \PayPal\Api\PaymentTerm $payment_term
@@ -429,31 +329,6 @@ class Invoice extends ResourceModel
      * @return \PayPal\Api\PaymentTerm
      */
     public function getPaymentTerm()
-    {
-        return $this->payment_term;
-    }
-
-    /**
-     * Optional field to pass payment deadline for the invoice. Either term_type or due_date can be passed, but not both.
-     *
-     * @deprecated Instead use setPaymentTerm
-     *
-     * @param \PayPal\Api\PaymentTerm $payment_term
-     * @return $this
-     */
-    public function setPayment_term($payment_term)
-    {
-        $this->payment_term = $payment_term;
-        return $this;
-    }
-
-    /**
-     * Optional field to pass payment deadline for the invoice. Either term_type or due_date can be passed, but not both.
-     * @deprecated Instead use getPaymentTerm
-     *
-     * @return \PayPal\Api\PaymentTerm
-     */
-    public function getPayment_term()
     {
         return $this->payment_term;
     }
@@ -505,31 +380,6 @@ class Invoice extends ResourceModel
     }
 
     /**
-     * Shipping cost in percent or amount.
-     *
-     * @deprecated Instead use setShippingCost
-     *
-     * @param \PayPal\Api\ShippingCost $shipping_cost
-     * @return $this
-     */
-    public function setShipping_cost($shipping_cost)
-    {
-        $this->shipping_cost = $shipping_cost;
-        return $this;
-    }
-
-    /**
-     * Shipping cost in percent or amount.
-     * @deprecated Instead use getShippingCost
-     *
-     * @return \PayPal\Api\ShippingCost
-     */
-    public function getShipping_cost()
-    {
-        return $this->shipping_cost;
-    }
-
-    /**
      * Custom amount applied on an invoice. If a label is included then the amount cannot be empty.
      *
      * @param \PayPal\Api\CustomAmount $custom
@@ -576,31 +426,6 @@ class Invoice extends ResourceModel
     }
 
     /**
-     * Indicates whether tax is calculated before or after a discount. If false (the default), the tax is calculated before a discount. If true, the tax is calculated after a discount.
-     *
-     * @deprecated Instead use setTaxCalculatedAfterDiscount
-     *
-     * @param bool $tax_calculated_after_discount
-     * @return $this
-     */
-    public function setTax_calculated_after_discount($tax_calculated_after_discount)
-    {
-        $this->tax_calculated_after_discount = $tax_calculated_after_discount;
-        return $this;
-    }
-
-    /**
-     * Indicates whether tax is calculated before or after a discount. If false (the default), the tax is calculated before a discount. If true, the tax is calculated after a discount.
-     * @deprecated Instead use getTaxCalculatedAfterDiscount
-     *
-     * @return bool
-     */
-    public function getTax_calculated_after_discount()
-    {
-        return $this->tax_calculated_after_discount;
-    }
-
-    /**
      * A flag indicating whether the unit price includes tax. Default is false
      *
      * @param bool $tax_inclusive
@@ -619,31 +444,6 @@ class Invoice extends ResourceModel
      * @return bool
      */
     public function getTaxInclusive()
-    {
-        return $this->tax_inclusive;
-    }
-
-    /**
-     * A flag indicating whether the unit price includes tax. Default is false
-     *
-     * @deprecated Instead use setTaxInclusive
-     *
-     * @param bool $tax_inclusive
-     * @return $this
-     */
-    public function setTax_inclusive($tax_inclusive)
-    {
-        $this->tax_inclusive = $tax_inclusive;
-        return $this;
-    }
-
-    /**
-     * A flag indicating whether the unit price includes tax. Default is false
-     * @deprecated Instead use getTaxInclusive
-     *
-     * @return bool
-     */
-    public function getTax_inclusive()
     {
         return $this->tax_inclusive;
     }
@@ -718,31 +518,6 @@ class Invoice extends ResourceModel
     }
 
     /**
-     * Bookkeeping memo that is private to the merchant. 150 characters max.
-     *
-     * @deprecated Instead use setMerchantMemo
-     *
-     * @param string $merchant_memo
-     * @return $this
-     */
-    public function setMerchant_memo($merchant_memo)
-    {
-        $this->merchant_memo = $merchant_memo;
-        return $this;
-    }
-
-    /**
-     * Bookkeeping memo that is private to the merchant. 150 characters max.
-     * @deprecated Instead use getMerchantMemo
-     *
-     * @return string
-     */
-    public function getMerchant_memo()
-    {
-        return $this->merchant_memo;
-    }
-
-    /**
      * Full URL of an external image to use as the logo. 4000 characters max.
      *
      * @param string $logo_url
@@ -762,31 +537,6 @@ class Invoice extends ResourceModel
      * @return string
      */
     public function getLogoUrl()
-    {
-        return $this->logo_url;
-    }
-
-    /**
-     * Full URL of an external image to use as the logo. 4000 characters max.
-     *
-     * @deprecated Instead use setLogoUrl
-     *
-     * @param string $logo_url
-     * @return $this
-     */
-    public function setLogo_url($logo_url)
-    {
-        $this->logo_url = $logo_url;
-        return $this;
-    }
-
-    /**
-     * Full URL of an external image to use as the logo. 4000 characters max.
-     * @deprecated Instead use getLogoUrl
-     *
-     * @return string
-     */
-    public function getLogo_url()
     {
         return $this->logo_url;
     }
@@ -815,40 +565,15 @@ class Invoice extends ResourceModel
     }
 
     /**
-     * The total amount of the invoice.
-     *
-     * @deprecated Instead use setTotalAmount
-     *
-     * @param \PayPal\Api\Currency $total_amount
-     * @return $this
-     */
-    public function setTotal_amount($total_amount)
-    {
-        $this->total_amount = $total_amount;
-        return $this;
-    }
-
-    /**
-     * The total amount of the invoice.
-     * @deprecated Instead use getTotalAmount
-     *
-     * @return \PayPal\Api\Currency
-     */
-    public function getTotal_amount()
-    {
-        return $this->total_amount;
-    }
-
-    /**
      * List of payment details for the invoice.
      *
-     * @param \PayPal\Api\PaymentDetail[] $payment_details
+     * @param \PayPal\Api\PaymentDetail[] $payments
      * 
      * @return $this
      */
-    public function setPaymentDetails($payment_details)
+    public function setPayments($payments)
     {
-        $this->payment_details = $payment_details;
+        $this->payments = $payments;
         return $this;
     }
 
@@ -857,9 +582,9 @@ class Invoice extends ResourceModel
      *
      * @return \PayPal\Api\PaymentDetail[]
      */
-    public function getPaymentDetails()
+    public function getPayments()
     {
-        return $this->payment_details;
+        return $this->payments;
     }
 
     /**
@@ -870,11 +595,11 @@ class Invoice extends ResourceModel
      */
     public function addPaymentDetail($paymentDetail)
     {
-        if (!$this->getPaymentDetails()) {
-            return $this->setPaymentDetails(array($paymentDetail));
+        if (!$this->getPayments()) {
+            return $this->setPayments(array($paymentDetail));
         } else {
-            return $this->setPaymentDetails(
-                array_merge($this->getPaymentDetails(), array($paymentDetail))
+            return $this->setPayments(
+                array_merge($this->getPayments(), array($paymentDetail))
             );
         }
     }
@@ -887,46 +612,21 @@ class Invoice extends ResourceModel
      */
     public function removePaymentDetail($paymentDetail)
     {
-        return $this->setPaymentDetails(
-            array_diff($this->getPaymentDetails(), array($paymentDetail))
+        return $this->setPayments(
+            array_diff($this->getPayments(), array($paymentDetail))
         );
-    }
-
-    /**
-     * List of payment details for the invoice.
-     *
-     * @deprecated Instead use setPaymentDetails
-     *
-     * @param \PayPal\Api\PaymentDetail $payment_details
-     * @return $this
-     */
-    public function setPayment_details($payment_details)
-    {
-        $this->payment_details = $payment_details;
-        return $this;
-    }
-
-    /**
-     * List of payment details for the invoice.
-     * @deprecated Instead use getPaymentDetails
-     *
-     * @return \PayPal\Api\PaymentDetail
-     */
-    public function getPayment_details()
-    {
-        return $this->payment_details;
     }
 
     /**
      * List of refund details for the invoice.
      *
-     * @param \PayPal\Api\RefundDetail[] $refund_details
+     * @param \PayPal\Api\RefundDetail[] $refunds
      * 
      * @return $this
      */
-    public function setRefundDetails($refund_details)
+    public function setRefunds($refunds)
     {
-        $this->refund_details = $refund_details;
+        $this->refunds = $refunds;
         return $this;
     }
 
@@ -935,9 +635,9 @@ class Invoice extends ResourceModel
      *
      * @return \PayPal\Api\RefundDetail[]
      */
-    public function getRefundDetails()
+    public function getRefunds()
     {
-        return $this->refund_details;
+        return $this->refunds;
     }
 
     /**
@@ -948,11 +648,11 @@ class Invoice extends ResourceModel
      */
     public function addRefundDetail($refundDetail)
     {
-        if (!$this->getRefundDetails()) {
-            return $this->setRefundDetails(array($refundDetail));
+        if (!$this->getRefunds()) {
+            return $this->setRefunds(array($refundDetail));
         } else {
-            return $this->setRefundDetails(
-                array_merge($this->getRefundDetails(), array($refundDetail))
+            return $this->setRefunds(
+                array_merge($this->getRefunds(), array($refundDetail))
             );
         }
     }
@@ -965,34 +665,9 @@ class Invoice extends ResourceModel
      */
     public function removeRefundDetail($refundDetail)
     {
-        return $this->setRefundDetails(
-            array_diff($this->getRefundDetails(), array($refundDetail))
+        return $this->setRefunds(
+            array_diff($this->getRefunds(), array($refundDetail))
         );
-    }
-
-    /**
-     * List of refund details for the invoice.
-     *
-     * @deprecated Instead use setRefundDetails
-     *
-     * @param \PayPal\Api\RefundDetail $refund_details
-     * @return $this
-     */
-    public function setRefund_details($refund_details)
-    {
-        $this->refund_details = $refund_details;
-        return $this;
-    }
-
-    /**
-     * List of refund details for the invoice.
-     * @deprecated Instead use getRefundDetails
-     *
-     * @return \PayPal\Api\RefundDetail
-     */
-    public function getRefund_details()
-    {
-        return $this->refund_details;
     }
 
     /**
@@ -1042,35 +717,10 @@ class Invoice extends ResourceModel
     }
 
     /**
-     * Any miscellaneous invoice data. 4000 characters max.
-     *
-     * @deprecated Instead use setAdditionalData
-     *
-     * @param string $additional_data
-     * @return $this
-     */
-    public function setAdditional_data($additional_data)
-    {
-        $this->additional_data = $additional_data;
-        return $this;
-    }
-
-    /**
-     * Any miscellaneous invoice data. 4000 characters max.
-     * @deprecated Instead use getAdditionalData
-     *
-     * @return string
-     */
-    public function getAdditional_data()
-    {
-        return $this->additional_data;
-    }
-
-    /**
      * Create a new invoice by passing the details for the invoice, including the merchant_info, to the request URI.
      *
      * @param ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
-     * @param PPRestCall $restCall is the Rest Call Service that is used to make rest calls
+     * @param PayPalRestCall $restCall is the Rest Call Service that is used to make rest calls
      * @return Invoice
      */
     public function create($apiContext = null, $restCall = null)
@@ -1093,7 +743,7 @@ class Invoice extends ResourceModel
      *
      * @param Search $search
      * @param ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
-     * @param PPRestCall $restCall is the Rest Call Service that is used to make rest calls
+     * @param PayPalRestCall $restCall is the Rest Call Service that is used to make rest calls
      * @return InvoiceSearchResponse
      */
     public static function search($search, $apiContext = null, $restCall = null)
@@ -1117,7 +767,7 @@ class Invoice extends ResourceModel
      * Send a specific invoice to its intended recipient by passing the invoice ID to the request URI. Optionally, you can specify whether to send the merchant an invoice update notification by using the notify_merchant query parameter. By default, notify_merchant is true.
      *
      * @param ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
-     * @param PPRestCall $restCall is the Rest Call Service that is used to make rest calls
+     * @param PayPalRestCall $restCall is the Rest Call Service that is used to make rest calls
      * @return bool
      */
     public function send($apiContext = null, $restCall = null)
@@ -1140,7 +790,7 @@ class Invoice extends ResourceModel
      *
      * @param Notification $notification
      * @param ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
-     * @param PPRestCall $restCall is the Rest Call Service that is used to make rest calls
+     * @param PayPalRestCall $restCall is the Rest Call Service that is used to make rest calls
      * @return bool
      */
     public function remind($notification, $apiContext = null, $restCall = null)
@@ -1164,7 +814,7 @@ class Invoice extends ResourceModel
      *
      * @param CancelNotification $cancelNotification
      * @param ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
-     * @param PPRestCall $restCall is the Rest Call Service that is used to make rest calls
+     * @param PayPalRestCall $restCall is the Rest Call Service that is used to make rest calls
      * @return bool
      */
     public function cancel($cancelNotification, $apiContext = null, $restCall = null)
@@ -1188,7 +838,7 @@ class Invoice extends ResourceModel
      *
      * @param PaymentDetail $paymentDetail
      * @param ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
-     * @param PPRestCall $restCall is the Rest Call Service that is used to make rest calls
+     * @param PayPalRestCall $restCall is the Rest Call Service that is used to make rest calls
      * @return bool
      */
     public function recordPayment($paymentDetail, $apiContext = null, $restCall = null)
@@ -1212,7 +862,7 @@ class Invoice extends ResourceModel
      *
      * @param RefundDetail $refundDetail
      * @param ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
-     * @param PPRestCall $restCall is the Rest Call Service that is used to make rest calls
+     * @param PayPalRestCall $restCall is the Rest Call Service that is used to make rest calls
      * @return bool
      */
     public function recordRefund($refundDetail, $apiContext = null, $restCall = null)
@@ -1236,7 +886,7 @@ class Invoice extends ResourceModel
      *
      * @param string $invoiceId
      * @param ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
-     * @param PPRestCall $restCall is the Rest Call Service that is used to make rest calls
+     * @param PayPalRestCall $restCall is the Rest Call Service that is used to make rest calls
      * @return Invoice
      */
     public static function get($invoiceId, $apiContext = null, $restCall = null)
@@ -1261,7 +911,7 @@ class Invoice extends ResourceModel
      *
      * @param array $params
      * @param ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
-     * @param PPRestCall $restCall is the Rest Call Service that is used to make rest calls
+     * @param PayPalRestCall $restCall is the Rest Call Service that is used to make rest calls
      * @return InvoiceSearchResponse
      */
     public static function getAll($params = array(), $apiContext = null, $restCall = null)
@@ -1289,24 +939,10 @@ class Invoice extends ResourceModel
     }
 
     /**
-     * @deprecated Use getAll instead
-     *
-     * List some or all invoices for a merchant according to optional query string parameters specified.
-     *
-     * @param ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
-     * @param PPRestCall $restCall is the Rest Call Service that is used to make rest calls
-     * @return InvoiceSearchResponse
-     */
-    public static function get_all($apiContext = null, $restCall = null)
-    {
-        return self::getAll(null, $apiContext, $restCall);
-    }
-
-    /**
      * Fully update an invoice by passing the invoice ID to the request URI. In addition, pass a complete invoice object in the request JSON. Partial updates are not supported.
      *
      * @param ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
-     * @param PPRestCall $restCall is the Rest Call Service that is used to make rest calls
+     * @param PayPalRestCall $restCall is the Rest Call Service that is used to make rest calls
      * @return Invoice
      */
     public function update($apiContext = null, $restCall = null)
@@ -1329,7 +965,7 @@ class Invoice extends ResourceModel
      * Delete a particular invoice by passing the invoice ID to the request URI.
      *
      * @param ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
-     * @param PPRestCall $restCall is the Rest Call Service that is used to make rest calls
+     * @param PayPalRestCall $restCall is the Rest Call Service that is used to make rest calls
      * @return bool
      */
     public function delete($apiContext = null, $restCall = null)
@@ -1353,7 +989,7 @@ class Invoice extends ResourceModel
      * @param array $params
      * @param string $invoiceId
      * @param ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
-     * @param PPRestCall $restCall is the Rest Call Service that is used to make rest calls
+     * @param PayPalRestCall $restCall is the Rest Call Service that is used to make rest calls
      * @return Image
      */
     public static function qrCode($invoiceId, $params = array(), $apiContext = null, $restCall = null)

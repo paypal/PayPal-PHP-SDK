@@ -24,35 +24,13 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "PHP"
             },
-            "sourcePath": "/Users/japatel/Documents/workspace/Server-SDK/PayPal-PHP-SDK/sample/billing/CreateBillingAgreementWithCreditCard.php",
+            "sourcePath": "/Users/japatel/Documents/workspace/paypal/PayPal-PHP-SDK/sample/billing/CreateBillingAgreementWithCreditCard.php",
             "projectPath": "billing/CreateBillingAgreementWithCreditCard.php",
             "targetPath": "billing/CreateBillingAgreementWithCreditCard",
             "pageTitle": "billing/CreateBillingAgreementWithCreditCard",
             "title": "CreateBillingAgreementWithCreditCard"
           },
-          "depth": 2,
-          "outline": [
-            {
-              "type": "heading",
-              "data": {
-                "level": 1,
-                "title": "Create Billing Agreement with Credit Card as Payment Source",
-                "slug": "create-billing-agreement-with-credit-card-as-payment-source"
-              },
-              "depth": 1,
-              "children": [
-                {
-                  "type": "heading",
-                  "data": {
-                    "level": 3,
-                    "title": "Create Agreement",
-                    "slug": "create-agreement"
-                  },
-                  "depth": 3
-                }
-              ]
-            }
-          ]
+          "depth": 2
         }, {
           "type": "file",
           "data": {
@@ -64,43 +42,13 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "PHP"
             },
-            "sourcePath": "/Users/japatel/Documents/workspace/Server-SDK/PayPal-PHP-SDK/sample/billing/CreateBillingAgreementWithPayPal.php",
+            "sourcePath": "/Users/japatel/Documents/workspace/paypal/PayPal-PHP-SDK/sample/billing/CreateBillingAgreementWithPayPal.php",
             "projectPath": "billing/CreateBillingAgreementWithPayPal.php",
             "targetPath": "billing/CreateBillingAgreementWithPayPal",
             "pageTitle": "billing/CreateBillingAgreementWithPayPal",
             "title": "CreateBillingAgreementWithPayPal"
           },
-          "depth": 2,
-          "outline": [
-            {
-              "type": "heading",
-              "data": {
-                "level": 1,
-                "title": "Create Billing Agreement with PayPal as Payment Source",
-                "slug": "create-billing-agreement-with-paypal-as-payment-source"
-              },
-              "depth": 1,
-              "children": [
-                {
-                  "type": "heading",
-                  "data": {
-                    "level": 3,
-                    "title": "Create Agreement",
-                    "slug": "create-agreement"
-                  },
-                  "depth": 3
-                }, {
-                  "type": "heading",
-                  "data": {
-                    "level": 3,
-                    "title": "Get redirect url",
-                    "slug": "get-redirect-url"
-                  },
-                  "depth": 3
-                }
-              ]
-            }
-          ]
+          "depth": 2
         }, {
           "type": "file",
           "data": {
@@ -112,51 +60,13 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "PHP"
             },
-            "sourcePath": "/Users/japatel/Documents/workspace/Server-SDK/PayPal-PHP-SDK/sample/billing/CreatePlan.php",
+            "sourcePath": "/Users/japatel/Documents/workspace/paypal/PayPal-PHP-SDK/sample/billing/CreatePlan.php",
             "projectPath": "billing/CreatePlan.php",
             "targetPath": "billing/CreatePlan",
             "pageTitle": "billing/CreatePlan",
             "title": "CreatePlan"
           },
-          "depth": 2,
-          "outline": [
-            {
-              "type": "heading",
-              "data": {
-                "level": 1,
-                "title": "Create Plan Sample",
-                "slug": "create-plan-sample"
-              },
-              "depth": 1
-            }, {
-              "type": "heading",
-              "data": {
-                "level": 1,
-                "title": "Basic Information",
-                "slug": "basic-information"
-              },
-              "depth": 1
-            }, {
-              "type": "heading",
-              "data": {
-                "level": 1,
-                "title": "Payment definitions for this billing plan.",
-                "slug": "payment-definitions-for-this-billing-plan"
-              },
-              "depth": 1,
-              "children": [
-                {
-                  "type": "heading",
-                  "data": {
-                    "level": 3,
-                    "title": "Create Plan",
-                    "slug": "create-plan"
-                  },
-                  "depth": 3
-                }
-              ]
-            }
-          ]
+          "depth": 2
         }, {
           "type": "file",
           "data": {
@@ -168,24 +78,13 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "PHP"
             },
-            "sourcePath": "/Users/japatel/Documents/workspace/Server-SDK/PayPal-PHP-SDK/sample/billing/DeletePlan.php",
+            "sourcePath": "/Users/japatel/Documents/workspace/paypal/PayPal-PHP-SDK/sample/billing/DeletePlan.php",
             "projectPath": "billing/DeletePlan.php",
             "targetPath": "billing/DeletePlan",
             "pageTitle": "billing/DeletePlan",
             "title": "DeletePlan"
           },
-          "depth": 2,
-          "outline": [
-            {
-              "type": "heading",
-              "data": {
-                "level": 1,
-                "title": "Delete Plan Sample",
-                "slug": "delete-plan-sample"
-              },
-              "depth": 1
-            }
-          ]
+          "depth": 2
         }, {
           "type": "file",
           "data": {
@@ -197,43 +96,13 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "PHP"
             },
-            "sourcePath": "/Users/japatel/Documents/workspace/Server-SDK/PayPal-PHP-SDK/sample/billing/ExecuteAgreement.php",
+            "sourcePath": "/Users/japatel/Documents/workspace/paypal/PayPal-PHP-SDK/sample/billing/ExecuteAgreement.php",
             "projectPath": "billing/ExecuteAgreement.php",
             "targetPath": "billing/ExecuteAgreement",
             "pageTitle": "billing/ExecuteAgreement",
             "title": "ExecuteAgreement"
           },
-          "depth": 2,
-          "outline": [
-            {
-              "type": "heading",
-              "data": {
-                "level": 1,
-                "title": "Execute Agreement",
-                "slug": "execute-agreement"
-              },
-              "depth": 1,
-              "children": [
-                {
-                  "type": "heading",
-                  "data": {
-                    "level": 2,
-                    "title": "Approval Status",
-                    "slug": "approval-status"
-                  },
-                  "depth": 2
-                }, {
-                  "type": "heading",
-                  "data": {
-                    "level": 2,
-                    "title": "Execute Agreement",
-                    "slug": "execute-agreement"
-                  },
-                  "depth": 2
-                }
-              ]
-            }
-          ]
+          "depth": 2
         }, {
           "type": "file",
           "data": {
@@ -245,24 +114,13 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "PHP"
             },
-            "sourcePath": "/Users/japatel/Documents/workspace/Server-SDK/PayPal-PHP-SDK/sample/billing/GetBillingAgreement.php",
+            "sourcePath": "/Users/japatel/Documents/workspace/paypal/PayPal-PHP-SDK/sample/billing/GetBillingAgreement.php",
             "projectPath": "billing/GetBillingAgreement.php",
             "targetPath": "billing/GetBillingAgreement",
             "pageTitle": "billing/GetBillingAgreement",
             "title": "GetBillingAgreement"
           },
-          "depth": 2,
-          "outline": [
-            {
-              "type": "heading",
-              "data": {
-                "level": 1,
-                "title": "Get Billing Agreement Sample",
-                "slug": "get-billing-agreement-sample"
-              },
-              "depth": 1
-            }
-          ]
+          "depth": 2
         }, {
           "type": "file",
           "data": {
@@ -274,24 +132,13 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "PHP"
             },
-            "sourcePath": "/Users/japatel/Documents/workspace/Server-SDK/PayPal-PHP-SDK/sample/billing/GetPlan.php",
+            "sourcePath": "/Users/japatel/Documents/workspace/paypal/PayPal-PHP-SDK/sample/billing/GetPlan.php",
             "projectPath": "billing/GetPlan.php",
             "targetPath": "billing/GetPlan",
             "pageTitle": "billing/GetPlan",
             "title": "GetPlan"
           },
-          "depth": 2,
-          "outline": [
-            {
-              "type": "heading",
-              "data": {
-                "level": 1,
-                "title": "Get Plan Sample",
-                "slug": "get-plan-sample"
-              },
-              "depth": 1
-            }
-          ]
+          "depth": 2
         }, {
           "type": "file",
           "data": {
@@ -303,24 +150,13 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "PHP"
             },
-            "sourcePath": "/Users/japatel/Documents/workspace/Server-SDK/PayPal-PHP-SDK/sample/billing/ListPlans.php",
+            "sourcePath": "/Users/japatel/Documents/workspace/paypal/PayPal-PHP-SDK/sample/billing/ListPlans.php",
             "projectPath": "billing/ListPlans.php",
             "targetPath": "billing/ListPlans",
             "pageTitle": "billing/ListPlans",
             "title": "ListPlans"
           },
-          "depth": 2,
-          "outline": [
-            {
-              "type": "heading",
-              "data": {
-                "level": 1,
-                "title": "Get List of Plan Sample",
-                "slug": "get-list-of-plan-sample"
-              },
-              "depth": 1
-            }
-          ]
+          "depth": 2
         }, {
           "type": "file",
           "data": {
@@ -332,24 +168,13 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "PHP"
             },
-            "sourcePath": "/Users/japatel/Documents/workspace/Server-SDK/PayPal-PHP-SDK/sample/billing/ReactivateBillingAgreement.php",
+            "sourcePath": "/Users/japatel/Documents/workspace/paypal/PayPal-PHP-SDK/sample/billing/ReactivateBillingAgreement.php",
             "projectPath": "billing/ReactivateBillingAgreement.php",
             "targetPath": "billing/ReactivateBillingAgreement",
             "pageTitle": "billing/ReactivateBillingAgreement",
             "title": "ReactivateBillingAgreement"
           },
-          "depth": 2,
-          "outline": [
-            {
-              "type": "heading",
-              "data": {
-                "level": 1,
-                "title": "Reactivate an agreement",
-                "slug": "reactivate-an-agreement"
-              },
-              "depth": 1
-            }
-          ]
+          "depth": 2
         }, {
           "type": "file",
           "data": {
@@ -361,24 +186,13 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "PHP"
             },
-            "sourcePath": "/Users/japatel/Documents/workspace/Server-SDK/PayPal-PHP-SDK/sample/billing/SuspendBillingAgreement.php",
+            "sourcePath": "/Users/japatel/Documents/workspace/paypal/PayPal-PHP-SDK/sample/billing/SuspendBillingAgreement.php",
             "projectPath": "billing/SuspendBillingAgreement.php",
             "targetPath": "billing/SuspendBillingAgreement",
             "pageTitle": "billing/SuspendBillingAgreement",
             "title": "SuspendBillingAgreement"
           },
-          "depth": 2,
-          "outline": [
-            {
-              "type": "heading",
-              "data": {
-                "level": 1,
-                "title": "Suspend an agreement",
-                "slug": "suspend-an-agreement"
-              },
-              "depth": 1
-            }
-          ]
+          "depth": 2
         }, {
           "type": "file",
           "data": {
@@ -390,24 +204,13 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "PHP"
             },
-            "sourcePath": "/Users/japatel/Documents/workspace/Server-SDK/PayPal-PHP-SDK/sample/billing/UpdateBillingAgreement.php",
+            "sourcePath": "/Users/japatel/Documents/workspace/paypal/PayPal-PHP-SDK/sample/billing/UpdateBillingAgreement.php",
             "projectPath": "billing/UpdateBillingAgreement.php",
             "targetPath": "billing/UpdateBillingAgreement",
             "pageTitle": "billing/UpdateBillingAgreement",
             "title": "UpdateBillingAgreement"
           },
-          "depth": 2,
-          "outline": [
-            {
-              "type": "heading",
-              "data": {
-                "level": 1,
-                "title": "Update an agreement",
-                "slug": "update-an-agreement"
-              },
-              "depth": 1
-            }
-          ]
+          "depth": 2
         }, {
           "type": "file",
           "data": {
@@ -419,35 +222,13 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "PHP"
             },
-            "sourcePath": "/Users/japatel/Documents/workspace/Server-SDK/PayPal-PHP-SDK/sample/billing/UpdatePlan.php",
+            "sourcePath": "/Users/japatel/Documents/workspace/paypal/PayPal-PHP-SDK/sample/billing/UpdatePlan.php",
             "projectPath": "billing/UpdatePlan.php",
             "targetPath": "billing/UpdatePlan",
             "pageTitle": "billing/UpdatePlan",
             "title": "UpdatePlan"
           },
-          "depth": 2,
-          "outline": [
-            {
-              "type": "heading",
-              "data": {
-                "level": 1,
-                "title": "Update a plan",
-                "slug": "update-a-plan"
-              },
-              "depth": 1,
-              "children": [
-                {
-                  "type": "heading",
-                  "data": {
-                    "level": 3,
-                    "title": "Making Plan Active",
-                    "slug": "making-plan-active"
-                  },
-                  "depth": 3
-                }
-              ]
-            }
-          ]
+          "depth": 2
         }, {
           "type": "file",
           "data": {
@@ -459,35 +240,13 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "PHP"
             },
-            "sourcePath": "/Users/japatel/Documents/workspace/Server-SDK/PayPal-PHP-SDK/sample/billing/UpdatePlanPaymentDefinitions.php",
+            "sourcePath": "/Users/japatel/Documents/workspace/paypal/PayPal-PHP-SDK/sample/billing/UpdatePlanPaymentDefinitions.php",
             "projectPath": "billing/UpdatePlanPaymentDefinitions.php",
             "targetPath": "billing/UpdatePlanPaymentDefinitions",
             "pageTitle": "billing/UpdatePlanPaymentDefinitions",
             "title": "UpdatePlanPaymentDefinitions"
           },
-          "depth": 2,
-          "outline": [
-            {
-              "type": "heading",
-              "data": {
-                "level": 1,
-                "title": "Update a plan",
-                "slug": "update-a-plan"
-              },
-              "depth": 1,
-              "children": [
-                {
-                  "type": "heading",
-                  "data": {
-                    "level": 3,
-                    "title": "Changing Plan Amount",
-                    "slug": "changing-plan-amount"
-                  },
-                  "depth": 3
-                }
-              ]
-            }
-          ]
+          "depth": 2
         }
       ]
     }, {
@@ -509,43 +268,13 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "PHP"
             },
-            "sourcePath": "/Users/japatel/Documents/workspace/Server-SDK/PayPal-PHP-SDK/sample/invoice/CancelInvoice.php",
+            "sourcePath": "/Users/japatel/Documents/workspace/paypal/PayPal-PHP-SDK/sample/invoice/CancelInvoice.php",
             "projectPath": "invoice/CancelInvoice.php",
             "targetPath": "invoice/CancelInvoice",
             "pageTitle": "invoice/CancelInvoice",
             "title": "CancelInvoice"
           },
-          "depth": 2,
-          "outline": [
-            {
-              "type": "heading",
-              "data": {
-                "level": 1,
-                "title": "Cancel Invoice Sample",
-                "slug": "cancel-invoice-sample"
-              },
-              "depth": 1,
-              "children": [
-                {
-                  "type": "heading",
-                  "data": {
-                    "level": 3,
-                    "title": "Cancel Notification Object",
-                    "slug": "cancel-notification-object"
-                  },
-                  "depth": 3
-                }, {
-                  "type": "heading",
-                  "data": {
-                    "level": 3,
-                    "title": "Cancel Invoice",
-                    "slug": "cancel-invoice"
-                  },
-                  "depth": 3
-                }
-              ]
-            }
-          ]
+          "depth": 2
         }, {
           "type": "file",
           "data": {
@@ -557,83 +286,13 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "PHP"
             },
-            "sourcePath": "/Users/japatel/Documents/workspace/Server-SDK/PayPal-PHP-SDK/sample/invoice/CreateInvoice.php",
+            "sourcePath": "/Users/japatel/Documents/workspace/paypal/PayPal-PHP-SDK/sample/invoice/CreateInvoice.php",
             "projectPath": "invoice/CreateInvoice.php",
             "targetPath": "invoice/CreateInvoice",
             "pageTitle": "invoice/CreateInvoice",
             "title": "CreateInvoice"
           },
-          "depth": 2,
-          "outline": [
-            {
-              "type": "heading",
-              "data": {
-                "level": 1,
-                "title": "Create Invoice Sample",
-                "slug": "create-invoice-sample"
-              },
-              "depth": 1,
-              "children": [
-                {
-                  "type": "heading",
-                  "data": {
-                    "level": 3,
-                    "title": "Invoice Info",
-                    "slug": "invoice-info"
-                  },
-                  "depth": 3
-                }, {
-                  "type": "heading",
-                  "data": {
-                    "level": 3,
-                    "title": "Merchant Info",
-                    "slug": "merchant-info"
-                  },
-                  "depth": 3
-                }, {
-                  "type": "heading",
-                  "data": {
-                    "level": 3,
-                    "title": "Address Information",
-                    "slug": "address-information"
-                  },
-                  "depth": 3
-                }, {
-                  "type": "heading",
-                  "data": {
-                    "level": 3,
-                    "title": "Billing Information",
-                    "slug": "billing-information"
-                  },
-                  "depth": 3
-                }, {
-                  "type": "heading",
-                  "data": {
-                    "level": 3,
-                    "title": "Items List",
-                    "slug": "items-list"
-                  },
-                  "depth": 3
-                }, {
-                  "type": "heading",
-                  "data": {
-                    "level": 3,
-                    "title": "Shipping Information",
-                    "slug": "shipping-information"
-                  },
-                  "depth": 3
-                }, {
-                  "type": "heading",
-                  "data": {
-                    "level": 3,
-                    "title": "Create Invoice",
-                    "slug": "create-invoice"
-                  },
-                  "depth": 3
-                }
-              ]
-            }
-          ]
+          "depth": 2
         }, {
           "type": "file",
           "data": {
@@ -645,35 +304,13 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "PHP"
             },
-            "sourcePath": "/Users/japatel/Documents/workspace/Server-SDK/PayPal-PHP-SDK/sample/invoice/DeleteInvoice.php",
+            "sourcePath": "/Users/japatel/Documents/workspace/paypal/PayPal-PHP-SDK/sample/invoice/DeleteInvoice.php",
             "projectPath": "invoice/DeleteInvoice.php",
             "targetPath": "invoice/DeleteInvoice",
             "pageTitle": "invoice/DeleteInvoice",
             "title": "DeleteInvoice"
           },
-          "depth": 2,
-          "outline": [
-            {
-              "type": "heading",
-              "data": {
-                "level": 1,
-                "title": "Delete Invoice Sample",
-                "slug": "delete-invoice-sample"
-              },
-              "depth": 1,
-              "children": [
-                {
-                  "type": "heading",
-                  "data": {
-                    "level": 3,
-                    "title": "Delete Invoice",
-                    "slug": "delete-invoice"
-                  },
-                  "depth": 3
-                }
-              ]
-            }
-          ]
+          "depth": 2
         }, {
           "type": "file",
           "data": {
@@ -685,7 +322,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "PHP"
             },
-            "sourcePath": "/Users/japatel/Documents/workspace/Server-SDK/PayPal-PHP-SDK/sample/invoice/GetInvoice.php",
+            "sourcePath": "/Users/japatel/Documents/workspace/paypal/PayPal-PHP-SDK/sample/invoice/GetInvoice.php",
             "projectPath": "invoice/GetInvoice.php",
             "targetPath": "invoice/GetInvoice",
             "pageTitle": "invoice/GetInvoice",
@@ -725,35 +362,13 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "PHP"
             },
-            "sourcePath": "/Users/japatel/Documents/workspace/Server-SDK/PayPal-PHP-SDK/sample/invoice/ListInvoice.php",
+            "sourcePath": "/Users/japatel/Documents/workspace/paypal/PayPal-PHP-SDK/sample/invoice/ListInvoice.php",
             "projectPath": "invoice/ListInvoice.php",
             "targetPath": "invoice/ListInvoice",
             "pageTitle": "invoice/ListInvoice",
             "title": "ListInvoice"
           },
-          "depth": 2,
-          "outline": [
-            {
-              "type": "heading",
-              "data": {
-                "level": 1,
-                "title": "List Invoices Sample",
-                "slug": "list-invoices-sample"
-              },
-              "depth": 1,
-              "children": [
-                {
-                  "type": "heading",
-                  "data": {
-                    "level": 3,
-                    "title": "Retrieve Invoices",
-                    "slug": "retrieve-invoices"
-                  },
-                  "depth": 3
-                }
-              ]
-            }
-          ]
+          "depth": 2
         }, {
           "type": "file",
           "data": {
@@ -765,7 +380,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "PHP"
             },
-            "sourcePath": "/Users/japatel/Documents/workspace/Server-SDK/PayPal-PHP-SDK/sample/invoice/RecordPayment.php",
+            "sourcePath": "/Users/japatel/Documents/workspace/paypal/PayPal-PHP-SDK/sample/invoice/RecordPayment.php",
             "projectPath": "invoice/RecordPayment.php",
             "targetPath": "invoice/RecordPayment",
             "pageTitle": "invoice/RecordPayment",
@@ -798,6 +413,14 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "slug": "record-payment-for-invoice"
                   },
                   "depth": 3
+                }, {
+                  "type": "heading",
+                  "data": {
+                    "level": 3,
+                    "title": "Retrieve Invoice",
+                    "slug": "retrieve-invoice"
+                  },
+                  "depth": 3
                 }
               ]
             }
@@ -813,7 +436,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "PHP"
             },
-            "sourcePath": "/Users/japatel/Documents/workspace/Server-SDK/PayPal-PHP-SDK/sample/invoice/RecordRefund.php",
+            "sourcePath": "/Users/japatel/Documents/workspace/paypal/PayPal-PHP-SDK/sample/invoice/RecordRefund.php",
             "projectPath": "invoice/RecordRefund.php",
             "targetPath": "invoice/RecordRefund",
             "pageTitle": "invoice/RecordRefund",
@@ -846,6 +469,14 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "slug": "record-refund-for-invoice"
                   },
                   "depth": 3
+                }, {
+                  "type": "heading",
+                  "data": {
+                    "level": 3,
+                    "title": "Retrieve Invoice",
+                    "slug": "retrieve-invoice"
+                  },
+                  "depth": 3
                 }
               ]
             }
@@ -861,7 +492,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "PHP"
             },
-            "sourcePath": "/Users/japatel/Documents/workspace/Server-SDK/PayPal-PHP-SDK/sample/invoice/RemindInvoice.php",
+            "sourcePath": "/Users/japatel/Documents/workspace/paypal/PayPal-PHP-SDK/sample/invoice/RemindInvoice.php",
             "projectPath": "invoice/RemindInvoice.php",
             "targetPath": "invoice/RemindInvoice",
             "pageTitle": "invoice/RemindInvoice",
@@ -894,6 +525,14 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "slug": "remind-invoice"
                   },
                   "depth": 3
+                }, {
+                  "type": "heading",
+                  "data": {
+                    "level": 3,
+                    "title": "Retrieve Invoice",
+                    "slug": "retrieve-invoice"
+                  },
+                  "depth": 3
                 }
               ]
             }
@@ -909,51 +548,13 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "PHP"
             },
-            "sourcePath": "/Users/japatel/Documents/workspace/Server-SDK/PayPal-PHP-SDK/sample/invoice/RetrieveQRCode.php",
+            "sourcePath": "/Users/japatel/Documents/workspace/paypal/PayPal-PHP-SDK/sample/invoice/RetrieveQRCode.php",
             "projectPath": "invoice/RetrieveQRCode.php",
             "targetPath": "invoice/RetrieveQRCode",
             "pageTitle": "invoice/RetrieveQRCode",
             "title": "RetrieveQRCode"
           },
-          "depth": 2,
-          "outline": [
-            {
-              "type": "heading",
-              "data": {
-                "level": 1,
-                "title": "Retrieve QR Code for Invoice Sample",
-                "slug": "retrieve-qr-code-for-invoice-sample"
-              },
-              "depth": 1,
-              "children": [
-                {
-                  "type": "heading",
-                  "data": {
-                    "level": 3,
-                    "title": "Retrieve QR Code of Sent Invoice",
-                    "slug": "retrieve-qr-code-of-sent-invoice"
-                  },
-                  "depth": 3
-                }, {
-                  "type": "heading",
-                  "data": {
-                    "level": 3,
-                    "title": "Optionally Save to File",
-                    "slug": "optionally-save-to-file"
-                  },
-                  "depth": 3
-                }, {
-                  "type": "heading",
-                  "data": {
-                    "level": 3,
-                    "title": "Show the Image",
-                    "slug": "show-the-image"
-                  },
-                  "depth": 3
-                }
-              ]
-            }
-          ]
+          "depth": 2
         }, {
           "type": "file",
           "data": {
@@ -965,43 +566,13 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "PHP"
             },
-            "sourcePath": "/Users/japatel/Documents/workspace/Server-SDK/PayPal-PHP-SDK/sample/invoice/SearchInvoices.php",
+            "sourcePath": "/Users/japatel/Documents/workspace/paypal/PayPal-PHP-SDK/sample/invoice/SearchInvoices.php",
             "projectPath": "invoice/SearchInvoices.php",
             "targetPath": "invoice/SearchInvoices",
             "pageTitle": "invoice/SearchInvoices",
             "title": "SearchInvoices"
           },
-          "depth": 2,
-          "outline": [
-            {
-              "type": "heading",
-              "data": {
-                "level": 1,
-                "title": "Search Invoices Sample",
-                "slug": "search-invoices-sample"
-              },
-              "depth": 1,
-              "children": [
-                {
-                  "type": "heading",
-                  "data": {
-                    "level": 3,
-                    "title": "Search Object",
-                    "slug": "search-object"
-                  },
-                  "depth": 3
-                }, {
-                  "type": "heading",
-                  "data": {
-                    "level": 3,
-                    "title": "Search Invoices",
-                    "slug": "search-invoices"
-                  },
-                  "depth": 3
-                }
-              ]
-            }
-          ]
+          "depth": 2
         }, {
           "type": "file",
           "data": {
@@ -1013,7 +584,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "PHP"
             },
-            "sourcePath": "/Users/japatel/Documents/workspace/Server-SDK/PayPal-PHP-SDK/sample/invoice/SendInvoice.php",
+            "sourcePath": "/Users/japatel/Documents/workspace/paypal/PayPal-PHP-SDK/sample/invoice/SendInvoice.php",
             "projectPath": "invoice/SendInvoice.php",
             "targetPath": "invoice/SendInvoice",
             "pageTitle": "invoice/SendInvoice",
@@ -1038,6 +609,14 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "slug": "send-invoice"
                   },
                   "depth": 3
+                }, {
+                  "type": "heading",
+                  "data": {
+                    "level": 3,
+                    "title": "Retrieve Invoice",
+                    "slug": "retrieve-invoice"
+                  },
+                  "depth": 3
                 }
               ]
             }
@@ -1053,7 +632,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "PHP"
             },
-            "sourcePath": "/Users/japatel/Documents/workspace/Server-SDK/PayPal-PHP-SDK/sample/invoice/UpdateInvoice.php",
+            "sourcePath": "/Users/japatel/Documents/workspace/paypal/PayPal-PHP-SDK/sample/invoice/UpdateInvoice.php",
             "projectPath": "invoice/UpdateInvoice.php",
             "targetPath": "invoice/UpdateInvoice",
             "pageTitle": "invoice/UpdateInvoice",
@@ -1094,6 +673,14 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                     "slug": "update-invoice"
                   },
                   "depth": 3
+                }, {
+                  "type": "heading",
+                  "data": {
+                    "level": 3,
+                    "title": "Retrieve Invoice",
+                    "slug": "retrieve-invoice"
+                  },
+                  "depth": 3
                 }
               ]
             }
@@ -1119,24 +706,13 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "PHP"
             },
-            "sourcePath": "/Users/japatel/Documents/workspace/Server-SDK/PayPal-PHP-SDK/sample/lipp/GenerateAccessTokenFromRefreshToken.php",
+            "sourcePath": "/Users/japatel/Documents/workspace/paypal/PayPal-PHP-SDK/sample/lipp/GenerateAccessTokenFromRefreshToken.php",
             "projectPath": "lipp/GenerateAccessTokenFromRefreshToken.php",
             "targetPath": "lipp/GenerateAccessTokenFromRefreshToken",
             "pageTitle": "lipp/GenerateAccessTokenFromRefreshToken",
             "title": "GenerateAccessTokenFromRefreshToken"
           },
-          "depth": 2,
-          "outline": [
-            {
-              "type": "heading",
-              "data": {
-                "level": 3,
-                "title": "Obtain Access Token From Refresh Token",
-                "slug": "obtain-access-token-from-refresh-token"
-              },
-              "depth": 3
-            }
-          ]
+          "depth": 2
         }, {
           "type": "file",
           "data": {
@@ -1148,24 +724,13 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "PHP"
             },
-            "sourcePath": "/Users/japatel/Documents/workspace/Server-SDK/PayPal-PHP-SDK/sample/lipp/GetUserInfo.php",
+            "sourcePath": "/Users/japatel/Documents/workspace/paypal/PayPal-PHP-SDK/sample/lipp/GetUserInfo.php",
             "projectPath": "lipp/GetUserInfo.php",
             "targetPath": "lipp/GetUserInfo",
             "pageTitle": "lipp/GetUserInfo",
             "title": "GetUserInfo"
           },
-          "depth": 2,
-          "outline": [
-            {
-              "type": "heading",
-              "data": {
-                "level": 3,
-                "title": "Obtain Access Token From Refresh Token",
-                "slug": "obtain-access-token-from-refresh-token"
-              },
-              "depth": 3
-            }
-          ]
+          "depth": 2
         }, {
           "type": "file",
           "data": {
@@ -1177,24 +742,13 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "PHP"
             },
-            "sourcePath": "/Users/japatel/Documents/workspace/Server-SDK/PayPal-PHP-SDK/sample/lipp/ObtainUserConsent.php",
+            "sourcePath": "/Users/japatel/Documents/workspace/paypal/PayPal-PHP-SDK/sample/lipp/ObtainUserConsent.php",
             "projectPath": "lipp/ObtainUserConsent.php",
             "targetPath": "lipp/ObtainUserConsent",
             "pageTitle": "lipp/ObtainUserConsent",
             "title": "ObtainUserConsent"
           },
-          "depth": 2,
-          "outline": [
-            {
-              "type": "heading",
-              "data": {
-                "level": 3,
-                "title": "Get User Consent URL",
-                "slug": "get-user-consent-url"
-              },
-              "depth": 3
-            }
-          ]
+          "depth": 2
         }, {
           "type": "file",
           "data": {
@@ -1206,24 +760,13 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "PHP"
             },
-            "sourcePath": "/Users/japatel/Documents/workspace/Server-SDK/PayPal-PHP-SDK/sample/lipp/UserConsentRedirect.php",
+            "sourcePath": "/Users/japatel/Documents/workspace/paypal/PayPal-PHP-SDK/sample/lipp/UserConsentRedirect.php",
             "projectPath": "lipp/UserConsentRedirect.php",
             "targetPath": "lipp/UserConsentRedirect",
             "pageTitle": "lipp/UserConsentRedirect",
             "title": "UserConsentRedirect"
           },
-          "depth": 2,
-          "outline": [
-            {
-              "type": "heading",
-              "data": {
-                "level": 3,
-                "title": "User Consent Response",
-                "slug": "user-consent-response"
-              },
-              "depth": 3
-            }
-          ]
+          "depth": 2
         }
       ]
     }, {
@@ -1245,113 +788,13 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "PHP"
             },
-            "sourcePath": "/Users/japatel/Documents/workspace/Server-SDK/PayPal-PHP-SDK/sample/notifications/CreateWebhook.php",
-            "projectPath": "notifications/CreateWebhook.php",
-            "targetPath": "notifications/CreateWebhook",
-            "pageTitle": "notifications/CreateWebhook",
-            "title": "CreateWebhook"
-          },
-          "depth": 2,
-          "outline": [
-            {
-              "type": "heading",
-              "data": {
-                "level": 1,
-                "title": "Create Webhook Sample",
-                "slug": "create-webhook-sample"
-              },
-              "depth": 1
-            }, {
-              "type": "heading",
-              "data": {
-                "level": 1,
-                "title": "Basic Information",
-                "slug": "basic-information"
-              },
-              "depth": 1,
-              "children": [
-                {
-                  "type": "heading",
-                  "data": {
-                    "level": 4,
-                    "title": "NOTE: Please note that you need an https url for paypal webhooks. You can however override the url with https, and accept",
-                    "slug": "note-please-note-that-you-need-an-https-url-for-paypal-webhooks-you-can-however-override-the-url-with-https-and-accept"
-                  },
-                  "depth": 4
-                }
-              ]
-            }, {
-              "type": "heading",
-              "data": {
-                "level": 1,
-                "title": "Event Types",
-                "slug": "event-types"
-              },
-              "depth": 1,
-              "children": [
-                {
-                  "type": "heading",
-                  "data": {
-                    "level": 3,
-                    "title": "Create Webhook",
-                    "slug": "create-webhook"
-                  },
-                  "depth": 3
-                }
-              ]
-            }
-          ]
-        }, {
-          "type": "file",
-          "data": {
-            "language": {
-              "nameMatchers": [{}, ".fbp"],
-              "pygmentsLexer": "php",
-              "singleLineComment": ["//"],
-              "ignorePrefix": "}",
-              "foldPrefix": "^",
-              "name": "PHP"
-            },
-            "sourcePath": "/Users/japatel/Documents/workspace/Server-SDK/PayPal-PHP-SDK/sample/notifications/DeleteAllWebhooks.php",
+            "sourcePath": "/Users/japatel/Documents/workspace/paypal/PayPal-PHP-SDK/sample/notifications/DeleteAllWebhooks.php",
             "projectPath": "notifications/DeleteAllWebhooks.php",
             "targetPath": "notifications/DeleteAllWebhooks",
             "pageTitle": "notifications/DeleteAllWebhooks",
             "title": "DeleteAllWebhooks"
           },
-          "depth": 2,
-          "outline": [
-            {
-              "type": "heading",
-              "data": {
-                "level": 1,
-                "title": "Delete All Webhook Sample",
-                "slug": "delete-all-webhook-sample"
-              },
-              "depth": 1,
-              "children": [
-                {
-                  "type": "heading",
-                  "data": {
-                    "level": 2,
-                    "title": "Get Webhook Instance",
-                    "slug": "get-webhook-instance"
-                  },
-                  "depth": 2,
-                  "children": [
-                    {
-                      "type": "heading",
-                      "data": {
-                        "level": 3,
-                        "title": "Delete Webhook",
-                        "slug": "delete-webhook"
-                      },
-                      "depth": 3
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
+          "depth": 2
         }, {
           "type": "file",
           "data": {
@@ -1363,46 +806,13 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "PHP"
             },
-            "sourcePath": "/Users/japatel/Documents/workspace/Server-SDK/PayPal-PHP-SDK/sample/notifications/DeleteWebhook.php",
+            "sourcePath": "/Users/japatel/Documents/workspace/paypal/PayPal-PHP-SDK/sample/notifications/DeleteWebhook.php",
             "projectPath": "notifications/DeleteWebhook.php",
             "targetPath": "notifications/DeleteWebhook",
             "pageTitle": "notifications/DeleteWebhook",
             "title": "DeleteWebhook"
           },
-          "depth": 2,
-          "outline": [
-            {
-              "type": "heading",
-              "data": {
-                "level": 1,
-                "title": "Delete Webhook Sample",
-                "slug": "delete-webhook-sample"
-              },
-              "depth": 1,
-              "children": [
-                {
-                  "type": "heading",
-                  "data": {
-                    "level": 2,
-                    "title": "Get Webhook Instance",
-                    "slug": "get-webhook-instance"
-                  },
-                  "depth": 2,
-                  "children": [
-                    {
-                      "type": "heading",
-                      "data": {
-                        "level": 3,
-                        "title": "Delete Webhook",
-                        "slug": "delete-webhook"
-                      },
-                      "depth": 3
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
+          "depth": 2
         }, {
           "type": "file",
           "data": {
@@ -1414,46 +824,13 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "PHP"
             },
-            "sourcePath": "/Users/japatel/Documents/workspace/Server-SDK/PayPal-PHP-SDK/sample/notifications/GetWebhook.php",
+            "sourcePath": "/Users/japatel/Documents/workspace/paypal/PayPal-PHP-SDK/sample/notifications/GetWebhook.php",
             "projectPath": "notifications/GetWebhook.php",
             "targetPath": "notifications/GetWebhook",
             "pageTitle": "notifications/GetWebhook",
             "title": "GetWebhook"
           },
-          "depth": 2,
-          "outline": [
-            {
-              "type": "heading",
-              "data": {
-                "level": 1,
-                "title": "Get Webhook Sample",
-                "slug": "get-webhook-sample"
-              },
-              "depth": 1,
-              "children": [
-                {
-                  "type": "heading",
-                  "data": {
-                    "level": 2,
-                    "title": "Get Webhook ID.",
-                    "slug": "get-webhook-id"
-                  },
-                  "depth": 2,
-                  "children": [
-                    {
-                      "type": "heading",
-                      "data": {
-                        "level": 3,
-                        "title": "Get Webhook",
-                        "slug": "get-webhook"
-                      },
-                      "depth": 3
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
+          "depth": 2
         }, {
           "type": "file",
           "data": {
@@ -1465,46 +842,13 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "PHP"
             },
-            "sourcePath": "/Users/japatel/Documents/workspace/Server-SDK/PayPal-PHP-SDK/sample/notifications/ListSubscribedWebhookEventTypes.php",
+            "sourcePath": "/Users/japatel/Documents/workspace/paypal/PayPal-PHP-SDK/sample/notifications/ListSubscribedWebhookEventTypes.php",
             "projectPath": "notifications/ListSubscribedWebhookEventTypes.php",
             "targetPath": "notifications/ListSubscribedWebhookEventTypes",
             "pageTitle": "notifications/ListSubscribedWebhookEventTypes",
             "title": "ListSubscribedWebhookEventTypes"
           },
-          "depth": 2,
-          "outline": [
-            {
-              "type": "heading",
-              "data": {
-                "level": 1,
-                "title": "Get Webhook Sample",
-                "slug": "get-webhook-sample"
-              },
-              "depth": 1,
-              "children": [
-                {
-                  "type": "heading",
-                  "data": {
-                    "level": 2,
-                    "title": "List Subscribed Event Types",
-                    "slug": "list-subscribed-event-types"
-                  },
-                  "depth": 2,
-                  "children": [
-                    {
-                      "type": "heading",
-                      "data": {
-                        "level": 3,
-                        "title": "Get List of Subscribed Event Types",
-                        "slug": "get-list-of-subscribed-event-types"
-                      },
-                      "depth": 3
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
+          "depth": 2
         }, {
           "type": "file",
           "data": {
@@ -1516,46 +860,13 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "PHP"
             },
-            "sourcePath": "/Users/japatel/Documents/workspace/Server-SDK/PayPal-PHP-SDK/sample/notifications/ListWebhooks.php",
+            "sourcePath": "/Users/japatel/Documents/workspace/paypal/PayPal-PHP-SDK/sample/notifications/ListWebhooks.php",
             "projectPath": "notifications/ListWebhooks.php",
             "targetPath": "notifications/ListWebhooks",
             "pageTitle": "notifications/ListWebhooks",
             "title": "ListWebhooks"
           },
-          "depth": 2,
-          "outline": [
-            {
-              "type": "heading",
-              "data": {
-                "level": 1,
-                "title": "Get All Webhooks Sample",
-                "slug": "get-all-webhooks-sample"
-              },
-              "depth": 1,
-              "children": [
-                {
-                  "type": "heading",
-                  "data": {
-                    "level": 2,
-                    "title": "List Webhooks",
-                    "slug": "list-webhooks"
-                  },
-                  "depth": 2,
-                  "children": [
-                    {
-                      "type": "heading",
-                      "data": {
-                        "level": 3,
-                        "title": "Get List of All Webhooks",
-                        "slug": "get-list-of-all-webhooks"
-                      },
-                      "depth": 3
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
+          "depth": 2
         }, {
           "type": "file",
           "data": {
@@ -1567,54 +878,13 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "PHP"
             },
-            "sourcePath": "/Users/japatel/Documents/workspace/Server-SDK/PayPal-PHP-SDK/sample/notifications/SearchWebhookEvents.php",
+            "sourcePath": "/Users/japatel/Documents/workspace/paypal/PayPal-PHP-SDK/sample/notifications/SearchWebhookEvents.php",
             "projectPath": "notifications/SearchWebhookEvents.php",
             "targetPath": "notifications/SearchWebhookEvents",
             "pageTitle": "notifications/SearchWebhookEvents",
             "title": "SearchWebhookEvents"
           },
-          "depth": 2,
-          "outline": [
-            {
-              "type": "heading",
-              "data": {
-                "level": 1,
-                "title": "Search Webhook Events Sample",
-                "slug": "search-webhook-events-sample"
-              },
-              "depth": 1,
-              "children": [
-                {
-                  "type": "heading",
-                  "data": {
-                    "level": 2,
-                    "title": "Get Webhook Instance",
-                    "slug": "get-webhook-instance"
-                  },
-                  "depth": 2
-                }, {
-                  "type": "heading",
-                  "data": {
-                    "level": 2,
-                    "title": "PLEASE NOTE:",
-                    "slug": "please-note"
-                  },
-                  "depth": 2,
-                  "children": [
-                    {
-                      "type": "heading",
-                      "data": {
-                        "level": 3,
-                        "title": "Search Webhook events",
-                        "slug": "search-webhook-events"
-                      },
-                      "depth": 3
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
+          "depth": 2
         }, {
           "type": "file",
           "data": {
@@ -1626,46 +896,13 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "PHP"
             },
-            "sourcePath": "/Users/japatel/Documents/workspace/Server-SDK/PayPal-PHP-SDK/sample/notifications/UpdateWebhook.php",
+            "sourcePath": "/Users/japatel/Documents/workspace/paypal/PayPal-PHP-SDK/sample/notifications/UpdateWebhook.php",
             "projectPath": "notifications/UpdateWebhook.php",
             "targetPath": "notifications/UpdateWebhook",
             "pageTitle": "notifications/UpdateWebhook",
             "title": "UpdateWebhook"
           },
-          "depth": 2,
-          "outline": [
-            {
-              "type": "heading",
-              "data": {
-                "level": 1,
-                "title": "Update Webhook Sample",
-                "slug": "update-webhook-sample"
-              },
-              "depth": 1,
-              "children": [
-                {
-                  "type": "heading",
-                  "data": {
-                    "level": 2,
-                    "title": "Get Webhook ID.",
-                    "slug": "get-webhook-id"
-                  },
-                  "depth": 2,
-                  "children": [
-                    {
-                      "type": "heading",
-                      "data": {
-                        "level": 3,
-                        "title": "Get Webhook",
-                        "slug": "get-webhook"
-                      },
-                      "depth": 3
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
+          "depth": 2
         }, {
           "type": "file",
           "data": {
@@ -1677,35 +914,31 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "PHP"
             },
-            "sourcePath": "/Users/japatel/Documents/workspace/Server-SDK/PayPal-PHP-SDK/sample/notifications/WebhookEventTypesList.php",
+            "sourcePath": "/Users/japatel/Documents/workspace/paypal/PayPal-PHP-SDK/sample/notifications/WebhookEventTypesList.php",
             "projectPath": "notifications/WebhookEventTypesList.php",
             "targetPath": "notifications/WebhookEventTypesList",
             "pageTitle": "notifications/WebhookEventTypesList",
             "title": "WebhookEventTypesList"
           },
-          "depth": 2,
-          "outline": [
-            {
-              "type": "heading",
-              "data": {
-                "level": 1,
-                "title": "Get Reference List of all Webhook Event Types",
-                "slug": "get-reference-list-of-all-webhook-event-types"
-              },
-              "depth": 1,
-              "children": [
-                {
-                  "type": "heading",
-                  "data": {
-                    "level": 3,
-                    "title": "Get List of all Webhook event types",
-                    "slug": "get-list-of-all-webhook-event-types"
-                  },
-                  "depth": 3
-                }
-              ]
-            }
-          ]
+          "depth": 2
+        }, {
+          "type": "file",
+          "data": {
+            "language": {
+              "nameMatchers": [{}, ".fbp"],
+              "pygmentsLexer": "php",
+              "singleLineComment": ["//"],
+              "ignorePrefix": "}",
+              "foldPrefix": "^",
+              "name": "PHP"
+            },
+            "sourcePath": "/Users/japatel/Documents/workspace/paypal/PayPal-PHP-SDK/sample/notifications/createWebhook.php",
+            "projectPath": "notifications/createWebhook.php",
+            "targetPath": "notifications/createWebhook",
+            "pageTitle": "notifications/createWebhook",
+            "title": "createWebhook"
+          },
+          "depth": 2
         }
       ]
     }, {
@@ -1727,35 +960,13 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "PHP"
             },
-            "sourcePath": "/Users/japatel/Documents/workspace/Server-SDK/PayPal-PHP-SDK/sample/payment-experience/CreateWebProfile.php",
+            "sourcePath": "/Users/japatel/Documents/workspace/paypal/PayPal-PHP-SDK/sample/payment-experience/CreateWebProfile.php",
             "projectPath": "payment-experience/CreateWebProfile.php",
             "targetPath": "payment-experience/CreateWebProfile",
             "pageTitle": "payment-experience/CreateWebProfile",
             "title": "CreateWebProfile"
           },
-          "depth": 2,
-          "outline": [
-            {
-              "type": "heading",
-              "data": {
-                "level": 3,
-                "title": "Create Web Profile",
-                "slug": "create-web-profile"
-              },
-              "depth": 3,
-              "children": [
-                {
-                  "type": "heading",
-                  "data": {
-                    "level": 4,
-                    "title": "Payment Web experience profile resource",
-                    "slug": "payment-web-experience-profile-resource"
-                  },
-                  "depth": 4
-                }
-              ]
-            }
-          ]
+          "depth": 2
         }, {
           "type": "file",
           "data": {
@@ -1767,24 +978,13 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "PHP"
             },
-            "sourcePath": "/Users/japatel/Documents/workspace/Server-SDK/PayPal-PHP-SDK/sample/payment-experience/DeleteWebProfile.php",
+            "sourcePath": "/Users/japatel/Documents/workspace/paypal/PayPal-PHP-SDK/sample/payment-experience/DeleteWebProfile.php",
             "projectPath": "payment-experience/DeleteWebProfile.php",
             "targetPath": "payment-experience/DeleteWebProfile",
             "pageTitle": "payment-experience/DeleteWebProfile",
             "title": "DeleteWebProfile"
           },
-          "depth": 2,
-          "outline": [
-            {
-              "type": "heading",
-              "data": {
-                "level": 4,
-                "title": "Delete Web Profile",
-                "slug": "delete-web-profile"
-              },
-              "depth": 4
-            }
-          ]
+          "depth": 2
         }, {
           "type": "file",
           "data": {
@@ -1796,24 +996,13 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "PHP"
             },
-            "sourcePath": "/Users/japatel/Documents/workspace/Server-SDK/PayPal-PHP-SDK/sample/payment-experience/GetWebProfile.php",
+            "sourcePath": "/Users/japatel/Documents/workspace/paypal/PayPal-PHP-SDK/sample/payment-experience/GetWebProfile.php",
             "projectPath": "payment-experience/GetWebProfile.php",
             "targetPath": "payment-experience/GetWebProfile",
             "pageTitle": "payment-experience/GetWebProfile",
             "title": "GetWebProfile"
           },
-          "depth": 2,
-          "outline": [
-            {
-              "type": "heading",
-              "data": {
-                "level": 3,
-                "title": "Get Web Profile",
-                "slug": "get-web-profile"
-              },
-              "depth": 3
-            }
-          ]
+          "depth": 2
         }, {
           "type": "file",
           "data": {
@@ -1825,24 +1014,13 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "PHP"
             },
-            "sourcePath": "/Users/japatel/Documents/workspace/Server-SDK/PayPal-PHP-SDK/sample/payment-experience/ListWebProfiles.php",
+            "sourcePath": "/Users/japatel/Documents/workspace/paypal/PayPal-PHP-SDK/sample/payment-experience/ListWebProfiles.php",
             "projectPath": "payment-experience/ListWebProfiles.php",
             "targetPath": "payment-experience/ListWebProfiles",
             "pageTitle": "payment-experience/ListWebProfiles",
             "title": "ListWebProfiles"
           },
-          "depth": 2,
-          "outline": [
-            {
-              "type": "heading",
-              "data": {
-                "level": 3,
-                "title": "Retrieve List of All Web Profiles",
-                "slug": "retrieve-list-of-all-web-profiles"
-              },
-              "depth": 3
-            }
-          ]
+          "depth": 2
         }, {
           "type": "file",
           "data": {
@@ -1854,32 +1032,13 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "PHP"
             },
-            "sourcePath": "/Users/japatel/Documents/workspace/Server-SDK/PayPal-PHP-SDK/sample/payment-experience/PartiallyUpdateWebProfile.php",
+            "sourcePath": "/Users/japatel/Documents/workspace/paypal/PayPal-PHP-SDK/sample/payment-experience/PartiallyUpdateWebProfile.php",
             "projectPath": "payment-experience/PartiallyUpdateWebProfile.php",
             "targetPath": "payment-experience/PartiallyUpdateWebProfile",
             "pageTitle": "payment-experience/PartiallyUpdateWebProfile",
             "title": "PartiallyUpdateWebProfile"
           },
-          "depth": 2,
-          "outline": [
-            {
-              "type": "heading",
-              "data": {
-                "level": 4,
-                "title": "Partially Update Web Profile",
-                "slug": "partially-update-web-profile"
-              },
-              "depth": 4
-            }, {
-              "type": "heading",
-              "data": {
-                "level": 3,
-                "title": "Create Patch Operation",
-                "slug": "create-patch-operation"
-              },
-              "depth": 3
-            }
-          ]
+          "depth": 2
         }, {
           "type": "file",
           "data": {
@@ -1891,24 +1050,13 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "PHP"
             },
-            "sourcePath": "/Users/japatel/Documents/workspace/Server-SDK/PayPal-PHP-SDK/sample/payment-experience/UpdateWebProfile.php",
+            "sourcePath": "/Users/japatel/Documents/workspace/paypal/PayPal-PHP-SDK/sample/payment-experience/UpdateWebProfile.php",
             "projectPath": "payment-experience/UpdateWebProfile.php",
             "targetPath": "payment-experience/UpdateWebProfile",
             "pageTitle": "payment-experience/UpdateWebProfile",
             "title": "UpdateWebProfile"
           },
-          "depth": 2,
-          "outline": [
-            {
-              "type": "heading",
-              "data": {
-                "level": 4,
-                "title": "Update Web Profile",
-                "slug": "update-web-profile"
-              },
-              "depth": 4
-            }
-          ]
+          "depth": 2
         }
       ]
     }, {
@@ -1930,35 +1078,13 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "PHP"
             },
-            "sourcePath": "/Users/japatel/Documents/workspace/Server-SDK/PayPal-PHP-SDK/sample/payments/AuthorizationCapture.php",
+            "sourcePath": "/Users/japatel/Documents/workspace/paypal/PayPal-PHP-SDK/sample/payments/AuthorizationCapture.php",
             "projectPath": "payments/AuthorizationCapture.php",
             "targetPath": "payments/AuthorizationCapture",
             "pageTitle": "payments/AuthorizationCapture",
             "title": "AuthorizationCapture"
           },
-          "depth": 2,
-          "outline": [
-            {
-              "type": "heading",
-              "data": {
-                "level": 1,
-                "title": "AuthorizationCapture",
-                "slug": "authorizationcapture"
-              },
-              "depth": 1,
-              "children": [
-                {
-                  "type": "heading",
-                  "data": {
-                    "level": 3,
-                    "title": "Capture Payment",
-                    "slug": "capture-payment"
-                  },
-                  "depth": 3
-                }
-              ]
-            }
-          ]
+          "depth": 2
         }, {
           "type": "file",
           "data": {
@@ -1970,35 +1096,13 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "PHP"
             },
-            "sourcePath": "/Users/japatel/Documents/workspace/Server-SDK/PayPal-PHP-SDK/sample/payments/AuthorizePayment.php",
+            "sourcePath": "/Users/japatel/Documents/workspace/paypal/PayPal-PHP-SDK/sample/payments/AuthorizePayment.php",
             "projectPath": "payments/AuthorizePayment.php",
             "targetPath": "payments/AuthorizePayment",
             "pageTitle": "payments/AuthorizePayment",
             "title": "AuthorizePayment"
           },
-          "depth": 2,
-          "outline": [
-            {
-              "type": "heading",
-              "data": {
-                "level": 1,
-                "title": "Authorize Payment",
-                "slug": "authorize-payment"
-              },
-              "depth": 1,
-              "children": [
-                {
-                  "type": "heading",
-                  "data": {
-                    "level": 3,
-                    "title": "Create Payment",
-                    "slug": "create-payment"
-                  },
-                  "depth": 3
-                }
-              ]
-            }
-          ]
+          "depth": 2
         }, {
           "type": "file",
           "data": {
@@ -2010,99 +1114,13 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "PHP"
             },
-            "sourcePath": "/Users/japatel/Documents/workspace/Server-SDK/PayPal-PHP-SDK/sample/payments/AuthorizePaymentUsingPayPal.php",
+            "sourcePath": "/Users/japatel/Documents/workspace/paypal/PayPal-PHP-SDK/sample/payments/AuthorizePaymentUsingPayPal.php",
             "projectPath": "payments/AuthorizePaymentUsingPayPal.php",
             "targetPath": "payments/AuthorizePaymentUsingPayPal",
             "pageTitle": "payments/AuthorizePaymentUsingPayPal",
             "title": "AuthorizePaymentUsingPayPal"
           },
-          "depth": 2,
-          "outline": [
-            {
-              "type": "heading",
-              "data": {
-                "level": 1,
-                "title": "Authorize Payment using PayPal as payment method",
-                "slug": "authorize-payment-using-paypal-as-payment-method"
-              },
-              "depth": 1,
-              "children": [
-                {
-                  "type": "heading",
-                  "data": {
-                    "level": 3,
-                    "title": "Payer",
-                    "slug": "payer"
-                  },
-                  "depth": 3
-                }, {
-                  "type": "heading",
-                  "data": {
-                    "level": 3,
-                    "title": "Itemized information",
-                    "slug": "itemized-information"
-                  },
-                  "depth": 3
-                }, {
-                  "type": "heading",
-                  "data": {
-                    "level": 3,
-                    "title": "Additional payment details",
-                    "slug": "additional-payment-details"
-                  },
-                  "depth": 3
-                }, {
-                  "type": "heading",
-                  "data": {
-                    "level": 3,
-                    "title": "Amount",
-                    "slug": "amount"
-                  },
-                  "depth": 3
-                }, {
-                  "type": "heading",
-                  "data": {
-                    "level": 3,
-                    "title": "Transaction",
-                    "slug": "transaction"
-                  },
-                  "depth": 3
-                }, {
-                  "type": "heading",
-                  "data": {
-                    "level": 3,
-                    "title": "Redirect urls",
-                    "slug": "redirect-urls"
-                  },
-                  "depth": 3
-                }, {
-                  "type": "heading",
-                  "data": {
-                    "level": 3,
-                    "title": "Payment",
-                    "slug": "payment"
-                  },
-                  "depth": 3
-                }, {
-                  "type": "heading",
-                  "data": {
-                    "level": 3,
-                    "title": "Create Payment",
-                    "slug": "create-payment"
-                  },
-                  "depth": 3
-                }, {
-                  "type": "heading",
-                  "data": {
-                    "level": 3,
-                    "title": "Get redirect url",
-                    "slug": "get-redirect-url"
-                  },
-                  "depth": 3
-                }
-              ]
-            }
-          ]
+          "depth": 2
         }, {
           "type": "file",
           "data": {
@@ -2114,83 +1132,13 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "PHP"
             },
-            "sourcePath": "/Users/japatel/Documents/workspace/Server-SDK/PayPal-PHP-SDK/sample/payments/CreateFuturePayment.php",
+            "sourcePath": "/Users/japatel/Documents/workspace/paypal/PayPal-PHP-SDK/sample/payments/CreateFuturePayment.php",
             "projectPath": "payments/CreateFuturePayment.php",
             "targetPath": "payments/CreateFuturePayment",
             "pageTitle": "payments/CreateFuturePayment",
             "title": "CreateFuturePayment"
           },
-          "depth": 2,
-          "outline": [
-            {
-              "type": "heading",
-              "data": {
-                "level": 1,
-                "title": "Create Payment using PayPal as payment method",
-                "slug": "create-payment-using-paypal-as-payment-method"
-              },
-              "depth": 1,
-              "children": [
-                {
-                  "type": "heading",
-                  "data": {
-                    "level": 3,
-                    "title": "Payer",
-                    "slug": "payer"
-                  },
-                  "depth": 3
-                }, {
-                  "type": "heading",
-                  "data": {
-                    "level": 3,
-                    "title": "Amount",
-                    "slug": "amount"
-                  },
-                  "depth": 3
-                }, {
-                  "type": "heading",
-                  "data": {
-                    "level": 3,
-                    "title": "Transaction",
-                    "slug": "transaction"
-                  },
-                  "depth": 3
-                }, {
-                  "type": "heading",
-                  "data": {
-                    "level": 3,
-                    "title": "Redirect urls",
-                    "slug": "redirect-urls"
-                  },
-                  "depth": 3
-                }, {
-                  "type": "heading",
-                  "data": {
-                    "level": 3,
-                    "title": "Payment",
-                    "slug": "payment"
-                  },
-                  "depth": 3
-                }, {
-                  "type": "heading",
-                  "data": {
-                    "level": 3,
-                    "title": "Get Refresh Token",
-                    "slug": "get-refresh-token"
-                  },
-                  "depth": 3
-                }, {
-                  "type": "heading",
-                  "data": {
-                    "level": 3,
-                    "title": "Create Future Payment",
-                    "slug": "create-future-payment"
-                  },
-                  "depth": 3
-                }
-              ]
-            }
-          ]
+          "depth": 2
         }, {
           "type": "file",
           "data": {
@@ -2202,99 +1150,13 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "PHP"
             },
-            "sourcePath": "/Users/japatel/Documents/workspace/Server-SDK/PayPal-PHP-SDK/sample/payments/CreatePayment.php",
+            "sourcePath": "/Users/japatel/Documents/workspace/paypal/PayPal-PHP-SDK/sample/payments/CreatePayment.php",
             "projectPath": "payments/CreatePayment.php",
             "targetPath": "payments/CreatePayment",
             "pageTitle": "payments/CreatePayment",
             "title": "CreatePayment"
           },
-          "depth": 2,
-          "outline": [
-            {
-              "type": "heading",
-              "data": {
-                "level": 1,
-                "title": "CreatePaymentSample",
-                "slug": "createpaymentsample"
-              },
-              "depth": 1,
-              "children": [
-                {
-                  "type": "heading",
-                  "data": {
-                    "level": 3,
-                    "title": "CreditCard",
-                    "slug": "creditcard"
-                  },
-                  "depth": 3
-                }, {
-                  "type": "heading",
-                  "data": {
-                    "level": 3,
-                    "title": "FundingInstrument",
-                    "slug": "fundinginstrument"
-                  },
-                  "depth": 3
-                }, {
-                  "type": "heading",
-                  "data": {
-                    "level": 3,
-                    "title": "Payer",
-                    "slug": "payer"
-                  },
-                  "depth": 3
-                }, {
-                  "type": "heading",
-                  "data": {
-                    "level": 3,
-                    "title": "Itemized information",
-                    "slug": "itemized-information"
-                  },
-                  "depth": 3
-                }, {
-                  "type": "heading",
-                  "data": {
-                    "level": 3,
-                    "title": "Additional payment details",
-                    "slug": "additional-payment-details"
-                  },
-                  "depth": 3
-                }, {
-                  "type": "heading",
-                  "data": {
-                    "level": 3,
-                    "title": "Amount",
-                    "slug": "amount"
-                  },
-                  "depth": 3
-                }, {
-                  "type": "heading",
-                  "data": {
-                    "level": 3,
-                    "title": "Transaction",
-                    "slug": "transaction"
-                  },
-                  "depth": 3
-                }, {
-                  "type": "heading",
-                  "data": {
-                    "level": 3,
-                    "title": "Payment",
-                    "slug": "payment"
-                  },
-                  "depth": 3
-                }, {
-                  "type": "heading",
-                  "data": {
-                    "level": 3,
-                    "title": "Create Payment",
-                    "slug": "create-payment"
-                  },
-                  "depth": 3
-                }
-              ]
-            }
-          ]
+          "depth": 2
         }, {
           "type": "file",
           "data": {
@@ -2306,99 +1168,13 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "PHP"
             },
-            "sourcePath": "/Users/japatel/Documents/workspace/Server-SDK/PayPal-PHP-SDK/sample/payments/CreatePaymentUsingPayPal.php",
+            "sourcePath": "/Users/japatel/Documents/workspace/paypal/PayPal-PHP-SDK/sample/payments/CreatePaymentUsingPayPal.php",
             "projectPath": "payments/CreatePaymentUsingPayPal.php",
             "targetPath": "payments/CreatePaymentUsingPayPal",
             "pageTitle": "payments/CreatePaymentUsingPayPal",
             "title": "CreatePaymentUsingPayPal"
           },
-          "depth": 2,
-          "outline": [
-            {
-              "type": "heading",
-              "data": {
-                "level": 1,
-                "title": "Create Payment using PayPal as payment method",
-                "slug": "create-payment-using-paypal-as-payment-method"
-              },
-              "depth": 1,
-              "children": [
-                {
-                  "type": "heading",
-                  "data": {
-                    "level": 3,
-                    "title": "Payer",
-                    "slug": "payer"
-                  },
-                  "depth": 3
-                }, {
-                  "type": "heading",
-                  "data": {
-                    "level": 3,
-                    "title": "Itemized information",
-                    "slug": "itemized-information"
-                  },
-                  "depth": 3
-                }, {
-                  "type": "heading",
-                  "data": {
-                    "level": 3,
-                    "title": "Additional payment details",
-                    "slug": "additional-payment-details"
-                  },
-                  "depth": 3
-                }, {
-                  "type": "heading",
-                  "data": {
-                    "level": 3,
-                    "title": "Amount",
-                    "slug": "amount"
-                  },
-                  "depth": 3
-                }, {
-                  "type": "heading",
-                  "data": {
-                    "level": 3,
-                    "title": "Transaction",
-                    "slug": "transaction"
-                  },
-                  "depth": 3
-                }, {
-                  "type": "heading",
-                  "data": {
-                    "level": 3,
-                    "title": "Redirect urls",
-                    "slug": "redirect-urls"
-                  },
-                  "depth": 3
-                }, {
-                  "type": "heading",
-                  "data": {
-                    "level": 3,
-                    "title": "Payment",
-                    "slug": "payment"
-                  },
-                  "depth": 3
-                }, {
-                  "type": "heading",
-                  "data": {
-                    "level": 3,
-                    "title": "Create Payment",
-                    "slug": "create-payment"
-                  },
-                  "depth": 3
-                }, {
-                  "type": "heading",
-                  "data": {
-                    "level": 3,
-                    "title": "Get redirect url",
-                    "slug": "get-redirect-url"
-                  },
-                  "depth": 3
-                }
-              ]
-            }
-          ]
+          "depth": 2
         }, {
           "type": "file",
           "data": {
@@ -2410,99 +1186,13 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "PHP"
             },
-            "sourcePath": "/Users/japatel/Documents/workspace/Server-SDK/PayPal-PHP-SDK/sample/payments/CreatePaymentUsingSavedCard.php",
+            "sourcePath": "/Users/japatel/Documents/workspace/paypal/PayPal-PHP-SDK/sample/payments/CreatePaymentUsingSavedCard.php",
             "projectPath": "payments/CreatePaymentUsingSavedCard.php",
             "targetPath": "payments/CreatePaymentUsingSavedCard",
             "pageTitle": "payments/CreatePaymentUsingSavedCard",
             "title": "CreatePaymentUsingSavedCard"
           },
-          "depth": 2,
-          "outline": [
-            {
-              "type": "heading",
-              "data": {
-                "level": 1,
-                "title": "Create payment using a saved credit card",
-                "slug": "create-payment-using-a-saved-credit-card"
-              },
-              "depth": 1,
-              "children": [
-                {
-                  "type": "heading",
-                  "data": {
-                    "level": 3,
-                    "title": "Credit card token",
-                    "slug": "credit-card-token"
-                  },
-                  "depth": 3
-                }, {
-                  "type": "heading",
-                  "data": {
-                    "level": 3,
-                    "title": "FundingInstrument",
-                    "slug": "fundinginstrument"
-                  },
-                  "depth": 3
-                }, {
-                  "type": "heading",
-                  "data": {
-                    "level": 3,
-                    "title": "Payer",
-                    "slug": "payer"
-                  },
-                  "depth": 3
-                }, {
-                  "type": "heading",
-                  "data": {
-                    "level": 3,
-                    "title": "Itemized information",
-                    "slug": "itemized-information"
-                  },
-                  "depth": 3
-                }, {
-                  "type": "heading",
-                  "data": {
-                    "level": 3,
-                    "title": "Additional payment details",
-                    "slug": "additional-payment-details"
-                  },
-                  "depth": 3
-                }, {
-                  "type": "heading",
-                  "data": {
-                    "level": 3,
-                    "title": "Amount",
-                    "slug": "amount"
-                  },
-                  "depth": 3
-                }, {
-                  "type": "heading",
-                  "data": {
-                    "level": 3,
-                    "title": "Transaction",
-                    "slug": "transaction"
-                  },
-                  "depth": 3
-                }, {
-                  "type": "heading",
-                  "data": {
-                    "level": 3,
-                    "title": "Payment",
-                    "slug": "payment"
-                  },
-                  "depth": 3
-                }, {
-                  "type": "heading",
-                  "data": {
-                    "level": 3,
-                    "title": "Create Payment",
-                    "slug": "create-payment"
-                  },
-                  "depth": 3
-                }
-              ]
-            }
-          ]
+          "depth": 2
         }, {
           "type": "file",
           "data": {
@@ -2514,43 +1204,13 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "PHP"
             },
-            "sourcePath": "/Users/japatel/Documents/workspace/Server-SDK/PayPal-PHP-SDK/sample/payments/ExecutePayment.php",
+            "sourcePath": "/Users/japatel/Documents/workspace/paypal/PayPal-PHP-SDK/sample/payments/ExecutePayment.php",
             "projectPath": "payments/ExecutePayment.php",
             "targetPath": "payments/ExecutePayment",
             "pageTitle": "payments/ExecutePayment",
             "title": "ExecutePayment"
           },
-          "depth": 2,
-          "outline": [
-            {
-              "type": "heading",
-              "data": {
-                "level": 1,
-                "title": "Execute Payment Sample",
-                "slug": "execute-payment-sample"
-              },
-              "depth": 1,
-              "children": [
-                {
-                  "type": "heading",
-                  "data": {
-                    "level": 3,
-                    "title": "Approval Status",
-                    "slug": "approval-status"
-                  },
-                  "depth": 3
-                }, {
-                  "type": "heading",
-                  "data": {
-                    "level": 3,
-                    "title": "Payment Execute",
-                    "slug": "payment-execute"
-                  },
-                  "depth": 3
-                }
-              ]
-            }
-          ]
+          "depth": 2
         }, {
           "type": "file",
           "data": {
@@ -2562,35 +1222,13 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "PHP"
             },
-            "sourcePath": "/Users/japatel/Documents/workspace/Server-SDK/PayPal-PHP-SDK/sample/payments/GetAuthorization.php",
+            "sourcePath": "/Users/japatel/Documents/workspace/paypal/PayPal-PHP-SDK/sample/payments/GetAuthorization.php",
             "projectPath": "payments/GetAuthorization.php",
             "targetPath": "payments/GetAuthorization",
             "pageTitle": "payments/GetAuthorization",
             "title": "GetAuthorization"
           },
-          "depth": 2,
-          "outline": [
-            {
-              "type": "heading",
-              "data": {
-                "level": 1,
-                "title": "GetAuthorization",
-                "slug": "getauthorization"
-              },
-              "depth": 1,
-              "children": [
-                {
-                  "type": "heading",
-                  "data": {
-                    "level": 3,
-                    "title": "GetAuthorization",
-                    "slug": "getauthorization"
-                  },
-                  "depth": 3
-                }
-              ]
-            }
-          ]
+          "depth": 2
         }, {
           "type": "file",
           "data": {
@@ -2602,35 +1240,13 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "PHP"
             },
-            "sourcePath": "/Users/japatel/Documents/workspace/Server-SDK/PayPal-PHP-SDK/sample/payments/GetCapture.php",
+            "sourcePath": "/Users/japatel/Documents/workspace/paypal/PayPal-PHP-SDK/sample/payments/GetCapture.php",
             "projectPath": "payments/GetCapture.php",
             "targetPath": "payments/GetCapture",
             "pageTitle": "payments/GetCapture",
             "title": "GetCapture"
           },
-          "depth": 2,
-          "outline": [
-            {
-              "type": "heading",
-              "data": {
-                "level": 1,
-                "title": "GetCapture",
-                "slug": "getcapture"
-              },
-              "depth": 1,
-              "children": [
-                {
-                  "type": "heading",
-                  "data": {
-                    "level": 3,
-                    "title": "Retrieve Capture details",
-                    "slug": "retrieve-capture-details"
-                  },
-                  "depth": 3
-                }
-              ]
-            }
-          ]
+          "depth": 2
         }, {
           "type": "file",
           "data": {
@@ -2642,35 +1258,13 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "PHP"
             },
-            "sourcePath": "/Users/japatel/Documents/workspace/Server-SDK/PayPal-PHP-SDK/sample/payments/GetPayment.php",
+            "sourcePath": "/Users/japatel/Documents/workspace/paypal/PayPal-PHP-SDK/sample/payments/GetPayment.php",
             "projectPath": "payments/GetPayment.php",
             "targetPath": "payments/GetPayment",
             "pageTitle": "payments/GetPayment",
             "title": "GetPayment"
           },
-          "depth": 2,
-          "outline": [
-            {
-              "type": "heading",
-              "data": {
-                "level": 1,
-                "title": "GetPaymentSample",
-                "slug": "getpaymentsample"
-              },
-              "depth": 1,
-              "children": [
-                {
-                  "type": "heading",
-                  "data": {
-                    "level": 3,
-                    "title": "Retrieve payment",
-                    "slug": "retrieve-payment"
-                  },
-                  "depth": 3
-                }
-              ]
-            }
-          ]
+          "depth": 2
         }, {
           "type": "file",
           "data": {
@@ -2682,35 +1276,13 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "PHP"
             },
-            "sourcePath": "/Users/japatel/Documents/workspace/Server-SDK/PayPal-PHP-SDK/sample/payments/ListPayments.php",
+            "sourcePath": "/Users/japatel/Documents/workspace/paypal/PayPal-PHP-SDK/sample/payments/ListPayments.php",
             "projectPath": "payments/ListPayments.php",
             "targetPath": "payments/ListPayments",
             "pageTitle": "payments/ListPayments",
             "title": "ListPayments"
           },
-          "depth": 2,
-          "outline": [
-            {
-              "type": "heading",
-              "data": {
-                "level": 1,
-                "title": "GetPaymentList",
-                "slug": "getpaymentlist"
-              },
-              "depth": 1,
-              "children": [
-                {
-                  "type": "heading",
-                  "data": {
-                    "level": 3,
-                    "title": "Retrieve payment",
-                    "slug": "retrieve-payment"
-                  },
-                  "depth": 3
-                }
-              ]
-            }
-          ]
+          "depth": 2
         }, {
           "type": "file",
           "data": {
@@ -2722,43 +1294,13 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "PHP"
             },
-            "sourcePath": "/Users/japatel/Documents/workspace/Server-SDK/PayPal-PHP-SDK/sample/payments/Reauthorization.php",
+            "sourcePath": "/Users/japatel/Documents/workspace/paypal/PayPal-PHP-SDK/sample/payments/Reauthorization.php",
             "projectPath": "payments/Reauthorization.php",
             "targetPath": "payments/Reauthorization",
             "pageTitle": "payments/Reauthorization",
             "title": "Reauthorization"
           },
-          "depth": 2,
-          "outline": [
-            {
-              "type": "heading",
-              "data": {
-                "level": 2,
-                "title": "Reauthorization Sample",
-                "slug": "reauthorization-sample"
-              },
-              "depth": 2,
-              "children": [
-                {
-                  "type": "heading",
-                  "data": {
-                    "level": 3,
-                    "title": "Reauthorization",
-                    "slug": "reauthorization"
-                  },
-                  "depth": 3
-                }, {
-                  "type": "heading",
-                  "data": {
-                    "level": 3,
-                    "title": "Reauthorize with amount being reauthorized",
-                    "slug": "reauthorize-with-amount-being-reauthorized"
-                  },
-                  "depth": 3
-                }
-              ]
-            }
-          ]
+          "depth": 2
         }, {
           "type": "file",
           "data": {
@@ -2770,35 +1312,13 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "PHP"
             },
-            "sourcePath": "/Users/japatel/Documents/workspace/Server-SDK/PayPal-PHP-SDK/sample/payments/RefundCapture.php",
+            "sourcePath": "/Users/japatel/Documents/workspace/paypal/PayPal-PHP-SDK/sample/payments/RefundCapture.php",
             "projectPath": "payments/RefundCapture.php",
             "targetPath": "payments/RefundCapture",
             "pageTitle": "payments/RefundCapture",
             "title": "RefundCapture"
           },
-          "depth": 2,
-          "outline": [
-            {
-              "type": "heading",
-              "data": {
-                "level": 1,
-                "title": "Refund Capture Sample",
-                "slug": "refund-capture-sample"
-              },
-              "depth": 1,
-              "children": [
-                {
-                  "type": "heading",
-                  "data": {
-                    "level": 3,
-                    "title": "Refund",
-                    "slug": "refund"
-                  },
-                  "depth": 3
-                }
-              ]
-            }
-          ]
+          "depth": 2
         }, {
           "type": "file",
           "data": {
@@ -2810,35 +1330,113 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "PHP"
             },
-            "sourcePath": "/Users/japatel/Documents/workspace/Server-SDK/PayPal-PHP-SDK/sample/payments/VoidAuthorization.php",
+            "sourcePath": "/Users/japatel/Documents/workspace/paypal/PayPal-PHP-SDK/sample/payments/UpdatePayment.php",
+            "projectPath": "payments/UpdatePayment.php",
+            "targetPath": "payments/UpdatePayment",
+            "pageTitle": "payments/UpdatePayment",
+            "title": "UpdatePayment"
+          },
+          "depth": 2
+        }, {
+          "type": "file",
+          "data": {
+            "language": {
+              "nameMatchers": [{}, ".fbp"],
+              "pygmentsLexer": "php",
+              "singleLineComment": ["//"],
+              "ignorePrefix": "}",
+              "foldPrefix": "^",
+              "name": "PHP"
+            },
+            "sourcePath": "/Users/japatel/Documents/workspace/paypal/PayPal-PHP-SDK/sample/payments/VoidAuthorization.php",
             "projectPath": "payments/VoidAuthorization.php",
             "targetPath": "payments/VoidAuthorization",
             "pageTitle": "payments/VoidAuthorization",
             "title": "VoidAuthorization"
           },
-          "depth": 2,
-          "outline": [
-            {
-              "type": "heading",
-              "data": {
-                "level": 1,
-                "title": "VoidAuthorization",
-                "slug": "voidauthorization"
-              },
-              "depth": 1,
-              "children": [
-                {
-                  "type": "heading",
-                  "data": {
-                    "level": 3,
-                    "title": "VoidAuthorization",
-                    "slug": "voidauthorization"
-                  },
-                  "depth": 3
-                }
-              ]
-            }
-          ]
+          "depth": 2
+        }
+      ]
+    }, {
+      "type": "folder",
+      "data": {
+        "path": "payouts",
+        "title": "payouts"
+      },
+      "depth": 1,
+      "children": [
+        {
+          "type": "file",
+          "data": {
+            "language": {
+              "nameMatchers": [{}, ".fbp"],
+              "pygmentsLexer": "php",
+              "singleLineComment": ["//"],
+              "ignorePrefix": "}",
+              "foldPrefix": "^",
+              "name": "PHP"
+            },
+            "sourcePath": "/Users/japatel/Documents/workspace/paypal/PayPal-PHP-SDK/sample/payouts/CreateBatchPayout.php",
+            "projectPath": "payouts/CreateBatchPayout.php",
+            "targetPath": "payouts/CreateBatchPayout",
+            "pageTitle": "payouts/CreateBatchPayout",
+            "title": "CreateBatchPayout"
+          },
+          "depth": 2
+        }, {
+          "type": "file",
+          "data": {
+            "language": {
+              "nameMatchers": [{}, ".fbp"],
+              "pygmentsLexer": "php",
+              "singleLineComment": ["//"],
+              "ignorePrefix": "}",
+              "foldPrefix": "^",
+              "name": "PHP"
+            },
+            "sourcePath": "/Users/japatel/Documents/workspace/paypal/PayPal-PHP-SDK/sample/payouts/CreateSinglePayout.php",
+            "projectPath": "payouts/CreateSinglePayout.php",
+            "targetPath": "payouts/CreateSinglePayout",
+            "pageTitle": "payouts/CreateSinglePayout",
+            "title": "CreateSinglePayout"
+          },
+          "depth": 2
+        }, {
+          "type": "file",
+          "data": {
+            "language": {
+              "nameMatchers": [{}, ".fbp"],
+              "pygmentsLexer": "php",
+              "singleLineComment": ["//"],
+              "ignorePrefix": "}",
+              "foldPrefix": "^",
+              "name": "PHP"
+            },
+            "sourcePath": "/Users/japatel/Documents/workspace/paypal/PayPal-PHP-SDK/sample/payouts/GetPayoutBatchStatus.php",
+            "projectPath": "payouts/GetPayoutBatchStatus.php",
+            "targetPath": "payouts/GetPayoutBatchStatus",
+            "pageTitle": "payouts/GetPayoutBatchStatus",
+            "title": "GetPayoutBatchStatus"
+          },
+          "depth": 2
+        }, {
+          "type": "file",
+          "data": {
+            "language": {
+              "nameMatchers": [{}, ".fbp"],
+              "pygmentsLexer": "php",
+              "singleLineComment": ["//"],
+              "ignorePrefix": "}",
+              "foldPrefix": "^",
+              "name": "PHP"
+            },
+            "sourcePath": "/Users/japatel/Documents/workspace/paypal/PayPal-PHP-SDK/sample/payouts/GetPayoutItemStatus.php",
+            "projectPath": "payouts/GetPayoutItemStatus.php",
+            "targetPath": "payouts/GetPayoutItemStatus",
+            "pageTitle": "payouts/GetPayoutItemStatus",
+            "title": "GetPayoutItemStatus"
+          },
+          "depth": 2
         }
       ]
     }, {
@@ -2860,43 +1458,13 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "PHP"
             },
-            "sourcePath": "/Users/japatel/Documents/workspace/Server-SDK/PayPal-PHP-SDK/sample/sale/GetSale.php",
+            "sourcePath": "/Users/japatel/Documents/workspace/paypal/PayPal-PHP-SDK/sample/sale/GetSale.php",
             "projectPath": "sale/GetSale.php",
             "targetPath": "sale/GetSale",
             "pageTitle": "sale/GetSale",
             "title": "GetSale"
           },
-          "depth": 2,
-          "outline": [
-            {
-              "type": "heading",
-              "data": {
-                "level": 1,
-                "title": "Get Sale sample",
-                "slug": "get-sale-sample"
-              },
-              "depth": 1,
-              "children": [
-                {
-                  "type": "heading",
-                  "data": {
-                    "level": 3,
-                    "title": "Get Sale From Created Payment",
-                    "slug": "get-sale-from-created-payment"
-                  },
-                  "depth": 3
-                }, {
-                  "type": "heading",
-                  "data": {
-                    "level": 3,
-                    "title": "Retrieve the sale object",
-                    "slug": "retrieve-the-sale-object"
-                  },
-                  "depth": 3
-                }
-              ]
-            }
-          ]
+          "depth": 2
         }, {
           "type": "file",
           "data": {
@@ -2908,51 +1476,13 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "PHP"
             },
-            "sourcePath": "/Users/japatel/Documents/workspace/Server-SDK/PayPal-PHP-SDK/sample/sale/RefundSale.php",
+            "sourcePath": "/Users/japatel/Documents/workspace/paypal/PayPal-PHP-SDK/sample/sale/RefundSale.php",
             "projectPath": "sale/RefundSale.php",
             "targetPath": "sale/RefundSale",
             "pageTitle": "sale/RefundSale",
             "title": "RefundSale"
           },
-          "depth": 2,
-          "outline": [
-            {
-              "type": "heading",
-              "data": {
-                "level": 1,
-                "title": "Sale Refund Sample",
-                "slug": "sale-refund-sample"
-              },
-              "depth": 1,
-              "children": [
-                {
-                  "type": "heading",
-                  "data": {
-                    "level": 3,
-                    "title": "Refund amount",
-                    "slug": "refund-amount"
-                  },
-                  "depth": 3
-                }, {
-                  "type": "heading",
-                  "data": {
-                    "level": 3,
-                    "title": "Refund object",
-                    "slug": "refund-object"
-                  },
-                  "depth": 3
-                }, {
-                  "type": "heading",
-                  "data": {
-                    "level": 3,
-                    "title": "Sale",
-                    "slug": "sale"
-                  },
-                  "depth": 3
-                }
-              ]
-            }
-          ]
+          "depth": 2
         }
       ]
     }, {
@@ -2974,43 +1504,13 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "PHP"
             },
-            "sourcePath": "/Users/japatel/Documents/workspace/Server-SDK/PayPal-PHP-SDK/sample/vault/CreateBankAccount.php",
+            "sourcePath": "/Users/japatel/Documents/workspace/paypal/PayPal-PHP-SDK/sample/vault/CreateBankAccount.php",
             "projectPath": "vault/CreateBankAccount.php",
             "targetPath": "vault/CreateBankAccount",
             "pageTitle": "vault/CreateBankAccount",
             "title": "CreateBankAccount"
           },
-          "depth": 2,
-          "outline": [
-            {
-              "type": "heading",
-              "data": {
-                "level": 1,
-                "title": "Create Bank Account Sample",
-                "slug": "create-bank-account-sample"
-              },
-              "depth": 1,
-              "children": [
-                {
-                  "type": "heading",
-                  "data": {
-                    "level": 3,
-                    "title": "Bank Account",
-                    "slug": "bank-account"
-                  },
-                  "depth": 3
-                }, {
-                  "type": "heading",
-                  "data": {
-                    "level": 3,
-                    "title": "Save bank account",
-                    "slug": "save-bank-account"
-                  },
-                  "depth": 3
-                }
-              ]
-            }
-          ]
+          "depth": 2
         }, {
           "type": "file",
           "data": {
@@ -3022,43 +1522,13 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "PHP"
             },
-            "sourcePath": "/Users/japatel/Documents/workspace/Server-SDK/PayPal-PHP-SDK/sample/vault/CreateCreditCard.php",
+            "sourcePath": "/Users/japatel/Documents/workspace/paypal/PayPal-PHP-SDK/sample/vault/CreateCreditCard.php",
             "projectPath": "vault/CreateCreditCard.php",
             "targetPath": "vault/CreateCreditCard",
             "pageTitle": "vault/CreateCreditCard",
             "title": "CreateCreditCard"
           },
-          "depth": 2,
-          "outline": [
-            {
-              "type": "heading",
-              "data": {
-                "level": 1,
-                "title": "Create Credit Card Sample",
-                "slug": "create-credit-card-sample"
-              },
-              "depth": 1,
-              "children": [
-                {
-                  "type": "heading",
-                  "data": {
-                    "level": 3,
-                    "title": "CreditCard",
-                    "slug": "creditcard"
-                  },
-                  "depth": 3
-                }, {
-                  "type": "heading",
-                  "data": {
-                    "level": 3,
-                    "title": "Save card",
-                    "slug": "save-card"
-                  },
-                  "depth": 3
-                }
-              ]
-            }
-          ]
+          "depth": 2
         }, {
           "type": "file",
           "data": {
@@ -3070,35 +1540,13 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "PHP"
             },
-            "sourcePath": "/Users/japatel/Documents/workspace/Server-SDK/PayPal-PHP-SDK/sample/vault/DeleteBankAccount.php",
+            "sourcePath": "/Users/japatel/Documents/workspace/paypal/PayPal-PHP-SDK/sample/vault/DeleteBankAccount.php",
             "projectPath": "vault/DeleteBankAccount.php",
             "targetPath": "vault/DeleteBankAccount",
             "pageTitle": "vault/DeleteBankAccount",
             "title": "DeleteBankAccount"
           },
-          "depth": 2,
-          "outline": [
-            {
-              "type": "heading",
-              "data": {
-                "level": 1,
-                "title": "Delete Bank Account Sample",
-                "slug": "delete-bank-account-sample"
-              },
-              "depth": 1,
-              "children": [
-                {
-                  "type": "heading",
-                  "data": {
-                    "level": 3,
-                    "title": "Delete Card",
-                    "slug": "delete-card"
-                  },
-                  "depth": 3
-                }
-              ]
-            }
-          ]
+          "depth": 2
         }, {
           "type": "file",
           "data": {
@@ -3110,35 +1558,13 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "PHP"
             },
-            "sourcePath": "/Users/japatel/Documents/workspace/Server-SDK/PayPal-PHP-SDK/sample/vault/DeleteCreditCard.php",
+            "sourcePath": "/Users/japatel/Documents/workspace/paypal/PayPal-PHP-SDK/sample/vault/DeleteCreditCard.php",
             "projectPath": "vault/DeleteCreditCard.php",
             "targetPath": "vault/DeleteCreditCard",
             "pageTitle": "vault/DeleteCreditCard",
             "title": "DeleteCreditCard"
           },
-          "depth": 2,
-          "outline": [
-            {
-              "type": "heading",
-              "data": {
-                "level": 1,
-                "title": "Delete CreditCard Sample",
-                "slug": "delete-creditcard-sample"
-              },
-              "depth": 1,
-              "children": [
-                {
-                  "type": "heading",
-                  "data": {
-                    "level": 3,
-                    "title": "Delete Card",
-                    "slug": "delete-card"
-                  },
-                  "depth": 3
-                }
-              ]
-            }
-          ]
+          "depth": 2
         }, {
           "type": "file",
           "data": {
@@ -3150,24 +1576,13 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "PHP"
             },
-            "sourcePath": "/Users/japatel/Documents/workspace/Server-SDK/PayPal-PHP-SDK/sample/vault/GetBankAccount.php",
+            "sourcePath": "/Users/japatel/Documents/workspace/paypal/PayPal-PHP-SDK/sample/vault/GetBankAccount.php",
             "projectPath": "vault/GetBankAccount.php",
             "targetPath": "vault/GetBankAccount",
             "pageTitle": "vault/GetBankAccount",
             "title": "GetBankAccount"
           },
-          "depth": 2,
-          "outline": [
-            {
-              "type": "heading",
-              "data": {
-                "level": 1,
-                "title": "Get Bank Account Sample",
-                "slug": "get-bank-account-sample"
-              },
-              "depth": 1
-            }
-          ]
+          "depth": 2
         }, {
           "type": "file",
           "data": {
@@ -3179,24 +1594,13 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "PHP"
             },
-            "sourcePath": "/Users/japatel/Documents/workspace/Server-SDK/PayPal-PHP-SDK/sample/vault/GetCreditCard.php",
+            "sourcePath": "/Users/japatel/Documents/workspace/paypal/PayPal-PHP-SDK/sample/vault/GetCreditCard.php",
             "projectPath": "vault/GetCreditCard.php",
             "targetPath": "vault/GetCreditCard",
             "pageTitle": "vault/GetCreditCard",
             "title": "GetCreditCard"
           },
-          "depth": 2,
-          "outline": [
-            {
-              "type": "heading",
-              "data": {
-                "level": 1,
-                "title": "Get Credit Card Sample",
-                "slug": "get-credit-card-sample"
-              },
-              "depth": 1
-            }
-          ]
+          "depth": 2
         }
       ]
     }

@@ -2,9 +2,9 @@
 
 namespace PayPal\Validation;
 
-use PayPal\Common\PPModel;
-use PayPal\Core\PPConfigManager;
-use PayPal\Core\PPLoggingManager;
+use PayPal\Common\PayPalModel;
+use PayPal\Core\PayPalConfigManager;
+use PayPal\Core\PayPalLoggingManager;
 
 /**
  * Class ModelAccessorValidator
@@ -16,18 +16,22 @@ class ModelAccessorValidator
     /**
      * Helper method for validating if the class contains accessor methods (getter and setter) for a given attribute
      *
-     * @param PPModel $class An object of PPModel
+     * @param PayPalModel $class An object of PayPalModel
      * @param string $attributeName Attribute name
      * @return bool
      */
-    public static function validate(PPModel $class, $attributeName)
+    public static function validate(PayPalModel $class, $attributeName)
     {
-        $mode = PPConfigManager::getInstance()->get('validation.level');
+        $mode = PayPalConfigManager::getInstance()->get('validation.level');
         if ($mode != 'disabled') {
+            //Check if $attributeName is string
+            if (gettype($attributeName) !== 'string') {
+                return false;
+            }
             //If the mode is disabled, bypass the validation
             foreach (array('set' . $attributeName, 'get' . $attributeName) as $methodName) {
-                if (get_class($class) == get_class(new PPModel())) {
-                    // Silently return false on cases where you are using PPModel instance directly
+                if (get_class($class) == get_class(new PayPalModel())) {
+                    // Silently return false on cases where you are using PayPalModel instance directly
                     return false;
                 }
                 //Check if both getter and setter exists for given attribute
@@ -35,7 +39,7 @@ class ModelAccessorValidator
                     //Delegate the error based on the choice
                     $className = is_object($class) ? get_class($class) : (string)$class;
                     $errorMessage = "Missing Accessor: $className:$methodName. Please let us know by creating an issue at https://github.com/paypal/PayPal-PHP-SDK/issues";
-                    PPLoggingManager::getInstance(__CLASS__)->warning($errorMessage);
+                    PayPalLoggingManager::getInstance(__CLASS__)->warning($errorMessage);
                     if ($mode == 'strict') {
                         trigger_error($errorMessage, E_USER_NOTICE);
                     }
