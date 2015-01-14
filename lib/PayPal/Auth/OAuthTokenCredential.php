@@ -8,6 +8,7 @@ use PayPal\Core\PayPalHttpConfig;
 use PayPal\Core\PayPalHttpConnection;
 use PayPal\Core\PayPalLoggingManager;
 use PayPal\Exception\PayPalConfigurationException;
+use PayPal\Exception\PayPalConnectionException;
 use PayPal\Handler\IPayPalHandler;
 use PayPal\Rest\ApiContext;
 
@@ -202,7 +203,7 @@ class OAuthTokenCredential extends PayPalResourceModel
      * @throws PayPalConfigurationException
      * @throws \PayPal\Exception\PayPalConnectionException
      */
-    private function getToken($config, $clientId, $clientSecret, $payload)
+    protected function getToken($config, $clientId, $clientSecret, $payload)
     {
         $httpConfig = new PayPalHttpConfig(null, 'POST', $config);
 
@@ -247,8 +248,9 @@ class OAuthTokenCredential extends PayPalResourceModel
             $this->accessToken = null;
             $this->tokenExpiresIn = null;
             $this->logger->warning(
-                "Could not generate new Access token. Invalid response from server: " . $response
+                "Could not generate new Access token. Invalid response from server: "
             );
+            throw new PayPalConnectionException(null, "Could not generate new Access token. Invalid response from server: ");
         } else {
             $this->accessToken = $response["access_token"];
             $this->tokenExpiresIn = $response["expires_in"];
