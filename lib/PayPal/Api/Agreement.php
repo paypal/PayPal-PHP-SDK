@@ -589,6 +589,7 @@ class Agreement extends PayPalResourceModel
     /**
      * List transactions for a billing agreement by passing the ID of the agreement, as well as the start and end dates of the range of transactions to list, to the request URI.
      *
+     * @deprecated Please use searchTransactions Instead
      * @param string $agreementId
      * @param ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
      * @param PayPalRestCall $restCall is the Rest Call Service that is used to make rest calls
@@ -600,6 +601,39 @@ class Agreement extends PayPalResourceModel
         $payLoad = "";
         $json = self::executeCall(
             "/v1/payments/billing-agreements/$agreementId/transactions",
+            "GET",
+            $payLoad,
+            null,
+            $apiContext,
+            $restCall
+        );
+        $ret = new AgreementTransactions();
+        $ret->fromJson($json);
+        return $ret;
+    }
+
+    /**
+     * List transactions for a billing agreement by passing the ID of the agreement, as well as the start and end dates of the range of transactions to list, to the request URI.
+     *
+     * @param string $agreementId
+     * @param array $params Parameters for search string. Options: start_date, and end_date
+     * @param ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
+     * @param PayPalRestCall $restCall is the Rest Call Service that is used to make rest calls
+     * @return AgreementTransactions
+     */
+    public static function searchTransactions($agreementId, $params = array(), $apiContext = null, $restCall = null)
+    {
+        ArgumentValidator::validate($agreementId, 'agreementId');
+        ArgumentValidator::validate($params, 'params');
+
+        $allowedParams = array(
+            'start_date' => 1,
+            'end_date' => 1,
+        );
+
+        $payLoad = "";
+        $json = self::executeCall(
+            "/v1/payments/billing-agreements/$agreementId/transactions?" . http_build_query(array_intersect_key($params, $allowedParams)),
             "GET",
             $payLoad,
             null,

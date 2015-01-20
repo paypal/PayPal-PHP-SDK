@@ -175,9 +175,13 @@ class BillingAgreementsFunctionalTest extends \PHPUnit_Framework_TestCase
      */
     public function testGetTransactions($agreement)
     {
-        $this->markTestSkipped('Skipped as the fix is on the way.');
-        $result = Agreement::transactions($agreement->getId(), null, $this->mockPayPalRestCall);
+        $result = Agreement::searchTransactions($agreement->getId(),array('start_date' => '2013-01-01', 'end_date' => '2015-01-20'), null, $this->mockPayPalRestCall);
         $this->assertNotNull($result);
+        $this->assertTrue(is_array($result->getAgreementTransactionList()));
+        $this->assertTrue(sizeof($result->getAgreementTransactionList()) > 0);
+        $list = $result->getAgreementTransactionList();
+        $first = $list[0];
+        $this->assertEquals($first->getTransactionId(), $agreement->getId());
     }
 
     /**

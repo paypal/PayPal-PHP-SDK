@@ -274,7 +274,7 @@ class AgreementTest extends \PHPUnit_Framework_TestCase
                     AgreementTransactionsTest::getJson()
             ));
 
-        $result = $obj->transactions("agreementId", $mockApiContext, $mockPayPalRestCall);
+        $result = $obj->searchTransactions("agreementId", array(), $mockApiContext, $mockPayPalRestCall);
         $this->assertNotNull($result);
     }
 
