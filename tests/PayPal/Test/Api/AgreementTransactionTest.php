@@ -18,7 +18,7 @@ class AgreementTransactionTest extends \PHPUnit_Framework_TestCase
      */
     public static function getJson()
     {
-        return '{"transaction_id":"TestSample","status":"TestSample","transaction_type":"TestSample","amount":' .CurrencyTest::getJson() . ',"fee_amount":' .CurrencyTest::getJson() . ',"net_amount":' .CurrencyTest::getJson() . ',"payer_email":"TestSample","payer_name":"TestSample","time_updated":"TestSample","time_zone":"TestSample"}';
+        return '{"transaction_id":"TestSample","status":"TestSample","transaction_type":"TestSample","amount":' .CurrencyTest::getJson() . ',"fee_amount":' .CurrencyTest::getJson() . ',"net_amount":' .CurrencyTest::getJson() . ',"payer_email":"TestSample","payer_name":"TestSample","time_stamp":"TestSample","time_zone":"TestSample"}';
     }
 
     /**
@@ -47,7 +47,7 @@ class AgreementTransactionTest extends \PHPUnit_Framework_TestCase
         $this->assertNotNull($obj->getNetAmount());
         $this->assertNotNull($obj->getPayerEmail());
         $this->assertNotNull($obj->getPayerName());
-        $this->assertNotNull($obj->getTimeUpdated());
+        $this->assertNotNull($obj->getTimeStamp());
         $this->assertNotNull($obj->getTimeZone());
         $this->assertEquals(self::getJson(), $obj->toJson());
         return $obj;
@@ -67,7 +67,7 @@ class AgreementTransactionTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($obj->getNetAmount(), CurrencyTest::getObject());
         $this->assertEquals($obj->getPayerEmail(), "TestSample");
         $this->assertEquals($obj->getPayerName(), "TestSample");
-        $this->assertEquals($obj->getTimeUpdated(), "TestSample");
+        $this->assertEquals($obj->getTimeStamp(), "TestSample");
         $this->assertEquals($obj->getTimeZone(), "TestSample");
     }
 

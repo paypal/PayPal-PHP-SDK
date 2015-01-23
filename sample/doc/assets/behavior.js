@@ -1199,7 +1199,72 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
             "pageTitle": "payouts/CreateBatchPayout",
             "title": "CreateBatchPayout"
           },
-          "depth": 2
+          "depth": 2,
+          "outline": [
+            {
+              "type": "heading",
+              "data": {
+                "level": 1,
+                "title": "Create Bulk Payout Sample",
+                "slug": "create-bulk-payout-sample"
+              },
+              "depth": 1,
+              "children": [
+                {
+                  "type": "heading",
+                  "data": {
+                    "level": 3,
+                    "title": "NOTE:",
+                    "slug": "note"
+                  },
+                  "depth": 3,
+                  "children": [
+                    {
+                      "type": "heading",
+                      "data": {
+                        "level": 4,
+                        "title": "Batch Header Instance",
+                        "slug": "batch-header-instance"
+                      },
+                      "depth": 4
+                    }, {
+                      "type": "heading",
+                      "data": {
+                        "level": 4,
+                        "title": "Sender Item",
+                        "slug": "sender-item"
+                      },
+                      "depth": 4
+                    }, {
+                      "type": "heading",
+                      "data": {
+                        "level": 4,
+                        "title": "Sender Item 2",
+                        "slug": "sender-item-2"
+                      },
+                      "depth": 4
+                    }, {
+                      "type": "heading",
+                      "data": {
+                        "level": 4,
+                        "title": "Sender Item 3",
+                        "slug": "sender-item-3"
+                      },
+                      "depth": 4
+                    }
+                  ]
+                }, {
+                  "type": "heading",
+                  "data": {
+                    "level": 3,
+                    "title": "Create Payout",
+                    "slug": "create-payout"
+                  },
+                  "depth": 3
+                }
+              ]
+            }
+          ]
         }, {
           "type": "file",
           "data": {
@@ -1217,7 +1282,56 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
             "pageTitle": "payouts/CreateSinglePayout",
             "title": "CreateSinglePayout"
           },
-          "depth": 2
+          "depth": 2,
+          "outline": [
+            {
+              "type": "heading",
+              "data": {
+                "level": 1,
+                "title": "Create Single Synchronous Payout Sample",
+                "slug": "create-single-synchronous-payout-sample"
+              },
+              "depth": 1,
+              "children": [
+                {
+                  "type": "heading",
+                  "data": {
+                    "level": 3,
+                    "title": "NOTE:",
+                    "slug": "note"
+                  },
+                  "depth": 3,
+                  "children": [
+                    {
+                      "type": "heading",
+                      "data": {
+                        "level": 4,
+                        "title": "Batch Header Instance",
+                        "slug": "batch-header-instance"
+                      },
+                      "depth": 4
+                    }, {
+                      "type": "heading",
+                      "data": {
+                        "level": 4,
+                        "title": "Sender Item",
+                        "slug": "sender-item"
+                      },
+                      "depth": 4
+                    }
+                  ]
+                }, {
+                  "type": "heading",
+                  "data": {
+                    "level": 3,
+                    "title": "Create Payout",
+                    "slug": "create-payout"
+                  },
+                  "depth": 3
+                }
+              ]
+            }
+          ]
         }, {
           "type": "file",
           "data": {
