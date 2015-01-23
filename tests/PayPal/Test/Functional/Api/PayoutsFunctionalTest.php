@@ -65,6 +65,11 @@ class PayoutsFunctionalTest extends \PHPUnit_Framework_TestCase
         $result = $obj->create($params, null, $this->mockPayPalRestCall);
         $this->assertNotNull($result);
         $this->assertEquals(PayoutsFunctionalTest::$batchId, $result->getBatchHeader()->getSenderBatchHeader()->getSenderBatchId());
+        $this->assertEquals('SUCCESS', $result->getBatchHeader()->getBatchStatus());
+        $items = $result->getItems();
+        $this->assertTrue(sizeof($items) > 0);
+        $item = $items[0];
+        $this->assertEquals('UNCLAIMED', $item->getTransactionStatus());
         return $result;
     }
 
@@ -97,6 +102,28 @@ class PayoutsFunctionalTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($item->getPayoutBatchId(), $result->getPayoutBatchId());
         $this->assertEquals($item->getTransactionId(), $result->getTransactionId());
         $this->assertEquals($item->getPayoutItemFee(), $result->getPayoutItemFee());
+    }
+
+    /**
+     * @depends testCreate
+     * @param $payoutBatch PayoutBatch
+     * @return PayoutBatch
+     */
+    public function testCancel($payoutBatch)
+    {
+        $items = $payoutBatch->getItems();
+        $item = $items[0];
+        if ($item->getTransactionStatus() != 'UNCLAIMED') {
+            $this->markTestSkipped('Transaction status needs to be Unclaimed for this test ');
+            return;
+        }
+        $result = PayoutItem::cancel($item->getPayoutItemId(), null, $this->mockPayPalRestCall);
+        $this->assertNotNull($result);
+        $this->assertEquals($item->getPayoutItemId(), $result->getPayoutItemId());
+        $this->assertEquals($item->getPayoutBatchId(), $result->getPayoutBatchId());
+        $this->assertEquals($item->getTransactionId(), $result->getTransactionId());
+        $this->assertEquals($item->getPayoutItemFee(), $result->getPayoutItemFee());
+        $this->assertEquals('RETURNED', $result->getTransactionStatus());
     }
 
 }

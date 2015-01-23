@@ -162,4 +162,29 @@ class PayoutItem extends PayPalResourceModel
         return $ret;
     }
 
+    /**
+     * Cancels the unclaimed payment using the items id passed in the request URI. If an unclaimed item is not claimed within 30 days, the funds will be automatically returned to the sender. This call can be used to cancel the unclaimed item prior to the automatic 30-day return.
+     *
+     * @param string $payoutItemId
+     * @param ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
+     * @param PayPalRestCall $restCall is the Rest Call Service that is used to make rest calls
+     * @return PayoutItemDetails
+     */
+    public static function cancel($payoutItemId, $apiContext = null, $restCall = null)
+    {
+        ArgumentValidator::validate($payoutItemId, 'payoutItemId');
+        $payLoad = "";
+        $json = self::executeCall(
+            "/v1/payments/payouts-item/$payoutItemId/cancel",
+            "POST",
+            $payLoad,
+            null,
+            $apiContext,
+            $restCall
+        );
+        $ret = new PayoutItemDetails();
+        $ret->fromJson($json);
+        return $ret;
+    }
+
 }

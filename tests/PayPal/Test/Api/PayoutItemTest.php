@@ -85,6 +85,26 @@ class PayoutItemTest extends \PHPUnit_Framework_TestCase
         $this->assertNotNull($result);
     }
 
+    /**
+     * @dataProvider mockProvider
+     * @param PayoutItem $obj
+     */
+    public function testCancel($obj, $mockApiContext)
+    {
+        $mockPPRestCall = $this->getMockBuilder('\PayPal\Transport\PayPalRestCall')
+            ->disableOriginalConstructor()
+            ->getMock();
+
+        $mockPPRestCall->expects($this->any())
+            ->method('execute')
+            ->will($this->returnValue(
+                PayoutItemDetailsTest::getJson()
+            ));
+
+        $result = $obj->cancel("payoutItemId", $mockApiContext, $mockPPRestCall);
+        $this->assertNotNull($result);
+    }
+
     public function mockProvider()
     {
         $obj = self::getObject();
