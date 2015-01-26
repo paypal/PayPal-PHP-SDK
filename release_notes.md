@@ -1,5 +1,13 @@
 PayPal PHP SDK release notes
 ============================
+v1.1.0
+----
+* Enabled Payouts Cancel API Support for Unclaimed Payouts
+* Encrypting Access Token in Cached Storage
+* Updated Billing Agreement Search Transaction code to pass start_date and end_date
+* Updated OAuthToken to throw proper error on not receiving access token
+* Minor Bug Fixes and Documentation Updates
+
 v1.0.0
 ----
 * Enabled Payouts API Support
