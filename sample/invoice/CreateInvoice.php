@@ -23,7 +23,6 @@ $invoice = new Invoice();
 $invoice
     ->setMerchantInfo(new MerchantInfo())
     ->setBillingInfo(array(new BillingInfo()))
-    ->setItems(array(new InvoiceItem()))
     ->setNote("Medical Invoice 16 Jul, 2013 PST")
     ->setPaymentTerm(new PaymentTerm())
     ->setShippingInfo(new ShippingInfo());
@@ -61,7 +60,8 @@ $billing[0]
 // ### Items List
 // You could provide the list of all items for
 // detailed breakdown of invoice
-$items = $invoice->getItems();
+$items = array();
+$items[0] = new InvoiceItem();
 $items[0]
     ->setName("Sutures")
     ->setQuantity(100)
@@ -70,6 +70,17 @@ $items[0]
 $items[0]->getUnitPrice()
     ->setCurrency("USD")
     ->setValue(5);
+// Second Item
+$items[1] = new InvoiceItem();
+$items[1]
+    ->setName("Injection")
+    ->setQuantity(5)
+    ->setUnitPrice(new Currency());
+
+$items[1]->getUnitPrice()
+    ->setCurrency("USD")
+    ->setValue(5);
+$invoice->setItems($items);
 
 $invoice->getPaymentTerm()
     ->setTermType("NET_45");
