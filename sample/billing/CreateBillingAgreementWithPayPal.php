@@ -73,7 +73,7 @@ try {
     // The API response provides the url that you must redirect
     // the buyer to. Retrieve the url from the $agreement->getApprovalLink()
     // method
-$approvalUrl = $agreement->getApprovalLink();
+    $approvalUrl = $agreement->getApprovalLink();
 
 } catch (Exception $ex) {
     ResultPrinter::printError("Created Billing Agreement.", "Agreement", null, $request, $ex);
