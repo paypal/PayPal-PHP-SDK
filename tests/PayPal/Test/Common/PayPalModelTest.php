@@ -187,6 +187,27 @@ class PayPalModelTest extends PHPUnit_Framework_TestCase
     /**
      * @test
      */
+    public function testEmptyObject()
+    {
+        $child = new SimpleModelTestClass();
+        $child->setField1(null);
+
+        $parent = new ContainerModelTestClass();
+        $parent->setField1("parent");
+        $parent->setNested1($child);
+
+        $this->assertEquals('{"field1":"parent","nested1":{}}',
+            $parent->toJSON());
+
+        $parentCopy = new ContainerModelTestClass();
+        $parentCopy->fromJson($parent->toJSON());
+        $this->assertEquals($parent, $parentCopy);
+
+    }
+
+    /**
+     * @test
+     */
     public function testSpecialChars()
     {
         $o = new SimpleModelTestClass();

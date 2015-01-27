@@ -162,6 +162,12 @@ class PayPalModel
                 $ret[$k] = $v;
             }
         }
+        // If the array is empty, which means an empty object,
+        // we need to convert array to StdClass object to properly
+        // represent JSON String
+        if (sizeof($ret) <= 0) {
+            $ret = new PayPalModel();
+        }
         return $ret;
     }
 
