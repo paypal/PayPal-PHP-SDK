@@ -30,7 +30,7 @@ $paymentDefinition = new PaymentDefinition();
 // You should be able to see the acceptable values in the comments.
 $paymentDefinition->setName('Regular Payments')
     ->setType('REGULAR')
-    ->setFrequency('Month')
+    ->setFrequency('MONTH')
     ->setFrequencyInterval("2")
     ->setCycles("12")
     ->setAmount(new Currency(array('value' => 100, 'currency' => 'USD')));
