@@ -1,5 +1,9 @@
 PayPal PHP SDK release notes
 ============================
+v1.1.1
+----
+* Fix to Cipher Encryption (Critical)
+
 v1.1.0
 ----
 * Enabled Payouts Cancel API Support for Unclaimed Payouts
