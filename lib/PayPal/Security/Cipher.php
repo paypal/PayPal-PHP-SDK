@@ -20,7 +20,7 @@ class Cipher
 
     function __construct($secretKey)
     {
-        $this->$secretKey = $secretKey;
+        $this->secretKey = $secretKey;
     }
 
     /**
