@@ -42,7 +42,6 @@ if (PHP_SAPI == 'cli') {
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <style>
         /* Header Links */
-        /* Adopted from http://ben.balter.com/2014/03/13/pages-anchor-links/ */
         .header-link {
             position: absolute;
             left: 7px;
@@ -62,11 +61,6 @@ if (PHP_SAPI == 'cli') {
         }
 
         /* End Header Links */
-
-        body {
-            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-            -webkit-font-smoothing: antialiased;
-        }
 
         li.list-group-item:hover {
             background-color: #EEE;
@@ -132,6 +126,8 @@ if (PHP_SAPI == 'cli') {
         }
 
         body {
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            -webkit-font-smoothing: antialiased;
             /* Margin bottom by footer height */
             margin-bottom: 60px;
         }
