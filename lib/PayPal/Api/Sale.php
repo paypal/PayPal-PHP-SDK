@@ -3,8 +3,6 @@
 namespace PayPal\Api;
 
 use PayPal\Common\PayPalResourceModel;
-use PayPal\Rest\ApiContext;
-use PayPal\Api\Refund;
 use PayPal\Transport\PayPalRestCall;
 use PayPal\Validation\ArgumentValidator;
 
@@ -13,7 +11,6 @@ use PayPal\Validation\ArgumentValidator;
  *
  * A sale transaction.
  *
- * @package PayPal\Api
  *
  * @property string id
  * @property string create_time
@@ -27,15 +24,17 @@ use PayPal\Validation\ArgumentValidator;
  * @property string protection_eligibility_type
  * @property string clearing_time
  * @property string parent_payment
+ * @property \PayPal\Api\Currency $transaction_fee
+ * @package PayPal\Api
  */
 class Sale extends PayPalResourceModel
 {
     /**
      * Identifier of the authorization transaction.
-     * 
      *
-     * @param string $id
-     * 
+     *
+     *
+     * @param  string  $id
      * @return $this
      */
     public function setId($id)
@@ -56,10 +55,10 @@ class Sale extends PayPalResourceModel
 
     /**
      * Time the resource was created.
-     * 
      *
-     * @param string $create_time
-     * 
+     *
+     *
+     * @param  string  $create_time
      * @return $this
      */
     public function setCreateTime($create_time)
@@ -80,10 +79,10 @@ class Sale extends PayPalResourceModel
 
     /**
      * Time the resource was last updated.
-     * 
      *
-     * @param string $update_time
-     * 
+     *
+     *
+     * @param  string  $update_time
      * @return $this
      */
     public function setUpdateTime($update_time)
@@ -104,10 +103,10 @@ class Sale extends PayPalResourceModel
 
     /**
      * Amount being collected.
-     * 
      *
-     * @param \PayPal\Api\Amount $amount
-     * 
+     *
+     *
+     * @param  \PayPal\Api\Amount $amount
      * @return $this
      */
     public function setAmount($amount)
@@ -128,10 +127,10 @@ class Sale extends PayPalResourceModel
 
     /**
      * specifies payment mode of the transaction
-     * Valid Values: ["INSTANT_TRANSFER", "MANUAL_BANK_TRANSFER", "DELAYED_TRANSFER", "ECHECK"] 
+     * Valid Values: ["INSTANT_TRANSFER", "MANUAL_BANK_TRANSFER", "DELAYED_TRANSFER", "ECHECK"]
      *
-     * @param string $payment_mode
-     * 
+     *
+     * @param  string  $payment_mode
      * @return $this
      */
     public function setPaymentMode($payment_mode)
@@ -152,10 +151,10 @@ class Sale extends PayPalResourceModel
 
     /**
      * Reason of Pending transaction.
-     * 
      *
-     * @param string $pending_reason
-     * 
+     *
+     *
+     * @param  string  $pending_reason
      * @return $this
      */
     public function setPendingReason($pending_reason)
@@ -176,10 +175,10 @@ class Sale extends PayPalResourceModel
 
     /**
      * State of the sale transaction.
-     * Valid Values: ["pending", "completed", "refunded", "partially_refunded"] 
+     * Valid Values: ["pending", "completed", "refunded", "partially_refunded"]
      *
-     * @param string $state
-     * 
+     *
+     * @param  string  $state
      * @return $this
      */
     public function setState($state)
@@ -200,10 +199,10 @@ class Sale extends PayPalResourceModel
 
     /**
      * Reason code for the transaction state being Pending or Reversed.
-     * Valid Values: ["CHARGEBACK", "GUARANTEE", "BUYER_COMPLAINT", "REFUND", "UNCONFIRMED_SHIPPING_ADDRESS", "ECHECK", "INTERNATIONAL_WITHDRAWAL", "RECEIVING_PREFERENCE_MANDATES_MANUAL_ACTION", "PAYMENT_REVIEW", "REGULATORY_REVIEW", "UNILATERAL", "VERIFICATION_REQUIRED"] 
+     * Valid Values: ["CHARGEBACK", "GUARANTEE", "BUYER_COMPLAINT", "REFUND", "UNCONFIRMED_SHIPPING_ADDRESS", "ECHECK", "INTERNATIONAL_WITHDRAWAL", "RECEIVING_PREFERENCE_MANDATES_MANUAL_ACTION", "PAYMENT_REVIEW", "REGULATORY_REVIEW", "UNILATERAL", "VERIFICATION_REQUIRED"]
      *
-     * @param string $reason_code
-     * 
+     *
+     * @param  string  $reason_code
      * @return $this
      */
     public function setReasonCode($reason_code)
@@ -223,11 +222,11 @@ class Sale extends PayPalResourceModel
     }
 
     /**
-     * Protection Eligibility of the Payer 
-     * Valid Values: ["ELIGIBLE", "PARTIALLY_ELIGIBLE", "INELIGIBLE"] 
+     * Protection Eligibility of the Payer
+     * Valid Values: ["ELIGIBLE", "PARTIALLY_ELIGIBLE", "INELIGIBLE"]
      *
-     * @param string $protection_eligibility
-     * 
+     *
+     * @param  string  $protection_eligibility
      * @return $this
      */
     public function setProtectionEligibility($protection_eligibility)
@@ -237,7 +236,7 @@ class Sale extends PayPalResourceModel
     }
 
     /**
-     * Protection Eligibility of the Payer 
+     * Protection Eligibility of the Payer
      *
      * @return string
      */
@@ -247,11 +246,11 @@ class Sale extends PayPalResourceModel
     }
 
     /**
-     * Protection Eligibility Type of the Payer 
-     * Valid Values: ["ELIGIBLE", "ITEM_NOT_RECEIVED_ELIGIBLE", "INELIGIBLE", "UNAUTHORIZED_PAYMENT_ELIGIBLE"] 
+     * Protection Eligibility Type of the Payer
+     * Valid Values: ["ELIGIBLE", "ITEM_NOT_RECEIVED_ELIGIBLE", "INELIGIBLE", "UNAUTHORIZED_PAYMENT_ELIGIBLE"]
      *
-     * @param string $protection_eligibility_type
-     * 
+     *
+     * @param  string  $protection_eligibility_type
      * @return $this
      */
     public function setProtectionEligibilityType($protection_eligibility_type)
@@ -261,7 +260,7 @@ class Sale extends PayPalResourceModel
     }
 
     /**
-     * Protection Eligibility Type of the Payer 
+     * Protection Eligibility Type of the Payer
      *
      * @return string
      */
@@ -271,11 +270,34 @@ class Sale extends PayPalResourceModel
     }
 
     /**
-     * Expected clearing time for eCheck Transactions
-     * 
+     * Transaction fee applicable for this payment.
      *
-     * @param string $clearing_time
-     * 
+     * @param Currency $transaction_fee
+     * @return $this
+     */
+    public function setTransactionFee($transaction_fee)
+    {
+        $this->transaction_fee = $transaction_fee;
+        return $this;
+    }
+
+    /**
+     * Transaction fee applicable for this payment.
+     *
+     * @return \PayPal\Api\Currency
+     */
+    public function getTransactionFee()
+    {
+        return $this->transaction_fee;
+    }
+
+
+    /**
+     * Expected clearing time for eCheck Transactions
+     *
+     *
+     *
+     * @param  string  $clearing_time
      * @return $this
      */
     public function setClearingTime($clearing_time)
@@ -296,10 +318,10 @@ class Sale extends PayPalResourceModel
 
     /**
      * ID of the Payment resource that this transaction is based on.
-     * 
      *
-     * @param string $parent_payment
-     * 
+     *
+     *
+     * @param  string  $parent_payment
      * @return $this
      */
     public function setParentPayment($parent_payment)
@@ -321,9 +343,9 @@ class Sale extends PayPalResourceModel
     /**
      * Obtain the Sale transaction resource for the given identifier.
      *
-     * @param string $saleId
-     * @param \PayPal\Rest\ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
-     * @param PayPalRestCall $restCall is the Rest Call Service that is used to make rest calls
+     * @param  string                  $saleId
+     * @param  \PayPal\Rest\ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
+     * @param  PayPalRestCall          $restCall   is the Rest Call Service that is used to make rest calls
      * @return Sale
      */
     public static function get($saleId, $apiContext = null, $restCall = null)
@@ -347,9 +369,9 @@ class Sale extends PayPalResourceModel
     /**
      * Creates (and processes) a new Refund Transaction added as a related resource.
      *
-     * @param Refund $refund
-     * @param \PayPal\Rest\ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
-     * @param PayPalRestCall $restCall is the Rest Call Service that is used to make rest calls
+     * @param  Refund                  $refund
+     * @param  \PayPal\Rest\ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
+     * @param  PayPalRestCall          $restCall   is the Rest Call Service that is used to make rest calls
      * @return Refund
      */
     public function refund($refund, $apiContext = null, $restCall = null)

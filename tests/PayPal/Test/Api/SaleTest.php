@@ -1,19 +1,17 @@
 <?php
 namespace PayPal\Test\Api;
 
-use PayPal\Api\Refund;
+use PayPal\Api\Currency;
 use PayPal\Api\Sale;
-use PayPal\Test\Constants;
 use PayPal\Test\Api\AmountTest;
-use PayPal\Test\Api\PaymentTest;
-use PayPal\Test\Api\LinksTest;
-use PayPal\Exception\PayPalConnectionException;
 
 class SaleTest extends \PHPUnit_Framework_TestCase
 {
-
-    /** @var  Sale */
+    /**
+     * @var Sale
+     */
     private $sale;
+    private $tFee;
 
     public static $captureId = "CAP-123";
     public static $createTime = "2013-02-28T00:00:00Z";
@@ -21,7 +19,7 @@ class SaleTest extends \PHPUnit_Framework_TestCase
     public static $parentPayment = "PAY-123";
     public static $state = "Created";
 
-    public static function createSale()
+    private function createSale()
     {
         $sale = new Sale();
         $sale->setAmount(AmountTest::createAmount());
@@ -29,12 +27,18 @@ class SaleTest extends \PHPUnit_Framework_TestCase
         $sale->setId(self::$id);
         $sale->setParentPayment(self::$parentPayment);
         $sale->setState(self::$state);
+
+        $this->tFee = new Currency();
+        $this->tFee->setCurrency('AUD');
+        $this->tFee->setValue('0.10');
+
+        $sale->setTransactionFee($this->tFee);
         return $sale;
     }
 
     public function setup()
     {
-        $this->sale = self::createSale();
+        $this->sale = $this->createSale();
     }
 
     public function testGetterSetter()
@@ -44,6 +48,7 @@ class SaleTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals(self::$parentPayment, $this->sale->getParentPayment());
         $this->assertEquals(self::$state, $this->sale->getState());
         $this->assertEquals(AmountTest::$currency, $this->sale->getAmount()->getCurrency());
+        $this->assertEquals($this->tFee, $this->sale->getTransactionFee());
     }
 
     public function testSerializeDeserialize()
