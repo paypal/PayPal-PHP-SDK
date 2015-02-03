@@ -2,9 +2,7 @@
 
 namespace PayPal\Api;
 
-use PayPal\Api\Refund;
 use PayPal\Common\PayPalResourceModel;
-use PayPal\Rest\ApiContext;
 use PayPal\Transport\PayPalRestCall;
 use PayPal\Validation\ArgumentValidator;
 
@@ -26,25 +24,11 @@ use PayPal\Validation\ArgumentValidator;
  * @property string protection_eligibility_type
  * @property string clearing_time
  * @property string parent_payment
- * @property \PayPal\Api\TransactionFee $transactionFee
+ * @property \PayPal\Api\Currency $transaction_fee
  * @package PayPal\Api
  */
 class Sale extends PayPalResourceModel
 {
-    public function setTransactionFee(\PayPal\Api\TransactionFee $transactionFee)
-    {
-        $this->transactionFee = $transactionFee;
-        return $this;
-    }
-
-    /**
-     * @return \PayPal\Api\TransactionFee
-     */
-    public function getTransactionFee()
-    {
-        return $this->transactionFee;
-    }
-
     /**
      * Identifier of the authorization transaction.
      *
@@ -284,6 +268,29 @@ class Sale extends PayPalResourceModel
     {
         return $this->protection_eligibility_type;
     }
+
+    /**
+     * Transaction fee applicable for this payment.
+     *
+     * @param Currency $transaction_fee
+     * @return $this
+     */
+    public function setTransactionFee($transaction_fee)
+    {
+        $this->transaction_fee = $transaction_fee;
+        return $this;
+    }
+
+    /**
+     * Transaction fee applicable for this payment.
+     *
+     * @return \PayPal\Api\Currency
+     */
+    public function getTransactionFee()
+    {
+        return $this->transaction_fee;
+    }
+
 
     /**
      * Expected clearing time for eCheck Transactions

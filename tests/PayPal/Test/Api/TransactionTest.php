@@ -2,14 +2,12 @@
 
 namespace PayPal\Test\Api;
 
-use PayPal\Api\SubTransaction;
-
 use PayPal\Api\Transaction;
-use PayPal\Test\Constants;
 
 class TransactionTest extends \PHPUnit_Framework_TestCase
 {
 
+    /** @var  Transaction */
     private $transaction;
 
     public static $description = "desc . . . ";

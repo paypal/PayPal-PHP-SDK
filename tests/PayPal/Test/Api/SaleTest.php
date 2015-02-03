@@ -1,6 +1,7 @@
 <?php
 namespace PayPal\Test\Api;
 
+use PayPal\Api\Currency;
 use PayPal\Api\Sale;
 use PayPal\Test\Api\AmountTest;
 
@@ -27,7 +28,7 @@ class SaleTest extends \PHPUnit_Framework_TestCase
         $sale->setParentPayment(self::$parentPayment);
         $sale->setState(self::$state);
 
-        $this->tFee = new \PayPal\Api\TransactionFee();
+        $this->tFee = new Currency();
         $this->tFee->setCurrency('AUD');
         $this->tFee->setValue('0.10');
 
