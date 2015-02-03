@@ -426,18 +426,20 @@ class CreditCard extends PayPalResourceModel
     /**
      * Update information in a previously saved card. Only the modified fields need to be passed in the request.
      *
+     * @param PatchRequest $patchRequest
      * @param ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
      * @param PayPalRestCall $restCall is the Rest Call Service that is used to make rest calls
      * @return CreditCard
      */
-    public function update($apiContext = null, $restCall = null)
+    public function update($patchRequest, $apiContext = null, $restCall = null)
     {
         ArgumentValidator::validate($this->getId(), "Id");
-        $payLoad = $this->toJSON();
+        ArgumentValidator::validate($patchRequest, 'patch');
+        $payload = $patchRequest->toJSON();
         $json = self::executeCall(
             "/v1/vault/credit-card/{$this->getId()}",
             "PATCH",
-            $payLoad,
+            $payload,
             null,
             $apiContext,
             $restCall
