@@ -1,5 +1,14 @@
 PayPal PHP SDK release notes
 ============================
+v1.2.0
+----
+* Order API Support
+* Introduced DEBUG mode in Logging. Deprecated FINE.
+* Ability to not Log on DEBUG, while on live environment
+* Vault APIs Update API Support
+* Transaction Fee Added in Sale Object
+* Fixed #237, #234, #233, #215
+
 v1.1.1
 ----
 * Fix to Cipher Encryption (Critical)

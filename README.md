@@ -20,7 +20,7 @@ __Welcome to PayPal PHP SDK__. This repository contains PayPal's PHP SDK and sam
 
 ## Latest Updates
 
-- Enabled [Cancel Unclaimed Payouts Support](https://developer.paypal.com/webapps/developer/docs/api/#cancel-an-unclaimed-payout-item) available in [1.1.0](https://github.com/paypal/PayPal-PHP-SDK/releases/tag/v1.1.0)
+- Introduced `DEBUG` level to logging. Deprecated `FINE`. Ability to restrict `DEBUG` level on `live` mode. [Read More](https://github.com/paypal/PayPal-PHP-SDK/wiki/Logging).
 - Checkout the latest 1.0.0 release. Here are all the [ breaking Changes in v1.0.0 ](https://github.com/paypal/PayPal-PHP-SDK/wiki/Breaking-Changes---1.0.0) if you are migrating from older versions.
 
 ## Prerequisites
