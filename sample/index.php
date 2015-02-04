@@ -219,6 +219,7 @@ if (PHP_SAPI == 'cli') {
                     <li><a href="#payouts">Payouts</a></li>
                     <li><a href="#authorization">Authorization and Capture</a></li>
                     <li><a href="#sale">Sale</a></li>
+                    <li><a href="#order">Order</a></li>
                     <li><a href="#billing">Billing Plan & Agreements</a></li>
                     <li><a href="#vault">Vault</a></li>
                     <li><a href="#experience">Payment Experience</a></li>
@@ -541,6 +542,130 @@ if (PHP_SAPI == 'cli') {
                             </div>
                         </div>
                     </li>
+                </ul>
+            </div>
+
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 id="order" class="panel-title"><a
+                            href="https://developer.paypal.com/webapps/developer/docs/api/#orders"
+                            target="_blank">Order</a></h3>
+                </div>
+                <!-- List group -->
+                <ul class="list-group">
+                    <li class="list-group-item">
+                        <div class="row">
+                            <div class="col-md-8"><h5>Create/Retrieve Order Using PayPal</small></h5>
+                            </div>
+                            <div class="col-md-4">
+                                <a href="payments/OrderCreateUsingPayPal.php" class="btn btn-primary pull-left execute">
+                                    Try It
+                                    <i class="fa fa-play-circle-o"></i></a><a
+                                    href="doc/payments/OrderCreateUsingPayPal.html"
+                                    class="btn btn-default pull-right">Source <i
+                                        class="fa fa-file-code-o"></i></a>
+
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-8">
+                                <h6>Step II: Execute after Success
+                                    <small>(required step after user approval)</small></h6>
+                            </div>
+                            <div class="col-md-4">
+                                <a
+                                    href="doc/payments/OrderGet.html"
+                                    class="btn btn-default pull-right">Part II : Source <i
+                                        class="fa fa-file-code-o"></i></a>
+
+                            </div>
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        <div class="row">
+                            <div class="col-md-8"><h5>Authorize Order Using PayPal</small></h5>
+                            </div>
+                            <div class="col-md-4">
+                                <a href="payments/OrderCreateForAuthorization.php" class="btn btn-primary pull-left execute">
+                                    Try It
+                                    <i class="fa fa-play-circle-o"></i></a><a
+                                    href="doc/payments/OrderCreateForAuthorization.html"
+                                    class="btn btn-default pull-right">Source <i
+                                        class="fa fa-file-code-o"></i></a>
+
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-8">
+                                <h6>Step II: Authorize after Executing Order
+                                    <small>(required step after user approval)</small></h6>
+                            </div>
+                            <div class="col-md-4">
+                                <a
+                                    href="doc/payments/OrderAuthorize.html"
+                                    class="btn btn-default pull-right">Part II : Source <i
+                                        class="fa fa-file-code-o"></i></a>
+
+                            </div>
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        <div class="row">
+                            <div class="col-md-8"><h5>Capture Order Using PayPal</small></h5>
+                            </div>
+                            <div class="col-md-4">
+                                <a href="payments/OrderCreateForCapture.php" class="btn btn-primary pull-left execute">
+                                    Try It
+                                    <i class="fa fa-play-circle-o"></i></a><a
+                                    href="doc/payments/OrderCreateForCapture.html"
+                                    class="btn btn-default pull-right">Source <i
+                                        class="fa fa-file-code-o"></i></a>
+
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-8">
+                                <h6>Step II: Capture after Executing Order
+                                    <small>(required step after user approval)</small></h6>
+                            </div>
+                            <div class="col-md-4">
+                                <a
+                                    href="doc/payments/OrderCapture.html"
+                                    class="btn btn-default pull-right">Part II : Source <i
+                                        class="fa fa-file-code-o"></i></a>
+
+                            </div>
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        <div class="row">
+                            <div class="col-md-8"><h5>Void Order Using PayPal</small></h5>
+                            </div>
+                            <div class="col-md-4">
+                                <a href="payments/OrderCreateForVoid.php" class="btn btn-primary pull-left execute">
+                                    Try It
+                                    <i class="fa fa-play-circle-o"></i></a><a
+                                    href="doc/payments/OrderCreateForVoid.html"
+                                    class="btn btn-default pull-right">Source <i
+                                        class="fa fa-file-code-o"></i></a>
+
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-8">
+                                <h6>Step II: Void after Executing Order
+                                    <small>(required step after user approval)</small></h6>
+                            </div>
+                            <div class="col-md-4">
+                                <a
+                                    href="doc/payments/OrderDoVoid.html"
+                                    class="btn btn-default pull-right">Part II : Source <i
+                                        class="fa fa-file-code-o"></i></a>
+
+                            </div>
+                        </div>
+                    </li>
+
                 </ul>
             </div>
 

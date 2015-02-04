@@ -48,37 +48,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
             "pageTitle": "billing/CreateBillingAgreementWithPayPal",
             "title": "CreateBillingAgreementWithPayPal"
           },
-          "depth": 2,
-          "outline": [
-            {
-              "type": "heading",
-              "data": {
-                "level": 1,
-                "title": "Create Billing Agreement with PayPal as Payment Source",
-                "slug": "create-billing-agreement-with-paypal-as-payment-source"
-              },
-              "depth": 1,
-              "children": [
-                {
-                  "type": "heading",
-                  "data": {
-                    "level": 3,
-                    "title": "Create Agreement",
-                    "slug": "create-agreement"
-                  },
-                  "depth": 3
-                }, {
-                  "type": "heading",
-                  "data": {
-                    "level": 3,
-                    "title": "Get redirect url",
-                    "slug": "get-redirect-url"
-                  },
-                  "depth": 3
-                }
-              ]
-            }
-          ]
+          "depth": 2
         }, {
           "type": "file",
           "data": {
@@ -1010,14 +980,298 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
             "pageTitle": "payments/CreatePaymentUsingPayPal",
             "title": "CreatePaymentUsingPayPal"
           },
+          "depth": 2
+        }, {
+          "type": "file",
+          "data": {
+            "language": {
+              "nameMatchers": [{}, ".fbp"],
+              "pygmentsLexer": "php",
+              "singleLineComment": ["//"],
+              "ignorePrefix": "}",
+              "foldPrefix": "^",
+              "name": "PHP"
+            },
+            "sourcePath": "/Users/japatel/Documents/workspace/paypal/PayPal-PHP-SDK/sample/payments/CreatePaymentUsingSavedCard.php",
+            "projectPath": "payments/CreatePaymentUsingSavedCard.php",
+            "targetPath": "payments/CreatePaymentUsingSavedCard",
+            "pageTitle": "payments/CreatePaymentUsingSavedCard",
+            "title": "CreatePaymentUsingSavedCard"
+          },
+          "depth": 2
+        }, {
+          "type": "file",
+          "data": {
+            "language": {
+              "nameMatchers": [{}, ".fbp"],
+              "pygmentsLexer": "php",
+              "singleLineComment": ["//"],
+              "ignorePrefix": "}",
+              "foldPrefix": "^",
+              "name": "PHP"
+            },
+            "sourcePath": "/Users/japatel/Documents/workspace/paypal/PayPal-PHP-SDK/sample/payments/ExecutePayment.php",
+            "projectPath": "payments/ExecutePayment.php",
+            "targetPath": "payments/ExecutePayment",
+            "pageTitle": "payments/ExecutePayment",
+            "title": "ExecutePayment"
+          },
           "depth": 2,
           "outline": [
             {
               "type": "heading",
               "data": {
                 "level": 1,
-                "title": "Create Payment using PayPal as payment method",
-                "slug": "create-payment-using-paypal-as-payment-method"
+                "title": "Execute Payment Sample",
+                "slug": "execute-payment-sample"
+              },
+              "depth": 1,
+              "children": [
+                {
+                  "type": "heading",
+                  "data": {
+                    "level": 3,
+                    "title": "Approval Status",
+                    "slug": "approval-status"
+                  },
+                  "depth": 3
+                }, {
+                  "type": "heading",
+                  "data": {
+                    "level": 3,
+                    "title": "Payment Execute",
+                    "slug": "payment-execute"
+                  },
+                  "depth": 3
+                }
+              ]
+            }
+          ]
+        }, {
+          "type": "file",
+          "data": {
+            "language": {
+              "nameMatchers": [{}, ".fbp"],
+              "pygmentsLexer": "php",
+              "singleLineComment": ["//"],
+              "ignorePrefix": "}",
+              "foldPrefix": "^",
+              "name": "PHP"
+            },
+            "sourcePath": "/Users/japatel/Documents/workspace/paypal/PayPal-PHP-SDK/sample/payments/GetAuthorization.php",
+            "projectPath": "payments/GetAuthorization.php",
+            "targetPath": "payments/GetAuthorization",
+            "pageTitle": "payments/GetAuthorization",
+            "title": "GetAuthorization"
+          },
+          "depth": 2
+        }, {
+          "type": "file",
+          "data": {
+            "language": {
+              "nameMatchers": [{}, ".fbp"],
+              "pygmentsLexer": "php",
+              "singleLineComment": ["//"],
+              "ignorePrefix": "}",
+              "foldPrefix": "^",
+              "name": "PHP"
+            },
+            "sourcePath": "/Users/japatel/Documents/workspace/paypal/PayPal-PHP-SDK/sample/payments/GetCapture.php",
+            "projectPath": "payments/GetCapture.php",
+            "targetPath": "payments/GetCapture",
+            "pageTitle": "payments/GetCapture",
+            "title": "GetCapture"
+          },
+          "depth": 2
+        }, {
+          "type": "file",
+          "data": {
+            "language": {
+              "nameMatchers": [{}, ".fbp"],
+              "pygmentsLexer": "php",
+              "singleLineComment": ["//"],
+              "ignorePrefix": "}",
+              "foldPrefix": "^",
+              "name": "PHP"
+            },
+            "sourcePath": "/Users/japatel/Documents/workspace/paypal/PayPal-PHP-SDK/sample/payments/GetPayment.php",
+            "projectPath": "payments/GetPayment.php",
+            "targetPath": "payments/GetPayment",
+            "pageTitle": "payments/GetPayment",
+            "title": "GetPayment"
+          },
+          "depth": 2
+        }, {
+          "type": "file",
+          "data": {
+            "language": {
+              "nameMatchers": [{}, ".fbp"],
+              "pygmentsLexer": "php",
+              "singleLineComment": ["//"],
+              "ignorePrefix": "}",
+              "foldPrefix": "^",
+              "name": "PHP"
+            },
+            "sourcePath": "/Users/japatel/Documents/workspace/paypal/PayPal-PHP-SDK/sample/payments/ListPayments.php",
+            "projectPath": "payments/ListPayments.php",
+            "targetPath": "payments/ListPayments",
+            "pageTitle": "payments/ListPayments",
+            "title": "ListPayments"
+          },
+          "depth": 2
+        }, {
+          "type": "file",
+          "data": {
+            "language": {
+              "nameMatchers": [{}, ".fbp"],
+              "pygmentsLexer": "php",
+              "singleLineComment": ["//"],
+              "ignorePrefix": "}",
+              "foldPrefix": "^",
+              "name": "PHP"
+            },
+            "sourcePath": "/Users/japatel/Documents/workspace/paypal/PayPal-PHP-SDK/sample/payments/OrderAuthorize.php",
+            "projectPath": "payments/OrderAuthorize.php",
+            "targetPath": "payments/OrderAuthorize",
+            "pageTitle": "payments/OrderAuthorize",
+            "title": "OrderAuthorize"
+          },
+          "depth": 2,
+          "outline": [
+            {
+              "type": "heading",
+              "data": {
+                "level": 1,
+                "title": "Authorize Order Sample",
+                "slug": "authorize-order-sample"
+              },
+              "depth": 1,
+              "children": [
+                {
+                  "type": "heading",
+                  "data": {
+                    "level": 3,
+                    "title": "Approval Status",
+                    "slug": "approval-status"
+                  },
+                  "depth": 3
+                }, {
+                  "type": "heading",
+                  "data": {
+                    "level": 3,
+                    "title": "Retrieve the order",
+                    "slug": "retrieve-the-order"
+                  },
+                  "depth": 3
+                }, {
+                  "type": "heading",
+                  "data": {
+                    "level": 3,
+                    "title": "Create Authorization Object",
+                    "slug": "create-authorization-object"
+                  },
+                  "depth": 3
+                }, {
+                  "type": "heading",
+                  "data": {
+                    "level": 3,
+                    "title": "Authorize Order",
+                    "slug": "authorize-order"
+                  },
+                  "depth": 3
+                }
+              ]
+            }
+          ]
+        }, {
+          "type": "file",
+          "data": {
+            "language": {
+              "nameMatchers": [{}, ".fbp"],
+              "pygmentsLexer": "php",
+              "singleLineComment": ["//"],
+              "ignorePrefix": "}",
+              "foldPrefix": "^",
+              "name": "PHP"
+            },
+            "sourcePath": "/Users/japatel/Documents/workspace/paypal/PayPal-PHP-SDK/sample/payments/OrderCapture.php",
+            "projectPath": "payments/OrderCapture.php",
+            "targetPath": "payments/OrderCapture",
+            "pageTitle": "payments/OrderCapture",
+            "title": "OrderCapture"
+          },
+          "depth": 2,
+          "outline": [
+            {
+              "type": "heading",
+              "data": {
+                "level": 1,
+                "title": "Capture Order Sample",
+                "slug": "capture-order-sample"
+              },
+              "depth": 1,
+              "children": [
+                {
+                  "type": "heading",
+                  "data": {
+                    "level": 3,
+                    "title": "Approval Status",
+                    "slug": "approval-status"
+                  },
+                  "depth": 3
+                }, {
+                  "type": "heading",
+                  "data": {
+                    "level": 3,
+                    "title": "Retrieve the order",
+                    "slug": "retrieve-the-order"
+                  },
+                  "depth": 3
+                }, {
+                  "type": "heading",
+                  "data": {
+                    "level": 3,
+                    "title": "Create Capture Object",
+                    "slug": "create-capture-object"
+                  },
+                  "depth": 3
+                }, {
+                  "type": "heading",
+                  "data": {
+                    "level": 3,
+                    "title": "Capture Order",
+                    "slug": "capture-order"
+                  },
+                  "depth": 3
+                }
+              ]
+            }
+          ]
+        }, {
+          "type": "file",
+          "data": {
+            "language": {
+              "nameMatchers": [{}, ".fbp"],
+              "pygmentsLexer": "php",
+              "singleLineComment": ["//"],
+              "ignorePrefix": "}",
+              "foldPrefix": "^",
+              "name": "PHP"
+            },
+            "sourcePath": "/Users/japatel/Documents/workspace/paypal/PayPal-PHP-SDK/sample/payments/OrderCreateForAuthorization.php",
+            "projectPath": "payments/OrderCreateForAuthorization.php",
+            "targetPath": "payments/OrderCreateForAuthorization",
+            "pageTitle": "payments/OrderCreateForAuthorization",
+            "title": "OrderCreateForAuthorization"
+          },
+          "depth": 2,
+          "outline": [
+            {
+              "type": "heading",
+              "data": {
+                "level": 1,
+                "title": "Order Create Using PayPal",
+                "slug": "order-create-using-paypal"
               },
               "depth": 1,
               "children": [
@@ -1108,13 +1362,99 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "PHP"
             },
-            "sourcePath": "/Users/japatel/Documents/workspace/paypal/PayPal-PHP-SDK/sample/payments/CreatePaymentUsingSavedCard.php",
-            "projectPath": "payments/CreatePaymentUsingSavedCard.php",
-            "targetPath": "payments/CreatePaymentUsingSavedCard",
-            "pageTitle": "payments/CreatePaymentUsingSavedCard",
-            "title": "CreatePaymentUsingSavedCard"
+            "sourcePath": "/Users/japatel/Documents/workspace/paypal/PayPal-PHP-SDK/sample/payments/OrderCreateForCapture.php",
+            "projectPath": "payments/OrderCreateForCapture.php",
+            "targetPath": "payments/OrderCreateForCapture",
+            "pageTitle": "payments/OrderCreateForCapture",
+            "title": "OrderCreateForCapture"
           },
-          "depth": 2
+          "depth": 2,
+          "outline": [
+            {
+              "type": "heading",
+              "data": {
+                "level": 1,
+                "title": "Order Create Using PayPal",
+                "slug": "order-create-using-paypal"
+              },
+              "depth": 1,
+              "children": [
+                {
+                  "type": "heading",
+                  "data": {
+                    "level": 3,
+                    "title": "Payer",
+                    "slug": "payer"
+                  },
+                  "depth": 3
+                }, {
+                  "type": "heading",
+                  "data": {
+                    "level": 3,
+                    "title": "Itemized information",
+                    "slug": "itemized-information"
+                  },
+                  "depth": 3
+                }, {
+                  "type": "heading",
+                  "data": {
+                    "level": 3,
+                    "title": "Additional payment details",
+                    "slug": "additional-payment-details"
+                  },
+                  "depth": 3
+                }, {
+                  "type": "heading",
+                  "data": {
+                    "level": 3,
+                    "title": "Amount",
+                    "slug": "amount"
+                  },
+                  "depth": 3
+                }, {
+                  "type": "heading",
+                  "data": {
+                    "level": 3,
+                    "title": "Transaction",
+                    "slug": "transaction"
+                  },
+                  "depth": 3
+                }, {
+                  "type": "heading",
+                  "data": {
+                    "level": 3,
+                    "title": "Redirect urls",
+                    "slug": "redirect-urls"
+                  },
+                  "depth": 3
+                }, {
+                  "type": "heading",
+                  "data": {
+                    "level": 3,
+                    "title": "Payment",
+                    "slug": "payment"
+                  },
+                  "depth": 3
+                }, {
+                  "type": "heading",
+                  "data": {
+                    "level": 3,
+                    "title": "Create Payment",
+                    "slug": "create-payment"
+                  },
+                  "depth": 3
+                }, {
+                  "type": "heading",
+                  "data": {
+                    "level": 3,
+                    "title": "Get redirect url",
+                    "slug": "get-redirect-url"
+                  },
+                  "depth": 3
+                }
+              ]
+            }
+          ]
         }, {
           "type": "file",
           "data": {
@@ -1126,13 +1466,99 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "PHP"
             },
-            "sourcePath": "/Users/japatel/Documents/workspace/paypal/PayPal-PHP-SDK/sample/payments/ExecutePayment.php",
-            "projectPath": "payments/ExecutePayment.php",
-            "targetPath": "payments/ExecutePayment",
-            "pageTitle": "payments/ExecutePayment",
-            "title": "ExecutePayment"
+            "sourcePath": "/Users/japatel/Documents/workspace/paypal/PayPal-PHP-SDK/sample/payments/OrderCreateForVoid.php",
+            "projectPath": "payments/OrderCreateForVoid.php",
+            "targetPath": "payments/OrderCreateForVoid",
+            "pageTitle": "payments/OrderCreateForVoid",
+            "title": "OrderCreateForVoid"
           },
-          "depth": 2
+          "depth": 2,
+          "outline": [
+            {
+              "type": "heading",
+              "data": {
+                "level": 1,
+                "title": "Order Create Using PayPal",
+                "slug": "order-create-using-paypal"
+              },
+              "depth": 1,
+              "children": [
+                {
+                  "type": "heading",
+                  "data": {
+                    "level": 3,
+                    "title": "Payer",
+                    "slug": "payer"
+                  },
+                  "depth": 3
+                }, {
+                  "type": "heading",
+                  "data": {
+                    "level": 3,
+                    "title": "Itemized information",
+                    "slug": "itemized-information"
+                  },
+                  "depth": 3
+                }, {
+                  "type": "heading",
+                  "data": {
+                    "level": 3,
+                    "title": "Additional payment details",
+                    "slug": "additional-payment-details"
+                  },
+                  "depth": 3
+                }, {
+                  "type": "heading",
+                  "data": {
+                    "level": 3,
+                    "title": "Amount",
+                    "slug": "amount"
+                  },
+                  "depth": 3
+                }, {
+                  "type": "heading",
+                  "data": {
+                    "level": 3,
+                    "title": "Transaction",
+                    "slug": "transaction"
+                  },
+                  "depth": 3
+                }, {
+                  "type": "heading",
+                  "data": {
+                    "level": 3,
+                    "title": "Redirect urls",
+                    "slug": "redirect-urls"
+                  },
+                  "depth": 3
+                }, {
+                  "type": "heading",
+                  "data": {
+                    "level": 3,
+                    "title": "Payment",
+                    "slug": "payment"
+                  },
+                  "depth": 3
+                }, {
+                  "type": "heading",
+                  "data": {
+                    "level": 3,
+                    "title": "Create Payment",
+                    "slug": "create-payment"
+                  },
+                  "depth": 3
+                }, {
+                  "type": "heading",
+                  "data": {
+                    "level": 3,
+                    "title": "Get redirect url",
+                    "slug": "get-redirect-url"
+                  },
+                  "depth": 3
+                }
+              ]
+            }
+          ]
         }, {
           "type": "file",
           "data": {
@@ -1144,13 +1570,99 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "PHP"
             },
-            "sourcePath": "/Users/japatel/Documents/workspace/paypal/PayPal-PHP-SDK/sample/payments/GetAuthorization.php",
-            "projectPath": "payments/GetAuthorization.php",
-            "targetPath": "payments/GetAuthorization",
-            "pageTitle": "payments/GetAuthorization",
-            "title": "GetAuthorization"
+            "sourcePath": "/Users/japatel/Documents/workspace/paypal/PayPal-PHP-SDK/sample/payments/OrderCreateUsingPayPal.php",
+            "projectPath": "payments/OrderCreateUsingPayPal.php",
+            "targetPath": "payments/OrderCreateUsingPayPal",
+            "pageTitle": "payments/OrderCreateUsingPayPal",
+            "title": "OrderCreateUsingPayPal"
           },
-          "depth": 2
+          "depth": 2,
+          "outline": [
+            {
+              "type": "heading",
+              "data": {
+                "level": 1,
+                "title": "Order Create Using PayPal",
+                "slug": "order-create-using-paypal"
+              },
+              "depth": 1,
+              "children": [
+                {
+                  "type": "heading",
+                  "data": {
+                    "level": 3,
+                    "title": "Payer",
+                    "slug": "payer"
+                  },
+                  "depth": 3
+                }, {
+                  "type": "heading",
+                  "data": {
+                    "level": 3,
+                    "title": "Itemized information",
+                    "slug": "itemized-information"
+                  },
+                  "depth": 3
+                }, {
+                  "type": "heading",
+                  "data": {
+                    "level": 3,
+                    "title": "Additional payment details",
+                    "slug": "additional-payment-details"
+                  },
+                  "depth": 3
+                }, {
+                  "type": "heading",
+                  "data": {
+                    "level": 3,
+                    "title": "Amount",
+                    "slug": "amount"
+                  },
+                  "depth": 3
+                }, {
+                  "type": "heading",
+                  "data": {
+                    "level": 3,
+                    "title": "Transaction",
+                    "slug": "transaction"
+                  },
+                  "depth": 3
+                }, {
+                  "type": "heading",
+                  "data": {
+                    "level": 3,
+                    "title": "Redirect urls",
+                    "slug": "redirect-urls"
+                  },
+                  "depth": 3
+                }, {
+                  "type": "heading",
+                  "data": {
+                    "level": 3,
+                    "title": "Payment",
+                    "slug": "payment"
+                  },
+                  "depth": 3
+                }, {
+                  "type": "heading",
+                  "data": {
+                    "level": 3,
+                    "title": "Create Payment",
+                    "slug": "create-payment"
+                  },
+                  "depth": 3
+                }, {
+                  "type": "heading",
+                  "data": {
+                    "level": 3,
+                    "title": "Get redirect url",
+                    "slug": "get-redirect-url"
+                  },
+                  "depth": 3
+                }
+              ]
+            }
+          ]
         }, {
           "type": "file",
           "data": {
@@ -1162,13 +1674,51 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "PHP"
             },
-            "sourcePath": "/Users/japatel/Documents/workspace/paypal/PayPal-PHP-SDK/sample/payments/GetCapture.php",
-            "projectPath": "payments/GetCapture.php",
-            "targetPath": "payments/GetCapture",
-            "pageTitle": "payments/GetCapture",
-            "title": "GetCapture"
+            "sourcePath": "/Users/japatel/Documents/workspace/paypal/PayPal-PHP-SDK/sample/payments/OrderDoVoid.php",
+            "projectPath": "payments/OrderDoVoid.php",
+            "targetPath": "payments/OrderDoVoid",
+            "pageTitle": "payments/OrderDoVoid",
+            "title": "OrderDoVoid"
           },
-          "depth": 2
+          "depth": 2,
+          "outline": [
+            {
+              "type": "heading",
+              "data": {
+                "level": 1,
+                "title": "Void Order Sample",
+                "slug": "void-order-sample"
+              },
+              "depth": 1,
+              "children": [
+                {
+                  "type": "heading",
+                  "data": {
+                    "level": 3,
+                    "title": "Approval Status",
+                    "slug": "approval-status"
+                  },
+                  "depth": 3
+                }, {
+                  "type": "heading",
+                  "data": {
+                    "level": 3,
+                    "title": "Retrieve the order",
+                    "slug": "retrieve-the-order"
+                  },
+                  "depth": 3
+                }, {
+                  "type": "heading",
+                  "data": {
+                    "level": 3,
+                    "title": "Void Order",
+                    "slug": "void-order"
+                  },
+                  "depth": 3
+                }
+              ]
+            }
+          ]
         }, {
           "type": "file",
           "data": {
@@ -1180,31 +1730,35 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "PHP"
             },
-            "sourcePath": "/Users/japatel/Documents/workspace/paypal/PayPal-PHP-SDK/sample/payments/GetPayment.php",
-            "projectPath": "payments/GetPayment.php",
-            "targetPath": "payments/GetPayment",
-            "pageTitle": "payments/GetPayment",
-            "title": "GetPayment"
+            "sourcePath": "/Users/japatel/Documents/workspace/paypal/PayPal-PHP-SDK/sample/payments/OrderGet.php",
+            "projectPath": "payments/OrderGet.php",
+            "targetPath": "payments/OrderGet",
+            "pageTitle": "payments/OrderGet",
+            "title": "OrderGet"
           },
-          "depth": 2
-        }, {
-          "type": "file",
-          "data": {
-            "language": {
-              "nameMatchers": [{}, ".fbp"],
-              "pygmentsLexer": "php",
-              "singleLineComment": ["//"],
-              "ignorePrefix": "}",
-              "foldPrefix": "^",
-              "name": "PHP"
-            },
-            "sourcePath": "/Users/japatel/Documents/workspace/paypal/PayPal-PHP-SDK/sample/payments/ListPayments.php",
-            "projectPath": "payments/ListPayments.php",
-            "targetPath": "payments/ListPayments",
-            "pageTitle": "payments/ListPayments",
-            "title": "ListPayments"
-          },
-          "depth": 2
+          "depth": 2,
+          "outline": [
+            {
+              "type": "heading",
+              "data": {
+                "level": 1,
+                "title": "Get Order Sample",
+                "slug": "get-order-sample"
+              },
+              "depth": 1,
+              "children": [
+                {
+                  "type": "heading",
+                  "data": {
+                    "level": 3,
+                    "title": "Approval Status",
+                    "slug": "approval-status"
+                  },
+                  "depth": 3
+                }
+              ]
+            }
+          ]
         }, {
           "type": "file",
           "data": {
@@ -1340,56 +1894,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
             "pageTitle": "payouts/CreateSinglePayout",
             "title": "CreateSinglePayout"
           },
-          "depth": 2,
-          "outline": [
-            {
-              "type": "heading",
-              "data": {
-                "level": 1,
-                "title": "Create Single Synchronous Payout Sample",
-                "slug": "create-single-synchronous-payout-sample"
-              },
-              "depth": 1,
-              "children": [
-                {
-                  "type": "heading",
-                  "data": {
-                    "level": 3,
-                    "title": "NOTE:",
-                    "slug": "note"
-                  },
-                  "depth": 3,
-                  "children": [
-                    {
-                      "type": "heading",
-                      "data": {
-                        "level": 4,
-                        "title": "Batch Header Instance",
-                        "slug": "batch-header-instance"
-                      },
-                      "depth": 4
-                    }, {
-                      "type": "heading",
-                      "data": {
-                        "level": 4,
-                        "title": "Sender Item",
-                        "slug": "sender-item"
-                      },
-                      "depth": 4
-                    }
-                  ]
-                }, {
-                  "type": "heading",
-                  "data": {
-                    "level": 3,
-                    "title": "Create Payout",
-                    "slug": "create-payout"
-                  },
-                  "depth": 3
-                }
-              ]
-            }
-          ]
+          "depth": 2
         }, {
           "type": "file",
           "data": {
@@ -1517,37 +2022,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
             "pageTitle": "vault/CreateCreditCard",
             "title": "CreateCreditCard"
           },
-          "depth": 2,
-          "outline": [
-            {
-              "type": "heading",
-              "data": {
-                "level": 1,
-                "title": "Create Credit Card Sample",
-                "slug": "create-credit-card-sample"
-              },
-              "depth": 1,
-              "children": [
-                {
-                  "type": "heading",
-                  "data": {
-                    "level": 3,
-                    "title": "CreditCard",
-                    "slug": "creditcard"
-                  },
-                  "depth": 3
-                }, {
-                  "type": "heading",
-                  "data": {
-                    "level": 3,
-                    "title": "Save card",
-                    "slug": "save-card"
-                  },
-                  "depth": 3
-                }
-              ]
-            }
-          ]
+          "depth": 2
         }, {
           "type": "file",
           "data": {
@@ -1637,37 +2112,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
             "pageTitle": "vault/UpdateCreditCard",
             "title": "UpdateCreditCard"
           },
-          "depth": 2,
-          "outline": [
-            {
-              "type": "heading",
-              "data": {
-                "level": 1,
-                "title": "Update Credit Card Sample",
-                "slug": "update-credit-card-sample"
-              },
-              "depth": 1,
-              "children": [
-                {
-                  "type": "heading",
-                  "data": {
-                    "level": 3,
-                    "title": "Patch Object",
-                    "slug": "patch-object"
-                  },
-                  "depth": 3
-                }, {
-                  "type": "heading",
-                  "data": {
-                    "level": 3,
-                    "title": "Another Patch Object",
-                    "slug": "another-patch-object"
-                  },
-                  "depth": 3
-                }
-              ]
-            }
-          ]
+          "depth": 2
         }
       ]
     }

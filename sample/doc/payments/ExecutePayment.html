@@ -19,15 +19,21 @@ CreatePaymentUsingPayPal.php</p></div></div><div class="code"><div class="wrappe
 to execute a PayPal account payment.
 The payer_id is added to the request query parameters
 when the user is redirected from paypal back to your site</p></div></div><div class="code"><div class="wrapper">    <span class="hljs-variable">$execution</span> = <span class="hljs-keyword">new</span> PaymentExecution();
-    <span class="hljs-variable">$execution</span>-&gt;setPayerId(<span class="hljs-variable">$_GET</span>[<span class="hljs-string">'PayerID'</span>]);</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Execute the payment
-(See bootstrap.php for more on <code>ApiContext</code>)</p></div></div><div class="code"><div class="wrapper">    <span class="hljs-variable">$result</span> = <span class="hljs-variable">$payment</span>-&gt;execute(<span class="hljs-variable">$execution</span>, <span class="hljs-variable">$apiContext</span>);
+    <span class="hljs-variable">$execution</span>-&gt;setPayerId(<span class="hljs-variable">$_GET</span>[<span class="hljs-string">'PayerID'</span>]);
 
-    ResultPrinter::printResult(<span class="hljs-string">"Executed Payment"</span>, <span class="hljs-string">"Payment"</span>, <span class="hljs-variable">$payment</span>-&gt;getId(), <span class="hljs-variable">$execution</span>, <span class="hljs-variable">$result</span>);
+    <span class="hljs-keyword">try</span> {</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Execute the payment
+(See bootstrap.php for more on <code>ApiContext</code>)</p></div></div><div class="code"><div class="wrapper">        <span class="hljs-variable">$result</span> = <span class="hljs-variable">$payment</span>-&gt;execute(<span class="hljs-variable">$execution</span>, <span class="hljs-variable">$apiContext</span>);
 
-    <span class="hljs-keyword">try</span> {
-        <span class="hljs-variable">$payment</span> = Payment::get(<span class="hljs-variable">$paymentId</span>, <span class="hljs-variable">$apiContext</span>);
+        ResultPrinter::printResult(<span class="hljs-string">"Executed Payment"</span>, <span class="hljs-string">"Payment"</span>, <span class="hljs-variable">$payment</span>-&gt;getId(), <span class="hljs-variable">$execution</span>, <span class="hljs-variable">$result</span>);
+
+        <span class="hljs-keyword">try</span> {
+            <span class="hljs-variable">$payment</span> = Payment::get(<span class="hljs-variable">$paymentId</span>, <span class="hljs-variable">$apiContext</span>);
+        } <span class="hljs-keyword">catch</span> (<span class="hljs-keyword">Exception</span> <span class="hljs-variable">$ex</span>) {
+            ResultPrinter::printError(<span class="hljs-string">"Get Payment"</span>, <span class="hljs-string">"Payment"</span>, <span class="hljs-keyword">null</span>, <span class="hljs-keyword">null</span>, <span class="hljs-variable">$ex</span>);
+            <span class="hljs-keyword">exit</span>(<span class="hljs-number">1</span>);
+        }
     } <span class="hljs-keyword">catch</span> (<span class="hljs-keyword">Exception</span> <span class="hljs-variable">$ex</span>) {
-        ResultPrinter::printError(<span class="hljs-string">"Get Payment"</span>, <span class="hljs-string">"Payment"</span>, <span class="hljs-keyword">null</span>, <span class="hljs-keyword">null</span>, <span class="hljs-variable">$ex</span>);
+        ResultPrinter::printError(<span class="hljs-string">"Executed Payment"</span>, <span class="hljs-string">"Payment"</span>, <span class="hljs-keyword">null</span>, <span class="hljs-keyword">null</span>, <span class="hljs-variable">$ex</span>);
         <span class="hljs-keyword">exit</span>(<span class="hljs-number">1</span>);
     }
 
@@ -38,4 +44,5 @@ when the user is redirected from paypal back to your site</p></div></div><div cl
 
 } <span class="hljs-keyword">else</span> {
     ResultPrinter::printResult(<span class="hljs-string">"User Cancelled the Approval"</span>, <span class="hljs-keyword">null</span>);
+    <span class="hljs-keyword">exit</span>;
 }</div></div></div></div></body></html>

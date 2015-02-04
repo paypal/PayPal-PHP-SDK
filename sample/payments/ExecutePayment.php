@@ -33,16 +33,21 @@ if (isset($_GET['success']) && $_GET['success'] == 'true') {
     $execution = new PaymentExecution();
     $execution->setPayerId($_GET['PayerID']);
 
-    // Execute the payment
-    // (See bootstrap.php for more on `ApiContext`)
-    $result = $payment->execute($execution, $apiContext);
-
-    ResultPrinter::printResult("Executed Payment", "Payment", $payment->getId(), $execution, $result);
-
     try {
-        $payment = Payment::get($paymentId, $apiContext);
+        // Execute the payment
+        // (See bootstrap.php for more on `ApiContext`)
+        $result = $payment->execute($execution, $apiContext);
+
+        ResultPrinter::printResult("Executed Payment", "Payment", $payment->getId(), $execution, $result);
+
+        try {
+            $payment = Payment::get($paymentId, $apiContext);
+        } catch (Exception $ex) {
+            ResultPrinter::printError("Get Payment", "Payment", null, null, $ex);
+            exit(1);
+        }
     } catch (Exception $ex) {
-        ResultPrinter::printError("Get Payment", "Payment", null, null, $ex);
+        ResultPrinter::printError("Executed Payment", "Payment", null, null, $ex);
         exit(1);
     }
 
@@ -53,4 +58,5 @@ if (isset($_GET['success']) && $_GET['success'] == 'true') {
 
 } else {
     ResultPrinter::printResult("User Cancelled the Approval", null);
+    exit;
 }
