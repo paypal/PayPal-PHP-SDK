@@ -365,7 +365,7 @@ class CreditCard extends PayPalResourceModel
     {
         $payLoad = $this->toJSON();
         $json = self::executeCall(
-            "/v1/vault/credit-card",
+            "/v1/vault/credit-cards",
             "POST",
             $payLoad,
             null,
@@ -389,7 +389,7 @@ class CreditCard extends PayPalResourceModel
         ArgumentValidator::validate($creditCardId, 'creditCardId');
         $payLoad = "";
         $json = self::executeCall(
-            "/v1/vault/credit-card/$creditCardId",
+            "/v1/vault/credit-cards/$creditCardId",
             "GET",
             $payLoad,
             null,
@@ -413,7 +413,7 @@ class CreditCard extends PayPalResourceModel
         ArgumentValidator::validate($this->getId(), "Id");
         $payLoad = "";
         self::executeCall(
-            "/v1/vault/credit-card/{$this->getId()}",
+            "/v1/vault/credit-cards/{$this->getId()}",
             "DELETE",
             $payLoad,
             null,
@@ -437,7 +437,7 @@ class CreditCard extends PayPalResourceModel
         ArgumentValidator::validate($patchRequest, 'patch');
         $payload = $patchRequest->toJSON();
         $json = self::executeCall(
-            "/v1/vault/credit-card/{$this->getId()}",
+            "/v1/vault/credit-cards/{$this->getId()}",
             "PATCH",
             $payload,
             null,
