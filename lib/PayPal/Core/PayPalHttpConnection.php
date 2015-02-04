@@ -36,7 +36,7 @@ class PayPalHttpConnection
      * Default Constructor
      *
      * @param PayPalHttpConfig $httpConfig
-     * @param array $config
+     * @param array            $config
      * @throws PayPalConfigurationException
      */
     public function __construct(PayPalHttpConfig $httpConfig, array $config)
@@ -85,8 +85,10 @@ class PayPalHttpConnection
         $ch = curl_init($this->httpConfig->getUrl());
         curl_setopt_array($ch, $this->httpConfig->getCurlOptions());
         curl_setopt($ch, CURLOPT_URL, $this->httpConfig->getUrl());
-        curl_setopt($ch, CURLOPT_HEADER, false);
+        curl_setopt($ch, CURLOPT_HEADER, true);
+        curl_setopt($ch, CURLINFO_HEADER_OUT, true);
         curl_setopt($ch, CURLOPT_HTTPHEADER, $this->getHttpHeaders());
+
         //Determine Curl Options based on Method
         switch ($this->httpConfig->getMethod()) {
             case 'POST':
@@ -96,6 +98,7 @@ class PayPalHttpConnection
                 curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
                 break;
         }
+
         //Default Option if Method not of given types in switch case
         if ($this->httpConfig->getMethod() != NULL) {
             curl_setopt($ch, CURLOPT_CUSTOMREQUEST, $this->httpConfig->getMethod());
@@ -104,23 +107,22 @@ class PayPalHttpConnection
         //Logging Each Headers for debugging purposes
         foreach ($this->getHttpHeaders() as $header) {
             //TODO: Strip out credentials and other secure info when logging.
-            $this->logger->fine($header);
+            // $this->logger->debug($header);
         }
 
-        $this->logger->fine(($data && $data != '' ? "Payload : " . $data : "No Request Payload") . "\n");
         //Execute Curl Request
         $result = curl_exec($ch);
-
+        //Retrieve Response Status
+        $httpStatus = curl_getinfo($ch, CURLINFO_HTTP_CODE);
 
         //Retry if Certificate Exception
         if (curl_errno($ch) == 60) {
             $this->logger->info("Invalid or no certificate authority found - Retrying using bundled CA certs file");
             curl_setopt($ch, CURLOPT_CAINFO, dirname(__FILE__) . '/cacert.pem');
             $result = curl_exec($ch);
+            //Retrieve Response Status
+            $httpStatus = curl_getinfo($ch, CURLINFO_HTTP_CODE);
         }
-
-        //Retrieve Response Status
-        $httpStatus = curl_getinfo($ch, CURLINFO_HTTP_CODE);
 
         //Retry if Failing
         $retries = 0;
@@ -128,6 +130,7 @@ class PayPalHttpConnection
             $this->logger->info("Got $httpStatus response from server. Retrying");
             do {
                 $result = curl_exec($ch);
+                //Retrieve Response Status
                 $httpStatus = curl_getinfo($ch, CURLINFO_HTTP_CODE);
             } while (in_array($httpStatus, self::$retryCodes) && (++$retries < $this->httpConfig->getHttpRetryCount()));
         }
@@ -142,10 +145,21 @@ class PayPalHttpConnection
             curl_close($ch);
             throw $ex;
         }
+
+        // Get Request and Response Headers
+        $requestHeaders = curl_getinfo($ch, CURLINFO_HEADER_OUT);
+        $responseHeaderSize = curl_getinfo($ch, CURLINFO_HEADER_SIZE);
+        $responseHeaders = substr($result, 0, $responseHeaderSize);
+        $result = substr($result, $responseHeaderSize);
+
+        $this->logger->debug("Request Headers \t: " . str_replace("\r\n", ", ", $requestHeaders));
+        $this->logger->debug(($data && $data != '' ? "Request Data\t\t: " . $data : "No Request Payload") . "\n" . str_repeat('-', 128) . "\n");
+        $this->logger->info("Response Status \t: " . $httpStatus);
+        $this->logger->debug("Response Headers\t: " . str_replace("\r\n", ", ", $responseHeaders));
+
         //Close the curl request
         curl_close($ch);
 
-        $this->logger->fine(($result && $result != '' ? "Response : " . $result : "No Response Body") . "\n\n");
         //More Exceptions based on HttpStatus Code
         if (in_array($httpStatus, self::$retryCodes)) {
             $ex = new PayPalConnectionException(
@@ -154,6 +168,9 @@ class PayPalHttpConnection
                 "Retried $retries times."
             );
             $ex->setData($result);
+            $this->logger->error("Got Http response code $httpStatus when accessing {$this->httpConfig->getUrl()}. " .
+                "Retried $retries times." . $result);
+            $this->logger->debug("\n\n" . str_repeat('=', 128) . "\n");
             throw $ex;
         } else if ($httpStatus < 200 || $httpStatus >= 300) {
             $ex = new PayPalConnectionException(
@@ -162,9 +179,12 @@ class PayPalHttpConnection
                 $httpStatus
             );
             $ex->setData($result);
+            $this->logger->error("Got Http response code $httpStatus when accessing {$this->httpConfig->getUrl()}. " . $result );
+            $this->logger->debug("\n\n" . str_repeat('=', 128) . "\n");
             throw $ex;
         }
 
+        $this->logger->debug(($result && $result != '' ? "Response Data \t: " . $result : "No Response Body") . "\n\n" . str_repeat('=', 128) . "\n");
 
         //Return result object
         return $result;

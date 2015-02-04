@@ -97,8 +97,24 @@ class PayPalLoggingManager
      */
     private function log($message, $level = PayPalLoggingLevel::INFO)
     {
-        if ($this->isLoggingEnabled && ($level <= $this->loggingLevel)) {
-            error_log("[" .  date('d-m-Y h:i:s') . "] " . $this->loggerName . ": $message\n", 3, $this->loggerFile);
+        if ($this->isLoggingEnabled) {
+            $config = PayPalConfigManager::getInstance()->getConfigHashmap();
+            // Check if logging in live
+            if ($config['mode'] == 'live') {
+                // Live should not have logging level above INFO.
+                if ($this->loggingLevel >= PayPalLoggingLevel::INFO) {
+                    // If it is at Debug Level, throw an warning in the log.
+                    if ($this->loggingLevel == PayPalLoggingLevel::DEBUG) {
+                        error_log("[" . date('d-m-Y h:i:s') . "] " . $this->loggerName . ": ERROR\t: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'\n", 3, $this->loggerFile);
+                    }
+                    // Reducing it to info level
+                    $this->loggingLevel = PayPalLoggingLevel::INFO;
+                }
+            }
+
+            if ($level <= $this->loggingLevel) {
+                error_log("[" . date('d-m-Y h:i:s') . "] " . $this->loggerName . ": $message\n", 3, $this->loggerFile);
+            }
         }
     }
 
@@ -109,7 +125,7 @@ class PayPalLoggingManager
      */
     public function error($message)
     {
-        $this->log('ERROR: ' . $message, PayPalLoggingLevel::ERROR);
+        $this->log("ERROR\t: " . $message, PayPalLoggingLevel::ERROR);
     }
 
     /**
@@ -119,7 +135,7 @@ class PayPalLoggingManager
      */
     public function warning($message)
     {
-        $this->log('WARNING: ' . $message, PayPalLoggingLevel::WARN);
+        $this->log("WARNING\t: " . $message, PayPalLoggingLevel::WARN);
     }
 
     /**
@@ -129,7 +145,7 @@ class PayPalLoggingManager
      */
     public function info($message)
     {
-        $this->log('INFO: ' . $message, PayPalLoggingLevel::INFO);
+        $this->log("INFO\t: " . $message, PayPalLoggingLevel::INFO);
     }
 
     /**
@@ -139,7 +155,17 @@ class PayPalLoggingManager
      */
     public function fine($message)
     {
-        $this->log('FINE: ' . $message, PayPalLoggingLevel::FINE);
+        $this->log("FINE\t: " . $message, PayPalLoggingLevel::FINE);
+    }
+
+    /**
+     * Log Fine
+     *
+     * @param string $message
+     */
+    public function debug($message)
+    {
+        $this->log("DEBUG\t: " . $message, PayPalLoggingLevel::DEBUG);
     }
 
 }
