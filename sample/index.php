@@ -1375,7 +1375,7 @@ if (PHP_SAPI == 'cli') {
 
 <script>
     $(document).ready(function () {
-        if (window.location.href.indexOf("htmlpreview.github.io") >= 0) {
+        if (window.location.href.indexOf("paypal.github.io") >= 0) {
             $(".execute").hide();
         }
     });
