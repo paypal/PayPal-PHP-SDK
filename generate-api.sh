@@ -1,8 +1,18 @@
+#!/bin/sh
 # Get ApiGen.phar
 wget http://www.apigen.org/apigen.phar
 
 # Generate Api
-php apigen.phar generate -s lib -d ../gh-pages
+php apigen.phar generate -s lib -d ../gh-pages/docs
+
+# Copy Home Page from Master Branch to Gh-Pages folder
+cp -r docs/* ../gh-pages/
+
+# Copy samples
+cp -r sample ../gh-pages/sample
+# As PHP is not allowed in Github
+cp sample/index.php ../gh-pages/sample/index.html
+
 cd ../gh-pages
 
 # Set identity
