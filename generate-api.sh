@@ -3,7 +3,7 @@
 wget http://www.apigen.org/apigen.phar
 
 # Generate Api
-php apigen.phar generate -s lib -d ../gh-pages/docs
+php apigen.phar generate --template-theme="bootstrap" -s lib -d ../gh-pages/docs
 
 # Copy Home Page from Master Branch to Gh-Pages folder
 cp -r docs/* ../gh-pages/

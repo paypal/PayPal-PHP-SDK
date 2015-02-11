@@ -45,7 +45,6 @@ body {
 }
 
 body {
-    background-color: #FDFCFA;
     font-family: Menlo,Monaco,Consolas,"Courier New",monospace;
     background: #fff url("https://www.paypalobjects.com/webstatic/developer/banners/Braintree_desktop_BG_2X.jpg") repeat-y top right;
     -webkit-background-size: cover;
