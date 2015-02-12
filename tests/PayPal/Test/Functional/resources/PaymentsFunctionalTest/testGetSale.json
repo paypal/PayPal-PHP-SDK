@@ -39,17 +39,17 @@
             "parent_payment": "PAY-17S8410768582940NKEE66EQ",
             "links": [
                 {
-                    "href": "https://api.sandbox.paypal.com/v1/payments/sale/5SA006225W236580K",
+                    "href": "https://api-s.sandbox.paypal.com/v1/payments/sale/5SA006225W236580K",
                     "rel": "self",
                     "method": "GET"
                 },
                 {
-                    "href": "https://api.sandbox.paypal.com/v1/payments/sale/5SA006225W236580K/refund",
+                    "href": "https://api-s.sandbox.paypal.com/v1/payments/sale/5SA006225W236580K/refund",
                     "rel": "refund",
                     "method": "POST"
                 },
                 {
-                    "href": "https://api.sandbox.paypal.com/v1/payments/payment/PAY-48W25034R6080713AKRH64KY",
+                    "href": "https://api-s.sandbox.paypal.com/v1/payments/payment/PAY-48W25034R6080713AKRH64KY",
                     "rel": "parent_payment",
                     "method": "GET"
                 }

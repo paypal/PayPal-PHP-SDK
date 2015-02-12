@@ -5,7 +5,7 @@
     "operationId": "web-profile.get-list",
     "user": {
         "scopes": [
-            "https://api.paypal.com/v1/payments/.*"
+            "https://api-s.paypal.com/v1/payments/.*"
         ]
     },
     "credentials": {

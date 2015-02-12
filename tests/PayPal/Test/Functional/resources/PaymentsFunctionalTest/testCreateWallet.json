@@ -144,17 +144,17 @@
                                 "parent_payment": "PAY-17S8410768582940NKEE66EQ",
                                 "links": [
                                     {
-                                        "href": "https: //api.paypal.com/v1/payments/sale/4RR959492F879224U",
+                                        "href": "https: //api-s.paypal.com/v1/payments/sale/4RR959492F879224U",
                                         "rel": "self",
                                         "method": "GET"
                                     },
                                     {
-                                        "href": "https: //api.paypal.com/v1/payments/sale/4RR959492F879224U/refund",
+                                        "href": "https: //api-s.paypal.com/v1/payments/sale/4RR959492F879224U/refund",
                                         "rel": "refund",
                                         "method": "POST"
                                     },
                                     {
-                                        "href": "https: //api.paypal.com/v1/payments/payment/PAY-17S8410768582940NKEE66EQ",
+                                        "href": "https: //api-s.paypal.com/v1/payments/payment/PAY-17S8410768582940NKEE66EQ",
                                         "rel": "parent_payment",
                                         "method": "GET"
                                     }
@@ -166,7 +166,7 @@
             ],
             "links": [
                 {
-                    "href": "https: //api.paypal.com/v1/payments/payment/PAY-17S8410768582940NKEE66EQ",
+                    "href": "https: //api-s.paypal.com/v1/payments/payment/PAY-17S8410768582940NKEE66EQ",
                     "rel": "self",
                     "method": "GET"
                 }

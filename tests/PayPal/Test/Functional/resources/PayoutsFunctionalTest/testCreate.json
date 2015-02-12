@@ -87,7 +87,7 @@
             		"time_processed": "2014-46-14T06:46:23Z",
             		"links": [
                 	{
-                    	"href": "https://api.sandbox.paypal.com/v1/payments/payouts-item/VHBFGN95AWV82",
+                    	"href": "https://api-s.sandbox.paypal.com/v1/payments/payouts-item/VHBFGN95AWV82",
                    		"rel": "item",
                     	"method": "GET"
                 	}
@@ -96,7 +96,7 @@
     	],
     	"links": [
         	{
-            	"href": "https://api.sandbox.paypal.com/v1/payments/payouts/CDZEC5MJ8R5HY",
+            	"href": "https://api-s.sandbox.paypal.com/v1/payments/payouts/CDZEC5MJ8R5HY",
             	"rel": "self",
             	"method": "GET"
         	}

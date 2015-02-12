@@ -50,12 +50,12 @@
       },
       "links": [
         {
-          "href": "https://api.sandbox.paypal.com/v1/payments/payouts-item/HUUQ5YASYLQFN",
+          "href": "https://api-s.sandbox.paypal.com/v1/payments/payouts-item/HUUQ5YASYLQFN",
           "rel": "self",
           "method": "GET"
         },
         {
-          "href": "https://api.sandbox.paypal.com/v1/payments/payouts/LNLSEVGU4P85S",
+          "href": "https://api-s.sandbox.paypal.com/v1/payments/payouts/LNLSEVGU4P85S",
           "rel": "batch",
           "method": "GET"
         }
