@@ -15,7 +15,7 @@ use PayPal\Api\CreditCard;
 // to be stored with PayPal.
 $card = new CreditCard();
 $card->setType("visa")
-    ->setNumber("4417119669820331")
+    ->setNumber("4917912523797702")
     ->setExpireMonth("11")
     ->setExpireYear("2019")
     ->setCvv2("012")
