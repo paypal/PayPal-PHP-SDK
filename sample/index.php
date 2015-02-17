@@ -191,9 +191,9 @@ if (PHP_SAPI == 'cli') {
                 <div class="footer-div">
                     <ul class="footer-links">
                         <li>
-                            <a href="https://github.com/paypal/PayPal-PHP-SDK" target="_blank"><i
+                            <a href="http://paypal.github.io/PayPal-PHP-SDK/" target="_blank"><i
                                     class="fa fa-github"></i>
-                                Github</a></li>
+                                PayPal PHP SDK</a></li>
                         <li>
                             <a href="https://developer.paypal.com/webapps/developer/docs/api/"
                                target="_blank"><i
@@ -1349,9 +1349,9 @@ if (PHP_SAPI == 'cli') {
         <div class="footer-div">
             <ul class="footer-links">
                 <li>
-                    <a href="https://github.com/paypal/PayPal-PHP-SDK" target="_blank"><i
+                    <a href="http://paypal.github.io/PayPal-PHP-SDK/" target="_blank"><i
                             class="fa fa-github"></i>
-                        Github</a></li>
+                        PayPal PHP SDK</a></li>
                 <li>
                     <a href="https://developer.paypal.com/webapps/developer/docs/api/" target="_blank"><i
                             class="fa fa-book"></i> REST API Reference</a>
