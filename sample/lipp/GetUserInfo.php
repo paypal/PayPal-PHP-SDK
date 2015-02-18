@@ -18,7 +18,7 @@ use PayPal\Api\OpenIdTokeninfo;
 // "GenerateAccessTokenFromRefreshToken.php", or as shown below
 
 // You can retrieve the refresh token by executing ObtainUserConsent.php and store the refresh token
-$refreshToken = 'yzX4AkmMyBKR4on7vB5he-tDu38s24Zy-kTibhSuqA8kTdy0Yinxj7NpAyULx0bxqC5G8dbXOt0aVMlMmtpiVmSzhcjVZhYDM7WUQLC9KpaXGBHyltJPkLLQkXE';
+$refreshToken = 'W1JmxG-Cogm-4aSc5Vlen37XaQTj74aQcQiTtXax5UgY7M_AJ--kLX8xNVk8LtCpmueFfcYlRK6UgQLJ-XHsxpw6kZzPpKKccRQeC4z2ldTMfXdIWajZ6CHuebs';
 
 try {
 
