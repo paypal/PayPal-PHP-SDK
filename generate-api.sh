@@ -2,7 +2,7 @@
 # Get ApiGen.phar
 wget http://www.apigen.org/apigen.phar
 
-# Generate Api
+# Generate SDK Docs
 php apigen.phar generate --template-theme="bootstrap" -s lib -d ../gh-pages/docs
 
 # Copy Home Page from Master Branch to Gh-Pages folder
@@ -26,5 +26,5 @@ git checkout -B gh-pages
 
 # Push generated files
 git add .
-git commit -m "API updated"
+git commit -m "Docs updated by Travis"
 git push origin gh-pages -fq > /dev/null
