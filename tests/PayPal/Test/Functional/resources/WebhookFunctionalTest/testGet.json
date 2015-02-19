@@ -44,17 +44,17 @@
          ],
          "links":[
             {
-               "href":"https://api-s.paypal.com/v1/notifications/webhooks/0EH40505U7160970P",
+               "href":"https://api.paypal.com/v1/notifications/webhooks/0EH40505U7160970P",
                "rel":"self",
                "method":"GET"
             },
             {
-               "href":"https://api-s.paypal.com/v1/notifications/webhooks/0EH40505U7160970P",
+               "href":"https://api.paypal.com/v1/notifications/webhooks/0EH40505U7160970P",
                "rel":"update",
                "method":"PATCH"
             },
             {
-               "href":"https://api-s.paypal.com/v1/notifications/webhooks/0EH40505U7160970P",
+               "href":"https://api.paypal.com/v1/notifications/webhooks/0EH40505U7160970P",
                "rel":"delete",
                "method":"DELETE"
             }

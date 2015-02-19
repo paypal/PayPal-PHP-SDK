@@ -92,27 +92,27 @@
             },
             "links": [
                 {
-                    "href": "https://api-s.sandbox.paypal.com/v1/payments/billing-agreements/I-XTN3V7NY6KG7/suspend",
+                    "href": "https://api.sandbox.paypal.com/v1/payments/billing-agreements/I-XTN3V7NY6KG7/suspend",
                     "rel": "suspend",
                     "method": "POST"
                 },
                 {
-                    "href": "https://api-s.sandbox.paypal.com/v1/payments/billing-agreements/I-XTN3V7NY6KG7/re-activate",
+                    "href": "https://api.sandbox.paypal.com/v1/payments/billing-agreements/I-XTN3V7NY6KG7/re-activate",
                     "rel": "re_activate",
                     "method": "POST"
                 },
                 {
-                    "href": "https://api-s.sandbox.paypal.com/v1/payments/billing-agreements/I-XTN3V7NY6KG7/cancel",
+                    "href": "https://api.sandbox.paypal.com/v1/payments/billing-agreements/I-XTN3V7NY6KG7/cancel",
                     "rel": "cancel",
                     "method": "POST"
                 },
                 {
-                    "href": "https://api-s.sandbox.paypal.com/v1/payments/billing-agreements/I-XTN3V7NY6KG7/bill-balance",
+                    "href": "https://api.sandbox.paypal.com/v1/payments/billing-agreements/I-XTN3V7NY6KG7/bill-balance",
                     "rel": "self",
                     "method": "POST"
                 },
                 {
-                    "href": "https://api-s.sandbox.paypal.com/v1/payments/billing-agreements/I-XTN3V7NY6KG7/set-balance",
+                    "href": "https://api.sandbox.paypal.com/v1/payments/billing-agreements/I-XTN3V7NY6KG7/set-balance",
                     "rel": "self",
                     "method": "POST"
                 }

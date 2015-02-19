@@ -51,22 +51,22 @@
             "valid_until":"2013-07-24T21:39:15Z",
             "links":[
                {
-                  "href":"https://api-s.paypal.com/v1/payments/authorization/2DC87612EK520411B",
+                  "href":"https://api.paypal.com/v1/payments/authorization/2DC87612EK520411B",
                   "rel":"self",
                   "method":"GET"
                },
                {
-                  "href":"https://api-s.paypal.com/v1/payments/authorization/2DC87612EK520411B/capture",
+                  "href":"https://api.paypal.com/v1/payments/authorization/2DC87612EK520411B/capture",
                   "rel":"capture",
                   "method":"POST"
                },
                {
-                  "href":"https://api-s.paypal.com/v1/payments/authorization/2DC87612EK520411B/void",
+                  "href":"https://api.paypal.com/v1/payments/authorization/2DC87612EK520411B/void",
                   "rel":"void",
                   "method":"POST"
                },
                {
-                  "href":"https://api-s.paypal.com/v1/payments/payment/PAY-36246664YD343335CKHFA4AY",
+                  "href":"https://api.paypal.com/v1/payments/payment/PAY-36246664YD343335CKHFA4AY",
                   "rel":"parent_payment",
                   "method":"GET"
                }
@@ -74,12 +74,12 @@
          },
          "links":[
             {
-               "href":"https://api-s.paypal.com/v1/notfications/webhooks-events/8PT597110X687430LKGECATA",
+               "href":"https://api.paypal.com/v1/notfications/webhooks-events/8PT597110X687430LKGECATA",
                "rel":"self",
                "method":"GET"
             },
             {
-               "href":"https://api-s.paypal.com/v1/notfications/webhooks-events/8PT597110X687430LKGECATA/resend",
+               "href":"https://api.paypal.com/v1/notfications/webhooks-events/8PT597110X687430LKGECATA/resend",
                "rel":"resend",
                "method":"POST"
             }

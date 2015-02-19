@@ -62,12 +62,12 @@
       "links":[
         {
           "rel":"self",
-          "href":"https://api-s.sandbox.paypal.com/v1/payments/payouts-item/1421342",
+          "href":"https://api.sandbox.paypal.com/v1/payments/payouts-item/1421342",
           "method":"GET"
         },
         {
           "rel":"batch",
-          "href":"https://api-s.sandbox.paypal.com/v1/payments/payouts/20140724",
+          "href":"https://api.sandbox.paypal.com/v1/payments/payouts/20140724",
           "method":"GET"
         }
       ]
