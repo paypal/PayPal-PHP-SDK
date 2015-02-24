@@ -1,5 +1,9 @@
 PayPal PHP SDK release notes
 ============================
+v1.2.1
+----
+* Ability to handle missing accesors for unknown objects in json
+
 v1.2.0
 ----
 * Order API Support
