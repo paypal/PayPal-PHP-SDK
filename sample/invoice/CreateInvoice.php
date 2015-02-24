@@ -70,6 +70,13 @@ $items[0]
 $items[0]->getUnitPrice()
     ->setCurrency("USD")
     ->setValue(5);
+
+// #### Tax Item
+// You could provide Tax information to each item.
+$tax = new \PayPal\Api\Tax();
+$tax->setPercent(1)->setName("Local Tax on Sutures");
+$items[0]->setTax($tax);
+
 // Second Item
 $items[1] = new InvoiceItem();
 $items[1]
@@ -80,6 +87,13 @@ $items[1]
 $items[1]->getUnitPrice()
     ->setCurrency("USD")
     ->setValue(5);
+
+// #### Tax Item
+// You could provide Tax information to each item.
+$tax2 = new \PayPal\Api\Tax();
+$tax2->setPercent(3)->setName("Local Tax on Injection");
+$items[1]->setTax($tax2);
+
 $invoice->setItems($items);
 
 $invoice->getPaymentTerm()

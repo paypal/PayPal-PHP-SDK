@@ -156,18 +156,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
             "pageTitle": "billing/ListPlans",
             "title": "ListPlans"
           },
-          "depth": 2,
-          "outline": [
-            {
-              "type": "heading",
-              "data": {
-                "level": 1,
-                "title": "Get List of Plan Sample",
-                "slug": "get-list-of-plan-sample"
-              },
-              "depth": 1
-            }
-          ]
+          "depth": 2
         }, {
           "type": "file",
           "data": {
@@ -321,7 +310,96 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
             "pageTitle": "invoice/CreateInvoice",
             "title": "CreateInvoice"
           },
-          "depth": 2
+          "depth": 2,
+          "outline": [
+            {
+              "type": "heading",
+              "data": {
+                "level": 1,
+                "title": "Create Invoice Sample",
+                "slug": "create-invoice-sample"
+              },
+              "depth": 1,
+              "children": [
+                {
+                  "type": "heading",
+                  "data": {
+                    "level": 3,
+                    "title": "Invoice Info",
+                    "slug": "invoice-info"
+                  },
+                  "depth": 3
+                }, {
+                  "type": "heading",
+                  "data": {
+                    "level": 3,
+                    "title": "Merchant Info",
+                    "slug": "merchant-info"
+                  },
+                  "depth": 3
+                }, {
+                  "type": "heading",
+                  "data": {
+                    "level": 3,
+                    "title": "Address Information",
+                    "slug": "address-information"
+                  },
+                  "depth": 3
+                }, {
+                  "type": "heading",
+                  "data": {
+                    "level": 3,
+                    "title": "Billing Information",
+                    "slug": "billing-information"
+                  },
+                  "depth": 3
+                }, {
+                  "type": "heading",
+                  "data": {
+                    "level": 3,
+                    "title": "Items List",
+                    "slug": "items-list"
+                  },
+                  "depth": 3,
+                  "children": [
+                    {
+                      "type": "heading",
+                      "data": {
+                        "level": 4,
+                        "title": "Tax Item",
+                        "slug": "tax-item"
+                      },
+                      "depth": 4
+                    }, {
+                      "type": "heading",
+                      "data": {
+                        "level": 4,
+                        "title": "Tax Item",
+                        "slug": "tax-item"
+                      },
+                      "depth": 4
+                    }
+                  ]
+                }, {
+                  "type": "heading",
+                  "data": {
+                    "level": 3,
+                    "title": "Shipping Information",
+                    "slug": "shipping-information"
+                  },
+                  "depth": 3
+                }, {
+                  "type": "heading",
+                  "data": {
+                    "level": 3,
+                    "title": "Create Invoice",
+                    "slug": "create-invoice"
+                  },
+                  "depth": 3
+                }
+              ]
+            }
+          ]
         }, {
           "type": "file",
           "data": {
@@ -547,18 +625,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
             "pageTitle": "lipp/GetUserInfo",
             "title": "GetUserInfo"
           },
-          "depth": 2,
-          "outline": [
-            {
-              "type": "heading",
-              "data": {
-                "level": 3,
-                "title": "Obtain Access Token From Refresh Token",
-                "slug": "obtain-access-token-from-refresh-token"
-              },
-              "depth": 3
-            }
-          ]
+          "depth": 2
         }, {
           "type": "file",
           "data": {
@@ -576,18 +643,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
             "pageTitle": "lipp/ObtainUserConsent",
             "title": "ObtainUserConsent"
           },
-          "depth": 2,
-          "outline": [
-            {
-              "type": "heading",
-              "data": {
-                "level": 3,
-                "title": "Get User Consent URL",
-                "slug": "get-user-consent-url"
-              },
-              "depth": 3
-            }
-          ]
+          "depth": 2
         }, {
           "type": "file",
           "data": {
@@ -1487,7 +1543,56 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
             "pageTitle": "payouts/CreateSinglePayout",
             "title": "CreateSinglePayout"
           },
-          "depth": 2
+          "depth": 2,
+          "outline": [
+            {
+              "type": "heading",
+              "data": {
+                "level": 1,
+                "title": "Create Single Synchronous Payout Sample",
+                "slug": "create-single-synchronous-payout-sample"
+              },
+              "depth": 1,
+              "children": [
+                {
+                  "type": "heading",
+                  "data": {
+                    "level": 3,
+                    "title": "NOTE:",
+                    "slug": "note"
+                  },
+                  "depth": 3,
+                  "children": [
+                    {
+                      "type": "heading",
+                      "data": {
+                        "level": 4,
+                        "title": "Batch Header Instance",
+                        "slug": "batch-header-instance"
+                      },
+                      "depth": 4
+                    }, {
+                      "type": "heading",
+                      "data": {
+                        "level": 4,
+                        "title": "Sender Item",
+                        "slug": "sender-item"
+                      },
+                      "depth": 4
+                    }
+                  ]
+                }, {
+                  "type": "heading",
+                  "data": {
+                    "level": 3,
+                    "title": "Create Payout",
+                    "slug": "create-payout"
+                  },
+                  "depth": 3
+                }
+              ]
+            }
+          ]
         }, {
           "type": "file",
           "data": {
@@ -1569,7 +1674,45 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
             "pageTitle": "sale/RefundSale",
             "title": "RefundSale"
           },
-          "depth": 2
+          "depth": 2,
+          "outline": [
+            {
+              "type": "heading",
+              "data": {
+                "level": 1,
+                "title": "Sale Refund Sample",
+                "slug": "sale-refund-sample"
+              },
+              "depth": 1,
+              "children": [
+                {
+                  "type": "heading",
+                  "data": {
+                    "level": 3,
+                    "title": "Refund amount",
+                    "slug": "refund-amount"
+                  },
+                  "depth": 3
+                }, {
+                  "type": "heading",
+                  "data": {
+                    "level": 3,
+                    "title": "Refund object",
+                    "slug": "refund-object"
+                  },
+                  "depth": 3
+                }, {
+                  "type": "heading",
+                  "data": {
+                    "level": 3,
+                    "title": "Sale",
+                    "slug": "sale"
+                  },
+                  "depth": 3
+                }
+              ]
+            }
+          ]
         }
       ]
     }, {

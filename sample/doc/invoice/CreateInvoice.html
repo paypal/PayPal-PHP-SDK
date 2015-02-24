@@ -50,7 +50,10 @@ detailed breakdown of invoice</p></div></div><div class="code"><div class="wrapp
 
 <span class="hljs-variable">$items</span>[<span class="hljs-number">0</span>]-&gt;getUnitPrice()
     -&gt;setCurrency(<span class="hljs-string">"USD"</span>)
-    -&gt;setValue(<span class="hljs-number">5</span>);</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Second Item</p></div></div><div class="code"><div class="wrapper"><span class="hljs-variable">$items</span>[<span class="hljs-number">1</span>] = <span class="hljs-keyword">new</span> InvoiceItem();
+    -&gt;setValue(<span class="hljs-number">5</span>);</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><h4 id="tax-item">Tax Item</h4>
+<p>You could provide Tax information to each item.</p></div></div><div class="code"><div class="wrapper"><span class="hljs-variable">$tax</span> = <span class="hljs-keyword">new</span> \PayPal\Api\Tax();
+<span class="hljs-variable">$tax</span>-&gt;setPercent(<span class="hljs-number">1</span>)-&gt;setName(<span class="hljs-string">"Local Tax on Sutures"</span>);
+<span class="hljs-variable">$items</span>[<span class="hljs-number">0</span>]-&gt;setTax(<span class="hljs-variable">$tax</span>);</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Second Item</p></div></div><div class="code"><div class="wrapper"><span class="hljs-variable">$items</span>[<span class="hljs-number">1</span>] = <span class="hljs-keyword">new</span> InvoiceItem();
 <span class="hljs-variable">$items</span>[<span class="hljs-number">1</span>]
     -&gt;setName(<span class="hljs-string">"Injection"</span>)
     -&gt;setQuantity(<span class="hljs-number">5</span>)
@@ -58,7 +61,11 @@ detailed breakdown of invoice</p></div></div><div class="code"><div class="wrapp
 
 <span class="hljs-variable">$items</span>[<span class="hljs-number">1</span>]-&gt;getUnitPrice()
     -&gt;setCurrency(<span class="hljs-string">"USD"</span>)
-    -&gt;setValue(<span class="hljs-number">5</span>);
+    -&gt;setValue(<span class="hljs-number">5</span>);</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><h4 id="tax-item">Tax Item</h4>
+<p>You could provide Tax information to each item.</p></div></div><div class="code"><div class="wrapper"><span class="hljs-variable">$tax2</span> = <span class="hljs-keyword">new</span> \PayPal\Api\Tax();
+<span class="hljs-variable">$tax2</span>-&gt;setPercent(<span class="hljs-number">3</span>)-&gt;setName(<span class="hljs-string">"Local Tax on Injection"</span>);
+<span class="hljs-variable">$items</span>[<span class="hljs-number">1</span>]-&gt;setTax(<span class="hljs-variable">$tax2</span>);
+
 <span class="hljs-variable">$invoice</span>-&gt;setItems(<span class="hljs-variable">$items</span>);
 
 <span class="hljs-variable">$invoice</span>-&gt;getPaymentTerm()
