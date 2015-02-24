@@ -27,17 +27,25 @@ class ReflectionUtil
 
 
     /**
-     * Gets Property Class
+     * Gets Property Class of the given property.
+     * If the class is null, it returns null.
+     * If the property is not found, it returns null.
      *
      * @param $class
      * @param $propertyName
-     * @return string
+     * @return null|string
+     * @throws PayPalConfigurationException
      */
     public static function getPropertyClass($class, $propertyName)
     {
         if ($class == get_class(new PayPalModel())) {
             // Make it generic if PayPalModel is used for generating this
             return get_class(new PayPalModel());
+        }
+
+        // If the class doesn't exist, or the method doesn't exist, return null.
+        if (!class_exists($class) || !method_exists($class, self::getter($class, $propertyName))) {
+            return null;
         }
 
         if (($annotations = self::propertyAnnotations($class, $propertyName)) && isset($annotations['return'])) {
@@ -72,9 +80,7 @@ class ReflectionUtil
         }
 
         if (!($refl =& self::$propertiesRefl[$class][$propertyName])) {
-            $getter = method_exists($class, "get" . ucfirst($propertyName)) ?
-                "get" . ucfirst($propertyName) :
-                "get" . preg_replace_callback("/([_\-\s]?([a-z0-9]+))/", "self::replace_callback", $propertyName);
+            $getter = self::getter($class, $propertyName);
             $refl = new \ReflectionMethod($class, $getter);
             self::$propertiesRefl[$class][$propertyName] = $refl;
         }
@@ -103,5 +109,20 @@ class ReflectionUtil
     private static function replace_callback($match)
     {
         return ucwords($match[2]);
+    }
+
+    /**
+     * Returns the properly formatted getter function name based on class name and property
+     * Formats the property name to a standard getter function
+     *
+     * @param string $class
+     * @param string $propertyName
+     * @return string getter function name
+     */
+    public static function getter($class, $propertyName)
+    {
+        return method_exists($class, "get" . ucfirst($propertyName)) ?
+            "get" . ucfirst($propertyName) :
+            "get" . preg_replace_callback("/([_\-\s]?([a-z0-9]+))/", "self::replace_callback", $propertyName);
     }
 }

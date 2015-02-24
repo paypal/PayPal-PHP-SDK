@@ -146,5 +146,3 @@ class PayPalCredentialManagerTest extends \PHPUnit_Framework_TestCase
         $this->assertAttributeEquals($this->config['acct1.ClientSecret'], 'clientSecret', $cred);
     }
 }
-
-?>

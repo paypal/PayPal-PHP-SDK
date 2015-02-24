@@ -98,6 +98,28 @@ class ModelTest extends \PHPUnit_Framework_TestCase
         }
     }
 
+    /**
+     * Test Case to determine if the unknown object is returned, it would not add that object to the model.
+     */
+    public function testUnknownObjectConversion()
+    {
+        PayPalConfigManager::getInstance()->addConfigs(array('validation.level' => 'disabled'));
+        $json = '{"name":"test","unknown":{ "id" : "123", "object": "456"},"description":"description"}';
+
+        $obj = new SimpleClass();
+        $obj->fromJson($json);
+
+        $this->assertEquals("test", $obj->getName());
+        $this->assertEquals("description", $obj->getDescription());
+        $resultJson = $obj->toJSON();
+        $this->assertContains("unknown", $resultJson);
+        $this->assertContains("id", $resultJson);
+        $this->assertContains("object", $resultJson);
+        $this->assertContains("123", $resultJson);
+        $this->assertContains("456", $resultJson);
+        PayPalConfigManager::getInstance()->addConfigs(array('validation.level' => 'strict'));
+    }
+
     public function testInvalidMagicMethodWithDisabledValidation()
     {
         PayPalConfigManager::getInstance()->addConfigs(array('validation.level' => 'disabled'));

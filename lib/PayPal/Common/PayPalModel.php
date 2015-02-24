@@ -80,6 +80,7 @@ class PayPalModel
             }
             return $list;
         }
+        return array();
     }
 
     /**
@@ -180,26 +181,35 @@ class PayPalModel
     public function fromArray($arr)
     {
         if (!empty($arr)) {
+            // Iterate over each element in array
             foreach ($arr as $k => $v) {
+                // If the value is an array, it means, it is an object after conversion
                 if (is_array($v)) {
-                    $clazz = ReflectionUtil::getPropertyClass(get_class($this), $k);
-                    if (ArrayUtil::isAssocArray($v)) {
-                        /** @var self $o */
-                        $o = new $clazz();
-                        $o->fromArray($v);
-                        $this->assignValue($k, $o);
-                    } else {
-                        $arr = array();
-                        foreach ($v as $nk => $nv) {
-                            if (is_array($nv)) {
-                                $o = new $clazz();
-                                $o->fromArray($nv);
-                                $arr[$nk] = $o;
-                            } else {
-                                $arr[$nk] = $nv;
+                    // Determine the class of the object
+                    if (($clazz = ReflectionUtil::getPropertyClass(get_class($this), $k)) != null){
+                        // If the value is an associative array, it means, its an object. Just make recursive call to it.
+                        if (ArrayUtil::isAssocArray($v)) {
+                            /** @var self $o */
+                            $o = new $clazz();
+                            $o->fromArray($v);
+                            $this->assignValue($k, $o);
+                        } else {
+                            // Else, value is an array of object/data
+                            $arr = array();
+                            // Iterate through each element in that array.
+                            foreach ($v as $nk => $nv) {
+                                if (is_array($nv)) {
+                                    $o = new $clazz();
+                                    $o->fromArray($nv);
+                                    $arr[$nk] = $o;
+                                } else {
+                                    $arr[$nk] = $nv;
+                                }
                             }
+                            $this->assignValue($k, $arr);
                         }
-                        $this->assignValue($k, $arr);
+                    } else {
+                        $this->assignValue($k, $v);
                     }
                 } else {
                     $this->assignValue($k, $v);
@@ -211,6 +221,7 @@ class PayPalModel
 
     private function assignValue($key, $value)
     {
+        // If we find the getter setter, use that, otherwise use magic method.
         if (ModelAccessorValidator::validate($this, $this->convertToCamelCase($key))) {
             $setter = "set" . $this->convertToCamelCase($key);
             $this->$setter($value);
