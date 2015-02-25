@@ -1,5 +1,7 @@
 # REST API SDK for PHP
 
+[![Join the chat at https://gitter.im/paypal/PayPal-PHP-SDK](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/paypal/PayPal-PHP-SDK?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 ![Home Image](https://raw.githubusercontent.com/wiki/paypal/PayPal-PHP-SDK/images/homepage.jpg)
 
 [![Build Status](https://travis-ci.org/paypal/PayPal-PHP-SDK.png?branch=master)](https://travis-ci.org/paypal/PayPal-PHP-SDK) [![Coverage Status](https://img.shields.io/coveralls/paypal/PayPal-PHP-SDK.svg)](https://coveralls.io/r/paypal/PayPal-PHP-SDK?branch=master)
