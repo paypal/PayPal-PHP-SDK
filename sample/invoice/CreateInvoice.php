@@ -14,6 +14,7 @@ use PayPal\Api\Address;
 use PayPal\Api\Currency;
 use PayPal\Api\PaymentTerm;
 use PayPal\Api\ShippingInfo;
+use PayPal\Api\InvoiceAddress;
 
 $invoice = new Invoice();
 
@@ -105,7 +106,7 @@ $invoice->getShippingInfo()
     ->setLastName("Patient")
     ->setBusinessName("Not applicable")
     ->setPhone(new Phone())
-    ->setAddress(new Address());
+    ->setAddress(new InvoiceAddress());
 
 $invoice->getShippingInfo()->getPhone()
     ->setCountryCode("001")
@@ -117,6 +118,10 @@ $invoice->getShippingInfo()->getAddress()
     ->setState("OR")
     ->setPostalCode("97217")
     ->setCountryCode("US");
+
+// ### Logo
+// You can set the logo in the invoice by providing the external URL pointing to a logo
+$invoice->setLogoUrl('https://www.paypalobjects.com/webstatic/i/logo/rebrand/ppcom.svg');
 
 // For Sample Purposes Only.
 $request = clone $invoice;
