@@ -1,42 +1,54 @@
 <?php
+
 namespace PayPal\Test\Api;
 
+use PayPal\Common\PayPalModel;
 use PayPal\Api\RelatedResources;
-use PayPal\Test\Constants;
 
+/**
+ * Class RelatedResources
+ *
+ * @package PayPal\Test\Api
+ */
 class RelatedResourcesTest extends \PHPUnit_Framework_TestCase
 {
-
-    private $RelatedResources;
-
-    public static function createRelatedResources()
+    /**
+     * Gets Json String of Object RelatedResources
+     * @return string
+     */
+    public static function getJson()
     {
-        $relatedResources = new RelatedResources();
-        $relatedResources->setAuthorization(AuthorizationTest::createAuthorization());
-        $relatedResources->setCapture(CaptureTest::createCapture());
-        $relatedResources->setOrder(OrderTest::createOrder());
-        return $relatedResources;
+        return '{}';
     }
 
-    public function setup()
+    /**
+     * Gets Object Instance with Json data filled in
+     * @return RelatedResources
+     */
+    public static function getObject()
     {
-        $this->relatedResources = self::createRelatedResources();
+        return new RelatedResources(self::getJson());
     }
 
-    public function testGetterSetter()
+
+    /**
+     * Tests for Serialization and Deserialization Issues
+     * @return RelatedResources
+     */
+    public function testSerializationDeserialization()
     {
-        $this->assertEquals(AuthorizationTest::$create_time, $this->relatedResources->getAuthorization()->getCreateTime());
-        $this->assertEquals(CaptureTest::$create_time, $this->relatedResources->getCapture()->getCreateTime());
-        $this->assertEquals(OrderTest::$id, $this->relatedResources->getOrder()->getId());
+        $obj = new RelatedResources(self::getJson());
+        $this->assertNotNull($obj);
+        $this->assertEquals(self::getJson(), $obj->toJson());
+        return $obj;
     }
 
-    public function testSerializeDeserialize()
+    /**
+     * @depends testSerializationDeserialization
+     * @param RelatedResources $obj
+     */
+    public function testGetters($obj)
     {
-        $s1 = $this->relatedResources;
-
-        $s2 = new RelatedResources();
-        $s2->fromJson($s1->toJson());
-
-        $this->assertEquals($s1, $s2);
     }
+
 }

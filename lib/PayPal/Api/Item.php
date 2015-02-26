@@ -3,10 +3,9 @@
 namespace PayPal\Api;
 
 use PayPal\Common\PayPalModel;
-use PayPal\Rest\ApiContext;
-use PayPal\Validation\UrlValidator;
-use PayPal\Validation\NumericValidator;
 use PayPal\Converter\FormatConverter;
+use PayPal\Validation\NumericValidator;
+use PayPal\Validation\UrlValidator;
 
 /**
  * Class Item
@@ -24,14 +23,17 @@ use PayPal\Converter\FormatConverter;
  * @property string sku
  * @property string url
  * @property string category
- * @property \PayPal\Api\NameValuePair supplementary_data
- * @property \PayPal\Api\NameValuePair postback_data
+ * @property \PayPal\Api\Measurement weight
+ * @property \PayPal\Api\Measurement length
+ * @property \PayPal\Api\Measurement height
+ * @property \PayPal\Api\Measurement width
+ * @property \PayPal\Api\NameValuePair[] supplementary_data
+ * @property \PayPal\Api\NameValuePair[] postback_data
  */
 class Item extends PayPalModel
 {
     /**
      * Number of items.
-     * 
      *
      * @param string $quantity
      * 
@@ -55,7 +57,6 @@ class Item extends PayPalModel
 
     /**
      * Name of the item.
-     * 
      *
      * @param string $name
      * 
@@ -79,7 +80,6 @@ class Item extends PayPalModel
 
     /**
      * Description of the item.
-     * 
      *
      * @param string $description
      * 
@@ -103,15 +103,13 @@ class Item extends PayPalModel
 
     /**
      * Cost of the item.
-     * 
      *
-     * @param double $price
+     * @param string|double $price
      * 
      * @return $this
      */
     public function setPrice($price)
     {
-
         NumericValidator::validate($price, "Price");
         $price = FormatConverter::formatToPrice($price, $this->getCurrency());
         $this->price = $price;
@@ -130,9 +128,8 @@ class Item extends PayPalModel
 
     /**
      * tax of the item.
-     * 
      *
-     * @param double $tax
+     * @param string|double $tax
      * 
      * @return $this
      */
@@ -156,7 +153,6 @@ class Item extends PayPalModel
 
     /**
      * 3-letter Currency Code
-     * 
      *
      * @param string $currency
      * 
@@ -180,7 +176,6 @@ class Item extends PayPalModel
 
     /**
      * Number or code to identify the item in your catalog/records.
-     * 
      *
      * @param string $sku
      * 
@@ -204,7 +199,6 @@ class Item extends PayPalModel
 
     /**
      * URL linking to item information. Available to payer in transaction history.
-     * 
      *
      * @param string $url
      * @throws \InvalidArgumentException
@@ -228,8 +222,8 @@ class Item extends PayPalModel
     }
 
     /**
-     * Category type of the item.  This can be either Digital or Physical.
-     * 
+     * Category type of the item.
+     * Valid Values: ["DIGITAL", "PHYSICAL"]
      *
      * @param string $category
      * 
@@ -242,7 +236,7 @@ class Item extends PayPalModel
     }
 
     /**
-     * Category type of the item.  This can be either Digital or Physical.
+     * Category type of the item.
      *
      * @return string
      */
@@ -252,10 +246,101 @@ class Item extends PayPalModel
     }
 
     /**
-     * Set of optional data used for PayPal risk determination.
-     * 
+     * Weight of the item.
      *
-     * @param \PayPal\Api\NameValuePair $supplementary_data
+     * @param \PayPal\Api\Measurement $weight
+     * 
+     * @return $this
+     */
+    public function setWeight($weight)
+    {
+        $this->weight = $weight;
+        return $this;
+    }
+
+    /**
+     * Weight of the item.
+     *
+     * @return \PayPal\Api\Measurement
+     */
+    public function getWeight()
+    {
+        return $this->weight;
+    }
+
+    /**
+     * Length of the item.
+     *
+     * @param \PayPal\Api\Measurement $length
+     * 
+     * @return $this
+     */
+    public function setLength($length)
+    {
+        $this->length = $length;
+        return $this;
+    }
+
+    /**
+     * Length of the item.
+     *
+     * @return \PayPal\Api\Measurement
+     */
+    public function getLength()
+    {
+        return $this->length;
+    }
+
+    /**
+     * Height of the item.
+     *
+     * @param \PayPal\Api\Measurement $height
+     * 
+     * @return $this
+     */
+    public function setHeight($height)
+    {
+        $this->height = $height;
+        return $this;
+    }
+
+    /**
+     * Height of the item.
+     *
+     * @return \PayPal\Api\Measurement
+     */
+    public function getHeight()
+    {
+        return $this->height;
+    }
+
+    /**
+     * Width of the item.
+     *
+     * @param \PayPal\Api\Measurement $width
+     * 
+     * @return $this
+     */
+    public function setWidth($width)
+    {
+        $this->width = $width;
+        return $this;
+    }
+
+    /**
+     * Width of the item.
+     *
+     * @return \PayPal\Api\Measurement
+     */
+    public function getWidth()
+    {
+        return $this->width;
+    }
+
+    /**
+     * Set of optional data used for PayPal risk determination.
+     *
+     * @param \PayPal\Api\NameValuePair[] $supplementary_data
      * 
      * @return $this
      */
@@ -276,10 +361,39 @@ class Item extends PayPalModel
     }
 
     /**
-     * Set of optional data used for PayPal post-transaction notifications.
-     * 
+     * Append SupplementaryData to the list.
      *
-     * @param \PayPal\Api\NameValuePair $postback_data
+     * @param \PayPal\Api\NameValuePair $nameValuePair
+     * @return $this
+     */
+    public function addSupplementaryData($nameValuePair)
+    {
+        if (!$this->getSupplementaryData()) {
+            return $this->setSupplementaryData(array($nameValuePair));
+        } else {
+            return $this->setSupplementaryData(
+                array_merge($this->getSupplementaryData(), array($nameValuePair))
+            );
+        }
+    }
+
+    /**
+     * Remove SupplementaryData from the list.
+     *
+     * @param \PayPal\Api\NameValuePair $nameValuePair
+     * @return $this
+     */
+    public function removeSupplementaryData($nameValuePair)
+    {
+        return $this->setSupplementaryData(
+            array_diff($this->getSupplementaryData(), array($nameValuePair))
+        );
+    }
+
+    /**
+     * Set of optional data used for PayPal post-transaction notifications.
+     *
+     * @param \PayPal\Api\NameValuePair[] $postback_data
      * 
      * @return $this
      */
@@ -297,6 +411,36 @@ class Item extends PayPalModel
     public function getPostbackData()
     {
         return $this->postback_data;
+    }
+
+    /**
+     * Append PostbackData to the list.
+     *
+     * @param \PayPal\Api\NameValuePair $nameValuePair
+     * @return $this
+     */
+    public function addPostbackData($nameValuePair)
+    {
+        if (!$this->getPostbackData()) {
+            return $this->setPostbackData(array($nameValuePair));
+        } else {
+            return $this->setPostbackData(
+                array_merge($this->getPostbackData(), array($nameValuePair))
+            );
+        }
+    }
+
+    /**
+     * Remove PostbackData from the list.
+     *
+     * @param \PayPal\Api\NameValuePair $nameValuePair
+     * @return $this
+     */
+    public function removePostbackData($nameValuePair)
+    {
+        return $this->setPostbackData(
+            array_diff($this->getPostbackData(), array($nameValuePair))
+        );
     }
 
 }

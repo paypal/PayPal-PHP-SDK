@@ -19,7 +19,7 @@ use PayPal\Transport\PayPalRestCall;
  * @property string type
  * @property int expire_month
  * @property int expire_year
- * @property int cvv2
+ * @property string cvv2
  * @property string first_name
  * @property string last_name
  * @property \PayPal\Api\Address billing_address
@@ -149,7 +149,7 @@ class CreditCard extends PayPalResourceModel
     /**
      * Card validation code. Only supported when making a Payment but not when saving a credit card for future use.
      *
-     * @param int $cvv2
+     * @param string $cvv2
      * 
      * @return $this
      */
@@ -162,7 +162,7 @@ class CreditCard extends PayPalResourceModel
     /**
      * Card validation code. Only supported when making a Payment but not when saving a credit card for future use.
      *
-     * @return int
+     * @return string
      */
     public function getCvv2()
     {
@@ -312,7 +312,7 @@ class CreditCard extends PayPalResourceModel
      * Time the resource was created in UTC ISO8601 format.
      *
      * @param string $create_time
-     * 
+     *
      * @return $this
      */
     public function setCreateTime($create_time)
@@ -335,7 +335,7 @@ class CreditCard extends PayPalResourceModel
      * Time the resource was created in UTC ISO8601 format.
      *
      * @param string $update_time
-     * 
+     *
      * @return $this
      */
     public function setUpdateTime($update_time)

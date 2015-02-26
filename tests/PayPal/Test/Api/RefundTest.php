@@ -1,59 +1,110 @@
 <?php
+
 namespace PayPal\Test\Api;
 
+use PayPal\Common\PayPalResourceModel;
+use PayPal\Validation\ArgumentValidator;
+use PayPal\Rest\ApiContext;
+use PayPal\Transport\PPRestCall;
 use PayPal\Api\Refund;
-use PayPal\Test\Constants;
 
+/**
+ * Class Refund
+ *
+ * @package PayPal\Test\Api
+ */
 class RefundTest extends \PHPUnit_Framework_TestCase
 {
-
-    private $refund;
-
-    public static $captureId = "CAP-123";
-    public static $createTime = "2013-02-28T00:00:00Z";
-    public static $id = "R-5678";
-    public static $parentPayment = "PAY-123";
-
-    public static function createRefund()
+    /**
+     * Gets Json String of Object Refund
+     * @return string
+     */
+    public static function getJson()
     {
-        $refund = new Refund();
-        $refund->setCreateTime(self::$createTime);
-        $refund->setAmount(AmountTest::createAmount());
-        $refund->setCaptureId(self::$captureId);
-        $refund->setId(self::$id);
-        $refund->setLinks(array(LinksTest::getObject()));
-        $refund->setParentPayment(self::$parentPayment);
-
-        return $refund;
+        return '{"id":"TestSample","amount":' .AmountTest::getJson() . ',"state":"TestSample","reason":"TestSample","sale_id":"TestSample","capture_id":"TestSample","parent_payment":"TestSample","description":"TestSample","create_time":"TestSample","update_time":"TestSample","links":' .LinksTest::getJson() . '}';
     }
 
-    public function setup()
+    /**
+     * Gets Object Instance with Json data filled in
+     * @return Refund
+     */
+    public static function getObject()
     {
-        $this->refund = self::createRefund();
+        return new Refund(self::getJson());
     }
 
-    public function testGetterSetter()
+
+    /**
+     * Tests for Serialization and Deserialization Issues
+     * @return Refund
+     */
+    public function testSerializationDeserialization()
     {
-        $this->assertEquals(self::$captureId, $this->refund->getCaptureId());
-        $this->assertEquals(self::$createTime, $this->refund->getCreateTime());
-        $this->assertEquals(self::$id, $this->refund->getId());
-        $this->assertEquals(self::$parentPayment, $this->refund->getParentPayment());
-        $this->assertEquals(AmountTest::$currency, $this->refund->getAmount()->getCurrency());
-        $links = $this->refund->getLinks();
+        $obj = new Refund(self::getJson());
+        $this->assertNotNull($obj);
+        $this->assertNotNull($obj->getId());
+        $this->assertNotNull($obj->getAmount());
+        $this->assertNotNull($obj->getState());
+        $this->assertNotNull($obj->getReason());
+        $this->assertNotNull($obj->getSaleId());
+        $this->assertNotNull($obj->getCaptureId());
+        $this->assertNotNull($obj->getParentPayment());
+        $this->assertNotNull($obj->getDescription());
+        $this->assertNotNull($obj->getCreateTime());
+        $this->assertNotNull($obj->getUpdateTime());
+        $this->assertNotNull($obj->getLinks());
+        $this->assertEquals(self::getJson(), $obj->toJson());
+        return $obj;
     }
 
-    public function testSerializeDeserialize()
+    /**
+     * @depends testSerializationDeserialization
+     * @param Refund $obj
+     */
+    public function testGetters($obj)
     {
-        $r1 = $this->refund;
-
-        $r2 = new Refund();
-        $r2->fromJson($r1->toJson());
-
-        $this->assertEquals($r1, $r2);
+        $this->assertEquals($obj->getId(), "TestSample");
+        $this->assertEquals($obj->getAmount(), AmountTest::getObject());
+        $this->assertEquals($obj->getState(), "TestSample");
+        $this->assertEquals($obj->getReason(), "TestSample");
+        $this->assertEquals($obj->getSaleId(), "TestSample");
+        $this->assertEquals($obj->getCaptureId(), "TestSample");
+        $this->assertEquals($obj->getParentPayment(), "TestSample");
+        $this->assertEquals($obj->getDescription(), "TestSample");
+        $this->assertEquals($obj->getCreateTime(), "TestSample");
+        $this->assertEquals($obj->getUpdateTime(), "TestSample");
+        $this->assertEquals($obj->getLinks(), LinksTest::getObject());
     }
 
-    public function testOperations()
+    /**
+     * @dataProvider mockProvider
+     * @param Refund $obj
+     */
+    public function testGet($obj, $mockApiContext)
     {
+        $mockPPRestCall = $this->getMockBuilder('\PayPal\Transport\PayPalRestCall')
+            ->disableOriginalConstructor()
+            ->getMock();
 
+        $mockPPRestCall->expects($this->any())
+            ->method('execute')
+            ->will($this->returnValue(
+                    RefundTest::getJson()
+            ));
+
+        $result = $obj->get("refundId", $mockApiContext, $mockPPRestCall);
+        $this->assertNotNull($result);
+    }
+
+    public function mockProvider()
+    {
+        $obj = self::getObject();
+        $mockApiContext = $this->getMockBuilder('ApiContext')
+                    ->disableOriginalConstructor()
+                    ->getMock();
+        return array(
+            array($obj, $mockApiContext),
+            array($obj, null)
+        );
     }
 }

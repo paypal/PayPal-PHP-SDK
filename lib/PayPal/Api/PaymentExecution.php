@@ -3,7 +3,6 @@
 namespace PayPal\Api;
 
 use PayPal\Common\PayPalModel;
-use PayPal\Rest\ApiContext;
 
 /**
  * Class PaymentExecution
@@ -13,13 +12,12 @@ use PayPal\Rest\ApiContext;
  * @package PayPal\Api
  *
  * @property string payer_id
- * @property \PayPal\Api\Transactions transactions
+ * @property \PayPal\Api\Transaction[] transactions
  */
 class PaymentExecution extends PayPalModel
 {
     /**
      * PayPal assigned Payer ID returned in the approval return url.
-     * 
      *
      * @param string $payer_id
      * 
@@ -42,10 +40,9 @@ class PaymentExecution extends PayPalModel
     }
 
     /**
-     * If the amount needs to be updated after obtaining the PayPal Payer info (eg. shipping address), it can be updated using this element.
-     * 
+     * Transaction information to be used at the time of execute payment. Only amount and shipping_address can be updated in execute payment
      *
-     * @param \PayPal\Api\Transactions $transactions
+     * @param \PayPal\Api\Transaction[] $transactions
      * 
      * @return $this
      */
@@ -56,13 +53,43 @@ class PaymentExecution extends PayPalModel
     }
 
     /**
-     * If the amount needs to be updated after obtaining the PayPal Payer info (eg. shipping address), it can be updated using this element.
+     * Transaction information to be used at the time of execute payment. Only amount and shipping_address can be updated in execute payment
      *
-     * @return \PayPal\Api\Transactions[]
+     * @return \PayPal\Api\Transaction[]
      */
     public function getTransactions()
     {
         return $this->transactions;
+    }
+
+    /**
+     * Append Transactions to the list.
+     *
+     * @param \PayPal\Api\Transaction $transaction
+     * @return $this
+     */
+    public function addTransaction($transaction)
+    {
+        if (!$this->getTransactions()) {
+            return $this->setTransactions(array($transaction));
+        } else {
+            return $this->setTransactions(
+                array_merge($this->getTransactions(), array($transaction))
+            );
+        }
+    }
+
+    /**
+     * Remove Transactions from the list.
+     *
+     * @param \PayPal\Api\Transaction $transaction
+     * @return $this
+     */
+    public function removeTransaction($transaction)
+    {
+        return $this->setTransactions(
+            array_diff($this->getTransactions(), array($transaction))
+        );
     }
 
 }

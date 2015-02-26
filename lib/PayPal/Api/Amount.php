@@ -3,14 +3,13 @@
 namespace PayPal\Api;
 
 use PayPal\Common\PayPalModel;
-use PayPal\Rest\ApiContext;
-use PayPal\Validation\NumericValidator;
 use PayPal\Converter\FormatConverter;
+use PayPal\Validation\NumericValidator;
 
 /**
  * Class Amount
  *
- * Let's you specify details of a payment amount.
+ * payment amount with break-ups.
  *
  * @package PayPal\Api
  *
@@ -22,7 +21,6 @@ class Amount extends PayPalModel
 {
     /**
      * 3 letter currency code
-     * 
      *
      * @param string $currency
      * 
@@ -45,11 +43,11 @@ class Amount extends PayPalModel
     }
 
     /**
-     * Total amount charged from the Payer account (or card) to Payee. In case of a refund, this is the refunded amount to the original Payer from Payee account.
-     * 
+     * Total amount charged as part of this payment.
+     *
      *
      * @param string|double $total
-     * 
+     *
      * @return $this
      */
     public function setTotal($total)
@@ -61,7 +59,7 @@ class Amount extends PayPalModel
     }
 
     /**
-     * Total amount charged from the Payer account (or card) to Payee. In case of a refund, this is the refunded amount to the original Payer from Payee account.
+     * Total amount charged as part of this payment.
      *
      * @return string
      */
@@ -72,7 +70,6 @@ class Amount extends PayPalModel
 
     /**
      * Additional details of the payment amount.
-     * 
      *
      * @param \PayPal\Api\Details $details
      * 

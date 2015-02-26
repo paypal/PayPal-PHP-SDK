@@ -18,7 +18,7 @@ class ErrorDetailsTest extends \PHPUnit_Framework_TestCase
      */
     public static function getJson()
     {
-        return '{"field":"TestSample","issue":"TestSample"}';
+        return '{"field":"TestSample","issue":"TestSample","purchase_unit_reference_id":"TestSample","code":"TestSample"}';
     }
 
     /**
@@ -41,6 +41,8 @@ class ErrorDetailsTest extends \PHPUnit_Framework_TestCase
         $this->assertNotNull($obj);
         $this->assertNotNull($obj->getField());
         $this->assertNotNull($obj->getIssue());
+        $this->assertNotNull($obj->getPurchaseUnitReferenceId());
+        $this->assertNotNull($obj->getCode());
         $this->assertEquals(self::getJson(), $obj->toJson());
         return $obj;
     }
@@ -53,6 +55,8 @@ class ErrorDetailsTest extends \PHPUnit_Framework_TestCase
     {
         $this->assertEquals($obj->getField(), "TestSample");
         $this->assertEquals($obj->getIssue(), "TestSample");
+        $this->assertEquals($obj->getPurchaseUnitReferenceId(), "TestSample");
+        $this->assertEquals($obj->getCode(), "TestSample");
     }
 
 }

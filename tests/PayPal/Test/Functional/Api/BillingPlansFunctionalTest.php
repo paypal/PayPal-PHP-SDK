@@ -33,7 +33,7 @@ class BillingPlansFunctionalTest extends \PHPUnit_Framework_TestCase
 
     public $mockPayPalRestCall;
 
-    public $context;
+    public $apiContext;
 
     public function setUp()
     {
@@ -86,7 +86,7 @@ class BillingPlansFunctionalTest extends \PHPUnit_Framework_TestCase
     {
         $request = $this->operation['request']['body'];
         $obj = new Plan($request);
-        $result = $obj->create(null, $this->mockPayPalRestCall);
+        $result = $obj->create($this->apiContext, $this->mockPayPalRestCall);
         $this->assertNotNull($result);
         self::$obj = $result;
         return $result;
@@ -96,7 +96,7 @@ class BillingPlansFunctionalTest extends \PHPUnit_Framework_TestCase
     {
         $request = $this->operation['request']['body'];
         $obj = new Plan($request);
-        $result = $obj->create(null, $this->mockPayPalRestCall);
+        $result = $obj->create($this->apiContext, $this->mockPayPalRestCall);
         $this->assertNotNull($result);
         return $result;
     }
@@ -108,7 +108,7 @@ class BillingPlansFunctionalTest extends \PHPUnit_Framework_TestCase
      */
     public function testGet($plan)
     {
-        $result = Plan::get($plan->getId(), null, $this->mockPayPalRestCall);
+        $result = Plan::get($plan->getId(), $this->apiContext, $this->mockPayPalRestCall);
         $this->assertNotNull($result);
         $this->assertEquals($plan->getId(), $result->getId());
         $this->assertEquals($plan, $result, "", 0, 10, true);
@@ -121,7 +121,7 @@ class BillingPlansFunctionalTest extends \PHPUnit_Framework_TestCase
      */
     public function testGetList($plan)
     {
-        $result = Plan::all(array('page_size' => '20', 'total_required' => 'yes'), null, $this->mockPayPalRestCall);
+        $result = Plan::all(array('page_size' => '20', 'total_required' => 'yes'), $this->apiContext, $this->mockPayPalRestCall);
         $this->assertNotNull($result);
         $totalPages = $result->getTotalPages();
         $found = false;
@@ -135,7 +135,7 @@ class BillingPlansFunctionalTest extends \PHPUnit_Framework_TestCase
                 }
             }
             if (!$found) {
-                $result = Plan::all(array('page' => --$totalPages, 'page_size' => '20', 'total_required' => 'yes'), null, $this->mockPayPalRestCall);
+                $result = Plan::all(array('page' => --$totalPages, 'page_size' => '20', 'total_required' => 'yes'), $this->apiContext, $this->mockPayPalRestCall);
 
             }
         } while ($totalPages > 0 && $found == false);
@@ -160,7 +160,7 @@ class BillingPlansFunctionalTest extends \PHPUnit_Framework_TestCase
         $patches[] = $patch;
         $patchRequest = new PatchRequest();
         $patchRequest->setPatches($patches);
-        $result = $plan->update($patchRequest, null, $this->mockPayPalRestCall);
+        $result = $plan->update($patchRequest, $this->apiContext, $this->mockPayPalRestCall);
         $this->assertTrue($result);
     }
 
@@ -181,7 +181,7 @@ class BillingPlansFunctionalTest extends \PHPUnit_Framework_TestCase
         $patches[] = $patch;
         $patchRequest = new PatchRequest();
         $patchRequest->setPatches($patches);
-        $result = $plan->update($patchRequest, null, $this->mockPayPalRestCall);
+        $result = $plan->update($patchRequest, $this->apiContext, $this->mockPayPalRestCall);
         $this->assertTrue($result);
     }
 
@@ -202,8 +202,8 @@ class BillingPlansFunctionalTest extends \PHPUnit_Framework_TestCase
         $patches[] = $patch;
         $patchRequest = new PatchRequest();
         $patchRequest->setPatches($patches);
-        $result = $plan->update($patchRequest, null, $this->mockPayPalRestCall);
+        $result = $plan->update($patchRequest, $this->apiContext, $this->mockPayPalRestCall);
         $this->assertTrue($result);
-        return Plan::get($plan->getId(), null, $this->mockPayPalRestCall);
+        return Plan::get($plan->getId(), $this->apiContext, $this->mockPayPalRestCall);
     }
 }

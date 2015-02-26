@@ -2,49 +2,61 @@
 
 namespace PayPal\Test\Api;
 
+use PayPal\Common\PayPalModel;
+use PayPal\Converter\FormatConverter;
+use PayPal\Validation\NumericValidator;
 use PayPal\Api\Amount;
-use PayPal\Test\Constants;
 
+/**
+ * Class Amount
+ *
+ * @package PayPal\Test\Api
+ */
 class AmountTest extends \PHPUnit_Framework_TestCase
 {
-
-    private $amounts;
-
-    public static $currency = "USD";
-    public static $total = "1.12";
-
-    public static function createAmount()
+    /**
+     * Gets Json String of Object Amount
+     * @return string
+     */
+    public static function getJson()
     {
-        $amount = new Amount();
-        $amount->setCurrency(self::$currency);
-        $amount->setTotal(self::$total);
-
-        return $amount;
+        return '{"currency":"TestSample","total":"12.34","details":' .DetailsTest::getJson() . '}';
     }
 
-    public function setup()
+    /**
+     * Gets Object Instance with Json data filled in
+     * @return Amount
+     */
+    public static function getObject()
     {
-        $this->amounts['partial'] = self::createAmount();
-
-        $amount = self::createAmount();
-        $amount->setDetails(DetailsTest::createAmountDetails());
-        $this->amounts['full'] = $amount;
+        return new Amount(self::getJson());
     }
 
-    public function testGetterSetter()
+
+    /**
+     * Tests for Serialization and Deserialization Issues
+     * @return Amount
+     */
+    public function testSerializationDeserialization()
     {
-        $this->assertEquals(self::$currency, $this->amounts['partial']->getCurrency());
-        $this->assertEquals(self::$total, $this->amounts['partial']->getTotal());
-        $this->assertEquals(DetailsTest::$fee, $this->amounts['full']->getDetails()->getFee());
+        $obj = new Amount(self::getJson());
+        $this->assertNotNull($obj);
+        $this->assertNotNull($obj->getCurrency());
+        $this->assertNotNull($obj->getTotal());
+        $this->assertNotNull($obj->getDetails());
+        $this->assertEquals(self::getJson(), $obj->toJson());
+        return $obj;
     }
 
-    public function testSerializeDeserialize()
+    /**
+     * @depends testSerializationDeserialization
+     * @param Amount $obj
+     */
+    public function testGetters($obj)
     {
-        $a1 = $this->amounts['partial'];
-
-        $a2 = new Amount();
-        $a2->fromJson($a1->toJson());
-
-        $this->assertEquals($a1, $a2);
+        $this->assertEquals($obj->getCurrency(), "TestSample");
+        $this->assertEquals($obj->getTotal(), "12.34");
+        $this->assertEquals($obj->getDetails(), DetailsTest::getObject());
     }
+
 }

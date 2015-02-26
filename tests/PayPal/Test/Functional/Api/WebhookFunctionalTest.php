@@ -38,6 +38,8 @@ class WebhookFunctionalTest extends \PHPUnit_Framework_TestCase
 
     public $mockPayPalRestCall;
 
+    public $apiContext;
+
     public function setUp()
     {
         $className = $this->getClassName();
@@ -68,12 +70,12 @@ class WebhookFunctionalTest extends \PHPUnit_Framework_TestCase
         $obj->setUrl($obj->getUrl() . '?rand=' . uniqid());
         $result = null;
         try {
-            $result = $obj->create(null, $this->mockPayPalRestCall);
+            $result = $obj->create($this->apiContext, $this->mockPayPalRestCall);
         } catch (PayPalConnectionException $ex) {
             $data = $ex->getData();
             if (strpos($data,'WEBHOOK_NUMBER_LIMIT_EXCEEDED') !== false) {
                 $this->deleteAll();
-                $result = $obj->create(null, $this->mockPayPalRestCall);
+                $result = $obj->create($this->apiContext, $this->mockPayPalRestCall);
             } else {
                 $this->fail($ex->getMessage());
             }
@@ -84,9 +86,9 @@ class WebhookFunctionalTest extends \PHPUnit_Framework_TestCase
 
     public function deleteAll()
     {
-        $result = Webhook::getAll(null, $this->mockPayPalRestCall);
+        $result = Webhook::getAll($this->apiContext, $this->mockPayPalRestCall);
         foreach ($result->getWebhooks() as $webhookObject) {
-            $webhookObject->delete(null, $this->mockPayPalRestCall);
+            $webhookObject->delete($this->apiContext, $this->mockPayPalRestCall);
         }
     }
 
@@ -97,7 +99,7 @@ class WebhookFunctionalTest extends \PHPUnit_Framework_TestCase
      */
     public function testGet($webhook)
     {
-        $result = Webhook::get($webhook->getId(), null, $this->mockPayPalRestCall);
+        $result = Webhook::get($webhook->getId(), $this->apiContext, $this->mockPayPalRestCall);
         $this->assertNotNull($result);
         $this->assertEquals($webhook->getId(), $result->getId());
         $this->assertEquals($webhook, $result, "", 0, 10, true);
@@ -111,7 +113,7 @@ class WebhookFunctionalTest extends \PHPUnit_Framework_TestCase
      */
     public function testGetSubscribedEventTypes($webhook)
     {
-        $result = WebhookEventType::subscribedEventTypes($webhook->getId(), null, $this->mockPayPalRestCall);
+        $result = WebhookEventType::subscribedEventTypes($webhook->getId(), $this->apiContext, $this->mockPayPalRestCall);
         $this->assertNotNull($result);
         $this->assertEquals(2, sizeof($result->getEventTypes()));
         return $result;
@@ -124,7 +126,7 @@ class WebhookFunctionalTest extends \PHPUnit_Framework_TestCase
      */
     public function testGetAll($webhook)
     {
-        $result = Webhook::getAll(null, $this->mockPayPalRestCall);
+        $result = Webhook::getAll($this->apiContext, $this->mockPayPalRestCall);
         $this->assertNotNull($result);
         $found = false;
         $foundObject = null;
@@ -162,7 +164,7 @@ class WebhookFunctionalTest extends \PHPUnit_Framework_TestCase
 
         $patchRequest = new PatchRequest();
         $patchRequest->setPatches($patches);
-        $result = $webhook->update($patchRequest, null, $this->mockPayPalRestCall);
+        $result = $webhook->update($patchRequest, $this->apiContext, $this->mockPayPalRestCall);
         $this->assertNotNull($result);
         $found = false;
         $foundObject = null;
@@ -181,13 +183,13 @@ class WebhookFunctionalTest extends \PHPUnit_Framework_TestCase
      */
     public function testDelete($webhook)
     {
-        $result = $webhook->delete(null, $this->mockPayPalRestCall);
+        $result = $webhook->delete($this->apiContext, $this->mockPayPalRestCall);
         $this->assertTrue($result);
     }
 
     public function testEventSearch()
     {
-        $result = WebhookEvent::all(array(),null, $this->mockPayPalRestCall);
+        $result = WebhookEvent::all(array(),$this->apiContext, $this->mockPayPalRestCall);
         $this->assertNotNull($result);
         return $result;
     }

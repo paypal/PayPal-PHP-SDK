@@ -13,6 +13,8 @@ use PayPal\Common\PayPalModel;
  *
  * @property string field
  * @property string issue
+ * @property string purchase_unit_reference_id
+ * @property string code
  */
 class ErrorDetails extends PayPalModel
 {
@@ -60,6 +62,52 @@ class ErrorDetails extends PayPalModel
     public function getIssue()
     {
         return $this->issue;
+    }
+
+    /**
+     * Reference ID of the purchase_unit associated with this error
+     *
+     * @param string $purchase_unit_reference_id
+     * 
+     * @return $this
+     */
+    public function setPurchaseUnitReferenceId($purchase_unit_reference_id)
+    {
+        $this->purchase_unit_reference_id = $purchase_unit_reference_id;
+        return $this;
+    }
+
+    /**
+     * Reference ID of the purchase_unit associated with this error
+     *
+     * @return string
+     */
+    public function getPurchaseUnitReferenceId()
+    {
+        return $this->purchase_unit_reference_id;
+    }
+
+    /**
+     * PayPal internal error code.
+     *
+     * @param string $code
+     * 
+     * @return $this
+     */
+    public function setCode($code)
+    {
+        $this->code = $code;
+        return $this;
+    }
+
+    /**
+     * PayPal internal error code.
+     *
+     * @return string
+     */
+    public function getCode()
+    {
+        return $this->code;
     }
 
 }

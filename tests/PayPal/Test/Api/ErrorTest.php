@@ -18,7 +18,7 @@ class ErrorTest extends \PHPUnit_Framework_TestCase
      */
     public static function getJson()
     {
-        return '{"name":"TestSample","debug_id":"TestSample","message":"TestSample","information_link":"TestSample","details":' .ErrorDetailsTest::getJson() . ',"links":' .LinksTest::getJson() . '}';
+        return '{"name":"TestSample","purchase_unit_reference_id":"TestSample","debug_id":"TestSample","message":"TestSample","code":"TestSample","information_link":"TestSample","details":' .ErrorDetailsTest::getJson() . ',"links":' .LinksTest::getJson() . '}';
     }
 
     /**
@@ -40,8 +40,10 @@ class ErrorTest extends \PHPUnit_Framework_TestCase
         $obj = new Error(self::getJson());
         $this->assertNotNull($obj);
         $this->assertNotNull($obj->getName());
+        $this->assertNotNull($obj->getPurchaseUnitReferenceId());
         $this->assertNotNull($obj->getDebugId());
         $this->assertNotNull($obj->getMessage());
+        $this->assertNotNull($obj->getCode());
         $this->assertNotNull($obj->getInformationLink());
         $this->assertNotNull($obj->getDetails());
         $this->assertNotNull($obj->getLinks());
@@ -56,8 +58,10 @@ class ErrorTest extends \PHPUnit_Framework_TestCase
     public function testGetters($obj)
     {
         $this->assertEquals($obj->getName(), "TestSample");
+        $this->assertEquals($obj->getPurchaseUnitReferenceId(), "TestSample");
         $this->assertEquals($obj->getDebugId(), "TestSample");
         $this->assertEquals($obj->getMessage(), "TestSample");
+        $this->assertEquals($obj->getCode(), "TestSample");
         $this->assertEquals($obj->getInformationLink(), "TestSample");
         $this->assertEquals($obj->getDetails(), ErrorDetailsTest::getObject());
         $this->assertEquals($obj->getLinks(), LinksTest::getObject());

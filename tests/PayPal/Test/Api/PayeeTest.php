@@ -2,48 +2,56 @@
 
 namespace PayPal\Test\Api;
 
+use PayPal\Common\PayPalModel;
 use PayPal\Api\Payee;
-use PayPal\Test\Constants;
 
+/**
+ * Class Payee
+ *
+ * @package PayPal\Test\Api
+ */
 class PayeeTest extends \PHPUnit_Framework_TestCase
 {
-
-    private $payee;
-
-    public static $email = "test@paypal.com";
-    public static $merchant_id = "1XY12121";
-    public static $phone = "+14081234566";
-
-
-    public static function createPayee()
+    /**
+     * Gets Json String of Object Payee
+     * @return string
+     */
+    public static function getJson()
     {
-        $payee = new Payee();
-        $payee->setEmail(self::$email);
-        $payee->setMerchantId(self::$merchant_id);
-        $payee->setPhone(self::$phone);
-
-        return $payee;
+        return '{"email":"TestSample","merchant_id":"TestSample"}';
     }
 
-    public function setup()
+    /**
+     * Gets Object Instance with Json data filled in
+     * @return Payee
+     */
+    public static function getObject()
     {
-        $this->payee = self::createPayee();
+        return new Payee(self::getJson());
     }
 
-    public function testGetterSetter()
+
+    /**
+     * Tests for Serialization and Deserialization Issues
+     * @return Payee
+     */
+    public function testSerializationDeserialization()
     {
-        $this->assertEquals(self::$email, $this->payee->getEmail());
-        $this->assertEquals(self::$merchant_id, $this->payee->getMerchantId());
-        $this->assertEquals(self::$phone, $this->payee->getPhone());
+        $obj = new Payee(self::getJson());
+        $this->assertNotNull($obj);
+        $this->assertNotNull($obj->getEmail());
+        $this->assertNotNull($obj->getMerchantId());
+        $this->assertEquals(self::getJson(), $obj->toJson());
+        return $obj;
     }
 
-    public function testSerializeDeserialize()
+    /**
+     * @depends testSerializationDeserialization
+     * @param Payee $obj
+     */
+    public function testGetters($obj)
     {
-        $p1 = $this->payee;
-
-        $p2 = new Payee();
-        $p2->fromJson($p1->toJson());
-
-        $this->assertEquals($p1, $p2);
+        $this->assertEquals($obj->getEmail(), "TestSample");
+        $this->assertEquals($obj->getMerchantId(), "TestSample");
     }
 }

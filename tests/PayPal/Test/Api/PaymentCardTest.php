@@ -18,7 +18,7 @@ class PaymentCardTest extends \PHPUnit_Framework_TestCase
      */
     public static function getJson()
     {
-        return '{"id":"TestSample","number":"TestSample","type":"TestSample","expire_month":123,"expire_year":123,"start_month":123,"start_year":123,"cvv2":123,"first_name":"TestSample","last_name":"TestSample","billing_address":' .AddressTest::getJson() . ',"external_customer_id":"TestSample","status":"TestSample","valid_until":"TestSample","links":' .LinksTest::getJson() . '}';
+        return '{"id":"TestSample","number":"TestSample","type":"TestSample","expire_month":123,"expire_year":123,"start_month":"TestSample","start_year":"TestSample","cvv2":"TestSample","first_name":"TestSample","last_name":"TestSample","billing_country":"TestSample","billing_address":' .AddressTest::getJson() . ',"external_customer_id":"TestSample","status":"TestSample","valid_until":"TestSample","links":' .LinksTest::getJson() . '}';
     }
 
     /**
@@ -49,6 +49,7 @@ class PaymentCardTest extends \PHPUnit_Framework_TestCase
         $this->assertNotNull($obj->getCvv2());
         $this->assertNotNull($obj->getFirstName());
         $this->assertNotNull($obj->getLastName());
+        $this->assertNotNull($obj->getBillingCountry());
         $this->assertNotNull($obj->getBillingAddress());
         $this->assertNotNull($obj->getExternalCustomerId());
         $this->assertNotNull($obj->getStatus());
@@ -69,11 +70,12 @@ class PaymentCardTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($obj->getType(), "TestSample");
         $this->assertEquals($obj->getExpireMonth(), 123);
         $this->assertEquals($obj->getExpireYear(), 123);
-        $this->assertEquals($obj->getStartMonth(), 123);
-        $this->assertEquals($obj->getStartYear(), 123);
-        $this->assertEquals($obj->getCvv2(), 123);
+        $this->assertEquals($obj->getStartMonth(), "TestSample");
+        $this->assertEquals($obj->getStartYear(), "TestSample");
+        $this->assertEquals($obj->getCvv2(), "TestSample");
         $this->assertEquals($obj->getFirstName(), "TestSample");
         $this->assertEquals($obj->getLastName(), "TestSample");
+        $this->assertEquals($obj->getBillingCountry(), "TestSample");
         $this->assertEquals($obj->getBillingAddress(), AddressTest::getObject());
         $this->assertEquals($obj->getExternalCustomerId(), "TestSample");
         $this->assertEquals($obj->getStatus(), "TestSample");

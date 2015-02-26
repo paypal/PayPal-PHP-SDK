@@ -12,12 +12,15 @@ use PayPal\Common\PayPalModel;
  * @package PayPal\Api
  *
  * @property \PayPal\Api\CreditCard credit_card
+ * @property \PayPal\Api\ExtendedBankAccount bank_account
  * @property \PayPal\Api\CreditCardToken credit_card_token
+ * @property \PayPal\Api\Incentive incentive
  * @property \PayPal\Api\PaymentCard payment_card
  * @property \PayPal\Api\PaymentCardToken payment_card_token
- * @property \PayPal\Api\ExtendedBankAccount bank_account
  * @property \PayPal\Api\BankToken bank_account_token
  * @property \PayPal\Api\Credit credit
+ * @property \PayPal\Api\CarrierAccountToken carrier_account_token
+ *
  */
 class FundingInstrument extends PayPalModel
 {
@@ -180,6 +183,52 @@ class FundingInstrument extends PayPalModel
     public function getCredit()
     {
         return $this->credit;
+    }
+
+    /**
+     * Incentive funding information.
+     *
+     * @param \PayPal\Api\Incentive $incentive
+     *
+     * @return $this
+     */
+    public function setIncentive($incentive)
+    {
+        $this->incentive = $incentive;
+        return $this;
+    }
+
+    /**
+     * Incentive funding information.
+     *
+     * @return \PayPal\Api\Incentive
+     */
+    public function getIncentive()
+    {
+        return $this->incentive;
+    }
+
+    /**
+     * Carrier account token information.
+     *
+     * @param \PayPal\Api\CarrierAccountToken $carrier_account_token
+     *
+     * @return $this
+     */
+    public function setCarrierAccountToken($carrier_account_token)
+    {
+        $this->carrier_account_token = $carrier_account_token;
+        return $this;
+    }
+
+    /**
+     * Carrier account token information.
+     *
+     * @return \PayPal\Api\CarrierAccountToken
+     */
+    public function getCarrierAccountToken()
+    {
+        return $this->carrier_account_token;
     }
 
 }

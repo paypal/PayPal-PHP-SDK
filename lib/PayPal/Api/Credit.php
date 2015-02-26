@@ -55,7 +55,7 @@ class Credit extends PayPalModel
     }
 
     /**
-     * Specifies the type of credit.
+     * Specifies the type of credit
      *
      * @return string
      */
@@ -68,7 +68,7 @@ class Credit extends PayPalModel
      * URI to the associated terms.
      *
      * @param string $terms
-     * 
+     *
      * @return $this
      */
     public function setTerms($terms)
