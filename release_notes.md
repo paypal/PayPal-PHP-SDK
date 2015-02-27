@@ -1,5 +1,10 @@
 PayPal PHP SDK release notes
 ============================
+v1.3.0
+----
+* Updated Payment APIs
+* Updating ModelAccessValidator to be disabled if not set explicitly
+
 v1.2.1
 ----
 * Ability to handle missing accesors for unknown objects in json

@@ -21,9 +21,12 @@ __Welcome to PayPal PHP SDK__. This repository contains PayPal's PHP SDK and sam
 
 ## Latest Updates
 
+> **Seeing this error: `'Method PayPal\Api\Sale::getTransactionFee() does not exist' in paypal/vendor/paypal/rest-api-sdk-php/lib/PayPal/Common/PPReflectionUtil.php:73`, Please upgrade the SDK to latest version [v1.3.0](https://github.com/paypal/PayPal-PHP-SDK/releases/tag/v1.3.0).**
+
+- Checkout the latest 1.0.0 release. Here are all the [ breaking Changes in v1.0.0 ](https://github.com/paypal/PayPal-PHP-SDK/wiki/Breaking-Changes---1.0.0) if you are migrating from older versions.
 - Now we have a [Github Page](http://paypal.github.io/PayPal-PHP-SDK/), that helps you find all helpful resources building applications using PayPal-PHP-SDK.
 - Introduced `DEBUG` level to logging. Deprecated `FINE`. Ability to restrict `DEBUG` level on `live` mode. [Read More](https://github.com/paypal/PayPal-PHP-SDK/wiki/Logging).
-- Checkout the latest 1.0.0 release. Here are all the [ breaking Changes in v1.0.0 ](https://github.com/paypal/PayPal-PHP-SDK/wiki/Breaking-Changes---1.0.0) if you are migrating from older versions.
+
 
 ## Prerequisites
 
