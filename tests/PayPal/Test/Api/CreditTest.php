@@ -18,7 +18,7 @@ class CreditTest extends \PHPUnit_Framework_TestCase
      */
     public static function getJson()
     {
-        return '{"id":"TestSample","type":"TestSample","terms":"TestSample"}';
+        return '{"id":"TestSample","type":"TestSample"}';
     }
 
     /**
@@ -41,7 +41,6 @@ class CreditTest extends \PHPUnit_Framework_TestCase
         $this->assertNotNull($obj);
         $this->assertNotNull($obj->getId());
         $this->assertNotNull($obj->getType());
-        $this->assertNotNull($obj->getTerms());
         $this->assertEquals(self::getJson(), $obj->toJson());
         return $obj;
     }
@@ -54,7 +53,6 @@ class CreditTest extends \PHPUnit_Framework_TestCase
     {
         $this->assertEquals($obj->getId(), "TestSample");
         $this->assertEquals($obj->getType(), "TestSample");
-        $this->assertEquals($obj->getTerms(), "TestSample");
     }
 
 }

@@ -23,7 +23,7 @@ class ModelAccessorValidator
     public static function validate(PayPalModel $class, $attributeName)
     {
         $mode = PayPalConfigManager::getInstance()->get('validation.level');
-        if ($mode != 'disabled') {
+        if (!empty($mode) && $mode != 'disabled') {
             //Check if $attributeName is string
             if (gettype($attributeName) !== 'string') {
                 return false;
@@ -38,8 +38,8 @@ class ModelAccessorValidator
                 elseif (!method_exists($class, $methodName)) {
                     //Delegate the error based on the choice
                     $className = is_object($class) ? get_class($class) : (string)$class;
-                    $errorMessage = "Missing Accessor: $className:$methodName. Please let us know by creating an issue at https://github.com/paypal/PayPal-PHP-SDK/issues";
-                    PayPalLoggingManager::getInstance(__CLASS__)->warning($errorMessage);
+                    $errorMessage = "Missing Accessor: $className:$methodName. You might be using older version of SDK. If not, create an issue at https://github.com/paypal/PayPal-PHP-SDK/issues";
+                    PayPalLoggingManager::getInstance(__CLASS__)->debug($errorMessage);
                     if ($mode == 'strict') {
                         trigger_error($errorMessage, E_USER_NOTICE);
                     }

@@ -7,7 +7,7 @@ use PayPal\Common\PayPalModel;
 /**
  * Class Patch
  *
- * A JSON patch object used for applying partial updates to resources.
+ * A JSON Patch object used for doing partial updates to resources.
  *
  * @package PayPal\Api
  *
@@ -19,8 +19,8 @@ use PayPal\Common\PayPalModel;
 class Patch extends PayPalModel
 {
     /**
-     * The operation to perform.
-     * Valid Values: ["add", "remove", "replace", "move", "copy", "test"]
+     * Patch operation to perform.Value required for add & remove operation can be any JSON value.
+     * Valid Values: ["add", "remove", "replace"]
      *
      * @param string $op
      * 
@@ -33,7 +33,7 @@ class Patch extends PayPalModel
     }
 
     /**
-     * The operation to perform.
+     * Patch operation to perform.Value required for add & remove operation can be any JSON value.
      *
      * @return string
      */
@@ -43,7 +43,7 @@ class Patch extends PayPalModel
     }
 
     /**
-     * String containing a JSON-Pointer value that references a location within the target document where the operation is performed.
+     * string containing a JSON-Pointer value that references a location within the target document (the target location) where the operation is performed.
      *
      * @param string $path
      * 
@@ -56,7 +56,7 @@ class Patch extends PayPalModel
     }
 
     /**
-     * String containing a JSON-Pointer value that references a location within the target document where the operation is performed.
+     * string containing a JSON-Pointer value that references a location within the target document (the target location) where the operation is performed.
      *
      * @return string
      */
@@ -66,7 +66,7 @@ class Patch extends PayPalModel
     }
 
     /**
-     * New value to apply based on the operation. op=remove does not require value.
+     * New value to apply based on the operation.
      *
      * @param mixed $value
      * 
@@ -79,7 +79,7 @@ class Patch extends PayPalModel
     }
 
     /**
-     * New value to apply based on the operation. op=remove does not require value.
+     * New value to apply based on the operation.
      *
      * @return mixed
      */
@@ -89,7 +89,7 @@ class Patch extends PayPalModel
     }
 
     /**
-     * A string containing a JSON Pointer value that references the location in the target document from which to move the value. Required for use where op=move.
+     * A string containing a JSON Pointer value that references the location in the target document to move the value from.
      *
      * @param string $from
      * 
@@ -102,7 +102,7 @@ class Patch extends PayPalModel
     }
 
     /**
-     * A string containing a JSON Pointer value that references the location in the target document from which to move the value. Required for use where op=move.
+     * A string containing a JSON Pointer value that references the location in the target document to move the value from.
      *
      * @return string
      */

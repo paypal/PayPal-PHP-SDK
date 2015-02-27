@@ -113,7 +113,7 @@ class CreditCardToken extends PayPalModel
     }
 
     /**
-     * Expiry month from the saved card, represented as 1 - 12.
+     * card expiry month from the saved card with value 1 - 12
      *
      * @param int $expire_month
      * 
@@ -126,7 +126,7 @@ class CreditCardToken extends PayPalModel
     }
 
     /**
-     * Expiry month from the saved card, represented as 1 - 12.
+     * card expiry month from the saved card with value 1 - 12
      *
      * @return int
      */
@@ -136,7 +136,7 @@ class CreditCardToken extends PayPalModel
     }
 
     /**
-     * Expiry year from the saved card, represented as YYYY format.
+     * 4 digit card expiry year from the saved card
      *
      * @param int $expire_year
      * 
@@ -149,7 +149,7 @@ class CreditCardToken extends PayPalModel
     }
 
     /**
-     * Expiry year from the saved card, represented as YYYY format.
+     * 4 digit card expiry year from the saved card
      *
      * @return int
      */

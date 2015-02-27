@@ -3,7 +3,7 @@
 namespace PayPal\Api;
 
 use PayPal\Common\PayPalModel;
-use PayPal\Rest\ApiContext;
+use PayPal\Validation\UrlValidator;
 
 /**
  * Class CartBase
@@ -21,12 +21,13 @@ use PayPal\Rest\ApiContext;
  * @property string soft_descriptor
  * @property \PayPal\Api\PaymentOptions payment_options
  * @property \PayPal\Api\ItemList item_list
+ * @property string notify_url
+ * @property string order_url
  */
 class CartBase extends PayPalModel
 {
     /**
      * Amount being collected.
-     * 
      *
      * @param \PayPal\Api\Amount $amount
      * 
@@ -50,7 +51,6 @@ class CartBase extends PayPalModel
 
     /**
      * Recipient of the funds in this transaction.
-     * 
      *
      * @param \PayPal\Api\Payee $payee
      * 
@@ -74,7 +74,6 @@ class CartBase extends PayPalModel
 
     /**
      * Description of what is being paid for.
-     * 
      *
      * @param string $description
      * 
@@ -98,7 +97,6 @@ class CartBase extends PayPalModel
 
     /**
      * Note to the recipient of the funds in this transaction.
-     * 
      *
      * @param string $note_to_payee
      * 
@@ -121,8 +119,8 @@ class CartBase extends PayPalModel
     }
 
     /**
-     * free-form field for the use of clients
-     * 
+     * Note to the recipient of the funds in this transaction.
+     *
      *
      * @param string $custom
      * 
@@ -146,7 +144,6 @@ class CartBase extends PayPalModel
 
     /**
      * invoice number to track this payment
-     * 
      *
      * @param string $invoice_number
      * 
@@ -170,7 +167,7 @@ class CartBase extends PayPalModel
 
     /**
      * Soft descriptor used when charging this funding source.
-     * 
+     *
      *
      * @param string $soft_descriptor
      * 
@@ -194,7 +191,7 @@ class CartBase extends PayPalModel
 
     /**
      * Payment options requested for this purchase unit
-     * 
+     *
      *
      * @param \PayPal\Api\PaymentOptions $payment_options
      * 
@@ -218,7 +215,6 @@ class CartBase extends PayPalModel
 
     /**
      * List of items being paid for.
-     * 
      *
      * @param \PayPal\Api\ItemList $item_list
      * 
@@ -239,5 +235,54 @@ class CartBase extends PayPalModel
     {
         return $this->item_list;
     }
+
+    /**
+     * URL to send payment notifications
+     *
+     * @param string $notify_url
+     * @throws \InvalidArgumentException
+     * @return $this
+     */
+    public function setNotifyUrl($notify_url)
+    {
+        UrlValidator::validate($notify_url, "NotifyUrl");
+        $this->notify_url = $notify_url;
+        return $this;
+    }
+
+    /**
+     * URL to send payment notifications
+     *
+     * @return string
+     */
+    public function getNotifyUrl()
+    {
+        return $this->notify_url;
+    }
+
+    /**
+     * Url on merchant site pertaining to this payment.
+     *
+     * @param string $order_url
+     * @throws \InvalidArgumentException
+     * @return $this
+     */
+    public function setOrderUrl($order_url)
+    {
+        UrlValidator::validate($order_url, "OrderUrl");
+        $this->order_url = $order_url;
+        return $this;
+    }
+
+    /**
+     * Url on merchant site pertaining to this payment.
+     *
+     * @return string
+     */
+    public function getOrderUrl()
+    {
+        return $this->order_url;
+    }
+
 
 }

@@ -1,63 +1,149 @@
 <?php
+
 namespace PayPal\Test\Api;
 
-use PayPal\Api\Currency;
+use PayPal\Common\PayPalResourceModel;
+use PayPal\Validation\ArgumentValidator;
+use PayPal\Api\Refund;
+use PayPal\Rest\ApiContext;
+use PayPal\Transport\PPRestCall;
 use PayPal\Api\Sale;
-use PayPal\Test\Api\AmountTest;
 
+/**
+ * Class Sale
+ *
+ * @package PayPal\Test\Api
+ */
 class SaleTest extends \PHPUnit_Framework_TestCase
 {
     /**
-     * @var Sale
+     * Gets Json String of Object Sale
+     * @return string
      */
-    private $sale;
-    private $tFee;
-
-    public static $captureId = "CAP-123";
-    public static $createTime = "2013-02-28T00:00:00Z";
-    public static $id = "R-5678";
-    public static $parentPayment = "PAY-123";
-    public static $state = "Created";
-
-    private function createSale()
+    public static function getJson()
     {
-        $sale = new Sale();
-        $sale->setAmount(AmountTest::createAmount());
-        $sale->setCreateTime(self::$createTime);
-        $sale->setId(self::$id);
-        $sale->setParentPayment(self::$parentPayment);
-        $sale->setState(self::$state);
-
-        $this->tFee = new Currency();
-        $this->tFee->setCurrency('AUD');
-        $this->tFee->setValue('0.10');
-
-        $sale->setTransactionFee($this->tFee);
-        return $sale;
+        return '{"id":"TestSample","purchase_unit_reference_id":"TestSample","amount":' .AmountTest::getJson() . ',"payment_mode":"TestSample","state":"TestSample","reason_code":"TestSample","protection_eligibility":"TestSample","protection_eligibility_type":"TestSample","clearing_time":"TestSample","recipient_fund_status":"TestSample","hold_reason":"TestSample","transaction_fee":' .CurrencyTest::getJson() . ',"receivable_amount":' .CurrencyTest::getJson() . ',"exchange_rate":"TestSample","fmf_details":' .FmfDetailsTest::getJson() . ',"receipt_id":"TestSample","parent_payment":"TestSample","create_time":"TestSample","update_time":"TestSample","links":' .LinksTest::getJson() . '}';
     }
 
-    public function setup()
+    /**
+     * Gets Object Instance with Json data filled in
+     * @return Sale
+     */
+    public static function getObject()
     {
-        $this->sale = $this->createSale();
+        return new Sale(self::getJson());
     }
 
-    public function testGetterSetter()
+
+    /**
+     * Tests for Serialization and Deserialization Issues
+     * @return Sale
+     */
+    public function testSerializationDeserialization()
     {
-        $this->assertEquals(self::$createTime, $this->sale->getCreateTime());
-        $this->assertEquals(self::$id, $this->sale->getId());
-        $this->assertEquals(self::$parentPayment, $this->sale->getParentPayment());
-        $this->assertEquals(self::$state, $this->sale->getState());
-        $this->assertEquals(AmountTest::$currency, $this->sale->getAmount()->getCurrency());
-        $this->assertEquals($this->tFee, $this->sale->getTransactionFee());
+        $obj = new Sale(self::getJson());
+        $this->assertNotNull($obj);
+        $this->assertNotNull($obj->getId());
+        $this->assertNotNull($obj->getPurchaseUnitReferenceId());
+        $this->assertNotNull($obj->getAmount());
+        $this->assertNotNull($obj->getPaymentMode());
+        $this->assertNotNull($obj->getState());
+        $this->assertNotNull($obj->getReasonCode());
+        $this->assertNotNull($obj->getProtectionEligibility());
+        $this->assertNotNull($obj->getProtectionEligibilityType());
+        $this->assertNotNull($obj->getClearingTime());
+        $this->assertNotNull($obj->getRecipientFundStatus());
+        $this->assertNotNull($obj->getHoldReason());
+        $this->assertNotNull($obj->getTransactionFee());
+        $this->assertNotNull($obj->getReceivableAmount());
+        $this->assertNotNull($obj->getExchangeRate());
+        $this->assertNotNull($obj->getFmfDetails());
+        $this->assertNotNull($obj->getReceiptId());
+        $this->assertNotNull($obj->getParentPayment());
+        $this->assertNotNull($obj->getCreateTime());
+        $this->assertNotNull($obj->getUpdateTime());
+        $this->assertNotNull($obj->getLinks());
+        $this->assertEquals(self::getJson(), $obj->toJson());
+        return $obj;
     }
 
-    public function testSerializeDeserialize()
+    /**
+     * @depends testSerializationDeserialization
+     * @param Sale $obj
+     */
+    public function testGetters($obj)
     {
-        $s1 = $this->sale;
+        $this->assertEquals($obj->getId(), "TestSample");
+        $this->assertEquals($obj->getPurchaseUnitReferenceId(), "TestSample");
+        $this->assertEquals($obj->getAmount(), AmountTest::getObject());
+        $this->assertEquals($obj->getPaymentMode(), "TestSample");
+        $this->assertEquals($obj->getState(), "TestSample");
+        $this->assertEquals($obj->getReasonCode(), "TestSample");
+        $this->assertEquals($obj->getProtectionEligibility(), "TestSample");
+        $this->assertEquals($obj->getProtectionEligibilityType(), "TestSample");
+        $this->assertEquals($obj->getClearingTime(), "TestSample");
+        $this->assertEquals($obj->getRecipientFundStatus(), "TestSample");
+        $this->assertEquals($obj->getHoldReason(), "TestSample");
+        $this->assertEquals($obj->getTransactionFee(), CurrencyTest::getObject());
+        $this->assertEquals($obj->getReceivableAmount(), CurrencyTest::getObject());
+        $this->assertEquals($obj->getExchangeRate(), "TestSample");
+        $this->assertEquals($obj->getFmfDetails(), FmfDetailsTest::getObject());
+        $this->assertEquals($obj->getReceiptId(), "TestSample");
+        $this->assertEquals($obj->getParentPayment(), "TestSample");
+        $this->assertEquals($obj->getCreateTime(), "TestSample");
+        $this->assertEquals($obj->getUpdateTime(), "TestSample");
+        $this->assertEquals($obj->getLinks(), LinksTest::getObject());
+    }
 
-        $s2 = new Sale();
-        $s2->fromJson($s1->toJson());
+    /**
+     * @dataProvider mockProvider
+     * @param Sale $obj
+     */
+    public function testGet($obj, $mockApiContext)
+    {
+        $mockPPRestCall = $this->getMockBuilder('\PayPal\Transport\PayPalRestCall')
+            ->disableOriginalConstructor()
+            ->getMock();
 
-        $this->assertEquals($s1, $s2);
+        $mockPPRestCall->expects($this->any())
+            ->method('execute')
+            ->will($this->returnValue(
+                    SaleTest::getJson()
+            ));
+
+        $result = $obj->get("saleId", $mockApiContext, $mockPPRestCall);
+        $this->assertNotNull($result);
+    }
+    /**
+     * @dataProvider mockProvider
+     * @param Sale $obj
+     */
+    public function testRefund($obj, $mockApiContext)
+    {
+        $mockPPRestCall = $this->getMockBuilder('\PayPal\Transport\PayPalRestCall')
+            ->disableOriginalConstructor()
+            ->getMock();
+
+        $mockPPRestCall->expects($this->any())
+            ->method('execute')
+            ->will($this->returnValue(
+                    RefundTest::getJson()
+            ));
+        $refund = RefundTest::getObject();
+
+        $result = $obj->refund($refund, $mockApiContext, $mockPPRestCall);
+        $this->assertNotNull($result);
+    }
+
+    public function mockProvider()
+    {
+        $obj = self::getObject();
+        $mockApiContext = $this->getMockBuilder('ApiContext')
+                    ->disableOriginalConstructor()
+                    ->getMock();
+        return array(
+            array($obj, $mockApiContext),
+            array($obj, null)
+        );
     }
 }

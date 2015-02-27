@@ -1,47 +1,57 @@
 <?php
+
 namespace PayPal\Test\Api;
 
+use PayPal\Common\PayPalModel;
 use PayPal\Api\RedirectUrls;
 
+/**
+ * Class RedirectUrls
+ *
+ * @package PayPal\Test\Api
+ */
 class RedirectUrlsTest extends \PHPUnit_Framework_TestCase
 {
-
-    public function validRedirectUrlsProvider()
+    /**
+     * Gets Json String of Object RedirectUrls
+     * @return string
+     */
+    public static function getJson()
     {
-        return array(
-            array('https://devtools-paypal.com/guide/pay_paypal/php?success=true', 'https://devtools-paypal.com/guide/pay_paypal/php?cancel=true')
-        );
-    }
-
-    public function invalidRedirectUrlsProvider()
-    {
-        return array(
-            array('devtools-paypal.com/guide/pay_paypal/php?success=true', 'devtools-paypal.com/guide/pay_paypal/php?cancel=true')
-        );
+        return '{"return_url":"http://www.google.com","cancel_url":"http://www.google.com"}';
     }
 
     /**
-     * @dataProvider validRedirectUrlsProvider
+     * Gets Object Instance with Json data filled in
+     * @return RedirectUrls
      */
-    public function testValidRedirectUrls($return_url, $cancel_url)
+    public static function getObject()
     {
-        $redirectUrls = new RedirectUrls();
-        $redirectUrls->setReturnUrl($return_url);
-        $redirectUrls->setCancelUrl($cancel_url);
+        return new RedirectUrls(self::getJson());
+    }
 
-        $this->assertEquals($return_url, $redirectUrls->getReturnUrl());
-        $this->assertEquals($cancel_url, $redirectUrls->getCancelUrl());
+
+    /**
+     * Tests for Serialization and Deserialization Issues
+     * @return RedirectUrls
+     */
+    public function testSerializationDeserialization()
+    {
+        $obj = new RedirectUrls(self::getJson());
+        $this->assertNotNull($obj);
+        $this->assertNotNull($obj->getReturnUrl());
+        $this->assertNotNull($obj->getCancelUrl());
+        $this->assertEquals(self::getJson(), $obj->toJson());
+        return $obj;
     }
 
     /**
-     * @dataProvider invalidRedirectUrlsProvider
+     * @depends testSerializationDeserialization
+     * @param RedirectUrls $obj
      */
-    public function testInvalidRedirectUrls($return_url, $cancel_url)
+    public function testGetters($obj)
     {
-        $redirectUrls = new RedirectUrls();
-        $this->setExpectedException('\InvalidArgumentException');
-        $redirectUrls->setReturnUrl($return_url);
-        $redirectUrls->setCancelUrl($cancel_url);
+        $this->assertEquals($obj->getReturnUrl(), "http://www.google.com");
+        $this->assertEquals($obj->getCancelUrl(), "http://www.google.com");
     }
-
 }

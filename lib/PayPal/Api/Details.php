@@ -3,9 +3,8 @@
 namespace PayPal\Api;
 
 use PayPal\Common\PayPalModel;
-use PayPal\Rest\ApiContext;
-use PayPal\Validation\NumericValidator;
 use PayPal\Converter\FormatConverter;
+use PayPal\Validation\NumericValidator;
 
 /**
  * Class Details
@@ -14,20 +13,44 @@ use PayPal\Converter\FormatConverter;
  *
  * @package PayPal\Api
  *
- * @property string shipping
  * @property string subtotal
+ * @property string shipping
  * @property string tax
- * @property string fee
+ * @property string handling_fee
  * @property string shipping_discount
  * @property string insurance
- * @property string handling_fee
  * @property string gift_wrap
+ * @property string fee
  */
 class Details extends PayPalModel
 {
     /**
-     * Amount being charged for shipping.
+     * Sub-total (amount) of items being paid for.
+     *
+     * @param string|double $subtotal
      * 
+     * @return $this
+     */
+    public function setSubtotal($subtotal)
+    {
+        NumericValidator::validate($subtotal, "Subtotal");
+        $subtotal = FormatConverter::formatToPrice($subtotal);
+        $this->subtotal = $subtotal;
+        return $this;
+    }
+
+    /**
+     * Sub-total (amount) of items being paid for.
+     *
+     * @return string
+     */
+    public function getSubtotal()
+    {
+        return $this->subtotal;
+    }
+
+    /**
+     * Amount being charged for shipping.
      *
      * @param string|double $shipping
      * 
@@ -52,35 +75,7 @@ class Details extends PayPalModel
     }
 
     /**
-     * Sub-total (amount) of items being paid for.
-     * 
-     *
-     * @param string|double $subtotal
-     * 
-     * @return $this
-     */
-    public function setSubtotal($subtotal)
-    {
-        NumericValidator::validate($subtotal, "SubTotal");
-        $subtotal = FormatConverter::formatToPrice($subtotal);
-        $this->subtotal = $subtotal;
-        return $this;
-    }
-
-    /**
-     * Sub-total (amount) of items being paid for.
-     *
-     * @return string
-     */
-    public function getSubtotal()
-    {
-
-        return $this->subtotal;
-    }
-
-    /**
      * Amount being charged as tax.
-     * 
      *
      * @param string|double $tax
      * 
@@ -105,36 +100,34 @@ class Details extends PayPalModel
     }
 
     /**
-     * Fee charged by PayPal. In case of a refund, this is the fee amount refunded to the original receipient of the payment.
-     * 
+     * Amount being charged as handling fee.
      *
-     * @param string|double $fee
+     * @param string $handling_fee
      * 
      * @return $this
      */
-    public function setFee($fee)
+    public function setHandlingFee($handling_fee)
     {
-        NumericValidator::validate($fee, "Fee");
-        $fee = FormatConverter::formatToPrice($fee);
-        $this->fee = $fee;
+        NumericValidator::validate($handling_fee, "Handling Fee");
+        $handling_fee = FormatConverter::formatToPrice($handling_fee);
+        $this->handling_fee = $handling_fee;
         return $this;
     }
 
     /**
-     * Fee charged by PayPal. In case of a refund, this is the fee amount refunded to the original receipient of the payment.
+     * Amount being charged as handling fee.
      *
      * @return string
      */
-    public function getFee()
+    public function getHandlingFee()
     {
-        return $this->fee;
+        return $this->handling_fee;
     }
 
     /**
      * Amount being charged as shipping discount.
-     * 
      *
-     * @param string|double $shipping_discount
+     * @param string $shipping_discount
      * 
      * @return $this
      */
@@ -158,7 +151,6 @@ class Details extends PayPalModel
 
     /**
      * Amount being charged as insurance.
-     * 
      *
      * @param string|double $insurance
      * 
@@ -183,35 +175,9 @@ class Details extends PayPalModel
     }
 
     /**
-     * Amount being charged as handling fee.
-     * 
-     *
-     * @param string|double $handling_fee
-     * 
-     * @return $this
-     */
-    public function setHandlingFee($handling_fee)
-    {
-        NumericValidator::validate($handling_fee, "Handling Fee");
-        $handling_fee = FormatConverter::formatToPrice($handling_fee);
-        $this->handling_fee = $handling_fee;
-        return $this;
-    }
-
-    /**
-     * Amount being charged as handling fee.
-     *
-     * @return string
-     */
-    public function getHandlingFee()
-    {
-        return $this->handling_fee;
-    }
-
-    /**
      * Amount being charged as gift wrap fee.
      *
-     * @param string|double $gift_wrap
+     * @param string $gift_wrap
      * 
      * @return $this
      */
@@ -231,6 +197,31 @@ class Details extends PayPalModel
     public function getGiftWrap()
     {
         return $this->gift_wrap;
+    }
+
+    /**
+     * Fee charged by PayPal. In case of a refund, this is the fee amount refunded to the original receipient of the payment.
+     *
+     * @param string|double $fee
+     * 
+     * @return $this
+     */
+    public function setFee($fee)
+    {
+        NumericValidator::validate($fee, "Fee");
+        $fee = FormatConverter::formatToPrice($fee);
+        $this->fee = $fee;
+        return $this;
+    }
+
+    /**
+     * Fee charged by PayPal. In case of a refund, this is the fee amount refunded to the original receipient of the payment.
+     *
+     * @return string
+     */
+    public function getFee()
+    {
+        return $this->fee;
     }
 
 }

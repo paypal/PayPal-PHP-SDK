@@ -8,13 +8,7 @@ use PayPal\Api\Currency;
 use PayPal\Api\Patch;
 use PayPal\Api\PatchRequest;
 use PayPal\Api\Plan;
-use PayPal\Common\PayPalModel;
-use PayPal\Rest\ApiContext;
-use PayPal\Rest\IResource;
-use PayPal\Api\CreateProfileResponse;
 use PayPal\Test\Functional\Setup;
-use PayPal\Transport\PayPalRestCall;
-use PayPal\Api\WebProfile;
 
 /**
  * Class Billing Agreements
@@ -27,6 +21,8 @@ class BillingAgreementsFunctionalTest extends \PHPUnit_Framework_TestCase
     public $operation;
 
     public $response;
+
+    public $apiContext;
 
     public $mockPayPalRestCall;
 
@@ -67,7 +63,7 @@ class BillingAgreementsFunctionalTest extends \PHPUnit_Framework_TestCase
         $agreement = new Agreement($request);
         // Update the Schema to use a working Plan
         $agreement->getPlan()->setId($plan->getId());
-        $result = $agreement->create(null, $this->mockPayPalRestCall);
+        $result = $agreement->create($this->apiContext, $this->mockPayPalRestCall);
         $this->assertNotNull($result);
         return $result;
     }
@@ -88,7 +84,7 @@ class BillingAgreementsFunctionalTest extends \PHPUnit_Framework_TestCase
         $paymentToken = $result['token'];
         $this->assertNotNull($paymentToken);
         $this->assertNotEmpty($paymentToken);
-        $result = $agreement->execute($paymentToken, null, $this->mockPayPalRestCall);
+        $result = $agreement->execute($paymentToken, $this->apiContext, $this->mockPayPalRestCall);
         return $result;
     }
 
@@ -102,7 +98,7 @@ class BillingAgreementsFunctionalTest extends \PHPUnit_Framework_TestCase
         $agreement = new Agreement($request);
         // Update the Schema to use a working Plan
         $agreement->getPlan()->setId($plan->getId());
-        $result = $agreement->create(null, $this->mockPayPalRestCall);
+        $result = $agreement->create($this->apiContext, $this->mockPayPalRestCall);
         $this->assertNotNull($result);
         return $result;
     }
@@ -114,7 +110,7 @@ class BillingAgreementsFunctionalTest extends \PHPUnit_Framework_TestCase
      */
     public function testGet($agreement)
     {
-        $result = Agreement::get($agreement->getId(), null, $this->mockPayPalRestCall);
+        $result = Agreement::get($agreement->getId(), $this->apiContext, $this->mockPayPalRestCall);
         $this->assertNotNull($result);
         $this->assertEquals($agreement->getId(), $result->getId());
         return $result;
@@ -136,7 +132,7 @@ class BillingAgreementsFunctionalTest extends \PHPUnit_Framework_TestCase
         $patches[] = $patch;
         $patchRequest = new PatchRequest();
         $patchRequest->setPatches($patches);
-        $result = $agreement->update($patchRequest, null, $this->mockPayPalRestCall);
+        $result = $agreement->update($patchRequest, $this->apiContext, $this->mockPayPalRestCall);
         $this->assertTrue($result);
     }
 
@@ -149,7 +145,7 @@ class BillingAgreementsFunctionalTest extends \PHPUnit_Framework_TestCase
     {
         $this->markTestSkipped('Skipped as the fix is on the way.');
         $currency = new Currency($this->operation['request']['body']);
-        $result = $agreement->setBalance($currency, null, $this->mockPayPalRestCall);
+        $result = $agreement->setBalance($currency, $this->apiContext, $this->mockPayPalRestCall);
         $this->assertTrue($result);
         return $agreement;
     }
@@ -163,7 +159,7 @@ class BillingAgreementsFunctionalTest extends \PHPUnit_Framework_TestCase
     {
         $this->markTestSkipped('Skipped as the fix is on the way.');
         $agreementStateDescriptor = new AgreementStateDescriptor($this->operation['request']['body']);
-        $result = $agreement->billBalance($agreementStateDescriptor, null, $this->mockPayPalRestCall);
+        $result = $agreement->billBalance($agreementStateDescriptor, $this->apiContext, $this->mockPayPalRestCall);
         $this->assertTrue($result);
         return $agreement;
     }
@@ -176,7 +172,7 @@ class BillingAgreementsFunctionalTest extends \PHPUnit_Framework_TestCase
     public function testGetTransactions($agreement)
     {
         $params = array('start_date' => date('Y-m-d', strtotime('-15 years')), 'end_date' => date('Y-m-d', strtotime('+5 days')));
-        $result = Agreement::searchTransactions($agreement->getId(), $params, null, $this->mockPayPalRestCall);
+        $result = Agreement::searchTransactions($agreement->getId(), $params, $this->apiContext, $this->mockPayPalRestCall);
         $this->assertNotNull($result);
         $this->assertTrue(is_array($result->getAgreementTransactionList()));
         $this->assertTrue(sizeof($result->getAgreementTransactionList()) > 0);
@@ -193,7 +189,7 @@ class BillingAgreementsFunctionalTest extends \PHPUnit_Framework_TestCase
     public function testSuspend($agreement)
     {
         $agreementStateDescriptor = new AgreementStateDescriptor($this->operation['request']['body']);
-        $result = $agreement->suspend($agreementStateDescriptor, null, $this->mockPayPalRestCall);
+        $result = $agreement->suspend($agreementStateDescriptor, $this->apiContext, $this->mockPayPalRestCall);
         $this->setupTest($this->getClassName(), 'testGetSuspended');
         $get = $this->testGet($agreement);
         $this->assertTrue($result);
@@ -209,7 +205,7 @@ class BillingAgreementsFunctionalTest extends \PHPUnit_Framework_TestCase
     public function testReactivate($agreement)
     {
         $agreementStateDescriptor = new AgreementStateDescriptor($this->operation['request']['body']);
-        $result = $agreement->reActivate($agreementStateDescriptor, null, $this->mockPayPalRestCall);
+        $result = $agreement->reActivate($agreementStateDescriptor, $this->apiContext, $this->mockPayPalRestCall);
         $this->assertTrue($result);
         $this->setupTest($this->getClassName(), 'testGet');
         $get = $this->testGet($agreement);
@@ -225,7 +221,7 @@ class BillingAgreementsFunctionalTest extends \PHPUnit_Framework_TestCase
     public function testCancel($agreement)
     {
         $agreementStateDescriptor = new AgreementStateDescriptor($this->operation['request']['body']);
-        $result = $agreement->cancel($agreementStateDescriptor, null, $this->mockPayPalRestCall);
+        $result = $agreement->cancel($agreementStateDescriptor, $this->apiContext, $this->mockPayPalRestCall);
         $this->assertTrue($result);
         $this->setupTest($this->getClassName(), 'testGetCancelled');
         $get = $this->testGet($agreement);

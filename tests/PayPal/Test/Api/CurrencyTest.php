@@ -54,7 +54,7 @@ class CurrencyTest extends \PHPUnit_Framework_TestCase
     public function testGetters($obj)
     {
         $this->assertEquals($obj->getCurrency(), "TestSample");
-        $this->assertEquals($obj->getValue(), "TestSample");
+        $this->assertEquals($obj->getValue(), "12.34");
     }
 
 }

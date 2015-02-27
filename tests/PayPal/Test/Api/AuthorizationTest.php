@@ -1,201 +1,176 @@
 <?php
+
 namespace PayPal\Test\Api;
 
-use PayPal\Api\Amount;
-use PayPal\Api\Authorization;
-use PayPal\Api\Links;
-use PayPal\Api\PayerInfo;
-use PayPal\Test\Constants;
-use PayPal\Api\RedirectUrls;
-use PayPal\Api\Address;
-use PayPal\Api\Payer;
+use PayPal\Common\PayPalResourceModel;
+use PayPal\Validation\ArgumentValidator;
 use PayPal\Api\Capture;
-use PayPal\Api\CreditCard;
-use PayPal\Api\Payment;
-use PayPal\Api\FundingInstrument;
-use PayPal\Api\Transaction;
-use PayPal\Exception\PayPalConnectionException;
+use PayPal\Rest\ApiContext;
+use PayPal\Transport\PPRestCall;
+use PayPal\Api\Authorization;
 
+/**
+ * Class Authorization
+ *
+ * @package PayPal\Test\Api
+ */
 class AuthorizationTest extends \PHPUnit_Framework_TestCase
 {
-    private $authorizations = array();
-    public static $create_time = "2013-02-28T00:00:00Z";
-    public static $update_time = "2013-03-28T00:00:00Z";
-    public static $id = "AUTH-123";
-    public static $state = "Created";
-    public static $parent_payment = "PAY-12345";
-    public static $valid_until = "2013-04-28T00:00:00Z";
-    public static $clearing_time = "2013-04-28T00:00:00Z";
-    public static $currency = "USD";
-    public static $total = "1.12";
-    public static $href = "USD";
-    public static $rel = "1.12";
-    public static $method = "1.12";
-
-    public static function createAuthorization()
+    /**
+     * Gets Json String of Object Authorization
+     * @return string
+     */
+    public static function getJson()
     {
-        $authorization = new Authorization();
-        $authorization->setCreateTime(self::$create_time);
-        $authorization->setId(self::$id);
-        $authorization->setState(self::$state);
-        $authorization->setClearingTime(self::$clearing_time);
-
-        $authorization->setAmount(AmountTest::createAmount());
-        $authorization->setLinks(array(LinksTest::getObject()));
-
-        return $authorization;
-    }
-
-    public static function authorize()
-    {
-        $addr = new Address();
-        $addr->setLine1("3909 Witmer Road");
-        $addr->setLine2("Niagara Falls");
-        $addr->setCity("Niagara Falls");
-        $addr->setState("NY");
-        $addr->setPostalCode("14305");
-        $addr->setCountryCode("US");
-        $addr->setPhone("716-298-1822");
-
-        $card = new CreditCard();
-        $card->setType("visa");
-        $card->setNumber("4417119669820331");
-        $card->setExpireMonth("11");
-        $card->setExpireYear("2019");
-        $card->setCvv2("012");
-        $card->setFirstName("Joe");
-        $card->setLastName("Shopper");
-        $card->setBillingAddress($addr);
-
-        $fi = new FundingInstrument();
-        $fi->setCreditCard($card);
-
-        $payer = new Payer();
-        $payer->setPaymentMethod("credit_card");
-        $payer->setFundingInstruments(array($fi));
-
-        $amount = new Amount();
-        $amount->setCurrency("USD");
-        $amount->setTotal("1.00");
-
-        $transaction = new Transaction();
-        $transaction->setAmount($amount);
-        $transaction->setDescription("This is the payment description.");
-
-        $payment = new Payment();
-        $payment->setIntent("authorize");
-        $payment->setPayer($payer);
-        $payment->setTransactions(array($transaction));
-
-        $paymnt = $payment->create();
-        $resArray = $paymnt->toArray();
-
-        return $authId = $resArray['transactions'][0]['related_resources'][0]['authorization']['id'];
-
-    }
-
-    public function setup()
-    {
-        $authorization = new Authorization();
-        $authorization->setCreateTime(self::$create_time);
-        $authorization->setUpdateTime(self::$update_time);
-        $authorization->setId(self::$id);
-        $authorization->setState(self::$state);
-        $authorization->setParentPayment(self::$parent_payment);
-        $authorization->setValidUntil(self::$valid_until);
-        $authorization->setClearingTime(self::$clearing_time);
-        $this->authorizations['partial'] = $authorization;
-        $this->authorizations['full'] = self::createAuthorization();
-
-    }
-
-    public function testGetterSetter()
-    {
-        /** @var Authorization $authorization */
-        $authorization = $this->authorizations['partial'];
-        $this->assertEquals(self::$create_time, $authorization->getCreateTime());
-        $this->assertEquals(self::$update_time, $authorization->getUpdateTime());
-        $this->assertEquals(self::$id, $authorization->getId());
-        $this->assertEquals(self::$state, $authorization->getState());
-        $this->assertEquals(self::$parent_payment, $authorization->getParentPayment());
-        $this->assertEquals(self::$valid_until, $authorization->getValidUntil());
-        $this->assertEquals(self::$clearing_time, $authorization->getClearingTime());
-        $authorization = $this->authorizations['full'];
-        $this->assertEquals(AmountTest::$currency, $authorization->getAmount()->getCurrency());
-        $this->assertEquals(1, count($authorization->getLinks()));
-    }
-
-    public function testSerializeDeserialize()
-    {
-        $a1 = $this->authorizations['partial'];
-        $a2 = new Authorization();
-        $a2->fromJson($a1->toJson());
-        $this->assertEquals($a1, $a2);
+        return '{"id":"TestSample","amount":' .AmountTest::getJson() . ',"payment_mode":"TestSample","state":"TestSample","reason_code":"TestSample","pending_reason":"TestSample","protection_eligibility":"TestSample","protection_eligibility_type":"TestSample","fmf_details":' .FmfDetailsTest::getJson() . ',"parent_payment":"TestSample","valid_until":"TestSample","create_time":"TestSample","update_time":"TestSample","links":' .LinksTest::getJson() . '}';
     }
 
     /**
-     * @group integration
+     * Gets Object Instance with Json data filled in
+     * @return Authorization
      */
-    public function testOperations()
+    public static function getObject()
     {
-        try {
-            $authId = self::authorize();
-            $auth = Authorization::get($authId);
-            $this->assertNotNull($auth->getId());
+        return new Authorization(self::getJson());
+    }
 
-            $amount = new Amount();
-            $amount->setCurrency("USD");
-            $amount->setTotal("1.00");
 
-            $captur = new Capture();
-            $captur->setId($authId);
-            $captur->setAmount($amount);
-
-            $capt = $auth->capture($captur);
-            $this->assertNotNull($capt->getId());
-
-            $authId = self::authorize();
-            $auth = Authorization::get($authId);
-            $void = $auth->void();
-            $this->assertNotNull($void->getId());
-
-            $auth->setId(null);
-            try {
-                $auth->void();
-            } catch (\InvalidArgumentException $ex) {
-                $this->assertEquals($ex->getMessage(), "Id cannot be null");
-            }
-        } catch (PayPalConnectionException $ex) {
-            $this->markTestSkipped(
-                'Tests failing because of intermittent failures in Paypal Sandbox environment.' . $ex->getMessage()
-            );
-        }
+    /**
+     * Tests for Serialization and Deserialization Issues
+     * @return Authorization
+     */
+    public function testSerializationDeserialization()
+    {
+        $obj = new Authorization(self::getJson());
+        $this->assertNotNull($obj);
+        $this->assertNotNull($obj->getId());
+        $this->assertNotNull($obj->getAmount());
+        $this->assertNotNull($obj->getPaymentMode());
+        $this->assertNotNull($obj->getState());
+        $this->assertNotNull($obj->getReasonCode());
+        $this->assertNotNull($obj->getPendingReason());
+        $this->assertNotNull($obj->getProtectionEligibility());
+        $this->assertNotNull($obj->getProtectionEligibilityType());
+        $this->assertNotNull($obj->getFmfDetails());
+        $this->assertNotNull($obj->getParentPayment());
+        $this->assertNotNull($obj->getValidUntil());
+        $this->assertNotNull($obj->getCreateTime());
+        $this->assertNotNull($obj->getUpdateTime());
+        $this->assertNotNull($obj->getLinks());
+        $this->assertEquals(self::getJson(), $obj->toJson());
+        return $obj;
     }
 
     /**
-     * @group integration
+     * @depends testSerializationDeserialization
+     * @param Authorization $obj
      */
-    public function testReauthorize()
+    public function testGetters($obj)
     {
-        $authorization = Authorization::get('7GH53639GA425732B');
+        $this->assertEquals($obj->getId(), "TestSample");
+        $this->assertEquals($obj->getAmount(), AmountTest::getObject());
+        $this->assertEquals($obj->getPaymentMode(), "TestSample");
+        $this->assertEquals($obj->getState(), "TestSample");
+        $this->assertEquals($obj->getReasonCode(), "TestSample");
+        $this->assertEquals($obj->getPendingReason(), "TestSample");
+        $this->assertEquals($obj->getProtectionEligibility(), "TestSample");
+        $this->assertEquals($obj->getProtectionEligibilityType(), "TestSample");
+        $this->assertEquals($obj->getFmfDetails(), FmfDetailsTest::getObject());
+        $this->assertEquals($obj->getParentPayment(), "TestSample");
+        $this->assertEquals($obj->getValidUntil(), "TestSample");
+        $this->assertEquals($obj->getCreateTime(), "TestSample");
+        $this->assertEquals($obj->getUpdateTime(), "TestSample");
+        $this->assertEquals($obj->getLinks(), LinksTest::getObject());
+    }
 
-        $amount = new Amount();
-        $amount->setCurrency("USD");
-        $amount->setTotal("1.00");
 
-        $authorization->setAmount($amount);
-        try {
-            $authorization->reauthorize();
-        } catch (PayPalConnectionException $ex) {
-            //var_dump($ex->getMessage());
-            $this->assertEquals(strpos($ex->getMessage(), "500"), false);
-        }
+    /**
+     * @dataProvider mockProvider
+     * @param Authorization $obj
+     */
+    public function testGet($obj, $mockApiContext)
+    {
+        $mockPPRestCall = $this->getMockBuilder('\PayPal\Transport\PayPalRestCall')
+            ->disableOriginalConstructor()
+            ->getMock();
 
-        $authorization->setId(null);
-        try {
-            $authorization->reauthorize();
-        } catch (\InvalidArgumentException $ex) {
-            $this->assertEquals($ex->getMessage(), "Id cannot be null");
-        }
+        $mockPPRestCall->expects($this->any())
+            ->method('execute')
+            ->will($this->returnValue(
+                    AuthorizationTest::getJson()
+            ));
+
+        $result = $obj->get("authorizationId", $mockApiContext, $mockPPRestCall);
+        $this->assertNotNull($result);
+    }
+    /**
+     * @dataProvider mockProvider
+     * @param Authorization $obj
+     */
+    public function testCapture($obj, $mockApiContext)
+    {
+        $mockPPRestCall = $this->getMockBuilder('\PayPal\Transport\PayPalRestCall')
+            ->disableOriginalConstructor()
+            ->getMock();
+
+        $mockPPRestCall->expects($this->any())
+            ->method('execute')
+            ->will($this->returnValue(
+                    CaptureTest::getJson()
+            ));
+        $capture = CaptureTest::getObject();
+
+        $result = $obj->capture($capture, $mockApiContext, $mockPPRestCall);
+        $this->assertNotNull($result);
+    }
+    /**
+     * @dataProvider mockProvider
+     * @param Authorization $obj
+     */
+    public function testVoid($obj, $mockApiContext)
+    {
+        $mockPPRestCall = $this->getMockBuilder('\PayPal\Transport\PayPalRestCall')
+            ->disableOriginalConstructor()
+            ->getMock();
+
+        $mockPPRestCall->expects($this->any())
+            ->method('execute')
+            ->will($this->returnValue(
+                    self::getJson()
+            ));
+
+        $result = $obj->void($mockApiContext, $mockPPRestCall);
+        $this->assertNotNull($result);
+    }
+    /**
+     * @dataProvider mockProvider
+     * @param Authorization $obj
+     */
+    public function testReauthorize($obj, $mockApiContext)
+    {
+        $mockPPRestCall = $this->getMockBuilder('\PayPal\Transport\PayPalRestCall')
+            ->disableOriginalConstructor()
+            ->getMock();
+
+        $mockPPRestCall->expects($this->any())
+            ->method('execute')
+            ->will($this->returnValue(
+                    self::getJson()
+            ));
+
+        $result = $obj->reauthorize($mockApiContext, $mockPPRestCall);
+        $this->assertNotNull($result);
+    }
+
+    public function mockProvider()
+    {
+        $obj = self::getObject();
+        $mockApiContext = $this->getMockBuilder('ApiContext')
+                    ->disableOriginalConstructor()
+                    ->getMock();
+        return array(
+            array($obj, $mockApiContext),
+            array($obj, null)
+        );
     }
 }

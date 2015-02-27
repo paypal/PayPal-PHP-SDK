@@ -1,50 +1,71 @@
 <?php
+
 namespace PayPal\Test\Api;
 
+use PayPal\Common\PayPalModel;
+use PayPal\Converter\FormatConverter;
+use PayPal\Validation\NumericValidator;
 use PayPal\Api\Details;
-use PayPal\Test\Constants;
 
+/**
+ * Class Details
+ *
+ * @package PayPal\Test\Api
+ */
 class DetailsTest extends \PHPUnit_Framework_TestCase
 {
-
-    private $amountDetails;
-
-    public static $subtotal = "2.00";
-    public static $tax = "1.12";
-    public static $shipping = "3.15";
-    public static $fee = "4.99";
-
-    public static function createAmountDetails()
+    /**
+     * Gets Json String of Object Details
+     * @return string
+     */
+    public static function getJson()
     {
-        $amountDetails = new Details();
-        $amountDetails->setSubtotal(self::$subtotal);
-        $amountDetails->setTax(self::$tax);
-        $amountDetails->setShipping(self::$shipping);
-        $amountDetails->setFee(self::$fee);
-
-        return $amountDetails;
+        return '{"subtotal":"12.34","shipping":"12.34","tax":"12.34","handling_fee":"12.34","shipping_discount":"12.34","insurance":"12.34","gift_wrap":"12.34","fee":"12.34"}';
     }
 
-    public function setup()
+    /**
+     * Gets Object Instance with Json data filled in
+     * @return Details
+     */
+    public static function getObject()
     {
-        $this->amountDetails = self::createAmountDetails();
+        return new Details(self::getJson());
     }
 
-    public function testGetterSetters()
+
+    /**
+     * Tests for Serialization and Deserialization Issues
+     * @return Details
+     */
+    public function testSerializationDeserialization()
     {
-        $this->assertEquals(self::$subtotal, $this->amountDetails->getSubtotal());
-        $this->assertEquals(self::$tax, $this->amountDetails->getTax());
-        $this->assertEquals(self::$shipping, $this->amountDetails->getShipping());
-        $this->assertEquals(self::$fee, $this->amountDetails->getFee());
+        $obj = new Details(self::getJson());
+        $this->assertNotNull($obj);
+        $this->assertNotNull($obj->getSubtotal());
+        $this->assertNotNull($obj->getShipping());
+        $this->assertNotNull($obj->getTax());
+        $this->assertNotNull($obj->getHandlingFee());
+        $this->assertNotNull($obj->getShippingDiscount());
+        $this->assertNotNull($obj->getInsurance());
+        $this->assertNotNull($obj->getGiftWrap());
+        $this->assertNotNull($obj->getFee());
+        $this->assertEquals(self::getJson(), $obj->toJson());
+        return $obj;
     }
 
-    public function testSerializeDeserialize()
+    /**
+     * @depends testSerializationDeserialization
+     * @param Details $obj
+     */
+    public function testGetters($obj)
     {
-        $a1 = $this->amountDetails;
-
-        $a2 = new Details();
-        $a2->fromJson($a1->toJson());
-
-        $this->assertEquals($a1, $a2);
+        $this->assertEquals($obj->getSubtotal(), "12.34");
+        $this->assertEquals($obj->getShipping(), "12.34");
+        $this->assertEquals($obj->getTax(), "12.34");
+        $this->assertEquals($obj->getHandlingFee(), "12.34");
+        $this->assertEquals($obj->getShippingDiscount(), "12.34");
+        $this->assertEquals($obj->getInsurance(), "12.34");
+        $this->assertEquals($obj->getGiftWrap(), "12.34");
+        $this->assertEquals($obj->getFee(), "12.34");
     }
 }

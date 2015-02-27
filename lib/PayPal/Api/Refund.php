@@ -2,11 +2,10 @@
 
 namespace PayPal\Api;
 
-use PayPal\Common\PayPalModel;
-use PayPal\Rest\ApiContext;
-use PayPal\Rest\IResource;
-use PayPal\Transport\PayPalRestCall;
+use PayPal\Common\PayPalResourceModel;
 use PayPal\Validation\ArgumentValidator;
+use PayPal\Rest\ApiContext;
+use PayPal\Transport\PayPalRestCall;
 
 /**
  * Class Refund
@@ -20,18 +19,17 @@ use PayPal\Validation\ArgumentValidator;
  * @property string update_time
  * @property \PayPal\Api\Amount amount
  * @property string state
+ * @property string reason
  * @property string sale_id
  * @property string capture_id
  * @property string parent_payment
  * @property string description
- * @property \PayPal\Api\Links links
+ * @property \PayPal\Api\Links[] links
  */
-class Refund extends PayPalModel implements IResource
+class Refund extends PayPalResourceModel
 {
-
     /**
      * Identifier of the refund transaction in UTC ISO8601 format.
-     * 
      *
      * @param string $id
      * 
@@ -54,56 +52,7 @@ class Refund extends PayPalModel implements IResource
     }
 
     /**
-     * Time the resource was created in UTC ISO8601 format.
-     * 
-     *
-     * @param string $create_time
-     * 
-     * @return $this
-     */
-    public function setCreateTime($create_time)
-    {
-        $this->create_time = $create_time;
-        return $this;
-    }
-
-    /**
-     * Time the resource was created in UTC ISO8601 format.
-     *
-     * @return string
-     */
-    public function getCreateTime()
-    {
-        return $this->create_time;
-    }
-
-    /**
-     * Time the resource was last updated in UTC ISO8601 format.
-     * 
-     *
-     * @param string $update_time
-     * 
-     * @return $this
-     */
-    public function setUpdateTime($update_time)
-    {
-        $this->update_time = $update_time;
-        return $this;
-    }
-
-    /**
-     * Time the resource was last updated in UTC ISO8601 format.
-     *
-     * @return string
-     */
-    public function getUpdateTime()
-    {
-        return $this->update_time;
-    }
-
-    /**
      * Details including both refunded amount (to Payer) and refunded fee (to Payee).If amount is not specified, it's assumed to be full refund.
-     * 
      *
      * @param \PayPal\Api\Amount $amount
      * 
@@ -127,7 +76,7 @@ class Refund extends PayPalModel implements IResource
 
     /**
      * State of the refund transaction.
-     * Valid Values: ["pending", "completed", "failed"] 
+     * Valid Values: ["pending", "completed", "failed"]
      *
      * @param string $state
      * 
@@ -150,8 +99,30 @@ class Refund extends PayPalModel implements IResource
     }
 
     /**
-     * ID of the Sale transaction being refunded. 
+     * Reason description for the Sale transaction being refunded.
+     *
+     * @param string $reason
      * 
+     * @return $this
+     */
+    public function setReason($reason)
+    {
+        $this->reason = $reason;
+        return $this;
+    }
+
+    /**
+     * Reason description for the Sale transaction being refunded.
+     *
+     * @return string
+     */
+    public function getReason()
+    {
+        return $this->reason;
+    }
+
+    /**
+     * ID of the Sale transaction being refunded. 
      *
      * @param string $sale_id
      * 
@@ -175,7 +146,6 @@ class Refund extends PayPalModel implements IResource
 
     /**
      * ID of the Capture transaction being refunded. 
-     * 
      *
      * @param string $capture_id
      * 
@@ -199,7 +169,6 @@ class Refund extends PayPalModel implements IResource
 
     /**
      * ID of the Payment resource that this transaction is based on.
-     * 
      *
      * @param string $parent_payment
      * 
@@ -223,7 +192,6 @@ class Refund extends PayPalModel implements IResource
 
     /**
      * Description of what is being refunded for.
-     * 
      *
      * @param string $description
      * 
@@ -246,46 +214,71 @@ class Refund extends PayPalModel implements IResource
     }
 
     /**
-     * Sets Links
-     * 
+     * Time the resource was created in UTC ISO8601 format.
      *
-     * @param \PayPal\Api\Links $links
+     * @param string $create_time
      * 
      * @return $this
      */
-    public function setLinks($links)
+    public function setCreateTime($create_time)
     {
-        $this->links = $links;
+        $this->create_time = $create_time;
         return $this;
     }
 
     /**
-     * Gets Links
+     * Time the resource was created in UTC ISO8601 format.
      *
-     * @return \PayPal\Api\Links[]
+     * @return string
      */
-    public function getLinks()
+    public function getCreateTime()
     {
-        return $this->links;
+        return $this->create_time;
     }
 
     /**
-     * Obtain the Refund transaction resource for the given identifier.
+     * Time the resource was last updated in UTC ISO8601 format.
+     *
+     * @param string $update_time
+     * 
+     * @return $this
+     */
+    public function setUpdateTime($update_time)
+    {
+        $this->update_time = $update_time;
+        return $this;
+    }
+
+    /**
+     * Time the resource was last updated in UTC ISO8601 format.
+     *
+     * @return string
+     */
+    public function getUpdateTime()
+    {
+        return $this->update_time;
+    }
+
+    /**
+     * Retrieve details about a specific refund by passing the refund_id in the request URI.
      *
      * @param string $refundId
-     * @param \PayPal\Rest\ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
+     * @param ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
+     * @param PayPalRestCall $restCall is the Rest Call Service that is used to make rest calls
      * @return Refund
      */
-    public static function get($refundId, $apiContext = null)
+    public static function get($refundId, $apiContext = null, $restCall = null)
     {
         ArgumentValidator::validate($refundId, 'refundId');
-
         $payLoad = "";
-        if ($apiContext == null) {
-            $apiContext = new ApiContext(self::$credential);
-        }
-        $call = new PayPalRestCall($apiContext);
-        $json = $call->execute(array('PayPal\Handler\RestHandler'), "/v1/payments/refund/$refundId", "GET", $payLoad);
+        $json = self::executeCall(
+            "/v1/payments/refund/$refundId",
+            "GET",
+            $payLoad,
+            null,
+            $apiContext,
+            $restCall
+        );
         $ret = new Refund();
         $ret->fromJson($json);
         return $ret;

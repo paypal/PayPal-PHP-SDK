@@ -3,7 +3,6 @@
 namespace PayPal\Api;
 
 use PayPal\Common\PayPalModel;
-use PayPal\Rest\ApiContext;
 
 /**
  * Class PaymentOptions
@@ -18,7 +17,7 @@ class PaymentOptions extends PayPalModel
 {
     /**
      * Payment method requested for this purchase unit
-     * Valid Values: ["UNRESTRICTED", "INSTANT_FUNDING_SOURCE", "IMMEDIATE_PAY"] 
+     * Valid Values: ["UNRESTRICTED", "INSTANT_FUNDING_SOURCE", "IMMEDIATE_PAY"]
      *
      * @param string $allowed_payment_method
      * 

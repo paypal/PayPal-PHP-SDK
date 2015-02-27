@@ -3,7 +3,6 @@
 namespace PayPal\Api;
 
 use PayPal\Common\PayPalModel;
-use PayPal\Rest\ApiContext;
 
 /**
  * Class ItemList
@@ -12,8 +11,9 @@ use PayPal\Rest\ApiContext;
  *
  * @package PayPal\Api
  *
- * @property \PayPal\Api\Item[]            items
+ * @property \PayPal\Api\Item[] items
  * @property \PayPal\Api\ShippingAddress shipping_address
+ * @property string shipping_method
  */
 class ItemList extends PayPalModel
 {
@@ -28,9 +28,8 @@ class ItemList extends PayPalModel
     /**
      * List of items.
      *
-     *
      * @param \PayPal\Api\Item[] $items
-     *
+     * 
      * @return $this
      */
     public function setItems($items)
@@ -50,11 +49,40 @@ class ItemList extends PayPalModel
     }
 
     /**
+     * Append Items to the list.
+     *
+     * @param \PayPal\Api\Item $item
+     * @return $this
+     */
+    public function addItem($item)
+    {
+        if (!$this->getItems()) {
+            return $this->setItems(array($item));
+        } else {
+            return $this->setItems(
+                array_merge($this->getItems(), array($item))
+            );
+        }
+    }
+
+    /**
+     * Remove Items from the list.
+     *
+     * @param \PayPal\Api\Item $item
+     * @return $this
+     */
+    public function removeItem($item)
+    {
+        return $this->setItems(
+            array_diff($this->getItems(), array($item))
+        );
+    }
+
+    /**
      * Shipping address.
      *
-     *
      * @param \PayPal\Api\ShippingAddress $shipping_address
-     *
+     * 
      * @return $this
      */
     public function setShippingAddress($shipping_address)
@@ -64,40 +92,36 @@ class ItemList extends PayPalModel
     }
 
     /**
-     * Append an item to the list.
-     *
-     * @return \PayPal\Api\Item
-     */
-    public function addItem($item)
-    {
-        if (!$this->items) {
-            return $this->setItems(array($item));
-        } else {
-            return $this->setItems(
-                array_merge($this->items, array($item))
-            );
-        }
-    }
-
-    /**
-     * Remove an item from the list.
-     * Items are compared using === comparision (PHP.net)
-     *
-     * @return \PayPal\Api\Item
-     */
-    public function removeItem($item)
-    {
-        return $this->setItems(array_diff($this->getItems(), array($item)));
-    }
-
-    /**
-     * Get Shipping Address
+     * Shipping address.
      *
      * @return \PayPal\Api\ShippingAddress
      */
     public function getShippingAddress()
     {
         return $this->shipping_address;
+    }
+
+    /**
+     * Shipping method used for this payment like USPSParcel etc.
+     *
+     * @param string $shipping_method
+     * 
+     * @return $this
+     */
+    public function setShippingMethod($shipping_method)
+    {
+        $this->shipping_method = $shipping_method;
+        return $this;
+    }
+
+    /**
+     * Shipping method used for this payment like USPSParcel etc.
+     *
+     * @return string
+     */
+    public function getShippingMethod()
+    {
+        return $this->shipping_method;
     }
 
 }

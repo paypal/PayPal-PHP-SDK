@@ -1,162 +1,197 @@
 <?php
+
 namespace PayPal\Test\Api;
 
-use PayPal\Api\RedirectUrls;
-use PayPal\Api\Address;
-use PayPal\Api\Amount;
-use PayPal\Api\CreditCard;
-use PayPal\Api\Payer;
+use PayPal\Common\PayPalResourceModel;
+use PayPal\Validation\ArgumentValidator;
+use PayPal\Api\object;
+use PayPal\Api\PaymentHistory;
+use PayPal\Rest\ApiContext;
+use PayPal\Transport\PPRestCall;
 use PayPal\Api\Payment;
-use PayPal\Api\FundingInstrument;
-use PayPal\Api\Transaction;
-use PayPal\Test\Constants;
 
+/**
+ * Class Payment
+ *
+ * @package PayPal\Test\Api
+ */
 class PaymentTest extends \PHPUnit_Framework_TestCase
 {
-
-    private $payments;
-
-    public static function createPayment()
+    /**
+     * Gets Json String of Object Payment
+     * @return string
+     */
+    public static function getJson()
     {
-
-        $redirectUrls = new RedirectUrls();
-        $redirectUrls->setReturnUrl("http://localhost/return");
-        $redirectUrls->setCancelUrl("http://localhost/cancel");
-
-        $payment = new Payment();
-        $payment->setIntent("sale");
-        $payment->setRedirectUrls($redirectUrls);
-        $payment->setPayer(PayerTest::getObject());
-        $payment->setTransactions(array(TransactionTest::createTransaction()));
-
-        return $payment;
-    }
-
-    public static function createNewPayment()
-    {
-
-        $funding = FundingInstrumentTest::getObject();
-        $funding->credit_card_token = null;
-
-        $payer = new Payer();
-        $payer->setPaymentMethod("credit_card");
-        $payer->setFundingInstruments(array($funding));
-
-        $transaction = new Transaction();
-        $transaction->setAmount(AmountTest::createAmount());
-        $transaction->setDescription("This is the payment description.");
-
-        $redirectUrls = new RedirectUrls();
-        $redirectUrls->setReturnUrl("http://localhost/return");
-        $redirectUrls->setCancelUrl("http://localhost/cancel");
-
-        $payment = new Payment();
-        $payment->setIntent("sale");
-        $payment->setRedirectUrls($redirectUrls);
-        $payment->setPayer($payer);
-        $payment->setTransactions(array($transaction));
-
-        return $payment;
-    }
-
-    public function setup()
-    {
-        $this->payments['full'] = self::createPayment();
-        $this->payments['new'] = self::createNewPayment();
-    }
-
-    public function testSerializeDeserialize()
-    {
-        $p2 = new Payment();
-        $p2->fromJson($this->payments['full']->toJSON());
-        $this->assertEquals($p2, $this->payments['full']);
+        return '{"id":"TestSample","intent":"TestSample","payer":' .PayerTest::getJson() . ',"payee":' .PayeeTest::getJson() . ',"cart":"TestSample","transactions":' .TransactionTest::getJson() . ',"failed_transactions":' .ErrorTest::getJson() . ',"payment_instruction":' .PaymentInstructionTest::getJson() . ',"state":"TestSample","experience_profile_id":"TestSample","redirect_urls":' .RedirectUrlsTest::getJson() . ',"create_time":"TestSample","update_time":"TestSample","links":' .LinksTest::getJson() . '}';
     }
 
     /**
-     * @group integration
-     *
-     * Tests Additional_fields, shipping_discount and insurance information.
-     * Additional Information: https://developer.paypal.com/docs/integration/direct/explore-payment-capabilities/
+     * Gets Object Instance with Json data filled in
+     * @return Payment
      */
-    public function testECParameters()
+    public static function getObject()
     {
-        $json = '{
-    "intent": "sale",
-    "redirect_urls": {
-        "return_url": "http://www.return.com",
-        "cancel_url": "http://www.cancel.com"
-    },
-    "payer": {
-        "payment_method": "paypal",
-        "payer_info": {
-            "tax_id_type": "BR_CPF",
-            "tax_id": "Fh618775690"
-        }
-    },
-    "transactions": [
-        {
-            "amount": {
-                "total": "34.07",
-                "currency": "USD",
-                "details": {
-                    "subtotal": "30.00",
-                    "tax": "0.07",
-                    "shipping": "1.00",
-                    "handling_fee": "1.00",
-                    "shipping_discount": "1.00",
-                    "insurance": "1.00"
-                }
-            },
-            "description": "This is the payment transaction description.",
-            "custom": "EBAY_EMS_90048630024435",
-            "invoice_number": "48787589677",
-            "payment_options": {
-                "allowed_payment_method": "INSTANT_FUNDING_SOURCE"
-            },
-            "soft_descriptor": "ECHI5786786",
-            "item_list": {
-                "items": [
-                    {
-                        "name": "bowling",
-                        "description": "Bowling Team Shirt",
-                        "quantity": "5",
-                        "price": "3",
-                        "tax": "0.01",
-                        "sku": "1",
-                        "currency": "USD"
-                    },
-                    {
-                        "name": "mesh",
-                        "description": "80s Mesh Sleeveless Shirt",
-                        "quantity": "1",
-                        "price": "15",
-                        "tax": "0.02",
-                        "sku": "product34",
-                        "currency": "USD"
-                    }
-                ],
-                "shipping_address": {
-                    "recipient_name": "Betsy Buyer",
-                    "line1": "111 First Street",
-                    "city": "Saratoga",
-                    "country_code": "US",
-                    "postal_code": "95070",
-                    "state": "CA"
-                }
-            }
-        }
-    ]
-}';
-        $payment = new Payment();
-        $payment->fromJson($json);
+        return new Payment(self::getJson());
+    }
 
-        $payment->create();
 
-        $result = Payment::get($payment->getId());
-        $transactions = $result->getTransactions();
-        $transaction = $transactions[0];
-        $this->assertEquals($transaction->getAmount()->getDetails()->getShippingDiscount(), '1.00');
-        $this->assertEquals($transaction->getAmount()->getDetails()->getInsurance(), '1.00');
-        $this->assertEquals($transaction->getAmount()->getDetails()->getHandlingFee(), '1.00');
+    /**
+     * Tests for Serialization and Deserialization Issues
+     * @return Payment
+     */
+    public function testSerializationDeserialization()
+    {
+        $obj = new Payment(self::getJson());
+        $this->assertNotNull($obj);
+        $this->assertNotNull($obj->getId());
+        $this->assertNotNull($obj->getIntent());
+        $this->assertNotNull($obj->getPayer());
+        $this->assertNotNull($obj->getPayee());
+        $this->assertNotNull($obj->getCart());
+        $this->assertNotNull($obj->getTransactions());
+        $this->assertNotNull($obj->getFailedTransactions());
+        $this->assertNotNull($obj->getPaymentInstruction());
+        $this->assertNotNull($obj->getState());
+        $this->assertNotNull($obj->getExperienceProfileId());
+        $this->assertNotNull($obj->getRedirectUrls());
+        $this->assertNotNull($obj->getCreateTime());
+        $this->assertNotNull($obj->getUpdateTime());
+        $this->assertNotNull($obj->getLinks());
+        $this->assertEquals(self::getJson(), $obj->toJson());
+        return $obj;
+    }
+
+    /**
+     * @depends testSerializationDeserialization
+     * @param Payment $obj
+     */
+    public function testGetters($obj)
+    {
+        $this->assertEquals($obj->getId(), "TestSample");
+        $this->assertEquals($obj->getIntent(), "TestSample");
+        $this->assertEquals($obj->getPayer(), PayerTest::getObject());
+        $this->assertEquals($obj->getPayee(), PayeeTest::getObject());
+        $this->assertEquals($obj->getCart(), "TestSample");
+        $this->assertEquals($obj->getTransactions(), TransactionTest::getObject());
+        $this->assertEquals($obj->getFailedTransactions(), ErrorTest::getObject());
+        $this->assertEquals($obj->getPaymentInstruction(), PaymentInstructionTest::getObject());
+        $this->assertEquals($obj->getState(), "TestSample");
+        $this->assertEquals($obj->getExperienceProfileId(), "TestSample");
+        $this->assertEquals($obj->getRedirectUrls(), RedirectUrlsTest::getObject());
+        $this->assertEquals($obj->getCreateTime(), "TestSample");
+        $this->assertEquals($obj->getUpdateTime(), "TestSample");
+        $this->assertEquals($obj->getLinks(), LinksTest::getObject());
+    }
+
+    /**
+     * @dataProvider mockProvider
+     * @param Payment $obj
+     */
+    public function testCreate($obj, $mockApiContext)
+    {
+        $mockPPRestCall = $this->getMockBuilder('\PayPal\Transport\PayPalRestCall')
+            ->disableOriginalConstructor()
+            ->getMock();
+
+        $mockPPRestCall->expects($this->any())
+            ->method('execute')
+            ->will($this->returnValue(
+                    self::getJson()
+            ));
+
+        $result = $obj->create($mockApiContext, $mockPPRestCall);
+        $this->assertNotNull($result);
+    }
+    /**
+     * @dataProvider mockProvider
+     * @param Payment $obj
+     */
+    public function testGet($obj, $mockApiContext)
+    {
+        $mockPPRestCall = $this->getMockBuilder('\PayPal\Transport\PayPalRestCall')
+            ->disableOriginalConstructor()
+            ->getMock();
+
+        $mockPPRestCall->expects($this->any())
+            ->method('execute')
+            ->will($this->returnValue(
+                    PaymentTest::getJson()
+            ));
+
+        $result = $obj->get("paymentId", $mockApiContext, $mockPPRestCall);
+        $this->assertNotNull($result);
+    }
+    /**
+     * @dataProvider mockProvider
+     * @param Payment $obj
+     */
+    public function testUpdate($obj, $mockApiContext)
+    {
+        $mockPPRestCall = $this->getMockBuilder('\PayPal\Transport\PayPalRestCall')
+            ->disableOriginalConstructor()
+            ->getMock();
+
+        $mockPPRestCall->expects($this->any())
+            ->method('execute')
+            ->will($this->returnValue(
+                    true
+            ));
+        $patchRequest = PatchRequestTest::getObject();
+
+        $result = $obj->update($patchRequest, $mockApiContext, $mockPPRestCall);
+        $this->assertNotNull($result);
+    }
+    /**
+     * @dataProvider mockProvider
+     * @param Payment $obj
+     */
+    public function testExecute($obj, $mockApiContext)
+    {
+        $mockPPRestCall = $this->getMockBuilder('\PayPal\Transport\PayPalRestCall')
+            ->disableOriginalConstructor()
+            ->getMock();
+
+        $mockPPRestCall->expects($this->any())
+            ->method('execute')
+            ->will($this->returnValue(
+                    self::getJson()
+            ));
+        $paymentExecution = PaymentExecutionTest::getObject();
+
+        $result = $obj->execute($paymentExecution, $mockApiContext, $mockPPRestCall);
+        $this->assertNotNull($result);
+    }
+    /**
+     * @dataProvider mockProvider
+     * @param Payment $obj
+     */
+    public function testList($obj, $mockApiContext)
+    {
+        $mockPPRestCall = $this->getMockBuilder('\PayPal\Transport\PayPalRestCall')
+            ->disableOriginalConstructor()
+            ->getMock();
+
+        $mockPPRestCall->expects($this->any())
+            ->method('execute')
+            ->will($this->returnValue(
+                    PaymentHistoryTest::getJson()
+            ));
+        $params = array();
+
+        $result = $obj->all($params, $mockApiContext, $mockPPRestCall);
+        $this->assertNotNull($result);
+    }
+
+    public function mockProvider()
+    {
+        $obj = self::getObject();
+        $mockApiContext = $this->getMockBuilder('ApiContext')
+                    ->disableOriginalConstructor()
+                    ->getMock();
+        return array(
+            array($obj, $mockApiContext),
+            array($obj, null)
+        );
     }
 }
