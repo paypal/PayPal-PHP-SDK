@@ -24,6 +24,7 @@ use PayPal\Validation\ArgumentValidator;
  * @property string state
  * @property string parent_payment
  * @property \PayPal\Api\Links links
+ * @property \PayPal\Api\Currency $transaction_fee
  */
 class Capture extends PayPalModel implements IResource
 {
@@ -217,6 +218,22 @@ class Capture extends PayPalModel implements IResource
     public function getLinks()
     {
         return $this->links;
+    }
+
+    /**
+     * @param \PayPal\Api\Currency $transaction_fee
+     */
+    public function setTransactionFee($transaction_fee)
+    {
+        $this->transaction_fee = $transaction_fee;
+    }
+
+    /**
+     * @return \PayPal\Api\Currency
+     */
+    public function getTransactionFee()
+    {
+        return $this->transaction_fee;
     }
 
     /**
