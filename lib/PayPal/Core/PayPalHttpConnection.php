@@ -148,7 +148,8 @@ class PayPalHttpConnection
 
         // Get Request and Response Headers
         $requestHeaders = curl_getinfo($ch, CURLINFO_HEADER_OUT);
-        $responseHeaderSize = curl_getinfo($ch, CURLINFO_HEADER_SIZE);
+        //Using alternative solution to CURLINFO_HEADER_SIZE as it throws invalid number when called using PROXY.
+        $responseHeaderSize = strlen($result) - curl_getinfo($ch, CURLINFO_SIZE_DOWNLOAD);
         $responseHeaders = substr($result, 0, $responseHeaderSize);
         $result = substr($result, $responseHeaderSize);
 
