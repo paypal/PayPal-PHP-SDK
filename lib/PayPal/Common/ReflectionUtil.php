@@ -61,6 +61,32 @@ class ReflectionUtil
     }
 
     /**
+     * Checks if the Property is of type array or an object
+     *
+     * @param $class
+     * @param $propertyName
+     * @return null|boolean
+     * @throws PayPalConfigurationException
+     */
+    public static function isPropertyClassArray($class, $propertyName)
+    {
+        // If the class doesn't exist, or the method doesn't exist, return null.
+        if (!class_exists($class) || !method_exists($class, self::getter($class, $propertyName))) {
+            return null;
+        }
+
+        if (($annotations = self::propertyAnnotations($class, $propertyName)) && isset($annotations['return'])) {
+            $param = $annotations['return'];
+        }
+
+        if (isset($param)) {
+            return substr($param, -strlen('[]'))==='[]';
+        } else {
+            throw new PayPalConfigurationException("Getter function for '$propertyName' in '$class' class should have a proper return type.");
+        }
+    }
+
+    /**
      * Retrieves Annotations of each property
      *
      * @param $class

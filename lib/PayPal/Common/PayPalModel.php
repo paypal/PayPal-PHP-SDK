@@ -106,7 +106,7 @@ class PayPalModel
     public function __set($key, $value)
     {
         ModelAccessorValidator::validate($this, $this->convertToCamelCase($key));
-        if ($value == null) {
+        if (!is_array($value) && $value == null) {
             $this->__unset($key);
         } else {
             $this->_propMap[$key] = $value;
@@ -157,6 +157,8 @@ class PayPalModel
         foreach ($param as $k => $v) {
             if ($v instanceof PayPalModel) {
                 $ret[$k] = $v->toArray();
+            } else if (sizeof($v) <= 0 && is_array($v)) {
+                $ret[$k] = array();
             } else if (is_array($v)) {
                 $ret[$k] = $this->_convertToArray($v);
             } else {
@@ -188,7 +190,16 @@ class PayPalModel
                     // Determine the class of the object
                     if (($clazz = ReflectionUtil::getPropertyClass(get_class($this), $k)) != null){
                         // If the value is an associative array, it means, its an object. Just make recursive call to it.
-                        if (ArrayUtil::isAssocArray($v)) {
+                        if (empty($v)){
+                            if (ReflectionUtil::isPropertyClassArray(get_class($this), $k)) {
+                                // It means, it is an array of objects.
+                                $this->assignValue($k, array());
+                                continue;
+                            }
+                            $o = new $clazz();
+                            //$arr = array();
+                            $this->assignValue($k, $o);
+                        } elseif (ArrayUtil::isAssocArray($v)) {
                             /** @var self $o */
                             $o = new $clazz();
                             $o->fromArray($v);

@@ -23,7 +23,7 @@ class PaymentTest extends \PHPUnit_Framework_TestCase
      */
     public static function getJson()
     {
-        return '{"id":"TestSample","intent":"TestSample","payer":' .PayerTest::getJson() . ',"payee":' .PayeeTest::getJson() . ',"cart":"TestSample","transactions":' .TransactionTest::getJson() . ',"failed_transactions":' .ErrorTest::getJson() . ',"payment_instruction":' .PaymentInstructionTest::getJson() . ',"state":"TestSample","experience_profile_id":"TestSample","redirect_urls":' .RedirectUrlsTest::getJson() . ',"create_time":"TestSample","update_time":"TestSample","links":' .LinksTest::getJson() . '}';
+        return '{"id":"TestSample","intent":"TestSample","payer":' .PayerTest::getJson() . ',"payee":' .PayeeTest::getJson() . ',"cart":"TestSample","transactions":[' .TransactionTest::getJson() . '],"failed_transactions":' .ErrorTest::getJson() . ',"payment_instruction":' .PaymentInstructionTest::getJson() . ',"state":"TestSample","experience_profile_id":"TestSample","redirect_urls":' .RedirectUrlsTest::getJson() . ',"create_time":"TestSample","update_time":"TestSample","links":' .LinksTest::getJson() . '}';
     }
 
     /**
@@ -73,7 +73,7 @@ class PaymentTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($obj->getPayer(), PayerTest::getObject());
         $this->assertEquals($obj->getPayee(), PayeeTest::getObject());
         $this->assertEquals($obj->getCart(), "TestSample");
-        $this->assertEquals($obj->getTransactions(), TransactionTest::getObject());
+        $this->assertEquals($obj->getTransactions(), array(TransactionTest::getObject()));
         $this->assertEquals($obj->getFailedTransactions(), ErrorTest::getObject());
         $this->assertEquals($obj->getPaymentInstruction(), PaymentInstructionTest::getObject());
         $this->assertEquals($obj->getState(), "TestSample");

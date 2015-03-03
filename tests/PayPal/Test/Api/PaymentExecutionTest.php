@@ -18,7 +18,7 @@ class PaymentExecutionTest extends \PHPUnit_Framework_TestCase
      */
     public static function getJson()
     {
-        return '{"payer_id":"TestSample","transactions":' .TransactionTest::getJson() . '}';
+        return '{"payer_id":"TestSample","transactions":[' .TransactionTest::getJson() . ']}';
     }
 
     /**
@@ -52,6 +52,6 @@ class PaymentExecutionTest extends \PHPUnit_Framework_TestCase
     public function testGetters($obj)
     {
         $this->assertEquals($obj->getPayerId(), "TestSample");
-        $this->assertEquals($obj->getTransactions(), TransactionTest::getObject());
+        $this->assertEquals($obj->getTransactions(), array(TransactionTest::getObject()));
     }
 }
