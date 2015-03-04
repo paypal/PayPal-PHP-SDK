@@ -1,5 +1,10 @@
 PayPal PHP SDK release notes
 ============================
+v1.3.1
+----
+* PayPalModel to differentiate between empty objects and array
+* Fixed CURLINFO_HEADER_SIZE miscalculations if Proxy Enabled
+
 v1.3.0
 ----
 * Updated Payment APIs
