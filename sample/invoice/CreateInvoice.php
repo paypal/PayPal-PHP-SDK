@@ -58,6 +58,17 @@ $billing = $invoice->getBillingInfo();
 $billing[0]
     ->setEmail("example@example.com");
 
+$billing[0]->setBusinessName("Jay Inc")
+    ->setAdditionalInfo("This is the billing Info")
+    ->setAddress(new InvoiceAddress());
+
+$billing[0]->getAddress()
+    ->setLine1("1234 Main St.")
+    ->setCity("Portland")
+    ->setState("OR")
+    ->setPostalCode("97217")
+    ->setCountryCode("US");
+
 // ### Items List
 // You could provide the list of all items for
 // detailed breakdown of invoice
