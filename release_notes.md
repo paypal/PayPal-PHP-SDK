@@ -1,5 +1,9 @@
 PayPal PHP SDK release notes
 ============================
+v1.3.2
+----
+* Minor Fix for Agreement Details
+
 v1.3.1
 ----
 * PayPalModel to differentiate between empty objects and array
