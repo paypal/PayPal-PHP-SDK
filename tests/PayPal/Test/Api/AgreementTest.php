@@ -22,7 +22,7 @@ class AgreementTest extends \PHPUnit_Framework_TestCase
      */
     public static function getJson()
     {
-        return '{"id":"TestSample","state":"TestSample","name":"TestSample","description":"TestSample","start_date":"TestSample","payer":' .PayerTest::getJson() . ',"shipping_address":' .AddressTest::getJson() . ',"override_merchant_preferences":' .MerchantPreferencesTest::getJson() . ',"override_charge_models":' .OverrideChargeModelTest::getJson() . ',"plan":' .PlanTest::getJson() . ',"create_time":"TestSample","update_time":"TestSample","links":' .LinksTest::getJson() . '}';
+        return '{"id":"TestSample","state":"TestSample","name":"TestSample","description":"TestSample","start_date":"TestSample","payer":' .PayerTest::getJson() . ',"shipping_address":' .AddressTest::getJson() . ',"override_merchant_preferences":' .MerchantPreferencesTest::getJson() . ',"override_charge_models":' .OverrideChargeModelTest::getJson() . ',"plan":' .PlanTest::getJson() . ',"create_time":"TestSample","agreement_details":{"outstanding_balance":{"currency":"USD","value":"0.00"},"cycles_remaining":"12","cycles_completed":"0","next_billing_date":"2015-06-17T10:00:00Z","last_payment_date":"2015-03-18T20:20:17Z","last_payment_amount":{"currency":"USD","value":"1.00"},"final_payment_date":"2017-04-17T10:00:00Z","failed_payment_count":"0"},"update_time":"TestSample","links":' .LinksTest::getJson() . '}';
     }
 
     /**
