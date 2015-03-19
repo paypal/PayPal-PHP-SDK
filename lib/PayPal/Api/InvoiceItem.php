@@ -3,6 +3,8 @@
 namespace PayPal\Api;
 
 use PayPal\Common\PayPalModel;
+use PayPal\Converter\FormatConverter;
+use PayPal\Validation\NumericValidator;
 
 /**
  * Class InvoiceItem
@@ -70,12 +72,14 @@ class InvoiceItem extends PayPalModel
     /**
      * Quantity of the item. Range of 0 to 9999.999.
      *
-     * @param \PayPal\Api\number $quantity
+     * @param string|double $quantity
      * 
      * @return $this
      */
     public function setQuantity($quantity)
     {
+        NumericValidator::validate($quantity, "Percent");
+        $quantity = FormatConverter::formatToPrice($quantity);
         $this->quantity = $quantity;
         return $this;
     }
@@ -83,7 +87,7 @@ class InvoiceItem extends PayPalModel
     /**
      * Quantity of the item. Range of 0 to 9999.999.
      *
-     * @return \PayPal\Api\number
+     * @return string
      */
     public function getQuantity()
     {
