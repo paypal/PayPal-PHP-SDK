@@ -106,7 +106,7 @@ class PayPalModel
     public function __set($key, $value)
     {
         ModelAccessorValidator::validate($this, $this->convertToCamelCase($key));
-        if (!is_array($value) && $value == null) {
+        if (!is_array($value) && $value === null) {
             $this->__unset($key);
         } else {
             $this->_propMap[$key] = $value;

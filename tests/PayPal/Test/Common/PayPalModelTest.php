@@ -8,6 +8,7 @@ class SimpleModelTestClass extends PayPalModel
      *
      * @access public
      * @param string $field1
+     * @return self
      */
     public function setField1($field1)
     {
@@ -29,6 +30,7 @@ class SimpleModelTestClass extends PayPalModel
      *
      * @access public
      * @param string $field2
+     * @return self
      */
     public function setField2($field2)
     {
@@ -264,6 +266,29 @@ class PayPalModelTest extends PHPUnit_Framework_TestCase
         $parentCopy = new ListModelTestClass();
         $parentCopy->fromJson($parent->toJSON());
         $this->assertEquals($parent, $parentCopy);
+    }
 
+    public function EmptyNullProvider()
+    {
+        return array(
+            array(0, true),
+            array(null, false),
+            array("", true),
+            array("null", true),
+            array(-1, true),
+            array('', true)
+        );
+    }
+
+    /**
+     * @dataProvider EmptyNullProvider
+     * @param string|null $field2
+     * @param bool $matches
+     */
+    public function testEmptyNullConversion($field2, $matches)
+    {
+        $c1 = new SimpleModelTestClass();
+        $c1->setField1("a")->setField2($field2);
+        $this->assertTrue(strpos($c1->toJSON(),"field2") !== !$matches);
     }
 }
