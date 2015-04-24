@@ -16,10 +16,12 @@ if (isset($_GET['success']) && $_GET['success'] == 'true') {
         // Execute the agreement by passing in the token
         $agreement->execute($token, $apiContext);
     } catch (Exception $ex) {
-        ResultPrinter::printError("Executed an Agreement", "Agreement", $agreement->getId(), $_GET['token'], $ex);
+        // NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
+ 	    ResultPrinter::printError("Executed an Agreement", "Agreement", $agreement->getId(), $_GET['token'], $ex);
         exit(1);
     }
 
+    // NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
     ResultPrinter::printResult("Executed an Agreement", "Agreement", $agreement->getId(), $_GET['token'], $agreement);
 
     // ## Get Agreement
@@ -27,12 +29,15 @@ if (isset($_GET['success']) && $_GET['success'] == 'true') {
     try {
         $agreement = \PayPal\Api\Agreement::get($agreement->getId(), $apiContext);
     } catch (Exception $ex) {
-        ResultPrinter::printError("Get Agreement", "Agreement", null, null, $ex);
+        // NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
+ 	    ResultPrinter::printError("Get Agreement", "Agreement", null, null, $ex);
         exit(1);
     }
 
+    // NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
     ResultPrinter::printResult("Get Agreement", "Agreement", $agreement->getId(), null, $agreement);
 
 } else {
+    // NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
     ResultPrinter::printResult("User Cancelled the Approval", null);
 }

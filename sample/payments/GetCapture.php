@@ -17,8 +17,10 @@ use PayPal\Api\Authorization;
 try {
     $capture = Capture::get($request->getId(), $apiContext);
 } catch (Exception $ex) {
-    ResultPrinter::printError("Get Captured Payment", "Capture", $request->getId(), null, $ex);
+    // NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
+ 	ResultPrinter::printError("Get Captured Payment", "Capture", $request->getId(), null, $ex);
     exit(1);
 }
 
-ResultPrinter::printResult("Get Captured Payment", "Capture", $capture->getId(), null, $capture);
+// NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
+ ResultPrinter::printResult("Get Captured Payment", "Capture", $capture->getId(), null, $capture);

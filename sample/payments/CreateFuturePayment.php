@@ -85,10 +85,12 @@ try {
     $payment->create($apiContext, $clientMetadataId);
 
 } catch (Exception $ex) {
-    ResultPrinter::printError("Future Payment", "Payment", null, $request, $ex);
+    // NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
+ 	ResultPrinter::printError("Future Payment", "Payment", null, $request, $ex);
     exit(1);
 }
 
-ResultPrinter::printResult("Future Payment", "Payment", $payment->getId(), $request, $payment);
+// NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
+ ResultPrinter::printResult("Future Payment", "Payment", $payment->getId(), $request, $payment);
 
 return $payment;

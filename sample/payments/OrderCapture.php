@@ -37,15 +37,18 @@ if (isset($_GET['success']) && $_GET['success'] == 'true') {
         // Capture the order by passing capture object we created.
         // We will get a new capture object back.
         $result = $order->capture($capture, $apiContext);
+        // NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
         ResultPrinter::printResult("Captured Order", "Capture", $result->getId(), $capture, $result);
     } catch (Exception $ex) {
-        ResultPrinter::printError("Captured Order", "Capture", null, $capture, $ex);
+        // NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
+ 	    ResultPrinter::printError("Captured Order", "Capture", null, $capture, $ex);
         exit(1);
     }
 
     return $result;
 
 } else {
+    // NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
     ResultPrinter::printResult("User Cancelled the Approval", null);
     exit;
 }

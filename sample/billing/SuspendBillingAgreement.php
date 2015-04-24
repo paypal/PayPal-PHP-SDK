@@ -25,10 +25,12 @@ try {
     $agreement = Agreement::get($createdAgreement->getId(), $apiContext);
 
 } catch (Exception $ex) {
-    ResultPrinter::printError("Suspended the Agreement", "Agreement", null, $agreementStateDescriptor, $ex);
+    // NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
+ 	ResultPrinter::printError("Suspended the Agreement", "Agreement", null, $agreementStateDescriptor, $ex);
     exit(1);
 }
 
-ResultPrinter::printResult("Suspended the Agreement", "Agreement", $agreement->getId(), $agreementStateDescriptor, $agreement);
+// NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
+ ResultPrinter::printResult("Suspended the Agreement", "Agreement", $agreement->getId(), $agreementStateDescriptor, $agreement);
 
 return $agreement;

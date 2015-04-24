@@ -18,10 +18,12 @@ if (isset($_GET['success']) && $_GET['success'] == 'true') {
         // Obtain Authorization Code from Code, Client ID and Client Secret
         $accessToken = OpenIdTokeninfo::createFromAuthorizationCode(array('code' => $code), null, null, $apiContext);
     } catch (PayPalConnectionException $ex) {
-        ResultPrinter::printError("Obtained Access Token", "Access Token", null, $_GET['code'], $ex);
+        // NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
+ 	ResultPrinter::printError("Obtained Access Token", "Access Token", null, $_GET['code'], $ex);
         exit(1);
     }
 
-    ResultPrinter::printResult("Obtained Access Token", "Access Token", $accessToken->getAccessToken(), $_GET['code'], $accessToken);
+    // NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
+ ResultPrinter::printResult("Obtained Access Token", "Access Token", $accessToken->getAccessToken(), $_GET['code'], $accessToken);
 
 }

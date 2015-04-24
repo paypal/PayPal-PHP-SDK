@@ -38,25 +38,30 @@ if (isset($_GET['success']) && $_GET['success'] == 'true') {
         // (See bootstrap.php for more on `ApiContext`)
         $result = $payment->execute($execution, $apiContext);
 
+        // NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
         ResultPrinter::printResult("Executed Payment", "Payment", $payment->getId(), $execution, $result);
 
         try {
             $payment = Payment::get($paymentId, $apiContext);
         } catch (Exception $ex) {
-            ResultPrinter::printError("Get Payment", "Payment", null, null, $ex);
+            // NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
+ 	        ResultPrinter::printError("Get Payment", "Payment", null, null, $ex);
             exit(1);
         }
     } catch (Exception $ex) {
-        ResultPrinter::printError("Executed Payment", "Payment", null, null, $ex);
+        // NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
+ 	    ResultPrinter::printError("Executed Payment", "Payment", null, null, $ex);
         exit(1);
     }
 
+    // NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
     ResultPrinter::printResult("Get Payment", "Payment", $payment->getId(), null, $payment);
 
     return $payment;
 
 
 } else {
+    // NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
     ResultPrinter::printResult("User Cancelled the Approval", null);
     exit;
 }

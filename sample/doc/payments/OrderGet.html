@@ -11,16 +11,13 @@ API used: GET /v1/payments/orders/<Order-Id></p></div></div><div class="code"><d
     <span class="hljs-variable">$order</span> = <span class="hljs-variable">$relatedResource</span>-&gt;getOrder();
 
     <span class="hljs-keyword">try</span> {
-        <span class="hljs-variable">$result</span> = \PayPal\Api\Order::get(<span class="hljs-variable">$order</span>-&gt;getId(), <span class="hljs-variable">$apiContext</span>);
-        ResultPrinter::printResult(<span class="hljs-string">"Get Order"</span>, <span class="hljs-string">"Order"</span>, <span class="hljs-variable">$result</span>-&gt;getId(), <span class="hljs-keyword">null</span>, <span class="hljs-variable">$result</span>);
-    } <span class="hljs-keyword">catch</span> (<span class="hljs-keyword">Exception</span> <span class="hljs-variable">$ex</span>) {
-        ResultPrinter::printError(<span class="hljs-string">"Get Order"</span>, <span class="hljs-string">"Order"</span>, <span class="hljs-keyword">null</span>, <span class="hljs-keyword">null</span>, <span class="hljs-variable">$ex</span>);
+        <span class="hljs-variable">$result</span> = \PayPal\Api\Order::get(<span class="hljs-variable">$order</span>-&gt;getId(), <span class="hljs-variable">$apiContext</span>);</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY</p></div></div><div class="code"><div class="wrapper">        ResultPrinter::printResult(<span class="hljs-string">"Get Order"</span>, <span class="hljs-string">"Order"</span>, <span class="hljs-variable">$result</span>-&gt;getId(), <span class="hljs-keyword">null</span>, <span class="hljs-variable">$result</span>);
+    } <span class="hljs-keyword">catch</span> (<span class="hljs-keyword">Exception</span> <span class="hljs-variable">$ex</span>) {</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY</p></div></div><div class="code"><div class="wrapper"> 	    ResultPrinter::printError(<span class="hljs-string">"Get Order"</span>, <span class="hljs-string">"Order"</span>, <span class="hljs-keyword">null</span>, <span class="hljs-keyword">null</span>, <span class="hljs-variable">$ex</span>);
         <span class="hljs-keyword">exit</span>(<span class="hljs-number">1</span>);
     }
 
     <span class="hljs-keyword">return</span> <span class="hljs-variable">$result</span>;
 
-} <span class="hljs-keyword">else</span> {
-    ResultPrinter::printResult(<span class="hljs-string">"User Cancelled the Approval"</span>, <span class="hljs-keyword">null</span>);
+} <span class="hljs-keyword">else</span> {</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY</p></div></div><div class="code"><div class="wrapper">    ResultPrinter::printResult(<span class="hljs-string">"User Cancelled the Approval"</span>, <span class="hljs-keyword">null</span>);
     <span class="hljs-keyword">exit</span>;
 }</div></div></div></div></body></html>

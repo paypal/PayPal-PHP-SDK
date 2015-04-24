@@ -20,8 +20,10 @@ try {
     // (See bootstrap.php for more on `ApiContext`)
     $deleteStatus = $invoice->delete($apiContext);
 } catch (Exception $ex) {
-    ResultPrinter::printError("Delete Invoice", "Invoice", null, $deleteStatus, $ex);
+    // NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
+ 	ResultPrinter::printError("Delete Invoice", "Invoice", null, $deleteStatus, $ex);
     exit(1);
 }
 
-ResultPrinter::printResult("Delete Invoice", "Invoice", $invoice->getId(), null, null);
+// NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
+ ResultPrinter::printResult("Delete Invoice", "Invoice", $invoice->getId(), null, null);

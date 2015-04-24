@@ -27,8 +27,10 @@ try {
 
     $reAuthorization = $authorization->reauthorize($apiContext);
 } catch (Exception $ex) {
-    ResultPrinter::printError("Reauthorize Payment", "Payment", null, null, $ex);
+    // NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
+ 	ResultPrinter::printError("Reauthorize Payment", "Payment", null, null, $ex);
     exit(1);
 }
 
+// NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
 ResultPrinter::printResult("Reauthorize Payment", "Payment", $authorization->getId(), null, $reAuthorization);

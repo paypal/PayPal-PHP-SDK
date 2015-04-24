@@ -33,11 +33,8 @@ API used:  /v1/payments/billing-plans/<Plan-Id></p></div></div></div><div class=
 
     <span class="hljs-variable">$plan</span> = Plan::get(<span class="hljs-variable">$createdPlan</span>-&gt;getId(), <span class="hljs-variable">$apiContext</span>);
 
-} <span class="hljs-keyword">catch</span> (<span class="hljs-keyword">Exception</span> <span class="hljs-variable">$ex</span>) {
-    ResultPrinter::printError(<span class="hljs-string">"Updated the Plan Payment Definition"</span>, <span class="hljs-string">"Plan"</span>, <span class="hljs-keyword">null</span>, <span class="hljs-variable">$patchRequest</span>, <span class="hljs-variable">$ex</span>);
+} <span class="hljs-keyword">catch</span> (<span class="hljs-keyword">Exception</span> <span class="hljs-variable">$ex</span>) {</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY</p></div></div><div class="code"><div class="wrapper"> 	ResultPrinter::printError(<span class="hljs-string">"Updated the Plan Payment Definition"</span>, <span class="hljs-string">"Plan"</span>, <span class="hljs-keyword">null</span>, <span class="hljs-variable">$patchRequest</span>, <span class="hljs-variable">$ex</span>);
     <span class="hljs-keyword">exit</span>(<span class="hljs-number">1</span>);
-}
-
-ResultPrinter::printResult(<span class="hljs-string">"Updated the Plan Payment Definition"</span>, <span class="hljs-string">"Plan"</span>, <span class="hljs-variable">$plan</span>-&gt;getId(), <span class="hljs-variable">$patchRequest</span>, <span class="hljs-variable">$plan</span>);
+}</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY</p></div></div><div class="code"><div class="wrapper"> ResultPrinter::printResult(<span class="hljs-string">"Updated the Plan Payment Definition"</span>, <span class="hljs-string">"Plan"</span>, <span class="hljs-variable">$plan</span>-&gt;getId(), <span class="hljs-variable">$patchRequest</span>, <span class="hljs-variable">$plan</span>);
 
 <span class="hljs-keyword">return</span> <span class="hljs-variable">$plan</span>;</div></div></div></div></body></html>

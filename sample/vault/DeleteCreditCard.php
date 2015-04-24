@@ -15,8 +15,10 @@ try {
     // (See bootstrap.php for more on `ApiContext`)
     $card->delete($apiContext);
 } catch (Exception $ex) {
-    ResultPrinter::printError("Delete Credit Card", "Credit Card", null, null, $ex);
+    // NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
+ 	ResultPrinter::printError("Delete Credit Card", "Credit Card", null, null, $ex);
     exit(1);
 }
 
-ResultPrinter::printResult("Delete Credit Card", "Credit Card", $card->getId(), null, null);
+// NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
+ ResultPrinter::printResult("Delete Credit Card", "Credit Card", $card->getId(), null, null);

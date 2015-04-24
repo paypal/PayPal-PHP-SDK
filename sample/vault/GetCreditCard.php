@@ -17,10 +17,12 @@ use PayPal\Api\CreditCard;
 try {
     $card = CreditCard::get($card->getId(), $apiContext);
 } catch (Exception $ex) {
-    ResultPrinter::printError("Get Credit Card", "Credit Card", $card->getId(), null, $ex);
+    // NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
+ 	ResultPrinter::printError("Get Credit Card", "Credit Card", $card->getId(), null, $ex);
     exit(1);
 }
 
-ResultPrinter::printResult("Get Credit Card", "Credit Card", $card->getId(), null, $card);
+// NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
+ ResultPrinter::printResult("Get Credit Card", "Credit Card", $card->getId(), null, $card);
 
 return $card;

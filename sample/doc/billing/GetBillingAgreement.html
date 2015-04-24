@@ -8,11 +8,8 @@ API used: /v1/payments/billing-agreements/<Agreement-Id></p></div></div></div><d
 
 <span class="hljs-keyword">try</span> {
     <span class="hljs-variable">$agreement</span> = Agreement::get(<span class="hljs-variable">$createdAgreement</span>-&gt;getId(), <span class="hljs-variable">$apiContext</span>);
-} <span class="hljs-keyword">catch</span> (<span class="hljs-keyword">Exception</span> <span class="hljs-variable">$ex</span>) {
-    ResultPrinter::printError(<span class="hljs-string">"Retrieved an Agreement"</span>, <span class="hljs-string">"Agreement"</span>, <span class="hljs-variable">$agreement</span>-&gt;getId(), <span class="hljs-variable">$createdAgreement</span>-&gt;getId(), <span class="hljs-variable">$ex</span>);
+} <span class="hljs-keyword">catch</span> (<span class="hljs-keyword">Exception</span> <span class="hljs-variable">$ex</span>) {</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY</p></div></div><div class="code"><div class="wrapper"> 	ResultPrinter::printError(<span class="hljs-string">"Retrieved an Agreement"</span>, <span class="hljs-string">"Agreement"</span>, <span class="hljs-variable">$agreement</span>-&gt;getId(), <span class="hljs-variable">$createdAgreement</span>-&gt;getId(), <span class="hljs-variable">$ex</span>);
     <span class="hljs-keyword">exit</span>(<span class="hljs-number">1</span>);
-}
-
-ResultPrinter::printResult(<span class="hljs-string">"Retrieved an Agreement"</span>, <span class="hljs-string">"Agreement"</span>, <span class="hljs-variable">$agreement</span>-&gt;getId(), <span class="hljs-variable">$createdAgreement</span>-&gt;getId(), <span class="hljs-variable">$agreement</span>);
+}</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY</p></div></div><div class="code"><div class="wrapper">ResultPrinter::printResult(<span class="hljs-string">"Retrieved an Agreement"</span>, <span class="hljs-string">"Agreement"</span>, <span class="hljs-variable">$agreement</span>-&gt;getId(), <span class="hljs-variable">$createdAgreement</span>-&gt;getId(), <span class="hljs-variable">$agreement</span>);
 
 <span class="hljs-keyword">return</span> <span class="hljs-variable">$agreement</span>;</div></div></div></div></body></html>

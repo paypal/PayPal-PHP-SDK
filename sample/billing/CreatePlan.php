@@ -65,10 +65,12 @@ $request = clone $plan;
 try {
     $output = $plan->create($apiContext);
 } catch (Exception $ex) {
-    ResultPrinter::printError("Created Plan", "Plan", null, $request, $ex);
+    // NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
+ 	ResultPrinter::printError("Created Plan", "Plan", null, $request, $ex);
     exit(1);
 }
 
-ResultPrinter::printResult("Created Plan", "Plan", $output->getId(), $request, $output);
+// NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
+ ResultPrinter::printResult("Created Plan", "Plan", $output->getId(), $request, $output);
 
 return $output;

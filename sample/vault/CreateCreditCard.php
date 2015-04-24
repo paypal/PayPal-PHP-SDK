@@ -34,10 +34,12 @@ $request = clone $card;
 try {
     $card->create($apiContext);
 } catch (Exception $ex) {
-    ResultPrinter::printError("Create Credit Card", "Credit Card", null, $request, $ex);
+    // NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
+ 	ResultPrinter::printError("Create Credit Card", "Credit Card", null, $request, $ex);
     exit(1);
 }
 
-ResultPrinter::printResult("Create Credit Card", "Credit Card", $card->getId(), $request, $card);
+// NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
+ ResultPrinter::printResult("Create Credit Card", "Credit Card", $card->getId(), $request, $card);
 
 return $card;

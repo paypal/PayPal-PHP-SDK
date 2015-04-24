@@ -11,12 +11,9 @@ for a webhook events. This is made in a sample just to make sure there is minimu
 <span class="hljs-variable">$params</span> = <span class="hljs-keyword">array</span>(</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>&#39;start_time&#39;=&gt;&#39;2014-12-06T11:00:00Z&#39;,
 &#39;end_time&#39;=&gt;&#39;2014-12-12T11:00:00Z&#39;</p></div></div><div class="code"><div class="wrapper">);</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><h3 id="search-webhook-events">Search Webhook events</h3></div></div></div><div class="segment"><div class="code"><div class="wrapper"><span class="hljs-keyword">try</span> {
     <span class="hljs-variable">$output</span> = \PayPal\Api\WebhookEvent::all(<span class="hljs-variable">$params</span>, <span class="hljs-variable">$apiContext</span>);
-} <span class="hljs-keyword">catch</span> (<span class="hljs-keyword">Exception</span> <span class="hljs-variable">$ex</span>) {
-    ResultPrinter::printError(<span class="hljs-string">"Search Webhook events"</span>, <span class="hljs-string">"WebhookEventList"</span>, <span class="hljs-keyword">null</span>, <span class="hljs-keyword">null</span>, <span class="hljs-variable">$ex</span>);
+} <span class="hljs-keyword">catch</span> (<span class="hljs-keyword">Exception</span> <span class="hljs-variable">$ex</span>) {</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY</p></div></div><div class="code"><div class="wrapper"> 	ResultPrinter::printError(<span class="hljs-string">"Search Webhook events"</span>, <span class="hljs-string">"WebhookEventList"</span>, <span class="hljs-keyword">null</span>, <span class="hljs-keyword">null</span>, <span class="hljs-variable">$ex</span>);
     <span class="hljs-keyword">exit</span>(<span class="hljs-number">1</span>);
-}
-
-ResultPrinter::printResult(<span class="hljs-string">"Search Webhook events"</span>, <span class="hljs-string">"WebhookEventList"</span>, <span class="hljs-keyword">null</span>, <span class="hljs-variable">$params</span>, <span class="hljs-variable">$output</span>);
+}</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY</p></div></div><div class="code"><div class="wrapper"> ResultPrinter::printResult(<span class="hljs-string">"Search Webhook events"</span>, <span class="hljs-string">"WebhookEventList"</span>, <span class="hljs-keyword">null</span>, <span class="hljs-variable">$params</span>, <span class="hljs-variable">$output</span>);
 
 
 <span class="hljs-keyword">return</span> <span class="hljs-variable">$output</span>;</div></div></div></div></body></html>

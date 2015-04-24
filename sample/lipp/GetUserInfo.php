@@ -29,8 +29,10 @@ try {
     $userInfo = OpenIdUserinfo::getUserinfo($params, $apiContext);
 
 } catch (Exception $ex) {
-    ResultPrinter::printError("User Information", "User Info", null, $params, $ex);
+    // NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
+ 	ResultPrinter::printError("User Information", "User Info", null, $params, $ex);
     exit(1);
 }
 
-ResultPrinter::printResult("User Information", "User Info", $userInfo->getUserId(), $params, $userInfo);
+// NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
+ ResultPrinter::printResult("User Information", "User Info", $userInfo->getUserId(), $params, $userInfo);

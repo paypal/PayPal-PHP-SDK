@@ -25,10 +25,12 @@ try {
     $agreement = Agreement::get($suspendedAgreement->getId(), $apiContext);
 
 } catch (Exception $ex) {
+    // NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
     ResultPrinter::printResult("Reactivate the Agreement", "Agreement", $agreement->getId(), $suspendedAgreement, $ex);
     exit(1);
 }
 
+// NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
 ResultPrinter::printResult("Reactivate the Agreement", "Agreement", $agreement->getId(), $suspendedAgreement, $agreement);
 
 return $agreement;

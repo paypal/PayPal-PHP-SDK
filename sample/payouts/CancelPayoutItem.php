@@ -21,13 +21,16 @@ try {
     if ($payoutItem->getTransactionStatus() == 'UNCLAIMED') {
         // Cancel the Payout Item
         $output = \PayPal\Api\PayoutItem::cancel($payoutItemId, $apiContext);
+        // NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
         ResultPrinter::printResult("Cancel Unclaimed Payout Item", "PayoutItem", $output->getPayoutItemId(), null, $output);
     } else {
         // The item transaction status is not unclaimed. You can only cancel an unclaimed transaction.
-        ResultPrinter::printError("Cancel Unclaimed Payout Item", "PayoutItem", null, $payoutItemId, new Exception("Payout Item Status is not UNCLAIMED"));
+        // NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
+ 	    ResultPrinter::printError("Cancel Unclaimed Payout Item", "PayoutItem", null, $payoutItemId, new Exception("Payout Item Status is not UNCLAIMED"));
     }
 } catch (Exception $ex) {
-    ResultPrinter::printError("Cancel Unclaimed Payout Item", "PayoutItem", null, $payoutItemId, $ex);
+    // NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
+ 	ResultPrinter::printError("Cancel Unclaimed Payout Item", "PayoutItem", null, $payoutItemId, $ex);
     exit(1);
 }
 

@@ -101,10 +101,12 @@ try {
     $agreement = $agreement->create($apiContext);
 
 } catch (Exception $ex) {
+    // NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
     ResultPrinter::printError("Created Billing Agreement.", "Agreement", $agreement->getId(), $request, $ex);
     exit(1);
 }
 
-ResultPrinter::printResult("Created Billing Agreement.", "Agreement", $agreement->getId(), $request, $agreement);
+ // NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
+ ResultPrinter::printResult("Created Billing Agreement.", "Agreement", $agreement->getId(), $request, $agreement);
 
 return $agreement;

@@ -24,10 +24,12 @@ try {
     // transaction from your payment resource.
     $sale = Sale::get($saleId, $apiContext);
 } catch (Exception $ex) {
-    ResultPrinter::printError("Look Up A Sale", "Sale", $sale->getId(), null, $ex);
+    // NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
+ 	ResultPrinter::printError("Look Up A Sale", "Sale", $sale->getId(), null, $ex);
     exit(1);
 }
 
-ResultPrinter::printResult("Look Up A Sale", "Sale", $sale->getId(), null, $sale);
+// NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
+ ResultPrinter::printResult("Look Up A Sale", "Sale", $sale->getId(), null, $sale);
 
 return $sale;

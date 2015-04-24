@@ -15,10 +15,12 @@ use PayPal\Api\Plan;
 try {
     $plan = Plan::get($createdPlan->getId(), $apiContext);
 } catch (Exception $ex) {
-    ResultPrinter::printError("Retrieved a Plan", "Plan", $plan->getId(), null, $ex);
+    // NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
+ 	ResultPrinter::printError("Retrieved a Plan", "Plan", $plan->getId(), null, $ex);
     exit(1);
 }
 
-ResultPrinter::printResult("Retrieved a Plan", "Plan", $plan->getId(), null, $plan);
+// NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
+ ResultPrinter::printResult("Retrieved a Plan", "Plan", $plan->getId(), null, $plan);
 
 return $plan;

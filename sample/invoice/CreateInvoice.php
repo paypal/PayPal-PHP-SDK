@@ -143,10 +143,12 @@ try {
     // with a valid ApiContext (See bootstrap.php for more on `ApiContext`)
     $invoice->create($apiContext);
 } catch (Exception $ex) {
-    ResultPrinter::printError("Create Invoice", "Invoice", null, $request, $ex);
+    // NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
+ 	ResultPrinter::printError("Create Invoice", "Invoice", null, $request, $ex);
     exit(1);
 }
 
-ResultPrinter::printResult("Create Invoice", "Invoice", $invoice->getId(), $request, $invoice);
+// NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
+ ResultPrinter::printResult("Create Invoice", "Invoice", $invoice->getId(), $request, $invoice);
 
 return $invoice;

@@ -104,10 +104,12 @@ $request = clone $payment;
 try {
     $payment->create($apiContext);
 } catch (Exception $ex) {
-    ResultPrinter::printError("Create Payment using Saved Card", "Payment", null, $request, $ex);
+    // NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
+ 	ResultPrinter::printError("Create Payment using Saved Card", "Payment", null, $request, $ex);
     exit(1);
 }
 
-ResultPrinter::printResult("Create Payment using Saved Card", "Payment", $payment->getId(), $request, $payment);
+// NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
+ ResultPrinter::printResult("Create Payment using Saved Card", "Payment", $payment->getId(), $request, $payment);
 
 return $card;

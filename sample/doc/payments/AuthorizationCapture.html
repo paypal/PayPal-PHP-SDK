@@ -19,11 +19,8 @@ with a valid ApiContext (See bootstrap.php for more on <code>ApiContext</code>)<
     <span class="hljs-comment">### Capture</span>
     <span class="hljs-variable">$capture</span> = <span class="hljs-keyword">new</span> Capture();
     <span class="hljs-variable">$capture</span>-&gt;setAmount(<span class="hljs-variable">$amt</span>);</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Perform a capture</p></div></div><div class="code"><div class="wrapper">    <span class="hljs-variable">$getCapture</span> = <span class="hljs-variable">$authorization</span>-&gt;capture(<span class="hljs-variable">$capture</span>, <span class="hljs-variable">$apiContext</span>);
-} <span class="hljs-keyword">catch</span> (<span class="hljs-keyword">Exception</span> <span class="hljs-variable">$ex</span>) {
-    ResultPrinter::printError(<span class="hljs-string">"Capture Payment"</span>, <span class="hljs-string">"Authorization"</span>, <span class="hljs-keyword">null</span>, <span class="hljs-variable">$capture</span>, <span class="hljs-variable">$ex</span>);
+} <span class="hljs-keyword">catch</span> (<span class="hljs-keyword">Exception</span> <span class="hljs-variable">$ex</span>) {</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY</p></div></div><div class="code"><div class="wrapper"> 	ResultPrinter::printError(<span class="hljs-string">"Capture Payment"</span>, <span class="hljs-string">"Authorization"</span>, <span class="hljs-keyword">null</span>, <span class="hljs-variable">$capture</span>, <span class="hljs-variable">$ex</span>);
     <span class="hljs-keyword">exit</span>(<span class="hljs-number">1</span>);
-}
-
-ResultPrinter::printResult(<span class="hljs-string">"Capture Payment"</span>, <span class="hljs-string">"Authorization"</span>, <span class="hljs-variable">$getCapture</span>-&gt;getId(), <span class="hljs-variable">$capture</span>, <span class="hljs-variable">$getCapture</span>);
+}</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY</p></div></div><div class="code"><div class="wrapper"> ResultPrinter::printResult(<span class="hljs-string">"Capture Payment"</span>, <span class="hljs-string">"Authorization"</span>, <span class="hljs-variable">$getCapture</span>-&gt;getId(), <span class="hljs-variable">$capture</span>, <span class="hljs-variable">$getCapture</span>);
 
 <span class="hljs-keyword">return</span> <span class="hljs-variable">$getCapture</span>;</div></div></div></div></body></html>

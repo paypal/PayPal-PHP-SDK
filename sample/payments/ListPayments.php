@@ -26,8 +26,10 @@ try {
 
     $payments = Payment::all($params, $apiContext);
 } catch (Exception $ex) {
-    ResultPrinter::printError("List Payments", "Payment", null, $params, $ex);
+    // NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
+ 	ResultPrinter::printError("List Payments", "Payment", null, $params, $ex);
     exit(1);
 }
 
-ResultPrinter::printResult("List Payments", "Payment", null, $params, $payments);
+// NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
+ ResultPrinter::printResult("List Payments", "Payment", null, $params, $payments);

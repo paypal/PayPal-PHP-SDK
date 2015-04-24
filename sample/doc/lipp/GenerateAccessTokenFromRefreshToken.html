@@ -7,8 +7,10 @@
     <span class="hljs-variable">$tokenInfo</span> = <span class="hljs-variable">$tokenInfo</span>-&gt;createFromRefreshToken(<span class="hljs-keyword">array</span>(<span class="hljs-string">'refresh_token'</span> =&gt; <span class="hljs-variable">$refreshToken</span>), <span class="hljs-variable">$apiContext</span>);
 
 } <span class="hljs-keyword">catch</span> (<span class="hljs-keyword">Exception</span> <span class="hljs-variable">$ex</span>) {
-    ResultPrinter::printError(<span class="hljs-string">"Obtained Access Token From Refresh Token"</span>, <span class="hljs-string">"Access Token"</span>, <span class="hljs-keyword">null</span>, <span class="hljs-keyword">null</span>, <span class="hljs-variable">$ex</span>);
+    // NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
+ 	ResultPrinter::printError(<span class="hljs-string">"Obtained Access Token From Refresh Token"</span>, <span class="hljs-string">"Access Token"</span>, <span class="hljs-keyword">null</span>, <span class="hljs-keyword">null</span>, <span class="hljs-variable">$ex</span>);
     <span class="hljs-keyword">exit</span>(<span class="hljs-number">1</span>);
 }
 
-ResultPrinter::printResult(<span class="hljs-string">"Obtained Access Token From Refresh Token"</span>, <span class="hljs-string">"Access Token"</span>, <span class="hljs-variable">$tokenInfo</span>-&gt;getAccessToken(), <span class="hljs-keyword">null</span>, <span class="hljs-variable">$tokenInfo</span>);</div></div></div></div></body></html>
+// NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
+ ResultPrinter::printResult(<span class="hljs-string">"Obtained Access Token From Refresh Token"</span>, <span class="hljs-string">"Access Token"</span>, <span class="hljs-variable">$tokenInfo</span>-&gt;getAccessToken(), <span class="hljs-keyword">null</span>, <span class="hljs-variable">$tokenInfo</span>);</div></div></div></div></body></html>
