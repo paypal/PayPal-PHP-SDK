@@ -27,7 +27,7 @@ Note: The root directory for composer based download would be `vendor` and for d
     ```
 3. Open [http://localhost:5000/](http://localhost:5000/) in your web browser, and you should be able to see the sample dashboard.
 4. You should see a sample dashboard page as shown below:
-![Sample Web](https://raw.githubusercontent.com/wiki/paypal/PayPal-PHP-SDK/images/sample_web.png)
+![Sample Web](https://raw.githubusercontent.com/wiki/paypal/PayPal-PHP-SDK/images/sample_web.gif)
 
 #### Configuration (Optional)
 
