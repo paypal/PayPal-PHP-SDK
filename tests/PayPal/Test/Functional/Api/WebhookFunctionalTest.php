@@ -137,7 +137,7 @@ class WebhookFunctionalTest extends \PHPUnit_Framework_TestCase
                 break;
             }
         }
-        $this->assertTrue($found, "The Created Web Profile was not found in the get list");
+        $this->assertTrue($found, "The Created Webhook was not found in the get list");
         $this->assertEquals($webhook->getId(), $foundObject->getId());
         return $result;
     }
