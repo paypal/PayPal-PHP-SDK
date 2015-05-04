@@ -58,7 +58,7 @@ class PayPalModel
     }
 
     /**
-     * Returns a list of Object from Array or Json String. It is generally used when you json
+     * Returns a list of Object from Array or Json String. It is generally used when your json
      * contains an array of this object
      *
      * @param mixed $data Array object or json string representation
@@ -66,21 +66,38 @@ class PayPalModel
      */
     public static function getList($data)
     {
-        if (!is_array($data) && JsonValidator::validate($data)) {
-            //Convert to Array if Json Data Sent
-            $data = json_decode($data, true);
+        // Return Null if Null
+        if ($data === null) { return null; }
+
+        if (is_a($data, get_class(new \stdClass()))) {
+            //This means, root element is object
+            return new static(json_encode($data));
         }
-        if (!ArrayUtil::isAssocArray($data)) {
-            $list = array();
-            //This means, root element is array
-            foreach ($data as $k => $v) {
-                $obj = new static;
-                $obj->fromArray($v);
-                $list[] = $obj;
+
+        $list = array();
+
+        if (is_array($data)) {
+            $data = json_encode($data);
+        }
+
+        if (JsonValidator::validate($data)) {
+            // It is valid JSON
+            $decoded = json_decode($data);
+            if ($decoded === null) {
+                return $list;
             }
-            return $list;
+            if (is_array($decoded)) {
+                foreach ($decoded as $k => $v) {
+                    $list[] = self::getList($v);
+                }
+            }
+            if (is_a($decoded, get_class(new \stdClass()))) {
+                //This means, root element is object
+                $list[] = new static(json_encode($decoded));
+            }
         }
-        return array();
+
+        return $list;
     }
 
     /**
