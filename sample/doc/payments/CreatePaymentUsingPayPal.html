@@ -19,11 +19,13 @@ information</p></div></div><div class="code"><div class="wrapper"><span class="h
 <span class="hljs-variable">$item1</span>-&gt;setName(<span class="hljs-string">'Ground Coffee 40 oz'</span>)
     -&gt;setCurrency(<span class="hljs-string">'USD'</span>)
     -&gt;setQuantity(<span class="hljs-number">1</span>)
+    -&gt;setSku(<span class="hljs-string">"123123"</span>) <span class="hljs-comment">// Similar to `item_number` in Classic API</span>
     -&gt;setPrice(<span class="hljs-number">7.5</span>);
 <span class="hljs-variable">$item2</span> = <span class="hljs-keyword">new</span> Item();
 <span class="hljs-variable">$item2</span>-&gt;setName(<span class="hljs-string">'Granola bars'</span>)
     -&gt;setCurrency(<span class="hljs-string">'USD'</span>)
     -&gt;setQuantity(<span class="hljs-number">5</span>)
+    -&gt;setSku(<span class="hljs-string">"321321"</span>) <span class="hljs-comment">// Similar to `item_number` in Classic API</span>
     -&gt;setPrice(<span class="hljs-number">2</span>);
 
 <span class="hljs-variable">$itemList</span> = <span class="hljs-keyword">new</span> ItemList();

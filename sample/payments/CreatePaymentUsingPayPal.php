@@ -29,11 +29,13 @@ $item1 = new Item();
 $item1->setName('Ground Coffee 40 oz')
     ->setCurrency('USD')
     ->setQuantity(1)
+    ->setSku("123123") // Similar to `item_number` in Classic API
     ->setPrice(7.5);
 $item2 = new Item();
 $item2->setName('Granola bars')
     ->setCurrency('USD')
     ->setQuantity(5)
+    ->setSku("321321") // Similar to `item_number` in Classic API
     ->setPrice(2);
 
 $itemList = new ItemList();
