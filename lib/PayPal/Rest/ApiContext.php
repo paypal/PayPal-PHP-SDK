@@ -59,7 +59,7 @@ class ApiContext
      * @param string $payPalPartnerAttributionId
      * @return ApiContext
      */
-    public static function create($credential, $config = array(), $payPalPartnerAttributionId=null)
+    public static function create($credential, $config=array(), $payPalPartnerAttributionId=null)
     {
         // ### Api context
         // Use an ApiContext object to authenticate
@@ -83,7 +83,7 @@ class ApiContext
             $apiContext->addRequestHeader('PayPal-Partner-Attribution-Id', $payPalPartnerAttributionId);
         }
 
-        return self::$defaultApiContext;
+        return $apiContext;
     }
 
     /**
