@@ -2,6 +2,7 @@
 
 namespace PayPal\Rest;
 
+use PayPal\Auth\OAuthTokenCredential;
 use PayPal\Core\PayPalConfigManager;
 use PayPal\Core\PayPalCredentialManager;
 
@@ -14,6 +15,11 @@ use PayPal\Core\PayPalCredentialManager;
  */
 class ApiContext
 {
+    /**
+     * Default ApiContext when no ApiContext is provided as param.
+     * @var ApiContext
+     */
+    public static $defaultApiContext = null;
 
     /**
      * Unique request id to be used for this call
@@ -43,6 +49,60 @@ class ApiContext
     {
         $this->requestId = $requestId;
         $this->credential = $credential;
+    }
+
+    /**
+     * Create new default ApiContext.
+     *
+     * @param \PayPal\Auth\OAuthTokenCredential $credential
+     * @param array $config
+     * @param string $payPalPartnerAttributionId
+     * @return ApiContext
+     */
+    public static function create($credential, $config = array(), $payPalPartnerAttributionId=null)
+    {
+        // ### Api context
+        // Use an ApiContext object to authenticate
+        // API calls. The clientId and clientSecret for the
+        // OAuthTokenCredential class can be retrieved from
+        // developer.paypal.com
+
+        $apiContext = new ApiContext($credential);
+
+        // #### SDK configuration
+        // Register the sdk_config.ini file in current directory
+        // as the configuration source.
+        if(!defined("PP_CONFIG_PATH")) {
+            $apiContext->setConfig($config);
+        }
+
+        // Partner Attribution Id
+        // Use this header if you are a PayPal partner. Specify a unique BN Code to receive revenue attribution.
+        // To learn more or to request a BN Code, contact your Partner Manager or visit the PayPal Partner Portal
+        if ($payPalPartnerAttributionId !== null) {
+            $apiContext->addRequestHeader('PayPal-Partner-Attribution-Id', $payPalPartnerAttributionId);
+        }
+
+        return self::$defaultApiContext;
+    }
+
+    /**
+     * @param ApiContext $apiContext
+     * @return ApiContext
+     */
+    public static function setDefault($apiContext)
+    {
+        self::$defaultApiContext = $apiContext;
+    }
+
+    /**
+     * Returns default ApiContext.
+     *
+     * @return ApiContext
+     */
+    public static function getDefault()
+    {
+        return self::$defaultApiContext;
     }
 
     /**

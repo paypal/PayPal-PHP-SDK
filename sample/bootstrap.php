@@ -29,8 +29,10 @@ ini_set('display_errors', '1');
 $clientId = 'AYSq3RDGsmBLJE-otTkBtM-jBRd1TCQwFf9RGfwddNXWz0uFU9ztymylOhRS';
 $clientSecret = 'EGnHDxD_qRPdaLdZz8iCr8N7_MzF-YHPTkjs6NKYQvQSBngp4PTTVWkPZRbL';
 
-/** @var \Paypal\Rest\ApiContext $apiContext */
+/** @var \PayPal\Rest\ApiContext $apiContext */
 $apiContext = getApiContext($clientId, $clientSecret);
+//$apiContext = getApiContextUsingConfigIni($clientId, $clientSecret);
+//$apiContext = getApiContextUsingConfigArray($clientId, $clientSecret);
 
 return $apiContext;
 /**
@@ -41,7 +43,6 @@ return $apiContext;
  */
 function getApiContext($clientId, $clientSecret)
 {
-
     // #### SDK configuration
     // Register the sdk_config.ini file in current directory
     // as the configuration source.
@@ -51,19 +52,18 @@ function getApiContext($clientId, $clientSecret)
     }
     */
 
-
     // ### Api context
     // Use an ApiContext object to authenticate
     // API calls. The clientId and clientSecret for the
     // OAuthTokenCredential class can be retrieved from
     // developer.paypal.com
 
-    $apiContext = new ApiContext(
-        new OAuthTokenCredential(
-            $clientId,
-            $clientSecret
-        )
+    $credentials = new OAuthTokenCredential(
+        $clientId,
+        $clientSecret
     );
+
+    $apiContext = new ApiContext($credentials);
 
     // Comment this line out and uncomment the PP_CONFIG_PATH
     // 'define' block if you want to use static file
@@ -86,6 +86,76 @@ function getApiContext($clientId, $clientSecret)
     // Use this header if you are a PayPal partner. Specify a unique BN Code to receive revenue attribution.
     // To learn more or to request a BN Code, contact your Partner Manager or visit the PayPal Partner Portal
     // $apiContext->addRequestHeader('PayPal-Partner-Attribution-Id', '123123123');
+
+    ApiContext::setDefault($apiContext);
+
+    return $apiContext;
+}
+
+/**
+ * Helper method for getting an APIContext for all calls
+ * @param string $clientId Client ID
+ * @param string $clientSecret Client Secret
+ * @return PayPal\Rest\ApiContext
+ */
+function getApiContextUsingConfigIni($clientId, $clientSecret)
+{
+    // #### SDK configuration
+    // Register the sdk_config.ini file in current directory
+    // as the configuration source.
+    if(!defined("PP_CONFIG_PATH")) {
+        define("PP_CONFIG_PATH", __DIR__);
+    }
+
+    $credentials = new OAuthTokenCredential(
+        $clientId,
+        $clientSecret
+    );
+
+    $apiContext = ApiContext::create($credentials);
+
+    // Partner Attribution Id
+    // Add this parameter if you are a PayPal partner. Specify a unique BN Code to receive revenue attribution.
+    // To learn more or to request a BN Code, contact your Partner Manager or visit the PayPal Partner Portal
+    //$apiContext = ApiContext::create($credentials, null, '123123123');
+
+    ApiContext::setDefault($apiContext);
+
+    return $apiContext;
+}
+
+/**
+ * Helper method for getting an APIContext for all calls
+ * @param string $clientId Client ID
+ * @param string $clientSecret Client Secret
+ * @return PayPal\Rest\ApiContext
+ */
+function getApiContextUsingConfigArray($clientId, $clientSecret)
+{
+    $credentials = new OAuthTokenCredential(
+        $clientId,
+        $clientSecret
+    );
+
+    $config = array(
+        'mode' => 'sandbox',
+        'log.LogEnabled' => true,
+        'log.FileName' => '../PayPal.log',
+        'log.LogLevel' => 'DEBUG', // PLEASE USE `FINE` LEVEL FOR LOGGING IN LIVE ENVIRONMENTS
+        'validation.level' => 'log',
+        'cache.enabled' => true,
+        // 'http.CURLOPT_CONNECTTIMEOUT' => 30
+        // 'http.headers.PayPal-Partner-Attribution-Id' => '123123123'
+    );
+
+    $apiContext = ApiContext::create($credentials, $config);
+
+    // Partner Attribution Id
+    // Add this parameter if you are a PayPal partner. Specify a unique BN Code to receive revenue attribution.
+    // To learn more or to request a BN Code, contact your Partner Manager or visit the PayPal Partner Portal
+    //$apiContext = ApiContext::create($credentials, $config, '123123123');
+
+    ApiContext::setDefault($apiContext);
 
     return $apiContext;
 }
