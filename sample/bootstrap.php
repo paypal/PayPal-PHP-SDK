@@ -31,7 +31,7 @@ $clientSecret = 'EGnHDxD_qRPdaLdZz8iCr8N7_MzF-YHPTkjs6NKYQvQSBngp4PTTVWkPZRbL';
 
 /** @var \PayPal\Rest\ApiContext $apiContext */
 $apiContext = getApiContext($clientId, $clientSecret);
-//$apiContext = getApiContextUsingConfigIni($clientId, $clientSecret);
+//$apiContext = getApiContextUsingConfigIni();
 //$apiContext = getApiContextUsingConfigArray($clientId, $clientSecret);
 
 return $apiContext;
@@ -94,11 +94,9 @@ function getApiContext($clientId, $clientSecret)
 
 /**
  * Helper method for getting an APIContext for all calls
- * @param string $clientId Client ID
- * @param string $clientSecret Client Secret
  * @return PayPal\Rest\ApiContext
  */
-function getApiContextUsingConfigIni($clientId, $clientSecret)
+function getApiContextUsingConfigIni()
 {
     // #### SDK configuration
     // Register the sdk_config.ini file in current directory
@@ -107,19 +105,12 @@ function getApiContextUsingConfigIni($clientId, $clientSecret)
         define("PP_CONFIG_PATH", __DIR__);
     }
 
-    $credentials = new OAuthTokenCredential(
-        $clientId,
-        $clientSecret
-    );
-
-    $apiContext = ApiContext::create($credentials);
+    $apiContext = ApiContext::create();
 
     // Partner Attribution Id
     // Add this parameter if you are a PayPal partner. Specify a unique BN Code to receive revenue attribution.
     // To learn more or to request a BN Code, contact your Partner Manager or visit the PayPal Partner Portal
-    //$apiContext = ApiContext::create($credentials, null, '123123123');
-
-    ApiContext::setDefault($apiContext);
+    //$apiContext = ApiContext::create(null, null, '123123123');
 
     return $apiContext;
 }

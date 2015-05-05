@@ -59,7 +59,7 @@ class ApiContext
      * @param string $payPalPartnerAttributionId
      * @return ApiContext
      */
-    public static function create($credential, $config=array(), $payPalPartnerAttributionId=null)
+    public static function create($credential = null, $config=array(), $payPalPartnerAttributionId=null)
     {
         // ### Api context
         // Use an ApiContext object to authenticate
