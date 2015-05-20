@@ -95,6 +95,7 @@ class PayPalHttpConnection
                 curl_setopt($ch, CURLOPT_POST, true);
             case 'PUT':
             case 'PATCH':
+            case 'DELETE':
                 curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
                 break;
         }
