@@ -100,7 +100,7 @@ class PayPalLoggingManager
         if ($this->isLoggingEnabled) {
             $config = PayPalConfigManager::getInstance()->getConfigHashmap();
             // Check if logging in live
-            if ($config['mode'] == 'live') {
+            if (array_key_exists('mode', $config) && $config['mode'] == 'live') {
                 // Live should not have logging level above INFO.
                 if ($this->loggingLevel >= PayPalLoggingLevel::INFO) {
                     // If it is at Debug Level, throw an warning in the log.
