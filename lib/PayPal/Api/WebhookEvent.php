@@ -2,12 +2,12 @@
 
 namespace PayPal\Api;
 
-use PayPal\Common\PayPalModel;
 use PayPal\Common\PayPalResourceModel;
+use PayPal\Exception\PayPalConnectionException;
 use PayPal\Validation\ArgumentValidator;
-use PayPal\Api\WebhookEventList;
 use PayPal\Rest\ApiContext;
 use PayPal\Transport\PayPalRestCall;
+use PayPal\Validation\JsonValidator;
 
 /**
  * Class WebhookEvent
@@ -161,6 +161,44 @@ class WebhookEvent extends PayPalResourceModel
     public function getResource()
     {
         return $this->resource;
+    }
+
+    /**
+     * Validates Received Event from Webhook, and returns the webhook event object. Because security verifications by verifying certificate chain is not enabled in PHP yet,
+     * we need to fallback to default behavior of retrieving the ID attribute of the data, and make a separate GET call to PayPal APIs, to retrieve the data.
+     * This is important to do again, as hacker could have faked the data, and the retrieved data cannot be trusted without either doing client side security validation, or making a separate call
+     * to PayPal APIs to retrieve the actual data. This limits the hacker to mimick a fake data, as hacker wont be able to predict the Id correctly.
+     *
+     * NOTE: PLEASE DO NOT USE THE DATA PROVIDED IN WEBHOOK DIRECTLY, AS HACKER COULD PASS IN FAKE DATA. IT IS VERY IMPORTANT THAT YOU RETRIEVE THE ID AND MAKE A SEPARATE CALL TO PAYPAL API.
+     *
+     * @param string     $body
+     * @param ApiContext $apiContext
+     * @param PayPalRestCall $restCall is the Rest Call Service that is used to make rest calls
+     * @return WebhookEvent
+     * @throws \InvalidArgumentException if input arguments are incorrect, or Id is not found.
+     * @throws PayPalConnectionException if any exception from PayPal APIs other than not found is sent.
+     */
+    public static function validateAndGetReceivedEvent($body, $apiContext = null, $restCall = null)
+    {
+        if ($body == null | empty($body)){
+            throw new \InvalidArgumentException("Body cannot be null or empty");
+        }
+        if (!JsonValidator::validate($body, true)) {
+            throw new \InvalidArgumentException("Request Body is not a valid JSON.");
+        }
+        $object = new WebhookEvent($body);
+        if ($object->getId() == null) {
+            throw new \InvalidArgumentException("Id attribute not found in JSON. Possible reason could be invalid JSON Object");
+        }
+        try {
+            return self::get($object->getId(), $apiContext, $restCall);
+        } catch(PayPalConnectionException $ex) {
+            if ($ex->getCode() == 404) {
+                // It means that the given webhook event Id is not found for this merchant.
+                throw new \InvalidArgumentException("Webhook Event Id provided in the data is incorrect. This could happen if anyone other than PayPal is faking the incoming webhook data.");
+            }
+            throw $ex;
+        }
     }
 
     /**
