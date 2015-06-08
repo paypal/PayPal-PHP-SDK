@@ -12,7 +12,7 @@ class PayPalConstants
 {
 
     const SDK_NAME = 'PayPal-PHP-SDK';
-    const SDK_VERSION = '1.3.2';
+    const SDK_VERSION = '1.4.0';
 
     /**
      * Approval URL for Payment
