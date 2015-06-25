@@ -11,7 +11,7 @@ use PayPal\Common\PayPalModel;
  *
  * @package PayPal\Api
  *
- * @property \PayPal\Api\CreditCard credit_cards
+ * @property \PayPal\Api\CreditCard[] credit_cards
  * @property int count
  * @property string next_id
  */
@@ -21,7 +21,7 @@ class CreditCardHistory extends PayPalModel
      * A list of credit card resources
      *
      *
-     * @param $credit_cards
+     * @param \PayPal\Api\CreditCard[] $credit_cards
      * @return $this
      */
     public function setCreditCards($credit_cards)
