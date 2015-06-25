@@ -19,8 +19,8 @@ use PayPal\Common\PayPalModel;
 class Patch extends PayPalModel
 {
     /**
-     * Patch operation to perform.Value required for add & remove operation can be any JSON value.
-     * Valid Values: ["add", "remove", "replace"]
+     * The operation to perform.
+     * Valid Values: ["add", "remove", "replace", "move", "copy", "test"]
      *
      * @param string $op
      * 
@@ -33,7 +33,7 @@ class Patch extends PayPalModel
     }
 
     /**
-     * Patch operation to perform.Value required for add & remove operation can be any JSON value.
+     * The operation to perform.
      *
      * @return string
      */
@@ -43,7 +43,7 @@ class Patch extends PayPalModel
     }
 
     /**
-     * string containing a JSON-Pointer value that references a location within the target document (the target location) where the operation is performed.
+     * String containing a JSON-Pointer value that references a location within the target document where the operation is performed.
      *
      * @param string $path
      * 
@@ -56,7 +56,7 @@ class Patch extends PayPalModel
     }
 
     /**
-     * string containing a JSON-Pointer value that references a location within the target document (the target location) where the operation is performed.
+     * String containing a JSON-Pointer value that references a location within the target document where the operation is performed.
      *
      * @return string
      */
@@ -89,7 +89,7 @@ class Patch extends PayPalModel
     }
 
     /**
-     * A string containing a JSON Pointer value that references the location in the target document to move the value from.
+     * A string containing a JSON Pointer value that references the location in the target document from which to move the value. Required for use where op=move.
      *
      * @param string $from
      * 
@@ -102,7 +102,7 @@ class Patch extends PayPalModel
     }
 
     /**
-     * A string containing a JSON Pointer value that references the location in the target document to move the value from.
+     * A string containing a JSON Pointer value that references the location in the target document from which to move the value. Required for use where op=move.
      *
      * @return string
      */

@@ -3,9 +3,11 @@
 namespace PayPal\Api;
 
 use PayPal\Common\PayPalResourceModel;
-use PayPal\Validation\ArgumentValidator;
-use PayPal\Rest\ApiContext;
 use PayPal\Transport\PayPalRestCall;
+use PayPal\Validation\ArgumentValidator;
+use PayPal\Api\CreditCardList;
+use PayPal\Rest\ApiContext;
+use PayPal\Transport\PPRestCall;
 
 /**
  * Class CreditCard
@@ -24,10 +26,14 @@ use PayPal\Transport\PayPalRestCall;
  * @property string last_name
  * @property \PayPal\Api\Address billing_address
  * @property string external_customer_id
+ * @property string merchant_id
+ * @property string payer_id
+ * @property string external_card_id
  * @property string state
- * @property string valid_until
  * @property string create_time
  * @property string update_time
+ * @property string valid_until
+ * @property \PayPal\Api\Links[] links
  */
 class CreditCard extends PayPalResourceModel
 {
@@ -78,7 +84,8 @@ class CreditCard extends PayPalResourceModel
     }
 
     /**
-     * Type of the Card (eg. Visa, Mastercard, etc.).
+     * Type of the Card. Currently supporting Visa, Mastercard, Amex, Discover and Maestro
+     * Valid Values: ["visa", "mastercard", "amex", "discover", "maestro"]
      *
      * @param string $type
      * 
@@ -91,7 +98,7 @@ class CreditCard extends PayPalResourceModel
     }
 
     /**
-     * Type of the Card (eg. Visa, Mastercard, etc.).
+     * Type of the Card. Currently supporting Visa, Mastercard, Amex, Discover and Maestro
      *
      * @return string
      */
@@ -262,6 +269,75 @@ class CreditCard extends PayPalResourceModel
     }
 
     /**
+     * A user provided, optional convenvience field that functions as a unique identifier for the merchant on behalf of whom this credit card is being stored for. Note that this has no relation to PayPal merchant id
+     *
+     * @param string $merchant_id
+     * 
+     * @return $this
+     */
+    public function setMerchantId($merchant_id)
+    {
+        $this->merchant_id = $merchant_id;
+        return $this;
+    }
+
+    /**
+     * A user provided, optional convenvience field that functions as a unique identifier for the merchant on behalf of whom this credit card is being stored for. Note that this has no relation to PayPal merchant id
+     *
+     * @return string
+     */
+    public function getMerchantId()
+    {
+        return $this->merchant_id;
+    }
+
+    /**
+     * A unique identifier that you can assign and track when storing a credit card or using a stored credit card. This ID can help to avoid unintentional use or misuse of credit cards. This ID can be any value you would like to associate with the saved card, such as a UUID, username, or email address. Required when using a stored credit card if a payer_id was originally provided when storing the credit card in vault.
+     * @deprecated This is being deprecated in favor of the `external_customer_id` property.
+     * @param string $payer_id
+     * 
+     * @return $this
+     */
+    public function setPayerId($payer_id)
+    {
+        $this->payer_id = $payer_id;
+        return $this;
+    }
+
+    /**
+     * A unique identifier that you can assign and track when storing a credit card or using a stored credit card. This ID can help to avoid unintentional use or misuse of credit cards. This ID can be any value you would like to associate with the saved card, such as a UUID, username, or email address. Required when using a stored credit card if a payer_id was originally provided when storing the credit card in vault.
+     * @deprecated This is being deprecated in favor of the `external_customer_id` property.
+     * @return string
+     */
+    public function getPayerId()
+    {
+        return $this->payer_id;
+    }
+
+    /**
+     * A unique identifier of the bank account resource. Generated and provided by the facilitator so it can be used to restrict the usage of the bank account to the specific merchant.
+     *
+     * @param string $external_card_id
+     * 
+     * @return $this
+     */
+    public function setExternalCardId($external_card_id)
+    {
+        $this->external_card_id = $external_card_id;
+        return $this;
+    }
+
+    /**
+     * A unique identifier of the bank account resource. Generated and provided by the facilitator so it can be used to restrict the usage of the bank account to the specific merchant.
+     *
+     * @return string
+     */
+    public function getExternalCardId()
+    {
+        return $this->external_card_id;
+    }
+
+    /**
      * State of the funding instrument.
      * Valid Values: ["expired", "ok"]
      *
@@ -286,6 +362,52 @@ class CreditCard extends PayPalResourceModel
     }
 
     /**
+     * Resource creation time  as ISO8601 date-time format (ex: 1994-11-05T13:15:30Z) that indicates creation time.
+     *
+     * @param string $create_time
+     * 
+     * @return $this
+     */
+    public function setCreateTime($create_time)
+    {
+        $this->create_time = $create_time;
+        return $this;
+    }
+
+    /**
+     * Resource creation time  as ISO8601 date-time format (ex: 1994-11-05T13:15:30Z) that indicates creation time.
+     *
+     * @return string
+     */
+    public function getCreateTime()
+    {
+        return $this->create_time;
+    }
+
+    /**
+     * Resource creation time  as ISO8601 date-time format (ex: 1994-11-05T13:15:30Z) that indicates the updation time.
+     *
+     * @param string $update_time
+     * 
+     * @return $this
+     */
+    public function setUpdateTime($update_time)
+    {
+        $this->update_time = $update_time;
+        return $this;
+    }
+
+    /**
+     * Resource creation time  as ISO8601 date-time format (ex: 1994-11-05T13:15:30Z) that indicates the updation time.
+     *
+     * @return string
+     */
+    public function getUpdateTime()
+    {
+        return $this->update_time;
+    }
+
+    /**
      * Date/Time until this resource can be used fund a payment.
      *
      * @param string $valid_until
@@ -306,52 +428,6 @@ class CreditCard extends PayPalResourceModel
     public function getValidUntil()
     {
         return $this->valid_until;
-    }
-
-    /**
-     * Time the resource was created in UTC ISO8601 format.
-     *
-     * @param string $create_time
-     *
-     * @return $this
-     */
-    public function setCreateTime($create_time)
-    {
-        $this->create_time = $create_time;
-        return $this;
-    }
-
-    /**
-     * Time the resource was created in UTC ISO8601 format.
-     *
-     * @return string
-     */
-    public function getCreateTime()
-    {
-        return $this->create_time;
-    }
-
-    /**
-     * Time the resource was created in UTC ISO8601 format.
-     *
-     * @param string $update_time
-     *
-     * @return $this
-     */
-    public function setUpdateTime($update_time)
-    {
-        $this->update_time = $update_time;
-        return $this;
-    }
-
-    /**
-     * Time the resource was created in UTC ISO8601 format.
-     *
-     * @return string
-     */
-    public function getUpdateTime()
-    {
-        return $this->update_time;
     }
 
     /**
@@ -446,6 +522,45 @@ class CreditCard extends PayPalResourceModel
         );
         $this->fromJson($json);
         return $this;
+    }
+
+    /**
+     * Retrieves a list of Credit Card resources.
+     *
+     * @param array $params
+     * @param ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
+     * @param PayPalRestCall $restCall is the Rest Call Service that is used to make rest calls
+     * @return CreditCardList
+     */
+    public static function all($params, $apiContext = null, $restCall = null)
+    {
+        if (is_null($params)) {
+            $params = array();
+        }
+        ArgumentValidator::validate($params, 'params');
+        $payLoad = "";
+        $allowedParams = array(
+          'page_size' => 1,
+          'page' => 1,
+          'start_time' => 1,
+          'end_time' => 1,
+          'sort_order' => 1,
+          'sort_by' => 1,
+          'merchant_id' => 1,
+          'external_card_id' => 1,
+          'external_customer_id' => 1,
+      );
+        $json = self::executeCall(
+            "/v1/vault/credit-cards" . "?" . http_build_query(array_intersect_key($params, $allowedParams)),
+            "GET",
+            $payLoad,
+            null,
+            $apiContext,
+            $restCall
+        );
+        $ret = new CreditCardList();
+        $ret->fromJson($json);
+        return $ret;
     }
 
 }

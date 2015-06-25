@@ -18,7 +18,7 @@ class CreditCardListTest extends \PHPUnit_Framework_TestCase
      */
     public static function getJson()
     {
-        return '{"credit-cards":' .CreditCardTest::getJson() . ',"count":123,"next_id":"TestSample"}';
+        return '{"items":' .CreditCardTest::getJson() . ',"links":' .LinksTest::getJson() . ',"total_items":123,"total_pages":123}';
     }
 
     /**
@@ -39,9 +39,10 @@ class CreditCardListTest extends \PHPUnit_Framework_TestCase
     {
         $obj = new CreditCardList(self::getJson());
         $this->assertNotNull($obj);
-        $this->assertNotNull($obj->getCreditCards());
-        $this->assertNotNull($obj->getCount());
-        $this->assertNotNull($obj->getNextId());
+        $this->assertNotNull($obj->getItems());
+        $this->assertNotNull($obj->getLinks());
+        $this->assertNotNull($obj->getTotalItems());
+        $this->assertNotNull($obj->getTotalPages());
         $this->assertEquals(self::getJson(), $obj->toJson());
         return $obj;
     }
@@ -52,9 +53,10 @@ class CreditCardListTest extends \PHPUnit_Framework_TestCase
      */
     public function testGetters($obj)
     {
-        $this->assertEquals($obj->getCreditCards(), CreditCardTest::getObject());
-        $this->assertEquals($obj->getCount(), 123);
-        $this->assertEquals($obj->getNextId(), "TestSample");
+        $this->assertEquals($obj->getItems(), CreditCardTest::getObject());
+        $this->assertEquals($obj->getLinks(), LinksTest::getObject());
+        $this->assertEquals($obj->getTotalItems(), 123);
+        $this->assertEquals($obj->getTotalPages(), 123);
     }
 
 }

@@ -22,6 +22,17 @@ $card->setType("visa")
     ->setFirstName("Joe")
     ->setLastName("Shopper");
 
+// ### Additional Information
+// Now you can also store the information that could help you connect
+// your users with the stored credit cards.
+// All these three fields could be used for storing any information that could help merchant to point the card.
+// However, Ideally, MerchantId could be used to categorize stores, apps, websites, etc.
+// ExternalCardId could be used for uniquely identifying the card per MerchantId. So, combination of "MerchantId" and "ExternalCardId" should be unique.
+// ExternalCustomerId could be userId, user email, etc to group multiple cards per user.
+$card->setMerchantId("MyStore1");
+$card->setExternalCardId("CardNumber123" . uniqid());
+$card->setExternalCustomerId("123123-myUser1@something.com");
+
 // For Sample Purposes Only.
 $request = clone $card;
 
