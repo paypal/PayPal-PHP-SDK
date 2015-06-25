@@ -3,9 +3,9 @@
 namespace PayPal\Api;
 
 use PayPal\Common\PayPalResourceModel;
-use PayPal\Validation\ArgumentValidator;
 use PayPal\Rest\ApiContext;
 use PayPal\Transport\PayPalRestCall;
+use PayPal\Validation\ArgumentValidator;
 
 /**
  * Class Sale
@@ -15,6 +15,7 @@ use PayPal\Transport\PayPalRestCall;
  * @package PayPal\Api
  *
  * @property string id
+ * @property string purchase_unit_reference_id
  * @property string create_time
  * @property string update_time
  * @property \PayPal\Api\Amount amount

@@ -1,11 +1,10 @@
 <?php
 
 namespace PayPal\Common;
-use PayPal\Handler\IPayPalHandler;
+
 use PayPal\Rest\ApiContext;
 use PayPal\Rest\IResource;
 use PayPal\Transport\PayPalRestCall;
-
 
 /**
  * Class PayPalResourceModel

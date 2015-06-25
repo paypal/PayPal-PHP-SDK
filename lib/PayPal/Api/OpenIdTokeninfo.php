@@ -1,13 +1,21 @@
 <?php
 namespace PayPal\Api;
 
-
 use PayPal\Common\PayPalResourceModel;
 use PayPal\Rest\ApiContext;
 use PayPal\Transport\PayPalRestCall;
 
 /**
+ * Class OpenIdTokeninfo
+ *
  * Token grant resource
+ *
+ * @property string scope
+ * @property string access_token
+ * @property string refresh_token
+ * @property string token_type
+ * @property string id_token
+ * @property int expires_in
  */
 class OpenIdTokeninfo extends PayPalResourceModel
 {
