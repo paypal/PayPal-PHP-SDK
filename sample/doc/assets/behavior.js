@@ -118,45 +118,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
             "pageTitle": "billing/CreatePlan",
             "title": "CreatePlan"
           },
-          "depth": 2,
-          "outline": [
-            {
-              "type": "heading",
-              "data": {
-                "level": 1,
-                "title": "Create Plan Sample",
-                "slug": "create-plan-sample"
-              },
-              "depth": 1
-            }, {
-              "type": "heading",
-              "data": {
-                "level": 1,
-                "title": "Basic Information",
-                "slug": "basic-information"
-              },
-              "depth": 1
-            }, {
-              "type": "heading",
-              "data": {
-                "level": 1,
-                "title": "Payment definitions for this billing plan.",
-                "slug": "payment-definitions-for-this-billing-plan"
-              },
-              "depth": 1,
-              "children": [
-                {
-                  "type": "heading",
-                  "data": {
-                    "level": 3,
-                    "title": "Create Plan",
-                    "slug": "create-plan"
-                  },
-                  "depth": 3
-                }
-              ]
-            }
-          ]
+          "depth": 2
         }, {
           "type": "file",
           "data": {
@@ -336,29 +298,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
             "pageTitle": "billing/UpdatePlan",
             "title": "UpdatePlan"
           },
-          "depth": 2,
-          "outline": [
-            {
-              "type": "heading",
-              "data": {
-                "level": 1,
-                "title": "Update a plan",
-                "slug": "update-a-plan"
-              },
-              "depth": 1,
-              "children": [
-                {
-                  "type": "heading",
-                  "data": {
-                    "level": 3,
-                    "title": "Making Plan Active",
-                    "slug": "making-plan-active"
-                  },
-                  "depth": 3
-                }
-              ]
-            }
-          ]
+          "depth": 2
         }, {
           "type": "file",
           "data": {
@@ -422,7 +362,112 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
             "pageTitle": "invoice/CreateInvoice",
             "title": "CreateInvoice"
           },
-          "depth": 2
+          "depth": 2,
+          "outline": [
+            {
+              "type": "heading",
+              "data": {
+                "level": 1,
+                "title": "Create Invoice Sample",
+                "slug": "create-invoice-sample"
+              },
+              "depth": 1,
+              "children": [
+                {
+                  "type": "heading",
+                  "data": {
+                    "level": 3,
+                    "title": "Invoice Info",
+                    "slug": "invoice-info"
+                  },
+                  "depth": 3
+                }, {
+                  "type": "heading",
+                  "data": {
+                    "level": 3,
+                    "title": "Merchant Info",
+                    "slug": "merchant-info"
+                  },
+                  "depth": 3
+                }, {
+                  "type": "heading",
+                  "data": {
+                    "level": 3,
+                    "title": "Address Information",
+                    "slug": "address-information"
+                  },
+                  "depth": 3
+                }, {
+                  "type": "heading",
+                  "data": {
+                    "level": 3,
+                    "title": "Billing Information",
+                    "slug": "billing-information"
+                  },
+                  "depth": 3
+                }, {
+                  "type": "heading",
+                  "data": {
+                    "level": 3,
+                    "title": "Items List",
+                    "slug": "items-list"
+                  },
+                  "depth": 3,
+                  "children": [
+                    {
+                      "type": "heading",
+                      "data": {
+                        "level": 4,
+                        "title": "Tax Item",
+                        "slug": "tax-item"
+                      },
+                      "depth": 4
+                    }, {
+                      "type": "heading",
+                      "data": {
+                        "level": 4,
+                        "title": "Tax Item",
+                        "slug": "tax-item"
+                      },
+                      "depth": 4
+                    }, {
+                      "type": "heading",
+                      "data": {
+                        "level": 4,
+                        "title": "Final Discount",
+                        "slug": "final-discount"
+                      },
+                      "depth": 4
+                    }
+                  ]
+                }, {
+                  "type": "heading",
+                  "data": {
+                    "level": 3,
+                    "title": "Shipping Information",
+                    "slug": "shipping-information"
+                  },
+                  "depth": 3
+                }, {
+                  "type": "heading",
+                  "data": {
+                    "level": 3,
+                    "title": "Logo",
+                    "slug": "logo"
+                  },
+                  "depth": 3
+                }, {
+                  "type": "heading",
+                  "data": {
+                    "level": 3,
+                    "title": "Create Invoice",
+                    "slug": "create-invoice"
+                  },
+                  "depth": 3
+                }
+              ]
+            }
+          ]
         }, {
           "type": "file",
           "data": {
@@ -1156,93 +1201,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
             "pageTitle": "payments/CreatePaymentUsingPayPal",
             "title": "CreatePaymentUsingPayPal"
           },
-          "depth": 2,
-          "outline": [
-            {
-              "type": "heading",
-              "data": {
-                "level": 1,
-                "title": "Create Payment using PayPal as payment method",
-                "slug": "create-payment-using-paypal-as-payment-method"
-              },
-              "depth": 1,
-              "children": [
-                {
-                  "type": "heading",
-                  "data": {
-                    "level": 3,
-                    "title": "Payer",
-                    "slug": "payer"
-                  },
-                  "depth": 3
-                }, {
-                  "type": "heading",
-                  "data": {
-                    "level": 3,
-                    "title": "Itemized information",
-                    "slug": "itemized-information"
-                  },
-                  "depth": 3
-                }, {
-                  "type": "heading",
-                  "data": {
-                    "level": 3,
-                    "title": "Additional payment details",
-                    "slug": "additional-payment-details"
-                  },
-                  "depth": 3
-                }, {
-                  "type": "heading",
-                  "data": {
-                    "level": 3,
-                    "title": "Amount",
-                    "slug": "amount"
-                  },
-                  "depth": 3
-                }, {
-                  "type": "heading",
-                  "data": {
-                    "level": 3,
-                    "title": "Transaction",
-                    "slug": "transaction"
-                  },
-                  "depth": 3
-                }, {
-                  "type": "heading",
-                  "data": {
-                    "level": 3,
-                    "title": "Redirect urls",
-                    "slug": "redirect-urls"
-                  },
-                  "depth": 3
-                }, {
-                  "type": "heading",
-                  "data": {
-                    "level": 3,
-                    "title": "Payment",
-                    "slug": "payment"
-                  },
-                  "depth": 3
-                }, {
-                  "type": "heading",
-                  "data": {
-                    "level": 3,
-                    "title": "Create Payment",
-                    "slug": "create-payment"
-                  },
-                  "depth": 3
-                }, {
-                  "type": "heading",
-                  "data": {
-                    "level": 3,
-                    "title": "Get redirect url",
-                    "slug": "get-redirect-url"
-                  },
-                  "depth": 3
-                }
-              ]
-            }
-          ]
+          "depth": 2
         }, {
           "type": "file",
           "data": {
@@ -1260,93 +1219,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
             "pageTitle": "payments/CreatePaymentUsingSavedCard",
             "title": "CreatePaymentUsingSavedCard"
           },
-          "depth": 2,
-          "outline": [
-            {
-              "type": "heading",
-              "data": {
-                "level": 1,
-                "title": "Create payment using a saved credit card",
-                "slug": "create-payment-using-a-saved-credit-card"
-              },
-              "depth": 1,
-              "children": [
-                {
-                  "type": "heading",
-                  "data": {
-                    "level": 3,
-                    "title": "Credit card token",
-                    "slug": "credit-card-token"
-                  },
-                  "depth": 3
-                }, {
-                  "type": "heading",
-                  "data": {
-                    "level": 3,
-                    "title": "FundingInstrument",
-                    "slug": "fundinginstrument"
-                  },
-                  "depth": 3
-                }, {
-                  "type": "heading",
-                  "data": {
-                    "level": 3,
-                    "title": "Payer",
-                    "slug": "payer"
-                  },
-                  "depth": 3
-                }, {
-                  "type": "heading",
-                  "data": {
-                    "level": 3,
-                    "title": "Itemized information",
-                    "slug": "itemized-information"
-                  },
-                  "depth": 3
-                }, {
-                  "type": "heading",
-                  "data": {
-                    "level": 3,
-                    "title": "Additional payment details",
-                    "slug": "additional-payment-details"
-                  },
-                  "depth": 3
-                }, {
-                  "type": "heading",
-                  "data": {
-                    "level": 3,
-                    "title": "Amount",
-                    "slug": "amount"
-                  },
-                  "depth": 3
-                }, {
-                  "type": "heading",
-                  "data": {
-                    "level": 3,
-                    "title": "Transaction",
-                    "slug": "transaction"
-                  },
-                  "depth": 3
-                }, {
-                  "type": "heading",
-                  "data": {
-                    "level": 3,
-                    "title": "Payment",
-                    "slug": "payment"
-                  },
-                  "depth": 3
-                }, {
-                  "type": "heading",
-                  "data": {
-                    "level": 3,
-                    "title": "Create Payment",
-                    "slug": "create-payment"
-                  },
-                  "depth": 3
-                }
-              ]
-            }
-          ]
+          "depth": 2
         }, {
           "type": "file",
           "data": {
@@ -1364,37 +1237,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
             "pageTitle": "payments/ExecutePayment",
             "title": "ExecutePayment"
           },
-          "depth": 2,
-          "outline": [
-            {
-              "type": "heading",
-              "data": {
-                "level": 1,
-                "title": "Execute Payment Sample",
-                "slug": "execute-payment-sample"
-              },
-              "depth": 1,
-              "children": [
-                {
-                  "type": "heading",
-                  "data": {
-                    "level": 3,
-                    "title": "Approval Status",
-                    "slug": "approval-status"
-                  },
-                  "depth": 3
-                }, {
-                  "type": "heading",
-                  "data": {
-                    "level": 3,
-                    "title": "Payment Execute",
-                    "slug": "payment-execute"
-                  },
-                  "depth": 3
-                }
-              ]
-            }
-          ]
+          "depth": 2
         }, {
           "type": "file",
           "data": {
@@ -1448,29 +1291,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
             "pageTitle": "payments/GetPayment",
             "title": "GetPayment"
           },
-          "depth": 2,
-          "outline": [
-            {
-              "type": "heading",
-              "data": {
-                "level": 1,
-                "title": "GetPaymentSample",
-                "slug": "getpaymentsample"
-              },
-              "depth": 1,
-              "children": [
-                {
-                  "type": "heading",
-                  "data": {
-                    "level": 3,
-                    "title": "Retrieve payment",
-                    "slug": "retrieve-payment"
-                  },
-                  "depth": 3
-                }
-              ]
-            }
-          ]
+          "depth": 2
         }, {
           "type": "file",
           "data": {
@@ -1488,29 +1309,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
             "pageTitle": "payments/ListPayments",
             "title": "ListPayments"
           },
-          "depth": 2,
-          "outline": [
-            {
-              "type": "heading",
-              "data": {
-                "level": 1,
-                "title": "GetPaymentList",
-                "slug": "getpaymentlist"
-              },
-              "depth": 1,
-              "children": [
-                {
-                  "type": "heading",
-                  "data": {
-                    "level": 3,
-                    "title": "Retrieve payment",
-                    "slug": "retrieve-payment"
-                  },
-                  "depth": 3
-                }
-              ]
-            }
-          ]
+          "depth": 2
         }, {
           "type": "file",
           "data": {
@@ -1546,53 +1345,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
             "pageTitle": "payments/OrderCapture",
             "title": "OrderCapture"
           },
-          "depth": 2,
-          "outline": [
-            {
-              "type": "heading",
-              "data": {
-                "level": 1,
-                "title": "Capture Order Sample",
-                "slug": "capture-order-sample"
-              },
-              "depth": 1,
-              "children": [
-                {
-                  "type": "heading",
-                  "data": {
-                    "level": 3,
-                    "title": "Approval Status",
-                    "slug": "approval-status"
-                  },
-                  "depth": 3
-                }, {
-                  "type": "heading",
-                  "data": {
-                    "level": 3,
-                    "title": "Retrieve the order",
-                    "slug": "retrieve-the-order"
-                  },
-                  "depth": 3
-                }, {
-                  "type": "heading",
-                  "data": {
-                    "level": 3,
-                    "title": "Create Capture Object",
-                    "slug": "create-capture-object"
-                  },
-                  "depth": 3
-                }, {
-                  "type": "heading",
-                  "data": {
-                    "level": 3,
-                    "title": "Capture Order",
-                    "slug": "capture-order"
-                  },
-                  "depth": 3
-                }
-              ]
-            }
-          ]
+          "depth": 2
         }, {
           "type": "file",
           "data": {
@@ -2074,18 +1827,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
             "pageTitle": "vault/GetCreditCard",
             "title": "GetCreditCard"
           },
-          "depth": 2,
-          "outline": [
-            {
-              "type": "heading",
-              "data": {
-                "level": 1,
-                "title": "Get Credit Card Sample",
-                "slug": "get-credit-card-sample"
-              },
-              "depth": 1
-            }
-          ]
+          "depth": 2
         }, {
           "type": "file",
           "data": {
