@@ -7,7 +7,6 @@
 $invoice = require 'SendInvoice.php';
 
 use PayPal\Api\Invoice;
-use PayPal\Api\Notification;
 
 try {
 

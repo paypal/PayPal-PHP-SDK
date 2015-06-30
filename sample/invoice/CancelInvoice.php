@@ -7,8 +7,8 @@
 /** @var Invoice $invoice */
 $invoice = require 'SendInvoice.php';
 
-use PayPal\Api\Invoice;
 use PayPal\Api\CancelNotification;
+use PayPal\Api\Invoice;
 
 try {
 

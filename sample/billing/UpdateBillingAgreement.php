@@ -11,8 +11,8 @@
 $createdAgreement = require 'CreateBillingAgreementWithCreditCard.php';
 
 use PayPal\Api\Agreement;
-use PayPal\Api\PatchRequest;
 use PayPal\Api\Patch;
+use PayPal\Api\PatchRequest;
 
 $patch = new Patch();
 

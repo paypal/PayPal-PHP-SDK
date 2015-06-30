@@ -7,11 +7,11 @@
 // API used: /v1/payments/billing-plans
 
 require __DIR__ . '/../bootstrap.php';
-use PayPal\Api\Plan;
-use PayPal\Api\PaymentDefinition;
-use PayPal\Api\MerchantPreferences;
-use PayPal\Api\Currency;
 use PayPal\Api\ChargeModel;
+use PayPal\Api\Currency;
+use PayPal\Api\MerchantPreferences;
+use PayPal\Api\PaymentDefinition;
+use PayPal\Api\Plan;
 
 // Create a new instance of Plan object
 $plan = new Plan();

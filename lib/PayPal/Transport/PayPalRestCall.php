@@ -1,9 +1,9 @@
 <?php
 namespace PayPal\Transport;
 
-use PayPal\Core\PayPalLoggingManager;
 use PayPal\Core\PayPalHttpConfig;
 use PayPal\Core\PayPalHttpConnection;
+use PayPal\Core\PayPalLoggingManager;
 use PayPal\Rest\ApiContext;
 
 /**

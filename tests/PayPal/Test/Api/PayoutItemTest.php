@@ -2,12 +2,9 @@
 
 namespace PayPal\Test\Api;
 
-use PayPal\Common\PayPalResourceModel;
-use PayPal\Validation\ArgumentValidator;
 use PayPal\Api\ItemsArray;
-use PayPal\Rest\ApiContext;
-use PayPal\Transport\PPRestCall;
 use PayPal\Api\PayoutItem;
+use PayPal\Transport\PPRestCall;
 
 /**
  * Class PayoutItem

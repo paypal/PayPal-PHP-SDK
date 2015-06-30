@@ -8,7 +8,6 @@
 $invoice = require 'CreateInvoice.php';
 
 use PayPal\Api\Invoice;
-use PayPal\Api\CancelNotification;
 
 try {
 

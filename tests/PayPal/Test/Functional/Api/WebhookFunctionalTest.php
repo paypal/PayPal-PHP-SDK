@@ -2,27 +2,15 @@
 
 namespace PayPal\Test\Functional\Api;
 
-use PayPal\Api\Amount;
 use PayPal\Api\Patch;
 use PayPal\Api\PatchRequest;
-use PayPal\Api\Payment;
-use PayPal\Api\PaymentExecution;
-use PayPal\Api\Refund;
-use PayPal\Api\Sale;
 use PayPal\Api\Webhook;
 use PayPal\Api\WebhookEvent;
-use PayPal\Api\WebhookEventList;
 use PayPal\Api\WebhookEventType;
 use PayPal\Api\WebhookEventTypeList;
 use PayPal\Api\WebhookList;
-use PayPal\Common\PayPalModel;
 use PayPal\Exception\PayPalConnectionException;
-use PayPal\Rest\ApiContext;
-use PayPal\Rest\IResource;
-use PayPal\Api\CreateProfileResponse;
 use PayPal\Test\Functional\Setup;
-use PayPal\Transport\PayPalRestCall;
-use PayPal\Api\WebProfile;
 
 /**
  * Class WebhookFunctionalTest

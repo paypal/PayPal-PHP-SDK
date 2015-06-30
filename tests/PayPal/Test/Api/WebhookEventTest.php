@@ -2,13 +2,9 @@
 
 namespace PayPal\Test\Api;
 
-use PayPal\Common\PayPalResourceModel;
-use PayPal\Exception\PayPalConnectionException;
-use PayPal\Validation\ArgumentValidator;
-use PayPal\Api\WebhookEventList;
-use PayPal\Rest\ApiContext;
-use PayPal\Transport\PayPalRestCall;
 use PayPal\Api\WebhookEvent;
+use PayPal\Exception\PayPalConnectionException;
+use PayPal\Rest\ApiContext;
 
 /**
  * Class WebhookEvent

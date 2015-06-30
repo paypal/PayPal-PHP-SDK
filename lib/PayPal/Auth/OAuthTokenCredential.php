@@ -205,7 +205,7 @@ class OAuthTokenCredential extends PayPalResourceModel
     /**
      * Updates Access Token based on given input
      *
-     * @param      $config
+     * @param array $config
      * @param string|null $refreshToken
      * @return string
      */

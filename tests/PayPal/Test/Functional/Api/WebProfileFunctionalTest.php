@@ -2,14 +2,10 @@
 
 namespace PayPal\Test\Functional\Api;
 
-use PayPal\Api\Patch;
-use PayPal\Common\PayPalModel;
-use PayPal\Rest\ApiContext;
-use PayPal\Rest\IResource;
 use PayPal\Api\CreateProfileResponse;
-use PayPal\Test\Functional\Setup;
-use PayPal\Transport\PayPalRestCall;
+use PayPal\Api\Patch;
 use PayPal\Api\WebProfile;
+use PayPal\Test\Functional\Setup;
 
 /**
  * Class WebProfile

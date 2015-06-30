@@ -19,8 +19,8 @@ if (!file_exists($composerAutoload)) {
 require $composerAutoload;
 require __DIR__ . '/common.php';
 
-use PayPal\Rest\ApiContext;
 use PayPal\Auth\OAuthTokenCredential;
+use PayPal\Rest\ApiContext;
 
 error_reporting(E_ALL);
 ini_set('display_errors', '1');

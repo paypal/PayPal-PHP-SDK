@@ -12,8 +12,8 @@
 $createdPlan = require 'UpdatePlan.php';
 
 use PayPal\Api\Agreement;
-use PayPal\Api\Plan;
 use PayPal\Api\Payer;
+use PayPal\Api\Plan;
 use PayPal\Api\ShippingAddress;
 
 /* Create a new instance of Agreement object

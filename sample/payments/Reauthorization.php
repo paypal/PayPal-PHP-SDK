@@ -5,8 +5,8 @@
 // API used: v1/payments/authorization/{authorization_id}/reauthorize
 /** @var Authorization $authorization */
 $authorization = require 'AuthorizePayment.php';
-use PayPal\Api\Authorization;
 use PayPal\Api\Amount;
+use PayPal\Api\Authorization;
 
 // ### Reauthorization
 // Reauthorization is available only for PayPal account payments

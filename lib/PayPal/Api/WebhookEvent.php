@@ -4,9 +4,9 @@ namespace PayPal\Api;
 
 use PayPal\Common\PayPalResourceModel;
 use PayPal\Exception\PayPalConnectionException;
-use PayPal\Validation\ArgumentValidator;
 use PayPal\Rest\ApiContext;
 use PayPal\Transport\PayPalRestCall;
+use PayPal\Validation\ArgumentValidator;
 use PayPal\Validation\JsonValidator;
 
 /**
