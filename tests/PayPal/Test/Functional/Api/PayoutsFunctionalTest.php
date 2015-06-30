@@ -2,17 +2,10 @@
 
 namespace PayPal\Test\Functional\Api;
 
-use PayPal\Api\Patch;
 use PayPal\Api\Payout;
 use PayPal\Api\PayoutBatch;
 use PayPal\Api\PayoutItem;
-use PayPal\Common\PayPalModel;
-use PayPal\Rest\ApiContext;
-use PayPal\Rest\IResource;
-use PayPal\Api\CreateProfileResponse;
 use PayPal\Test\Functional\Setup;
-use PayPal\Transport\PayPalRestCall;
-use PayPal\Api\WebProfile;
 
 /**
  * Class Payouts

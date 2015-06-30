@@ -10,13 +10,13 @@
 
 require __DIR__ . '/../bootstrap.php';
 use PayPal\Api\Amount;
+use PayPal\Api\CreditCard;
 use PayPal\Api\Details;
+use PayPal\Api\FundingInstrument;
 use PayPal\Api\Item;
 use PayPal\Api\ItemList;
-use PayPal\Api\CreditCard;
 use PayPal\Api\Payer;
 use PayPal\Api\Payment;
-use PayPal\Api\FundingInstrument;
 use PayPal\Api\Transaction;
 
 // ### CreditCard

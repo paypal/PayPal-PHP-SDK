@@ -6,10 +6,8 @@
 /** @var Capture $capture */
 $capture = require 'AuthorizationCapture.php';
 
-use PayPal\Api\Authorization;
 use PayPal\Api\Capture;
 use PayPal\Api\Refund;
-use PayPal\Api\Amount;
 
 // ### Refund
 // Create a refund object indicating

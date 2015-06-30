@@ -1,7 +1,6 @@
 <?php
 namespace PayPal\Test\Validation;
 
-use PayPal\Converter\FormatConverter;
 use PayPal\Validation\NumericValidator;
 
 class NumericValidatorTest extends \PHPUnit_Framework_TestCase

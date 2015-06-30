@@ -7,9 +7,6 @@
 /** @var \PayPal\Api\Payment $payment */
 $payment = require __DIR__ . '/ExecutePayment.php';
 
-use PayPal\Api\Capture;
-use PayPal\Api\Amount;
-
 // ### Approval Status
 // Determine if the user approved the payment or not
 if (isset($_GET['success']) && $_GET['success'] == 'true') {

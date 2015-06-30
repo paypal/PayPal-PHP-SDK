@@ -3,7 +3,6 @@
 namespace PayPal\Test\Functional;
 
 use PayPal\Auth\OAuthTokenCredential;
-use PayPal\Core\PayPalConfigManager;
 use PayPal\Core\PayPalCredentialManager;
 use PayPal\Rest\ApiContext;
 

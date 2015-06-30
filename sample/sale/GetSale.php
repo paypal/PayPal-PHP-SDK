@@ -8,8 +8,8 @@
 
 /** @var Payment $payment */
 $payment = require __DIR__ . '/../payments/CreatePayment.php';
-use PayPal\Api\Sale;
 use PayPal\Api\Payment;
+use PayPal\Api\Sale;
 
 // ### Get Sale From Created Payment
 // You can retrieve the sale Id from Related Resources for each transactions.

@@ -6,7 +6,6 @@
 /** @var \PayPal\Api\Payment $payment */
 $payment = require __DIR__ . '/ExecutePayment.php';
 
-use PayPal\Api\Order;
 use PayPal\Api\Amount;
 use PayPal\Api\Authorization;
 

@@ -2,12 +2,8 @@
 
 namespace PayPal\Test\Api;
 
-use PayPal\Common\PayPalResourceModel;
-use PayPal\Validation\ArgumentValidator;
-use PayPal\Api\CreditCardList;
-use PayPal\Rest\ApiContext;
-use PayPal\Transport\PPRestCall;
 use PayPal\Api\CreditCard;
+use PayPal\Transport\PPRestCall;
 
 /**
  * Class CreditCard

@@ -8,8 +8,6 @@
 $request = require 'AuthorizationCapture.php';
 
 use PayPal\Api\Capture;
-use PayPal\Api\Amount;
-use PayPal\Api\Authorization;
 
 // ### Retrieve Capture details
 // You can look up a capture by invoking the Capture::get method 

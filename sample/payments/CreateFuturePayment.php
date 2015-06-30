@@ -7,10 +7,11 @@
 
 require __DIR__ . '/../bootstrap.php';
 use PayPal\Api\Amount;
-use PayPal\Api\Payer;
 use PayPal\Api\FuturePayment;
+use PayPal\Api\Payer;
 use PayPal\Api\RedirectUrls;
 use PayPal\Api\Transaction;
+
 session_start();
 
 // ### Payer

@@ -4,11 +4,9 @@ namespace PayPal\Api;
 
 use PayPal\Common\PayPalResourceModel;
 use PayPal\Core\PayPalConstants;
-use PayPal\Validation\ArgumentValidator;
-use PayPal\Api\object;
-use PayPal\Api\PaymentHistory;
 use PayPal\Rest\ApiContext;
 use PayPal\Transport\PayPalRestCall;
+use PayPal\Validation\ArgumentValidator;
 
 /**
  * Class Payment

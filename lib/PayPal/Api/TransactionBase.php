@@ -2,9 +2,6 @@
 
 namespace PayPal\Api;
 
-use PayPal\Common\PayPalModel;
-use PayPal\Rest\ApiContext;
-
 /**
  * Class TransactionBase
  *

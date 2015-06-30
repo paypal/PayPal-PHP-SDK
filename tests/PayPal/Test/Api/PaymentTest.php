@@ -2,13 +2,9 @@
 
 namespace PayPal\Test\Api;
 
-use PayPal\Common\PayPalResourceModel;
-use PayPal\Validation\ArgumentValidator;
 use PayPal\Api\object;
-use PayPal\Api\PaymentHistory;
-use PayPal\Rest\ApiContext;
-use PayPal\Transport\PPRestCall;
 use PayPal\Api\Payment;
+use PayPal\Transport\PPRestCall;
 
 /**
  * Class Payment

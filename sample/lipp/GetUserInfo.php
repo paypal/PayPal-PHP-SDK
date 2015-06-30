@@ -3,8 +3,8 @@
 // ### Obtain Access Token From Refresh Token
 require __DIR__ . '/../bootstrap.php';
 
-use PayPal\Api\OpenIdUserinfo;
 use PayPal\Api\OpenIdTokeninfo;
+use PayPal\Api\OpenIdUserinfo;
 
 // To obtain User Info, you have to follow three steps in general.
 // First, you need to obtain user's consent to retrieve the information you want.
