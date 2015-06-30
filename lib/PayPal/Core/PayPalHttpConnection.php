@@ -93,6 +93,8 @@ class PayPalHttpConnection
         switch ($this->httpConfig->getMethod()) {
             case 'POST':
                 curl_setopt($ch, CURLOPT_POST, true);
+                curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+                break;
             case 'PUT':
             case 'PATCH':
             case 'DELETE':

@@ -5,7 +5,31 @@ use PayPal\Common\PayPalResourceModel;
 use PayPal\Rest\ApiContext;
 
 /**
+ * Class OpenIdUserinfo
+ *
  * OpenIdConnect UserInfo Resource
+ *
+ * @property string user_id
+ * @property string sub
+ * @property mixed name
+ * @property string given_name
+ * @property string family_name
+ * @property string middle_name
+ * @property string picture
+ * @property string email
+ * @property bool email_verified
+ * @property string gender
+ * @property string birthday
+ * @property string zoneinfo
+ * @property string locale
+ * @property string language
+ * @property bool verified
+ * @property string phone_number
+ * @property OpenIdAddress address
+ * @property mixed verified_account
+ * @property mixed account_type
+ * @property string age_range
+ * @property string payer_id
  */
 class OpenIdUserinfo extends PayPalResourceModel
 {

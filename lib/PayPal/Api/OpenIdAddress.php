@@ -5,11 +5,20 @@ namespace PayPal\Api;
 use PayPal\Common\PayPalModel;
 
 /**
+ * Class OpenIdAddress
+ *
  * End-User's preferred address.
+ *
+ * @package PayPal\Api
+ *
+ * @property string street_address
+ * @property string locality
+ * @property string region
+ * @property string postal_code
+ * @property string country
  */
 class OpenIdAddress extends PayPalModel
 {
-
     /**
      * Full street address component, which may include house number, street name.
      *

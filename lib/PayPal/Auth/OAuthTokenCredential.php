@@ -198,6 +198,8 @@ class OAuthTokenCredential extends PayPalResourceModel
         if ($response != null && isset($response["refresh_token"])) {
             return $response['refresh_token'];
         }
+
+        return null;
     }
 
     /**
@@ -251,6 +253,7 @@ class OAuthTokenCredential extends PayPalResourceModel
      * Generates a new access token
      *
      * @param array $config
+     * @param null|string $refreshToken
      * @return null
      * @throws PayPalConnectionException
      */
