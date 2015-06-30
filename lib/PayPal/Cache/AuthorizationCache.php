@@ -88,7 +88,7 @@ abstract class AuthorizationCache
     public static function isEnabled($config)
     {
         $value = self::getConfigValue('cache.enabled', $config);
-        return empty($value) ? false : ((trim($value) == true || trim($value) == 'true') ?  true : false);
+        return empty($value) ? false : ((trim($value) == true || trim($value) == 'true'));
     }
     
     /**

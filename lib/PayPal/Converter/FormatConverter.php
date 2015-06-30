@@ -2,8 +2,8 @@
 
 namespace PayPal\Converter;
 
-class FormatConverter {
-
+class FormatConverter
+{
     /**
      * Format the data based on the input formatter value
      *
