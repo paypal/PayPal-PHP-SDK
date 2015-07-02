@@ -283,6 +283,4 @@ class CartBase extends PayPalModel
     {
         return $this->order_url;
     }
-
-
 }

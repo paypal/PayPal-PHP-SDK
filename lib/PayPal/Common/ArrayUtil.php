@@ -10,7 +10,6 @@ namespace PayPal\Common;
  */
 class ArrayUtil
 {
-
     /**
      *
      * @param array $arr
