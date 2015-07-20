@@ -125,6 +125,10 @@ class OAuthTokenCredential extends PayPalResourceModel
      */
     public function getAccessToken($config)
     {
+        // Check if we already have accessToken in Cache
+        if ($this->accessToken && (time() - $this->tokenCreateTime) < ($this->tokenExpiresIn - self::$expiryBufferTime)) {
+            return $this->accessToken;
+        }
         // Check for persisted data first
         $token = AuthorizationCache::pull($config, $this->clientId);
         if ($token) {
