@@ -67,10 +67,10 @@ $clientMetadataId = '123123456';
 try {
     // Exchange authorization_code for long living refresh token. You should store
     // it in a database for later use
-    //$refreshToken = FuturePayment::getRefreshToken($authorizationCode, $apiContext);
-    echo $refreshToken;
+    $refreshToken = FuturePayment::getRefreshToken($authorizationCode, $apiContext);
+
     // Update the access token in apiContext
-    $payment->updateAccessToken('NvtsgQLDxJXfFTOpYRS5Ad9S1kOd_QWCk4vkdPuBe9qDfKDBbKyioSMXeMwSaLKr4Lz_zoFEpZBiHrce4X4IcAfabH0', $apiContext);
+    $payment->updateAccessToken($refreshToken, $apiContext);
 
     // For Sample Purposes Only.
     $request = clone $payment;
