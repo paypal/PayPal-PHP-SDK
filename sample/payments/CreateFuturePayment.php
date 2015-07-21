@@ -58,7 +58,7 @@ $payment->setIntent("authorize")
 // You need to get a permanent refresh token from the authorization code, retrieved from the mobile sdk.
 
 // authorization code from mobile sdk
-$authorizationCode = 'EJfRuAqXEE95pdVMmOym_mftTbeJD03RBX-Zjg9pLCAhdLqLeRR6YSKTNsrbQGX7lFoZ3SxwFyxADEZbBOxpn023W9SA0JzSQAy-9eLdON5eDPAyMyKlHyNVS2DqBR2iWVfQGfudbd9MDoRxMEjIZbY';
+$authorizationCode = 'EK7_MAKlB4QxW1dWKnvnr_CEdLKnpH3vnGAf155Eg8yO8e_7VaQonsqIbTK9CR7tUsoIN2eCc5raOfaGbZDCT0j6k_BDE8GkyLgk8ulcQyR_3S-fgBzjMzBwNqpj3AALgCVR03zw1iT8HTsxZXp3s2U';
 
 // Client Metadata id from mobile sdk
 // For more information look for PayPal-Client-Metadata-Id in https://developer.paypal.com/docs/api/#authentication--headers
@@ -87,7 +87,7 @@ try {
 
 } catch (Exception $ex) {
     // NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
- 	ResultPrinter::printError("Future Payment", "Payment", null, $request, $ex);
+ 	ResultPrinter::printError("Future Payment", "Payment", null, $payment, $ex);
     exit(1);
 }
 
