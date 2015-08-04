@@ -19,3 +19,6 @@ composer.lock
 # Project
 var
 tools
+
+# Windows
+desktop.ini
