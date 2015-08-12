@@ -518,7 +518,18 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
             "pageTitle": "lipp/GenerateAccessTokenFromRefreshToken",
             "title": "GenerateAccessTokenFromRefreshToken"
           },
-          "depth": 2
+          "depth": 2,
+          "outline": [
+            {
+              "type": "heading",
+              "data": {
+                "level": 3,
+                "title": "Obtain Access Token From Refresh Token",
+                "slug": "obtain-access-token-from-refresh-token"
+              },
+              "depth": 3
+            }
+          ]
         }, {
           "type": "file",
           "data": {
@@ -536,7 +547,18 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
             "pageTitle": "lipp/GetUserInfo",
             "title": "GetUserInfo"
           },
-          "depth": 2
+          "depth": 2,
+          "outline": [
+            {
+              "type": "heading",
+              "data": {
+                "level": 3,
+                "title": "Obtain Access Token From Refresh Token",
+                "slug": "obtain-access-token-from-refresh-token"
+              },
+              "depth": 3
+            }
+          ]
         }, {
           "type": "file",
           "data": {
