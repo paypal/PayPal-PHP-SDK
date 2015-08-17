@@ -22,10 +22,8 @@ __Welcome to PayPal PHP SDK__. This repository contains PayPal's PHP SDK and sam
 
 ## Latest Updates
 
-- Vault APIs now have List Credit Card with Filters, new Fields to help you find the object easily. Checkout the latest release.
 - Checkout the latest 1.0.0 release. Here are all the [ breaking Changes in v1.0.0 ](https://github.com/paypal/PayPal-PHP-SDK/wiki/Breaking-Changes---1.0.0) if you are migrating from older versions.
 - Now we have a [Github Page](http://paypal.github.io/PayPal-PHP-SDK/), that helps you find all helpful resources building applications using PayPal-PHP-SDK.
-- Introduced `DEBUG` level to logging. Deprecated `FINE`. Ability to restrict `DEBUG` level on `live` mode. [Read More](https://github.com/paypal/PayPal-PHP-SDK/wiki/Logging).
 
 
 ## Prerequisites

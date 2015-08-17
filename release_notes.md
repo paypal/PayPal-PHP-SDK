@@ -1,5 +1,11 @@
 PayPal PHP SDK release notes
 ============================
+v1.5.1
+----
+* Fixed a bug #343 in Future Payment
+* Minor Improvements
+* Updates to Sample Docs
+
 v1.5.0
 ----
 * Enabled Vault List API
