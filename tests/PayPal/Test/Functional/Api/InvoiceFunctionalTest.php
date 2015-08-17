@@ -98,7 +98,6 @@ class InvoiceFunctionalTest extends \PHPUnit_Framework_TestCase
      */
     public function testUpdate($invoice)
     {
-        $this->markTestSkipped('Skipped as the fix is on the way. #PPTIPS-1932');
         $result = $invoice->update($this->apiContext, $this->mockPayPalRestCall);
         $this->assertNotNull($result);
         $this->assertEquals($invoice->getId(), $result->getId());
