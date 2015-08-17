@@ -8,8 +8,8 @@
 /** @var Authorization $authorization */
 $authorization = require 'GetAuthorization.php';
 use PayPal\Api\Amount;
-use PayPal\Api\Capture;
 use PayPal\Api\Authorization;
+use PayPal\Api\Capture;
 
 
 // ### Capture Payment
@@ -30,10 +30,12 @@ try {
     // Perform a capture
     $getCapture = $authorization->capture($capture, $apiContext);
 } catch (Exception $ex) {
-    ResultPrinter::printError("Capture Payment", "Authorization", null, $capture, $ex);
+    // NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
+ 	ResultPrinter::printError("Capture Payment", "Authorization", null, $capture, $ex);
     exit(1);
 }
 
-ResultPrinter::printResult("Capture Payment", "Authorization", $getCapture->getId(), $capture, $getCapture);
+// NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
+ ResultPrinter::printResult("Capture Payment", "Authorization", $getCapture->getId(), $capture, $getCapture);
 
 return $getCapture;

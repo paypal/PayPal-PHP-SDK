@@ -8,6 +8,7 @@ class SimpleModelTestClass extends PayPalModel
      *
      * @access public
      * @param string $field1
+     * @return self
      */
     public function setField1($field1)
     {
@@ -29,6 +30,7 @@ class SimpleModelTestClass extends PayPalModel
      *
      * @access public
      * @param string $field2
+     * @return self
      */
     public function setField2($field2)
     {
@@ -187,6 +189,27 @@ class PayPalModelTest extends PHPUnit_Framework_TestCase
     /**
      * @test
      */
+    public function testEmptyObject()
+    {
+        $child = new SimpleModelTestClass();
+        $child->setField1(null);
+
+        $parent = new ContainerModelTestClass();
+        $parent->setField1("parent");
+        $parent->setNested1($child);
+
+        $this->assertEquals('{"field1":"parent","nested1":{}}',
+            $parent->toJSON());
+
+        $parentCopy = new ContainerModelTestClass();
+        $parentCopy->fromJson($parent->toJSON());
+        $this->assertEquals($parent, $parentCopy);
+
+    }
+
+    /**
+     * @test
+     */
     public function testSpecialChars()
     {
         $o = new SimpleModelTestClass();
@@ -243,6 +266,94 @@ class PayPalModelTest extends PHPUnit_Framework_TestCase
         $parentCopy = new ListModelTestClass();
         $parentCopy->fromJson($parent->toJSON());
         $this->assertEquals($parent, $parentCopy);
+    }
 
+    public function EmptyNullProvider()
+    {
+        return array(
+            array(0, true),
+            array(null, false),
+            array("", true),
+            array("null", true),
+            array(-1, true),
+            array('', true)
+        );
+    }
+
+    /**
+     * @dataProvider EmptyNullProvider
+     * @param string|null $field2
+     * @param bool $matches
+     */
+    public function testEmptyNullConversion($field2, $matches)
+    {
+        $c1 = new SimpleModelTestClass();
+        $c1->setField1("a")->setField2($field2);
+        $this->assertTrue(strpos($c1->toJSON(),"field2") !== !$matches);
+    }
+
+    public function getProvider()
+    {
+        return array(
+            array('[[]]', 1, array(array())),
+            array('[{}]', 1, array(new PayPalModel())),
+            array('[{"id":"123"}]', 1, array(new PayPalModel(array('id' => '123')))),
+            array('{"id":"123"}', 1, array(new PayPalModel(array('id' => '123')))),
+            array('[]', 0, array()),
+            array('{}', 1, array(new PayPalModel())),
+            array(array(), 0, array()),
+            array(array("id" => "123"), 1, array(new PayPalModel(array('id' =>'123')))),
+            array(null, 0, null),
+            array('',0, array()),
+            array('[[], {"id":"123"}]', 2, array(array(), new PayPalModel(array("id"=> "123")))),
+            array('[{"id":"123"}, {"id":"321"}]', 2,
+                    array(
+                        new PayPalModel(array("id" => "123")),
+                        new PayPalModel(array("id" => "321"))
+                    )
+            ),
+            array(array(array("id" => "123"), array("id" => "321")), 2,
+                array(
+                    new PayPalModel(array("id" => "123")),
+                    new PayPalModel(array("id" => "321"))
+                )),
+            array(new PayPalModel('{"id": "123"}'), 1, array(new PayPalModel(array("id" => "123"))))
+        );
+    }
+
+    public function getInvalidProvider()
+    {
+        return array(
+            array('{]'),
+            array('[{]')
+        );
+    }
+
+    /**
+     * @dataProvider getProvider
+     * @param string|null $input
+     * @param int $count
+     * @param mixed $expected
+     */
+    public function testGetList($input, $count, $expected)
+    {
+        $result = PayPalModel::getList($input);
+        $this->assertEquals($expected, $result);
+        if ($input) {
+            $this->assertNotNull($result);
+            $this->assertTrue(is_array($result));
+            $this->assertEquals($count, sizeof($result));
+        }
+    }
+
+    /**
+     * @dataProvider getInvalidProvider
+     * @expectedException InvalidArgumentException
+     * @expectedExceptionMessage Invalid JSON String
+     * @param string|null $input
+     */
+    public function testGetListInvalidInput($input)
+    {
+        $result = PayPalModel::getList($input);
     }
 }

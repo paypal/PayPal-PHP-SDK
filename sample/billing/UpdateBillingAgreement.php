@@ -11,8 +11,8 @@
 $createdAgreement = require 'CreateBillingAgreementWithCreditCard.php';
 
 use PayPal\Api\Agreement;
-use PayPal\Api\PatchRequest;
 use PayPal\Api\Patch;
+use PayPal\Api\PatchRequest;
 
 $patch = new Patch();
 
@@ -37,10 +37,12 @@ try {
     $agreement = Agreement::get($createdAgreement->getId(), $apiContext);
 
 } catch (Exception $ex) {
-    ResultPrinter::printError("Updated the Agreement with new Description and Updated Shipping Address", "Agreement", null, $patchRequest, $ex);
+    // NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
+ 	ResultPrinter::printError("Updated the Agreement with new Description and Updated Shipping Address", "Agreement", null, $patchRequest, $ex);
     exit(1);
 }
 
-ResultPrinter::printResult("Updated the Agreement with new Description and Updated Shipping Address", "Agreement", $agreement->getId(), $patchRequest, $agreement);
+// NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
+ ResultPrinter::printResult("Updated the Agreement with new Description and Updated Shipping Address", "Agreement", $agreement->getId(), $patchRequest, $agreement);
 
 return $agreement;

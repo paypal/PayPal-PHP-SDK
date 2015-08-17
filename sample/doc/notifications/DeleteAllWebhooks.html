@@ -5,11 +5,8 @@ To properly use the sample, change the clientId and Secret from bootstrap.php fi
     <span class="hljs-keyword">foreach</span> (<span class="hljs-variable">$webhookList</span>-&gt;getWebhooks() <span class="hljs-keyword">as</span> <span class="hljs-variable">$webhook</span>) {
         <span class="hljs-variable">$webhook</span>-&gt;delete(<span class="hljs-variable">$apiContext</span>);
     }
-} <span class="hljs-keyword">catch</span> (<span class="hljs-keyword">Exception</span> <span class="hljs-variable">$ex</span>) {
-    ResultPrinter::printError(<span class="hljs-string">"Deleted all Webhooks"</span>, <span class="hljs-string">"WebhookList"</span>, <span class="hljs-keyword">null</span>, <span class="hljs-keyword">null</span>, <span class="hljs-variable">$ex</span>);
+} <span class="hljs-keyword">catch</span> (<span class="hljs-keyword">Exception</span> <span class="hljs-variable">$ex</span>) {</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY</p></div></div><div class="code"><div class="wrapper"> 	ResultPrinter::printError(<span class="hljs-string">"Deleted all Webhooks"</span>, <span class="hljs-string">"WebhookList"</span>, <span class="hljs-keyword">null</span>, <span class="hljs-keyword">null</span>, <span class="hljs-variable">$ex</span>);
     <span class="hljs-keyword">exit</span>(<span class="hljs-number">1</span>);
-}
-
-ResultPrinter::printResult(<span class="hljs-string">"Delete all Webhook, as it may have exceed the maximum count."</span>, <span class="hljs-string">"WebhookList"</span>, <span class="hljs-keyword">null</span>, <span class="hljs-keyword">null</span>, <span class="hljs-keyword">null</span>);
+}</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY</p></div></div><div class="code"><div class="wrapper"> ResultPrinter::printResult(<span class="hljs-string">"Delete all Webhook, as it may have exceed the maximum count."</span>, <span class="hljs-string">"WebhookList"</span>, <span class="hljs-keyword">null</span>, <span class="hljs-keyword">null</span>, <span class="hljs-keyword">null</span>);
 
 <span class="hljs-keyword">return</span> <span class="hljs-variable">$output</span>;</div></div></div></div></body></html>

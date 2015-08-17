@@ -19,10 +19,12 @@ $invoiceId = $invoice->getId();
 try {
     $invoice = Invoice::get($invoiceId, $apiContext);
 } catch (Exception $ex) {
-    ResultPrinter::printError("Get Invoice", "Invoice", $invoice->getId(), $invoiceId, $ex);
+    // NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
+ 	ResultPrinter::printError("Get Invoice", "Invoice", $invoice->getId(), $invoiceId, $ex);
     exit(1);
 }
 
-ResultPrinter::printResult("Get Invoice", "Invoice", $invoice->getId(), $invoiceId, $invoice);
+// NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
+ ResultPrinter::printResult("Get Invoice", "Invoice", $invoice->getId(), $invoiceId, $invoice);
 
 return $invoice;

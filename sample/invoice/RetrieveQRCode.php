@@ -7,7 +7,6 @@
 $invoice = require 'SendInvoice.php';
 
 use PayPal\Api\Invoice;
-use PayPal\Api\Notification;
 
 try {
 
@@ -27,11 +26,13 @@ try {
 
 
 } catch (Exception $ex) {
-    ResultPrinter::printError("Retrieved QR Code for Invoice", "Invoice", $invoice->getId(), null, $ex);
+    // NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
+ 	ResultPrinter::printError("Retrieved QR Code for Invoice", "Invoice", $invoice->getId(), null, $ex);
     exit(1);
 }
 
-ResultPrinter::printResult("Retrieved QR Code for Invoice", "Invoice", $invoice->getId(), null, $image);
+// NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
+ ResultPrinter::printResult("Retrieved QR Code for Invoice", "Invoice", $invoice->getId(), null, $image);
 
 // ### Show the Image
 // In PHP, there are many ways to present an images.

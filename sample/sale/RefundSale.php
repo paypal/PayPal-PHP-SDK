@@ -41,10 +41,12 @@ try {
     // (See bootstrap.php for more on `ApiContext`)
     $refundedSale = $sale->refund($refund, $apiContext);
 } catch (Exception $ex) {
-    ResultPrinter::printError("Refund Sale", "Sale", $refundedSale->getId(), $refund, $ex);
+    // NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
+ 	ResultPrinter::printError("Refund Sale", "Sale", $refundedSale->getId(), $refund, $ex);
     exit(1);
 }
 
-ResultPrinter::printResult("Refund Sale", "Sale", $refundedSale->getId(), $refund, $refundedSale);
+// NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
+ ResultPrinter::printResult("Refund Sale", "Sale", $refundedSale->getId(), $refund, $refundedSale);
 
 return $refundedSale;

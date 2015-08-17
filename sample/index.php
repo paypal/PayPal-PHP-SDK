@@ -42,7 +42,6 @@ if (PHP_SAPI == 'cli') {
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <style>
         /* Header Links */
-        /* Adopted from http://ben.balter.com/2014/03/13/pages-anchor-links/ */
         .header-link {
             position: absolute;
             left: 7px;
@@ -62,11 +61,6 @@ if (PHP_SAPI == 'cli') {
         }
 
         /* End Header Links */
-
-        body {
-            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-            -webkit-font-smoothing: antialiased;
-        }
 
         li.list-group-item:hover {
             background-color: #EEE;
@@ -132,6 +126,8 @@ if (PHP_SAPI == 'cli') {
         }
 
         body {
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            -webkit-font-smoothing: antialiased;
             /* Margin bottom by footer height */
             margin-bottom: 60px;
         }
@@ -195,9 +191,9 @@ if (PHP_SAPI == 'cli') {
                 <div class="footer-div">
                     <ul class="footer-links">
                         <li>
-                            <a href="https://github.com/paypal/PayPal-PHP-SDK" target="_blank"><i
+                            <a href="http://paypal.github.io/PayPal-PHP-SDK/" target="_blank"><i
                                     class="fa fa-github"></i>
-                                Github</a></li>
+                                PayPal PHP SDK</a></li>
                         <li>
                             <a href="https://developer.paypal.com/webapps/developer/docs/api/"
                                target="_blank"><i
@@ -223,6 +219,7 @@ if (PHP_SAPI == 'cli') {
                     <li><a href="#payouts">Payouts</a></li>
                     <li><a href="#authorization">Authorization and Capture</a></li>
                     <li><a href="#sale">Sale</a></li>
+                    <li><a href="#order">Order</a></li>
                     <li><a href="#billing">Billing Plan & Agreements</a></li>
                     <li><a href="#vault">Vault</a></li>
                     <li><a href="#experience">Payment Experience</a></li>
@@ -396,6 +393,17 @@ if (PHP_SAPI == 'cli') {
                             </div>
                         </div>
                     </li>
+                    <li class="list-group-item">
+                        <div class="row">
+                            <div class="col-md-8"><h5>Cancel Uncliamed Payout Item</h5></div>
+                            <div class="col-md-4">
+                                <a href="payouts/CancelPayoutItem.php" class="btn btn-primary pull-left execute"> Try It <i
+                                        class="fa fa-play-circle-o"></i></a>
+                                <a href="doc/payouts/CancelPayoutItem.html" class="btn btn-default pull-right">Source <i
+                                        class="fa fa-file-code-o"></i></a>
+                            </div>
+                        </div>
+                    </li>
                 </ul>
             </div>
 
@@ -418,16 +426,17 @@ if (PHP_SAPI == 'cli') {
                                         class="fa fa-file-code-o"></i></a>
                             </div>
                         </div>
-                    </li>
-                    <li class="list-group-item">
                         <div class="row">
-                            <div class="col-md-8"><h5>Authorize Payment Using PayPal</h5></div>
+                            <div class="col-md-8">
+                                <h6>Step II: Execute after Success
+                                    <small>(required step after user approval)</small></h6>
+                            </div>
                             <div class="col-md-4">
-                                <a href="payments/AuthorizePaymentUsingPayPal.php" class="btn btn-primary pull-left execute"> Try It
-                                    <i
-                                        class="fa fa-play-circle-o"></i></a>
-                                <a href="doc/payments/AuthorizePaymentUsingPayPal.html" class="btn btn-default pull-right">Source <i
+                                <a
+                                    href="doc/payments/ExecutePayment.html"
+                                    class="btn btn-default pull-right">Part II : Source <i
                                         class="fa fa-file-code-o"></i></a>
+
                             </div>
                         </div>
                     </li>
@@ -534,6 +543,130 @@ if (PHP_SAPI == 'cli') {
                             </div>
                         </div>
                     </li>
+                </ul>
+            </div>
+
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 id="order" class="panel-title"><a
+                            href="https://developer.paypal.com/webapps/developer/docs/api/#orders"
+                            target="_blank">Order</a></h3>
+                </div>
+                <!-- List group -->
+                <ul class="list-group">
+                    <li class="list-group-item">
+                        <div class="row">
+                            <div class="col-md-8"><h5>Create/Retrieve Order Using PayPal</small></h5>
+                            </div>
+                            <div class="col-md-4">
+                                <a href="payments/OrderCreateUsingPayPal.php" class="btn btn-primary pull-left execute">
+                                    Try It
+                                    <i class="fa fa-play-circle-o"></i></a><a
+                                    href="doc/payments/OrderCreateUsingPayPal.html"
+                                    class="btn btn-default pull-right">Source <i
+                                        class="fa fa-file-code-o"></i></a>
+
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-8">
+                                <h6>Step II: Execute after Success
+                                    <small>(required step after user approval)</small></h6>
+                            </div>
+                            <div class="col-md-4">
+                                <a
+                                    href="doc/payments/OrderGet.html"
+                                    class="btn btn-default pull-right">Part II : Source <i
+                                        class="fa fa-file-code-o"></i></a>
+
+                            </div>
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        <div class="row">
+                            <div class="col-md-8"><h5>Authorize Order Using PayPal</small></h5>
+                            </div>
+                            <div class="col-md-4">
+                                <a href="payments/OrderCreateForAuthorization.php" class="btn btn-primary pull-left execute">
+                                    Try It
+                                    <i class="fa fa-play-circle-o"></i></a><a
+                                    href="doc/payments/OrderCreateForAuthorization.html"
+                                    class="btn btn-default pull-right">Source <i
+                                        class="fa fa-file-code-o"></i></a>
+
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-8">
+                                <h6>Step II: Authorize after Executing Order
+                                    <small>(required step after user approval)</small></h6>
+                            </div>
+                            <div class="col-md-4">
+                                <a
+                                    href="doc/payments/OrderAuthorize.html"
+                                    class="btn btn-default pull-right">Part II : Source <i
+                                        class="fa fa-file-code-o"></i></a>
+
+                            </div>
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        <div class="row">
+                            <div class="col-md-8"><h5>Capture Order Using PayPal</small></h5>
+                            </div>
+                            <div class="col-md-4">
+                                <a href="payments/OrderCreateForCapture.php" class="btn btn-primary pull-left execute">
+                                    Try It
+                                    <i class="fa fa-play-circle-o"></i></a><a
+                                    href="doc/payments/OrderCreateForCapture.html"
+                                    class="btn btn-default pull-right">Source <i
+                                        class="fa fa-file-code-o"></i></a>
+
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-8">
+                                <h6>Step II: Capture after Executing Order
+                                    <small>(required step after user approval)</small></h6>
+                            </div>
+                            <div class="col-md-4">
+                                <a
+                                    href="doc/payments/OrderCapture.html"
+                                    class="btn btn-default pull-right">Part II : Source <i
+                                        class="fa fa-file-code-o"></i></a>
+
+                            </div>
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        <div class="row">
+                            <div class="col-md-8"><h5>Void Order Using PayPal</small></h5>
+                            </div>
+                            <div class="col-md-4">
+                                <a href="payments/OrderCreateForVoid.php" class="btn btn-primary pull-left execute">
+                                    Try It
+                                    <i class="fa fa-play-circle-o"></i></a><a
+                                    href="doc/payments/OrderCreateForVoid.html"
+                                    class="btn btn-default pull-right">Source <i
+                                        class="fa fa-file-code-o"></i></a>
+
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-8">
+                                <h6>Step II: Void after Executing Order
+                                    <small>(required step after user approval)</small></h6>
+                            </div>
+                            <div class="col-md-4">
+                                <a
+                                    href="doc/payments/OrderDoVoid.html"
+                                    class="btn btn-default pull-right">Part II : Source <i
+                                        class="fa fa-file-code-o"></i></a>
+
+                            </div>
+                        </div>
+                    </li>
+
                 </ul>
             </div>
 
@@ -666,6 +799,18 @@ if (PHP_SAPI == 'cli') {
                     </li>
                     <li class="list-group-item">
                         <div class="row">
+                            <div class="col-md-8"><h5>Search for Transactions</h5></div>
+                            <div class="col-md-4">
+                                <a href="billing/SearchBillingTransactions.php" class="btn btn-primary pull-left execute"> Try It
+                                    <i
+                                        class="fa fa-play-circle-o"></i></a>
+                                <a href="doc/billing/SearchBillingTransactions.html" class="btn btn-default pull-right">Source <i
+                                        class="fa fa-file-code-o"></i></a>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        <div class="row">
                             <div class="col-md-8"><h5>Update Billing Agreement</h5></div>
                             <div class="col-md-4">
                                 <a href="billing/UpdateBillingAgreement.php" class="btn btn-primary pull-left execute">
@@ -737,6 +882,28 @@ if (PHP_SAPI == 'cli') {
                     </li>
                     <li class="list-group-item">
                         <div class="row">
+                            <div class="col-md-8"><h5>Credit Card - List All</h5></div>
+                            <div class="col-md-4">
+                                <a href="vault/ListCreditCards.php" class="btn btn-primary pull-left execute"> Try It <i
+                                        class="fa fa-play-circle-o"></i></a>
+                                <a href="doc/vault/ListCreditCards.html" class="btn btn-default pull-right">Source <i
+                                        class="fa fa-file-code-o"></i></a>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        <div class="row">
+                            <div class="col-md-8"><h5>Credit Card - Update</h5></div>
+                            <div class="col-md-4">
+                                <a href="vault/UpdateCreditCard.php" class="btn btn-primary pull-left execute"> Try It <i
+                                        class="fa fa-play-circle-o"></i></a>
+                                <a href="doc/vault/UpdateCreditCard.html" class="btn btn-default pull-right">Source <i
+                                        class="fa fa-file-code-o"></i></a>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        <div class="row">
                             <div class="col-md-8"><h5>Credit Card - Delete</h5></div>
                             <div class="col-md-4">
                                 <a href="vault/DeleteCreditCard.php" class="btn btn-primary pull-left execute"> Try It <i
@@ -750,9 +917,9 @@ if (PHP_SAPI == 'cli') {
                         <div class="row">
                             <div class="col-md-8"><h5>Bank Account - Save</h5></div>
                             <div class="col-md-4">
-                                <a href="vault/CreateCreditCard.php" class="btn btn-primary pull-left execute"> Try It <i
+                                <a href="vault/CreateBankAccount.php" class="btn btn-primary pull-left execute"> Try It <i
                                         class="fa fa-play-circle-o"></i></a>
-                                <a href="doc/vault/CreateCreditCard.html" class="btn btn-default pull-right">Source <i
+                                <a href="doc/vault/CreateBankAccount.html" class="btn btn-default pull-right">Source <i
                                         class="fa fa-file-code-o"></i></a>
                             </div>
                         </div>
@@ -761,9 +928,9 @@ if (PHP_SAPI == 'cli') {
                         <div class="row">
                             <div class="col-md-8"><h5>Bank Account - Retrieve</h5></div>
                             <div class="col-md-4">
-                                <a href="vault/CreateBankAccount.php" class="btn btn-primary pull-left execute"> Try It <i
+                                <a href="vault/GetBankAccount.php" class="btn btn-primary pull-left execute"> Try It <i
                                         class="fa fa-play-circle-o"></i></a>
-                                <a href="doc/vault/CreateBankAccount.html" class="btn btn-default pull-right">Source <i
+                                <a href="doc/vault/GetBankAccount.html" class="btn btn-default pull-right">Source <i
                                         class="fa fa-file-code-o"></i></a>
                             </div>
                         </div>
@@ -774,7 +941,7 @@ if (PHP_SAPI == 'cli') {
                             <div class="col-md-4">
                                 <a href="vault/DeleteBankAccount.php" class="btn btn-primary pull-left execute"> Try It <i
                                         class="fa fa-play-circle-o"></i></a>
-                                <a href="doc/vault/GetBankAccount.html" class="btn btn-default pull-right">Source <i
+                                <a href="doc/vault/DeleteBankAccount.html" class="btn btn-default pull-right">Source <i
                                         class="fa fa-file-code-o"></i></a>
                             </div>
                         </div>
@@ -1194,9 +1361,9 @@ if (PHP_SAPI == 'cli') {
         <div class="footer-div">
             <ul class="footer-links">
                 <li>
-                    <a href="https://github.com/paypal/PayPal-PHP-SDK" target="_blank"><i
+                    <a href="http://paypal.github.io/PayPal-PHP-SDK/" target="_blank"><i
                             class="fa fa-github"></i>
-                        Github</a></li>
+                        PayPal PHP SDK</a></li>
                 <li>
                     <a href="https://developer.paypal.com/webapps/developer/docs/api/" target="_blank"><i
                             class="fa fa-book"></i> REST API Reference</a>
@@ -1220,7 +1387,7 @@ if (PHP_SAPI == 'cli') {
 
 <script>
     $(document).ready(function () {
-        if (window.location.href.indexOf("htmlpreview.github.io") >= 0) {
+        if (window.location.href.indexOf("paypal.github.io") >= 0) {
             $(".execute").hide();
         }
     });

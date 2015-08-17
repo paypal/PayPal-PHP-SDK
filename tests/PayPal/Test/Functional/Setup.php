@@ -3,7 +3,6 @@
 namespace PayPal\Test\Functional;
 
 use PayPal\Auth\OAuthTokenCredential;
-use PayPal\Core\PayPalConfigManager;
 use PayPal\Core\PayPalCredentialManager;
 use PayPal\Rest\ApiContext;
 
@@ -14,16 +13,21 @@ class Setup
 
     public static function SetUpForFunctionalTests(\PHPUnit_Framework_TestCase &$test)
     {
-        $context = new ApiContext();
-        $context->setConfig(array(
+        $configs = array(
             'mode' => 'sandbox',
             'http.ConnectionTimeOut' => 30,
             'log.LogEnabled' => true,
             'log.FileName' => '../PayPal.log',
             'log.LogLevel' => 'FINE',
-            'validation.level' => 'warning'
-        ));
+            'validation.level' => 'log'
+        );
+        $test->apiContext = new ApiContext(
+            new OAuthTokenCredential('AYSq3RDGsmBLJE-otTkBtM-jBRd1TCQwFf9RGfwddNXWz0uFU9ztymylOhRS', 'EGnHDxD_qRPdaLdZz8iCr8N7_MzF-YHPTkjs6NKYQvQSBngp4PTTVWkPZRbL')
+        );
+        $test->apiContext->setConfig($configs);
 
+        //PayPalConfigManager::getInstance()->addConfigFromIni(__DIR__. '/../../../sdk_config.ini');
+        //PayPalConfigManager::getInstance()->addConfigs($configs);
         PayPalCredentialManager::getInstance()->setCredentialObject(PayPalCredentialManager::getInstance()->getCredentialObject('acct1'));
 
         self::$mode = getenv('REST_MODE') ? getenv('REST_MODE') : 'mock';

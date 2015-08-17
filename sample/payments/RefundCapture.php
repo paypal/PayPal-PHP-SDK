@@ -6,10 +6,8 @@
 /** @var Capture $capture */
 $capture = require 'AuthorizationCapture.php';
 
-use PayPal\Api\Authorization;
 use PayPal\Api\Capture;
 use PayPal\Api\Refund;
-use PayPal\Api\Amount;
 
 // ### Refund
 // Create a refund object indicating
@@ -25,8 +23,10 @@ try {
 
     $captureRefund = $capture->refund($refund, $apiContext);
 } catch (Exception $ex) {
-    ResultPrinter::printError("Refund Capture", "Capture", null, $refund, $ex);
+    // NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
+ 	ResultPrinter::printError("Refund Capture", "Capture", null, $refund, $ex);
     exit(1);
 }
 
-ResultPrinter::printResult("Refund Capture", "Capture", $captureRefund->getId(), $refund, $captureRefund);
+// NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
+ ResultPrinter::printResult("Refund Capture", "Capture", $captureRefund->getId(), $refund, $captureRefund);

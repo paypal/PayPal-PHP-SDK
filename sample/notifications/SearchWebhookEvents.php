@@ -12,7 +12,6 @@
 // for a webhook events. This is made in a sample just to make sure there is minimum of one webhook to listen to.
 /** @var \PayPal\Api\Webhook $webhook */
 $webhook = require __DIR__ . '/../bootstrap.php';
-use PayPal\Api\Authorization;
 
 $params = array(
    // 'start_time'=>'2014-12-06T11:00:00Z',
@@ -23,11 +22,13 @@ $params = array(
 try {
     $output = \PayPal\Api\WebhookEvent::all($params, $apiContext);
 } catch (Exception $ex) {
-    ResultPrinter::printError("Search Webhook events", "WebhookEventList", null, null, $ex);
+    // NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
+ 	ResultPrinter::printError("Search Webhook events", "WebhookEventList", null, null, $ex);
     exit(1);
 }
 
-ResultPrinter::printResult("Search Webhook events", "WebhookEventList", null, $params, $output);
+// NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
+ ResultPrinter::printResult("Search Webhook events", "WebhookEventList", null, $params, $output);
 
 
 return $output;

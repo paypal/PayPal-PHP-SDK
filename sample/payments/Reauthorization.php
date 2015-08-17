@@ -5,8 +5,8 @@
 // API used: v1/payments/authorization/{authorization_id}/reauthorize
 /** @var Authorization $authorization */
 $authorization = require 'AuthorizePayment.php';
-use PayPal\Api\Authorization;
 use PayPal\Api\Amount;
+use PayPal\Api\Authorization;
 
 // ### Reauthorization
 // Reauthorization is available only for PayPal account payments
@@ -27,8 +27,10 @@ try {
 
     $reAuthorization = $authorization->reauthorize($apiContext);
 } catch (Exception $ex) {
-    ResultPrinter::printError("Reauthorize Payment", "Payment", null, null, $ex);
+    // NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
+ 	ResultPrinter::printError("Reauthorize Payment", "Payment", null, null, $ex);
     exit(1);
 }
 
+// NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
 ResultPrinter::printResult("Reauthorize Payment", "Payment", $authorization->getId(), null, $reAuthorization);

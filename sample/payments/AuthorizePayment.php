@@ -7,12 +7,12 @@
 require __DIR__ . '/../bootstrap.php';
 
 use PayPal\Api\Address;
+use PayPal\Api\Amount;
 use PayPal\Api\CreditCard;
 use PayPal\Api\FundingInstrument;
 use PayPal\Api\Payer;
-use PayPal\Api\Amount;
-use PayPal\Api\Transaction;
 use PayPal\Api\Payment;
+use PayPal\Api\Transaction;
 
 // The biggest difference between creating a payment, and authorizing a payment is to set the intent of payment
 // to correct setting. In this case, it would be 'authorize'
@@ -68,11 +68,13 @@ $request = clone $payment;
 try {
     $payment->create($apiContext);
 } catch (Exception $ex) {
-    ResultPrinter::printError('Authorize a Payment', 'Authorized Payment', $payment->getId(), $request, $ex);
+    // NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
+ 	ResultPrinter::printError('Authorize a Payment', 'Authorized Payment', $payment->getId(), $request, $ex);
     exit(1);
 }
 
-ResultPrinter::printResult('Authorize a Payment', 'Authorized Payment', $payment->getId(), $request, $payment);
+// NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
+ ResultPrinter::printResult('Authorize a Payment', 'Authorized Payment', $payment->getId(), $request, $payment);
 
 $transactions = $payment->getTransactions();
 $relatedResources = $transactions[0]->getRelatedResources();

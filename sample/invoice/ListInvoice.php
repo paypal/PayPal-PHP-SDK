@@ -16,7 +16,9 @@ try {
     // (See bootstrap.php for more on `ApiContext`)
     $invoices = Invoice::getAll(array('page' => 0, 'page_size' => 4, 'total_count_required' => "true"), $apiContext);
 } catch (Exception $ex) {
-    ResultPrinter::printError("Lookup Invoice History", "Invoice", null, null, $ex);
+    // NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
+ 	ResultPrinter::printError("Lookup Invoice History", "Invoice", null, null, $ex);
     exit(1);
 }
-ResultPrinter::printResult("Lookup Invoice History", "Invoice", null, null, $invoices);
+// NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
+ ResultPrinter::printResult("Lookup Invoice History", "Invoice", null, null, $invoices);

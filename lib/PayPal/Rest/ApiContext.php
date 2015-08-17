@@ -83,7 +83,7 @@ class ApiContext
      *
      * @return string
      */
-    public function getrequestId()
+    public function getRequestId()
     {
         if ($this->requestId == null) {
             $this->requestId = $this->generateRequestId();
@@ -102,7 +102,7 @@ class ApiContext
     public function resetRequestId()
     {
         $this->requestId = $this->generateRequestId();
-        return $this->getrequestId();
+        return $this->getRequestId();
     }
 
     /**

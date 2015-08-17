@@ -11,9 +11,12 @@
 // API used: POST '/v1/payments/payment/<payment-id>/execute'.
 
 require __DIR__ . '/../bootstrap.php';
+use PayPal\Api\Amount;
+use PayPal\Api\Details;
 use PayPal\Api\ExecutePayment;
 use PayPal\Api\Payment;
 use PayPal\Api\PaymentExecution;
+use PayPal\Api\Transaction;
 
 // ### Approval Status
 // Determine if the user approved the payment or not
@@ -33,24 +36,56 @@ if (isset($_GET['success']) && $_GET['success'] == 'true') {
     $execution = new PaymentExecution();
     $execution->setPayerId($_GET['PayerID']);
 
-    // Execute the payment
-    // (See bootstrap.php for more on `ApiContext`)
-    $result = $payment->execute($execution, $apiContext);
+    // ### Optional Changes to Amount
+    // If you wish to update the amount that you wish to charge the customer,
+    // based on the shipping address or any other reason, you could
+    // do that by passing the transaction object with just `amount` field in it.
+    // Here is the example on how we changed the shipping to $1 more than before.
+    $transaction = new Transaction();
+    $amount = new Amount();
+    $details = new Details();
 
-    ResultPrinter::printResult("Executed Payment", "Payment", $payment->getId(), $execution, $result);
+    $details->setShipping(2.2)
+        ->setTax(1.3)
+        ->setSubtotal(17.50);
+
+    $amount->setCurrency('USD');
+    $amount->setTotal(21);
+    $amount->setDetails($details);
+    $transaction->setAmount($amount);
+
+    // Add the above transaction object inside our Execution object.
+    $execution->addTransaction($transaction);
 
     try {
-        $payment = Payment::get($paymentId, $apiContext);
+        // Execute the payment
+        // (See bootstrap.php for more on `ApiContext`)
+        $result = $payment->execute($execution, $apiContext);
+
+        // NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
+        ResultPrinter::printResult("Executed Payment", "Payment", $payment->getId(), $execution, $result);
+
+        try {
+            $payment = Payment::get($paymentId, $apiContext);
+        } catch (Exception $ex) {
+            // NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
+ 	        ResultPrinter::printError("Get Payment", "Payment", null, null, $ex);
+            exit(1);
+        }
     } catch (Exception $ex) {
-        ResultPrinter::printError("Get Payment", "Payment", null, null, $ex);
+        // NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
+ 	    ResultPrinter::printError("Executed Payment", "Payment", null, null, $ex);
         exit(1);
     }
 
+    // NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
     ResultPrinter::printResult("Get Payment", "Payment", $payment->getId(), null, $payment);
 
     return $payment;
 
 
 } else {
+    // NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
     ResultPrinter::printResult("User Cancelled the Approval", null);
+    exit;
 }

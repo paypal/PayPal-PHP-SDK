@@ -12,12 +12,12 @@
 $createdPlan = require 'UpdatePlan.php';
 
 use PayPal\Api\Agreement;
-use PayPal\Api\Plan;
-use PayPal\Api\Payer;
-use PayPal\Api\ShippingAddress;
-use PayPal\Api\PayerInfo;
 use PayPal\Api\CreditCard;
 use PayPal\Api\FundingInstrument;
+use PayPal\Api\Payer;
+use PayPal\Api\PayerInfo;
+use PayPal\Api\Plan;
+use PayPal\Api\ShippingAddress;
 
 /* Create a new instance of Agreement object
 {
@@ -56,7 +56,7 @@ $agreement = new Agreement();
 
 $agreement->setName('DPRP')
     ->setDescription('Payment with credit Card')
-    ->setStartDate('2015-06-17T9:45:04Z');
+    ->setStartDate('2019-06-17T9:45:04Z');
 
 // Add Plan ID
 // Please note that the plan Id should be only set in this case.
@@ -72,7 +72,7 @@ $payer->setPaymentMethod('credit_card')
 // Add Credit Card to Funding Instruments
 $creditCard = new CreditCard();
 $creditCard->setType('visa')
-    ->setNumber('4417119669820331')
+    ->setNumber('4491759698858890')
     ->setExpireMonth('12')
     ->setExpireYear('2017')
     ->setCvv2('128');
@@ -101,10 +101,12 @@ try {
     $agreement = $agreement->create($apiContext);
 
 } catch (Exception $ex) {
+    // NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
     ResultPrinter::printError("Created Billing Agreement.", "Agreement", $agreement->getId(), $request, $ex);
     exit(1);
 }
 
-ResultPrinter::printResult("Created Billing Agreement.", "Agreement", $agreement->getId(), $request, $agreement);
+ // NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
+ ResultPrinter::printResult("Created Billing Agreement.", "Agreement", $agreement->getId(), $request, $agreement);
 
 return $agreement;

@@ -76,7 +76,7 @@ class AuthorizationCacheTest extends \PHPUnit_Framework_TestCase
         $tokens = json_decode($contents, true);
         $this->assertNotNull($contents);
         $this->assertEquals('clientId', $tokens['clientId']['clientId']);
-        $this->assertEquals('accessToken', $tokens['clientId']['accessToken']);
+        $this->assertEquals('accessToken', $tokens['clientId']['accessTokenEncrypted']);
         $this->assertEquals('tokenCreateTime', $tokens['clientId']['tokenCreateTime']);
         $this->assertEquals('tokenExpiresIn', $tokens['clientId']['tokenExpiresIn']);
 
@@ -97,7 +97,7 @@ class AuthorizationCacheTest extends \PHPUnit_Framework_TestCase
         $this->assertNotNull($result);
         $this->assertTrue(is_array($result));
         $this->assertEquals('clientId', $result['clientId']);
-        $this->assertEquals('accessToken', $result['accessToken']);
+        $this->assertEquals('accessToken', $result['accessTokenEncrypted']);
         $this->assertEquals('tokenCreateTime', $result['tokenCreateTime']);
         $this->assertEquals('tokenExpiresIn', $result['tokenExpiresIn']);
 

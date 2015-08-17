@@ -3,7 +3,6 @@
 namespace PayPal\Api;
 
 use PayPal\Common\PayPalModel;
-use PayPal\Rest\ApiContext;
 
 /**
  * Class RelatedResources
@@ -22,10 +21,10 @@ class RelatedResources extends PayPalModel
 {
     /**
      * A sale transaction
-     * 
+     *
      *
      * @param \PayPal\Api\Sale $sale
-     * 
+     *
      * @return $this
      */
     public function setSale($sale)
@@ -46,10 +45,10 @@ class RelatedResources extends PayPalModel
 
     /**
      * An authorization transaction
-     * 
+     *
      *
      * @param \PayPal\Api\Authorization $authorization
-     * 
+     *
      * @return $this
      */
     public function setAuthorization($authorization)
@@ -70,10 +69,10 @@ class RelatedResources extends PayPalModel
 
     /**
      * An order transaction
-     * 
+     *
      *
      * @param \PayPal\Api\Order $order
-     * 
+     *
      * @return $this
      */
     public function setOrder($order)
@@ -94,10 +93,10 @@ class RelatedResources extends PayPalModel
 
     /**
      * A capture transaction
-     * 
+     *
      *
      * @param \PayPal\Api\Capture $capture
-     * 
+     *
      * @return $this
      */
     public function setCapture($capture)
@@ -118,10 +117,10 @@ class RelatedResources extends PayPalModel
 
     /**
      * A refund transaction
-     * 
+     *
      *
      * @param \PayPal\Api\Refund $refund
-     * 
+     *
      * @return $this
      */
     public function setRefund($refund)

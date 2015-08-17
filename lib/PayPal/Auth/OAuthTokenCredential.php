@@ -11,6 +11,7 @@ use PayPal\Exception\PayPalConfigurationException;
 use PayPal\Exception\PayPalConnectionException;
 use PayPal\Handler\IPayPalHandler;
 use PayPal\Rest\ApiContext;
+use PayPal\Security\Cipher;
 
 /**
  * Class OAuthTokenCredential
@@ -75,6 +76,13 @@ class OAuthTokenCredential extends PayPalResourceModel
     private $tokenCreateTime;
 
     /**
+     * Instance of cipher used to encrypt/decrypt data while storing in cache.
+     *
+     * @var Cipher
+     */
+    private $cipher;
+
+    /**
      * Construct
      *
      * @param string $clientId     client id obtained from the developer portal
@@ -84,6 +92,7 @@ class OAuthTokenCredential extends PayPalResourceModel
     {
         $this->clientId = $clientId;
         $this->clientSecret = $clientSecret;
+        $this->cipher = new Cipher($this->clientSecret);
         $this->logger = PayPalLoggingManager::getInstance(__CLASS__);
     }
 
@@ -116,13 +125,28 @@ class OAuthTokenCredential extends PayPalResourceModel
      */
     public function getAccessToken($config)
     {
+        // Check if we already have accessToken in Cache
+        if ($this->accessToken && (time() - $this->tokenCreateTime) < ($this->tokenExpiresIn - self::$expiryBufferTime)) {
+            return $this->accessToken;
+        }
         // Check for persisted data first
         $token = AuthorizationCache::pull($config, $this->clientId);
         if ($token) {
             // We found it
-            $this->accessToken = $token['accessToken'];
+            // This code block is for backward compatibility only.
+            if (array_key_exists('accessToken', $token)) {
+                $this->accessToken = $token['accessToken'];
+            }
+
             $this->tokenCreateTime = $token['tokenCreateTime'];
             $this->tokenExpiresIn = $token['tokenExpiresIn'];
+
+            // Case where we have an old unencrypted cache file
+            if (!array_key_exists('accessTokenEncrypted', $token)) {
+                AuthorizationCache::push($config, $this->clientId, $this->encrypt($this->accessToken), $this->tokenCreateTime, $this->tokenExpiresIn);
+            } else {
+                $this->accessToken = $this->decrypt($token['accessTokenEncrypted']);
+            }
         }
 
         // Check if Access Token is not null and has not expired.
@@ -137,11 +161,12 @@ class OAuthTokenCredential extends PayPalResourceModel
             $this->accessToken = null;
         }
 
+
         // If accessToken is Null, obtain a new token
         if ($this->accessToken == null) {
             // Get a new one by making calls to API
             $this->updateAccessToken($config);
-            AuthorizationCache::push($config, $this->clientId, $this->accessToken, $this->tokenCreateTime, $this->tokenExpiresIn);
+            AuthorizationCache::push($config, $this->clientId, $this->encrypt($this->accessToken), $this->tokenCreateTime, $this->tokenExpiresIn);
         }
 
         return $this->accessToken;
@@ -177,12 +202,14 @@ class OAuthTokenCredential extends PayPalResourceModel
         if ($response != null && isset($response["refresh_token"])) {
             return $response['refresh_token'];
         }
+
+        return null;
     }
 
     /**
      * Updates Access Token based on given input
      *
-     * @param      $config
+     * @param array $config
      * @param string|null $refreshToken
      * @return string
      */
@@ -230,7 +257,9 @@ class OAuthTokenCredential extends PayPalResourceModel
      * Generates a new access token
      *
      * @param array $config
+     * @param null|string $refreshToken
      * @return null
+     * @throws PayPalConnectionException
      */
     private function generateAccessToken($config, $refreshToken = null)
     {
@@ -258,5 +287,27 @@ class OAuthTokenCredential extends PayPalResourceModel
         $this->tokenCreateTime = time();
 
         return $this->accessToken;
+    }
+
+    /**
+     * Helper method to encrypt data using clientSecret as key
+     *
+     * @param $data
+     * @return string
+     */
+    public function encrypt($data)
+    {
+        return $this->cipher->encrypt($data);
+    }
+
+    /**
+     * Helper method to decrypt data using clientSecret as key
+     *
+     * @param $data
+     * @return string
+     */
+    public function decrypt($data)
+    {
+        return $this->cipher->decrypt($data);
     }
 }

@@ -17,6 +17,8 @@ use PayPal\Common\PayPalModel;
  * @property string country_code
  * @property string postal_code
  * @property string state
+ * @property string normalization_status
+ * @property string status
  */
 class BaseAddress extends PayPalModel
 {
@@ -156,6 +158,54 @@ class BaseAddress extends PayPalModel
     public function getState()
     {
         return $this->state;
+    }
+
+    /**
+     * Address normalization status
+     * Valid Values: ["UNKNOWN", "UNNORMALIZED_USER_PREFERRED", "NORMALIZED", "UNNORMALIZED"]
+     *
+     * @param string $normalization_status
+     *
+     * @return $this
+     */
+    public function setNormalizationStatus($normalization_status)
+    {
+        $this->normalization_status = $normalization_status;
+        return $this;
+    }
+
+    /**
+     * Address normalization status
+     *
+     * @return string
+     */
+    public function getNormalizationStatus()
+    {
+        return $this->normalization_status;
+    }
+
+    /**
+     * Address status
+     * Valid Values: ["CONFIRMED", "UNCONFIRMED"]
+     *
+     * @param string $status
+     *
+     * @return $this
+     */
+    public function setStatus($status)
+    {
+        $this->status = $status;
+        return $this;
+    }
+
+    /**
+     * Address status
+     *
+     * @return string
+     */
+    public function getStatus()
+    {
+        return $this->status;
     }
 
 }

@@ -4,7 +4,6 @@ namespace PayPal\Api;
 
 use PayPal\Common\PayPalResourceModel;
 use PayPal\Rest\ApiContext;
-use PayPal\Api\Refund;
 use PayPal\Transport\PayPalRestCall;
 use PayPal\Validation\ArgumentValidator;
 
@@ -16,6 +15,7 @@ use PayPal\Validation\ArgumentValidator;
  * @package PayPal\Api
  *
  * @property string id
+ * @property string purchase_unit_reference_id
  * @property string create_time
  * @property string update_time
  * @property \PayPal\Api\Amount amount
@@ -26,13 +26,20 @@ use PayPal\Validation\ArgumentValidator;
  * @property string protection_eligibility
  * @property string protection_eligibility_type
  * @property string clearing_time
+ * @property string recipient_fund_status
+ * @property string hold_reason
+ * @property \PayPal\Api\Currency transaction_fee
+ * @property \PayPal\Api\Currency receivable_amount
+ * @property string exchange_rate
+ * @property \PayPal\Api\FmfDetails fmf_details
+ * @property string receipt_id
  * @property string parent_payment
+ * @property \PayPal\Api\Links[] links
  */
 class Sale extends PayPalResourceModel
 {
     /**
-     * Identifier of the authorization transaction.
-     * 
+     * Identifier of the sale transaction.
      *
      * @param string $id
      * 
@@ -45,7 +52,7 @@ class Sale extends PayPalResourceModel
     }
 
     /**
-     * Identifier of the authorization transaction.
+     * Identifier of the sale transaction.
      *
      * @return string
      */
@@ -55,56 +62,30 @@ class Sale extends PayPalResourceModel
     }
 
     /**
-     * Time the resource was created.
-     * 
+     * Identifier to the purchase unit corresponding to this sale transaction.
      *
-     * @param string $create_time
+     * @param string $purchase_unit_reference_id
      * 
      * @return $this
      */
-    public function setCreateTime($create_time)
+    public function setPurchaseUnitReferenceId($purchase_unit_reference_id)
     {
-        $this->create_time = $create_time;
+        $this->purchase_unit_reference_id = $purchase_unit_reference_id;
         return $this;
     }
 
     /**
-     * Time the resource was created.
+     * Identifier to the purchase unit corresponding to this sale transaction.
      *
      * @return string
      */
-    public function getCreateTime()
+    public function getPurchaseUnitReferenceId()
     {
-        return $this->create_time;
-    }
-
-    /**
-     * Time the resource was last updated.
-     * 
-     *
-     * @param string $update_time
-     * 
-     * @return $this
-     */
-    public function setUpdateTime($update_time)
-    {
-        $this->update_time = $update_time;
-        return $this;
-    }
-
-    /**
-     * Time the resource was last updated.
-     *
-     * @return string
-     */
-    public function getUpdateTime()
-    {
-        return $this->update_time;
+        return $this->purchase_unit_reference_id;
     }
 
     /**
      * Amount being collected.
-     * 
      *
      * @param \PayPal\Api\Amount $amount
      * 
@@ -128,7 +109,7 @@ class Sale extends PayPalResourceModel
 
     /**
      * specifies payment mode of the transaction
-     * Valid Values: ["INSTANT_TRANSFER", "MANUAL_BANK_TRANSFER", "DELAYED_TRANSFER", "ECHECK"] 
+     * Valid Values: ["INSTANT_TRANSFER", "MANUAL_BANK_TRANSFER", "DELAYED_TRANSFER", "ECHECK"]
      *
      * @param string $payment_mode
      * 
@@ -152,10 +133,10 @@ class Sale extends PayPalResourceModel
 
     /**
      * Reason of Pending transaction.
-     * 
      *
-     * @param string $pending_reason
-     * 
+     *
+     *
+     * @param  string  $pending_reason
      * @return $this
      */
     public function setPendingReason($pending_reason)
@@ -176,7 +157,7 @@ class Sale extends PayPalResourceModel
 
     /**
      * State of the sale transaction.
-     * Valid Values: ["pending", "completed", "refunded", "partially_refunded"] 
+     * Valid Values: ["completed", "partially_refunded", "pending", "refunded"]
      *
      * @param string $state
      * 
@@ -200,7 +181,7 @@ class Sale extends PayPalResourceModel
 
     /**
      * Reason code for the transaction state being Pending or Reversed.
-     * Valid Values: ["CHARGEBACK", "GUARANTEE", "BUYER_COMPLAINT", "REFUND", "UNCONFIRMED_SHIPPING_ADDRESS", "ECHECK", "INTERNATIONAL_WITHDRAWAL", "RECEIVING_PREFERENCE_MANDATES_MANUAL_ACTION", "PAYMENT_REVIEW", "REGULATORY_REVIEW", "UNILATERAL", "VERIFICATION_REQUIRED"] 
+     * Valid Values: ["CHARGEBACK", "GUARANTEE", "BUYER_COMPLAINT", "REFUND", "UNCONFIRMED_SHIPPING_ADDRESS", "ECHECK", "INTERNATIONAL_WITHDRAWAL", "RECEIVING_PREFERENCE_MANDATES_MANUAL_ACTION", "PAYMENT_REVIEW", "REGULATORY_REVIEW", "UNILATERAL", "VERIFICATION_REQUIRED"]
      *
      * @param string $reason_code
      * 
@@ -224,7 +205,7 @@ class Sale extends PayPalResourceModel
 
     /**
      * Protection Eligibility of the Payer 
-     * Valid Values: ["ELIGIBLE", "PARTIALLY_ELIGIBLE", "INELIGIBLE"] 
+     * Valid Values: ["ELIGIBLE", "PARTIALLY_ELIGIBLE", "INELIGIBLE"]
      *
      * @param string $protection_eligibility
      * 
@@ -248,7 +229,7 @@ class Sale extends PayPalResourceModel
 
     /**
      * Protection Eligibility Type of the Payer 
-     * Valid Values: ["ELIGIBLE", "ITEM_NOT_RECEIVED_ELIGIBLE", "INELIGIBLE", "UNAUTHORIZED_PAYMENT_ELIGIBLE"] 
+     * Valid Values: ["ELIGIBLE", "ITEM_NOT_RECEIVED_ELIGIBLE", "INELIGIBLE", "UNAUTHORIZED_PAYMENT_ELIGIBLE"]
      *
      * @param string $protection_eligibility_type
      * 
@@ -272,7 +253,6 @@ class Sale extends PayPalResourceModel
 
     /**
      * Expected clearing time for eCheck Transactions
-     * 
      *
      * @param string $clearing_time
      * 
@@ -295,8 +275,170 @@ class Sale extends PayPalResourceModel
     }
 
     /**
-     * ID of the Payment resource that this transaction is based on.
+     * Indicates the credit status of fund to the recipient. It will be returned only when payment status is 'completed' 
+     * Valid Values: ["COMPLETED", "HELD"]
+     *
+     * @param string $recipient_fund_status
      * 
+     * @return $this
+     */
+    public function setRecipientFundStatus($recipient_fund_status)
+    {
+        $this->recipient_fund_status = $recipient_fund_status;
+        return $this;
+    }
+
+    /**
+     * Indicates the credit status of fund to the recipient. It will be returned only when payment status is 'completed' 
+     *
+     * @return string
+     */
+    public function getRecipientFundStatus()
+    {
+        return $this->recipient_fund_status;
+    }
+
+    /**
+     * Reason for holding the funds.
+     * Valid Values: ["NEW_SELLER_PAYMENT_HOLD", "PAYMENT_HOLD"]
+     *
+     * @param string $hold_reason
+     * 
+     * @return $this
+     */
+    public function setHoldReason($hold_reason)
+    {
+        $this->hold_reason = $hold_reason;
+        return $this;
+    }
+
+    /**
+     * Reason for holding the funds.
+     *
+     * @return string
+     */
+    public function getHoldReason()
+    {
+        return $this->hold_reason;
+    }
+
+    /**
+     * Transaction fee applicable for this payment.
+     *
+     * @param \PayPal\Api\Currency $transaction_fee
+     * 
+     * @return $this
+     */
+    public function setTransactionFee($transaction_fee)
+    {
+        $this->transaction_fee = $transaction_fee;
+        return $this;
+    }
+
+    /**
+     * Transaction fee applicable for this payment.
+     *
+     * @return \PayPal\Api\Currency
+     */
+    public function getTransactionFee()
+    {
+        return $this->transaction_fee;
+    }
+
+    /**
+     * Net amount payee receives for this transaction after deducting transaction fee.
+     *
+     * @param \PayPal\Api\Currency $receivable_amount
+     * 
+     * @return $this
+     */
+    public function setReceivableAmount($receivable_amount)
+    {
+        $this->receivable_amount = $receivable_amount;
+        return $this;
+    }
+
+    /**
+     * Net amount payee receives for this transaction after deducting transaction fee.
+     *
+     * @return \PayPal\Api\Currency
+     */
+    public function getReceivableAmount()
+    {
+        return $this->receivable_amount;
+    }
+
+    /**
+     * Exchange rate applied for this transaction.
+     *
+     * @param string $exchange_rate
+     * 
+     * @return $this
+     */
+    public function setExchangeRate($exchange_rate)
+    {
+        $this->exchange_rate = $exchange_rate;
+        return $this;
+    }
+
+    /**
+     * Exchange rate applied for this transaction.
+     *
+     * @return string
+     */
+    public function getExchangeRate()
+    {
+        return $this->exchange_rate;
+    }
+
+    /**
+     * Fraud Management Filter (FMF) details applied for the payment that could result in accept/deny/pending action.
+     *
+     * @param \PayPal\Api\FmfDetails $fmf_details
+     * 
+     * @return $this
+     */
+    public function setFmfDetails($fmf_details)
+    {
+        $this->fmf_details = $fmf_details;
+        return $this;
+    }
+
+    /**
+     * Fraud Management Filter (FMF) details applied for the payment that could result in accept/deny/pending action.
+     *
+     * @return \PayPal\Api\FmfDetails
+     */
+    public function getFmfDetails()
+    {
+        return $this->fmf_details;
+    }
+
+    /**
+     * Receipt id is 16 digit number payment identification number returned for guest users to identify the payment.
+     *
+     * @param string $receipt_id
+     * 
+     * @return $this
+     */
+    public function setReceiptId($receipt_id)
+    {
+        $this->receipt_id = $receipt_id;
+        return $this;
+    }
+
+    /**
+     * Receipt id is 16 digit number payment identification number returned for guest users to identify the payment.
+     *
+     * @return string
+     */
+    public function getReceiptId()
+    {
+        return $this->receipt_id;
+    }
+
+    /**
+     * ID of the Payment resource that this transaction is based on.
      *
      * @param string $parent_payment
      * 
@@ -319,17 +461,62 @@ class Sale extends PayPalResourceModel
     }
 
     /**
-     * Obtain the Sale transaction resource for the given identifier.
+     * Time the resource was created in UTC ISO8601 format.
+     *
+     * @param string $create_time
+     * 
+     * @return $this
+     */
+    public function setCreateTime($create_time)
+    {
+        $this->create_time = $create_time;
+        return $this;
+    }
+
+    /**
+     * Time the resource was created in UTC ISO8601 format.
+     *
+     * @return string
+     */
+    public function getCreateTime()
+    {
+        return $this->create_time;
+    }
+
+    /**
+     * Time the resource was last updated in UTC ISO8601 format.
+     *
+     * @param string $update_time
+     * 
+     * @return $this
+     */
+    public function setUpdateTime($update_time)
+    {
+        $this->update_time = $update_time;
+        return $this;
+    }
+
+    /**
+     * Time the resource was last updated in UTC ISO8601 format.
+     *
+     * @return string
+     */
+    public function getUpdateTime()
+    {
+        return $this->update_time;
+    }
+
+    /**
+     * Retrieve details about a sale transaction by passing the sale_id in the request URI. This request returns only the sales that were created via the REST API.
      *
      * @param string $saleId
-     * @param \PayPal\Rest\ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
+     * @param ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
      * @param PayPalRestCall $restCall is the Rest Call Service that is used to make rest calls
      * @return Sale
      */
     public static function get($saleId, $apiContext = null, $restCall = null)
     {
         ArgumentValidator::validate($saleId, 'saleId');
-
         $payLoad = "";
         $json = self::executeCall(
             "/v1/payments/sale/$saleId",
@@ -345,10 +532,10 @@ class Sale extends PayPalResourceModel
     }
 
     /**
-     * Creates (and processes) a new Refund Transaction added as a related resource.
+     * Refund a completed payment by passing the sale_id in the request URI. In addition, include an empty JSON payload in the request body for a full refund. For a partial refund, include an amount object in the request body.
      *
      * @param Refund $refund
-     * @param \PayPal\Rest\ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
+     * @param ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
      * @param PayPalRestCall $restCall is the Rest Call Service that is used to make rest calls
      * @return Refund
      */
@@ -356,7 +543,6 @@ class Sale extends PayPalResourceModel
     {
         ArgumentValidator::validate($this->getId(), "Id");
         ArgumentValidator::validate($refund, 'refund');
-
         $payLoad = $refund->toJSON();
         $json = self::executeCall(
             "/v1/payments/sale/{$this->getId()}/refund",

@@ -19,7 +19,7 @@ use PayPal\Common\PayPalModel;
  * @property \PayPal\Api\Currency net_amount
  * @property string payer_email
  * @property string payer_name
- * @property string time_updated
+ * @property string time_stamp
  * @property string time_zone
  */
 class AgreementTransaction extends PayPalModel
@@ -211,13 +211,13 @@ class AgreementTransaction extends PayPalModel
     /**
      * Time at which this transaction happened.
      *
-     * @param string $time_updated
+     * @param string $time_stamp
      * 
      * @return $this
      */
-    public function setTimeUpdated($time_updated)
+    public function setTimeStamp($time_stamp)
     {
-        $this->time_updated = $time_updated;
+        $this->time_stamp = $time_stamp;
         return $this;
     }
 
@@ -226,9 +226,9 @@ class AgreementTransaction extends PayPalModel
      *
      * @return string
      */
-    public function getTimeUpdated()
+    public function getTimeStamp()
     {
-        return $this->time_updated;
+        return $this->time_stamp;
     }
 
     /**

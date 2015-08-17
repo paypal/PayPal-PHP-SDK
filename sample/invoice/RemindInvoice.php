@@ -30,11 +30,13 @@ try {
     // (See bootstrap.php for more on `ApiContext`)
     $remindStatus = $invoice->remind($notify, $apiContext);
 } catch (Exception $ex) {
-    ResultPrinter::printError("Remind Invoice", "Invoice", null, $notify, $ex);
+    // NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
+ 	ResultPrinter::printError("Remind Invoice", "Invoice", null, $notify, $ex);
     exit(1);
 }
 
-ResultPrinter::printResult("Remind Invoice", "Invoice", null, $notify, null);
+// NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
+ ResultPrinter::printResult("Remind Invoice", "Invoice", null, $notify, null);
 
 // ### Retrieve Invoice
 // Retrieve the invoice object by calling the
@@ -45,10 +47,12 @@ ResultPrinter::printResult("Remind Invoice", "Invoice", null, $notify, null);
 try {
     $invoice = Invoice::get($invoice->getId(), $apiContext);
 } catch (Exception $ex) {
-    ResultPrinter::printError("Get Invoice (Not Required - For Sample Only)", "Invoice", $invoice->getId(), $invoice->getId(), $ex);
+    // NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
+ 	ResultPrinter::printError("Get Invoice (Not Required - For Sample Only)", "Invoice", $invoice->getId(), $invoice->getId(), $ex);
     exit(1);
 }
 
-ResultPrinter::printResult("Get Invoice (Not Required - For Sample Only)", "Invoice", $invoice->getId(), $invoice->getId(), $invoice);
+// NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
+ ResultPrinter::printResult("Get Invoice (Not Required - For Sample Only)", "Invoice", $invoice->getId(), $invoice->getId(), $invoice);
 
 return $invoice;

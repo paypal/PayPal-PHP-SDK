@@ -3,7 +3,6 @@
 namespace PayPal\Api;
 
 use PayPal\Common\PayPalModel;
-use PayPal\Rest\ApiContext;
 
 /**
  * Class CreditCardHistory
@@ -12,7 +11,7 @@ use PayPal\Rest\ApiContext;
  *
  * @package PayPal\Api
  *
- * @property \PayPal\Api\CreditCard credit_cards
+ * @property \PayPal\Api\CreditCard[] credit_cards
  * @property int count
  * @property string next_id
  */
@@ -20,10 +19,9 @@ class CreditCardHistory extends PayPalModel
 {
     /**
      * A list of credit card resources
-     * 
      *
-     * @param \PayPal\Api\CreditCard $credit-cards
-     * 
+     *
+     * @param \PayPal\Api\CreditCard[] $credit_cards
      * @return $this
      */
     public function setCreditCards($credit_cards)

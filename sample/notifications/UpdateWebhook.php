@@ -46,10 +46,12 @@ $patchRequest->addPatch($patch)->addPatch($patch2);
 try {
     $output = $webhook->update($patchRequest, $apiContext);
 } catch (Exception $ex) {
-    ResultPrinter::printError("Updated a Webhook", "Webhook", null, $patchRequest, $ex);
+    // NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
+ 	ResultPrinter::printError("Updated a Webhook", "Webhook", null, $patchRequest, $ex);
     exit(1);
 }
 
-ResultPrinter::printResult("Updated a Webhook", "Webhook", $output->getId(), $patchRequest, $output);
+// NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
+ ResultPrinter::printResult("Updated a Webhook", "Webhook", $output->getId(), $patchRequest, $output);
 
 return $output;

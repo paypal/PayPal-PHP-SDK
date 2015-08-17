@@ -14,8 +14,10 @@ try {
     $tokenInfo = $tokenInfo->createFromRefreshToken(array('refresh_token' => $refreshToken), $apiContext);
 
 } catch (Exception $ex) {
-    ResultPrinter::printError("Obtained Access Token From Refresh Token", "Access Token", null, null, $ex);
+    // NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
+ 	ResultPrinter::printError("Obtained Access Token From Refresh Token", "Access Token", null, null, $ex);
     exit(1);
 }
 
-ResultPrinter::printResult("Obtained Access Token From Refresh Token", "Access Token", $tokenInfo->getAccessToken(), null, $tokenInfo);
+// NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
+ ResultPrinter::printResult("Obtained Access Token From Refresh Token", "Access Token", $tokenInfo->getAccessToken(), null, $tokenInfo);

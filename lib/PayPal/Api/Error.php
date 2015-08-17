@@ -12,8 +12,10 @@ use PayPal\Common\PayPalModel;
  * @package PayPal\Api
  *
  * @property string name
+ * @property string purchase_unit_reference_id
  * @property string debug_id
  * @property string message
+ * @property string code
  * @property string information_link
  * @property \PayPal\Api\ErrorDetails[] details
  * @property \PayPal\Api\Links[] links
@@ -41,6 +43,29 @@ class Error extends PayPalModel
     public function getName()
     {
         return $this->name;
+    }
+
+    /**
+     * Reference ID of the purchase_unit associated with this error
+     *
+     * @param string $purchase_unit_reference_id
+     * 
+     * @return $this
+     */
+    public function setPurchaseUnitReferenceId($purchase_unit_reference_id)
+    {
+        $this->purchase_unit_reference_id = $purchase_unit_reference_id;
+        return $this;
+    }
+
+    /**
+     * Reference ID of the purchase_unit associated with this error
+     *
+     * @return string
+     */
+    public function getPurchaseUnitReferenceId()
+    {
+        return $this->purchase_unit_reference_id;
     }
 
     /**
@@ -87,6 +112,29 @@ class Error extends PayPalModel
     public function getMessage()
     {
         return $this->message;
+    }
+
+    /**
+     * PayPal internal error code.
+     *
+     * @param string $code
+     * 
+     * @return $this
+     */
+    public function setCode($code)
+    {
+        $this->code = $code;
+        return $this;
+    }
+
+    /**
+     * PayPal internal error code.
+     *
+     * @return string
+     */
+    public function getCode()
+    {
+        return $this->code;
     }
 
     /**

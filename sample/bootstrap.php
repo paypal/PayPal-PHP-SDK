@@ -19,8 +19,8 @@ if (!file_exists($composerAutoload)) {
 require $composerAutoload;
 require __DIR__ . '/common.php';
 
-use PayPal\Rest\ApiContext;
 use PayPal\Auth\OAuthTokenCredential;
+use PayPal\Rest\ApiContext;
 
 error_reporting(E_ALL);
 ini_set('display_errors', '1');
@@ -74,7 +74,7 @@ function getApiContext($clientId, $clientSecret)
             'mode' => 'sandbox',
             'log.LogEnabled' => true,
             'log.FileName' => '../PayPal.log',
-            'log.LogLevel' => 'FINE',
+            'log.LogLevel' => 'DEBUG', // PLEASE USE `FINE` LEVEL FOR LOGGING IN LIVE ENVIRONMENTS
             'validation.level' => 'log',
             'cache.enabled' => true,
             // 'http.CURLOPT_CONNECTTIMEOUT' => 30

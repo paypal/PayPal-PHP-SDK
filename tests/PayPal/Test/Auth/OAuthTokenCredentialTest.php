@@ -4,11 +4,10 @@ namespace PayPal\Test\Auth;
 
 use PayPal\Auth\OAuthTokenCredential;
 use PayPal\Cache\AuthorizationCache;
-use PayPal\Exception\PayPalConnectionException;
+use PayPal\Core\PayPalConfigManager;
 use PayPal\Rest\ApiContext;
 use PayPal\Test\Cache\AuthorizationCacheTest;
 use PayPal\Test\Constants;
-use PayPal\Core\PayPalConfigManager;
 
 class OAuthTokenCredentialTest extends \PHPUnit_Framework_TestCase
 {
@@ -48,9 +47,11 @@ class OAuthTokenCredentialTest extends \PHPUnit_Framework_TestCase
             'cache.enabled' => true,
             'cache.FileName' => AuthorizationCacheTest::CACHE_FILE
         );
+         $cred = new OAuthTokenCredential('clientId', 'clientSecret');
+
         //{"clientId":{"clientId":"clientId","accessToken":"accessToken","tokenCreateTime":1421204091,"tokenExpiresIn":288000000}}
-        AuthorizationCache::push($config, 'clientId', 'accessToken', 1421204091, 288000000);
-        $cred = new OAuthTokenCredential('clientId', 'clientSecret');
+        AuthorizationCache::push($config, 'clientId', $cred->encrypt('accessToken'), 1421204091, 288000000);
+
         $apiContext = new ApiContext($cred);
         $apiContext->setConfig($config);
         $this->assertEquals('clientId', $cred->getClientId());

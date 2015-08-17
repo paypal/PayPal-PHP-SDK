@@ -2,12 +2,9 @@
 
 namespace PayPal\Test\Api;
 
-use PayPal\Common\PayPalResourceModel;
-use PayPal\Validation\ArgumentValidator;
 use PayPal\Api\ItemsArray;
-use PayPal\Rest\ApiContext;
-use PayPal\Transport\PPRestCall;
 use PayPal\Api\PayoutItem;
+use PayPal\Transport\PPRestCall;
 
 /**
  * Class PayoutItem
@@ -82,6 +79,26 @@ class PayoutItemTest extends \PHPUnit_Framework_TestCase
             ));
 
         $result = $obj->get("payoutItemId", $mockApiContext, $mockPPRestCall);
+        $this->assertNotNull($result);
+    }
+
+    /**
+     * @dataProvider mockProvider
+     * @param PayoutItem $obj
+     */
+    public function testCancel($obj, $mockApiContext)
+    {
+        $mockPPRestCall = $this->getMockBuilder('\PayPal\Transport\PayPalRestCall')
+            ->disableOriginalConstructor()
+            ->getMock();
+
+        $mockPPRestCall->expects($this->any())
+            ->method('execute')
+            ->will($this->returnValue(
+                PayoutItemDetailsTest::getJson()
+            ));
+
+        $result = $obj->cancel("payoutItemId", $mockApiContext, $mockPPRestCall);
         $this->assertNotNull($result);
     }
 

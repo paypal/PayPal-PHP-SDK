@@ -23,10 +23,12 @@ try {
     // Void the authorization
     $voidedAuth = $authorization->void($apiContext);
 } catch (Exception $ex) {
-    ResultPrinter::printError("Void Authorization", "Authorization", null, null, $ex);
+    // NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
+ 	ResultPrinter::printError("Void Authorization", "Authorization", null, null, $ex);
     exit(1);
 }
 
-ResultPrinter::printResult("Void Authorization", "Authorization", $voidedAuth->getId(), null, $voidedAuth);
+// NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
+ ResultPrinter::printResult("Void Authorization", "Authorization", $voidedAuth->getId(), null, $voidedAuth);
 
 return $voidedAuth;

@@ -2,7 +2,6 @@
 
 namespace PayPal\Test\Api;
 
-use PayPal\Common\PayPalModel;
 use PayPal\Api\Phone;
 
 /**
@@ -18,7 +17,7 @@ class PhoneTest extends \PHPUnit_Framework_TestCase
      */
     public static function getJson()
     {
-        return '{"country_code":"TestSample","national_number":"TestSample"}';
+        return '{"country_code":"TestSample","national_number":"TestSample","extension":"TestSample"}';
     }
 
     /**
@@ -41,6 +40,7 @@ class PhoneTest extends \PHPUnit_Framework_TestCase
         $this->assertNotNull($obj);
         $this->assertNotNull($obj->getCountryCode());
         $this->assertNotNull($obj->getNationalNumber());
+        $this->assertNotNull($obj->getExtension());
         $this->assertEquals(self::getJson(), $obj->toJson());
         return $obj;
     }
@@ -53,6 +53,7 @@ class PhoneTest extends \PHPUnit_Framework_TestCase
     {
         $this->assertEquals($obj->getCountryCode(), "TestSample");
         $this->assertEquals($obj->getNationalNumber(), "TestSample");
+        $this->assertEquals($obj->getExtension(), "TestSample");
     }
 
 }

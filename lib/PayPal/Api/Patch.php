@@ -7,7 +7,7 @@ use PayPal\Common\PayPalModel;
 /**
  * Class Patch
  *
- * A JSON patch object used for applying partial updates to resources.
+ * A JSON Patch object used for doing partial updates to resources.
  *
  * @package PayPal\Api
  *
@@ -66,7 +66,7 @@ class Patch extends PayPalModel
     }
 
     /**
-     * New value to apply based on the operation. op=remove does not require value.
+     * New value to apply based on the operation.
      *
      * @param mixed $value
      * 
@@ -79,7 +79,7 @@ class Patch extends PayPalModel
     }
 
     /**
-     * New value to apply based on the operation. op=remove does not require value.
+     * New value to apply based on the operation.
      *
      * @return mixed
      */

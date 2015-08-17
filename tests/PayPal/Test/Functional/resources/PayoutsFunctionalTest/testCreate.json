@@ -68,7 +68,7 @@
         			{
             			"payout_item_id": "VHBFGN95AWV82",
             			"transaction_id": "0728664497487461D",
-            			"transaction_status": "SUCCESS",
+            			"transaction_status": "UNCLAIMED",
             			"payout_item_fee": {
                 			"currency": "USD",
                 			"value": "0.02"

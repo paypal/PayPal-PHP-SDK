@@ -30,7 +30,9 @@ try {
     // (See bootstrap.php for more on `ApiContext`)
     $invoices = Invoice::search($search, $apiContext);
 } catch (Exception $ex) {
-    ResultPrinter::printError("Search Invoice", "Invoice", null, null, $ex);
+    // NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
+ 	ResultPrinter::printError("Search Invoice", "Invoice", null, null, $ex);
     exit(1);
 }
-ResultPrinter::printResult("Search Invoice", "Invoice", null, $search, $invoices);
+// NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
+ ResultPrinter::printResult("Search Invoice", "Invoice", null, $search, $invoices);

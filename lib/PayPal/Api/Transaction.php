@@ -2,9 +2,6 @@
 
 namespace PayPal\Api;
 
-use PayPal\Common\PayPalModel;
-use PayPal\Rest\ApiContext;
-
 /**
  * Class Transaction
  *
@@ -12,9 +9,10 @@ use PayPal\Rest\ApiContext;
  *
  * @package PayPal\Api
  *
+ * @property string purchase_unit_reference_id
  * @property Transaction transactions
  */
-class Transaction extends TransactionBase 
+class Transaction extends TransactionBase
 {
     /**
      * Additional transactions for complex payment scenarios.
@@ -38,6 +36,29 @@ class Transaction extends TransactionBase
     public function getTransactions()
     {
         return $this->transactions;
+    }
+
+    /**
+     * Identifier to the purchase unit corresponding to this sale transaction
+     *
+     * @param string $purchase_unit_reference_id
+     *
+     * @return $this
+     */
+    public function setPurchaseUnitReferenceId($purchase_unit_reference_id)
+    {
+        $this->purchase_unit_reference_id = $purchase_unit_reference_id;
+        return $this;
+    }
+
+    /**
+     * Identifier to the purchase unit corresponding to this sale transaction
+     *
+     * @return string
+     */
+    public function getPurchaseUnitReferenceId()
+    {
+        return $this->purchase_unit_reference_id;
     }
 
 }

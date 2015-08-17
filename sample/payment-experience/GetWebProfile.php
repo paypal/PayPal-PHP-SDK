@@ -15,10 +15,12 @@ try {
     // If your request is successful, the API returns a web_profile object response that contains the profile details.
     $webProfile = \PayPal\Api\WebProfile::get($createProfileResponse->getId(), $apiContext);
 } catch (\PayPal\Exception\PayPalConnectionException $ex) {
-    ResultPrinter::printError("Get Web Profile", "Web Profile", $webProfile->getId(), null, $ex);
+    // NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
+ 	ResultPrinter::printError("Get Web Profile", "Web Profile", $webProfile->getId(), null, $ex);
     exit(1);
 }
 
-ResultPrinter::printResult("Get Web Profile", "Web Profile", $webProfile->getId(), null, $webProfile);
+// NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
+ ResultPrinter::printResult("Get Web Profile", "Web Profile", $webProfile->getId(), null, $webProfile);
 
 return $webProfile;

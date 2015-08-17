@@ -10,13 +10,13 @@
 
 require __DIR__ . '/../bootstrap.php';
 use PayPal\Api\Amount;
+use PayPal\Api\CreditCard;
 use PayPal\Api\Details;
+use PayPal\Api\FundingInstrument;
 use PayPal\Api\Item;
 use PayPal\Api\ItemList;
-use PayPal\Api\CreditCard;
 use PayPal\Api\Payer;
 use PayPal\Api\Payment;
-use PayPal\Api\FundingInstrument;
 use PayPal\Api\Transaction;
 
 // ### CreditCard
@@ -24,7 +24,7 @@ use PayPal\Api\Transaction;
 // used to fund a payment.
 $card = new CreditCard();
 $card->setType("visa")
-    ->setNumber("4417119669820331")
+    ->setNumber("4148529247832259")
     ->setExpireMonth("11")
     ->setExpireYear("2019")
     ->setCvv2("012")
@@ -113,10 +113,12 @@ $request = clone $payment;
 try {
     $payment->create($apiContext);
 } catch (Exception $ex) {
-    ResultPrinter::printError('Create Payment Using Credit Card', 'Payment', null, $request, $ex);
+    // NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
+ 	ResultPrinter::printError('Create Payment Using Credit Card. If 500 Exception, try creating a new Credit Card using <a href="https://ppmts.custhelp.com/app/answers/detail/a_id/750">Step 4, on this link</a>, and using it.', 'Payment', null, $request, $ex);
     exit(1);
 }
 
-ResultPrinter::printResult('Create Payment Using Credit Card', 'Payment', $payment->getId(), $request, $payment);
+// NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
+ ResultPrinter::printResult('Create Payment Using Credit Card', 'Payment', $payment->getId(), $request, $payment);
 
 return $payment;

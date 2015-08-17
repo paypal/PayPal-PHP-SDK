@@ -15,11 +15,8 @@ API used: /v1/payments/billing-agreements/<Agreement-Id>/suspend</p></div></div>
 
     <span class="hljs-variable">$suspendedAgreement</span>-&gt;reActivate(<span class="hljs-variable">$agreementStateDescriptor</span>, <span class="hljs-variable">$apiContext</span>);</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Lets get the updated Agreement Object</p></div></div><div class="code"><div class="wrapper">    <span class="hljs-variable">$agreement</span> = Agreement::get(<span class="hljs-variable">$suspendedAgreement</span>-&gt;getId(), <span class="hljs-variable">$apiContext</span>);
 
-} <span class="hljs-keyword">catch</span> (<span class="hljs-keyword">Exception</span> <span class="hljs-variable">$ex</span>) {
-    ResultPrinter::printResult(<span class="hljs-string">"Reactivate the Agreement"</span>, <span class="hljs-string">"Agreement"</span>, <span class="hljs-variable">$agreement</span>-&gt;getId(), <span class="hljs-variable">$suspendedAgreement</span>, <span class="hljs-variable">$ex</span>);
+} <span class="hljs-keyword">catch</span> (<span class="hljs-keyword">Exception</span> <span class="hljs-variable">$ex</span>) {</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY</p></div></div><div class="code"><div class="wrapper">    ResultPrinter::printResult(<span class="hljs-string">"Reactivate the Agreement"</span>, <span class="hljs-string">"Agreement"</span>, <span class="hljs-variable">$agreement</span>-&gt;getId(), <span class="hljs-variable">$suspendedAgreement</span>, <span class="hljs-variable">$ex</span>);
     <span class="hljs-keyword">exit</span>(<span class="hljs-number">1</span>);
-}
-
-ResultPrinter::printResult(<span class="hljs-string">"Reactivate the Agreement"</span>, <span class="hljs-string">"Agreement"</span>, <span class="hljs-variable">$agreement</span>-&gt;getId(), <span class="hljs-variable">$suspendedAgreement</span>, <span class="hljs-variable">$agreement</span>);
+}</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY</p></div></div><div class="code"><div class="wrapper">ResultPrinter::printResult(<span class="hljs-string">"Reactivate the Agreement"</span>, <span class="hljs-string">"Agreement"</span>, <span class="hljs-variable">$agreement</span>-&gt;getId(), <span class="hljs-variable">$suspendedAgreement</span>, <span class="hljs-variable">$agreement</span>);
 
 <span class="hljs-keyword">return</span> <span class="hljs-variable">$agreement</span>;</div></div></div></div></body></html>

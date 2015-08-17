@@ -2,20 +2,10 @@
 
 namespace PayPal\Test\Functional\Api;
 
-use PayPal\Api\Amount;
-use PayPal\Api\Patch;
-use PayPal\Api\PatchRequest;
 use PayPal\Api\Payment;
-use PayPal\Api\PaymentExecution;
 use PayPal\Api\Refund;
 use PayPal\Api\Sale;
-use PayPal\Common\PayPalModel;
-use PayPal\Rest\ApiContext;
-use PayPal\Rest\IResource;
-use PayPal\Api\CreateProfileResponse;
 use PayPal\Test\Functional\Setup;
-use PayPal\Transport\PayPalRestCall;
-use PayPal\Api\WebProfile;
 
 /**
  * Class WebProfile
@@ -30,6 +20,8 @@ class PaymentsFunctionalTest extends \PHPUnit_Framework_TestCase
     public $response;
 
     public $mockPayPalRestCall;
+
+    public $apiContext;
 
     public function setUp()
     {
@@ -57,7 +49,7 @@ class PaymentsFunctionalTest extends \PHPUnit_Framework_TestCase
     {
         $request = $this->operation['request']['body'];
         $obj = new Payment($request);
-        $result = $obj->create(null, $this->mockPayPalRestCall);
+        $result = $obj->create($this->apiContext, $this->mockPayPalRestCall);
         $this->assertNotNull($result);
         return $result;
     }
@@ -66,7 +58,7 @@ class PaymentsFunctionalTest extends \PHPUnit_Framework_TestCase
     {
         $request = $this->operation['request']['body'];
         $obj = new Payment($request);
-        $result = $obj->create(null, $this->mockPayPalRestCall);
+        $result = $obj->create($this->apiContext, $this->mockPayPalRestCall);
         $this->assertNotNull($result);
         return $result;
     }
@@ -78,7 +70,7 @@ class PaymentsFunctionalTest extends \PHPUnit_Framework_TestCase
      */
     public function testGet($payment)
     {
-        $result = Payment::get($payment->getId(), null, $this->mockPayPalRestCall);
+        $result = Payment::get($payment->getId(), $this->apiContext, $this->mockPayPalRestCall);
         $this->assertNotNull($result);
         $this->assertEquals($payment->getId(), $result->getId());
         $this->assertEquals($payment, $result, "", 0, 10, true);
@@ -96,7 +88,7 @@ class PaymentsFunctionalTest extends \PHPUnit_Framework_TestCase
         $transaction = $transactions[0];
         $relatedResources = $transaction->getRelatedResources();
         $resource = $relatedResources[0];
-        $result = Sale::get($resource->getSale()->getId(), null, $this->mockPayPalRestCall);
+        $result = Sale::get($resource->getSale()->getId(), $this->apiContext, $this->mockPayPalRestCall);
         $this->assertNotNull($result);
         $this->assertEquals($resource->getSale()->getId(), $result->getId());
         return $result;
@@ -110,7 +102,7 @@ class PaymentsFunctionalTest extends \PHPUnit_Framework_TestCase
     public function testRefundSale($sale)
     {
         $refund = new Refund($this->operation['request']['body']);
-        $result = $sale->refund($refund, null, $this->mockPayPalRestCall);
+        $result = $sale->refund($refund, $this->apiContext, $this->mockPayPalRestCall);
         $this->assertNotNull($result);
         $this->assertEquals('completed', $result->getState());
         $this->assertEquals($sale->getId(), $result->getSaleId());

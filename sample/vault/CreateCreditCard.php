@@ -15,12 +15,23 @@ use PayPal\Api\CreditCard;
 // to be stored with PayPal.
 $card = new CreditCard();
 $card->setType("visa")
-    ->setNumber("4417119669820331")
+    ->setNumber("4917912523797702")
     ->setExpireMonth("11")
     ->setExpireYear("2019")
     ->setCvv2("012")
     ->setFirstName("Joe")
     ->setLastName("Shopper");
+
+// ### Additional Information
+// Now you can also store the information that could help you connect
+// your users with the stored credit cards.
+// All these three fields could be used for storing any information that could help merchant to point the card.
+// However, Ideally, MerchantId could be used to categorize stores, apps, websites, etc.
+// ExternalCardId could be used for uniquely identifying the card per MerchantId. So, combination of "MerchantId" and "ExternalCardId" should be unique.
+// ExternalCustomerId could be userId, user email, etc to group multiple cards per user.
+$card->setMerchantId("MyStore1");
+$card->setExternalCardId("CardNumber123" . uniqid());
+$card->setExternalCustomerId("123123-myUser1@something.com");
 
 // For Sample Purposes Only.
 $request = clone $card;
@@ -34,10 +45,12 @@ $request = clone $card;
 try {
     $card->create($apiContext);
 } catch (Exception $ex) {
-    ResultPrinter::printError("Create Credit Card", "Credit Card", null, $request, $ex);
+    // NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
+ 	ResultPrinter::printError("Create Credit Card", "Credit Card", null, $request, $ex);
     exit(1);
 }
 
-ResultPrinter::printResult("Create Credit Card", "Credit Card", $card->getId(), $request, $card);
+// NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
+ ResultPrinter::printResult("Create Credit Card", "Credit Card", $card->getId(), $request, $card);
 
 return $card;

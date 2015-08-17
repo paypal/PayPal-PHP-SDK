@@ -49,6 +49,7 @@ abstract class AuthorizationCache
      * @param      $accessToken
      * @param      $tokenCreateTime
      * @param      $tokenExpiresIn
+     * @throws \Exception
      */
     public static function push($config = null, $clientId, $accessToken, $tokenCreateTime, $tokenExpiresIn)
     {
@@ -58,7 +59,7 @@ abstract class AuthorizationCache
         $cachePath = self::cachePath($config);
         if (!is_dir(dirname($cachePath))) {
             if (mkdir(dirname($cachePath), 0755, true) == false) {
-                return;
+                throw new \Exception("Failed to create directory at $cachePath");
             }
         }
 
@@ -68,12 +69,14 @@ abstract class AuthorizationCache
         if (is_array($tokens)) {
             $tokens[$clientId] = array(
                 'clientId' => $clientId,
-                'accessToken' => $accessToken,
+                'accessTokenEncrypted' => $accessToken,
                 'tokenCreateTime' => $tokenCreateTime,
                 'tokenExpiresIn' => $tokenExpiresIn
             );
         }
-        file_put_contents($cachePath, json_encode($tokens));
+        if(!file_put_contents($cachePath, json_encode($tokens))) {
+            throw new \Exception("Failed to write cache");
+        };
     }
 
     /**
@@ -85,7 +88,7 @@ abstract class AuthorizationCache
     public static function isEnabled($config)
     {
         $value = self::getConfigValue('cache.enabled', $config);
-        return empty($value) ? false : ((trim($value) == true || trim($value) == 'true') ?  true : false);
+        return empty($value) ? false : ((trim($value) == true || trim($value) == 'true'));
     }
     
     /**

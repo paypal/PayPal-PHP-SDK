@@ -13,9 +13,9 @@
 /** @var Plan $createdPlan */
 $createdPlan = require 'CreatePlan.php';
 
-use PayPal\Api\Plan;
-use PayPal\Api\PatchRequest;
 use PayPal\Api\Patch;
+use PayPal\Api\PatchRequest;
+use PayPal\Api\Plan;
 
 try {
     $patch = new Patch();
@@ -42,10 +42,12 @@ try {
     $plan = Plan::get($createdPlan->getId(), $apiContext);
 
 } catch (Exception $ex) {
-    ResultPrinter::printError("Updated the Plan Payment Definition", "Plan", null, $patchRequest, $ex);
+    // NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
+ 	ResultPrinter::printError("Updated the Plan Payment Definition", "Plan", null, $patchRequest, $ex);
     exit(1);
 }
 
-ResultPrinter::printResult("Updated the Plan Payment Definition", "Plan", $plan->getId(), $patchRequest, $plan);
+// NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
+ ResultPrinter::printResult("Updated the Plan Payment Definition", "Plan", $plan->getId(), $patchRequest, $plan);
 
 return $plan;

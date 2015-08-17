@@ -9,6 +9,9 @@ namespace PayPal\Core;
 class PayPalLoggingLevel
 {
 
+    // DEBUG Logging Level
+    const DEBUG = 4;
+
     // FINE Logging Level
     const FINE = 3;
 

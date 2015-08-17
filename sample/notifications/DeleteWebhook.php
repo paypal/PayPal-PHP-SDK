@@ -16,10 +16,12 @@ $webhook = require 'CreateWebhook.php';
 try {
     $output = $webhook->delete($apiContext);
 } catch (Exception $ex) {
-    ResultPrinter::printError("Delete a Webhook", "Webhook", null, $webhookId, $ex);
+    // NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
+ 	ResultPrinter::printError("Delete a Webhook", "Webhook", null, $webhookId, $ex);
     exit(1);
 }
 
-ResultPrinter::printResult("Delete a Webhook", "Webhook", $webhook->getId(), null, null);
+// NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
+ ResultPrinter::printResult("Delete a Webhook", "Webhook", $webhook->getId(), null, null);
 
 return $output;

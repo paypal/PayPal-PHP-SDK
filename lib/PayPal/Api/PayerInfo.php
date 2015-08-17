@@ -7,21 +7,25 @@ use PayPal\Common\PayPalModel;
 /**
  * Class PayerInfo
  *
- * A resource representing information about a Payer.
+ * A resource representing a information about Payer.
  *
  * @package PayPal\Api
  *
  * @property string email
  * @property string external_remember_me_id
  * @property string buyer_account_number
+ * @property string salutation
  * @property string first_name
+ * @property string middle_name
  * @property string last_name
+ * @property string suffix
  * @property string payer_id
  * @property string phone
  * @property string phone_type
  * @property string birth_date
  * @property string tax_id
  * @property string tax_id_type
+ * @property string country_code
  * @property \PayPal\Api\Address billing_address
  * @property \PayPal\Api\ShippingAddress shipping_address
  */
@@ -97,6 +101,29 @@ class PayerInfo extends PayPalModel
     }
 
     /**
+     * Salutation of the Payer.
+     *
+     * @param string $salutation
+     * 
+     * @return $this
+     */
+    public function setSalutation($salutation)
+    {
+        $this->salutation = $salutation;
+        return $this;
+    }
+
+    /**
+     * Salutation of the Payer.
+     *
+     * @return string
+     */
+    public function getSalutation()
+    {
+        return $this->salutation;
+    }
+
+    /**
      * First Name of the Payer.
      *
      * @param string $first_name
@@ -120,6 +147,29 @@ class PayerInfo extends PayPalModel
     }
 
     /**
+     * Middle Name of the Payer.
+     *
+     * @param string $middle_name
+     * 
+     * @return $this
+     */
+    public function setMiddleName($middle_name)
+    {
+        $this->middle_name = $middle_name;
+        return $this;
+    }
+
+    /**
+     * Middle Name of the Payer.
+     *
+     * @return string
+     */
+    public function getMiddleName()
+    {
+        return $this->middle_name;
+    }
+
+    /**
      * Last Name of the Payer.
      *
      * @param string $last_name
@@ -140,6 +190,29 @@ class PayerInfo extends PayPalModel
     public function getLastName()
     {
         return $this->last_name;
+    }
+
+    /**
+     * Suffix of the Payer.
+     *
+     * @param string $suffix
+     * 
+     * @return $this
+     */
+    public function setSuffix($suffix)
+    {
+        $this->suffix = $suffix;
+        return $this;
+    }
+
+    /**
+     * Suffix of the Payer.
+     *
+     * @return string
+     */
+    public function getSuffix()
+    {
+        return $this->suffix;
     }
 
     /**
@@ -213,7 +286,7 @@ class PayerInfo extends PayPalModel
     }
 
     /**
-     * Birth date of the Payer in ISO8601 format (YYYY-MM-DD).
+     * Birth date of the Payer in ISO8601 format (yyyy-mm-dd).
      *
      * @param string $birth_date
      * 
@@ -226,7 +299,7 @@ class PayerInfo extends PayPalModel
     }
 
     /**
-     * Birth date of the Payer in ISO8601 format (YYYY-MM-DD).
+     * Birth date of the Payer in ISO8601 format (yyyy-mm-dd).
      *
      * @return string
      */
@@ -280,6 +353,29 @@ class PayerInfo extends PayPalModel
     public function getTaxIdType()
     {
         return $this->tax_id_type;
+    }
+
+    /**
+     * 2 letter registered country code of the payer to identify the buyer country
+     *
+     * @param string $country_code
+     * 
+     * @return $this
+     */
+    public function setCountryCode($country_code)
+    {
+        $this->country_code = $country_code;
+        return $this;
+    }
+
+    /**
+     * 2 letter registered country code of the payer to identify the buyer country
+     *
+     * @return string
+     */
+    public function getCountryCode()
+    {
+        return $this->country_code;
     }
 
     /**

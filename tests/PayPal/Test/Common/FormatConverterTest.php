@@ -4,9 +4,11 @@ namespace PayPal\Test\Common;
 use PayPal\Api\Amount;
 use PayPal\Api\Currency;
 use PayPal\Api\Details;
+use PayPal\Api\InvoiceItem;
 use PayPal\Api\Item;
-use PayPal\Converter\FormatConverter;
+use PayPal\Api\Tax;
 use PayPal\Common\PayPalModel;
+use PayPal\Converter\FormatConverter;
 use PayPal\Test\Validation\NumericValidatorTest;
 
 class FormatConverterTest extends \PHPUnit_Framework_TestCase
@@ -27,6 +29,8 @@ class FormatConverterTest extends \PHPUnit_Framework_TestCase
             array(new Details(), 'Insurance'),
             array(new Details(), 'HandlingFee'),
             array(new Details(), 'GiftWrap'),
+            array(new InvoiceItem(), 'Quantity'),
+            array(new Tax(), 'Percent')
         );
     }
 
