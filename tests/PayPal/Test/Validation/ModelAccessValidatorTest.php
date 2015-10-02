@@ -24,7 +24,7 @@ class ModelAccessValidatorTest extends \PHPUnit_Framework_TestCase
             array(new SimpleClass(), null,'Error'),
             array(new SimpleClass(), array(),'Error'),
             array(null, 'name','must be an instance of PayPal\Common\PayPalModel, null given'),
-            array(new SimpleClass(),'notfound', 'Missing Accessor: PayPal\\Test\\Common\\SimpleClass:setnotfound')
+            array(new SimpleClass(),'notfound', 'It seems that PayPal\Test\Common\SimpleClass:setnotfound is a new field added to the API response')
         );
     }
 

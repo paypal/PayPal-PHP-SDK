@@ -38,7 +38,7 @@ class ModelAccessorValidator
                 elseif (!method_exists($class, $methodName)) {
                     //Delegate the error based on the choice
                     $className = is_object($class) ? get_class($class) : (string)$class;
-                    $errorMessage = "Missing Accessor: $className:$methodName. You might be using older version of SDK. If not, create an issue at https://github.com/paypal/PayPal-PHP-SDK/issues";
+                    $errorMessage = "It seems that $className:$methodName is a new field added to the API response. If not, create an issue at https://github.com/paypal/PayPal-PHP-SDK/issues";
                     PayPalLoggingManager::getInstance(__CLASS__)->debug($errorMessage);
                     if ($mode == 'strict') {
                         trigger_error($errorMessage, E_USER_NOTICE);

@@ -73,7 +73,6 @@ class PaymentsFunctionalTest extends \PHPUnit_Framework_TestCase
         $result = Payment::get($payment->getId(), $this->apiContext, $this->mockPayPalRestCall);
         $this->assertNotNull($result);
         $this->assertEquals($payment->getId(), $result->getId());
-        $this->assertEquals($payment, $result, "", 0, 10, true);
         return $result;
     }
 

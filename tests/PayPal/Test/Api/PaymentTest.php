@@ -4,7 +4,6 @@ namespace PayPal\Test\Api;
 
 use PayPal\Api\object;
 use PayPal\Api\Payment;
-use PayPal\Transport\PPRestCall;
 
 /**
  * Class Payment
@@ -15,15 +14,17 @@ class PaymentTest extends \PHPUnit_Framework_TestCase
 {
     /**
      * Gets Json String of Object Payment
+     *
      * @return string
      */
     public static function getJson()
     {
-        return '{"id":"TestSample","intent":"TestSample","payer":' .PayerTest::getJson() . ',"payee":' .PayeeTest::getJson() . ',"cart":"TestSample","transactions":[' .TransactionTest::getJson() . '],"failed_transactions":' .ErrorTest::getJson() . ',"payment_instruction":' .PaymentInstructionTest::getJson() . ',"state":"TestSample","experience_profile_id":"TestSample","redirect_urls":' .RedirectUrlsTest::getJson() . ',"create_time":"TestSample","update_time":"TestSample","links":' .LinksTest::getJson() . '}';
+        return '{"id":"TestSample","intent":"TestSample","payer":' . PayerTest::getJson() . ',"potential_payer_info":' . PotentialPayerInfoTest::getJson() . ',"payee":' . PayeeTest::getJson() . ',"cart":"TestSample","transactions":[' . TransactionTest::getJson() . '],"failed_transactions":' . ErrorTest::getJson() . ',"billing_agreement_tokens":["TestSample"],"credit_financing_offered":' . CreditFinancingOfferedTest::getJson() . ',"payment_instruction":' . PaymentInstructionTest::getJson() . ',"state":"TestSample","experience_profile_id":"TestSample","note_to_payer":"TestSample","redirect_urls":' . RedirectUrlsTest::getJson() . ',"failure_reason":"TestSample","create_time":"TestSample","update_time":"TestSample","links":' . LinksTest::getJson() . '}';
     }
 
     /**
      * Gets Object Instance with Json data filled in
+     *
      * @return Payment
      */
     public static function getObject()
@@ -34,6 +35,7 @@ class PaymentTest extends \PHPUnit_Framework_TestCase
 
     /**
      * Tests for Serialization and Deserialization Issues
+     *
      * @return Payment
      */
     public function testSerializationDeserialization()
@@ -43,14 +45,19 @@ class PaymentTest extends \PHPUnit_Framework_TestCase
         $this->assertNotNull($obj->getId());
         $this->assertNotNull($obj->getIntent());
         $this->assertNotNull($obj->getPayer());
+        $this->assertNotNull($obj->getPotentialPayerInfo());
         $this->assertNotNull($obj->getPayee());
         $this->assertNotNull($obj->getCart());
         $this->assertNotNull($obj->getTransactions());
         $this->assertNotNull($obj->getFailedTransactions());
+        $this->assertNotNull($obj->getBillingAgreementTokens());
+        $this->assertNotNull($obj->getCreditFinancingOffered());
         $this->assertNotNull($obj->getPaymentInstruction());
         $this->assertNotNull($obj->getState());
         $this->assertNotNull($obj->getExperienceProfileId());
+        $this->assertNotNull($obj->getNoteToPayer());
         $this->assertNotNull($obj->getRedirectUrls());
+        $this->assertNotNull($obj->getFailureReason());
         $this->assertNotNull($obj->getCreateTime());
         $this->assertNotNull($obj->getUpdateTime());
         $this->assertNotNull($obj->getLinks());
@@ -67,14 +74,19 @@ class PaymentTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($obj->getId(), "TestSample");
         $this->assertEquals($obj->getIntent(), "TestSample");
         $this->assertEquals($obj->getPayer(), PayerTest::getObject());
+        $this->assertEquals($obj->getPotentialPayerInfo(), PotentialPayerInfoTest::getObject());
         $this->assertEquals($obj->getPayee(), PayeeTest::getObject());
         $this->assertEquals($obj->getCart(), "TestSample");
         $this->assertEquals($obj->getTransactions(), array(TransactionTest::getObject()));
         $this->assertEquals($obj->getFailedTransactions(), ErrorTest::getObject());
+        $this->assertEquals($obj->getBillingAgreementTokens(), array("TestSample"));
+        $this->assertEquals($obj->getCreditFinancingOffered(), CreditFinancingOfferedTest::getObject());
         $this->assertEquals($obj->getPaymentInstruction(), PaymentInstructionTest::getObject());
         $this->assertEquals($obj->getState(), "TestSample");
         $this->assertEquals($obj->getExperienceProfileId(), "TestSample");
+        $this->assertEquals($obj->getNoteToPayer(), "TestSample");
         $this->assertEquals($obj->getRedirectUrls(), RedirectUrlsTest::getObject());
+        $this->assertEquals($obj->getFailureReason(), "TestSample");
         $this->assertEquals($obj->getCreateTime(), "TestSample");
         $this->assertEquals($obj->getUpdateTime(), "TestSample");
         $this->assertEquals($obj->getLinks(), LinksTest::getObject());
@@ -93,12 +105,13 @@ class PaymentTest extends \PHPUnit_Framework_TestCase
         $mockPPRestCall->expects($this->any())
             ->method('execute')
             ->will($this->returnValue(
-                    self::getJson()
+                self::getJson()
             ));
 
         $result = $obj->create($mockApiContext, $mockPPRestCall);
         $this->assertNotNull($result);
     }
+
     /**
      * @dataProvider mockProvider
      * @param Payment $obj
@@ -112,12 +125,13 @@ class PaymentTest extends \PHPUnit_Framework_TestCase
         $mockPPRestCall->expects($this->any())
             ->method('execute')
             ->will($this->returnValue(
-                    PaymentTest::getJson()
+                PaymentTest::getJson()
             ));
 
         $result = $obj->get("paymentId", $mockApiContext, $mockPPRestCall);
         $this->assertNotNull($result);
     }
+
     /**
      * @dataProvider mockProvider
      * @param Payment $obj
@@ -138,6 +152,7 @@ class PaymentTest extends \PHPUnit_Framework_TestCase
         $result = $obj->update($patchRequest, $mockApiContext, $mockPPRestCall);
         $this->assertNotNull($result);
     }
+
     /**
      * @dataProvider mockProvider
      * @param Payment $obj
@@ -151,13 +166,14 @@ class PaymentTest extends \PHPUnit_Framework_TestCase
         $mockPPRestCall->expects($this->any())
             ->method('execute')
             ->will($this->returnValue(
-                    self::getJson()
+                self::getJson()
             ));
         $paymentExecution = PaymentExecutionTest::getObject();
 
         $result = $obj->execute($paymentExecution, $mockApiContext, $mockPPRestCall);
         $this->assertNotNull($result);
     }
+
     /**
      * @dataProvider mockProvider
      * @param Payment $obj
@@ -171,7 +187,7 @@ class PaymentTest extends \PHPUnit_Framework_TestCase
         $mockPPRestCall->expects($this->any())
             ->method('execute')
             ->will($this->returnValue(
-                    PaymentHistoryTest::getJson()
+                PaymentHistoryTest::getJson()
             ));
         $params = array();
 
@@ -183,8 +199,8 @@ class PaymentTest extends \PHPUnit_Framework_TestCase
     {
         $obj = self::getObject();
         $mockApiContext = $this->getMockBuilder('ApiContext')
-                    ->disableOriginalConstructor()
-                    ->getMock();
+            ->disableOriginalConstructor()
+            ->getMock();
         return array(
             array($obj, $mockApiContext),
             array($obj, null)

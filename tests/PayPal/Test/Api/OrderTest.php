@@ -4,7 +4,6 @@ namespace PayPal\Test\Api;
 
 use PayPal\Api\Authorization;
 use PayPal\Api\Order;
-use PayPal\Transport\PPRestCall;
 
 /**
  * Class Order
@@ -15,15 +14,17 @@ class OrderTest extends \PHPUnit_Framework_TestCase
 {
     /**
      * Gets Json String of Object Order
+     *
      * @return string
      */
     public static function getJson()
     {
-        return '{"id":"TestSample","purchase_unit_reference_id":"TestSample","amount":' .AmountTest::getJson() . ',"payment_mode":"TestSample","state":"TestSample","reason_code":"TestSample","pending_reason":"TestSample","protection-eligibility":"TestSample","protection-eligibility_type":"TestSample","parent_payment":"TestSample","fmf_details":' .FmfDetailsTest::getJson() . ',"create_time":"TestSample","update_time":"TestSample","links":' .LinksTest::getJson() . '}';
+        return '{"id":"TestSample","purchase_unit_reference_id":"TestSample","amount":' . AmountTest::getJson() . ',"payment_mode":"TestSample","state":"TestSample","reason_code":"TestSample","pending_reason":"TestSample","protection_eligibility":"TestSample","protection_eligibility_type":"TestSample","parent_payment":"TestSample","fmf_details":' . FmfDetailsTest::getJson() . ',"create_time":"TestSample","update_time":"TestSample","links":' . LinksTest::getJson() . '}';
     }
 
     /**
      * Gets Object Instance with Json data filled in
+     *
      * @return Order
      */
     public static function getObject()
@@ -34,6 +35,7 @@ class OrderTest extends \PHPUnit_Framework_TestCase
 
     /**
      * Tests for Serialization and Deserialization Issues
+     *
      * @return Order
      */
     public function testSerializationDeserialization()
@@ -80,7 +82,6 @@ class OrderTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($obj->getLinks(), LinksTest::getObject());
     }
 
-
     /**
      * @dataProvider mockProvider
      * @param Order $obj
@@ -94,12 +95,13 @@ class OrderTest extends \PHPUnit_Framework_TestCase
         $mockPPRestCall->expects($this->any())
             ->method('execute')
             ->will($this->returnValue(
-                    OrderTest::getJson()
+                OrderTest::getJson()
             ));
 
         $result = $obj->get("orderId", $mockApiContext, $mockPPRestCall);
         $this->assertNotNull($result);
     }
+
     /**
      * @dataProvider mockProvider
      * @param Order $obj
@@ -113,13 +115,14 @@ class OrderTest extends \PHPUnit_Framework_TestCase
         $mockPPRestCall->expects($this->any())
             ->method('execute')
             ->will($this->returnValue(
-                    CaptureTest::getJson()
+                CaptureTest::getJson()
             ));
         $capture = CaptureTest::getObject();
 
         $result = $obj->capture($capture, $mockApiContext, $mockPPRestCall);
         $this->assertNotNull($result);
     }
+
     /**
      * @dataProvider mockProvider
      * @param Order $obj
@@ -133,12 +136,13 @@ class OrderTest extends \PHPUnit_Framework_TestCase
         $mockPPRestCall->expects($this->any())
             ->method('execute')
             ->will($this->returnValue(
-                    self::getJson()
+                self::getJson()
             ));
 
         $result = $obj->void($mockApiContext, $mockPPRestCall);
         $this->assertNotNull($result);
     }
+
     /**
      * @dataProvider mockProvider
      * @param Order $obj
@@ -152,7 +156,7 @@ class OrderTest extends \PHPUnit_Framework_TestCase
         $mockPPRestCall->expects($this->any())
             ->method('execute')
             ->will($this->returnValue(
-                    AuthorizationTest::getJson()
+                AuthorizationTest::getJson()
             ));
 
         $authorization = new Authorization();
@@ -164,8 +168,8 @@ class OrderTest extends \PHPUnit_Framework_TestCase
     {
         $obj = self::getObject();
         $mockApiContext = $this->getMockBuilder('ApiContext')
-                    ->disableOriginalConstructor()
-                    ->getMock();
+            ->disableOriginalConstructor()
+            ->getMock();
         return array(
             array($obj, $mockApiContext),
             array($obj, null)

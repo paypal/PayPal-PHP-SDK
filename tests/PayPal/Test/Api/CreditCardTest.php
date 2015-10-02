@@ -3,7 +3,6 @@
 namespace PayPal\Test\Api;
 
 use PayPal\Api\CreditCard;
-use PayPal\Transport\PPRestCall;
 
 /**
  * Class CreditCard
@@ -14,15 +13,17 @@ class CreditCardTest extends \PHPUnit_Framework_TestCase
 {
     /**
      * Gets Json String of Object CreditCard
+     *
      * @return string
      */
     public static function getJson()
     {
-        return '{"id":"TestSample","number":"TestSample","type":"TestSample","expire_month":123,"expire_year":123,"cvv2":"TestSample","first_name":"TestSample","last_name":"TestSample","billing_address":' .AddressTest::getJson() . ',"external_customer_id":"TestSample","merchant_id":"TestSample","payer_id":"TestSample","external_card_id":"TestSample","state":"TestSample","create_time":"TestSample","update_time":"TestSample","valid_until":"TestSample","links":' .LinksTest::getJson() . '}';
+        return '{"id":"TestSample","number":"TestSample","type":"TestSample","expire_month":123,"expire_year":123,"cvv2":"TestSample","first_name":"TestSample","last_name":"TestSample","billing_address":' . AddressTest::getJson() . ',"external_customer_id":"TestSample","state":"TestSample","valid_until":"TestSample","links":' . LinksTest::getJson() . '}';
     }
 
     /**
      * Gets Object Instance with Json data filled in
+     *
      * @return CreditCard
      */
     public static function getObject()
@@ -33,6 +34,7 @@ class CreditCardTest extends \PHPUnit_Framework_TestCase
 
     /**
      * Tests for Serialization and Deserialization Issues
+     *
      * @return CreditCard
      */
     public function testSerializationDeserialization()
@@ -49,12 +51,7 @@ class CreditCardTest extends \PHPUnit_Framework_TestCase
         $this->assertNotNull($obj->getLastName());
         $this->assertNotNull($obj->getBillingAddress());
         $this->assertNotNull($obj->getExternalCustomerId());
-        $this->assertNotNull($obj->getMerchantId());
-        $this->assertNotNull($obj->getPayerId());
-        $this->assertNotNull($obj->getExternalCardId());
         $this->assertNotNull($obj->getState());
-        $this->assertNotNull($obj->getCreateTime());
-        $this->assertNotNull($obj->getUpdateTime());
         $this->assertNotNull($obj->getValidUntil());
         $this->assertNotNull($obj->getLinks());
         $this->assertEquals(self::getJson(), $obj->toJson());
@@ -77,123 +74,10 @@ class CreditCardTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($obj->getLastName(), "TestSample");
         $this->assertEquals($obj->getBillingAddress(), AddressTest::getObject());
         $this->assertEquals($obj->getExternalCustomerId(), "TestSample");
-        $this->assertEquals($obj->getMerchantId(), "TestSample");
-        $this->assertEquals($obj->getPayerId(), "TestSample");
-        $this->assertEquals($obj->getExternalCardId(), "TestSample");
         $this->assertEquals($obj->getState(), "TestSample");
-        $this->assertEquals($obj->getCreateTime(), "TestSample");
-        $this->assertEquals($obj->getUpdateTime(), "TestSample");
         $this->assertEquals($obj->getValidUntil(), "TestSample");
         $this->assertEquals($obj->getLinks(), LinksTest::getObject());
     }
 
-    /**
-     * @dataProvider mockProvider
-     * @param CreditCard $obj
-     */
-    public function testCreate($obj, $mockApiContext)
-    {
-        $mockPPRestCall = $this->getMockBuilder('\PayPal\Transport\PayPalRestCall')
-            ->disableOriginalConstructor()
-            ->getMock();
 
-        $mockPPRestCall->expects($this->any())
-            ->method('execute')
-            ->will($this->returnValue(
-                    self::getJson()
-            ));
-
-        $result = $obj->create($mockApiContext, $mockPPRestCall);
-        $this->assertNotNull($result);
-    }
-    /**
-     * @dataProvider mockProvider
-     * @param CreditCard $obj
-     */
-    public function testGet($obj, $mockApiContext)
-    {
-        $mockPPRestCall = $this->getMockBuilder('\PayPal\Transport\PayPalRestCall')
-            ->disableOriginalConstructor()
-            ->getMock();
-
-        $mockPPRestCall->expects($this->any())
-            ->method('execute')
-            ->will($this->returnValue(
-                    CreditCardTest::getJson()
-            ));
-
-        $result = $obj->get("creditCardId", $mockApiContext, $mockPPRestCall);
-        $this->assertNotNull($result);
-    }
-    /**
-     * @dataProvider mockProvider
-     * @param CreditCard $obj
-     */
-    public function testDelete($obj, $mockApiContext)
-    {
-        $mockPPRestCall = $this->getMockBuilder('\PayPal\Transport\PayPalRestCall')
-            ->disableOriginalConstructor()
-            ->getMock();
-
-        $mockPPRestCall->expects($this->any())
-            ->method('execute')
-            ->will($this->returnValue(
-                    true
-            ));
-
-        $result = $obj->delete($mockApiContext, $mockPPRestCall);
-        $this->assertNotNull($result);
-    }
-    /**
-     * @dataProvider mockProvider
-     * @param CreditCard $obj
-     */
-    public function testUpdate($obj, $mockApiContext)
-    {
-        $mockPPRestCall = $this->getMockBuilder('\PayPal\Transport\PayPalRestCall')
-            ->disableOriginalConstructor()
-            ->getMock();
-
-        $mockPPRestCall->expects($this->any())
-            ->method('execute')
-            ->will($this->returnValue(
-                    self::getJson()
-            ));
-        $patchRequest = PatchRequestTest::getObject();
-
-        $result = $obj->update($patchRequest, $mockApiContext, $mockPPRestCall);
-        $this->assertNotNull($result);
-    }
-    /**
-     * @dataProvider mockProvider
-     * @param CreditCard $obj
-     */
-    public function testList($obj, $mockApiContext)
-    {
-        $mockPPRestCall = $this->getMockBuilder('\PayPal\Transport\PayPalRestCall')
-            ->disableOriginalConstructor()
-            ->getMock();
-
-        $mockPPRestCall->expects($this->any())
-            ->method('execute')
-            ->will($this->returnValue(
-                    CreditCardListTest::getJson()
-            ));
-        $params = array();
-
-        $result = $obj->all($params, $mockApiContext, $mockPPRestCall);
-        $this->assertNotNull($result);
-    }
-
-    public function mockProvider()
-    {
-        $obj = self::getObject();
-        $mockApiContext = $this->getMockBuilder('ApiContext')
-                    ->disableOriginalConstructor()
-                    ->getMock();
-        return array(
-            array($obj, $mockApiContext),
-            array($obj, null)
-        );
-    }
 }

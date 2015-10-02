@@ -19,7 +19,7 @@ class Setup
             'log.LogEnabled' => true,
             'log.FileName' => '../PayPal.log',
             'log.LogLevel' => 'FINE',
-            'validation.level' => 'strict'
+            'validation.level' => 'log'
         );
         $test->apiContext = new ApiContext(
             new OAuthTokenCredential('AYSq3RDGsmBLJE-otTkBtM-jBRd1TCQwFf9RGfwddNXWz0uFU9ztymylOhRS', 'EGnHDxD_qRPdaLdZz8iCr8N7_MzF-YHPTkjs6NKYQvQSBngp4PTTVWkPZRbL')

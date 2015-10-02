@@ -213,7 +213,7 @@ class WebhookEventTest extends \PHPUnit_Framework_TestCase
      * @dataProvider mockProvider
      * @param $mockApiContext ApiContext
      * @expectedException \PHPUnit_Framework_Error_Notice
-     * @expectedExceptionMessage Missing Accessor: PayPal\Api\WebhookEvent:setValid. You might be using older version of SDK. If not, create an issue at https://github.com/paypal/PayPal-PHP-SDK/issues
+     * @expectedExceptionMessage It seems that PayPal\Api\WebhookEvent:setValid is a new field added to the API response. If not, create an issue at https://github.com/paypal/PayPal-PHP-SDK/issues
      */
     public function testValidateWebhookValidJSONWithMissingObject($obj, $mockApiContext)
     {
