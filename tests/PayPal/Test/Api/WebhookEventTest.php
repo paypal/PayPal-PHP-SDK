@@ -212,17 +212,6 @@ class WebhookEventTest extends \PHPUnit_Framework_TestCase
     /**
      * @dataProvider mockProvider
      * @param $mockApiContext ApiContext
-     * @expectedException \PHPUnit_Framework_Error_Notice
-     * @expectedExceptionMessage It seems that PayPal\Api\WebhookEvent:setValid is a new field added to the API response. If not, create an issue at https://github.com/paypal/PayPal-PHP-SDK/issues
-     */
-    public function testValidateWebhookValidJSONWithMissingObject($obj, $mockApiContext)
-    {
-            WebhookEvent::validateAndGetReceivedEvent('{"valid":"json"}', $mockApiContext);
-    }
-
-    /**
-     * @dataProvider mockProvider
-     * @param $mockApiContext ApiContext
      * @expectedException \InvalidArgumentException
      * @expectedExceptionMessage Id attribute not found in JSON. Possible reason could be invalid JSON Object
      */

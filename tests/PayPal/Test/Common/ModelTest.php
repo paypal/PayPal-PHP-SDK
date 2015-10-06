@@ -86,20 +86,6 @@ class ModelTest extends \PHPUnit_Framework_TestCase
         }
     }
 
-    public function testInvalidMagicMethod()
-    {
-        $obj = new SimpleClass();
-        try {
-            $obj->invalid = "value2";
-            $this->assertEquals($obj->invalid, "value2");
-            if (PayPalConfigManager::getInstance()->get('validation.level') == 'strict') {
-                $this->fail("It should have thrown a Notice Error");
-            }
-        } catch (\PHPUnit_Framework_Error_Notice $ex) {
-
-        }
-    }
-
     /**
      * Test Case to determine if the unknown object is returned, it would not add that object to the model.
      */
