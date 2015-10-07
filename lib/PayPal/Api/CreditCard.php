@@ -10,8 +10,6 @@ use PayPal\Validation\ArgumentValidator;
 /**
  * Class CreditCard
  *
- * @deprecated Represents a credit card to fund a payment. Use Payment Card instead.
- *
  * @package    PayPal\Api
  *
  * @property string              number
