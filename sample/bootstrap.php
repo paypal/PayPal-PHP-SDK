@@ -75,7 +75,6 @@ function getApiContext($clientId, $clientSecret)
             'log.LogEnabled' => true,
             'log.FileName' => '../PayPal.log',
             'log.LogLevel' => 'DEBUG', // PLEASE USE `FINE` LEVEL FOR LOGGING IN LIVE ENVIRONMENTS
-            'validation.level' => 'log',
             'cache.enabled' => true,
             // 'http.CURLOPT_CONNECTTIMEOUT' => 30
             // 'http.headers.PayPal-Partner-Attribution-Id' => '123123123'

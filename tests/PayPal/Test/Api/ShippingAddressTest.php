@@ -13,6 +13,7 @@ class ShippingAddressTest extends \PHPUnit_Framework_TestCase
 {
     /**
      * Gets Json String of Object ShippingAddress
+     *
      * @return string
      */
     public static function getJson()
@@ -22,6 +23,7 @@ class ShippingAddressTest extends \PHPUnit_Framework_TestCase
 
     /**
      * Gets Object Instance with Json data filled in
+     *
      * @return ShippingAddress
      */
     public static function getObject()
@@ -32,6 +34,7 @@ class ShippingAddressTest extends \PHPUnit_Framework_TestCase
 
     /**
      * Tests for Serialization and Deserialization Issues
+     *
      * @return ShippingAddress
      */
     public function testSerializationDeserialization()
@@ -55,5 +58,6 @@ class ShippingAddressTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($obj->getRecipientName(), "TestSample");
         $this->assertEquals($obj->getDefaultAddress(), true);
     }
+
 
 }

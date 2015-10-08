@@ -13,6 +13,7 @@ class RedirectUrlsTest extends \PHPUnit_Framework_TestCase
 {
     /**
      * Gets Json String of Object RedirectUrls
+     *
      * @return string
      */
     public static function getJson()
@@ -22,6 +23,7 @@ class RedirectUrlsTest extends \PHPUnit_Framework_TestCase
 
     /**
      * Gets Object Instance with Json data filled in
+     *
      * @return RedirectUrls
      */
     public static function getObject()
@@ -32,6 +34,7 @@ class RedirectUrlsTest extends \PHPUnit_Framework_TestCase
 
     /**
      * Tests for Serialization and Deserialization Issues
+     *
      * @return RedirectUrls
      */
     public function testSerializationDeserialization()
@@ -53,4 +56,25 @@ class RedirectUrlsTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($obj->getReturnUrl(), "http://www.google.com");
         $this->assertEquals($obj->getCancelUrl(), "http://www.google.com");
     }
+
+    /**
+     * @expectedException \InvalidArgumentException
+     * @expectedExceptionMessage ReturnUrl is not a fully qualified URL
+     */
+    public function testUrlValidationForReturnUrl()
+    {
+        $obj = new RedirectUrls();
+        $obj->setReturnUrl(null);
+    }
+
+    /**
+     * @expectedException \InvalidArgumentException
+     * @expectedExceptionMessage CancelUrl is not a fully qualified URL
+     */
+    public function testUrlValidationForCancelUrl()
+    {
+        $obj = new RedirectUrls();
+        $obj->setCancelUrl(null);
+    }
+
 }
