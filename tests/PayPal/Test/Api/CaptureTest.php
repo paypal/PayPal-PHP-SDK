@@ -14,15 +14,17 @@ class CaptureTest extends \PHPUnit_Framework_TestCase
 {
     /**
      * Gets Json String of Object Capture
+     *
      * @return string
      */
     public static function getJson()
     {
-        return '{"id":"TestSample","amount":' .AmountTest::getJson() . ',"is_final_capture":true,"state":"TestSample","parent_payment":"TestSample","transaction_fee":' .CurrencyTest::getJson() . ',"create_time":"TestSample","update_time":"TestSample","links":' .LinksTest::getJson() . '}';
+        return '{"id":"TestSample","amount":' . AmountTest::getJson() . ',"is_final_capture":true,"state":"TestSample","parent_payment":"TestSample","transaction_fee":' . CurrencyTest::getJson() . ',"create_time":"TestSample","update_time":"TestSample","links":' . LinksTest::getJson() . '}';
     }
 
     /**
      * Gets Object Instance with Json data filled in
+     *
      * @return Capture
      */
     public static function getObject()
@@ -33,6 +35,7 @@ class CaptureTest extends \PHPUnit_Framework_TestCase
 
     /**
      * Tests for Serialization and Deserialization Issues
+     *
      * @return Capture
      */
     public function testSerializationDeserialization()
@@ -69,7 +72,6 @@ class CaptureTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($obj->getLinks(), LinksTest::getObject());
     }
 
-
     /**
      * @dataProvider mockProvider
      * @param Capture $obj
@@ -83,12 +85,13 @@ class CaptureTest extends \PHPUnit_Framework_TestCase
         $mockPPRestCall->expects($this->any())
             ->method('execute')
             ->will($this->returnValue(
-                    CaptureTest::getJson()
+                CaptureTest::getJson()
             ));
 
         $result = $obj->get("captureId", $mockApiContext, $mockPPRestCall);
         $this->assertNotNull($result);
     }
+
     /**
      * @dataProvider mockProvider
      * @param Capture $obj
@@ -102,7 +105,7 @@ class CaptureTest extends \PHPUnit_Framework_TestCase
         $mockPPRestCall->expects($this->any())
             ->method('execute')
             ->will($this->returnValue(
-                    RefundTest::getJson()
+                RefundTest::getJson()
             ));
         $refund = RefundTest::getObject();
 
@@ -114,8 +117,8 @@ class CaptureTest extends \PHPUnit_Framework_TestCase
     {
         $obj = self::getObject();
         $mockApiContext = $this->getMockBuilder('ApiContext')
-                    ->disableOriginalConstructor()
-                    ->getMock();
+            ->disableOriginalConstructor()
+            ->getMock();
         return array(
             array($obj, $mockApiContext),
             array($obj, null)

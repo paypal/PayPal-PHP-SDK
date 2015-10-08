@@ -13,15 +13,17 @@ class FundingOptionTest extends \PHPUnit_Framework_TestCase
 {
     /**
      * Gets Json String of Object FundingOption
+     *
      * @return string
      */
     public static function getJson()
     {
-        return '{"id":"TestSample","funding_sources":' .FundingSourceTest::getJson() . ',"backup_funding_instrument":' .FundingInstrumentTest::getJson() . ',"currency_conversion":' .CurrencyConversionTest::getJson() . ',"installment_info":' .InstallmentInfoTest::getJson() . ',"links":' .LinksTest::getJson() . '}';
+        return '{"id":"TestSample","funding_sources":' . FundingSourceTest::getJson() . ',"backup_funding_instrument":' . FundingInstrumentTest::getJson() . ',"currency_conversion":' . CurrencyConversionTest::getJson() . ',"installment_info":' . InstallmentInfoTest::getJson() . ',"links":' . LinksTest::getJson() . '}';
     }
 
     /**
      * Gets Object Instance with Json data filled in
+     *
      * @return FundingOption
      */
     public static function getObject()
@@ -32,6 +34,7 @@ class FundingOptionTest extends \PHPUnit_Framework_TestCase
 
     /**
      * Tests for Serialization and Deserialization Issues
+     *
      * @return FundingOption
      */
     public function testSerializationDeserialization()
@@ -61,4 +64,6 @@ class FundingOptionTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($obj->getInstallmentInfo(), InstallmentInfoTest::getObject());
         $this->assertEquals($obj->getLinks(), LinksTest::getObject());
     }
+
+
 }

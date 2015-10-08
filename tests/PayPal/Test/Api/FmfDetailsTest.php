@@ -13,6 +13,7 @@ class FmfDetailsTest extends \PHPUnit_Framework_TestCase
 {
     /**
      * Gets Json String of Object FmfDetails
+     *
      * @return string
      */
     public static function getJson()
@@ -22,6 +23,7 @@ class FmfDetailsTest extends \PHPUnit_Framework_TestCase
 
     /**
      * Gets Object Instance with Json data filled in
+     *
      * @return FmfDetails
      */
     public static function getObject()
@@ -32,6 +34,7 @@ class FmfDetailsTest extends \PHPUnit_Framework_TestCase
 
     /**
      * Tests for Serialization and Deserialization Issues
+     *
      * @return FmfDetails
      */
     public function testSerializationDeserialization()
@@ -57,5 +60,6 @@ class FmfDetailsTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($obj->getName(), "TestSample");
         $this->assertEquals($obj->getDescription(), "TestSample");
     }
+
 
 }

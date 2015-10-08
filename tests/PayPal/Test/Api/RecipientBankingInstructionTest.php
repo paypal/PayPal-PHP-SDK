@@ -13,6 +13,7 @@ class RecipientBankingInstructionTest extends \PHPUnit_Framework_TestCase
 {
     /**
      * Gets Json String of Object RecipientBankingInstruction
+     *
      * @return string
      */
     public static function getJson()
@@ -22,6 +23,7 @@ class RecipientBankingInstructionTest extends \PHPUnit_Framework_TestCase
 
     /**
      * Gets Object Instance with Json data filled in
+     *
      * @return RecipientBankingInstruction
      */
     public static function getObject()
@@ -32,6 +34,7 @@ class RecipientBankingInstructionTest extends \PHPUnit_Framework_TestCase
 
     /**
      * Tests for Serialization and Deserialization Issues
+     *
      * @return RecipientBankingInstruction
      */
     public function testSerializationDeserialization()
@@ -61,4 +64,6 @@ class RecipientBankingInstructionTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($obj->getInternationalBankAccountNumber(), "TestSample");
         $this->assertEquals($obj->getBankIdentifierCode(), "TestSample");
     }
+
+
 }

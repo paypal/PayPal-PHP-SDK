@@ -13,6 +13,7 @@ class PhoneTest extends \PHPUnit_Framework_TestCase
 {
     /**
      * Gets Json String of Object Phone
+     *
      * @return string
      */
     public static function getJson()
@@ -22,6 +23,7 @@ class PhoneTest extends \PHPUnit_Framework_TestCase
 
     /**
      * Gets Object Instance with Json data filled in
+     *
      * @return Phone
      */
     public static function getObject()
@@ -32,6 +34,7 @@ class PhoneTest extends \PHPUnit_Framework_TestCase
 
     /**
      * Tests for Serialization and Deserialization Issues
+     *
      * @return Phone
      */
     public function testSerializationDeserialization()
@@ -55,5 +58,6 @@ class PhoneTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($obj->getNationalNumber(), "TestSample");
         $this->assertEquals($obj->getExtension(), "TestSample");
     }
+
 
 }
