@@ -1,5 +1,17 @@
 PayPal PHP SDK release notes
 ============================
+
+v1.6.1
+----
+* User Agent Changes
+* SDK Version Fix
+
+v1.6.0
+----
+* Updated Payments API to latest version
+* Removed ModelAccessValidator
+* Minor Bug Fixes #399
+
 v1.5.1
 ----
 * Fixed a bug #343 in Future Payment
