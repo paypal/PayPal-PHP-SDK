@@ -233,6 +233,30 @@ if (PHP_SAPI == 'cli') {
         <div class="col-md-9 samples">
             <div class="panel panel-primary">
                 <div class="panel-heading">
+                    <h3 id="tls" class="panel-title"><a
+                            href="https://developer.paypal.com/webapps/developer/docs/api/#payments"
+                            target="_blank">TLS CHECK</a></h3>
+                </div>
+                <!-- List group -->
+                <ul class="list-group">
+                    <li class="list-group-item">
+                        <div class="row">
+                            <div class="col-md-8"><h5>Check if your system supports TLSv1.2<h5></div>
+                            <div class="col-md-4">
+                                <a href="tls/TlsCheck.php" class="btn btn-primary pull-left execute"> Try It <i
+                                        class="fa fa-play-circle-o"></i></a>
+                                <a href="doc/tls/TlsCheck.html" class="btn btn-default pull-right">Source <i
+                                        class="fa fa-file-code-o"></i></a>
+                                <a href="https://github.paypal.com/SDK-R/tls-update/blob/master/readme.md" class="btn btn-default pull-right">Read More <i
+                                        class="fa fa-exclamation"></i></a>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="panel panel-primary">
+                <div class="panel-heading">
                     <h3 id="payments" class="panel-title"><a
                             href="https://developer.paypal.com/webapps/developer/docs/api/#payments"
                             target="_blank">Payments</a></h3>
