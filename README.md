@@ -12,7 +12,7 @@ __Welcome to PayPal PHP SDK__. This repository contains PayPal's PHP SDK and sam
 ## Please Note
 > **The [PCIv3.1 DSS (PDF)](https://www.pcisecuritystandards.org/documents/PCI_DSS_v3-1.pdf) mandates (p.46) that TLSv1.0 be retired from service by June 30, 2016. All organizations that handle credit card information are required to comply with this standard. As part of this obligation, PayPal is updating it's services to require TLSv1.2 for all HTTPS connections. [Click here](https://github.paypal.com/SDK-R/tls-update) for more information**
 
-> **If you have the SDK v1.6.2 or higher installed, you can easily test this by running the TLSCheck sample.**
+> **If you have the SDK v1.6.2 or higher installed, you can easily test this by running the [TLSCheck sample](sample/tls/TlsCheck.php).**
 
 ## SDK Documentation
 
