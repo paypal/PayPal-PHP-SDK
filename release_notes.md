@@ -1,6 +1,11 @@
 PayPal PHP SDK release notes
 ============================
 
+v1.6.2
+----
+* TLS Check Sample Added
+* Updated README
+
 v1.6.1
 ----
 * User Agent Changes
