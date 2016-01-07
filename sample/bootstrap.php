@@ -22,6 +22,10 @@ require __DIR__ . '/common.php';
 use PayPal\Auth\OAuthTokenCredential;
 use PayPal\Rest\ApiContext;
 
+// Suppress DateTime warnings, if not set already
+date_default_timezone_set(@date_default_timezone_get());
+
+// Adding Error Reporting for understanding errors properly
 error_reporting(E_ALL);
 ini_set('display_errors', '1');
 
