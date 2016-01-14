@@ -95,7 +95,14 @@ class PayPalResourceModel extends PayPalModel implements IResource
     protected static function executeCall($url, $method, $payLoad, $headers = array(), $apiContext = null, $restCall = null, $handlers = array('PayPal\Handler\RestHandler'))
     {
         //Initialize the context and rest call object if not provided explicitly
-        $apiContext = $apiContext ? $apiContext : new ApiContext(self::$credential);
+        if ($apiContext === null) {
+            // First try default ApiContext
+            $apiContext = ApiContext::getDefault();
+            if ($apiContext === null) {
+                $apiContext = new ApiContext(self::$credential);
+            }
+        }
+
         $restCall = $restCall ? $restCall : new PayPalRestCall($apiContext);
 
         //Make the execution call

@@ -51,7 +51,15 @@ class PayPalLoggingManagerTest extends \PHPUnit_Framework_TestCase
      */
     public function testInfo()
     {
-        $this->object->info('Test info Message');
+        $this->object->info('Test Info Message');
+    }
+
+    /**
+     * @test
+     */
+    public function testDebug()
+    {
+        $this->object->debug('Test Debug Message');
     }
 
     /**
@@ -59,8 +67,6 @@ class PayPalLoggingManagerTest extends \PHPUnit_Framework_TestCase
      */
     public function testFine()
     {
-        $this->object->fine('Test fine Message');
+        $this->object->fine('Test Fine Message');
     }
 }
-
-?>
