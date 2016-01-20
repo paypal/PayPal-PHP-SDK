@@ -27,6 +27,7 @@ __Welcome to PayPal PHP SDK__. This repository contains PayPal's PHP SDK and sam
 
 ## Latest Updates
 
+- If you are running into SSL Connect Error talking to sandbox or live, please update your SDK to latest version or, follow instructions as shown [here](https://github.com/paypal/PayPal-PHP-SDK/issues/474)
 - Checkout the latest 1.0.0 release. Here are all the [ breaking Changes in v1.0.0 ](https://github.com/paypal/PayPal-PHP-SDK/wiki/Breaking-Changes---1.0.0) if you are migrating from older versions.
 - Now we have a [Github Page](http://paypal.github.io/PayPal-PHP-SDK/), that helps you find all helpful resources building applications using PayPal-PHP-SDK.
 
