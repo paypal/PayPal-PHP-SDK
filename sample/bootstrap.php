@@ -33,6 +33,14 @@ ini_set('display_errors', '1');
 $clientId = 'AYSq3RDGsmBLJE-otTkBtM-jBRd1TCQwFf9RGfwddNXWz0uFU9ztymylOhRS';
 $clientSecret = 'EGnHDxD_qRPdaLdZz8iCr8N7_MzF-YHPTkjs6NKYQvQSBngp4PTTVWkPZRbL';
 
+/**
+ * All default curl options are stored in the array inside the PayPalHttpConfig class. To make changes to those settings
+ * for your specific environments, feel free to add them using the code shown below
+ * Uncomment below line to override any default curl options.
+ */
+//PayPalHttpConfig::$defaultCurlOptions[CURLOPT_SSLVERSION] = CURL_SSLVERSION_TLSv1_2;
+
+
 /** @var \Paypal\Rest\ApiContext $apiContext */
 $apiContext = getApiContext($clientId, $clientSecret);
 

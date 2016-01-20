@@ -1,6 +1,11 @@
 PayPal PHP SDK release notes
 ============================
 
+v1.6.4
+----
+* SSL Connect Error Fix
+* Fixes #474
+
 v1.6.3
 ----
 * Fixes Continue 100 Header
