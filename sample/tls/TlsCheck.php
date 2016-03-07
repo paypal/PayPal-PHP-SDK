@@ -20,7 +20,8 @@ use PayPal\Api\Transaction;
 // the following steps.
 // 1. Create an APIContext object as usual. (No Change Required).
 // 2. Add Configs as shown below to your apiContext object
-$apiContext->setConfig(array('service.EndPoint'=>"https://test-api.sandbox.paypal.com"));
+// Note: Explicitly disabling caching for specific testing.
+$apiContext->setConfig(array('service.EndPoint'=>"https://test-api.sandbox.paypal.com", 'cache.enabled'=>false));
 // 3. Thats it. Run your code, and see if it works as normal.
 // 4. You can check sdk logs to verify it is infact pointing to the above URL instead of default sandbox one.
 
