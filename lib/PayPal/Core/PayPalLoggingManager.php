@@ -87,7 +87,7 @@ class PayPalLoggingManager
 
     private function setupLogger($config = array()) {
         // Checks if custom adapter defined, and is it an implementation of @LoggerInterface
-        $loggingAdapter = array_key_exists('log.Adapter', $config) && in_array(LoggerInterface::class, class_implements($config['log.Adapter']))? $config['log.Adapter'] : PayPalLogger::class;
+        $loggingAdapter = array_key_exists('log.Adapter', $config) && in_array('\Psr\Log\LoggerInterface', class_implements($config['log.Adapter']))? $config['log.Adapter'] : '\PayPal\Log\PayPalLogger';
         $this->logger = new $loggingAdapter();
     }
 
