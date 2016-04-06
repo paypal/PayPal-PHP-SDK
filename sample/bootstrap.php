@@ -90,6 +90,7 @@ function getApiContext($clientId, $clientSecret)
             'cache.enabled' => true,
             // 'http.CURLOPT_CONNECTTIMEOUT' => 30
             // 'http.headers.PayPal-Partner-Attribution-Id' => '123123123'
+            // 'log.Adapter' => '\Your\Custom\Logger' // Class name of the logger to be used. Must be implementing Psr\Log\LoggerInterface
         )
     );
 

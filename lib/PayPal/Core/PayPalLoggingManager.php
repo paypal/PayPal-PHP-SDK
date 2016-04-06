@@ -1,6 +1,8 @@
 <?php
 
 namespace PayPal\Core;
+use PayPal\Log\PayPalLogger;
+use Psr\Log\LoggerInterface;
 
 /**
  * Simple Logging Manager.
@@ -35,12 +37,13 @@ class PayPalLoggingManager
      */
     private $loggingLevel;
 
+
     /**
-     * Configured Logging File
+     * The logger to be used for all messages
      *
-     * @var string
+     * @var LoggerInterface
      */
-    private $loggerFile;
+    private $logger;
 
     /**
      * Returns the singleton object
@@ -71,47 +74,23 @@ class PayPalLoggingManager
     public function __construct()
     {
         $config = PayPalConfigManager::getInstance()->getConfigHashmap();
-
         $this->isLoggingEnabled = (array_key_exists('log.LogEnabled', $config) && $config['log.LogEnabled'] == '1');
-
         if ($this->isLoggingEnabled) {
-            $this->loggerFile = ($config['log.FileName']) ? $config['log.FileName'] : ini_get('error_log');
             $loggingLevel = strtoupper($config['log.LogLevel']);
+            $this->setupLogger($config);
             $this->loggingLevel =
                 (isset($loggingLevel) && defined(__NAMESPACE__ . "\\PayPalLoggingLevel::$loggingLevel")) ?
-                constant(__NAMESPACE__ . "\\PayPalLoggingLevel::$loggingLevel") :
-                PayPalLoggingManager::DEFAULT_LOGGING_LEVEL;
+                    constant(__NAMESPACE__ . "\\PayPalLoggingLevel::$loggingLevel") :
+                    PayPalLoggingManager::DEFAULT_LOGGING_LEVEL;
         }
     }
 
-    /**
-     * Default Logger
-     *
-     * @param string $message
-     * @param int $level
-     */
-    private function log($message, $level = PayPalLoggingLevel::INFO)
-    {
-        if ($this->isLoggingEnabled) {
-            $config = PayPalConfigManager::getInstance()->getConfigHashmap();
-            // Check if logging in live
-            if (array_key_exists('mode', $config) && $config['mode'] == 'live') {
-                // Live should not have logging level above INFO.
-                if ($this->loggingLevel >= PayPalLoggingLevel::INFO) {
-                    // If it is at Debug Level, throw an warning in the log.
-                    if ($this->loggingLevel == PayPalLoggingLevel::DEBUG) {
-                        error_log("[" . date('d-m-Y h:i:s') . "] " . $this->loggerName . ": ERROR\t: Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'\n", 3, $this->loggerFile);
-                    }
-                    // Reducing it to info level
-                    $this->loggingLevel = PayPalLoggingLevel::INFO;
-                }
-            }
-
-            if ($level <= $this->loggingLevel) {
-                error_log("[" . date('d-m-Y h:i:s') . "] " . $this->loggerName . ": $message\n", 3, $this->loggerFile);
-            }
-        }
+    private function setupLogger($config = array()) {
+        // Checks if custom adapter defined, and is it an implementation of @LoggerInterface
+        $loggingAdapter = array_key_exists('log.Adapter', $config) && in_array(LoggerInterface::class, class_implements($config['log.Adapter']))? $config['log.Adapter'] : PayPalLogger::class;
+        $this->logger = new $loggingAdapter();
     }
+
 
     /**
      * Log Error
@@ -120,7 +99,9 @@ class PayPalLoggingManager
      */
     public function error($message)
     {
-        $this->log("ERROR\t: " . $message, PayPalLoggingLevel::ERROR);
+        if ($this->isLoggingEnabled && $this->loggingLevel >= PayPalLoggingLevel::ERROR) {
+            $this->logger->error($message);
+        }
     }
 
     /**
@@ -130,7 +111,10 @@ class PayPalLoggingManager
      */
     public function warning($message)
     {
-        $this->log("WARNING\t: " . $message, PayPalLoggingLevel::WARN);
+        if ($this->isLoggingEnabled && $this->loggingLevel >= PayPalLoggingLevel::WARN) {
+            $this->logger->warning($message);
+        }
+
     }
 
     /**
@@ -140,7 +124,9 @@ class PayPalLoggingManager
      */
     public function info($message)
     {
-        $this->log("INFO\t: " . $message, PayPalLoggingLevel::INFO);
+        if ($this->isLoggingEnabled && $this->loggingLevel >= PayPalLoggingLevel::INFO) {
+            $this->logger->info($message);
+        }
     }
 
     /**
@@ -150,7 +136,7 @@ class PayPalLoggingManager
      */
     public function fine($message)
     {
-        $this->log("FINE\t: " . $message, PayPalLoggingLevel::FINE);
+        $this->info($message);
     }
 
     /**
@@ -160,7 +146,15 @@ class PayPalLoggingManager
      */
     public function debug($message)
     {
-        $this->log("DEBUG\t: " . $message, PayPalLoggingLevel::DEBUG);
+        if ($this->isLoggingEnabled) {
+            $config = PayPalConfigManager::getInstance()->getConfigHashmap();
+            // Check if logging in live
+            if (array_key_exists('mode', $config) && $config['mode'] == 'live' && $this->loggingLevel >= PayPalLoggingLevel::DEBUG) {
+                $this->logger->error("Not allowed to keep 'Debug' level for Live Environments. Reduced to 'INFO'");
+            } elseif (PayPalLoggingLevel::DEBUG <= $this->loggingLevel) {
+                $this->logger->debug($message);
+            }
+        }
     }
 
 }
