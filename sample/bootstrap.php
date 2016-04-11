@@ -86,11 +86,11 @@ function getApiContext($clientId, $clientSecret)
             'mode' => 'sandbox',
             'log.LogEnabled' => true,
             'log.FileName' => '../PayPal.log',
-            'log.LogLevel' => 'DEBUG', // PLEASE USE `FINE` LEVEL FOR LOGGING IN LIVE ENVIRONMENTS
+            'log.LogLevel' => 'DEBUG', // PLEASE USE `INFO` LEVEL FOR LOGGING IN LIVE ENVIRONMENTS
             'cache.enabled' => true,
             // 'http.CURLOPT_CONNECTTIMEOUT' => 30
             // 'http.headers.PayPal-Partner-Attribution-Id' => '123123123'
-            // 'log.Adapter' => '\Your\Custom\Logger' // Class name of the logger to be used. Must be implementing Psr\Log\LoggerInterface
+            //'log.AdapterFactory' => '\PayPal\Log\DefaultLogFactory' // Factory class implementing \PayPal\Log\PayPalLogFactory
         )
     );
 
