@@ -1,6 +1,10 @@
 PayPal PHP SDK release notes
 ============================
 
+v1.7.1
+----
+* Fixes #559
+
 v1.7.0
 ----
 * Enable custom logger injection.
