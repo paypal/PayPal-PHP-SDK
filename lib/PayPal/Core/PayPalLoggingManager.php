@@ -55,14 +55,12 @@ class PayPalLoggingManager
     private function __construct($loggerName)
     {
         $config = PayPalConfigManager::getInstance()->getConfigHashmap();
-        if (!empty($config)) {
-            // Checks if custom factory defined, and is it an implementation of @PayPalLogFactory
-            $factory = array_key_exists('log.AdapterFactory', $config) && in_array('PayPal\Log\PayPalLogFactory', class_implements($config['log.AdapterFactory'])) ? $config['log.AdapterFactory'] : '\PayPal\Log\PayPalDefaultLogFactory';
-            /** @var PayPalLogFactory $factoryInstance */
-            $factoryInstance = new $factory();
-            $this->logger = $factoryInstance->getLogger($loggerName);
-            $this->loggerName = $loggerName;
-        }
+        // Checks if custom factory defined, and is it an implementation of @PayPalLogFactory
+        $factory = array_key_exists('log.AdapterFactory', $config) && in_array('PayPal\Log\PayPalLogFactory', class_implements($config['log.AdapterFactory'])) ? $config['log.AdapterFactory'] : '\PayPal\Log\PayPalDefaultLogFactory';
+        /** @var PayPalLogFactory $factoryInstance */
+        $factoryInstance = new $factory();
+        $this->logger = $factoryInstance->getLogger($loggerName);
+        $this->loggerName = $loggerName;
     }
 
     /**
