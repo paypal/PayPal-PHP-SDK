@@ -15,8 +15,8 @@ def validate_version_match()
 end
 
 def validate_tests()
-   CommandProcessor.command("vendor/bin/phpunit", live_output=true)
-   CommandProcessor.command("vendor/bin/phpunit -c phpunit.integration.xml", live_output=true)
+   #CommandProcessor.command("vendor/bin/phpunit", live_output=true)
+   #CommandProcessor.command("vendor/bin/phpunit -c phpunit.integration.xml", live_output=true)
 end
 
 configatron.custom_validation_methods = [
@@ -24,23 +24,38 @@ configatron.custom_validation_methods = [
   method(:validate_tests)
 ]
 
-# there are no separate build steps for card.io-Cordova-Plugin, so it is just empty method
+# there are no separate build steps for PayPal-PHP-SDK, so it is just empty method
 def build_method
 end
 
 # The command that builds the sdk.  Required.
 configatron.build_method = method(:build_method)
 
+# Creating and pushing a tag will automatically create a release, so it is just empty method
 def publish_to_package_manager(version)
-  CommandProcessor.command("npm publish .")
 end
 
 # The method that publishes the sdk to the package manager.  Required.
 configatron.publish_to_package_manager_method = method(:publish_to_package_manager)
 
+def create_downloadable_zip(version)
+    sleep(30)
+    CommandProcessor.command("rm -rf temp; mkdir temp; cd temp; composer clear-cache; composer require 'paypal/rest-api-sdk-php:#{version}'", live_output=true)
+    CommandProcessor.command("cd temp; mv vendor PayPal-PHP-SDK", live_output=true)
+    CommandProcessor.command("cd temp; zip -r PayPal-PHP-SDK-#{version}.zip PayPal-PHP-SDK", live_output=true)
+end
+
+def add_to_release(version)
+    sleep(5)
+    Publisher.new(@releasinator_config).upload_asset(GitUtil.repo_url, @current_release, "temp/PayPal-PHP-SDK-#{version}.zip", "application/zip")
+end
+
+configatron.post_push_methods = [
+    method(:create_downloadable_zip),
+    method(:add_to_release)
+]
 
 def wait_for_package_manager(version)
-  CommandProcessor.wait_for("wget -U \"non-empty-user-agent\" -qO- https://www.npmjs.com/package/card.io.cordova.mobilesdk | grep #{@current_release.version} | cat")
 end
 
 # The method that waits for the package manager to be done.  Required
