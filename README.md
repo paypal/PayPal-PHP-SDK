@@ -36,6 +36,13 @@ __Welcome to PayPal PHP SDK__. This repository contains PayPal's PHP SDK and sam
    - PHP 5.3 or above
    - [curl](http://php.net/manual/en/book.curl.php), [json](http://php.net/manual/en/book.json.php) & [openssl](http://php.net/manual/en/book.openssl.php) extensions must be enabled
 
+## License
+
+Read [License](LICENSE) for more licensing information.
+
+## Contributing
+
+Read [here](CONTRIBUTING.md) for more information.
 
 ## More help
    * [Going Live](https://github.com/paypal/PayPal-PHP-SDK/wiki/Going-Live)
