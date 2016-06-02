@@ -27,6 +27,11 @@ class OAuthTokenCredential extends PayPalResourceModel
     public static $AUTH_HANDLER = 'PayPal\Handler\OauthHandler';
 
     /**
+     * @var string Default AuthorizationCache Handler
+     */
+    public $AuthorizationCacheClass = 'PayPal\\Cache\\AuthorizationCache';
+
+    /**
      * Private Variable
      *
      * @var int $expiryBufferTime
@@ -122,7 +127,8 @@ class OAuthTokenCredential extends PayPalResourceModel
             return $this->accessToken;
         }
         // Check for persisted data first
-        $token = AuthorizationCache::pull($config, $this->clientId);
+        $AuthorizationCacheClass = $this->AuthorizationCacheClass;
+        $token = $AuthorizationCacheClass::pull($config, $this->clientId);
         if ($token) {
             // We found it
             // This code block is for backward compatibility only.
@@ -135,7 +141,7 @@ class OAuthTokenCredential extends PayPalResourceModel
 
             // Case where we have an old unencrypted cache file
             if (!array_key_exists('accessTokenEncrypted', $token)) {
-                AuthorizationCache::push($config, $this->clientId, $this->encrypt($this->accessToken), $this->tokenCreateTime, $this->tokenExpiresIn);
+                $AuthorizationCacheClass::push($config, $this->clientId, $this->encrypt($this->accessToken), $this->tokenCreateTime, $this->tokenExpiresIn);
             } else {
                 $this->accessToken = $this->decrypt($token['accessTokenEncrypted']);
             }
@@ -158,7 +164,7 @@ class OAuthTokenCredential extends PayPalResourceModel
         if ($this->accessToken == null) {
             // Get a new one by making calls to API
             $this->updateAccessToken($config);
-            AuthorizationCache::push($config, $this->clientId, $this->encrypt($this->accessToken), $this->tokenCreateTime, $this->tokenExpiresIn);
+            $AuthorizationCacheClass::push($config, $this->clientId, $this->encrypt($this->accessToken), $this->tokenCreateTime, $this->tokenExpiresIn);
         }
 
         return $this->accessToken;
