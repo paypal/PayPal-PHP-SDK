@@ -24,7 +24,7 @@ use PayPal\Api\Transaction;
 // used to fund a payment.
 $card = new CreditCard();
 $card->setType("visa")
-    ->setNumber("4148529247832259")
+    ->setNumber("4669424246660779")
     ->setExpireMonth("11")
     ->setExpireYear("2019")
     ->setCvv2("012")
