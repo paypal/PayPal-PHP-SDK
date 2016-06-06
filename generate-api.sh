@@ -1,4 +1,27 @@
 #!/bin/sh
+
+# Auto Sample Docs Generation
+npm install groc
+
+# Set identity
+git config --global user.email "travis@travis-ci.org"
+git config --global user.name "Travis"
+
+# Checkout Master
+git fetch; git checkout master;
+
+# Run Docs Generation
+cd sample; ../node_modules/groc/bin/groc **/*.php;
+
+# Add and Commit
+git add doc; git commit -m "Updates to Sample Docs"; 
+
+# Push to Master
+git push origin master;
+
+# Back to Home
+cd ..;
+
 # Get ApiGen.phar
 wget http://www.apigen.org/apigen.phar
 
@@ -14,10 +37,6 @@ cp -r sample ../gh-pages/sample
 cp sample/index.php ../gh-pages/sample/index.html
 
 cd ../gh-pages
-
-# Set identity
-git config --global user.email "travis@travis-ci.org"
-git config --global user.name "Travis"
 
 # Add branch
 git init
