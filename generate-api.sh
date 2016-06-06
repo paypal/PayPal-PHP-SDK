@@ -17,7 +17,8 @@ cd sample; ../node_modules/groc/bin/groc **/*.php;
 git add doc; git commit -m "Updates to Sample Docs"; 
 
 # Push to Master
-git push origin master;
+git remote add upstream https://${GH_TOKEN}@github.com/paypal/PayPal-PHP-SDK.git > /dev/null
+git push upstream master;
 
 # Back to Home
 cd ..;
