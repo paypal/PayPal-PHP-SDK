@@ -1,6 +1,10 @@
 PayPal PHP SDK release notes
 ============================
 
+1.7.3
+-----
+* Enabled Third Party Invoicing [#581](https://github.com/paypal/PayPal-PHP-SDK/pull/581)
+
 1.7.2
 ----
 * Vault API updates

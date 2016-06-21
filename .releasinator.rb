@@ -67,7 +67,7 @@ configatron.release_to_github = true
 def constant_version()
   f=File.open("lib/PayPal/Core/PayPalConstants.php", 'r') do |f|
     f.each_line do |line|
-      if line.match (/SDK_VERSION = \'\d*\.\d*\.\d*\'/) # SDK_VERSION = '1.7.1'
+      if line.match (/SDK_VERSION = \'\d+\.\d+\.\d+\'/)
         return line.strip.split('= ')[1].strip.split('\'')[1]
       end
     end
