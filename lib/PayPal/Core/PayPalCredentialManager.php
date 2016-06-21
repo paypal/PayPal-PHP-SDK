@@ -96,7 +96,7 @@ class PayPalCredentialManager
         $key = $prefix . $suffix;
         $userName = null;
         while (in_array($key, $arrayPartKeys)) {
-            if (isset($credArr[$key . ".ClientId"]) && isset($credArr[$key . ".ClientId"])) {
+            if (isset($credArr[$key . ".ClientId"]) && isset($credArr[$key . ".ClientSecret"])) {
                 $userName = $key;
                 $this->credentialHashmap[$userName] = new OAuthTokenCredential(
                     $credArr[$key . ".ClientId"],
