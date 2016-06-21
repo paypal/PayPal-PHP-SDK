@@ -90,7 +90,6 @@ class WebhookFunctionalTest extends \PHPUnit_Framework_TestCase
         $result = Webhook::get($webhook->getId(), $this->apiContext, $this->mockPayPalRestCall);
         $this->assertNotNull($result);
         $this->assertEquals($webhook->getId(), $result->getId());
-        $this->assertEquals($webhook, $result, "", 0, 10, true);
         return $result;
     }
 
