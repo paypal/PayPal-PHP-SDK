@@ -25,6 +25,7 @@ use PayPal\Validation\UrlValidator;
  * @property \PayPal\Api\InvoiceItem[] items
  * @property string invoice_date
  * @property \PayPal\Api\PaymentTerm payment_term
+ * @property String reference
  * @property \PayPal\Api\Cost discount
  * @property \PayPal\Api\ShippingCost shipping_cost
  * @property \PayPal\Api\CustomAmount custom
@@ -331,6 +332,29 @@ class Invoice extends PayPalResourceModel
     public function getPaymentTerm()
     {
         return $this->payment_term;
+    }
+
+    /**
+     * Reference data, such as PO number, to add to the invoice. Maximum length is 60 characters.
+     *
+     * @param String $reference
+     * 
+     * @return $this
+     */
+    public function setReference($reference)
+    {
+        $this->reference = $reference;
+        return $this;
+    }
+
+    /**
+     * Reference data, such as PO number, to add to the invoice. Maximum length is 60 characters.
+     *
+     * @return String
+     */
+    public function getReference()
+    {
+        return $this->reference;
     }
 
     /**
