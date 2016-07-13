@@ -20,7 +20,7 @@ class ErrorDetails extends PayPalModel
      * Name of the field that caused the error.
      *
      * @param string $field
-     *
+     * 
      * @return $this
      */
     public function setField($field)
@@ -43,7 +43,7 @@ class ErrorDetails extends PayPalModel
      * Reason for the error.
      *
      * @param string $issue
-     *
+     * 
      * @return $this
      */
     public function setIssue($issue)

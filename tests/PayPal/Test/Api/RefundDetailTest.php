@@ -17,7 +17,7 @@ class RefundDetailTest extends \PHPUnit_Framework_TestCase
      */
     public static function getJson()
     {
-        return '{"type":"TestSample","date":"TestSample","note":"TestSample"}';
+        return '{"type":"TestSample","date":"TestSample","note":"TestSample","amount":' .CurrencyTest::getJson() . '}';
     }
 
     /**
@@ -41,6 +41,7 @@ class RefundDetailTest extends \PHPUnit_Framework_TestCase
         $this->assertNotNull($obj->getType());
         $this->assertNotNull($obj->getDate());
         $this->assertNotNull($obj->getNote());
+        $this->assertNotNull($obj->getAmount());
         $this->assertEquals(self::getJson(), $obj->toJson());
         return $obj;
     }
@@ -54,6 +55,8 @@ class RefundDetailTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($obj->getType(), "TestSample");
         $this->assertEquals($obj->getDate(), "TestSample");
         $this->assertEquals($obj->getNote(), "TestSample");
+        $this->assertEquals($obj->getAmount(), CurrencyTest::getObject());
     }
+
 
 }

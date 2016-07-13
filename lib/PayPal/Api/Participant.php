@@ -5,28 +5,26 @@ namespace PayPal\Api;
 use PayPal\Common\PayPalModel;
 
 /**
- * Class MerchantInfo
+ * Class Participant
  *
- * Merchant business information that appears on the invoice.
+ * Participant information.
  *
  * @package PayPal\Api
  *
  * @property string email
  * @property string first_name
  * @property string last_name
- * @property \PayPal\Api\InvoiceAddress address
  * @property string business_name
  * @property \PayPal\Api\Phone phone
  * @property \PayPal\Api\Phone fax
  * @property string website
- * @property string tax_id
- * @property string additional_info_label
  * @property string additional_info
+ * @property \PayPal\Api\Address address
  */
-class MerchantInfo extends PayPalModel
+class Participant extends PayPalModel
 {
     /**
-     * The merchant email address. Maximum length is 260 characters.
+     * The participant email address.
      *
      * @param string $email
      * 
@@ -39,7 +37,7 @@ class MerchantInfo extends PayPalModel
     }
 
     /**
-     * The merchant email address. Maximum length is 260 characters.
+     * The participant email address.
      *
      * @return string
      */
@@ -49,7 +47,7 @@ class MerchantInfo extends PayPalModel
     }
 
     /**
-     * The merchant first name. Maximum length is 30 characters.
+     * The participant first name.
      *
      * @param string $first_name
      * 
@@ -62,7 +60,7 @@ class MerchantInfo extends PayPalModel
     }
 
     /**
-     * The merchant first name. Maximum length is 30 characters.
+     * The participant first name.
      *
      * @return string
      */
@@ -72,7 +70,7 @@ class MerchantInfo extends PayPalModel
     }
 
     /**
-     * The merchant last name. Maximum length is 30 characters.
+     * The participant last name.
      *
      * @param string $last_name
      * 
@@ -85,7 +83,7 @@ class MerchantInfo extends PayPalModel
     }
 
     /**
-     * The merchant last name. Maximum length is 30 characters.
+     * The participant last name.
      *
      * @return string
      */
@@ -95,30 +93,7 @@ class MerchantInfo extends PayPalModel
     }
 
     /**
-     * The merchant address.
-     *
-     * @param \PayPal\Api\InvoiceAddress $address
-     * 
-     * @return $this
-     */
-    public function setAddress($address)
-    {
-        $this->address = $address;
-        return $this;
-    }
-
-    /**
-     * The merchant address.
-     *
-     * @return \PayPal\Api\InvoiceAddress
-     */
-    public function getAddress()
-    {
-        return $this->address;
-    }
-
-    /**
-     * The merchant company business name. Maximum length is 100 characters.
+     * The participant company business name.
      *
      * @param string $business_name
      * 
@@ -131,7 +106,7 @@ class MerchantInfo extends PayPalModel
     }
 
     /**
-     * The merchant company business name. Maximum length is 100 characters.
+     * The participant company business name.
      *
      * @return string
      */
@@ -141,7 +116,7 @@ class MerchantInfo extends PayPalModel
     }
 
     /**
-     * The merchant phone number.
+     * The participant phone number.
      *
      * @param \PayPal\Api\Phone $phone
      * 
@@ -154,7 +129,7 @@ class MerchantInfo extends PayPalModel
     }
 
     /**
-     * The merchant phone number.
+     * The participant phone number.
      *
      * @return \PayPal\Api\Phone
      */
@@ -164,7 +139,7 @@ class MerchantInfo extends PayPalModel
     }
 
     /**
-     * The merchant fax number.
+     * The participant fax number.
      *
      * @param \PayPal\Api\Phone $fax
      * 
@@ -177,7 +152,7 @@ class MerchantInfo extends PayPalModel
     }
 
     /**
-     * The merchant fax number.
+     * The participant fax number.
      *
      * @return \PayPal\Api\Phone
      */
@@ -187,7 +162,7 @@ class MerchantInfo extends PayPalModel
     }
 
     /**
-     * The merchant website. Maximum length is 2048 characters.
+     * The participant website.
      *
      * @param string $website
      * 
@@ -200,7 +175,7 @@ class MerchantInfo extends PayPalModel
     }
 
     /**
-     * The merchant website. Maximum length is 2048 characters.
+     * The participant website.
      *
      * @return string
      */
@@ -210,53 +185,7 @@ class MerchantInfo extends PayPalModel
     }
 
     /**
-     * The merchant tax ID. Maximum length is 100 characters.
-     *
-     * @param string $tax_id
-     * 
-     * @return $this
-     */
-    public function setTaxId($tax_id)
-    {
-        $this->tax_id = $tax_id;
-        return $this;
-    }
-
-    /**
-     * The merchant tax ID. Maximum length is 100 characters.
-     *
-     * @return string
-     */
-    public function getTaxId()
-    {
-        return $this->tax_id;
-    }
-
-    /**
-     * Option to provide a label to the additional_info field. 40 characters max.
-     *
-     * @param string $additional_info_label
-     * 
-     * @return $this
-     */
-    public function setAdditionalInfoLabel($additional_info_label)
-    {
-        $this->additional_info_label = $additional_info_label;
-        return $this;
-    }
-
-    /**
-     * Option to provide a label to the additional_info field. 40 characters max.
-     *
-     * @return string
-     */
-    public function getAdditionalInfoLabel()
-    {
-        return $this->additional_info_label;
-    }
-
-    /**
-     * Additional information, such as business hours. Maximum length is 40 characters.
+     * Additional information, such as business hours.
      *
      * @param string $additional_info
      * 
@@ -269,13 +198,36 @@ class MerchantInfo extends PayPalModel
     }
 
     /**
-     * Additional information, such as business hours. Maximum length is 40 characters.
+     * Additional information, such as business hours.
      *
      * @return string
      */
     public function getAdditionalInfo()
     {
         return $this->additional_info;
+    }
+
+    /**
+     * The participant address.
+     *
+     * @param \PayPal\Api\Address $address
+     * 
+     * @return $this
+     */
+    public function setAddress($address)
+    {
+        $this->address = $address;
+        return $this;
+    }
+
+    /**
+     * The participant address.
+     *
+     * @return \PayPal\Api\Address
+     */
+    public function getAddress()
+    {
+        return $this->address;
     }
 
 }

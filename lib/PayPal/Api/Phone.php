@@ -7,7 +7,7 @@ use PayPal\Common\PayPalModel;
 /**
  * Class Phone
  *
- * Information related to the Payer. In case of PayPal Wallet payment, this information will be filled in by PayPal after the user approves the payment using their PayPal Wallet. 
+ * Representation of a phone number.
  *
  * @package PayPal\Api
  *
@@ -18,7 +18,7 @@ use PayPal\Common\PayPalModel;
 class Phone extends PayPalModel
 {
     /**
-     * Country code (from in E.164 format)
+     * The country calling code (CC) as defined by E.164. The combined length of CC+national cannot be more than 15 digits. 
      *
      * @param string $country_code
      * 
@@ -31,7 +31,7 @@ class Phone extends PayPalModel
     }
 
     /**
-     * Country code (from in E.164 format)
+     * The country calling code (CC) as defined by E.164. The combined length of CC+national cannot be more than 15 digits. 
      *
      * @return string
      */
@@ -41,7 +41,7 @@ class Phone extends PayPalModel
     }
 
     /**
-     * In-country phone number (from in E.164 format)
+     * The national number as defined by E.164. The combined length of CC+national cannot be more than 15 digits. A national number consists of National Destination Code (NDC) and Subscriber Number (SN).
      *
      * @param string $national_number
      * 
@@ -54,7 +54,7 @@ class Phone extends PayPalModel
     }
 
     /**
-     * In-country phone number (from in E.164 format)
+     * The national number as defined by E.164. The combined length of CC+national cannot be more than 15 digits. A national number consists of National Destination Code (NDC) and Subscriber Number (SN).
      *
      * @return string
      */
@@ -67,7 +67,7 @@ class Phone extends PayPalModel
      * Phone extension
      *
      * @param string $extension
-     * 
+     *
      * @return $this
      */
     public function setExtension($extension)
