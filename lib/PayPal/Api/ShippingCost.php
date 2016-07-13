@@ -7,7 +7,7 @@ use PayPal\Common\PayPalModel;
 /**
  * Class ShippingCost
  *
- * Shipping cost in percent or amount.
+ * Shipping cost, as a percent or an amount.
  *
  * @package PayPal\Api
  *
@@ -17,7 +17,7 @@ use PayPal\Common\PayPalModel;
 class ShippingCost extends PayPalModel
 {
     /**
-     * Shipping cost in amount. Range of 0 to 999999.99.
+     * The shipping cost, as an amount. Valid range is from 0 to 999999.99.
      *
      * @param \PayPal\Api\Currency $amount
      * 
@@ -30,7 +30,7 @@ class ShippingCost extends PayPalModel
     }
 
     /**
-     * Shipping cost in amount. Range of 0 to 999999.99.
+     * The shipping cost, as an amount. Valid range is from 0 to 999999.99.
      *
      * @return \PayPal\Api\Currency
      */
@@ -40,7 +40,7 @@ class ShippingCost extends PayPalModel
     }
 
     /**
-     * Tax percentage on shipping amount.
+     * The tax percentage on the shipping amount.
      *
      * @param \PayPal\Api\Tax $tax
      * 
@@ -53,7 +53,7 @@ class ShippingCost extends PayPalModel
     }
 
     /**
-     * Tax percentage on shipping amount.
+     * The tax percentage on the shipping amount.
      *
      * @return \PayPal\Api\Tax
      */

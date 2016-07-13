@@ -21,7 +21,7 @@ use PayPal\Validation\NumericValidator;
 class Tax extends PayPalModel
 {
     /**
-     * Identifier of the resource.
+     * The resource ID.
      *
      * @param string $id
      * 
@@ -34,7 +34,7 @@ class Tax extends PayPalModel
     }
 
     /**
-     * Identifier of the resource.
+     * The resource ID.
      *
      * @return string
      */
@@ -44,7 +44,7 @@ class Tax extends PayPalModel
     }
 
     /**
-     * Name of the tax. 10 characters max.
+     * The tax name. Maximum length is 20 characters.
      *
      * @param string $name
      * 
@@ -57,7 +57,7 @@ class Tax extends PayPalModel
     }
 
     /**
-     * Name of the tax. 10 characters max.
+     * The tax name. Maximum length is 20 characters.
      *
      * @return string
      */
@@ -67,7 +67,7 @@ class Tax extends PayPalModel
     }
 
     /**
-     * Rate of the specified tax. Range of 0.001 to 99.999.
+     * The rate of the specified tax. Valid range is from 0.001 to 99.999.
      *
      * @param string|double $percent
      * 
@@ -82,7 +82,7 @@ class Tax extends PayPalModel
     }
 
     /**
-     * Rate of the specified tax. Range of 0.001 to 99.999.
+     * The rate of the specified tax. Valid range is from 0.001 to 99.999.
      *
      * @return string
      */
@@ -92,7 +92,7 @@ class Tax extends PayPalModel
     }
 
     /**
-     * Tax in the form of money. Cannot be specified in a request.
+     * The tax as a monetary amount. Cannot be specified in a request.
      *
      * @param \PayPal\Api\Currency $amount
      * 
@@ -105,7 +105,7 @@ class Tax extends PayPalModel
     }
 
     /**
-     * Tax in the form of money. Cannot be specified in a request.
+     * The tax as a monetary amount. Cannot be specified in a request.
      *
      * @return \PayPal\Api\Currency
      */

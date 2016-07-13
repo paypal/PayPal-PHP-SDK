@@ -14,11 +14,12 @@ use PayPal\Common\PayPalModel;
  * @property string type
  * @property string date
  * @property string note
+ * @property \PayPal\Api\Currency amount
  */
 class RefundDetail extends PayPalModel
 {
     /**
-     * PayPal refund type indicating whether refund was done in invoicing flow via PayPal or externally. In the case of the mark-as-refunded API, refund type is EXTERNAL and this is what is now supported. The PAYPAL value is provided for backward compatibility.
+     * The PayPal refund type. Indicates whether refund was paid in invoicing flow through PayPal or externally. In the case of mark-as-refunded API, the supported refund type is `EXTERNAL`. For backward compatability, the `PAYPAL` refund type is still supported.
      * Valid Values: ["PAYPAL", "EXTERNAL"]
      *
      * @param string $type
@@ -32,7 +33,7 @@ class RefundDetail extends PayPalModel
     }
 
     /**
-     * PayPal refund type indicating whether refund was done in invoicing flow via PayPal or externally. In the case of the mark-as-refunded API, refund type is EXTERNAL and this is what is now supported. The PAYPAL value is provided for backward compatibility.
+     * The PayPal refund type. Indicates whether refund was paid in invoicing flow through PayPal or externally. In the case of mark-as-refunded API, the supported refund type is `EXTERNAL`. For backward compatability, the `PAYPAL` refund type is still supported.
      *
      * @return string
      */
@@ -42,7 +43,7 @@ class RefundDetail extends PayPalModel
     }
 
     /**
-     * Date when the invoice was marked as refunded. If no date is specified, the current date and time is used as the default. In addition, the date must be after the invoice payment date. Date format yyyy-MM-dd z, as defined in [ISO8601](http://tools.ietf.org/html/rfc3339#section-5.6).
+     * Date on which the invoice was refunded. Date format: yyyy-MM-dd z. For example, 2014-02-27 PST.
      *
      * @param string $date
      * 
@@ -55,7 +56,7 @@ class RefundDetail extends PayPalModel
     }
 
     /**
-     * Date when the invoice was marked as refunded. If no date is specified, the current date and time is used as the default. In addition, the date must be after the invoice payment date. Date format yyyy-MM-dd z, as defined in [ISO8601](http://tools.ietf.org/html/rfc3339#section-5.6).
+     * Date on which the invoice was refunded. Date format: yyyy-MM-dd z. For example, 2014-02-27 PST.
      *
      * @return string
      */
@@ -85,6 +86,29 @@ class RefundDetail extends PayPalModel
     public function getNote()
     {
         return $this->note;
+    }
+
+    /**
+     * Amount to be recorded as refund against invoice. If this field is not passed, the total invoice paid amount is recorded as refund.
+     *
+     * @param \PayPal\Api\Currency $amount
+     * 
+     * @return $this
+     */
+    public function setAmount($amount)
+    {
+        $this->amount = $amount;
+        return $this;
+    }
+
+    /**
+     * Amount to be recorded as refund against invoice. If this field is not passed, the total invoice paid amount is recorded as refund.
+     *
+     * @return \PayPal\Api\Currency
+     */
+    public function getAmount()
+    {
+        return $this->amount;
     }
 
 }
