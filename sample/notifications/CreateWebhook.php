@@ -58,7 +58,7 @@ try {
         $data = $ex->getData();
         // NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
         ResultPrinter::printError("Created Webhook Failed. Checking if it is Webhook Number Limit Exceeded. Trying to delete all existing webhooks", "Webhook", "Please Use <a style='color: red;' href='DeleteAllWebhooks.php' >Delete All Webhooks</a> Sample to delete all existing webhooks in sample", $request, $ex);
-        if (strpos($data,'WEBHOOK_NUMBER_LIMIT_EXCEEDED') !== false) {
+        if (strpos($data, 'WEBHOOK_NUMBER_LIMIT_EXCEEDED') !== false) {
             require 'DeleteAllWebhooks.php';
             try {
                 $output = $webhook->create($apiContext);
@@ -69,7 +69,7 @@ try {
             }
         } else {
             // NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
- 	        ResultPrinter::printError("Created Webhook", "Webhook", null, $request, $ex);
+            ResultPrinter::printError("Created Webhook", "Webhook", null, $request, $ex);
             exit(1);
         }
     } else {

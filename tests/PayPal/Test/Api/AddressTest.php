@@ -70,6 +70,4 @@ class AddressTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($obj->getNormalizationStatus(), "TestSample");
         $this->assertEquals($obj->getStatus(), "TestSample");
     }
-
-
 }

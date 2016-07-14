@@ -47,7 +47,7 @@ try {
     $output = $webhook->update($patchRequest, $apiContext);
 } catch (Exception $ex) {
     // NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
- 	ResultPrinter::printError("Updated a Webhook", "Webhook", null, $patchRequest, $ex);
+    ResultPrinter::printError("Updated a Webhook", "Webhook", null, $patchRequest, $ex);
     exit(1);
 }
 

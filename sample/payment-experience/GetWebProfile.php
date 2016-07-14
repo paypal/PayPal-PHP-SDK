@@ -16,7 +16,7 @@ try {
     $webProfile = \PayPal\Api\WebProfile::get($createProfileResponse->getId(), $apiContext);
 } catch (\PayPal\Exception\PayPalConnectionException $ex) {
     // NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
- 	ResultPrinter::printError("Get Web Profile", "Web Profile", $webProfile->getId(), null, $ex);
+    ResultPrinter::printError("Get Web Profile", "Web Profile", $webProfile->getId(), null, $ex);
     exit(1);
 }
 

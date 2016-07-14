@@ -1,8 +1,8 @@
 <?php
 
 namespace PayPal\Test\Api;
-use PayPal\Api\InvoiceNumber;
 
+use PayPal\Api\InvoiceNumber;
 
 /**
  * Class Cost
@@ -51,5 +51,4 @@ class InvoiceNumberTest extends \PHPUnit_Framework_TestCase
     {
         $this->assertEquals($obj->getNumber(), "1234");
     }
-    
 }

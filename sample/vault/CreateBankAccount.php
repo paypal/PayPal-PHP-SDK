@@ -73,7 +73,7 @@ try {
     $bankAccount->create($apiContext);
 } catch (Exception $ex) {
     // NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
- 	ResultPrinter::printError("Create Bank Account", "Bank Account", null, $request, $ex);
+    ResultPrinter::printError("Create Bank Account", "Bank Account", null, $request, $ex);
     exit(1);
 }
 

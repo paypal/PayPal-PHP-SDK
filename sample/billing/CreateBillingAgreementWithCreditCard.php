@@ -99,7 +99,6 @@ $request = clone $agreement;
 try {
     // Please note that as the agreement has not yet activated, we wont be receiving the ID just yet.
     $agreement = $agreement->create($apiContext);
-
 } catch (Exception $ex) {
     // NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
     ResultPrinter::printError("Created Billing Agreement.", "Agreement", $agreement->getId(), $request, $ex);

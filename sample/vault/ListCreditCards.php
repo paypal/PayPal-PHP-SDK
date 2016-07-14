@@ -26,7 +26,7 @@ try {
     $cards = CreditCard::all($params, $apiContext);
 } catch (Exception $ex) {
     // NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
- 	ResultPrinter::printError("List All Credit Cards", "CreditCardList", null, $params, $ex);
+    ResultPrinter::printError("List All Credit Cards", "CreditCardList", null, $params, $ex);
     exit(1);
 }
 

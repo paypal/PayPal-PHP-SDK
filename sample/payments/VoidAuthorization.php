@@ -10,7 +10,6 @@ $authorization = require 'AuthorizePayment.php';
 $authorizationId = '1BF65516U6866543H'; // $authorization->getId();
 use PayPal\Api\Authorization;
 
-
 // ### VoidAuthorization
 // You can void a previously authorized payment
 // by invoking the $authorization->void method
@@ -24,7 +23,7 @@ try {
     $voidedAuth = $authorization->void($apiContext);
 } catch (Exception $ex) {
     // NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
- 	ResultPrinter::printError("Void Authorization", "Authorization", null, null, $ex);
+    ResultPrinter::printError("Void Authorization", "Authorization", null, null, $ex);
     exit(1);
 }
 

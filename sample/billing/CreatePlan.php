@@ -66,7 +66,7 @@ try {
     $output = $plan->create($apiContext);
 } catch (Exception $ex) {
     // NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
- 	ResultPrinter::printError("Created Plan", "Plan", null, $request, $ex);
+    ResultPrinter::printError("Created Plan", "Plan", null, $request, $ex);
     exit(1);
 }
 

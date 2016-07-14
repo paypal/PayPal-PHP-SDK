@@ -58,6 +58,4 @@ class AmountTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($obj->getTotal(), "12.34");
         $this->assertEquals($obj->getDetails(), DetailsTest::getObject());
     }
-
-
 }

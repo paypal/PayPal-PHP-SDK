@@ -64,5 +64,4 @@ class FileAttachmentTest extends \PHPUnit_Framework_TestCase
         $obj = new FileAttachment();
         $obj->setUrl(null);
     }
-
 }

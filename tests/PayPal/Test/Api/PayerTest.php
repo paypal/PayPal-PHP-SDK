@@ -70,6 +70,4 @@ class PayerTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($obj->getRelatedFundingOption(), FundingOptionTest::getObject());
         $this->assertEquals($obj->getPayerInfo(), PayerInfoTest::getObject());
     }
-
-
 }

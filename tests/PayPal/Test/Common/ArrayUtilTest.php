@@ -8,7 +8,6 @@ class ArrayUtilTest extends \PHPUnit_Framework_TestCase
 
     public function testIsAssocArray()
     {
-
         $arr = array(1, 2, 3);
         $this->assertEquals(false, ArrayUtil::isAssocArray($arr));
 

@@ -55,7 +55,6 @@ class PayPalHttpConnection
      */
     private function getHttpHeaders()
     {
-
         $ret = array();
         foreach ($this->httpConfig->getHeaders() as $k => $v) {
             $ret[] = "$k: $v";
@@ -78,8 +77,8 @@ class PayPalHttpConnection
         //Initialize Curl Options
         $ch = curl_init($this->httpConfig->getUrl());
         $options = $this->httpConfig->getCurlOptions();
-        if(empty($options[CURLOPT_HTTPHEADER])) {
-            unset ($options[CURLOPT_HTTPHEADER]);
+        if (empty($options[CURLOPT_HTTPHEADER])) {
+            unset($options[CURLOPT_HTTPHEADER]);
         }
         curl_setopt_array($ch, $options);
         curl_setopt($ch, CURLOPT_URL, $this->httpConfig->getUrl());
@@ -101,7 +100,7 @@ class PayPalHttpConnection
         }
 
         //Default Option if Method not of given types in switch case
-        if ($this->httpConfig->getMethod() != NULL) {
+        if ($this->httpConfig->getMethod() != null) {
             curl_setopt($ch, CURLOPT_CUSTOMREQUEST, $this->httpConfig->getMethod());
         }
 
@@ -174,14 +173,14 @@ class PayPalHttpConnection
                 "Retried $retries times." . $result);
             $this->logger->debug("\n\n" . str_repeat('=', 128) . "\n");
             throw $ex;
-        } else if ($httpStatus < 200 || $httpStatus >= 300) {
+        } elseif ($httpStatus < 200 || $httpStatus >= 300) {
             $ex = new PayPalConnectionException(
                 $this->httpConfig->getUrl(),
                 "Got Http response code $httpStatus when accessing {$this->httpConfig->getUrl()}.",
                 $httpStatus
             );
             $ex->setData($result);
-            $this->logger->error("Got Http response code $httpStatus when accessing {$this->httpConfig->getUrl()}. " . $result );
+            $this->logger->error("Got Http response code $httpStatus when accessing {$this->httpConfig->getUrl()}. " . $result);
             $this->logger->debug("\n\n" . str_repeat('=', 128) . "\n");
             throw $ex;
         }
@@ -191,5 +190,4 @@ class PayPalHttpConnection
         //Return result object
         return $result;
     }
-
 }

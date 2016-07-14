@@ -116,5 +116,4 @@ class PayPalLoggingManager
             $this->logger->debug($message);
         }
     }
-
 }

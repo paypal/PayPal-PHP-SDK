@@ -22,7 +22,7 @@ try {
     }
 } catch (\Exception $ex) {
     // NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
- 	ResultPrinter::printError("Updated Web Profile", "Web Profile", $webProfile->getId(), $webProfile, $ex);
+    ResultPrinter::printError("Updated Web Profile", "Web Profile", $webProfile->getId(), $webProfile, $ex);
     exit(1);
 }
 

@@ -86,5 +86,4 @@ class MetadataTest extends \PHPUnit_Framework_TestCase
         $obj->setPayer_view_url(null);
         $this->assertNull($obj->getPayer_view_url());
     }
-
 }

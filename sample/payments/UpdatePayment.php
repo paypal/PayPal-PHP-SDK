@@ -81,10 +81,9 @@ $patchRequest->setPatches(array($patchReplace, $patchAdd));
 // (See bootstrap.php for more on `ApiContext`)
 try {
     $result = $createdPayment->update($patchRequest, $apiContext);
-
 } catch (Exception $ex) {
     // NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
- 	ResultPrinter::printError("Update Payment", "PatchRequest", null, $patchRequest, $ex);
+    ResultPrinter::printError("Update Payment", "PatchRequest", null, $patchRequest, $ex);
     exit(1);
 }
 

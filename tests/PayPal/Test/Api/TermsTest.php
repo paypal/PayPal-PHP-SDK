@@ -61,5 +61,4 @@ class TermsTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($obj->getAmountRange(), CurrencyTest::getObject());
         $this->assertEquals($obj->getBuyerEditable(), "TestSample");
     }
-
 }

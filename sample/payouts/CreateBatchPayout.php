@@ -116,7 +116,7 @@ try {
     $output = $payouts->create(null, $apiContext);
 } catch (Exception $ex) {
     // NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
- 	ResultPrinter::printError("Created Batch Payout", "Payout", null, $request, $ex);
+    ResultPrinter::printError("Created Batch Payout", "Payout", null, $request, $ex);
     exit(1);
 }
 

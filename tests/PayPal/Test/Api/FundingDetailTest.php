@@ -60,6 +60,4 @@ class FundingDetailTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($obj->getPaymentDebitDate(), "TestSample");
         $this->assertEquals($obj->getProcessingType(), "TestSample");
     }
-
-
 }

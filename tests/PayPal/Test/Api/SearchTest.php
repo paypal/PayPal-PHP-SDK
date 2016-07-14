@@ -89,5 +89,4 @@ class SearchTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($obj->getTotalCountRequired(), true);
         $this->assertEquals($obj->getArchived(), true);
     }
-
 }

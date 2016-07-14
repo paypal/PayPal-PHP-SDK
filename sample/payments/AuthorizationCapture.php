@@ -11,7 +11,6 @@ use PayPal\Api\Amount;
 use PayPal\Api\Authorization;
 use PayPal\Api\Capture;
 
-
 // ### Capture Payment
 // You can capture and process a previously created authorization
 // by invoking the $authorization->capture method
@@ -31,7 +30,7 @@ try {
     $getCapture = $authorization->capture($capture, $apiContext);
 } catch (Exception $ex) {
     // NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
- 	ResultPrinter::printError("Capture Payment", "Authorization", null, $capture, $ex);
+    ResultPrinter::printError("Capture Payment", "Authorization", null, $capture, $ex);
     exit(1);
 }
 

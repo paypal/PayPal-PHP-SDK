@@ -60,6 +60,4 @@ class ErrorDetailsTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($obj->getPurchaseUnitReferenceId(), "TestSample");
         $this->assertEquals($obj->getCode(), "TestSample");
     }
-
-
 }

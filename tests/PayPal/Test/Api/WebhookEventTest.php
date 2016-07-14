@@ -196,7 +196,7 @@ class WebhookEventTest extends \PHPUnit_Framework_TestCase
      */
     public function testValidateWebhookEmpty($mockApiContext)
     {
-       WebhookEvent::validateAndGetReceivedEvent('', $mockApiContext);
+        WebhookEvent::validateAndGetReceivedEvent('', $mockApiContext);
     }
 
     /**
@@ -219,5 +219,4 @@ class WebhookEventTest extends \PHPUnit_Framework_TestCase
     {
         WebhookEvent::validateAndGetReceivedEvent('{"summary":"json"}', $mockApiContext);
     }
-
 }

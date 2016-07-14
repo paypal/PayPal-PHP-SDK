@@ -20,7 +20,7 @@ try {
     $invoice = Invoice::get($invoiceId, $apiContext);
 } catch (Exception $ex) {
     // NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
- 	ResultPrinter::printError("Get Invoice", "Invoice", $invoice->getId(), $invoiceId, $ex);
+    ResultPrinter::printError("Get Invoice", "Invoice", $invoice->getId(), $invoiceId, $ex);
     exit(1);
 }
 

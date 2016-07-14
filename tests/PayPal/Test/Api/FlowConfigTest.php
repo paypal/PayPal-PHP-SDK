@@ -63,5 +63,4 @@ class FlowConfigTest extends \PHPUnit_Framework_TestCase
         $obj = new FlowConfig();
         $obj->setBankTxnPendingUrl(null);
     }
-
 }

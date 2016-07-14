@@ -72,7 +72,6 @@ class FormatConverterTest extends \PHPUnit_Framework_TestCase
     {
         $result = FormatConverter::formatToNumber($input);
         $this->assertEquals($expected, $result);
-
     }
 
     /**

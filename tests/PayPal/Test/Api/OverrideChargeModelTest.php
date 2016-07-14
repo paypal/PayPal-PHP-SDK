@@ -53,5 +53,4 @@ class OverrideChargeModelTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($obj->getChargeId(), "TestSample");
         $this->assertEquals($obj->getAmount(), CurrencyTest::getObject());
     }
-
 }

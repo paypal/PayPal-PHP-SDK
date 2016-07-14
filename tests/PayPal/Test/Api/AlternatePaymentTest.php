@@ -55,6 +55,4 @@ class AlternatePaymentTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($obj->getExternalCustomerId(), "TestSample");
         $this->assertEquals($obj->getAlternatePaymentProviderId(), "TestSample");
     }
-
-
 }

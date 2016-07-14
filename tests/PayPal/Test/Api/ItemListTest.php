@@ -60,6 +60,4 @@ class ItemListTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($obj->getShippingMethod(), "TestSample");
         $this->assertEquals($obj->getShippingPhoneNumber(), "TestSample");
     }
-
-
 }

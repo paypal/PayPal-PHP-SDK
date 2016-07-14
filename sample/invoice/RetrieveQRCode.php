@@ -23,11 +23,9 @@ try {
     // 'saveToFile' method with proper file name.
     // This will save the image as /samples/invoice/images/sample.png
     $path = $image->saveToFile("images/sample.png");
-
-
 } catch (Exception $ex) {
     // NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
- 	ResultPrinter::printError("Retrieved QR Code for Invoice", "Invoice", $invoice->getId(), null, $ex);
+    ResultPrinter::printError("Retrieved QR Code for Invoice", "Invoice", $invoice->getId(), null, $ex);
     exit(1);
 }
 
@@ -39,4 +37,3 @@ try {
 // One of the ways, you could directly inject the base64-encoded string
 // with proper image information in front of it.
 echo '<img src="data:image/png;base64,'. $image->getImage() . '" alt="Invoice QR Code" />';
-

@@ -56,6 +56,4 @@ class CreditTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($obj->getId(), "TestSample");
         $this->assertEquals($obj->getType(), "TestSample");
     }
-
-
 }

@@ -78,6 +78,4 @@ class CreditCardTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($obj->getValidUntil(), "TestSample");
         $this->assertEquals($obj->getLinks(), LinksTest::getObject());
     }
-
-
 }

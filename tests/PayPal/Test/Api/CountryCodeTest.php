@@ -51,6 +51,4 @@ class CountryCodeTest extends \PHPUnit_Framework_TestCase
     {
         $this->assertEquals($obj->getCountryCode(), "TestSample");
     }
-
-
 }

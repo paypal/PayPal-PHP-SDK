@@ -72,6 +72,4 @@ class ErrorTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($obj->getDebugId(), "TestSample");
         $this->assertEquals($obj->getLinks(), LinksTest::getObject());
     }
-
-
 }

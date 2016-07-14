@@ -33,5 +33,4 @@ class ApiContextTest extends PHPUnit_Framework_TestCase
         $this->assertNotNull($newRequestId);
         $this->assertNotEquals($newRequestId, $requestId);
     }
-
 }

@@ -60,6 +60,4 @@ class InstallmentInfoTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($obj->getIssuer(), "TestSample");
         $this->assertEquals($obj->getInstallmentOptions(), InstallmentOptionTest::getObject());
     }
-
-
 }

@@ -16,7 +16,7 @@ try {
     $result = $createdPlan->delete($apiContext);
 } catch (Exception $ex) {
     // NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
- 	ResultPrinter::printError("Deleted a Plan", "Plan", $createdPlan->getId(), null, $ex);
+    ResultPrinter::printError("Deleted a Plan", "Plan", $createdPlan->getId(), null, $ex);
     exit(1);
 }
 

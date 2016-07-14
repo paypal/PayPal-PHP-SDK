@@ -59,6 +59,4 @@ class CarrierAccountTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($obj->getPhoneSource(), "TestSample");
         $this->assertEquals($obj->getCountryCode(), CountryCodeTest::getObject());
     }
-
-
 }

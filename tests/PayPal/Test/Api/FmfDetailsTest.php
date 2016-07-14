@@ -60,6 +60,4 @@ class FmfDetailsTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($obj->getName(), "TestSample");
         $this->assertEquals($obj->getDescription(), "TestSample");
     }
-
-
 }

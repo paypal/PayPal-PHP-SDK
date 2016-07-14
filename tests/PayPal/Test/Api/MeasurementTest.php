@@ -56,6 +56,4 @@ class MeasurementTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($obj->getValue(), "TestSample");
         $this->assertEquals($obj->getUnit(), "TestSample");
     }
-
-
 }

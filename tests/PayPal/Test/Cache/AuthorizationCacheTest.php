@@ -79,7 +79,6 @@ class AuthorizationCacheTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals('accessToken', $tokens['clientId']['accessTokenEncrypted']);
         $this->assertEquals('tokenCreateTime', $tokens['clientId']['tokenCreateTime']);
         $this->assertEquals('tokenExpiresIn', $tokens['clientId']['tokenExpiresIn']);
-
     }
 
     public function testCachePullNonExisting()
@@ -103,5 +102,4 @@ class AuthorizationCacheTest extends \PHPUnit_Framework_TestCase
 
         unlink(AuthorizationCacheTest::CACHE_FILE);
     }
-
 }

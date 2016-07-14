@@ -21,7 +21,7 @@ class PayPalHttpConfig
     public static $defaultCurlOptions = array(
         CURLOPT_SSLVERSION => 6,
         CURLOPT_CONNECTTIMEOUT => 10,
-        CURLOPT_RETURNTRANSFER => TRUE,
+        CURLOPT_RETURNTRANSFER => true,
         CURLOPT_TIMEOUT => 60,    // maximum number of seconds to allow cURL functions to execute
         CURLOPT_USERAGENT => 'PayPal-PHP-SDK',
         CURLOPT_HTTPHEADER => array(),

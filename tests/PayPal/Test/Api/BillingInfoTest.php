@@ -67,5 +67,4 @@ class BillingInfoTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($obj->getNotificationChannel(), "TestSample");
         $this->assertEquals($obj->getPhone(), PhoneTest::getObject());
     }
-
 }

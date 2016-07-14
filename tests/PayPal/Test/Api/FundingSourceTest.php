@@ -70,6 +70,4 @@ class FundingSourceTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($obj->getExtends(), FundingInstrumentTest::getObject());
         $this->assertEquals($obj->getLinks(), LinksTest::getObject());
     }
-
-
 }

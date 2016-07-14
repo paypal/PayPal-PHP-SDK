@@ -17,7 +17,7 @@ try {
     $bankAccount = \PayPal\Api\BankAccount::get($bankAccount->getId(), $apiContext);
 } catch (Exception $ex) {
     // NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
- 	ResultPrinter::printError("Get Bank Account", "Bank Account", $bankAccount->getId(), null, $ex);
+    ResultPrinter::printError("Get Bank Account", "Bank Account", $bankAccount->getId(), null, $ex);
     exit(1);
 }
 

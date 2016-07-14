@@ -57,5 +57,4 @@ class CreditCardListTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($obj->getTotalItems(), 123);
         $this->assertEquals($obj->getTotalPages(), 123);
     }
-
 }

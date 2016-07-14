@@ -115,4 +115,4 @@ class PayPalResourceModel extends PayPalModel implements IResource
         $apiContext = $apiContext ? $apiContext : new ApiContext(self::$credential);
         $apiContext->getCredential()->updateAccessToken($apiContext->getConfig(), $refreshToken);
     }
-} 
+}

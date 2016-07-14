@@ -95,7 +95,6 @@ class PayPalConfigManager
      */
     public function get($searchKey)
     {
-
         if (array_key_exists($searchKey, $this->configs)) {
             return $this->configs[$searchKey];
         } else {
@@ -108,7 +107,6 @@ class PayPalConfigManager
 
             return $arr;
         }
-
     }
 
     /**
@@ -123,7 +121,6 @@ class PayPalConfigManager
      */
     public function getIniPrefix($userId = null)
     {
-
         if ($userId == null) {
             $arr = array();
             foreach ($this->configs as $key => $value) {
@@ -157,7 +154,4 @@ class PayPalConfigManager
     {
         trigger_error('Clone is not allowed.', E_USER_ERROR);
     }
-
 }
-
-    

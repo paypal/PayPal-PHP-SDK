@@ -78,6 +78,4 @@ class FundingInstrumentTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($obj->getBilling(), BillingTest::getObject());
         $this->assertEquals($obj->getAlternatePayment(), AlternatePaymentTest::getObject());
     }
-
-
 }

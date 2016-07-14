@@ -33,7 +33,7 @@ try {
     $cancelStatus = $invoice->cancel($notify, $apiContext);
 } catch (Exception $ex) {
     // NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
- 	ResultPrinter::printError("Cancel Invoice", "Invoice", null, $notify, $ex);
+    ResultPrinter::printError("Cancel Invoice", "Invoice", null, $notify, $ex);
     exit(1);
 }
 

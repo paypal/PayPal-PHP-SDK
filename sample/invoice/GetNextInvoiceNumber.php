@@ -14,7 +14,7 @@ try {
     $number = Invoice::generateNumber($apiContext);
 } catch (Exception $ex) {
     // NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
- 	ResultPrinter::printError("Get Next Invoice Number", "InvoiceNumber", null, null, $ex);
+    ResultPrinter::printError("Get Next Invoice Number", "InvoiceNumber", null, null, $ex);
     exit(1);
 }
 

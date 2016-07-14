@@ -53,5 +53,4 @@ class PaymentTermTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($obj->getTermType(), "TestSample");
         $this->assertEquals($obj->getDueDate(), "TestSample");
     }
-    
 }

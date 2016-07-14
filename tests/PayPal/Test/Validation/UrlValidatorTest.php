@@ -49,7 +49,6 @@ class UrlValidatorTest extends \PHPUnit_Framework_TestCase
      */
     public function testValidateException($input)
     {
-       UrlValidator::validate($input, "Test Value");
+        UrlValidator::validate($input, "Test Value");
     }
-
 }

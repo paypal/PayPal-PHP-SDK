@@ -58,6 +58,4 @@ class PaymentExecutionTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($obj->getCarrierAccountId(), "TestSample");
         $this->assertEquals($obj->getTransactions(), array(TransactionTest::getObject()));
     }
-
-
 }

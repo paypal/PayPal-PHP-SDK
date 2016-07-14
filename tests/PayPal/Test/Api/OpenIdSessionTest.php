@@ -44,7 +44,6 @@ class OpenIdSessionTest extends \PHPUnit_Framework_TestCase
      */
     public function testLoginUrlForMultipleScopes()
     {
-
         $clientId = "AQkquBDf1zctJOWGKWUEtKXm6qVhueUEMvXO_-MCI4DQQ4-LWvkDLIN2fGsd";
         $redirectUri = 'https://devtools-paypal.com/';
         $scope = array('this', 'that', 'and more');
@@ -69,7 +68,6 @@ class OpenIdSessionTest extends \PHPUnit_Framework_TestCase
      */
     public function testLoginWithCustomConfig()
     {
-
         $redirectUri = 'http://mywebsite.com';
         $scope = array('this', 'that', 'and more');
 
@@ -84,7 +82,6 @@ class OpenIdSessionTest extends \PHPUnit_Framework_TestCase
      */
     public function testLogoutWithCustomConfig()
     {
-
         $redirectUri = 'http://mywebsite.com';
         $idToken = 'abc';
 

@@ -38,7 +38,6 @@ class OauthHandlerTest extends \PHPUnit_Framework_TestCase
                 'clientSecret'
             )
         );
-
     }
 
     public function modeProvider()
@@ -67,6 +66,4 @@ class OauthHandlerTest extends \PHPUnit_Framework_TestCase
         $this->handler = new OauthHandler($this->apiContext);
         $this->handler->handle($this->httpConfig, null, $this->config);
     }
-
-
 }

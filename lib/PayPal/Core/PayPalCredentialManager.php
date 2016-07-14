@@ -113,7 +113,6 @@ class PayPalCredentialManager
             $suffix++;
             $key = $prefix . $suffix;
         }
-
     }
 
     /**
@@ -146,7 +145,7 @@ class PayPalCredentialManager
     {
         if ($userId == null && array_key_exists($this->defaultAccountName, $this->credentialHashmap)) {
             $credObj = $this->credentialHashmap[$this->defaultAccountName];
-        } else if (array_key_exists($userId, $this->credentialHashmap)) {
+        } elseif (array_key_exists($userId, $this->credentialHashmap)) {
             $credObj = $this->credentialHashmap[$userId];
         }
 
@@ -164,5 +163,4 @@ class PayPalCredentialManager
     {
         trigger_error('Clone is not allowed.', E_USER_ERROR);
     }
-
 }

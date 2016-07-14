@@ -53,7 +53,7 @@ try {
     $createProfileResponse = $webProfile->create($apiContext);
 } catch (\PayPal\Exception\PayPalConnectionException $ex) {
     // NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
- 	ResultPrinter::printError("Created Web Profile", "Web Profile", null, $request, $ex);
+    ResultPrinter::printError("Created Web Profile", "Web Profile", null, $request, $ex);
     exit(1);
 }
 

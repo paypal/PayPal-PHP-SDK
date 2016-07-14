@@ -19,7 +19,7 @@ try {
     $output = \PayPal\Api\PayoutItem::get($payoutItemId, $apiContext);
 } catch (Exception $ex) {
     // NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
- 	ResultPrinter::printError("Get Payout Item Status", "PayoutItem", null, $payoutItemId, $ex);
+    ResultPrinter::printError("Get Payout Item Status", "PayoutItem", null, $payoutItemId, $ex);
     exit(1);
 }
 

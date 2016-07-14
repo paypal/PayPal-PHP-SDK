@@ -60,6 +60,4 @@ class InstallmentOptionTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($obj->getDiscountAmount(), CurrencyTest::getObject());
         $this->assertEquals($obj->getDiscountPercentage(), "TestSample");
     }
-
-
 }

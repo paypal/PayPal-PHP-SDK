@@ -1,7 +1,7 @@
 <?php
 
 /*
-	Common functions used across samples
+    Common functions used across samples
 */
 
 /**
@@ -41,7 +41,6 @@ class ResultPrinter
             self::printConsoleObject($response, $errorMessage);
             printf("\n-------------------------------------------------------------\n\n");
         } else {
-
             if (self::$printResultCounter == 0) {
                 include "header.html";
                 echo '

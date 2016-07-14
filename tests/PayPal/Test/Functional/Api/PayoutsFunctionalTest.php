@@ -120,5 +120,4 @@ class PayoutsFunctionalTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($item->getPayoutItemFee(), $result->getPayoutItemFee());
         $this->assertEquals('RETURNED', $result->getTransactionStatus());
     }
-
 }

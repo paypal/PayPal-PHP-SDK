@@ -13,7 +13,7 @@ $baseUrl = getBaseUrl() . '/UserConsentRedirect.php?success=true';
 $redirectUrl = OpenIdSession::getAuthorizationUrl(
     $baseUrl,
     array('openid', 'profile', 'address', 'email', 'phone',
-        'https://uri.paypal.com/services/paypalattributes', 
+        'https://uri.paypal.com/services/paypalattributes',
         'https://uri.paypal.com/services/expresscheckout',
         'https://uri.paypal.com/services/invoicing'),
     null,

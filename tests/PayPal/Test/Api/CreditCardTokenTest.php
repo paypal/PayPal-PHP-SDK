@@ -64,6 +64,4 @@ class CreditCardTokenTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($obj->getExpireMonth(), 123);
         $this->assertEquals($obj->getExpireYear(), 123);
     }
-
-
 }

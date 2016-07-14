@@ -13,7 +13,7 @@ try {
     $output = \PayPal\Api\WebhookEventType::availableEventTypes($apiContext);
 } catch (Exception $ex) {
     // NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
- 	ResultPrinter::printError("Get List of All Webhook Event Types", "WebhookEventTypeList", null, null, $ex);
+    ResultPrinter::printError("Get List of All Webhook Event Types", "WebhookEventTypeList", null, null, $ex);
     exit(1);
 }
 

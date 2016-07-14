@@ -76,5 +76,4 @@ class RedirectUrlsTest extends \PHPUnit_Framework_TestCase
         $obj = new RedirectUrls();
         $obj->setCancelUrl(null);
     }
-
 }

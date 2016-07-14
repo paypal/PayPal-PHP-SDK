@@ -92,5 +92,4 @@ class ItemTest extends \PHPUnit_Framework_TestCase
         $obj = new Item();
         $obj->setUrl(null);
     }
-
 }

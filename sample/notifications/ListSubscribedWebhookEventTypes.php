@@ -18,11 +18,11 @@ try {
     $output = \PayPal\Api\WebhookEventType::subscribedEventTypes($webhookId, $apiContext);
 } catch (Exception $ex) {
     // NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
- 	ResultPrinter::printError("List subscribed webhook event types", "WebhookEventTypeList", null, $webhookId, $ex);
+    ResultPrinter::printError("List subscribed webhook event types", "WebhookEventTypeList", null, $webhookId, $ex);
     exit(1);
 }
 
 // NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
- ResultPrinter::printResult("List subscribed webhook event types", "WebhookEventTypeList",null, null, $output);
+ ResultPrinter::printResult("List subscribed webhook event types", "WebhookEventTypeList", null, null, $output);
 
 return $output;
