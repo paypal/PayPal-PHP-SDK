@@ -155,7 +155,7 @@ try {
     $invoice->create($apiContext);
 } catch (Exception $ex) {
     // NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
- 	ResultPrinter::printError("Create Invoice", "Invoice", null, $request, $ex);
+    ResultPrinter::printError("Create Invoice", "Invoice", null, $request, $ex);
     exit(1);
 }
 

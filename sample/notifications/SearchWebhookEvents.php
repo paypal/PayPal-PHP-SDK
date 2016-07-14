@@ -23,7 +23,7 @@ try {
     $output = \PayPal\Api\WebhookEvent::all($params, $apiContext);
 } catch (Exception $ex) {
     // NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
- 	ResultPrinter::printError("Search Webhook events", "WebhookEventList", null, null, $ex);
+    ResultPrinter::printError("Search Webhook events", "WebhookEventList", null, null, $ex);
     exit(1);
 }
 

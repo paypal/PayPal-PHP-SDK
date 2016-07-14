@@ -20,7 +20,7 @@ try {
     $deleteStatus = $invoice->delete($apiContext);
 } catch (Exception $ex) {
     // NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
- 	ResultPrinter::printError("Delete Invoice", "Invoice", null, $deleteStatus, $ex);
+    ResultPrinter::printError("Delete Invoice", "Invoice", null, $deleteStatus, $ex);
     exit(1);
 }
 

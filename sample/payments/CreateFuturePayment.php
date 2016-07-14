@@ -84,10 +84,9 @@ try {
     // for payment approval
     // Please note that currently future payments works only with PayPal as a funding instrument.
     $payment->create($apiContext, $clientMetadataId);
-
 } catch (Exception $ex) {
     // NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
- 	ResultPrinter::printError("Future Payment", "Payment", null, $payment, $ex);
+    ResultPrinter::printError("Future Payment", "Payment", null, $payment, $ex);
     exit(1);
 }
 

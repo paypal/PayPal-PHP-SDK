@@ -38,7 +38,7 @@ try {
     }
 } catch (\Exception $ex) {
     // NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
- 	ResultPrinter::printError("Partially Updated Web Profile", "Web Profile", $webProfile->getId(), $patches, $ex);
+    ResultPrinter::printError("Partially Updated Web Profile", "Web Profile", $webProfile->getId(), $patches, $ex);
     exit(1);
 }
 

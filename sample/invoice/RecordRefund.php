@@ -30,7 +30,7 @@ try {
     $refundStatus = $invoice->recordRefund($refund, $apiContext);
 } catch (Exception $ex) {
     // NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
- 	ResultPrinter::printError("Refund for Invoice", "Invoice", null, null, $ex);
+    ResultPrinter::printError("Refund for Invoice", "Invoice", null, null, $ex);
     exit(1);
 }
 
@@ -47,7 +47,7 @@ try {
     $invoice = Invoice::get($invoice->getId(), $apiContext);
 } catch (Exception $ex) {
     // NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
- 	ResultPrinter::printError("Get Invoice (Not Required - For Sample Only)", "Invoice", $invoice->getId(), $invoice->getId(), $ex);
+    ResultPrinter::printError("Get Invoice (Not Required - For Sample Only)", "Invoice", $invoice->getId(), $invoice->getId(), $ex);
     exit(1);
 }
 

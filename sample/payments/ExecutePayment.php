@@ -69,12 +69,12 @@ if (isset($_GET['success']) && $_GET['success'] == 'true') {
             $payment = Payment::get($paymentId, $apiContext);
         } catch (Exception $ex) {
             // NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
- 	        ResultPrinter::printError("Get Payment", "Payment", null, null, $ex);
+            ResultPrinter::printError("Get Payment", "Payment", null, null, $ex);
             exit(1);
         }
     } catch (Exception $ex) {
         // NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
- 	    ResultPrinter::printError("Executed Payment", "Payment", null, null, $ex);
+        ResultPrinter::printError("Executed Payment", "Payment", null, null, $ex);
         exit(1);
     }
 
@@ -82,8 +82,6 @@ if (isset($_GET['success']) && $_GET['success'] == 'true') {
     ResultPrinter::printResult("Get Payment", "Payment", $payment->getId(), null, $payment);
 
     return $payment;
-
-
 } else {
     // NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
     ResultPrinter::printResult("User Cancelled the Approval", null);

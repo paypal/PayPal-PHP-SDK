@@ -16,7 +16,7 @@ try {
     $card->delete($apiContext);
 } catch (Exception $ex) {
     // NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
- 	ResultPrinter::printError("Delete Credit Card", "Credit Card", null, null, $ex);
+    ResultPrinter::printError("Delete Credit Card", "Credit Card", null, null, $ex);
     exit(1);
 }
 

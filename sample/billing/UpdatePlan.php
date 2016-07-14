@@ -34,10 +34,9 @@ try {
     $createdPlan->update($patchRequest, $apiContext);
 
     $plan = Plan::get($createdPlan->getId(), $apiContext);
-
 } catch (Exception $ex) {
     // NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
- 	ResultPrinter::printError("Updated the Plan to Active State", "Plan", null, $patchRequest, $ex);
+    ResultPrinter::printError("Updated the Plan to Active State", "Plan", null, $patchRequest, $ex);
     exit(1);
 }
 

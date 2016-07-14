@@ -19,11 +19,11 @@ try {
     $output = \PayPal\Api\Webhook::getAll($apiContext);
 } catch (Exception $ex) {
     // NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
- 	ResultPrinter::printError("List all webhooks", "WebhookList", null, $webhookId, $ex);
+    ResultPrinter::printError("List all webhooks", "WebhookList", null, $webhookId, $ex);
     exit(1);
 }
 
 // NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
- ResultPrinter::printResult("List all webhooks", "WebhookList",null, null, $output);
+ ResultPrinter::printResult("List all webhooks", "WebhookList", null, null, $output);
 
 return $output;

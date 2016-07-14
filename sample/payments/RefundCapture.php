@@ -24,7 +24,7 @@ try {
     $captureRefund = $capture->refund($refund, $apiContext);
 } catch (Exception $ex) {
     // NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
- 	ResultPrinter::printError("Refund Capture", "Capture", null, $refund, $ex);
+    ResultPrinter::printError("Refund Capture", "Capture", null, $refund, $ex);
     exit(1);
 }
 

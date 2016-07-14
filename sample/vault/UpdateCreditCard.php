@@ -43,7 +43,7 @@ try {
     $card = $card->update($pathRequest, $apiContext);
 } catch (Exception $ex) {
     // NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
- 	ResultPrinter::printError("Updated Credit Card", "Credit Card", $card->getId(), $pathRequest, $ex);
+    ResultPrinter::printError("Updated Credit Card", "Credit Card", $card->getId(), $pathRequest, $ex);
     exit(1);
 }
 

@@ -35,10 +35,9 @@ try {
 
     // Lets get the updated Agreement Object
     $agreement = Agreement::get($createdAgreement->getId(), $apiContext);
-
 } catch (Exception $ex) {
     // NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
- 	ResultPrinter::printError("Updated the Agreement with new Description and Updated Shipping Address", "Agreement", null, $patchRequest, $ex);
+    ResultPrinter::printError("Updated the Agreement with new Description and Updated Shipping Address", "Agreement", null, $patchRequest, $ex);
     exit(1);
 }
 

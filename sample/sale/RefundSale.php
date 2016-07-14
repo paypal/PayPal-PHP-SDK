@@ -42,7 +42,7 @@ try {
     $refundedSale = $sale->refund($refund, $apiContext);
 } catch (Exception $ex) {
     // NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
- 	ResultPrinter::printError("Refund Sale", "Sale", $refundedSale->getId(), $refund, $ex);
+    ResultPrinter::printError("Refund Sale", "Sale", $refundedSale->getId(), $refund, $ex);
     exit(1);
 }
 

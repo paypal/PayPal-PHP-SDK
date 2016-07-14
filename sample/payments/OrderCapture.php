@@ -41,12 +41,11 @@ if (isset($_GET['success']) && $_GET['success'] == 'true') {
         ResultPrinter::printResult("Captured Order", "Capture", $result->getId(), $capture, $result);
     } catch (Exception $ex) {
         // NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
- 	    ResultPrinter::printError("Captured Order", "Capture", null, $capture, $ex);
+        ResultPrinter::printError("Captured Order", "Capture", null, $capture, $ex);
         exit(1);
     }
 
     return $result;
-
 } else {
     // NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
     ResultPrinter::printResult("User Cancelled the Approval", null);

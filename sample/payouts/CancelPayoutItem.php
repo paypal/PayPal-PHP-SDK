@@ -26,11 +26,11 @@ try {
     } else {
         // The item transaction status is not unclaimed. You can only cancel an unclaimed transaction.
         // NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
- 	    ResultPrinter::printError("Cancel Unclaimed Payout Item", "PayoutItem", null, $payoutItemId, new Exception("Payout Item Status is not UNCLAIMED"));
+        ResultPrinter::printError("Cancel Unclaimed Payout Item", "PayoutItem", null, $payoutItemId, new Exception("Payout Item Status is not UNCLAIMED"));
     }
 } catch (Exception $ex) {
     // NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
- 	ResultPrinter::printError("Cancel Unclaimed Payout Item", "PayoutItem", null, $payoutItemId, $ex);
+    ResultPrinter::printError("Cancel Unclaimed Payout Item", "PayoutItem", null, $payoutItemId, $ex);
     exit(1);
 }
 

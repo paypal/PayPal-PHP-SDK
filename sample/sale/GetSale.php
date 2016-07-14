@@ -25,7 +25,7 @@ try {
     $sale = Sale::get($saleId, $apiContext);
 } catch (Exception $ex) {
     // NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
- 	ResultPrinter::printError("Look Up A Sale", "Sale", $sale->getId(), null, $ex);
+    ResultPrinter::printError("Look Up A Sale", "Sale", $sale->getId(), null, $ex);
     exit(1);
 }
 

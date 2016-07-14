@@ -46,7 +46,7 @@ try {
     $card->create($apiContext);
 } catch (Exception $ex) {
     // NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
- 	ResultPrinter::printError("Create Credit Card", "Credit Card", null, $request, $ex);
+    ResultPrinter::printError("Create Credit Card", "Credit Card", null, $request, $ex);
     exit(1);
 }
 

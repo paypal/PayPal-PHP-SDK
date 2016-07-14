@@ -18,7 +18,7 @@ try {
     $output = \PayPal\Api\Webhook::get($webhookId, $apiContext);
 } catch (Exception $ex) {
     // NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
- 	ResultPrinter::printError("Get a Webhook", "Webhook", null, $webhookId, $ex);
+    ResultPrinter::printError("Get a Webhook", "Webhook", null, $webhookId, $ex);
     exit(1);
 }
 

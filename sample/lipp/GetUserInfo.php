@@ -21,16 +21,14 @@ use PayPal\Api\OpenIdUserinfo;
 $refreshToken = 'W1JmxG-Cogm-4aSc5Vlen37XaQTj74aQcQiTtXax5UgY7M_AJ--kLX8xNVk8LtCpmueFfcYlRK6UgQLJ-XHsxpw6kZzPpKKccRQeC4z2ldTMfXdIWajZ6CHuebs';
 
 try {
-
     $tokenInfo = new OpenIdTokeninfo();
     $tokenInfo = $tokenInfo->createFromRefreshToken(array('refresh_token' => $refreshToken), $apiContext);
 
     $params = array('access_token' => $tokenInfo->getAccessToken());
     $userInfo = OpenIdUserinfo::getUserinfo($params, $apiContext);
-
 } catch (Exception $ex) {
     // NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
- 	ResultPrinter::printError("User Information", "User Info", null, $params, $ex);
+    ResultPrinter::printError("User Information", "User Info", null, $params, $ex);
     exit(1);
 }
 

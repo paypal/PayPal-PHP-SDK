@@ -74,7 +74,6 @@ try {
     // the buyer to. Retrieve the url from the $agreement->getApprovalLink()
     // method
     $approvalUrl = $agreement->getApprovalLink();
-
 } catch (Exception $ex) {
     // NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
     ResultPrinter::printError("Created Billing Agreement.", "Agreement", null, $request, $ex);

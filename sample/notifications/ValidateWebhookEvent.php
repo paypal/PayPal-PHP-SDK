@@ -32,5 +32,3 @@ try {
 
 // NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
 ResultPrinter::printResult("Validate Received Webhook Event", "WebhookEvent", $output->getId(), $bodyReceived, $output);
-
-
