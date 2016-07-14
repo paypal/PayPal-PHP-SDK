@@ -63,5 +63,4 @@ class InvoiceAddressTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($obj->getState(), "TestSample");
         $this->assertEquals($obj->getPhone(), PhoneTest::getObject());
     }
-
 }

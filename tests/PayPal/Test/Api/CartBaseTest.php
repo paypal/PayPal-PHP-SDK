@@ -100,5 +100,4 @@ class CartBaseTest extends \PHPUnit_Framework_TestCase
         $obj = new CartBase();
         $obj->setOrderUrl(null);
     }
-
 }

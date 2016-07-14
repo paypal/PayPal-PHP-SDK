@@ -57,5 +57,4 @@ class TaxTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($obj->getPercent(), "12.34");
         $this->assertEquals($obj->getAmount(), CurrencyTest::getObject());
     }
-
 }

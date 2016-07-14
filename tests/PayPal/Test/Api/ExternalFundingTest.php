@@ -59,6 +59,4 @@ class ExternalFundingTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($obj->getDisplayText(), "TestSample");
         $this->assertEquals($obj->getAmount(), AmountTest::getObject());
     }
-
-
 }

@@ -64,6 +64,4 @@ class TemplateTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($obj->getUnitOfMeasure(), "TestSample");
         $this->assertEquals($obj->getCustom(), true);
     }
-
-
 }

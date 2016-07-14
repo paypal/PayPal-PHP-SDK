@@ -55,5 +55,4 @@ class PayoutSenderBatchHeaderTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($obj->getEmailSubject(), "TestSample");
         $this->assertEquals($obj->getRecipientType(), "TestSample");
     }
-
 }

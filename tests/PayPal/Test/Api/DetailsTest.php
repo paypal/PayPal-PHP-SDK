@@ -68,6 +68,4 @@ class DetailsTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($obj->getGiftWrap(), "12.34");
         $this->assertEquals($obj->getFee(), "12.34");
     }
-
-
 }

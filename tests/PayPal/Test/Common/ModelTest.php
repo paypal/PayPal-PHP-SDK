@@ -23,7 +23,6 @@ class ModelTest extends \PHPUnit_Framework_TestCase
         $newO = new SimpleClass();
         $newO->fromJson($json);
         $this->assertEquals($o, $newO);
-
     }
 
     public function testConstructorJSON()
@@ -68,7 +67,6 @@ class ModelTest extends \PHPUnit_Framework_TestCase
 
         $this->assertEquals("test", $obj->getName());
         $this->assertEquals("description", $obj->getDescription());
-
     }
 
     public function testSimpleClassObjectInvalidConversion()

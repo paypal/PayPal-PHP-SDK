@@ -55,6 +55,4 @@ class NotificationTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($obj->getNote(), "TestSample");
         $this->assertEquals($obj->getSendToMerchant(), true);
     }
-
-
 }

@@ -60,6 +60,4 @@ class PatchTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($obj->getValue(), "TestSampleObject");
         $this->assertEquals($obj->getFrom(), "TestSample");
     }
-
-
 }

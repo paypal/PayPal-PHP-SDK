@@ -62,6 +62,4 @@ class RelatedResourcesTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($obj->getCapture(), CaptureTest::getObject());
         $this->assertEquals($obj->getRefund(), RefundTest::getObject());
     }
-
-
 }

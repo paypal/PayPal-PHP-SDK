@@ -68,6 +68,4 @@ class ParticipantTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($obj->getAdditionalInfo(), "TestSample");
         $this->assertEquals($obj->getAddress(), AddressTest::getObject());
     }
-
-
 }

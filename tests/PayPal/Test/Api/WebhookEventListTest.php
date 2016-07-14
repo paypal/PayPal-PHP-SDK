@@ -55,5 +55,4 @@ class WebhookEventListTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($obj->getCount(), 123);
         $this->assertEquals($obj->getLinks(), LinksTest::getObject());
     }
-
 }

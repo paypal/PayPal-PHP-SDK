@@ -63,5 +63,4 @@ class PaymentDetailTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($obj->getNote(), "TestSample");
         $this->assertEquals($obj->getAmount(), CurrencyTest::getObject());
     }
-
 }

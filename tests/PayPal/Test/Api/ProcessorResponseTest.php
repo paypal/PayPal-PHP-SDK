@@ -61,6 +61,4 @@ class ProcessorResponseTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($obj->getEciSubmitted(), "TestSample");
         $this->assertEquals($obj->getVpas(), "TestSample");
     }
-
-
 }

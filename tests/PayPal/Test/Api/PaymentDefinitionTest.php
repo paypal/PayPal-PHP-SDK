@@ -65,5 +65,4 @@ class PaymentDefinitionTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($obj->getAmount(), CurrencyTest::getObject());
         $this->assertEquals($obj->getChargeModels(), ChargeModelTest::getObject());
     }
-
 }

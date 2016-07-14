@@ -55,5 +55,4 @@ class InputFieldsTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($obj->getNoShipping(), 123);
         $this->assertEquals($obj->getAddressOverride(), 123);
     }
-
 }

@@ -98,5 +98,4 @@ class TemplateDataTest extends \PHPUnit_Framework_TestCase
         $obj = new TemplateData();
         $obj->setLogoUrl(null);
     }
-
 }

@@ -51,5 +51,4 @@ class CreateProfileResponseTest extends \PHPUnit_Framework_TestCase
     {
         $this->assertEquals($obj->getId(), "TestSample");
     }
-
 }

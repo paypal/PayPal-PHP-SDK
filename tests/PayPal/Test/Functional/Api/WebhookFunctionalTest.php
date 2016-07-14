@@ -61,7 +61,7 @@ class WebhookFunctionalTest extends \PHPUnit_Framework_TestCase
             $result = $obj->create($this->apiContext, $this->mockPayPalRestCall);
         } catch (PayPalConnectionException $ex) {
             $data = $ex->getData();
-            if (strpos($data,'WEBHOOK_NUMBER_LIMIT_EXCEEDED') !== false) {
+            if (strpos($data, 'WEBHOOK_NUMBER_LIMIT_EXCEEDED') !== false) {
                 $this->deleteAll();
                 $result = $obj->create($this->apiContext, $this->mockPayPalRestCall);
             } else {
@@ -176,7 +176,7 @@ class WebhookFunctionalTest extends \PHPUnit_Framework_TestCase
 
     public function testEventSearch()
     {
-        $result = WebhookEvent::all(array(),$this->apiContext, $this->mockPayPalRestCall);
+        $result = WebhookEvent::all(array(), $this->apiContext, $this->mockPayPalRestCall);
         $this->assertNotNull($result);
         return $result;
     }

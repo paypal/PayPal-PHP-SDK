@@ -47,7 +47,6 @@ class SimpleModelTestClass extends PayPalModel
     {
         return $this->field2;
     }
-
 }
 
 
@@ -95,8 +94,6 @@ class ContainerModelTestClass extends PayPalModel
     {
         return $this->nested1;
     }
-
-
 }
 
 class ListModelTestClass extends PayPalModel
@@ -142,8 +139,6 @@ class ListModelTestClass extends PayPalModel
     {
         return $this->list2;
     }
-
-
 }
 
 /**
@@ -158,7 +153,6 @@ class PayPalModelTest extends PHPUnit_Framework_TestCase
      */
     protected function setUp()
     {
-
     }
 
     /**
@@ -183,7 +177,6 @@ class PayPalModelTest extends PHPUnit_Framework_TestCase
         $oCopy = new SimpleModelTestClass();
         $oCopy->fromJson($o->toJSON());
         $this->assertEquals($o, $oCopy);
-
     }
 
     /**
@@ -204,7 +197,6 @@ class PayPalModelTest extends PHPUnit_Framework_TestCase
         $parentCopy = new ContainerModelTestClass();
         $parentCopy->fromJson($parent->toJSON());
         $this->assertEquals($parent, $parentCopy);
-
     }
 
     /**
@@ -221,7 +213,6 @@ class PayPalModelTest extends PHPUnit_Framework_TestCase
         $oCopy = new SimpleModelTestClass();
         $oCopy->fromJson($o->toJSON());
         $this->assertEquals($o, $oCopy);
-
     }
 
 
@@ -244,7 +235,6 @@ class PayPalModelTest extends PHPUnit_Framework_TestCase
         $parentCopy = new ContainerModelTestClass();
         $parentCopy->fromJson($parent->toJSON());
         $this->assertEquals($parent, $parentCopy);
-
     }
 
 
@@ -289,7 +279,7 @@ class PayPalModelTest extends PHPUnit_Framework_TestCase
     {
         $c1 = new SimpleModelTestClass();
         $c1->setField1("a")->setField2($field2);
-        $this->assertTrue(strpos($c1->toJSON(),"field2") !== !$matches);
+        $this->assertTrue(strpos($c1->toJSON(), "field2") !== !$matches);
     }
 
     public function getProvider()

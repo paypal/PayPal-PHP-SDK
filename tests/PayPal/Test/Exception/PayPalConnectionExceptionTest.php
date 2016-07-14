@@ -46,5 +46,3 @@ class PayPalConnectionExceptionTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals('response payload for connection', $this->object->getData());
     }
 }
-
-?>

@@ -86,6 +86,4 @@ class PaymentCardTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($obj->getIssueNumber(), "TestSample");
         $this->assertEquals($obj->getLinks(), LinksTest::getObject());
     }
-
-
 }

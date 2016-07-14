@@ -51,5 +51,4 @@ class AgreementTransactionsTest extends \PHPUnit_Framework_TestCase
     {
         $this->assertEquals($obj->getAgreementTransactionList(), AgreementTransactionTest::getObject());
     }
-
 }

@@ -61,6 +61,4 @@ class CreditFinancingOfferedTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($obj->getPayerAcceptance(), true);
         $this->assertEquals($obj->getCartAmountImmutable(), true);
     }
-
-
 }

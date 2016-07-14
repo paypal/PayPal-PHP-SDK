@@ -56,7 +56,6 @@ class NumericValidatorTest extends \PHPUnit_Framework_TestCase
      */
     public function testValidateException($input)
     {
-       NumericValidator::validate($input, "Test Value");
+        NumericValidator::validate($input, "Test Value");
     }
-
 }

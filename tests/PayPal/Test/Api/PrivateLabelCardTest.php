@@ -59,6 +59,4 @@ class PrivateLabelCardTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($obj->getIssuerName(), "TestSample");
         $this->assertEquals($obj->getImageKey(), "TestSample");
     }
-
-
 }

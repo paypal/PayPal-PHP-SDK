@@ -55,5 +55,4 @@ class PresentationTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($obj->getLogoImage(), "TestSample");
         $this->assertEquals($obj->getLocaleCode(), "TestSample");
     }
-
 }

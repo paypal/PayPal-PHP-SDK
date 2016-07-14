@@ -64,6 +64,4 @@ class FundingOptionTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($obj->getInstallmentInfo(), InstallmentInfoTest::getObject());
         $this->assertEquals($obj->getLinks(), LinksTest::getObject());
     }
-
-
 }

@@ -54,6 +54,4 @@ class PaymentSummaryTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($obj->getPaypal(), CurrencyTest::getObject());
         $this->assertEquals($obj->getOther(), CurrencyTest::getObject());
     }
-
-
 }

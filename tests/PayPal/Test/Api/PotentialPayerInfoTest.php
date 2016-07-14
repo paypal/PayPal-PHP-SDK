@@ -57,6 +57,4 @@ class PotentialPayerInfoTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($obj->getAccountNumber(), "TestSample");
         $this->assertEquals($obj->getBillingAddress(), AddressTest::getObject());
     }
-
-
 }

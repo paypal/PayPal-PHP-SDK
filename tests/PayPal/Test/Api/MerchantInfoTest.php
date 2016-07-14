@@ -71,5 +71,4 @@ class MerchantInfoTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($obj->getAdditionalInfoLabel(), "TestSample");
         $this->assertEquals($obj->getAdditionalInfo(), "TestSample");
     }
-
 }

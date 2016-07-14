@@ -87,5 +87,4 @@ class CurrencyConversionTest extends \PHPUnit_Framework_TestCase
         $obj->setWebUrl(null);
         $this->assertNull($obj->getWebUrl());
     }
-
 }

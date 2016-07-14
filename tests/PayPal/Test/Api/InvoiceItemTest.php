@@ -77,5 +77,4 @@ class InvoiceItemTest extends \PHPUnit_Framework_TestCase
         $obj = new InvoiceItem();
         $obj->setImageUrl(null);
     }
-
 }

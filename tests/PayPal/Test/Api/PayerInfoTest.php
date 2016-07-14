@@ -86,6 +86,4 @@ class PayerInfoTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($obj->getBillingAddress(), AddressTest::getObject());
         $this->assertEquals($obj->getShippingAddress(), ShippingAddressTest::getObject());
     }
-
-
 }

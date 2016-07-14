@@ -64,6 +64,4 @@ class RecipientBankingInstructionTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($obj->getInternationalBankAccountNumber(), "TestSample");
         $this->assertEquals($obj->getBankIdentifierCode(), "TestSample");
     }
-
-
 }

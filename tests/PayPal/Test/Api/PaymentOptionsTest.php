@@ -58,6 +58,4 @@ class PaymentOptionsTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($obj->getRecurringFlag(), true);
         $this->assertEquals($obj->getSkipFmf(), true);
     }
-
-
 }

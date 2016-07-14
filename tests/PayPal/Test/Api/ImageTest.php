@@ -51,5 +51,4 @@ class ImageTest extends \PHPUnit_Framework_TestCase
     {
         $this->assertEquals($obj->getImage(), "TestSample");
     }
-
 }

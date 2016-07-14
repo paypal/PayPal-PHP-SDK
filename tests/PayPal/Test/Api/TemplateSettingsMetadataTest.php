@@ -52,6 +52,4 @@ class TemplateSettingsMetadataTest extends \PHPUnit_Framework_TestCase
     {
         $this->assertEquals($obj->getHidden(), true);
     }
-
-
 }

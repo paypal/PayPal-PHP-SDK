@@ -80,5 +80,4 @@ class IncentiveTest extends \PHPUnit_Framework_TestCase
         $obj = new Incentive();
         $obj->setLogoImageUrl(null);
     }
-
 }

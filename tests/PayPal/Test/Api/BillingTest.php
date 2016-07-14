@@ -51,6 +51,4 @@ class BillingTest extends \PHPUnit_Framework_TestCase
     {
         $this->assertEquals($obj->getBillingAgreementId(), "TestSample");
     }
-
-
 }

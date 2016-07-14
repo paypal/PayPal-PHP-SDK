@@ -54,6 +54,4 @@ class TemplateSettingsTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($obj->getFieldName(), "TestSample");
         $this->assertEquals($obj->getDisplayPreference(), TemplateSettingsMetadataTest::getObject());
     }
-
-
 }

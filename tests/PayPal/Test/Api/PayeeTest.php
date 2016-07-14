@@ -64,6 +64,4 @@ class PayeeTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($obj->getAccountNumber(), "TestSample");
         $this->assertEquals($obj->getPhone(), PhoneTest::getObject());
     }
-
-
 }
