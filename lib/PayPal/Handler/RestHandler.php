@@ -47,7 +47,6 @@ class RestHandler implements IPayPalHandler
      */
     public function handle($httpConfig, $request, $options)
     {
-
         $credential = $this->apiContext->getCredential();
         $config = $this->apiContext->getConfig();
 
@@ -105,7 +104,7 @@ class RestHandler implements IPayPalHandler
     {
         if (isset($config['service.EndPoint'])) {
             return $config['service.EndPoint'];
-        } else if (isset($config['mode'])) {
+        } elseif (isset($config['mode'])) {
             switch (strtoupper($config['mode'])) {
                 case 'SANDBOX':
                     return PayPalConstants::REST_SANDBOX_ENDPOINT;

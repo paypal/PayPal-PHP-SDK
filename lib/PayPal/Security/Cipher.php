@@ -18,7 +18,7 @@ class Cipher
      */
     const IV_SIZE = 16;
 
-    function __construct($secretKey)
+    public function __construct($secretKey)
     {
         $this->secretKey = $secretKey;
     }
@@ -29,7 +29,7 @@ class Cipher
      * @param $input
      * @return string
      */
-    function encrypt($input)
+    public function encrypt($input)
     {
         // Create a random IV. Not using mcrypt to generate one, as to not have a dependency on it.
         $iv = substr(uniqid("", true), 0, Cipher::IV_SIZE);
@@ -45,7 +45,7 @@ class Cipher
      * @param $input
      * @return string
      */
-    function decrypt($input)
+    public function decrypt($input)
     {
         // Decode the IV + data
         $input = base64_decode($input);

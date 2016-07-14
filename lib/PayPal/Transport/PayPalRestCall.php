@@ -52,7 +52,6 @@ class PayPalRestCall
      */
     public function execute($handlers = array(), $path, $method, $data = '', $headers = array())
     {
-
         $config = $this->apiContext->getConfig();
         $httpConfig = new PayPalHttpConfig(null, $method, $config);
         $headers = $headers ? $headers : array();
@@ -75,5 +74,4 @@ class PayPalRestCall
 
         return $response;
     }
-
 }

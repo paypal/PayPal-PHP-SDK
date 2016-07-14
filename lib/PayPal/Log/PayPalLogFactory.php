@@ -13,5 +13,4 @@ interface PayPalLogFactory
      * @return LoggerInterface instance of logger object implementing LoggerInterface
      */
     public function getLogger($className);
-
 }
