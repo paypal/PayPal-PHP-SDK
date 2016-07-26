@@ -1,13 +1,13 @@
 <?php
 
-namespace PayPal\Test\Api;
+namespace PayPal\Rest\Test\Api;
 
-use PayPal\Api\CreateProfileResponse;
+use PayPal\Rest\Api\CreateProfileResponse;
 
 /**
  * Class CreateProfileResponse
  *
- * @package PayPal\Test\Api
+ * @package PayPal\Rest\Test\Api
  */
 class CreateProfileResponseTest extends \PHPUnit_Framework_TestCase
 {

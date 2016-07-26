@@ -1,5 +1,5 @@
 <?php
-use PayPal\Exception\PayPalInvalidCredentialException;
+use PayPal\Rest\Exception\PayPalInvalidCredentialException;
 
 /**
  * Test class for PayPalInvalidCredentialException.

@@ -1,13 +1,13 @@
 <?php
 
-namespace PayPal\Test\Api;
+namespace PayPal\Rest\Test\Api;
 
-use PayPal\Api\Error;
+use PayPal\Rest\Api\Error;
 
 /**
  * Class Error
  *
- * @package PayPal\Test\Api
+ * @package PayPal\Rest\Test\Api
  */
 class ErrorTest extends \PHPUnit_Framework_TestCase
 {

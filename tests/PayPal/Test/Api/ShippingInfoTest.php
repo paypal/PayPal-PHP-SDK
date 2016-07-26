@@ -1,13 +1,13 @@
 <?php
 
-namespace PayPal\Test\Api;
+namespace PayPal\Rest\Test\Api;
 
-use PayPal\Api\ShippingInfo;
+use PayPal\Rest\Api\ShippingInfo;
 
 /**
  * Class ShippingInfo
  *
- * @package PayPal\Test\Api
+ * @package PayPal\Rest\Test\Api
  */
 class ShippingInfoTest extends \PHPUnit_Framework_TestCase
 {

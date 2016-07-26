@@ -1,13 +1,13 @@
 <?php
 
-namespace PayPal\Test\Api;
+namespace PayPal\Rest\Test\Api;
 
-use PayPal\Api\CartBase;
+use PayPal\Rest\Api\CartBase;
 
 /**
  * Class CartBase
  *
- * @package PayPal\Test\Api
+ * @package PayPal\Rest\Test\Api
  */
 class CartBaseTest extends \PHPUnit_Framework_TestCase
 {

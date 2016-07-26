@@ -1,14 +1,14 @@
 <?php
 
-namespace PayPal\Test\Api;
+namespace PayPal\Rest\Test\Api;
 
-use PayPal\Api\PaymentInstruction;
-use PayPal\Transport\PPRestCall;
+use PayPal\Rest\Api\PaymentInstruction;
+use PayPal\Rest\Transport\PPRestCall;
 
 /**
  * Class PaymentInstruction
  *
- * @package PayPal\Test\Api
+ * @package PayPal\Rest\Test\Api
  */
 class PaymentInstructionTest extends \PHPUnit_Framework_TestCase
 {
@@ -71,7 +71,7 @@ class PaymentInstructionTest extends \PHPUnit_Framework_TestCase
      */
     public function testGet($obj, $mockApiContext)
     {
-        $mockPPRestCall = $this->getMockBuilder('\PayPal\Transport\PayPalRestCall')
+        $mockPPRestCall = $this->getMockBuilder('\PayPal\Rest\Transport\PayPalRestCall')
             ->disableOriginalConstructor()
             ->getMock();
 

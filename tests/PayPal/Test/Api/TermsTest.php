@@ -1,13 +1,13 @@
 <?php
 
-namespace PayPal\Test\Api;
+namespace PayPal\Rest\Test\Api;
 
-use PayPal\Api\Terms;
+use PayPal\Rest\Api\Terms;
 
 /**
  * Class Terms
  *
- * @package PayPal\Test\Api
+ * @package PayPal\Rest\Test\Api
  */
 class TermsTest extends \PHPUnit_Framework_TestCase
 {

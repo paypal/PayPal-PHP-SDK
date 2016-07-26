@@ -1,13 +1,13 @@
 <?php
 
-namespace PayPal\Test\Api;
+namespace PayPal\Rest\Test\Api;
 
-use PayPal\Api\CreditFinancingOffered;
+use PayPal\Rest\Api\CreditFinancingOffered;
 
 /**
  * Class CreditFinancingOffered
  *
- * @package PayPal\Test\Api
+ * @package PayPal\Rest\Test\Api
  */
 class CreditFinancingOfferedTest extends \PHPUnit_Framework_TestCase
 {

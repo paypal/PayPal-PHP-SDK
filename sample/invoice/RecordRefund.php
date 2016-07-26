@@ -7,8 +7,8 @@
 /** @var Invoice $invoice */
 $invoice = require 'RecordPayment.php';
 
-use PayPal\Api\Invoice;
-use PayPal\Api\RefundDetail;
+use PayPal\Rest\Api\Invoice;
+use PayPal\Rest\Api\RefundDetail;
 
 try {
     // ### Record Object

@@ -5,7 +5,7 @@
 // API used: /v1/vault/bank-accounts/{<bankAccountId>}
 // NOTE: HTTP method used here is DELETE
 
-/** @var \PayPal\Api\BankAccount $card */
+/** @var \PayPal\Rest\Api\BankAccount $card */
 $bankAccount = require 'CreateBankAccount.php';
 
 try {

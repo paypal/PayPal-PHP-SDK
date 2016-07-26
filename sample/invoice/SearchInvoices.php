@@ -6,8 +6,8 @@
 
 /** @var Invoice $invoice */
 $invoice = require 'CreateInvoice.php';
-use PayPal\Api\Invoice;
-use PayPal\Api\Search;
+use PayPal\Rest\Api\Invoice;
+use PayPal\Rest\Api\Search;
 
 try {
     // ### Search Object

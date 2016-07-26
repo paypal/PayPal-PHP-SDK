@@ -1,8 +1,8 @@
 <?php
 
-namespace PayPal\Test\Api;
+namespace PayPal\Rest\Test\Api;
 
-use PayPal\Api\OpenIdUserinfo;
+use PayPal\Rest\Api\OpenIdUserinfo;
 
 /**
  * Test class for OpenIdUserinfo.
@@ -57,7 +57,7 @@ class OpenIdUserinfoTest extends \PHPUnit_Framework_TestCase
      */
     public function testInvalidParamUserInfoCall()
     {
-        $this->setExpectedException('PayPal\Exception\PayPalConnectionException');
+        $this->setExpectedException('PayPal\Rest\Exception\PayPalConnectionException');
         OpenIdUserinfo::getUserinfo(array('access_token' => 'accessToken'));
     }
 }

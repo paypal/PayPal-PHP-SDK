@@ -1,13 +1,13 @@
 <?php
 
-namespace PayPal\Test\Api;
+namespace PayPal\Rest\Test\Api;
 
-use PayPal\Api\PaymentHistory;
+use PayPal\Rest\Api\PaymentHistory;
 
 /**
  * Class PaymentHistory
  *
- * @package PayPal\Test\Api
+ * @package PayPal\Rest\Test\Api
  */
 class PaymentHistoryTest extends \PHPUnit_Framework_TestCase
 {

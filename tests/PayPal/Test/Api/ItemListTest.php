@@ -1,13 +1,13 @@
 <?php
 
-namespace PayPal\Test\Api;
+namespace PayPal\Rest\Test\Api;
 
-use PayPal\Api\ItemList;
+use PayPal\Rest\Api\ItemList;
 
 /**
  * Class ItemList
  *
- * @package PayPal\Test\Api
+ * @package PayPal\Rest\Test\Api
  */
 class ItemListTest extends \PHPUnit_Framework_TestCase
 {

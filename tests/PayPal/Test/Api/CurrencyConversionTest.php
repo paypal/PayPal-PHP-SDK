@@ -1,13 +1,13 @@
 <?php
 
-namespace PayPal\Test\Api;
+namespace PayPal\Rest\Test\Api;
 
-use PayPal\Api\CurrencyConversion;
+use PayPal\Rest\Api\CurrencyConversion;
 
 /**
  * Class CurrencyConversion
  *
- * @package PayPal\Test\Api
+ * @package PayPal\Rest\Test\Api
  */
 class CurrencyConversionTest extends \PHPUnit_Framework_TestCase
 {

@@ -1,13 +1,13 @@
 <?php
 
-namespace PayPal\Test\Api;
+namespace PayPal\Rest\Test\Api;
 
-use PayPal\Api\InputFields;
+use PayPal\Rest\Api\InputFields;
 
 /**
  * Class InputFields
  *
- * @package PayPal\Test\Api
+ * @package PayPal\Rest\Test\Api
  */
 class InputFieldsTest extends \PHPUnit_Framework_TestCase
 {

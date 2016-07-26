@@ -9,7 +9,7 @@
 require __DIR__ . '/../bootstrap.php';
 
 // Create a new instance of Payout object
-$payouts = new \PayPal\Api\Payout();
+$payouts = new \PayPal\Rest\Api\Payout();
 
 // This is how our body should look like:
 /*
@@ -53,7 +53,7 @@ $payouts = new \PayPal\Api\Payout();
 }
  */
 
-$senderBatchHeader = new \PayPal\Api\PayoutSenderBatchHeader();
+$senderBatchHeader = new \PayPal\Rest\Api\PayoutSenderBatchHeader();
 // ### NOTE:
 // You can prevent duplicate batches from being processed. If you specify a `sender_batch_id` that was used in the last 30 days, the batch will not be processed. For items, you can specify a `sender_item_id`. If the value for the `sender_item_id` is a duplicate of a payout item that was processed in the last 30 days, the item will not be processed.
 
@@ -63,19 +63,19 @@ $senderBatchHeader->setSenderBatchId(uniqid())
 
 // #### Sender Item
 // Please note that if you are using single payout with sync mode, you can only pass one Item in the request
-$senderItem1 = new \PayPal\Api\PayoutItem();
+$senderItem1 = new \PayPal\Rest\Api\PayoutItem();
 $senderItem1->setRecipientType('Email')
     ->setNote('Thanks you.')
     ->setReceiver('shirt-supplier-one@gmail.com')
     ->setSenderItemId("item_1" . uniqid())
-    ->setAmount(new \PayPal\Api\Currency('{
+    ->setAmount(new \PayPal\Rest\Api\Currency('{
                         "value":"0.99",
                         "currency":"USD"
                     }'));
 
 // #### Sender Item 2
 // There are many different ways of assigning values in PayPal SDK. Here is another way where you could directly inject json string.
-$senderItem2 = new \PayPal\Api\PayoutItem(
+$senderItem2 = new \PayPal\Rest\Api\PayoutItem(
     '{
             "recipient_type": "EMAIL",
             "amount": {
@@ -90,7 +90,7 @@ $senderItem2 = new \PayPal\Api\PayoutItem(
 
 // #### Sender Item 3
 // One more way of assigning values in constructor when creating instance of PayPalModel object. Injecting array.
-$senderItem3 = new \PayPal\Api\PayoutItem(
+$senderItem3 = new \PayPal\Rest\Api\PayoutItem(
     array(
         "recipient_type" => "EMAIL",
         "receiver" => "shirt-supplier-three@mail.com",

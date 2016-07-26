@@ -1,8 +1,8 @@
 <?php
 
-namespace PayPal\Test\Core;
+namespace PayPal\Rest\Test\Core;
 
-use PayPal\Core\PayPalHttpConfig;
+use PayPal\Rest\Core\PayPalHttpConfig;
 
 /**
  * Test class for PayPalHttpConfigTest.
@@ -131,7 +131,7 @@ class PayPalHttpConfigTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals('hostname:8081', $curlOpts[CURLOPT_PROXY]);
         $this->assertEquals('me:secret', $curlOpts[CURLOPT_PROXYUSERPWD]);
 
-        $this->setExpectedException('PayPal\Exception\PayPalConfigurationException');
+        $this->setExpectedException('PayPal\Rest\Exception\PayPalConfigurationException');
         $o->setHttpProxy('invalid string');
     }
 }

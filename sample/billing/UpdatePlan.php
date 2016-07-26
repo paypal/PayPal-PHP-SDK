@@ -13,10 +13,10 @@
 /** @var Plan $createdPlan */
 $createdPlan = require 'CreatePlan.php';
 
-use PayPal\Api\Patch;
-use PayPal\Api\PatchRequest;
-use PayPal\Api\Plan;
-use PayPal\Common\PayPalModel;
+use PayPal\Rest\Api\Patch;
+use PayPal\Rest\Api\PatchRequest;
+use PayPal\Rest\Api\Plan;
+use PayPal\Rest\Common\PayPalModel;
 
 try {
     $patch = new Patch();

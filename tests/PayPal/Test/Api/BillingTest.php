@@ -1,13 +1,13 @@
 <?php
 
-namespace PayPal\Test\Api;
+namespace PayPal\Rest\Test\Api;
 
-use PayPal\Api\Billing;
+use PayPal\Rest\Api\Billing;
 
 /**
  * Class Billing
  *
- * @package PayPal\Test\Api
+ * @package PayPal\Rest\Test\Api
  */
 class BillingTest extends \PHPUnit_Framework_TestCase
 {

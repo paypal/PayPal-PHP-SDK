@@ -1,5 +1,5 @@
 <?php
-use PayPal\Exception\PayPalConfigurationException;
+use PayPal\Rest\Exception\PayPalConfigurationException;
 
 /**
  * Test class for PayPalConfigurationException.

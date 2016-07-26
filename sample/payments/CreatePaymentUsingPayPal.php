@@ -6,14 +6,14 @@
 // API used: /v1/payments/payment
 
 require __DIR__ . '/../bootstrap.php';
-use PayPal\Api\Amount;
-use PayPal\Api\Details;
-use PayPal\Api\Item;
-use PayPal\Api\ItemList;
-use PayPal\Api\Payer;
-use PayPal\Api\Payment;
-use PayPal\Api\RedirectUrls;
-use PayPal\Api\Transaction;
+use PayPal\Rest\Api\Amount;
+use PayPal\Rest\Api\Details;
+use PayPal\Rest\Api\Item;
+use PayPal\Rest\Api\ItemList;
+use PayPal\Rest\Api\Payer;
+use PayPal\Rest\Api\Payment;
+use PayPal\Rest\Api\RedirectUrls;
+use PayPal\Rest\Api\Transaction;
 
 // ### Payer
 // A resource representing a Payer that funds a payment

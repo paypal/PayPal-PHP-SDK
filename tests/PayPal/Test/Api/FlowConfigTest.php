@@ -1,13 +1,13 @@
 <?php
 
-namespace PayPal\Test\Api;
+namespace PayPal\Rest\Test\Api;
 
-use PayPal\Api\FlowConfig;
+use PayPal\Rest\Api\FlowConfig;
 
 /**
  * Class FlowConfig
  *
- * @package PayPal\Test\Api
+ * @package PayPal\Rest\Test\Api
  */
 class FlowConfigTest extends \PHPUnit_Framework_TestCase
 {

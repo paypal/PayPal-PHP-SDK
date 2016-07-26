@@ -10,9 +10,9 @@
 $sale = require 'GetSale.php';
 $saleId = $sale->getId();
 
-use PayPal\Api\Amount;
-use PayPal\Api\Refund;
-use PayPal\Api\Sale;
+use PayPal\Rest\Api\Amount;
+use PayPal\Rest\Api\Refund;
+use PayPal\Rest\Api\Sale;
 
 // ### Refund amount
 // Includes both the refunded amount (to Payer) 

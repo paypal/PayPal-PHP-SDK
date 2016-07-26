@@ -1,14 +1,14 @@
 <?php
 
-namespace PayPal\Test\Api;
+namespace PayPal\Rest\Test\Api;
 
-use PayPal\Api\Authorization;
-use PayPal\Api\Order;
+use PayPal\Rest\Api\Authorization;
+use PayPal\Rest\Api\Order;
 
 /**
  * Class Order
  *
- * @package PayPal\Test\Api
+ * @package PayPal\Rest\Test\Api
  */
 class OrderTest extends \PHPUnit_Framework_TestCase
 {
@@ -88,7 +88,7 @@ class OrderTest extends \PHPUnit_Framework_TestCase
      */
     public function testGet($obj, $mockApiContext)
     {
-        $mockPPRestCall = $this->getMockBuilder('\PayPal\Transport\PayPalRestCall')
+        $mockPPRestCall = $this->getMockBuilder('\PayPal\Rest\Transport\PayPalRestCall')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -108,7 +108,7 @@ class OrderTest extends \PHPUnit_Framework_TestCase
      */
     public function testCapture($obj, $mockApiContext)
     {
-        $mockPPRestCall = $this->getMockBuilder('\PayPal\Transport\PayPalRestCall')
+        $mockPPRestCall = $this->getMockBuilder('\PayPal\Rest\Transport\PayPalRestCall')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -129,7 +129,7 @@ class OrderTest extends \PHPUnit_Framework_TestCase
      */
     public function testVoid($obj, $mockApiContext)
     {
-        $mockPPRestCall = $this->getMockBuilder('\PayPal\Transport\PayPalRestCall')
+        $mockPPRestCall = $this->getMockBuilder('\PayPal\Rest\Transport\PayPalRestCall')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -149,7 +149,7 @@ class OrderTest extends \PHPUnit_Framework_TestCase
      */
     public function testAuthorize($obj, $mockApiContext)
     {
-        $mockPPRestCall = $this->getMockBuilder('\PayPal\Transport\PayPalRestCall')
+        $mockPPRestCall = $this->getMockBuilder('\PayPal\Rest\Transport\PayPalRestCall')
             ->disableOriginalConstructor()
             ->getMock();
 

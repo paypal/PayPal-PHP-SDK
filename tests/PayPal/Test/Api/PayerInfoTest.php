@@ -1,13 +1,13 @@
 <?php
 
-namespace PayPal\Test\Api;
+namespace PayPal\Rest\Test\Api;
 
-use PayPal\Api\PayerInfo;
+use PayPal\Rest\Api\PayerInfo;
 
 /**
  * Class PayerInfo
  *
- * @package PayPal\Test\Api
+ * @package PayPal\Rest\Test\Api
  */
 class PayerInfoTest extends \PHPUnit_Framework_TestCase
 {

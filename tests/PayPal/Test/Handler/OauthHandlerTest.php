@@ -1,17 +1,17 @@
 <?php
 
-namespace PayPal\Test\Handler;
+namespace PayPal\Rest\Test\Handler;
 
-use PayPal\Auth\OAuthTokenCredential;
-use PayPal\Core\PayPalHttpConfig;
-use PayPal\Handler\OauthHandler;
+use PayPal\Rest\Auth\OAuthTokenCredential;
+use PayPal\Rest\Core\PayPalHttpConfig;
+use PayPal\Rest\Handler\OauthHandler;
 use PayPal\Rest\ApiContext;
 
 class OauthHandlerTest extends \PHPUnit_Framework_TestCase
 {
 
     /**
-     * @var \PayPal\Handler\OauthHandler
+     * @var \PayPal\Rest\Handler\OauthHandler
      */
     public $handler;
 

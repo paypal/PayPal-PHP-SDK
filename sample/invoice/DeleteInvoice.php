@@ -7,7 +7,7 @@
 /** @var Invoice $invoice */
 $invoice = require 'CreateInvoice.php';
 
-use PayPal\Api\Invoice;
+use PayPal\Rest\Api\Invoice;
 
 try {
 

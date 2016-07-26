@@ -1,5 +1,5 @@
 <?php
-use PayPal\Core\PayPalLoggingManager;
+use PayPal\Rest\Core\PayPalLoggingManager;
 
 /**
  * Test class for PayPalLoggingManager.

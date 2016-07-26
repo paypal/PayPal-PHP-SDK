@@ -1,13 +1,13 @@
 <?php
 
-namespace PayPal\Test\Api;
+namespace PayPal\Rest\Test\Api;
 
-use PayPal\Api\AgreementStateDescriptor;
+use PayPal\Rest\Api\AgreementStateDescriptor;
 
 /**
  * Class AgreementStateDescriptor
  *
- * @package PayPal\Test\Api
+ * @package PayPal\Rest\Test\Api
  */
 class AgreementStateDescriptorTest extends \PHPUnit_Framework_TestCase
 {

@@ -8,7 +8,7 @@
 
 
 require __DIR__ . '/../bootstrap.php';
-use PayPal\Api\CreditCard;
+use PayPal\Rest\Api\CreditCard;
 
 // ### CreditCard
 // A resource representing a credit card that is 

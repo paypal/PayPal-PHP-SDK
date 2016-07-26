@@ -10,7 +10,7 @@ require __DIR__ . '/../bootstrap.php';
 if (isset($_GET['success']) && $_GET['success'] == 'true') {
 
     $token = $_GET['token'];
-    $agreement = new \PayPal\Api\Agreement();
+    $agreement = new \PayPal\Rest\Api\Agreement();
     try {
         // ## Execute Agreement
         // Execute the agreement by passing in the token
@@ -27,7 +27,7 @@ if (isset($_GET['success']) && $_GET['success'] == 'true') {
     // ## Get Agreement
     // Make a get call to retrieve the executed agreement details
     try {
-        $agreement = \PayPal\Api\Agreement::get($agreement->getId(), $apiContext);
+        $agreement = \PayPal\Rest\Api\Agreement::get($agreement->getId(), $apiContext);
     } catch (Exception $ex) {
         // NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
  	    ResultPrinter::printError("Get Agreement", "Agreement", null, null, $ex);

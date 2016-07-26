@@ -1,19 +1,19 @@
 <?php
 
-namespace PayPal\Test\Functional\Api;
+namespace PayPal\Rest\Test\Functional\Api;
 
-use PayPal\Api\Agreement;
-use PayPal\Api\AgreementStateDescriptor;
-use PayPal\Api\Currency;
-use PayPal\Api\Patch;
-use PayPal\Api\PatchRequest;
-use PayPal\Api\Plan;
-use PayPal\Test\Functional\Setup;
+use PayPal\Rest\Api\Agreement;
+use PayPal\Rest\Api\AgreementStateDescriptor;
+use PayPal\Rest\Api\Currency;
+use PayPal\Rest\Api\Patch;
+use PayPal\Rest\Api\PatchRequest;
+use PayPal\Rest\Api\Plan;
+use PayPal\Rest\Test\Functional\Setup;
 
 /**
  * Class Billing Agreements
  *
- * @package PayPal\Test\Api
+ * @package PayPal\Rest\Test\Api
  */
 class BillingAgreementsFunctionalTest extends \PHPUnit_Framework_TestCase
 {

@@ -8,7 +8,7 @@
 
 // ## Get Webhook Instance
 
-/** @var \PayPal\Api\Webhook $webhook */
+/** @var \PayPal\Rest\Api\Webhook $webhook */
 $webhook = require 'CreateWebhook.php';
 
 

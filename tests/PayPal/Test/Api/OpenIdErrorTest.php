@@ -1,8 +1,8 @@
 <?php
 
-namespace PayPal\Test\Api;
+namespace PayPal\Rest\Test\Api;
 
-use PayPal\Api\OpenIdError;
+use PayPal\Rest\Api\OpenIdError;
 
 /**
  * Test class for OpenIdError.

@@ -1,7 +1,7 @@
 <?php
-namespace PayPal\Test\Api;
+namespace PayPal\Rest\Test\Api;
 
-use PayPal\Api\OpenIdAddress;
+use PayPal\Rest\Api\OpenIdAddress;
 
 /**
  * Test class for OpenIdAddress.

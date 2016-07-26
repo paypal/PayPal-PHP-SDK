@@ -1,16 +1,16 @@
 <?php
 
-namespace PayPal\Test\Functional\Api;
+namespace PayPal\Rest\Test\Functional\Api;
 
-use PayPal\Api\Patch;
-use PayPal\Api\PatchRequest;
-use PayPal\Api\Plan;
-use PayPal\Test\Functional\Setup;
+use PayPal\Rest\Api\Patch;
+use PayPal\Rest\Api\PatchRequest;
+use PayPal\Rest\Api\Plan;
+use PayPal\Rest\Test\Functional\Setup;
 
 /**
  * Class Billing Plans
  *
- * @package PayPal\Test\Api
+ * @package PayPal\Rest\Test\Api
  */
 class BillingPlansFunctionalTest extends \PHPUnit_Framework_TestCase
 {

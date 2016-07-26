@@ -1,13 +1,13 @@
 <?php
 
-namespace PayPal\Test\Api;
+namespace PayPal\Rest\Test\Api;
 
-use PayPal\Api\AgreementTransaction;
+use PayPal\Rest\Api\AgreementTransaction;
 
 /**
  * Class AgreementTransaction
  *
- * @package PayPal\Test\Api
+ * @package PayPal\Rest\Test\Api
  */
 class AgreementTransactionTest extends \PHPUnit_Framework_TestCase
 {

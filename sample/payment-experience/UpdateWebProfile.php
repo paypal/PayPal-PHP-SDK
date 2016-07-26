@@ -6,7 +6,7 @@
 
 // We will be re-using the sample code to get a web profile. GetWebProfile.php will
 // create a new web profileId for sample, and return the web profile object.
-/** @var \PayPal\Api\WebProfile $webProfile */
+/** @var \PayPal\Rest\Api\WebProfile $webProfile */
 $webProfile = require 'GetWebProfile.php';
 
 
@@ -18,7 +18,7 @@ try {
     if ($webProfile->update($apiContext)) {
         // If the update is successfull, we can now get the object, and verify the web profile
         // object
-        $updatedWebProfile = \PayPal\Api\WebProfile::get($webProfile->getId(), $apiContext);
+        $updatedWebProfile = \PayPal\Rest\Api\WebProfile::get($webProfile->getId(), $apiContext);
     }
 } catch (\Exception $ex) {
     // NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY

@@ -2,8 +2,8 @@
 
 require __DIR__ . '/../bootstrap.php';
 
-use PayPal\Api\OpenIdTokeninfo;
-use PayPal\Exception\PayPalConnectionException;
+use PayPal\Rest\Api\OpenIdTokeninfo;
+use PayPal\Rest\Exception\PayPalConnectionException;
 
 session_start();
 

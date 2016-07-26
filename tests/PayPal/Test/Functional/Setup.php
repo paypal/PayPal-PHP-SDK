@@ -1,9 +1,9 @@
 <?php
 
-namespace PayPal\Test\Functional;
+namespace PayPal\Rest\Test\Functional;
 
-use PayPal\Auth\OAuthTokenCredential;
-use PayPal\Core\PayPalCredentialManager;
+use PayPal\Rest\Auth\OAuthTokenCredential;
+use PayPal\Rest\Core\PayPalCredentialManager;
 use PayPal\Rest\ApiContext;
 
 class Setup
@@ -34,7 +34,7 @@ class Setup
         if (self::$mode != 'sandbox') {
 
             // Mock PayPalRest Caller if mode set to mock
-            $test->mockPayPalRestCall = $test->getMockBuilder('\PayPal\Transport\PayPalRestCall')
+            $test->mockPayPalRestCall = $test->getMockBuilder('\PayPal\Rest\Transport\PayPalRestCall')
                 ->disableOriginalConstructor()
                 ->getMock();
 

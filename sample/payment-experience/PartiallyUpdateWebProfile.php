@@ -6,7 +6,7 @@
 
 // We will be re-using the sample code to get a web profile. GetWebProfile.php will
 // create a new web profileId for sample, and return the web profile object.
-/** @var \PayPal\Api\WebProfile $webProfile */
+/** @var \PayPal\Rest\Api\WebProfile $webProfile */
 $webProfile = require 'GetWebProfile.php';
 
 // ### Create Patch Operation
@@ -14,7 +14,7 @@ $webProfile = require 'GetWebProfile.php';
 // to make patch operations.
 // Each Patch operation can be created by using Patch Class
 // as shown below
-$patchOperation1 = new \PayPal\Api\Patch();
+$patchOperation1 = new \PayPal\Rest\Api\Patch();
 // The operation to perform. Required. Allowed values: add, remove, replace, move, copy, test
 $patchOperation1->setOp("add")
     // string containing a JSON-Pointer value that references a location within the target document (the target location) where the operation is performed. Required.
@@ -23,7 +23,7 @@ $patchOperation1->setOp("add")
     ->setValue("New Brand Name");
 
 // Similar patch operation to remove the landing page type
-$patchOperation2 = new \PayPal\Api\Patch();
+$patchOperation2 = new \PayPal\Rest\Api\Patch();
 $patchOperation2->setOp("remove")
     ->setPath("/flow_config/landing_page_type");
 
@@ -34,7 +34,7 @@ $patches = array($patchOperation1, $patchOperation2);
 try {
     // Execute the partial update, to carry out these two operations on a given web profile object
     if ($webProfile->partial_update($patches, $apiContext)) {
-        $webProfile = \PayPal\Api\WebProfile::get($webProfile->getId(), $apiContext);
+        $webProfile = \PayPal\Rest\Api\WebProfile::get($webProfile->getId(), $apiContext);
     }
 } catch (\Exception $ex) {
     // NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY

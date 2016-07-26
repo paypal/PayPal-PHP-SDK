@@ -1,13 +1,13 @@
 <?php
 
-namespace PayPal\Test\Api;
+namespace PayPal\Rest\Test\Api;
 
-use PayPal\Api\Measurement;
+use PayPal\Rest\Api\Measurement;
 
 /**
  * Class Measurement
  *
- * @package PayPal\Test\Api
+ * @package PayPal\Rest\Test\Api
  */
 class MeasurementTest extends \PHPUnit_Framework_TestCase
 {

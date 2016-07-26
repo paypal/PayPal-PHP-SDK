@@ -1,18 +1,18 @@
 <?php
 
-namespace PayPal\Test\Functional\Api;
-use PayPal\Api\CancelNotification;
-use PayPal\Api\Invoice;
-use PayPal\Api\Notification;
-use PayPal\Api\PaymentDetail;
-use PayPal\Api\RefundDetail;
-use PayPal\Api\Search;
-use PayPal\Test\Functional\Setup;
+namespace PayPal\Rest\Test\Functional\Api;
+use PayPal\Rest\Api\CancelNotification;
+use PayPal\Rest\Api\Invoice;
+use PayPal\Rest\Api\Notification;
+use PayPal\Rest\Api\PaymentDetail;
+use PayPal\Rest\Api\RefundDetail;
+use PayPal\Rest\Api\Search;
+use PayPal\Rest\Test\Functional\Setup;
 
 /**
  * Class Invoice
  *
- * @package PayPal\Test\Api
+ * @package PayPal\Rest\Test\Api
  */
 class InvoiceFunctionalTest extends \PHPUnit_Framework_TestCase
 {

@@ -1,13 +1,13 @@
 <?php
 
-namespace PayPal\Test\Api;
+namespace PayPal\Rest\Test\Api;
 
-use PayPal\Api\RedirectUrls;
+use PayPal\Rest\Api\RedirectUrls;
 
 /**
  * Class RedirectUrls
  *
- * @package PayPal\Test\Api
+ * @package PayPal\Rest\Test\Api
  */
 class RedirectUrlsTest extends \PHPUnit_Framework_TestCase
 {

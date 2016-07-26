@@ -1,13 +1,13 @@
 <?php
 
-namespace PayPal\Test\Api;
+namespace PayPal\Rest\Test\Api;
 
-use PayPal\Api\Incentive;
+use PayPal\Rest\Api\Incentive;
 
 /**
  * Class Incentive
  *
- * @package PayPal\Test\Api
+ * @package PayPal\Rest\Test\Api
  */
 class IncentiveTest extends \PHPUnit_Framework_TestCase
 {

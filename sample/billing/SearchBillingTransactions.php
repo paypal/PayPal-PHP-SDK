@@ -13,7 +13,7 @@ $agreement = require 'GetBillingAgreement.php';
 // Replace this with your AgreementId to search transactions based on your agreement.
 $agreementId = $agreement->getId();
 
-use PayPal\Api\Agreement;
+use PayPal\Rest\Api\Agreement;
 
 // Adding Params to search transaction within a given time frame.
 $params = array('start_date' => date('Y-m-d', strtotime('-15 years')), 'end_date' => date('Y-m-d', strtotime('+5 days')));

@@ -10,7 +10,7 @@
 $card = require 'CreateCreditCard.php';
 $id = $card->getId();
 
-use PayPal\Api\CreditCard;
+use PayPal\Rest\Api\CreditCard;
 
 /// ### Retrieve card
 // (See bootstrap.php for more on `ApiContext`)

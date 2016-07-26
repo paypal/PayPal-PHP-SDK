@@ -7,7 +7,7 @@
 
 /** @var CreditCard $card */
 $card = require 'CreateCreditCard.php';
-use PayPal\Api\CreditCard;
+use PayPal\Rest\Api\CreditCard;
 
 try {
     // ### Delete Card

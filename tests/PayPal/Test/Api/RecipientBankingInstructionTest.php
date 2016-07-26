@@ -1,13 +1,13 @@
 <?php
 
-namespace PayPal\Test\Api;
+namespace PayPal\Rest\Test\Api;
 
-use PayPal\Api\RecipientBankingInstruction;
+use PayPal\Rest\Api\RecipientBankingInstruction;
 
 /**
  * Class RecipientBankingInstruction
  *
- * @package PayPal\Test\Api
+ * @package PayPal\Rest\Test\Api
  */
 class RecipientBankingInstructionTest extends \PHPUnit_Framework_TestCase
 {

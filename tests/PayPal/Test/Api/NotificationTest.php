@@ -1,13 +1,13 @@
 <?php
 
-namespace PayPal\Test\Api;
+namespace PayPal\Rest\Test\Api;
 
-use PayPal\Api\Notification;
+use PayPal\Rest\Api\Notification;
 
 /**
  * Class Notification
  *
- * @package PayPal\Test\Api
+ * @package PayPal\Rest\Test\Api
  */
 class NotificationTest extends \PHPUnit_Framework_TestCase
 {

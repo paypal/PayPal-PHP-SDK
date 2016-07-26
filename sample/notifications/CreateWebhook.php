@@ -9,7 +9,7 @@
 require __DIR__ . '/../bootstrap.php';
 
 // Create a new instance of Webhook object
-$webhook = new \PayPal\Api\Webhook();
+$webhook = new \PayPal\Rest\Api\Webhook();
 
 // # Basic Information
 //     {
@@ -34,12 +34,12 @@ $webhook->setUrl("https://requestb.in/10ujt3c1?uniqid=" . uniqid());
 // # Event Types
 // Event types correspond to what kind of notifications you want to receive on the given URL.
 $webhookEventTypes = array();
-$webhookEventTypes[] = new \PayPal\Api\WebhookEventType(
+$webhookEventTypes[] = new \PayPal\Rest\Api\WebhookEventType(
     '{
         "name":"PAYMENT.AUTHORIZATION.CREATED"
     }'
 );
-$webhookEventTypes[] = new \PayPal\Api\WebhookEventType(
+$webhookEventTypes[] = new \PayPal\Rest\Api\WebhookEventType(
     '{
         "name":"PAYMENT.AUTHORIZATION.VOIDED"
     }'
@@ -54,7 +54,7 @@ try {
     $output = $webhook->create($apiContext);
 } catch (Exception $ex) {
     // ^ Ignore workflow code segment
-    if ($ex instanceof \PayPal\Exception\PayPalConnectionException) {
+    if ($ex instanceof \PayPal\Rest\Exception\PayPalConnectionException) {
         $data = $ex->getData();
         // NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
         ResultPrinter::printError("Created Webhook Failed. Checking if it is Webhook Number Limit Exceeded. Trying to delete all existing webhooks", "Webhook", "Please Use <a style='color: red;' href='DeleteAllWebhooks.php' >Delete All Webhooks</a> Sample to delete all existing webhooks in sample", $request, $ex);

@@ -1,13 +1,13 @@
 <?php
 
-namespace PayPal\Test\Api;
+namespace PayPal\Rest\Test\Api;
 
-use PayPal\Api\Invoice;
+use PayPal\Rest\Api\Invoice;
 
 /**
  * Class Invoice
  *
- * @package PayPal\Test\Api
+ * @package PayPal\Rest\Test\Api
  */
 class InvoiceTest extends \PHPUnit_Framework_TestCase
 {
@@ -114,7 +114,7 @@ class InvoiceTest extends \PHPUnit_Framework_TestCase
      */
     public function testCreate($obj, $mockApiContext)
     {
-        $mockPayPalRestCall = $this->getMockBuilder('\PayPal\Transport\PayPalRestCall')
+        $mockPayPalRestCall = $this->getMockBuilder('\PayPal\Rest\Transport\PayPalRestCall')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -133,7 +133,7 @@ class InvoiceTest extends \PHPUnit_Framework_TestCase
      */
     public function testSearch($obj, $mockApiContext)
     {
-        $mockPayPalRestCall = $this->getMockBuilder('\PayPal\Transport\PayPalRestCall')
+        $mockPayPalRestCall = $this->getMockBuilder('\PayPal\Rest\Transport\PayPalRestCall')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -153,7 +153,7 @@ class InvoiceTest extends \PHPUnit_Framework_TestCase
      */
     public function testSend($obj, $mockApiContext)
     {
-        $mockPayPalRestCall = $this->getMockBuilder('\PayPal\Transport\PayPalRestCall')
+        $mockPayPalRestCall = $this->getMockBuilder('\PayPal\Rest\Transport\PayPalRestCall')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -172,7 +172,7 @@ class InvoiceTest extends \PHPUnit_Framework_TestCase
      */
     public function testRemind($obj, $mockApiContext)
     {
-        $mockPayPalRestCall = $this->getMockBuilder('\PayPal\Transport\PayPalRestCall')
+        $mockPayPalRestCall = $this->getMockBuilder('\PayPal\Rest\Transport\PayPalRestCall')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -192,7 +192,7 @@ class InvoiceTest extends \PHPUnit_Framework_TestCase
      */
     public function testCancel($obj, $mockApiContext)
     {
-        $mockPayPalRestCall = $this->getMockBuilder('\PayPal\Transport\PayPalRestCall')
+        $mockPayPalRestCall = $this->getMockBuilder('\PayPal\Rest\Transport\PayPalRestCall')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -212,7 +212,7 @@ class InvoiceTest extends \PHPUnit_Framework_TestCase
      */
     public function testRecordPayment($obj, $mockApiContext)
     {
-        $mockPayPalRestCall = $this->getMockBuilder('\PayPal\Transport\PayPalRestCall')
+        $mockPayPalRestCall = $this->getMockBuilder('\PayPal\Rest\Transport\PayPalRestCall')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -232,7 +232,7 @@ class InvoiceTest extends \PHPUnit_Framework_TestCase
      */
     public function testRecordRefund($obj, $mockApiContext)
     {
-        $mockPayPalRestCall = $this->getMockBuilder('\PayPal\Transport\PayPalRestCall')
+        $mockPayPalRestCall = $this->getMockBuilder('\PayPal\Rest\Transport\PayPalRestCall')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -252,7 +252,7 @@ class InvoiceTest extends \PHPUnit_Framework_TestCase
      */
     public function testGet($obj, $mockApiContext)
     {
-        $mockPayPalRestCall = $this->getMockBuilder('\PayPal\Transport\PayPalRestCall')
+        $mockPayPalRestCall = $this->getMockBuilder('\PayPal\Rest\Transport\PayPalRestCall')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -271,7 +271,7 @@ class InvoiceTest extends \PHPUnit_Framework_TestCase
      */
     public function testGetAll($obj, $mockApiContext)
     {
-        $mockPayPalRestCall = $this->getMockBuilder('\PayPal\Transport\PayPalRestCall')
+        $mockPayPalRestCall = $this->getMockBuilder('\PayPal\Rest\Transport\PayPalRestCall')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -290,7 +290,7 @@ class InvoiceTest extends \PHPUnit_Framework_TestCase
      */
     public function testUpdate($obj, $mockApiContext)
     {
-        $mockPayPalRestCall = $this->getMockBuilder('\PayPal\Transport\PayPalRestCall')
+        $mockPayPalRestCall = $this->getMockBuilder('\PayPal\Rest\Transport\PayPalRestCall')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -309,7 +309,7 @@ class InvoiceTest extends \PHPUnit_Framework_TestCase
      */
     public function testDelete($obj, $mockApiContext)
     {
-        $mockPayPalRestCall = $this->getMockBuilder('\PayPal\Transport\PayPalRestCall')
+        $mockPayPalRestCall = $this->getMockBuilder('\PayPal\Rest\Transport\PayPalRestCall')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -328,7 +328,7 @@ class InvoiceTest extends \PHPUnit_Framework_TestCase
      */
     public function testQrCode($obj, $mockApiContext)
     {
-        $mockPayPalRestCall = $this->getMockBuilder('\PayPal\Transport\PayPalRestCall')
+        $mockPayPalRestCall = $this->getMockBuilder('\PayPal\Rest\Transport\PayPalRestCall')
             ->disableOriginalConstructor()
             ->getMock();
 

@@ -2,8 +2,8 @@
 
 namespace PayPal\Rest;
 
-use PayPal\Core\PayPalConfigManager;
-use PayPal\Core\PayPalCredentialManager;
+use PayPal\Rest\Core\PayPalConfigManager;
+use PayPal\Rest\Core\PayPalCredentialManager;
 
 /**
  * Class ApiContext
@@ -26,9 +26,9 @@ class ApiContext
 
     /**
      * This is a placeholder for holding credential for the request
-     * If the value is not set, it would get the value from @\PayPal\Core\PayPalCredentialManager
+     * If the value is not set, it would get the value from @\PayPal\Rest\Core\PayPalCredentialManager
      *
-     * @var \Paypal\Auth\OAuthTokenCredential
+     * @var \PayPal\Rest\Auth\OAuthTokenCredential
      */
     private $credential;
 
@@ -36,7 +36,7 @@ class ApiContext
     /**
      * Construct
      *
-     * @param \PayPal\Auth\OAuthTokenCredential $credential
+     * @param \PayPal\Rest\Auth\OAuthTokenCredential $credential
      * @param string|null                       $requestId
      */
     public function __construct($credential = null, $requestId = null)
@@ -48,7 +48,7 @@ class ApiContext
     /**
      * Get Credential
      *
-     * @return \PayPal\Auth\OAuthTokenCredential
+     * @return \PayPal\Rest\Auth\OAuthTokenCredential
      */
     public function getCredential()
     {

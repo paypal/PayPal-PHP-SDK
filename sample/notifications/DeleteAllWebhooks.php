@@ -6,7 +6,7 @@
 
 // ## Get Webhook Instance
 
-/** @var \PayPal\Api\WebhookList $webhookList */
+/** @var \PayPal\Rest\Api\WebhookList $webhookList */
 $webhookList = require 'ListWebhooks.php';
 
 // ### Delete Webhook

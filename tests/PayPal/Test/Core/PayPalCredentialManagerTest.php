@@ -1,5 +1,5 @@
 <?php
-use PayPal\Core\PayPalCredentialManager;
+use PayPal\Rest\Core\PayPalCredentialManager;
 
 /**
  * Test class for PayPalCredentialManager.
@@ -68,11 +68,11 @@ class PayPalCredentialManagerTest extends \PHPUnit_Framework_TestCase
     /**
      * @after testGetDefaultCredentialObject
      *
-     * @throws \PayPal\Exception\PayPalInvalidCredentialException
+     * @throws \PayPal\Rest\Exception\PayPalInvalidCredentialException
      */
     public function testSetCredentialObject()
     {
-        $authObject = $this->getMockBuilder('\Paypal\Auth\OAuthTokenCredential')
+        $authObject = $this->getMockBuilder('\PayPal\Rest\Auth\OAuthTokenCredential')
             ->disableOriginalConstructor()
             ->getMock();
         $cred = $this->object->setCredentialObject($authObject)->getCredentialObject();
@@ -84,11 +84,11 @@ class PayPalCredentialManagerTest extends \PHPUnit_Framework_TestCase
     /**
      * @after testGetDefaultCredentialObject
      *
-     * @throws \PayPal\Exception\PayPalInvalidCredentialException
+     * @throws \PayPal\Rest\Exception\PayPalInvalidCredentialException
      */
     public function testSetCredentialObjectWithUserId()
     {
-        $authObject = $this->getMockBuilder('\Paypal\Auth\OAuthTokenCredential')
+        $authObject = $this->getMockBuilder('\PayPal\Rest\Auth\OAuthTokenCredential')
             ->disableOriginalConstructor()
             ->getMock();
         $cred = $this->object->setCredentialObject($authObject, 'sample')->getCredentialObject('sample');
@@ -99,11 +99,11 @@ class PayPalCredentialManagerTest extends \PHPUnit_Framework_TestCase
     /**
      * @after testGetDefaultCredentialObject
      *
-     * @throws \PayPal\Exception\PayPalInvalidCredentialException
+     * @throws \PayPal\Rest\Exception\PayPalInvalidCredentialException
      */
     public function testSetCredentialObjectWithoutDefault()
     {
-        $authObject = $this->getMockBuilder('\Paypal\Auth\OAuthTokenCredential')
+        $authObject = $this->getMockBuilder('\PayPal\Rest\Auth\OAuthTokenCredential')
             ->disableOriginalConstructor()
             ->getMock();
         $cred = $this->object->setCredentialObject($authObject, null, false)->getCredentialObject();
@@ -117,7 +117,7 @@ class PayPalCredentialManagerTest extends \PHPUnit_Framework_TestCase
      */
     public function testGetInvalidCredentialObject()
     {
-        $this->setExpectedException('PayPal\Exception\PayPalInvalidCredentialException');
+        $this->setExpectedException('PayPal\Rest\Exception\PayPalInvalidCredentialException');
         $cred = $this->object->getCredentialObject('invalid_biz_api1.gmail.com');
     }
 

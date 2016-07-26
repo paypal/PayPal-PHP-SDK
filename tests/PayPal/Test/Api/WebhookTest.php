@@ -1,13 +1,13 @@
 <?php
 
-namespace PayPal\Test\Api;
+namespace PayPal\Rest\Test\Api;
 
-use PayPal\Api\Webhook;
+use PayPal\Rest\Api\Webhook;
 
 /**
  * Class Webhook
  *
- * @package PayPal\Test\Api
+ * @package PayPal\Rest\Test\Api
  */
 class WebhookTest extends \PHPUnit_Framework_TestCase
 {
@@ -74,7 +74,7 @@ class WebhookTest extends \PHPUnit_Framework_TestCase
      */
     public function testCreate($obj, $mockApiContext)
     {
-        $mockPayPalRestCall = $this->getMockBuilder('\PayPal\Transport\PayPalRestCall')
+        $mockPayPalRestCall = $this->getMockBuilder('\PayPal\Rest\Transport\PayPalRestCall')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -93,7 +93,7 @@ class WebhookTest extends \PHPUnit_Framework_TestCase
      */
     public function testGet($obj, $mockApiContext)
     {
-        $mockPayPalRestCall = $this->getMockBuilder('\PayPal\Transport\PayPalRestCall')
+        $mockPayPalRestCall = $this->getMockBuilder('\PayPal\Rest\Transport\PayPalRestCall')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -112,7 +112,7 @@ class WebhookTest extends \PHPUnit_Framework_TestCase
      */
     public function testGetAll($obj, $mockApiContext)
     {
-        $mockPayPalRestCall = $this->getMockBuilder('\PayPal\Transport\PayPalRestCall')
+        $mockPayPalRestCall = $this->getMockBuilder('\PayPal\Rest\Transport\PayPalRestCall')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -131,7 +131,7 @@ class WebhookTest extends \PHPUnit_Framework_TestCase
      */
     public function testUpdate($obj, $mockApiContext)
     {
-        $mockPayPalRestCall = $this->getMockBuilder('\PayPal\Transport\PayPalRestCall')
+        $mockPayPalRestCall = $this->getMockBuilder('\PayPal\Rest\Transport\PayPalRestCall')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -151,7 +151,7 @@ class WebhookTest extends \PHPUnit_Framework_TestCase
      */
     public function testDelete($obj, $mockApiContext)
     {
-        $mockPayPalRestCall = $this->getMockBuilder('\PayPal\Transport\PayPalRestCall')
+        $mockPayPalRestCall = $this->getMockBuilder('\PayPal\Rest\Transport\PayPalRestCall')
             ->disableOriginalConstructor()
             ->getMock();
 

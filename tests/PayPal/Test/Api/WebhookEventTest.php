@@ -1,15 +1,15 @@
 <?php
 
-namespace PayPal\Test\Api;
+namespace PayPal\Rest\Test\Api;
 
-use PayPal\Api\WebhookEvent;
-use PayPal\Exception\PayPalConnectionException;
+use PayPal\Rest\Api\WebhookEvent;
+use PayPal\Rest\Exception\PayPalConnectionException;
 use PayPal\Rest\ApiContext;
 
 /**
  * Class WebhookEvent
  *
- * @package PayPal\Test\Api
+ * @package PayPal\Rest\Test\Api
  */
 class WebhookEventTest extends \PHPUnit_Framework_TestCase
 {
@@ -72,7 +72,7 @@ class WebhookEventTest extends \PHPUnit_Framework_TestCase
      */
     public function testGet($obj, $mockApiContext)
     {
-        $mockPayPalRestCall = $this->getMockBuilder('\PayPal\Transport\PayPalRestCall')
+        $mockPayPalRestCall = $this->getMockBuilder('\PayPal\Rest\Transport\PayPalRestCall')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -91,7 +91,7 @@ class WebhookEventTest extends \PHPUnit_Framework_TestCase
      */
     public function testResend($obj, $mockApiContext)
     {
-        $mockPayPalRestCall = $this->getMockBuilder('\PayPal\Transport\PayPalRestCall')
+        $mockPayPalRestCall = $this->getMockBuilder('\PayPal\Rest\Transport\PayPalRestCall')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -110,7 +110,7 @@ class WebhookEventTest extends \PHPUnit_Framework_TestCase
      */
     public function testList($obj, $mockApiContext)
     {
-        $mockPayPalRestCall = $this->getMockBuilder('\PayPal\Transport\PayPalRestCall')
+        $mockPayPalRestCall = $this->getMockBuilder('\PayPal\Rest\Transport\PayPalRestCall')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -131,7 +131,7 @@ class WebhookEventTest extends \PHPUnit_Framework_TestCase
      */
     public function testValidateWebhook($obj, $mockApiContext)
     {
-        $mockPayPalRestCall = $this->getMockBuilder('\PayPal\Transport\PayPalRestCall')
+        $mockPayPalRestCall = $this->getMockBuilder('\PayPal\Rest\Transport\PayPalRestCall')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -155,7 +155,7 @@ class WebhookEventTest extends \PHPUnit_Framework_TestCase
      */
     public function testValidateWebhook404($obj, $mockApiContext)
     {
-        $mockPayPalRestCall = $this->getMockBuilder('\PayPal\Transport\PayPalRestCall')
+        $mockPayPalRestCall = $this->getMockBuilder('\PayPal\Rest\Transport\PayPalRestCall')
             ->disableOriginalConstructor()
             ->getMock();
 

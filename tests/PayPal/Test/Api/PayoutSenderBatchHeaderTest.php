@@ -1,13 +1,13 @@
 <?php
 
-namespace PayPal\Test\Api;
+namespace PayPal\Rest\Test\Api;
 
-use PayPal\Api\PayoutSenderBatchHeader;
+use PayPal\Rest\Api\PayoutSenderBatchHeader;
 
 /**
  * Class PayoutSenderBatchHeader
  *
- * @package PayPal\Test\Api
+ * @package PayPal\Rest\Test\Api
  */
 class PayoutSenderBatchHeaderTest extends \PHPUnit_Framework_TestCase
 {

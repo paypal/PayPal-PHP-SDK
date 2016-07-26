@@ -1,16 +1,16 @@
 <?php
 
-namespace PayPal\Test\Functional\Api;
+namespace PayPal\Rest\Test\Functional\Api;
 
-use PayPal\Api\Payout;
-use PayPal\Api\PayoutBatch;
-use PayPal\Api\PayoutItem;
-use PayPal\Test\Functional\Setup;
+use PayPal\Rest\Api\Payout;
+use PayPal\Rest\Api\PayoutBatch;
+use PayPal\Rest\Api\PayoutItem;
+use PayPal\Rest\Test\Functional\Setup;
 
 /**
  * Class Payouts
  *
- * @package PayPal\Test\Api
+ * @package PayPal\Rest\Test\Api
  */
 class PayoutsFunctionalTest extends \PHPUnit_Framework_TestCase
 {

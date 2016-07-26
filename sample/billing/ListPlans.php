@@ -10,7 +10,7 @@
 /** @var Plan $createdPlan */
 $createdPlan = require 'CreatePlan.php';
 
-use PayPal\Api\Plan;
+use PayPal\Rest\Api\Plan;
 
 try {
     // Get the list of all plans

@@ -1,13 +1,13 @@
 <?php
 
-namespace PayPal\Test\Api;
+namespace PayPal\Rest\Test\Api;
 
-use PayPal\Api\PrivateLabelCard;
+use PayPal\Rest\Api\PrivateLabelCard;
 
 /**
  * Class PrivateLabelCard
  *
- * @package PayPal\Test\Api
+ * @package PayPal\Rest\Test\Api
  */
 class PrivateLabelCardTest extends \PHPUnit_Framework_TestCase
 {

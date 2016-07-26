@@ -10,9 +10,9 @@
 /** @var Agreement $createdAgreement */
 $createdAgreement = require 'CreateBillingAgreementWithCreditCard.php';
 
-use PayPal\Api\Agreement;
-use PayPal\Api\Patch;
-use PayPal\Api\PatchRequest;
+use PayPal\Rest\Api\Agreement;
+use PayPal\Rest\Api\Patch;
+use PayPal\Rest\Api\PatchRequest;
 
 $patch = new Patch();
 

@@ -22,7 +22,7 @@
     },
     "autoload": {
         "psr-0": {
-            "PayPal": "lib/"
+            "PayPal\\Rest": "lib/PayPal/Rest"
         }
     }
 }

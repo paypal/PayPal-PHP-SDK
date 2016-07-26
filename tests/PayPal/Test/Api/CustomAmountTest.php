@@ -1,13 +1,13 @@
 <?php
 
-namespace PayPal\Test\Api;
+namespace PayPal\Rest\Test\Api;
 
-use PayPal\Api\CustomAmount;
+use PayPal\Rest\Api\CustomAmount;
 
 /**
  * Class CustomAmount
  *
- * @package PayPal\Test\Api
+ * @package PayPal\Rest\Test\Api
  */
 class CustomAmountTest extends \PHPUnit_Framework_TestCase
 {

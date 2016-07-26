@@ -10,7 +10,7 @@
 /** @var Agreement $createdAgreement */
 $createdAgreement = require 'CreateBillingAgreementWithCreditCard.php';
 
-use PayPal\Api\Agreement;
+use PayPal\Rest\Api\Agreement;
 
 try {
     $agreement = Agreement::get($createdAgreement->getId(), $apiContext);

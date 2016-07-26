@@ -1,7 +1,7 @@
 <?php
-namespace PayPal\Test\Common;
+namespace PayPal\Rest\Test\Common;
 
-use PayPal\Common\PayPalModel;
+use PayPal\Rest\Common\PayPalModel;
 
 class NestedClass extends PayPalModel
 {
@@ -18,7 +18,7 @@ class NestedClass extends PayPalModel
 
     /**
      *
-     * @param \PayPal\Test\Common\ArrayClass $info
+     * @param \PayPal\Rest\Test\Common\ArrayClass $info
      */
     public function setInfo($info)
     {
@@ -27,7 +27,7 @@ class NestedClass extends PayPalModel
 
     /**
      *
-     * @return \PayPal\Test\Common\ArrayClass
+     * @return \PayPal\Rest\Test\Common\ArrayClass
      */
     public function getInfo()
     {

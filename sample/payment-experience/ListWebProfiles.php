@@ -9,8 +9,8 @@ $apiContext = require __DIR__ . '/../bootstrap.php';
 // static `get_list` method on the WebProfile class.
 // (See bootstrap.php for more on `ApiContext`)
 try {
-    $list = \PayPal\Api\WebProfile::get_list($apiContext);
-} catch (\PayPal\Exception\PayPalConnectionException $ex) {
+    $list = \PayPal\Rest\Api\WebProfile::get_list($apiContext);
+} catch (\PayPal\Rest\Exception\PayPalConnectionException $ex) {
     // NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
  	ResultPrinter::printError("Get List of All Web Profiles", "Web Profiles", null, null, $ex);
     exit(1);

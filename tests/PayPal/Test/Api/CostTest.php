@@ -1,13 +1,13 @@
 <?php
 
-namespace PayPal\Test\Api;
+namespace PayPal\Rest\Test\Api;
 
-use PayPal\Api\Cost;
+use PayPal\Rest\Api\Cost;
 
 /**
  * Class Cost
  *
- * @package PayPal\Test\Api
+ * @package PayPal\Rest\Test\Api
  */
 class CostTest extends \PHPUnit_Framework_TestCase
 {

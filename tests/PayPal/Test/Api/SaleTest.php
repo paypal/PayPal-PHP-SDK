@@ -1,13 +1,13 @@
 <?php
 
-namespace PayPal\Test\Api;
+namespace PayPal\Rest\Test\Api;
 
-use PayPal\Api\Sale;
+use PayPal\Rest\Api\Sale;
 
 /**
  * Class Sale
  *
- * @package PayPal\Test\Api
+ * @package PayPal\Rest\Test\Api
  */
 class SaleTest extends \PHPUnit_Framework_TestCase
 {
@@ -103,7 +103,7 @@ class SaleTest extends \PHPUnit_Framework_TestCase
      */
     public function testGet($obj, $mockApiContext)
     {
-        $mockPPRestCall = $this->getMockBuilder('\PayPal\Transport\PayPalRestCall')
+        $mockPPRestCall = $this->getMockBuilder('\PayPal\Rest\Transport\PayPalRestCall')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -123,7 +123,7 @@ class SaleTest extends \PHPUnit_Framework_TestCase
      */
     public function testRefund($obj, $mockApiContext)
     {
-        $mockPPRestCall = $this->getMockBuilder('\PayPal\Transport\PayPalRestCall')
+        $mockPPRestCall = $this->getMockBuilder('\PayPal\Rest\Transport\PayPalRestCall')
             ->disableOriginalConstructor()
             ->getMock();
 

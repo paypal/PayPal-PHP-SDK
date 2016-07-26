@@ -19,7 +19,7 @@ if (!file_exists($composerAutoload)) {
 require $composerAutoload;
 require __DIR__ . '/common.php';
 
-use PayPal\Auth\OAuthTokenCredential;
+use PayPal\Rest\Auth\OAuthTokenCredential;
 use PayPal\Rest\ApiContext;
 
 // Suppress DateTime warnings, if not set already
@@ -90,7 +90,7 @@ function getApiContext($clientId, $clientSecret)
             'cache.enabled' => true,
             // 'http.CURLOPT_CONNECTTIMEOUT' => 30
             // 'http.headers.PayPal-Partner-Attribution-Id' => '123123123'
-            //'log.AdapterFactory' => '\PayPal\Log\DefaultLogFactory' // Factory class implementing \PayPal\Log\PayPalLogFactory
+            //'log.AdapterFactory' => '\PayPal\Rest\Log\DefaultLogFactory' // Factory class implementing \PayPal\Rest\Log\PayPalLogFactory
         )
     );
 

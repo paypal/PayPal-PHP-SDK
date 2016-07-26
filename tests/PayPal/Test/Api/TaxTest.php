@@ -1,13 +1,13 @@
 <?php
 
-namespace PayPal\Test\Api;
+namespace PayPal\Rest\Test\Api;
 
-use PayPal\Api\Tax;
+use PayPal\Rest\Api\Tax;
 
 /**
  * Class Tax
  *
- * @package PayPal\Test\Api
+ * @package PayPal\Rest\Test\Api
  */
 class TaxTest extends \PHPUnit_Framework_TestCase
 {

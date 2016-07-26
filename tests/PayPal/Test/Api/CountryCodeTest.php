@@ -1,13 +1,13 @@
 <?php
 
-namespace PayPal\Test\Api;
+namespace PayPal\Rest\Test\Api;
 
-use PayPal\Api\CountryCode;
+use PayPal\Rest\Api\CountryCode;
 
 /**
  * Class CountryCode
  *
- * @package PayPal\Test\Api
+ * @package PayPal\Rest\Test\Api
  */
 class CountryCodeTest extends \PHPUnit_Framework_TestCase
 {

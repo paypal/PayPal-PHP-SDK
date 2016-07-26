@@ -1,13 +1,13 @@
 <?php
 
-namespace PayPal\Test\Api;
+namespace PayPal\Rest\Test\Api;
 
-use PayPal\Api\FundingInstrument;
+use PayPal\Rest\Api\FundingInstrument;
 
 /**
  * Class FundingInstrument
  *
- * @package PayPal\Test\Api
+ * @package PayPal\Rest\Test\Api
  */
 class FundingInstrumentTest extends \PHPUnit_Framework_TestCase
 {

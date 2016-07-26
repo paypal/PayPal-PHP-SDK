@@ -1,13 +1,13 @@
 <?php
 
-namespace PayPal\Test\Api;
+namespace PayPal\Rest\Test\Api;
 
-use PayPal\Api\Search;
+use PayPal\Rest\Api\Search;
 
 /**
  * Class Search
  *
- * @package PayPal\Test\Api
+ * @package PayPal\Rest\Test\Api
  */
 class SearchTest extends \PHPUnit_Framework_TestCase
 {

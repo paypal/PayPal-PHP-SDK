@@ -5,17 +5,17 @@
 // an invoice.
 
 require __DIR__ . '/../bootstrap.php';
-use PayPal\Api\Address;
-use PayPal\Api\BillingInfo;
-use PayPal\Api\Cost;
-use PayPal\Api\Currency;
-use PayPal\Api\Invoice;
-use PayPal\Api\InvoiceAddress;
-use PayPal\Api\InvoiceItem;
-use PayPal\Api\MerchantInfo;
-use PayPal\Api\PaymentTerm;
-use PayPal\Api\Phone;
-use PayPal\Api\ShippingInfo;
+use PayPal\Rest\Api\Address;
+use PayPal\Rest\Api\BillingInfo;
+use PayPal\Rest\Api\Cost;
+use PayPal\Rest\Api\Currency;
+use PayPal\Rest\Api\Invoice;
+use PayPal\Rest\Api\InvoiceAddress;
+use PayPal\Rest\Api\InvoiceItem;
+use PayPal\Rest\Api\MerchantInfo;
+use PayPal\Rest\Api\PaymentTerm;
+use PayPal\Rest\Api\Phone;
+use PayPal\Rest\Api\ShippingInfo;
 
 $invoice = new Invoice();
 
@@ -86,7 +86,7 @@ $items[0]->getUnitPrice()
 
 // #### Tax Item
 // You could provide Tax information to each item.
-$tax = new \PayPal\Api\Tax();
+$tax = new \PayPal\Rest\Api\Tax();
 $tax->setPercent(1)->setName("Local Tax on Sutures");
 $items[0]->setTax($tax);
 
@@ -107,7 +107,7 @@ $items[1]->getUnitPrice()
 
 // #### Tax Item
 // You could provide Tax information to each item.
-$tax2 = new \PayPal\Api\Tax();
+$tax2 = new \PayPal\Rest\Api\Tax();
 $tax2->setPercent(3)->setName("Local Tax on Injection");
 $items[1]->setTax($tax2);
 

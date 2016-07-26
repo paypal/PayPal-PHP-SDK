@@ -1,13 +1,13 @@
 <?php
 
-namespace PayPal\Test\Api;
+namespace PayPal\Rest\Test\Api;
 
-use PayPal\Api\CancelNotification;
+use PayPal\Rest\Api\CancelNotification;
 
 /**
  * Class CancelNotification
  *
- * @package PayPal\Test\Api
+ * @package PayPal\Rest\Test\Api
  */
 class CancelNotificationTest extends \PHPUnit_Framework_TestCase
 {

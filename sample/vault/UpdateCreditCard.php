@@ -11,8 +11,8 @@
 $card = require 'CreateCreditCard.php';
 $id = $card->getId();
 
-use PayPal\Api\CreditCard;
-use PayPal\Api\Patch;
+use PayPal\Rest\Api\CreditCard;
+use PayPal\Rest\Api\Patch;
 
 // ### Patch Object
 // You could update a credit card by sending patch requests. Each path object would have a specific detail in the object to be updated.
@@ -34,7 +34,7 @@ $pathOperation2->setOp('add')
             "postal_code": "95070"
         }'));
 
-$pathRequest = new \PayPal\Api\PatchRequest();
+$pathRequest = new \PayPal\Rest\Api\PatchRequest();
 $pathRequest->addPatch($pathOperation)
     ->addPatch($pathOperation2);
 /// ### Update Credit Card

@@ -22,8 +22,8 @@ $bodyReceived = '{"id":"WH-36G56432PK518391U-9HW18392D95289106","create_time":"2
 // ### Validate Received Event Method
 // Call the validateReceivedEvent() method with provided body, and apiContext object to validate
 try {
-    /** @var \PayPal\Api\WebhookEvent $output */
-    $output = \PayPal\Api\WebhookEvent::validateAndGetReceivedEvent($bodyReceived, $apiContext);
+    /** @var \PayPal\Rest\Api\WebhookEvent $output */
+    $output = \PayPal\Rest\Api\WebhookEvent::validateAndGetReceivedEvent($bodyReceived, $apiContext);
 } catch (Exception $ex) {
     // NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
     ResultPrinter::printError("Validate Received Webhook Event", "WebhookEvent", null, $bodyReceived, $ex);

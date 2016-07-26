@@ -1,13 +1,13 @@
 <?php
 
-namespace PayPal\Test\Auth;
+namespace PayPal\Rest\Test\Auth;
 
-use PayPal\Auth\OAuthTokenCredential;
-use PayPal\Cache\AuthorizationCache;
-use PayPal\Core\PayPalConfigManager;
+use PayPal\Rest\Auth\OAuthTokenCredential;
+use PayPal\Rest\Cache\AuthorizationCache;
+use PayPal\Rest\Core\PayPalConfigManager;
 use PayPal\Rest\ApiContext;
-use PayPal\Test\Cache\AuthorizationCacheTest;
-use PayPal\Test\Constants;
+use PayPal\Rest\Test\Cache\AuthorizationCacheTest;
+use PayPal\Rest\Test\Constants;
 
 class OAuthTokenCredentialTest extends \PHPUnit_Framework_TestCase
 {
@@ -35,7 +35,7 @@ class OAuthTokenCredentialTest extends \PHPUnit_Framework_TestCase
      */
     public function testInvalidCredentials()
     {
-        $this->setExpectedException('PayPal\Exception\PayPalConnectionException');
+        $this->setExpectedException('PayPal\Rest\Exception\PayPalConnectionException');
         $cred = new OAuthTokenCredential('dummy', 'secret');
         $this->assertNull($cred->getAccessToken(PayPalConfigManager::getInstance()->getConfigHashmap()));
     }
@@ -66,7 +66,7 @@ class OAuthTokenCredentialTest extends \PHPUnit_Framework_TestCase
             'mode' => 'sandbox'
         );
         /** @var OAuthTokenCredential $auth */
-        $auth = $this->getMockBuilder('\PayPal\Auth\OAuthTokenCredential')
+        $auth = $this->getMockBuilder('\PayPal\Rest\Auth\OAuthTokenCredential')
             ->setConstructorArgs(array('clientId', 'clientSecret'))
             ->setMethods(array('getToken'))
             ->getMock();
@@ -88,7 +88,7 @@ class OAuthTokenCredentialTest extends \PHPUnit_Framework_TestCase
             'mode' => 'sandbox'
         );
         /** @var OAuthTokenCredential $auth */
-        $auth = $this->getMockBuilder('\PayPal\Auth\OAuthTokenCredential')
+        $auth = $this->getMockBuilder('\PayPal\Rest\Auth\OAuthTokenCredential')
             ->setConstructorArgs(array('clientId', 'clientSecret'))
             ->setMethods(array('getToken'))
             ->getMock();
@@ -113,7 +113,7 @@ class OAuthTokenCredentialTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \PayPal\Exception\PayPalConnectionException
+     * @expectedException \PayPal\Rest\Exception\PayPalConnectionException
      * @expectedExceptionMessage Could not generate new Access token. Invalid response from server:
      */
     public function testUpdateAccessTokenNullReturnUnitMock()
@@ -122,7 +122,7 @@ class OAuthTokenCredentialTest extends \PHPUnit_Framework_TestCase
             'mode' => 'sandbox'
         );
         /** @var OAuthTokenCredential $auth */
-        $auth = $this->getMockBuilder('\PayPal\Auth\OAuthTokenCredential')
+        $auth = $this->getMockBuilder('\PayPal\Rest\Auth\OAuthTokenCredential')
             ->setConstructorArgs(array('clientId', 'clientSecret'))
             ->setMethods(array('getToken'))
             ->getMock();

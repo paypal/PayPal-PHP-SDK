@@ -7,7 +7,7 @@
 /** @var Capture $request */
 $request = require 'AuthorizationCapture.php';
 
-use PayPal\Api\Capture;
+use PayPal\Rest\Api\Capture;
 
 // ### Retrieve Capture details
 // You can look up a capture by invoking the Capture::get method 

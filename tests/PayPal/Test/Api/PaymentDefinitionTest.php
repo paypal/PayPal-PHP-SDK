@@ -1,13 +1,13 @@
 <?php
 
-namespace PayPal\Test\Api;
+namespace PayPal\Rest\Test\Api;
 
-use PayPal\Api\PaymentDefinition;
+use PayPal\Rest\Api\PaymentDefinition;
 
 /**
  * Class PaymentDefinition
  *
- * @package PayPal\Test\Api
+ * @package PayPal\Rest\Test\Api
  */
 class PaymentDefinitionTest extends \PHPUnit_Framework_TestCase
 {

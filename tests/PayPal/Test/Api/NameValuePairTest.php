@@ -1,13 +1,13 @@
 <?php
 
-namespace PayPal\Test\Api;
+namespace PayPal\Rest\Test\Api;
 
-use PayPal\Api\NameValuePair;
+use PayPal\Rest\Api\NameValuePair;
 
 /**
  * Class NameValuePair
  *
- * @package PayPal\Test\Api
+ * @package PayPal\Rest\Test\Api
  */
 class NameValuePairTest extends \PHPUnit_Framework_TestCase
 {

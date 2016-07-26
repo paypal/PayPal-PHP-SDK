@@ -1,13 +1,13 @@
 <?php
 
-namespace PayPal\Test\Api;
+namespace PayPal\Rest\Test\Api;
 
-use PayPal\Api\Image;
+use PayPal\Rest\Api\Image;
 
 /**
  * Class Image
  *
- * @package PayPal\Test\Api
+ * @package PayPal\Rest\Test\Api
  */
 class ImageTest extends \PHPUnit_Framework_TestCase
 {

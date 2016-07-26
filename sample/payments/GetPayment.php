@@ -10,7 +10,7 @@
 
 /** @var Payment $createdPayment */
 $createdPayment = require 'CreatePayment.php';
-use PayPal\Api\Payment;
+use PayPal\Rest\Api\Payment;
 
 $paymentId = $createdPayment->getId();
 

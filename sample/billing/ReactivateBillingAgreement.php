@@ -10,8 +10,8 @@
 /** @var Agreement $suspendedAgreement */
 $suspendedAgreement = require 'SuspendBillingAgreement.php';
 
-use PayPal\Api\Agreement;
-use PayPal\Api\AgreementStateDescriptor;
+use PayPal\Rest\Api\Agreement;
+use PayPal\Rest\Api\AgreementStateDescriptor;
 
 //Create an Agreement State Descriptor, explaining the reason to suspend.
 $agreementStateDescriptor = new AgreementStateDescriptor();

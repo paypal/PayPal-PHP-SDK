@@ -1,13 +1,13 @@
 <?php
 
-namespace PayPal\Test\Api;
+namespace PayPal\Rest\Test\Api;
 
-use PayPal\Api\RefundDetail;
+use PayPal\Rest\Api\RefundDetail;
 
 /**
  * Class RefundDetail
  *
- * @package PayPal\Test\Api
+ * @package PayPal\Rest\Test\Api
  */
 class RefundDetailTest extends \PHPUnit_Framework_TestCase
 {

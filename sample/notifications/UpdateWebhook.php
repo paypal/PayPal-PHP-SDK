@@ -9,7 +9,7 @@
 // ## Get Webhook ID.
 // In samples we are using CreateWebhook.php sample to get the created instance of webhook.
 // However, in real case scenario, we could use just the ID from database or use an already existing webhook.
-/** @var \PayPal\Api\Webhook $webhook */
+/** @var \PayPal\Rest\Api\Webhook $webhook */
 $webhook = require 'CreateWebhook.php';
 // Updating the webhook as per given request
 //
@@ -29,17 +29,17 @@ $webhook = require 'CreateWebhook.php';
 //            ]
 //         }
 //      ]
-$patch = new \PayPal\Api\Patch();
+$patch = new \PayPal\Rest\Api\Patch();
 $patch->setOp("replace")
     ->setPath("/url")
     ->setValue("https://requestb.in/10ujt3c1?uniqid=". uniqid());
 
-$patch2 = new \PayPal\Api\Patch();
+$patch2 = new \PayPal\Rest\Api\Patch();
 $patch2->setOp("replace")
     ->setPath("/event_types")
     ->setValue(json_decode('[{"name":"PAYMENT.SALE.REFUNDED"}]'));
 
-$patchRequest = new \PayPal\Api\PatchRequest();
+$patchRequest = new \PayPal\Rest\Api\PatchRequest();
 $patchRequest->addPatch($patch)->addPatch($patch2);
 
 // ### Get Webhook

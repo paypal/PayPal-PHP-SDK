@@ -10,7 +10,7 @@
 // ## PLEASE NOTE:
 // Creating webhook is sample purposes only. In real scenario, you dont need to create a new webhook everytime you want to search
 // for a webhook events. This is made in a sample just to make sure there is minimum of one webhook to listen to.
-/** @var \PayPal\Api\Webhook $webhook */
+/** @var \PayPal\Rest\Api\Webhook $webhook */
 $webhook = require __DIR__ . '/../bootstrap.php';
 
 $params = array(
@@ -20,7 +20,7 @@ $params = array(
 
 // ### Search Webhook events
 try {
-    $output = \PayPal\Api\WebhookEvent::all($params, $apiContext);
+    $output = \PayPal\Rest\Api\WebhookEvent::all($params, $apiContext);
 } catch (Exception $ex) {
     // NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
  	ResultPrinter::printError("Search Webhook events", "WebhookEventList", null, null, $ex);

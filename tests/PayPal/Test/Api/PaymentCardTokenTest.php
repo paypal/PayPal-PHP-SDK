@@ -1,13 +1,13 @@
 <?php
 
-namespace PayPal\Test\Api;
+namespace PayPal\Rest\Test\Api;
 
-use PayPal\Api\PaymentCardToken;
+use PayPal\Rest\Api\PaymentCardToken;
 
 /**
  * Class PaymentCardToken
  *
- * @package PayPal\Test\Api
+ * @package PayPal\Rest\Test\Api
  */
 class PaymentCardTokenTest extends \PHPUnit_Framework_TestCase
 {

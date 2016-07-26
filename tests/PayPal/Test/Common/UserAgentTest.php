@@ -1,6 +1,6 @@
 <?php
 
-use PayPal\Common\PayPalUserAgent;
+use PayPal\Rest\Common\PayPalUserAgent;
 
 class UserAgentTest extends PHPUnit_Framework_TestCase
 {

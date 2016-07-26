@@ -1,13 +1,13 @@
 <?php
 
-namespace PayPal\Test\Api;
+namespace PayPal\Rest\Test\Api;
 
-use PayPal\Api\Address;
+use PayPal\Rest\Api\Address;
 
 /**
  * Class Address
  *
- * @package PayPal\Test\Api
+ * @package PayPal\Rest\Test\Api
  */
 class AddressTest extends \PHPUnit_Framework_TestCase
 {

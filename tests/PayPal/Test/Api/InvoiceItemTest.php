@@ -1,13 +1,13 @@
 <?php
 
-namespace PayPal\Test\Api;
+namespace PayPal\Rest\Test\Api;
 
-use PayPal\Api\InvoiceItem;
+use PayPal\Rest\Api\InvoiceItem;
 
 /**
  * Class InvoiceItem
  *
- * @package PayPal\Test\Api
+ * @package PayPal\Rest\Test\Api
  */
 class InvoiceItemTest extends \PHPUnit_Framework_TestCase
 {

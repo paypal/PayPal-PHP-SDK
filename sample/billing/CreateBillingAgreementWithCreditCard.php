@@ -11,13 +11,13 @@
 /** @var Plan $createdPlan */
 $createdPlan = require 'UpdatePlan.php';
 
-use PayPal\Api\Agreement;
-use PayPal\Api\CreditCard;
-use PayPal\Api\FundingInstrument;
-use PayPal\Api\Payer;
-use PayPal\Api\PayerInfo;
-use PayPal\Api\Plan;
-use PayPal\Api\ShippingAddress;
+use PayPal\Rest\Api\Agreement;
+use PayPal\Rest\Api\CreditCard;
+use PayPal\Rest\Api\FundingInstrument;
+use PayPal\Rest\Api\Payer;
+use PayPal\Rest\Api\PayerInfo;
+use PayPal\Rest\Api\Plan;
+use PayPal\Rest\Api\ShippingAddress;
 
 /* Create a new instance of Agreement object
 {

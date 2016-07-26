@@ -8,13 +8,13 @@
 // The following code takes you through
 // the process of retrieving a saved Bank Account
 
-/** @var \PayPal\Api\BankAccount $bankAccount */
+/** @var \PayPal\Rest\Api\BankAccount $bankAccount */
 $bankAccount = require 'CreateBankAccount.php';
 
 /// ### Retrieve Bank Account
 // (See bootstrap.php for more on `ApiContext`)
 try {
-    $bankAccount = \PayPal\Api\BankAccount::get($bankAccount->getId(), $apiContext);
+    $bankAccount = \PayPal\Rest\Api\BankAccount::get($bankAccount->getId(), $apiContext);
 } catch (Exception $ex) {
     // NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
  	ResultPrinter::printError("Get Bank Account", "Bank Account", $bankAccount->getId(), null, $ex);

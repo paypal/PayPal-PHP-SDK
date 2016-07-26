@@ -11,12 +11,12 @@
 // API used: POST '/v1/payments/payment/<payment-id>/execute'.
 
 require __DIR__ . '/../bootstrap.php';
-use PayPal\Api\Amount;
-use PayPal\Api\Details;
-use PayPal\Api\ExecutePayment;
-use PayPal\Api\Payment;
-use PayPal\Api\PaymentExecution;
-use PayPal\Api\Transaction;
+use PayPal\Rest\Api\Amount;
+use PayPal\Rest\Api\Details;
+use PayPal\Rest\Api\ExecutePayment;
+use PayPal\Rest\Api\Payment;
+use PayPal\Rest\Api\PaymentExecution;
+use PayPal\Rest\Api\Transaction;
 
 // ### Approval Status
 // Determine if the user approved the payment or not

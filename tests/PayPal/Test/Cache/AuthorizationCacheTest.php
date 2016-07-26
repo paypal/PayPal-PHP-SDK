@@ -1,8 +1,8 @@
 <?php
 
-namespace PayPal\Test\Cache;
+namespace PayPal\Rest\Test\Cache;
 
-use PayPal\Cache\AuthorizationCache;
+use PayPal\Rest\Cache\AuthorizationCache;
 
 /**
  * Test class for AuthorizationCacheTest.

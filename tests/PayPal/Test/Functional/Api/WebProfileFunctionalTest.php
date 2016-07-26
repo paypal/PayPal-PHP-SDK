@@ -1,16 +1,16 @@
 <?php
 
-namespace PayPal\Test\Functional\Api;
+namespace PayPal\Rest\Test\Functional\Api;
 
-use PayPal\Api\CreateProfileResponse;
-use PayPal\Api\Patch;
-use PayPal\Api\WebProfile;
-use PayPal\Test\Functional\Setup;
+use PayPal\Rest\Api\CreateProfileResponse;
+use PayPal\Rest\Api\Patch;
+use PayPal\Rest\Api\WebProfile;
+use PayPal\Rest\Test\Functional\Setup;
 
 /**
  * Class WebProfile
  *
- * @package PayPal\Test\Api
+ * @package PayPal\Rest\Test\Api
  */
 class WebProfileFunctionalTest extends \PHPUnit_Framework_TestCase
 {

@@ -1,13 +1,13 @@
 <?php
 
-namespace PayPal\Test\Api;
+namespace PayPal\Rest\Test\Api;
 
-use PayPal\Api\InstallmentOption;
+use PayPal\Rest\Api\InstallmentOption;
 
 /**
  * Class InstallmentOption
  *
- * @package PayPal\Test\Api
+ * @package PayPal\Rest\Test\Api
  */
 class InstallmentOptionTest extends \PHPUnit_Framework_TestCase
 {

@@ -1,7 +1,7 @@
 <?php
-namespace PayPal\Test\Validation;
+namespace PayPal\Rest\Test\Validation;
 
-use PayPal\Validation\JsonValidator;
+use PayPal\Rest\Validation\JsonValidator;
 
 class JsonValidatorTest extends \PHPUnit_Framework_TestCase
 {

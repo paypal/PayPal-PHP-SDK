@@ -1,9 +1,9 @@
 <?php
-namespace PayPal\Test\Common;
+namespace PayPal\Rest\Test\Common;
 
-use PayPal\Api\Payment;
-use PayPal\Common\PayPalModel;
-use PayPal\Core\PayPalConfigManager;
+use PayPal\Rest\Api\Payment;
+use PayPal\Rest\Common\PayPalModel;
+use PayPal\Rest\Core\PayPalConfigManager;
 
 class ModelTest extends \PHPUnit_Framework_TestCase
 {

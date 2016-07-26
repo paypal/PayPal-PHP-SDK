@@ -1,7 +1,7 @@
 <?php
-namespace PayPal\Test\Common;
+namespace PayPal\Rest\Test\Common;
 
-use PayPal\Common\ArrayUtil;
+use PayPal\Rest\Common\ArrayUtil;
 
 class ArrayUtilTest extends \PHPUnit_Framework_TestCase
 {

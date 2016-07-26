@@ -1,7 +1,7 @@
 <?php
-namespace PayPal\Test\Validation;
+namespace PayPal\Rest\Test\Validation;
 
-use PayPal\Validation\UrlValidator;
+use PayPal\Rest\Validation\UrlValidator;
 
 class UrlValidatorTest extends \PHPUnit_Framework_TestCase
 {

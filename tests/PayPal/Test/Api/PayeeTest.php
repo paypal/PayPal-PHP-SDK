@@ -1,13 +1,13 @@
 <?php
 
-namespace PayPal\Test\Api;
+namespace PayPal\Rest\Test\Api;
 
-use PayPal\Api\Payee;
+use PayPal\Rest\Api\Payee;
 
 /**
  * Class Payee
  *
- * @package PayPal\Test\Api
+ * @package PayPal\Rest\Test\Api
  */
 class PayeeTest extends \PHPUnit_Framework_TestCase
 {

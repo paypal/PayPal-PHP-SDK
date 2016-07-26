@@ -4,7 +4,7 @@
 // Note: An order cannot be voided if payment has already been partially or fully captured.
 // API used: POST /v1/payments/orders/<Order-Id>/do-void
 
-/** @var \PayPal\Api\Payment $payment */
+/** @var \PayPal\Rest\Api\Payment $payment */
 $payment = require __DIR__ . '/ExecutePayment.php';
 
 // ### Approval Status

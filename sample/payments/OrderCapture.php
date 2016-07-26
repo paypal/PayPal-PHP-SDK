@@ -3,11 +3,11 @@
 // To authorize an order payment, pass the orderId in the URI of a POST call. This begins the process of confirming that funds are available until it is time to complete the payment transaction.
 // API used: POST /v1/payments/orders/<Order-Id>/authorize
 
-/** @var \PayPal\Api\Payment $payment */
+/** @var \PayPal\Rest\Api\Payment $payment */
 $payment = require __DIR__ . '/ExecutePayment.php';
 
-use PayPal\Api\Amount;
-use PayPal\Api\Capture;
+use PayPal\Rest\Api\Amount;
+use PayPal\Rest\Api\Capture;
 
 // ### Approval Status
 // Determine if the user approved the payment or not

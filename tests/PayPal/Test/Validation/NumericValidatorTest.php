@@ -1,7 +1,7 @@
 <?php
-namespace PayPal\Test\Validation;
+namespace PayPal\Rest\Test\Validation;
 
-use PayPal\Validation\NumericValidator;
+use PayPal\Rest\Validation\NumericValidator;
 
 class NumericValidatorTest extends \PHPUnit_Framework_TestCase
 {

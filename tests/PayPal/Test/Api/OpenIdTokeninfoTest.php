@@ -1,7 +1,7 @@
 <?php
-namespace PayPal\Test\Api;
+namespace PayPal\Rest\Test\Api;
 
-use PayPal\Api\OpenIdTokeninfo;
+use PayPal\Rest\Api\OpenIdTokeninfo;
 
 /**
  * Test class for OpenIdTokeninfo.

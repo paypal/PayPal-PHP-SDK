@@ -7,9 +7,9 @@
 
 /** @var Authorization $authorization */
 $authorization = require 'GetAuthorization.php';
-use PayPal\Api\Amount;
-use PayPal\Api\Authorization;
-use PayPal\Api\Capture;
+use PayPal\Rest\Api\Amount;
+use PayPal\Rest\Api\Authorization;
+use PayPal\Rest\Api\Capture;
 
 
 // ### Capture Payment

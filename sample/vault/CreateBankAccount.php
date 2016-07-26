@@ -7,7 +7,7 @@
 // API used: POST /v1/vault/bank-accounts
 
 require __DIR__ . '/../bootstrap.php';
-use PayPal\Api\BankAccount;
+use PayPal\Rest\Api\BankAccount;
 
 // ### Bank Account
 // A resource representing a bank account that is
@@ -50,7 +50,7 @@ $bankAccount->setAccountNumber("4417119669820331")
     ->setBirthDate("1987-08-13")
     ->setExternalCustomerId(uniqid());
 
-$billingAddress = new \PayPal\Api\Address();
+$billingAddress = new \PayPal\Rest\Api\Address();
 $billingAddress->setLine1("52 N Main St")
     ->setCity("Johnstown")
     ->setState("OH")

@@ -1,13 +1,13 @@
 <?php
 
-namespace PayPal\Test\Api;
+namespace PayPal\Rest\Test\Api;
 
-use PayPal\Api\CarrierAccountToken;
+use PayPal\Rest\Api\CarrierAccountToken;
 
 /**
  * Class CarrierAccountToken
  *
- * @package PayPal\Test\Api
+ * @package PayPal\Rest\Test\Api
  */
 class CarrierAccountTokenTest extends \PHPUnit_Framework_TestCase
 {

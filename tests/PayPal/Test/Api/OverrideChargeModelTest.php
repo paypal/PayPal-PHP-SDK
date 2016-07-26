@@ -1,13 +1,13 @@
 <?php
 
-namespace PayPal\Test\Api;
+namespace PayPal\Rest\Test\Api;
 
-use PayPal\Api\OverrideChargeModel;
+use PayPal\Rest\Api\OverrideChargeModel;
 
 /**
  * Class OverrideChargeModel
  *
- * @package PayPal\Test\Api
+ * @package PayPal\Rest\Test\Api
  */
 class OverrideChargeModelTest extends \PHPUnit_Framework_TestCase
 {

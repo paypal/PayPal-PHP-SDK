@@ -1,13 +1,13 @@
 <?php
 
-namespace PayPal\Test\Api;
+namespace PayPal\Rest\Test\Api;
 
-use PayPal\Api\PlanList;
+use PayPal\Rest\Api\PlanList;
 
 /**
  * Class PlanList
  *
- * @package PayPal\Test\Api
+ * @package PayPal\Rest\Test\Api
  */
 class PlanListTest extends \PHPUnit_Framework_TestCase
 {

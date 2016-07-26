@@ -3,7 +3,7 @@
 // Specify an order ID to get details about an order.
 // API used: GET /v1/payments/orders/<Order-Id>
 
-/** @var \PayPal\Api\Payment $payment */
+/** @var \PayPal\Rest\Api\Payment $payment */
 $payment = require __DIR__ . '/ExecutePayment.php';
 
 // ### Approval Status
@@ -17,7 +17,7 @@ if (isset($_GET['success']) && $_GET['success'] == 'true') {
     $order = $relatedResource->getOrder();
 
     try {
-        $result = \PayPal\Api\Order::get($order->getId(), $apiContext);
+        $result = \PayPal\Rest\Api\Order::get($order->getId(), $apiContext);
         // NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
         ResultPrinter::printResult("Get Order", "Order", $result->getId(), null, $result);
     } catch (Exception $ex) {

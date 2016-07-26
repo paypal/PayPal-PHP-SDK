@@ -1,8 +1,8 @@
 <?php
 
-namespace PayPal\Test\Api;
+namespace PayPal\Rest\Test\Api;
 
-use PayPal\Api\OpenIdSession;
+use PayPal\Rest\Api\OpenIdSession;
 use PayPal\Rest\ApiContext;
 
 /**

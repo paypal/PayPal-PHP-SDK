@@ -1,13 +1,13 @@
 <?php
 
-namespace PayPal\Test\Api;
+namespace PayPal\Rest\Test\Api;
 
-use PayPal\Api\Metadata;
+use PayPal\Rest\Api\Metadata;
 
 /**
  * Class Metadata
  *
- * @package PayPal\Test\Api
+ * @package PayPal\Rest\Test\Api
  */
 class MetadataTest extends \PHPUnit_Framework_TestCase
 {

@@ -1,8 +1,8 @@
 <?php
-namespace PayPal\Test\Api;
+namespace PayPal\Rest\Test\Api;
 
-use PayPal\Api\CreditCard;
-use PayPal\Api\CreditCardHistory;
+use PayPal\Rest\Api\CreditCard;
+use PayPal\Rest\Api\CreditCardHistory;
 
 class CreditCardHistoryTest extends \PHPUnit_Framework_TestCase
 {

@@ -11,7 +11,7 @@
 
 /** @var Payment $createdPayment */
 $createdPayment = require 'CreatePaymentUsingPayPal.php';
-use PayPal\Api\Payment;
+use PayPal\Rest\Api\Payment;
 
 $paymentId = $createdPayment->getId();
 
@@ -44,7 +44,7 @@ $paymentId = $createdPayment->getId();
 //                }
 //            }
 //        ]
-$patchReplace = new \PayPal\Api\Patch();
+$patchReplace = new \PayPal\Rest\Api\Patch();
 $patchReplace->setOp('replace')
     ->setPath('/transactions/0/amount')
     ->setValue(json_decode('{
@@ -57,7 +57,7 @@ $patchReplace->setOp('replace')
                     }
                 }'));
 
-$patchAdd = new \PayPal\Api\Patch();
+$patchAdd = new \PayPal\Rest\Api\Patch();
 $patchAdd->setOp('add')
     ->setPath('/transactions/0/item_list/shipping_address')
     ->setValue(json_decode('{
@@ -69,7 +69,7 @@ $patchAdd->setOp('add')
                     "country_code": "US"
                 }'));
 
-$patchRequest = new \PayPal\Api\PatchRequest();
+$patchRequest = new \PayPal\Rest\Api\PatchRequest();
 $patchRequest->setPatches(array($patchReplace, $patchAdd));
 
 

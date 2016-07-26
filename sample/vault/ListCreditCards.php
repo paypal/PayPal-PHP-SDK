@@ -10,7 +10,7 @@
 /** @var CreditCard $card */
 $card = require 'CreateCreditCard.php';
 
-use PayPal\Api\CreditCard;
+use PayPal\Rest\Api\CreditCard;
 
 /// ### List All Credit Cards
 // (See bootstrap.php for more on `ApiContext`)

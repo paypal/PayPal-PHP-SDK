@@ -1,13 +1,13 @@
 <?php
 
-namespace PayPal\Test\Api;
+namespace PayPal\Rest\Test\Api;
 
-use PayPal\Api\WebhookEventType;
+use PayPal\Rest\Api\WebhookEventType;
 
 /**
  * Class WebhookEventType
  *
- * @package PayPal\Test\Api
+ * @package PayPal\Rest\Test\Api
  */
 class WebhookEventTypeTest extends \PHPUnit_Framework_TestCase
 {
@@ -60,7 +60,7 @@ class WebhookEventTypeTest extends \PHPUnit_Framework_TestCase
      */
     public function testSubscribedEventTypes($obj, $mockApiContext)
     {
-        $mockPayPalRestCall = $this->getMockBuilder('\PayPal\Transport\PayPalRestCall')
+        $mockPayPalRestCall = $this->getMockBuilder('\PayPal\Rest\Transport\PayPalRestCall')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -79,7 +79,7 @@ class WebhookEventTypeTest extends \PHPUnit_Framework_TestCase
      */
     public function testAvailableEventTypes($obj, $mockApiContext)
     {
-        $mockPayPalRestCall = $this->getMockBuilder('\PayPal\Transport\PayPalRestCall')
+        $mockPayPalRestCall = $this->getMockBuilder('\PayPal\Rest\Transport\PayPalRestCall')
             ->disableOriginalConstructor()
             ->getMock();
 

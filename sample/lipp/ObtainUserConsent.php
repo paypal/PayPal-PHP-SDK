@@ -2,7 +2,7 @@
 
 require __DIR__ . '/../bootstrap.php';
 
-use PayPal\Api\OpenIdSession;
+use PayPal\Rest\Api\OpenIdSession;
 
 $baseUrl = getBaseUrl() . '/UserConsentRedirect.php?success=true';
 

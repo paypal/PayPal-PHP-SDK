@@ -1,13 +1,13 @@
 <?php
 
-namespace PayPal\Test\Api;
+namespace PayPal\Rest\Test\Api;
 
-use PayPal\Api\ChargeModel;
+use PayPal\Rest\Api\ChargeModel;
 
 /**
  * Class ChargeModel
  *
- * @package PayPal\Test\Api
+ * @package PayPal\Rest\Test\Api
  */
 class ChargeModelTest extends \PHPUnit_Framework_TestCase
 {

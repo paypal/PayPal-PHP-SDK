@@ -1,13 +1,13 @@
 <?php
 
-namespace PayPal\Test\Api;
+namespace PayPal\Rest\Test\Api;
 
-use PayPal\Api\ShippingCost;
+use PayPal\Rest\Api\ShippingCost;
 
 /**
  * Class ShippingCost
  *
- * @package PayPal\Test\Api
+ * @package PayPal\Rest\Test\Api
  */
 class ShippingCostTest extends \PHPUnit_Framework_TestCase
 {

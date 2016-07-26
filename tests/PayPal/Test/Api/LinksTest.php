@@ -1,13 +1,13 @@
 <?php
 
-namespace PayPal\Test\Api;
+namespace PayPal\Rest\Test\Api;
 
-use PayPal\Api\Links;
+use PayPal\Rest\Api\Links;
 
 /**
  * Class Links
  *
- * @package PayPal\Test\Api
+ * @package PayPal\Rest\Test\Api
  */
 class LinksTest extends \PHPUnit_Framework_TestCase
 {

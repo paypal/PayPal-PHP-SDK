@@ -7,16 +7,16 @@
 
 /** @var CreditCard $card */
 $card = require __DIR__ . '/../vault/CreateCreditCard.php';
-use PayPal\Api\Amount;
-use PayPal\Api\CreditCard;
-use PayPal\Api\CreditCardToken;
-use PayPal\Api\Details;
-use PayPal\Api\FundingInstrument;
-use PayPal\Api\Item;
-use PayPal\Api\ItemList;
-use PayPal\Api\Payer;
-use PayPal\Api\Payment;
-use PayPal\Api\Transaction;
+use PayPal\Rest\Api\Amount;
+use PayPal\Rest\Api\CreditCard;
+use PayPal\Rest\Api\CreditCardToken;
+use PayPal\Rest\Api\Details;
+use PayPal\Rest\Api\FundingInstrument;
+use PayPal\Rest\Api\Item;
+use PayPal\Rest\Api\ItemList;
+use PayPal\Rest\Api\Payer;
+use PayPal\Rest\Api\Payment;
+use PayPal\Rest\Api\Transaction;
 
 // ### Credit card token
 // Saved credit card id from a previous call to

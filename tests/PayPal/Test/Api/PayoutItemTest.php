@@ -1,15 +1,15 @@
 <?php
 
-namespace PayPal\Test\Api;
+namespace PayPal\Rest\Test\Api;
 
-use PayPal\Api\ItemsArray;
-use PayPal\Api\PayoutItem;
-use PayPal\Transport\PPRestCall;
+use PayPal\Rest\Api\ItemsArray;
+use PayPal\Rest\Api\PayoutItem;
+use PayPal\Rest\Transport\PPRestCall;
 
 /**
  * Class PayoutItem
  *
- * @package PayPal\Test\Api
+ * @package PayPal\Rest\Test\Api
  */
 class PayoutItemTest extends \PHPUnit_Framework_TestCase
 {
@@ -68,7 +68,7 @@ class PayoutItemTest extends \PHPUnit_Framework_TestCase
      */
     public function testGet($obj, $mockApiContext)
     {
-        $mockPPRestCall = $this->getMockBuilder('\PayPal\Transport\PayPalRestCall')
+        $mockPPRestCall = $this->getMockBuilder('\PayPal\Rest\Transport\PayPalRestCall')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -88,7 +88,7 @@ class PayoutItemTest extends \PHPUnit_Framework_TestCase
      */
     public function testCancel($obj, $mockApiContext)
     {
-        $mockPPRestCall = $this->getMockBuilder('\PayPal\Transport\PayPalRestCall')
+        $mockPPRestCall = $this->getMockBuilder('\PayPal\Rest\Transport\PayPalRestCall')
             ->disableOriginalConstructor()
             ->getMock();
 

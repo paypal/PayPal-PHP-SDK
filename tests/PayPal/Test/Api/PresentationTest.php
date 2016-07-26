@@ -1,13 +1,13 @@
 <?php
 
-namespace PayPal\Test\Api;
+namespace PayPal\Rest\Test\Api;
 
-use PayPal\Api\Presentation;
+use PayPal\Rest\Api\Presentation;
 
 /**
  * Class Presentation
  *
- * @package PayPal\Test\Api
+ * @package PayPal\Rest\Test\Api
  */
 class PresentationTest extends \PHPUnit_Framework_TestCase
 {

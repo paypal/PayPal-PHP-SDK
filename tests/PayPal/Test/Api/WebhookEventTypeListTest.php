@@ -1,13 +1,13 @@
 <?php
 
-namespace PayPal\Test\Api;
+namespace PayPal\Rest\Test\Api;
 
-use PayPal\Api\WebhookEventTypeList;
+use PayPal\Rest\Api\WebhookEventTypeList;
 
 /**
  * Class WebhookEventTypeList
  *
- * @package PayPal\Test\Api
+ * @package PayPal\Rest\Test\Api
  */
 class WebhookEventTypeListTest extends \PHPUnit_Framework_TestCase
 {

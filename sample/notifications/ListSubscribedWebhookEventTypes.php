@@ -9,13 +9,13 @@
 // ## List Subscribed Event Types
 // Use this call to retrieve the list of events types that are subscribed to a webhook.
 
-/** @var \PayPal\Api\Webhook $webhook */
+/** @var \PayPal\Rest\Api\Webhook $webhook */
 $webhook = require 'CreateWebhook.php';
 $webhookId = $webhook->getId();
 
 // ### Get List of Subscribed Event Types
 try {
-    $output = \PayPal\Api\WebhookEventType::subscribedEventTypes($webhookId, $apiContext);
+    $output = \PayPal\Rest\Api\WebhookEventType::subscribedEventTypes($webhookId, $apiContext);
 } catch (Exception $ex) {
     // NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
  	ResultPrinter::printError("List subscribed webhook event types", "WebhookEventTypeList", null, $webhookId, $ex);

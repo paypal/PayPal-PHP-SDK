@@ -1,6 +1,6 @@
 <?php
 
-use PayPal\Common\PayPalModel;
+use PayPal\Rest\Common\PayPalModel;
 
 class SimpleModelTestClass extends PayPalModel
 {

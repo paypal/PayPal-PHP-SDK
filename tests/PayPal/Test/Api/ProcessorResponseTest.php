@@ -1,13 +1,13 @@
 <?php
 
-namespace PayPal\Test\Api;
+namespace PayPal\Rest\Test\Api;
 
-use PayPal\Api\ProcessorResponse;
+use PayPal\Rest\Api\ProcessorResponse;
 
 /**
  * Class ProcessorResponse
  *
- * @package PayPal\Test\Api
+ * @package PayPal\Rest\Test\Api
  */
 class ProcessorResponseTest extends \PHPUnit_Framework_TestCase
 {

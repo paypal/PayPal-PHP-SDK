@@ -1,13 +1,13 @@
 <?php
 
-namespace PayPal\Test\Api;
+namespace PayPal\Rest\Test\Api;
 
-use PayPal\Api\HyperSchema;
+use PayPal\Rest\Api\HyperSchema;
 
 /**
  * Class HyperSchema
  *
- * @package PayPal\Test\Api
+ * @package PayPal\Rest\Test\Api
  */
 class HyperSchemaTest extends \PHPUnit_Framework_TestCase
 {

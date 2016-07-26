@@ -13,9 +13,9 @@
 /** @var Plan $createdPlan */
 $createdPlan = require 'CreatePlan.php';
 
-use PayPal\Api\Patch;
-use PayPal\Api\PatchRequest;
-use PayPal\Api\Plan;
+use PayPal\Rest\Api\Patch;
+use PayPal\Rest\Api\PatchRequest;
+use PayPal\Rest\Api\Plan;
 
 try {
     $patch = new Patch();

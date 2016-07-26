@@ -1,13 +1,13 @@
 <?php
 
-namespace PayPal\Test\Api;
+namespace PayPal\Rest\Test\Api;
 
-use PayPal\Api\FmfDetails;
+use PayPal\Rest\Api\FmfDetails;
 
 /**
  * Class FmfDetails
  *
- * @package PayPal\Test\Api
+ * @package PayPal\Rest\Test\Api
  */
 class FmfDetailsTest extends \PHPUnit_Framework_TestCase
 {

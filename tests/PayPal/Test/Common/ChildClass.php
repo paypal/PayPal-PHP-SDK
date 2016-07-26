@@ -1,5 +1,5 @@
 <?php
-namespace PayPal\Test\Common;
+namespace PayPal\Rest\Test\Common;
 
 class ChildClass extends SimpleClass
 {

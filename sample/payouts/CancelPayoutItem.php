@@ -6,7 +6,7 @@
 // https://developer.paypal.com/docs/api/#cancel-an-unclaimed-payout-item
 // API used: POST /v1/payments/payouts-item/<Payout-Item-Id>/cancel
 
-/** @var \PayPal\Api\PayoutBatch $payoutBatch */
+/** @var \PayPal\Rest\Api\PayoutBatch $payoutBatch */
 $payoutBatch = require 'CreateSinglePayout.php';
 // ## Payout Item ID
 // You can replace this with your Payout Batch Id on already created Payout.
@@ -20,7 +20,7 @@ $output = null;
 try {
     if ($payoutItem->getTransactionStatus() == 'UNCLAIMED') {
         // Cancel the Payout Item
-        $output = \PayPal\Api\PayoutItem::cancel($payoutItemId, $apiContext);
+        $output = \PayPal\Rest\Api\PayoutItem::cancel($payoutItemId, $apiContext);
         // NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
         ResultPrinter::printResult("Cancel Unclaimed Payout Item", "PayoutItem", $output->getPayoutItemId(), null, $output);
     } else {

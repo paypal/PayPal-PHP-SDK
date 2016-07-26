@@ -10,7 +10,7 @@
 // API used: GET /v1/payments/payments
 
 require 'CreatePayment.php';
-use PayPal\Api\Payment;
+use PayPal\Rest\Api\Payment;
 
 
 // ### Retrieve payment

@@ -1,13 +1,13 @@
 <?php
 
-namespace PayPal\Test\Api;
+namespace PayPal\Rest\Test\Api;
 
-use PayPal\Api\PatchRequest;
+use PayPal\Rest\Api\PatchRequest;
 
 /**
  * Class PatchRequest
  *
- * @package PayPal\Test\Api
+ * @package PayPal\Rest\Test\Api
  */
 class PatchRequestTest extends \PHPUnit_Framework_TestCase
 {

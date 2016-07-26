@@ -1,21 +1,21 @@
 <?php
 
-namespace PayPal\Test\Functional\Api;
+namespace PayPal\Rest\Test\Functional\Api;
 
-use PayPal\Api\Patch;
-use PayPal\Api\PatchRequest;
-use PayPal\Api\Webhook;
-use PayPal\Api\WebhookEvent;
-use PayPal\Api\WebhookEventType;
-use PayPal\Api\WebhookEventTypeList;
-use PayPal\Api\WebhookList;
-use PayPal\Exception\PayPalConnectionException;
-use PayPal\Test\Functional\Setup;
+use PayPal\Rest\Api\Patch;
+use PayPal\Rest\Api\PatchRequest;
+use PayPal\Rest\Api\Webhook;
+use PayPal\Rest\Api\WebhookEvent;
+use PayPal\Rest\Api\WebhookEventType;
+use PayPal\Rest\Api\WebhookEventTypeList;
+use PayPal\Rest\Api\WebhookList;
+use PayPal\Rest\Exception\PayPalConnectionException;
+use PayPal\Rest\Test\Functional\Setup;
 
 /**
  * Class WebhookFunctionalTest
  *
- * @package PayPal\Test\Api
+ * @package PayPal\Rest\Test\Api
  */
 class WebhookFunctionalTest extends \PHPUnit_Framework_TestCase
 {

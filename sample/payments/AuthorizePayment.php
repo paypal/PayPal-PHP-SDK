@@ -6,13 +6,13 @@
 
 require __DIR__ . '/../bootstrap.php';
 
-use PayPal\Api\Address;
-use PayPal\Api\Amount;
-use PayPal\Api\CreditCard;
-use PayPal\Api\FundingInstrument;
-use PayPal\Api\Payer;
-use PayPal\Api\Payment;
-use PayPal\Api\Transaction;
+use PayPal\Rest\Api\Address;
+use PayPal\Rest\Api\Amount;
+use PayPal\Rest\Api\CreditCard;
+use PayPal\Rest\Api\FundingInstrument;
+use PayPal\Rest\Api\Payer;
+use PayPal\Rest\Api\Payment;
+use PayPal\Rest\Api\Transaction;
 
 // The biggest difference between creating a payment, and authorizing a payment is to set the intent of payment
 // to correct setting. In this case, it would be 'authorize'

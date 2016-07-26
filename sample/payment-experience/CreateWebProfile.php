@@ -8,14 +8,14 @@ require __DIR__ . '/../bootstrap.php';
 
 // Lets create an instance of FlowConfig and add
 // landing page type information
-$flowConfig = new \PayPal\Api\FlowConfig();
+$flowConfig = new \PayPal\Rest\Api\FlowConfig();
 // Type of PayPal page to be displayed when a user lands on the PayPal site for checkout. Allowed values: Billing or Login. When set to Billing, the Non-PayPal account landing page is used. When set to Login, the PayPal account login landing page is used.
 $flowConfig->setLandingPageType("Billing");
 // The URL on the merchant site for transferring to after a bank transfer payment.
 $flowConfig->setBankTxnPendingUrl("http://www.yeowza.com/");
 
 // Parameters for style and presentation.
-$presentation = new \PayPal\Api\Presentation();
+$presentation = new \PayPal\Rest\Api\Presentation();
 
 // A URL to logo image. Allowed vaues: .gif, .jpg, or .png.
 $presentation->setLogoImage("http://www.yeowza.com/favico.ico")
@@ -25,7 +25,7 @@ $presentation->setLogoImage("http://www.yeowza.com/favico.ico")
     ->setLocaleCode("US");
 
 // Parameters for input fields customization.
-$inputFields = new \PayPal\Api\InputFields();
+$inputFields = new \PayPal\Rest\Api\InputFields();
 // Enables the buyer to enter a note to the merchant on the PayPal page during checkout.
 $inputFields->setAllowNote(true)
     // Determines whether or not PayPal displays shipping address fields on the experience pages. Allowed values: 0, 1, or 2. When set to 0, PayPal displays the shipping address on the PayPal pages. When set to 1, PayPal does not display shipping address fields whatsoever. When set to 2, if you do not pass the shipping address, PayPal obtains it from the buyer’s account profile. For digital goods, this field is required, and you must set it to 1.
@@ -34,7 +34,7 @@ $inputFields->setAllowNote(true)
     ->setAddressOverride(0);
 
 // #### Payment Web experience profile resource
-$webProfile = new \PayPal\Api\WebProfile();
+$webProfile = new \PayPal\Rest\Api\WebProfile();
 
 // Name of the web experience profile. Required. Must be unique
 $webProfile->setName("YeowZa! T-Shirt Shop" . uniqid())
@@ -51,7 +51,7 @@ $request = clone $webProfile;
 try {
     // Use this call to create a profile.
     $createProfileResponse = $webProfile->create($apiContext);
-} catch (\PayPal\Exception\PayPalConnectionException $ex) {
+} catch (\PayPal\Rest\Exception\PayPalConnectionException $ex) {
     // NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
  	ResultPrinter::printError("Created Web Profile", "Web Profile", null, $request, $ex);
     exit(1);

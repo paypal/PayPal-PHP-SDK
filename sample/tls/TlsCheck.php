@@ -6,11 +6,11 @@
 // API used: /v1/payments/payment
 
 require __DIR__ . '/../bootstrap.php';
-use PayPal\Api\Amount;
-use PayPal\Api\Payer;
-use PayPal\Api\Payment;
-use PayPal\Api\RedirectUrls;
-use PayPal\Api\Transaction;
+use PayPal\Rest\Api\Amount;
+use PayPal\Rest\Api\Payer;
+use PayPal\Rest\Api\Payment;
+use PayPal\Rest\Api\RedirectUrls;
+use PayPal\Rest\Api\Transaction;
 
 // ## TLS Check
 // We will add a separate unique endpoint specifically set for testing TLS check instead of using

@@ -1,13 +1,13 @@
 <?php
 
-namespace PayPal\Test\Api;
+namespace PayPal\Rest\Test\Api;
 
-use PayPal\Api\MerchantPreferences;
+use PayPal\Rest\Api\MerchantPreferences;
 
 /**
  * Class MerchantPreferences
  *
- * @package PayPal\Test\Api
+ * @package PayPal\Rest\Test\Api
  */
 class MerchantPreferencesTest extends \PHPUnit_Framework_TestCase
 {

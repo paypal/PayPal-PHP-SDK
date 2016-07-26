@@ -114,7 +114,7 @@ class ResultPrinter
     public static function printError($title, $objectName, $objectId = null, $request = null, $exception = null)
     {
         $data = null;
-        if ($exception instanceof \PayPal\Exception\PayPalConnectionException) {
+        if ($exception instanceof \PayPal\Rest\Exception\PayPalConnectionException) {
             $data = $exception->getData();
         }
         self::printOutput($title, $objectName, $objectId, $request, $data, $exception->getMessage());
@@ -126,10 +126,10 @@ class ResultPrinter
             echo 'ERROR:'. $error;
         }
         if ($object) {
-            if (is_a($object, 'PayPal\Common\PayPalModel')) {
-                /** @var $object \PayPal\Common\PayPalModel */
+            if (is_a($object, 'PayPal\Rest\Common\PayPalModel')) {
+                /** @var $object \PayPal\Rest\Common\PayPalModel */
                 echo $object->toJSON(128);
-            } elseif (is_string($object) && \PayPal\Validation\JsonValidator::validate($object, true)) {
+            } elseif (is_string($object) && \PayPal\Rest\Validation\JsonValidator::validate($object, true)) {
                 echo str_replace('\\/', '/', json_encode(json_decode($object), 128));
             } elseif (is_string($object)) {
                 echo $object;
@@ -149,10 +149,10 @@ class ResultPrinter
             '</p>';
         }
         if ($object) {
-            if (is_a($object, 'PayPal\Common\PayPalModel')) {
-                /** @var $object \PayPal\Common\PayPalModel */
+            if (is_a($object, 'PayPal\Rest\Common\PayPalModel')) {
+                /** @var $object \PayPal\Rest\Common\PayPalModel */
                 echo '<pre class="prettyprint '. ($error ? 'error' : '') .'">' . $object->toJSON(128) . "</pre>";
-            } elseif (is_string($object) && \PayPal\Validation\JsonValidator::validate($object, true)) {
+            } elseif (is_string($object) && \PayPal\Rest\Validation\JsonValidator::validate($object, true)) {
                 echo '<pre class="prettyprint '. ($error ? 'error' : '') .'">'. str_replace('\\/', '/', json_encode(json_decode($object), 128)) . "</pre>";
             } elseif (is_string($object)) {
                 echo '<pre class="prettyprint '. ($error ? 'error' : '') .'">' . $object . '</pre>';

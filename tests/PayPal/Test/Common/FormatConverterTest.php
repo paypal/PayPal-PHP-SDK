@@ -1,15 +1,15 @@
 <?php
-namespace PayPal\Test\Common;
+namespace PayPal\Rest\Test\Common;
 
-use PayPal\Api\Amount;
-use PayPal\Api\Currency;
-use PayPal\Api\Details;
-use PayPal\Api\InvoiceItem;
-use PayPal\Api\Item;
-use PayPal\Api\Tax;
-use PayPal\Common\PayPalModel;
-use PayPal\Converter\FormatConverter;
-use PayPal\Test\Validation\NumericValidatorTest;
+use PayPal\Rest\Api\Amount;
+use PayPal\Rest\Api\Currency;
+use PayPal\Rest\Api\Details;
+use PayPal\Rest\Api\InvoiceItem;
+use PayPal\Rest\Api\Item;
+use PayPal\Rest\Api\Tax;
+use PayPal\Rest\Common\PayPalModel;
+use PayPal\Rest\Converter\FormatConverter;
+use PayPal\Rest\Test\Validation\NumericValidatorTest;
 
 class FormatConverterTest extends \PHPUnit_Framework_TestCase
 {
@@ -66,7 +66,7 @@ class FormatConverterTest extends \PHPUnit_Framework_TestCase
 
     /**
      *
-     * @dataProvider \PayPal\Test\Validation\NumericValidatorTest::positiveProvider
+     * @dataProvider \PayPal\Rest\Test\Validation\NumericValidatorTest::positiveProvider
      */
     public function testFormatToTwoDecimalPlaces($input, $expected)
     {
@@ -98,7 +98,7 @@ class FormatConverterTest extends \PHPUnit_Framework_TestCase
 
     /**
      *
-     * @dataProvider \PayPal\Test\Validation\NumericValidatorTest::positiveProvider
+     * @dataProvider \PayPal\Rest\Test\Validation\NumericValidatorTest::positiveProvider
      */
     public function testFormatToNumber($input, $expected)
     {

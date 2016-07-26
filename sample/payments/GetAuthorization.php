@@ -7,7 +7,7 @@
 /** @var Authorization $authorization */
 $authorization = require 'AuthorizePayment.php';
 $authorizationId = $authorization->getId();
-use PayPal\Api\Authorization;
+use PayPal\Rest\Api\Authorization;
 
 // ### GetAuthorization
 // You can retrieve info about an Authorization
