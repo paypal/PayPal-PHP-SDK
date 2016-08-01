@@ -65,7 +65,7 @@ configatron.wait_for_package_manager_method = method(:wait_for_package_manager)
 configatron.release_to_github = true
 
 def constant_version()
-  f=File.open("lib/PayPal/Core/PayPalConstants.php", 'r') do |f|
+  File.open("lib/PayPal/Core/PayPalConstants.php", 'r') do |f|
     f.each_line do |line|
       if line.match (/SDK_VERSION = \'\d+\.\d+\.\d+\'/)
         return line.strip.split('= ')[1].strip.split('\'')[1]
