@@ -31,7 +31,7 @@ class OAuthTokenCredential extends PayPalResourceModel
      *
      * @var int $expiryBufferTime
      */
-    private static $expiryBufferTime = 120;
+    public static $expiryBufferTime = 120;
 
     /**
      * Client ID as obtained from the developer portal
