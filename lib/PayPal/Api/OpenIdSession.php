@@ -53,7 +53,7 @@ class OpenIdSession
         if ($state) {
             $params['state'] = $state;
         }
-        return sprintf("%s/authorize?%s", self::getBaseUrl($config), http_build_query($params));
+        return sprintf("%s/signin/authorize?%s", self::getBaseUrl($config), http_build_query($params));
     }
 
 
@@ -80,7 +80,7 @@ class OpenIdSession
             'redirect_uri' => $redirectUri,
             'logout' => 'true'
         );
-        return sprintf("%s/endsession?%s", self::getBaseUrl($config), http_build_query($params));
+        return sprintf("%s/webapps/auth/protocol/openidconnect/v1/endsession?%s", self::getBaseUrl($config), http_build_query($params));
     }
 
     /**
