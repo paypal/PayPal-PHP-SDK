@@ -85,7 +85,7 @@ class OpenIdSessionTest extends \PHPUnit_Framework_TestCase
         $redirectUri = 'http://mywebsite.com';
         $idToken = 'abc';
 
-        $expectedBaseUrl = "https://www.paypal.com/signin/endsession";
+        $expectedBaseUrl = "https://www.paypal.com/webapps/auth/protocol/openidconnect/v1/endsession";
 
         $this->assertEquals($expectedBaseUrl . "?id_token=$idToken&redirect_uri=" . urlencode($redirectUri) . "&logout=true",
             OpenIdSession::getLogoutUrl($redirectUri, $idToken, $this->context), "Failed case - custom config");
