@@ -28,7 +28,7 @@ class ApiContext
      * This is a placeholder for holding credential for the request
      * If the value is not set, it would get the value from @\PayPal\Core\PayPalCredentialManager
      *
-     * @var \Paypal\Auth\OAuthTokenCredential
+     * @var \PayPal\Auth\OAuthTokenCredential
      */
     private $credential;
 
