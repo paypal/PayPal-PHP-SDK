@@ -2,7 +2,10 @@
 
 namespace PayPal\Api;
 
-use PayPal\Common\PayPalModel;
+use PayPal\Common\PayPalResourceModel;
+use PayPal\Rest\ApiContext;
+use PayPal\Transport\PayPalRestCall;
+use PayPal\Validation\ArgumentValidator;
 
 /**
  * Class Template
@@ -18,9 +21,8 @@ use PayPal\Common\PayPalModel;
  * @property \PayPal\Api\TemplateSettings[] settings
  * @property string unit_of_measure
  * @property bool custom
- * @property \PayPal\Api\Links[] links
  */
-class Template extends PayPalModel
+class Template extends PayPalResourceModel
 {
     /**
      * Unique identifier id of the template.
@@ -214,56 +216,94 @@ class Template extends PayPalModel
     }
 
     /**
-     * Sets Links
+     * Retrieve the details for a particular template by passing the template ID to the request URI.
      *
-     * @param \PayPal\Api\Links[] $links
-     * 
-     * @return $this
+     * @param string $templateId
+     * @param ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
+     * @param PayPalRestCall $restCall is the Rest Call Service that is used to make rest calls
+     * @return Template
      */
-    public function setLinks($links)
+    public static function get($templateId, $apiContext = null, $restCall = null)
     {
-        $this->links = $links;
+        ArgumentValidator::validate($templateId, 'templateId');
+        $payLoad = "";
+        $json = self::executeCall(
+            "/v1/invoicing/templates/$templateId",
+            "GET",
+            $payLoad,
+            null,
+            $apiContext,
+            $restCall
+        );
+        $ret = new Template();
+        $ret->fromJson($json);
+        return $ret;
+    }
+
+    /**
+     * Delete a particular template by passing the template ID to the request URI.
+     *
+     * @param ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
+     * @param PayPalRestCall $restCall is the Rest Call Service that is used to make rest calls
+     * @return bool
+     */
+    public function delete($apiContext = null, $restCall = null)
+    {
+        ArgumentValidator::validate($this->getTemplateId(), "Id");
+        $payLoad = "";
+        self::executeCall(
+            "/v1/invoicing/templates/{$this->getTemplateId()}",
+            "DELETE",
+            $payLoad,
+            null,
+            $apiContext,
+            $restCall
+        );
+        return true;
+    }
+
+    /**
+     * Creates a template.
+     *
+     * @param ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
+     * @param PayPalRestCall $restCall is the Rest Call Service that is used to make rest calls
+     * @return Template
+     */
+    public function create($apiContext = null, $restCall = null)
+    {
+        $json = self::executeCall(
+            "/v1/invoicing/templates",
+            "POST",
+            $this->toJSON(),
+            null,
+            $apiContext,
+            $restCall
+        );
+        $this->fromJson($json);
         return $this;
     }
 
     /**
-     * Gets Links
+     * Update an existing template by passing the template ID to the request URI. In addition, pass a complete template object in the request JSON. Partial updates are not supported.
      *
-     * @return \PayPal\Api\Links[]
+     * @param ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
+     * @param PayPalRestCall $restCall is the Rest Call Service that is used to make rest calls
+     * @return Template
      */
-    public function getLinks()
+    public function update($apiContext = null, $restCall = null)
     {
-        return $this->links;
-    }
-
-    /**
-     * Append Links to the list.
-     *
-     * @param \PayPal\Api\Links $links
-     * @return $this
-     */
-    public function addLink($links)
-    {
-        if (!$this->getLinks()) {
-            return $this->setLinks(array($links));
-        } else {
-            return $this->setLinks(
-                array_merge($this->getLinks(), array($links))
-            );
-        }
-    }
-
-    /**
-     * Remove Links from the list.
-     *
-     * @param \PayPal\Api\Links $links
-     * @return $this
-     */
-    public function removeLink($links)
-    {
-        return $this->setLinks(
-            array_diff($this->getLinks(), array($links))
+        ArgumentValidator::validate($this->getTemplateId(), "Id");
+        $payLoad = $this->toJSON();
+        $json = self::executeCall(
+            "/v1/invoicing/templates/{$this->getTemplateId()}",
+            "PUT",
+            $payLoad,
+            null,
+            $apiContext,
+            $restCall
         );
+        $this->fromJson($json);
+        return $this;
     }
 
 }
