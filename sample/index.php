@@ -1358,7 +1358,7 @@ if (PHP_SAPI == 'cli') {
                             <div class="col-md-4">
                                 <a href="invoice-templates/CreateInvoiceTemplate.php" class="btn btn-primary pull-left execute"> Try It <i
                                         class="fa fa-play-circle-o"></i></a>
-                                <a href="doc/invoice/GetNextInvoiceNumber.html" class="btn btn-default pull-right">Source <i
+                                <a href="doc/invoice-templates/CreateInvoiceTemplate.html" class="btn btn-default pull-right">Source <i
                                         class="fa fa-file-code-o"></i></a>
                             </div>
                         </div>
@@ -1369,7 +1369,7 @@ if (PHP_SAPI == 'cli') {
                             <div class="col-md-4">
                                 <a href="invoice-templates/GetInvoiceTemplate.php" class="btn btn-primary pull-left execute"> Try It <i
                                         class="fa fa-play-circle-o"></i></a>
-                                <a href="doc/invoice/CreateInvoice.html" class="btn btn-default pull-right">Source <i
+                                <a href="doc/invoice-templates/GetInvoiceTemplate.html" class="btn btn-default pull-right">Source <i
                                         class="fa fa-file-code-o"></i></a>
                             </div>
                         </div>
@@ -1380,7 +1380,7 @@ if (PHP_SAPI == 'cli') {
                             <div class="col-md-4">
                                 <a href="invoice-templates/UpdateInvoiceTemplate.php" class="btn btn-primary pull-left execute"> Try It <i
                                         class="fa fa-play-circle-o"></i></a>
-                                <a href="doc/invoice/CreateThirdPartyInvoice.html" class="btn btn-default pull-right">Source <i
+                                <a href="doc/invoice-templates/UpdateInvoiceTemplate.html" class="btn btn-default pull-right">Source <i
                                         class="fa fa-file-code-o"></i></a>
                             </div>
                         </div>
@@ -1391,7 +1391,7 @@ if (PHP_SAPI == 'cli') {
                             <div class="col-md-4">
                                 <a href="invoice-templates/DeleteInvoiceTemplate.php" class="btn btn-primary pull-left execute"> Try It <i
                                         class="fa fa-play-circle-o"></i></a>
-                                <a href="doc/invoice/SendInvoice.html" class="btn btn-default pull-right">Source <i
+                                <a href="doc/invoice-templates/DeleteInvoiceTemplate.html" class="btn btn-default pull-right">Source <i
                                         class="fa fa-file-code-o"></i></a>
                             </div>
                         </div>
@@ -1402,7 +1402,7 @@ if (PHP_SAPI == 'cli') {
                             <div class="col-md-4">
                                 <a href="invoice-templates/GetAllInvoiceTemplates.php" class="btn btn-primary pull-left execute"> Try It <i
                                         class="fa fa-play-circle-o"></i></a>
-                                <a href="doc/invoice/UpdateInvoice.html" class="btn btn-default pull-right">Source <i
+                                <a href="doc/invoice-templates/GetAllInvoiceTemplates.html" class="btn btn-default pull-right">Source <i
                                         class="fa fa-file-code-o"></i></a>
                             </div>
                         </div>
