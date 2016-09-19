@@ -18,6 +18,7 @@ use PayPal\Common\PayPalModel;
  * @property \PayPal\Api\TemplateSettings[] settings
  * @property string unit_of_measure
  * @property bool custom
+ * @property \PayPal\Api\Links[] links
  */
 class Template extends PayPalModel
 {
@@ -210,6 +211,59 @@ class Template extends PayPalModel
     public function getCustom()
     {
         return $this->custom;
+    }
+
+    /**
+     * Sets Links
+     *
+     * @param \PayPal\Api\Links[] $links
+     * 
+     * @return $this
+     */
+    public function setLinks($links)
+    {
+        $this->links = $links;
+        return $this;
+    }
+
+    /**
+     * Gets Links
+     *
+     * @return \PayPal\Api\Links[]
+     */
+    public function getLinks()
+    {
+        return $this->links;
+    }
+
+    /**
+     * Append Links to the list.
+     *
+     * @param \PayPal\Api\Links $links
+     * @return $this
+     */
+    public function addLink($links)
+    {
+        if (!$this->getLinks()) {
+            return $this->setLinks(array($links));
+        } else {
+            return $this->setLinks(
+                array_merge($this->getLinks(), array($links))
+            );
+        }
+    }
+
+    /**
+     * Remove Links from the list.
+     *
+     * @param \PayPal\Api\Links $links
+     * @return $this
+     */
+    public function removeLink($links)
+    {
+        return $this->setLinks(
+            array_diff($this->getLinks(), array($links))
+        );
     }
 
 }

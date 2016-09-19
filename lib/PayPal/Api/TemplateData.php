@@ -114,7 +114,7 @@ class TemplateData extends PayPalModel
     /**
      * For invoices sent by email, one or more email addresses to which to send a Cc: copy of the notification. Supports only email addresses under participant.
      *
-     * @param string $cc_info
+     * @param string[] $cc_info
      * 
      * @return $this
      */

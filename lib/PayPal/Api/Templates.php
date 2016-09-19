@@ -235,7 +235,7 @@ class Templates extends PayPalResourceModel
     }
 
     /**
-     * Shows the details for a template, by ID.
+     * Retrieve the details for a particular template by passing the template ID to the request URI.
      *
      * @param string $templateId
      * @param ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
@@ -260,7 +260,7 @@ class Templates extends PayPalResourceModel
     }
 
     /**
-     * Lists all templates for the merchant.
+     * Retrieves the template information of the merchant.
      *
      * @param array $params
      * @param ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
@@ -283,6 +283,79 @@ class Templates extends PayPalResourceModel
             $restCall
         );
         $ret = new Templates();
+        $ret->fromJson($json);
+        return $ret;
+    }
+
+    /**
+     * Delete a particular template by passing the template ID to the request URI.
+     *
+     * @param ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
+     * @param PayPalRestCall $restCall is the Rest Call Service that is used to make rest calls
+     * @return bool
+     */
+    public function delete($apiContext = null, $restCall = null)
+    {
+        ArgumentValidator::validate($this->getId(), "Id");
+        $payLoad = "";
+        self::executeCall(
+            "/v1/invoicing/templates/{$this->getId()}",
+            "DELETE",
+            $payLoad,
+            null,
+            $apiContext,
+            $restCall
+        );
+        return true;
+    }
+
+    /**
+     * Creates a template. 
+     *
+     * @param Template $template
+     * @param ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
+     * @param PayPalRestCall $restCall is the Rest Call Service that is used to make rest calls
+     * @return Template
+     */
+    public function create($template, $apiContext = null, $restCall = null)
+    {
+        ArgumentValidator::validate($template, 'template');
+        $payLoad = $template->toJSON();
+        $json = self::executeCall(
+            "/v1/invoicing/templates",
+            "POST",
+            $payLoad,
+            null,
+            $apiContext,
+            $restCall
+        );
+        $ret = new Template();
+        $ret->fromJson($json);
+        return $ret;
+    }
+
+    /**
+     * Update an existing template by passing the template ID to the request URI. In addition, pass a complete template object in the request JSON. Partial updates are not supported.
+     *
+     * @param Template $template
+     * @param ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
+     * @param PayPalRestCall $restCall is the Rest Call Service that is used to make rest calls
+     * @return Template
+     */
+    public function update($template, $apiContext = null, $restCall = null)
+    {
+        ArgumentValidator::validate($this->getId(), "Id");
+        ArgumentValidator::validate($template, 'template');
+        $payLoad = $template->toJSON();
+        $json = self::executeCall(
+            "/v1/invoicing/templates/{$this->getId()}",
+            "PUT",
+            $payLoad,
+            null,
+            $apiContext,
+            $restCall
+        );
+        $ret = new Template();
         $ret->fromJson($json);
         return $ret;
     }

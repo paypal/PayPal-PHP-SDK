@@ -1190,7 +1190,7 @@ class Invoice extends PayPalResourceModel
     }
 
     /**
-     * Fully updates an invoice by passing the invoice ID to the request URI. In addition, pass a complete invoice object in the request JSON. Does not support partial updates.
+     * Fully updates an invoice by passing the invoice ID to the request URI. In addition, pass a complete invoice object in the request JSON. Partial updates are not supported.
      *
      * @param ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
      * @param PayPalRestCall $restCall is the Rest Call Service that is used to make rest calls
@@ -1213,7 +1213,7 @@ class Invoice extends PayPalResourceModel
     }
 
     /**
-     * Deletes an invoice, by ID.
+     * Delete a particular invoice by passing the invoice ID to the request URI.
      *
      * @param ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
      * @param PayPalRestCall $restCall is the Rest Call Service that is used to make rest calls
@@ -1225,6 +1225,52 @@ class Invoice extends PayPalResourceModel
         $payLoad = "";
         self::executeCall(
             "/v1/invoicing/invoices/{$this->getId()}",
+            "DELETE",
+            $payLoad,
+            null,
+            $apiContext,
+            $restCall
+        );
+        return true;
+    }
+
+    /**
+     * Delete external payment.
+     *
+     * @param ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
+     * @param PayPalRestCall $restCall is the Rest Call Service that is used to make rest calls
+     * @return bool
+     */
+    public function deleteExternalPayment($transactionId, $apiContext = null, $restCall = null)
+    {
+        ArgumentValidator::validate($this->getId(), "Id");
+        ArgumentValidator::validate($transactionId, "TransactionId");
+        $payLoad = "";
+        self::executeCall(
+            "/v1/invoicing/invoices/{$this->getId()}/payment-records/{$transactionId}",
+            "DELETE",
+            $payLoad,
+            null,
+            $apiContext,
+            $restCall
+        );
+        return true;
+    }
+
+    /**
+     * Delete external refund.
+     *
+     * @param ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
+     * @param PayPalRestCall $restCall is the Rest Call Service that is used to make rest calls
+     * @return bool
+     */
+    public function deleteExternalRefund($transactionId, $apiContext = null, $restCall = null)
+    {
+        ArgumentValidator::validate($this->getId(), "Id");
+        ArgumentValidator::validate($transactionId, "TransactionId");
+        $payLoad = "";
+        self::executeCall(
+            "/v1/invoicing/invoices/{$this->getId()}/refund-records/{$transactionId}",
             "DELETE",
             $payLoad,
             null,
@@ -1269,7 +1315,7 @@ class Invoice extends PayPalResourceModel
     }
 
     /**
-     * Generate the successive invoice number for the merchant.
+     * Generates the successive invoice number.
      *
      * @param ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
      * @param PayPalRestCall $restCall is the Rest Call Service that is used to make rest calls

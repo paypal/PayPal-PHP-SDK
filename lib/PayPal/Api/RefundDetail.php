@@ -12,6 +12,7 @@ use PayPal\Common\PayPalModel;
  * @package PayPal\Api
  *
  * @property string type
+ * @property string transaction_id
  * @property string date
  * @property string note
  * @property \PayPal\Api\Currency amount
@@ -40,6 +41,29 @@ class RefundDetail extends PayPalModel
     public function getType()
     {
         return $this->type;
+    }
+
+    /**
+     * The PayPal refund transaction ID. Required with the `PAYPAL` refund type.
+     *
+     * @param string $transaction_id
+     * 
+     * @return $this
+     */
+    public function setTransactionId($transaction_id)
+    {
+        $this->transaction_id = $transaction_id;
+        return $this;
+    }
+
+    /**
+     * The PayPal refund transaction ID. Required with the `PAYPAL` refund type.
+     *
+     * @return string
+     */
+    public function getTransactionId()
+    {
+        return $this->transaction_id;
     }
 
     /**

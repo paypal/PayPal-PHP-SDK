@@ -80,7 +80,7 @@ class InvoiceItem extends PayPalModel
      */
     public function setQuantity($quantity)
     {
-        NumericValidator::validate($quantity, "Percent");
+        NumericValidator::validate($quantity, "Quantity");
         $quantity = FormatConverter::formatToPrice($quantity);
         $this->quantity = $quantity;
         return $this;
