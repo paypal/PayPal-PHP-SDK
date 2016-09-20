@@ -3,15 +3,15 @@
 namespace PayPal\Api;
 
 use PayPal\Common\PayPalResourceModel;
-use PayPal\Rest\ApiContext;
-use PayPal\Transport\PayPalRestCall;
 use PayPal\Validation\ArgumentValidator;
+use PayPal\Api\WebhookList;
+use PayPal\Rest\ApiContext;
 use PayPal\Validation\UrlValidator;
 
 /**
  * Class Webhook
  *
- * Represents Webhook resource.
+ * One or more webhook objects.
  *
  * @package PayPal\Api
  *
@@ -22,7 +22,7 @@ use PayPal\Validation\UrlValidator;
 class Webhook extends PayPalResourceModel
 {
     /**
-     * Identifier of the webhook resource.
+     * The ID of the webhook.
      *
      * @param string $id
      * 
@@ -35,7 +35,7 @@ class Webhook extends PayPalResourceModel
     }
 
     /**
-     * Identifier of the webhook resource.
+     * The ID of the webhook.
      *
      * @return string
      */
@@ -45,7 +45,7 @@ class Webhook extends PayPalResourceModel
     }
 
     /**
-     * Webhook notification endpoint url.
+     * The URL that is configured to listen on `localhost` for incoming `POST` notification messages that contain event information.
      *
      * @param string $url
      * @throws \InvalidArgumentException
@@ -59,7 +59,7 @@ class Webhook extends PayPalResourceModel
     }
 
     /**
-     * Webhook notification endpoint url.
+     * The URL that is configured to listen on `localhost` for incoming `POST` notification messages that contain event information.
      *
      * @return string
      */
@@ -69,7 +69,7 @@ class Webhook extends PayPalResourceModel
     }
 
     /**
-     * List of Webhooks event-types.
+     * A list of up to ten events to which to subscribe your webhook. To subscribe to all events including new events as they are added, specify the asterisk (`*`) wildcard. To replace the `event_types` array, specify the `*` wildcard. To see all supported events, [list available events](#available-event-type.list).
      *
      * @param \PayPal\Api\WebhookEventType[] $event_types
      * 
@@ -82,7 +82,7 @@ class Webhook extends PayPalResourceModel
     }
 
     /**
-     * List of Webhooks event-types.
+     * A list of up to ten events to which to subscribe your webhook. To subscribe to all events including new events as they are added, specify the asterisk (`*`) wildcard. To replace the `event_types` array, specify the `*` wildcard. To see all supported events, [list available events](#available-event-type.list).
      *
      * @return \PayPal\Api\WebhookEventType[]
      */
@@ -122,7 +122,7 @@ class Webhook extends PayPalResourceModel
     }
 
     /**
-     * Creates the Webhook for the application associated with the access token.
+     * Subscribes your webhook listener to events. A successful call returns a [`webhook`](/docs/api/webhooks/#definition-webhook) object, which includes the webhook ID for later use.
      *
      * @param ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
      * @param PayPalRestCall $restCall is the Rest Call Service that is used to make rest calls
@@ -144,7 +144,7 @@ class Webhook extends PayPalResourceModel
     }
 
     /**
-     * Retrieves the Webhook identified by webhook_id for the application associated with access token.
+     * Shows details for a webhook, by ID.
      *
      * @param string $webhookId
      * @param ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
@@ -171,15 +171,34 @@ class Webhook extends PayPalResourceModel
     /**
      * Retrieves all Webhooks for the application associated with access token.
      *
+     * @deprecated Please use Webhook#getAllWithParams instead.
+     *
      * @param ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
      * @param PayPalRestCall $restCall is the Rest Call Service that is used to make rest calls
      * @return WebhookList
      */
     public static function getAll($apiContext = null, $restCall = null)
     {
+        return self::getAllWithParams(array(), $apiContext, $restCall);
+    }
+
+    /**
+     * Lists all webhooks for an app.
+     *
+     * @param array $params
+     * @param ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
+     * @param PayPalRestCall $restCall is the Rest Call Service that is used to make rest calls
+     * @return WebhookList
+     */
+    public static function getAllWithParams($params = array(), $apiContext = null, $restCall = null)
+    {
+        ArgumentValidator::validate($params, 'params');
         $payLoad = "";
+        $allowedParams = array(
+            'anchor_type' => 1,
+        );
         $json = self::executeCall(
-            "/v1/notifications/webhooks",
+            "/v1/notifications/webhooks?" . http_build_query(array_intersect_key($params, $allowedParams)),
             "GET",
             $payLoad,
             null,
@@ -192,7 +211,7 @@ class Webhook extends PayPalResourceModel
     }
 
     /**
-     * Updates the Webhook identified by webhook_id for the application associated with access token.
+     * Replaces webhook fields with new values. Pass a `json_patch` object with `replace` operation and `path`, which is `/url` for a URL or `/event_types` for events. The `value` is either the URL or a list of events.
      *
      * @param PatchRequest $patchRequest
      * @param ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
@@ -217,7 +236,7 @@ class Webhook extends PayPalResourceModel
     }
 
     /**
-     * Deletes the Webhook identified by webhook_id for the application associated with access token.
+     * Deletes a webhook, by ID.
      *
      * @param ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
      * @param PayPalRestCall $restCall is the Rest Call Service that is used to make rest calls

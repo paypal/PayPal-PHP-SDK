@@ -7,7 +7,7 @@ use PayPal\Common\PayPalModel;
 /**
  * Class WebhookEventTypeList
  *
- * List of Webhooks event-types
+ * List of webhook events.
  *
  * @package PayPal\Api
  *
@@ -16,7 +16,7 @@ use PayPal\Common\PayPalModel;
 class WebhookEventTypeList extends PayPalModel
 {
     /**
-     * A list of Webhooks event-types
+     * A list of webhook events.
      *
      * @param \PayPal\Api\WebhookEventType[] $event_types
      * 
@@ -29,7 +29,7 @@ class WebhookEventTypeList extends PayPalModel
     }
 
     /**
-     * A list of Webhooks event-types
+     * A list of webhook events.
      *
      * @return \PayPal\Api\WebhookEventType[]
      */
