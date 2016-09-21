@@ -1181,7 +1181,7 @@ if (PHP_SAPI == 'cli') {
                             <div class="col-md-4">
                                 <a href="notifications/ValidateWebhookEvent.php" class="btn btn-primary pull-left execute"> Try It <i
                                         class="fa fa-play-circle-o"></i></a>
-                                <a href="doc/notifications/SearchWebhookEvents.html" class="btn btn-default pull-right">Source <i
+                                <a href="doc/notifications/ValidateWebhookEvent.html" class="btn btn-default pull-right">Source <i
                                         class="fa fa-file-code-o"></i></a>
                             </div>
                         </div>
