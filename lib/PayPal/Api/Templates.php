@@ -3,6 +3,7 @@
 namespace PayPal\Api;
 
 use PayPal\Common\PayPalResourceModel;
+use PayPal\Transport\PayPalRestCall;
 use PayPal\Validation\ArgumentValidator;
 use PayPal\Api\Template;
 use PayPal\Rest\ApiContext;
@@ -235,8 +236,10 @@ class Templates extends PayPalResourceModel
     }
 
     /**
-     * Shows the details for a template, by ID.
+     * Retrieve the details for a particular template by passing the template ID to the request URI.
      *
+     * @deprecated Please use `Template::get()` instead.
+     * @see Template::get
      * @param string $templateId
      * @param ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
      * @param PayPalRestCall $restCall is the Rest Call Service that is used to make rest calls
@@ -260,14 +263,14 @@ class Templates extends PayPalResourceModel
     }
 
     /**
-     * Lists all templates for the merchant.
+     * Retrieves the template information of the merchant.
      *
      * @param array $params
      * @param ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
      * @param PayPalRestCall $restCall is the Rest Call Service that is used to make rest calls
      * @return Templates
      */
-    public static function getAll($params, $apiContext = null, $restCall = null)
+    public static function getAll($params = array(), $apiContext = null, $restCall = null)
     {
         ArgumentValidator::validate($params, 'params');
         $payLoad = "";
@@ -286,5 +289,4 @@ class Templates extends PayPalResourceModel
         $ret->fromJson($json);
         return $ret;
     }
-
 }

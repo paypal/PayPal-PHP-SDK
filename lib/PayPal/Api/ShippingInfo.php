@@ -111,7 +111,7 @@ class ShippingInfo extends PayPalModel
     }
 
     /**
-     *
+     * @deprecated Not used anymore
      *
      * @param string $email
      * @return $this
@@ -123,7 +123,7 @@ class ShippingInfo extends PayPalModel
     }
 
     /**
-     *
+     * @deprecated Not used anymore
      *
      * @return string
      */

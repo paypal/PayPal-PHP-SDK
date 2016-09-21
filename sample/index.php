@@ -225,6 +225,7 @@ if (PHP_SAPI == 'cli') {
                     <li><a href="#experience">Payment Experience</a></li>
                     <li><a href="#notifications">Notifications</a></li>
                     <li><a href="#invoice">Invoice</a></li>
+                    <li><a href="#invoice-templates">Invoice Templates</a></li>
                     <li><a href="#identity">Identity (LIPP)</a></li>
                 </ul>
 
@@ -1340,6 +1341,73 @@ if (PHP_SAPI == 'cli') {
                             </div>
                         </div>
                     </li>
+                </ul>
+            </div>
+
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 id="invoice-templates" class="panel-title"><a
+                            href="https://developer.paypal.com/docs/api/invoicing/#templates"
+                            target="_blank">Invoice Templates</a></h3>
+                </div>
+                <!-- List group -->
+                <ul class="list-group">
+                    <li class="list-group-item">
+                        <div class="row">
+                            <div class="col-md-8"><h5>Create Invoice Template</h5></div>
+                            <div class="col-md-4">
+                                <a href="invoice-templates/CreateInvoiceTemplate.php" class="btn btn-primary pull-left execute"> Try It <i
+                                        class="fa fa-play-circle-o"></i></a>
+                                <a href="doc/invoice-templates/CreateInvoiceTemplate.html" class="btn btn-default pull-right">Source <i
+                                        class="fa fa-file-code-o"></i></a>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        <div class="row">
+                            <div class="col-md-8"><h5>Get Invoice Template</h5></div>
+                            <div class="col-md-4">
+                                <a href="invoice-templates/GetInvoiceTemplate.php" class="btn btn-primary pull-left execute"> Try It <i
+                                        class="fa fa-play-circle-o"></i></a>
+                                <a href="doc/invoice-templates/GetInvoiceTemplate.html" class="btn btn-default pull-right">Source <i
+                                        class="fa fa-file-code-o"></i></a>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        <div class="row">
+                            <div class="col-md-8"><h5>Update Invoice Template</h5></div>
+                            <div class="col-md-4">
+                                <a href="invoice-templates/UpdateInvoiceTemplate.php" class="btn btn-primary pull-left execute"> Try It <i
+                                        class="fa fa-play-circle-o"></i></a>
+                                <a href="doc/invoice-templates/UpdateInvoiceTemplate.html" class="btn btn-default pull-right">Source <i
+                                        class="fa fa-file-code-o"></i></a>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        <div class="row">
+                            <div class="col-md-8"><h5>Delete an Invoice Template</h5></div>
+                            <div class="col-md-4">
+                                <a href="invoice-templates/DeleteInvoiceTemplate.php" class="btn btn-primary pull-left execute"> Try It <i
+                                        class="fa fa-play-circle-o"></i></a>
+                                <a href="doc/invoice-templates/DeleteInvoiceTemplate.html" class="btn btn-default pull-right">Source <i
+                                        class="fa fa-file-code-o"></i></a>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        <div class="row">
+                            <div class="col-md-8"><h5>Get All Invoice Templates</h5></div>
+                            <div class="col-md-4">
+                                <a href="invoice-templates/GetAllInvoiceTemplates.php" class="btn btn-primary pull-left execute"> Try It <i
+                                        class="fa fa-play-circle-o"></i></a>
+                                <a href="doc/invoice-templates/GetAllInvoiceTemplates.html" class="btn btn-default pull-right">Source <i
+                                        class="fa fa-file-code-o"></i></a>
+                            </div>
+                        </div>
+                    </li>
+
                 </ul>
             </div>
 
