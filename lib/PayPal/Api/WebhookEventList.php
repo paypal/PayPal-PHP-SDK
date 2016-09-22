@@ -7,7 +7,7 @@ use PayPal\Common\PayPalModel;
 /**
  * Class WebhookEventList
  *
- * List of Webhooks event resources
+ * List of webhooks events.
  *
  * @package PayPal\Api
  *
@@ -18,7 +18,7 @@ use PayPal\Common\PayPalModel;
 class WebhookEventList extends PayPalModel
 {
     /**
-     * A list of Webhooks event resources
+     * A list of webhooks events.
      *
      * @param \PayPal\Api\WebhookEvent[] $events
      * 
@@ -31,7 +31,7 @@ class WebhookEventList extends PayPalModel
     }
 
     /**
-     * A list of Webhooks event resources
+     * A list of webhooks events.
      *
      * @return \PayPal\Api\WebhookEvent[]
      */
@@ -71,7 +71,7 @@ class WebhookEventList extends PayPalModel
     }
 
     /**
-     * Number of items returned in each range of results. Note that the last results range could have fewer items than the requested number of items.
+     * The number of items in each range of results. Note that the response might have fewer items than the requested `page_size` value.
      *
      * @param int $count
      * 
@@ -84,7 +84,7 @@ class WebhookEventList extends PayPalModel
     }
 
     /**
-     * Number of items returned in each range of results. Note that the last results range could have fewer items than the requested number of items.
+     * The number of items in each range of results. Note that the response might have fewer items than the requested `page_size` value.
      *
      * @return int
      */

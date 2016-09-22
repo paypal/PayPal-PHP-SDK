@@ -2,9 +2,11 @@
 
 namespace PayPal\Test\Api;
 
-use PayPal\Api\WebhookEvent;
-use PayPal\Exception\PayPalConnectionException;
+use PayPal\Common\PayPalResourceModel;
+use PayPal\Validation\ArgumentValidator;
+use PayPal\Api\WebhookEventList;
 use PayPal\Rest\ApiContext;
+use PayPal\Api\WebhookEvent;
 
 /**
  * Class WebhookEvent
@@ -19,7 +21,7 @@ class WebhookEventTest extends \PHPUnit_Framework_TestCase
      */
     public static function getJson()
     {
-        return '{"id":"TestSample","create_time":"TestSample","resource_type":"TestSample","event_type":"TestSample","summary":"TestSample","resource":"TestSampleObject","links":' .LinksTest::getJson() . '}';
+        return '{"id":"TestSample","create_time":"TestSample","resource_type":"TestSample","event_version":"TestSample","event_type":"TestSample","summary":"TestSample","resource":"TestSampleObject","status":"TestSample","transmissions":"TestSampleObject","links":' .LinksTest::getJson() . '}';
     }
 
     /**
@@ -43,9 +45,12 @@ class WebhookEventTest extends \PHPUnit_Framework_TestCase
         $this->assertNotNull($obj->getId());
         $this->assertNotNull($obj->getCreateTime());
         $this->assertNotNull($obj->getResourceType());
+        $this->assertNotNull($obj->getEventVersion());
         $this->assertNotNull($obj->getEventType());
         $this->assertNotNull($obj->getSummary());
         $this->assertNotNull($obj->getResource());
+        $this->assertNotNull($obj->getStatus());
+        $this->assertNotNull($obj->getTransmissions());
         $this->assertNotNull($obj->getLinks());
         $this->assertEquals(self::getJson(), $obj->toJson());
         return $obj;
@@ -60,9 +65,12 @@ class WebhookEventTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($obj->getId(), "TestSample");
         $this->assertEquals($obj->getCreateTime(), "TestSample");
         $this->assertEquals($obj->getResourceType(), "TestSample");
+        $this->assertEquals($obj->getEventVersion(), "TestSample");
         $this->assertEquals($obj->getEventType(), "TestSample");
         $this->assertEquals($obj->getSummary(), "TestSample");
         $this->assertEquals($obj->getResource(), "TestSampleObject");
+        $this->assertEquals($obj->getStatus(), "TestSample");
+        $this->assertEquals($obj->getTransmissions(), "TestSampleObject");
         $this->assertEquals($obj->getLinks(), LinksTest::getObject());
     }
 
@@ -72,17 +80,17 @@ class WebhookEventTest extends \PHPUnit_Framework_TestCase
      */
     public function testGet($obj, $mockApiContext)
     {
-        $mockPayPalRestCall = $this->getMockBuilder('\PayPal\Transport\PayPalRestCall')
+        $mockPPRestCall = $this->getMockBuilder('\PayPal\Transport\PayPalRestCall')
             ->disableOriginalConstructor()
             ->getMock();
 
-        $mockPayPalRestCall->expects($this->any())
+        $mockPPRestCall->expects($this->any())
             ->method('execute')
             ->will($this->returnValue(
                     WebhookEventTest::getJson()
             ));
 
-        $result = $obj->get("eventId", $mockApiContext, $mockPayPalRestCall);
+        $result = $obj->get("eventId", $mockApiContext, $mockPPRestCall);
         $this->assertNotNull($result);
     }
     /**
@@ -91,17 +99,18 @@ class WebhookEventTest extends \PHPUnit_Framework_TestCase
      */
     public function testResend($obj, $mockApiContext)
     {
-        $mockPayPalRestCall = $this->getMockBuilder('\PayPal\Transport\PayPalRestCall')
+        $mockPPRestCall = $this->getMockBuilder('\PayPal\Transport\PayPalRestCall')
             ->disableOriginalConstructor()
             ->getMock();
 
-        $mockPayPalRestCall->expects($this->any())
+        $mockPPRestCall->expects($this->any())
             ->method('execute')
             ->will($this->returnValue(
                     self::getJson()
             ));
+        $eventResend = EventResendTest::getObject();
 
-        $result = $obj->resend($mockApiContext, $mockPayPalRestCall);
+        $result = $obj->resend($eventResend, $mockApiContext, $mockPPRestCall);
         $this->assertNotNull($result);
     }
     /**
@@ -110,60 +119,18 @@ class WebhookEventTest extends \PHPUnit_Framework_TestCase
      */
     public function testList($obj, $mockApiContext)
     {
-        $mockPayPalRestCall = $this->getMockBuilder('\PayPal\Transport\PayPalRestCall')
+        $mockPPRestCall = $this->getMockBuilder('\PayPal\Transport\PayPalRestCall')
             ->disableOriginalConstructor()
             ->getMock();
 
-        $mockPayPalRestCall->expects($this->any())
+        $mockPPRestCall->expects($this->any())
             ->method('execute')
             ->will($this->returnValue(
                     WebhookEventListTest::getJson()
             ));
         $params = array();
 
-        $result = $obj->all($params, $mockApiContext, $mockPayPalRestCall);
-        $this->assertNotNull($result);
-    }
-
-    /**
-     * @dataProvider mockProvider
-     * @param WebhookEvent $obj
-     */
-    public function testValidateWebhook($obj, $mockApiContext)
-    {
-        $mockPayPalRestCall = $this->getMockBuilder('\PayPal\Transport\PayPalRestCall')
-            ->disableOriginalConstructor()
-            ->getMock();
-
-        $mockPayPalRestCall->expects($this->any())
-            ->method('execute')
-            ->will($this->returnValue(
-                WebhookEventTest::getJson()
-            ));
-
-        $result = WebhookEvent::validateAndGetReceivedEvent('{"id":"123"}', $mockApiContext, $mockPayPalRestCall);
-        //$result = $obj->get("eventId", $mockApiContext, $mockPayPalRestCall);
-        $this->assertNotNull($result);
-    }
-
-    /**
-     * @dataProvider mockProvider
-     * @param WebhookEvent $obj
-     * @param ApiContext $mockApiContext
-     * @expectedException \InvalidArgumentException
-     * @expectedExceptionMessage Webhook Event Id provided in the data is incorrect. This could happen if anyone other than PayPal is faking the incoming webhook data.
-     */
-    public function testValidateWebhook404($obj, $mockApiContext)
-    {
-        $mockPayPalRestCall = $this->getMockBuilder('\PayPal\Transport\PayPalRestCall')
-            ->disableOriginalConstructor()
-            ->getMock();
-
-        $mockPayPalRestCall->expects($this->any())
-            ->method('execute')
-            ->will($this->throwException(new PayPalConnectionException(null, "404 not found", 404)));
-
-        $result = WebhookEvent::validateAndGetReceivedEvent('{"id":"123"}', $mockApiContext, $mockPayPalRestCall);
+        $result = $obj->all($params, $mockApiContext, $mockPPRestCall);
         $this->assertNotNull($result);
     }
 
@@ -177,46 +144,5 @@ class WebhookEventTest extends \PHPUnit_Framework_TestCase
             array($obj, $mockApiContext),
             array($obj, null)
         );
-    }
-
-    /**
-     * @dataProvider mockProvider
-     * @expectedException \InvalidArgumentException
-     * @expectedExceptionMessage Body cannot be null or empty
-     */
-    public function testValidateWebhookNull($mockApiContext)
-    {
-        WebhookEvent::validateAndGetReceivedEvent(null, $mockApiContext);
-    }
-
-    /**
-     * @dataProvider mockProvider
-     * @expectedException \InvalidArgumentException
-     * @expectedExceptionMessage Body cannot be null or empty
-     */
-    public function testValidateWebhookEmpty($mockApiContext)
-    {
-        WebhookEvent::validateAndGetReceivedEvent('', $mockApiContext);
-    }
-
-    /**
-     * @dataProvider mockProvider
-     * @expectedException \InvalidArgumentException
-     * @expectedExceptionMessage Request Body is not a valid JSON.
-     */
-    public function testValidateWebhookInvalid($mockApiContext)
-    {
-        WebhookEvent::validateAndGetReceivedEvent('something-invalid', $mockApiContext);
-    }
-
-    /**
-     * @dataProvider mockProvider
-     * @param $mockApiContext ApiContext
-     * @expectedException \InvalidArgumentException
-     * @expectedExceptionMessage Id attribute not found in JSON. Possible reason could be invalid JSON Object
-     */
-    public function testValidateWebhookValidJSONWithoutId($obj, $mockApiContext)
-    {
-        WebhookEvent::validateAndGetReceivedEvent('{"summary":"json"}', $mockApiContext);
     }
 }

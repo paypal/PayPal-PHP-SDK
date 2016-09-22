@@ -3,55 +3,54 @@
 namespace PayPal\Test\Api;
 
 use PayPal\Common\PayPalModel;
-use PayPal\Api\WebhookEventTypeList;
+use PayPal\Api\VerifyWebhookSignatureResponse;
 
 /**
- * Class WebhookEventTypeList
+ * Class VerifyWebhookSignatureResponse
  *
  * @package PayPal\Test\Api
  */
-class WebhookEventTypeListTest extends \PHPUnit_Framework_TestCase
+class VerifyWebhookSignatureResponseTest extends \PHPUnit_Framework_TestCase
 {
     /**
-     * Gets Json String of Object WebhookEventTypeList
+     * Gets Json String of Object VerifyWebhookSignatureResponse
      * @return string
      */
     public static function getJson()
     {
-        return '{"event_types":' .WebhookEventTypeTest::getJson() . '}';
+        return '{"verification_status":"TestSample"}';
     }
 
     /**
      * Gets Object Instance with Json data filled in
-     * @return WebhookEventTypeList
+     * @return VerifyWebhookSignatureResponse
      */
     public static function getObject()
     {
-        return new WebhookEventTypeList(self::getJson());
+        return new VerifyWebhookSignatureResponse(self::getJson());
     }
 
 
     /**
      * Tests for Serialization and Deserialization Issues
-     * @return WebhookEventTypeList
+     * @return VerifyWebhookSignatureResponse
      */
     public function testSerializationDeserialization()
     {
-        $obj = new WebhookEventTypeList(self::getJson());
+        $obj = new VerifyWebhookSignatureResponse(self::getJson());
         $this->assertNotNull($obj);
-        $this->assertNotNull($obj->getEventTypes());
+        $this->assertNotNull($obj->getVerificationStatus());
         $this->assertEquals(self::getJson(), $obj->toJson());
         return $obj;
     }
 
     /**
      * @depends testSerializationDeserialization
-     * @param WebhookEventTypeList $obj
+     * @param VerifyWebhookSignatureResponse $obj
      */
     public function testGetters($obj)
     {
-        $this->assertEquals($obj->getEventTypes(), WebhookEventTypeTest::getObject());
+        $this->assertEquals($obj->getVerificationStatus(), "TestSample");
     }
-
 
 }

@@ -6,6 +6,25 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
 
   tableOfContents = [
     {
+      "type": "file",
+      "data": {
+        "language": {
+          "nameMatchers": [{}, ".fbp"],
+          "pygmentsLexer": "php",
+          "singleLineComment": ["//"],
+          "ignorePrefix": "}",
+          "foldPrefix": "^",
+          "name": "PHP"
+        },
+        "sourcePath": "/Users/scoffey/paypal/PayPal-PHP-SDK/sample/index.php",
+        "projectPath": "index.php",
+        "targetPath": "index",
+        "pageTitle": "index",
+        "title": "index"
+      },
+      "depth": 1,
+      "outline": []
+    }, {
       "type": "folder",
       "data": {
         "path": "billing",
@@ -24,7 +43,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "PHP"
             },
-            "sourcePath": "/home/travis/build/paypal/PayPal-PHP-SDK/sample/billing/CreateBillingAgreementWithCreditCard.php",
+            "sourcePath": "/Users/scoffey/paypal/PayPal-PHP-SDK/sample/billing/CreateBillingAgreementWithCreditCard.php",
             "projectPath": "billing/CreateBillingAgreementWithCreditCard.php",
             "targetPath": "billing/CreateBillingAgreementWithCreditCard",
             "pageTitle": "billing/CreateBillingAgreementWithCreditCard",
@@ -64,7 +83,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "PHP"
             },
-            "sourcePath": "/home/travis/build/paypal/PayPal-PHP-SDK/sample/billing/CreateBillingAgreementWithPayPal.php",
+            "sourcePath": "/Users/scoffey/paypal/PayPal-PHP-SDK/sample/billing/CreateBillingAgreementWithPayPal.php",
             "projectPath": "billing/CreateBillingAgreementWithPayPal.php",
             "targetPath": "billing/CreateBillingAgreementWithPayPal",
             "pageTitle": "billing/CreateBillingAgreementWithPayPal",
@@ -112,7 +131,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "PHP"
             },
-            "sourcePath": "/home/travis/build/paypal/PayPal-PHP-SDK/sample/billing/CreatePlan.php",
+            "sourcePath": "/Users/scoffey/paypal/PayPal-PHP-SDK/sample/billing/CreatePlan.php",
             "projectPath": "billing/CreatePlan.php",
             "targetPath": "billing/CreatePlan",
             "pageTitle": "billing/CreatePlan",
@@ -168,7 +187,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "PHP"
             },
-            "sourcePath": "/home/travis/build/paypal/PayPal-PHP-SDK/sample/billing/DeletePlan.php",
+            "sourcePath": "/Users/scoffey/paypal/PayPal-PHP-SDK/sample/billing/DeletePlan.php",
             "projectPath": "billing/DeletePlan.php",
             "targetPath": "billing/DeletePlan",
             "pageTitle": "billing/DeletePlan",
@@ -197,7 +216,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "PHP"
             },
-            "sourcePath": "/home/travis/build/paypal/PayPal-PHP-SDK/sample/billing/ExecuteAgreement.php",
+            "sourcePath": "/Users/scoffey/paypal/PayPal-PHP-SDK/sample/billing/ExecuteAgreement.php",
             "projectPath": "billing/ExecuteAgreement.php",
             "targetPath": "billing/ExecuteAgreement",
             "pageTitle": "billing/ExecuteAgreement",
@@ -253,7 +272,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "PHP"
             },
-            "sourcePath": "/home/travis/build/paypal/PayPal-PHP-SDK/sample/billing/GetBillingAgreement.php",
+            "sourcePath": "/Users/scoffey/paypal/PayPal-PHP-SDK/sample/billing/GetBillingAgreement.php",
             "projectPath": "billing/GetBillingAgreement.php",
             "targetPath": "billing/GetBillingAgreement",
             "pageTitle": "billing/GetBillingAgreement",
@@ -282,7 +301,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "PHP"
             },
-            "sourcePath": "/home/travis/build/paypal/PayPal-PHP-SDK/sample/billing/GetPlan.php",
+            "sourcePath": "/Users/scoffey/paypal/PayPal-PHP-SDK/sample/billing/GetPlan.php",
             "projectPath": "billing/GetPlan.php",
             "targetPath": "billing/GetPlan",
             "pageTitle": "billing/GetPlan",
@@ -311,7 +330,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "PHP"
             },
-            "sourcePath": "/home/travis/build/paypal/PayPal-PHP-SDK/sample/billing/ListPlans.php",
+            "sourcePath": "/Users/scoffey/paypal/PayPal-PHP-SDK/sample/billing/ListPlans.php",
             "projectPath": "billing/ListPlans.php",
             "targetPath": "billing/ListPlans",
             "pageTitle": "billing/ListPlans",
@@ -340,7 +359,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "PHP"
             },
-            "sourcePath": "/home/travis/build/paypal/PayPal-PHP-SDK/sample/billing/ReactivateBillingAgreement.php",
+            "sourcePath": "/Users/scoffey/paypal/PayPal-PHP-SDK/sample/billing/ReactivateBillingAgreement.php",
             "projectPath": "billing/ReactivateBillingAgreement.php",
             "targetPath": "billing/ReactivateBillingAgreement",
             "pageTitle": "billing/ReactivateBillingAgreement",
@@ -369,7 +388,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "PHP"
             },
-            "sourcePath": "/home/travis/build/paypal/PayPal-PHP-SDK/sample/billing/SearchBillingTransactions.php",
+            "sourcePath": "/Users/scoffey/paypal/PayPal-PHP-SDK/sample/billing/SearchBillingTransactions.php",
             "projectPath": "billing/SearchBillingTransactions.php",
             "targetPath": "billing/SearchBillingTransactions",
             "pageTitle": "billing/SearchBillingTransactions",
@@ -398,7 +417,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "PHP"
             },
-            "sourcePath": "/home/travis/build/paypal/PayPal-PHP-SDK/sample/billing/SuspendBillingAgreement.php",
+            "sourcePath": "/Users/scoffey/paypal/PayPal-PHP-SDK/sample/billing/SuspendBillingAgreement.php",
             "projectPath": "billing/SuspendBillingAgreement.php",
             "targetPath": "billing/SuspendBillingAgreement",
             "pageTitle": "billing/SuspendBillingAgreement",
@@ -427,7 +446,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "PHP"
             },
-            "sourcePath": "/home/travis/build/paypal/PayPal-PHP-SDK/sample/billing/UpdateBillingAgreement.php",
+            "sourcePath": "/Users/scoffey/paypal/PayPal-PHP-SDK/sample/billing/UpdateBillingAgreement.php",
             "projectPath": "billing/UpdateBillingAgreement.php",
             "targetPath": "billing/UpdateBillingAgreement",
             "pageTitle": "billing/UpdateBillingAgreement",
@@ -456,7 +475,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "PHP"
             },
-            "sourcePath": "/home/travis/build/paypal/PayPal-PHP-SDK/sample/billing/UpdatePlan.php",
+            "sourcePath": "/Users/scoffey/paypal/PayPal-PHP-SDK/sample/billing/UpdatePlan.php",
             "projectPath": "billing/UpdatePlan.php",
             "targetPath": "billing/UpdatePlan",
             "pageTitle": "billing/UpdatePlan",
@@ -496,7 +515,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "PHP"
             },
-            "sourcePath": "/home/travis/build/paypal/PayPal-PHP-SDK/sample/billing/UpdatePlanPaymentDefinitions.php",
+            "sourcePath": "/Users/scoffey/paypal/PayPal-PHP-SDK/sample/billing/UpdatePlanPaymentDefinitions.php",
             "projectPath": "billing/UpdatePlanPaymentDefinitions.php",
             "targetPath": "billing/UpdatePlanPaymentDefinitions",
             "pageTitle": "billing/UpdatePlanPaymentDefinitions",
@@ -528,6 +547,62 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
         }
       ]
     }, {
+      "type": "file",
+      "data": {
+        "language": {
+          "nameMatchers": [{}, ".fbp"],
+          "pygmentsLexer": "php",
+          "singleLineComment": ["//"],
+          "ignorePrefix": "}",
+          "foldPrefix": "^",
+          "name": "PHP"
+        },
+        "sourcePath": "/Users/scoffey/paypal/PayPal-PHP-SDK/sample/bootstrap.php",
+        "projectPath": "bootstrap.php",
+        "targetPath": "bootstrap",
+        "pageTitle": "bootstrap",
+        "title": "bootstrap"
+      },
+      "depth": 1,
+      "outline": [
+        {
+          "type": "heading",
+          "data": {
+            "level": 4,
+            "title": "SDK configuration",
+            "slug": "sdk-configuration"
+          },
+          "depth": 4
+        }, {
+          "type": "heading",
+          "data": {
+            "level": 3,
+            "title": "Api context",
+            "slug": "api-context"
+          },
+          "depth": 3
+        }
+      ]
+    }, {
+      "type": "file",
+      "data": {
+        "language": {
+          "nameMatchers": [{}, ".fbp"],
+          "pygmentsLexer": "php",
+          "singleLineComment": ["//"],
+          "ignorePrefix": "}",
+          "foldPrefix": "^",
+          "name": "PHP"
+        },
+        "sourcePath": "/Users/scoffey/paypal/PayPal-PHP-SDK/sample/common.php",
+        "projectPath": "common.php",
+        "targetPath": "common",
+        "pageTitle": "common",
+        "title": "common"
+      },
+      "depth": 1,
+      "outline": []
+    }, {
       "type": "folder",
       "data": {
         "path": "invoice",
@@ -546,7 +621,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "PHP"
             },
-            "sourcePath": "/home/travis/build/paypal/PayPal-PHP-SDK/sample/invoice/CancelInvoice.php",
+            "sourcePath": "/Users/scoffey/paypal/PayPal-PHP-SDK/sample/invoice/CancelInvoice.php",
             "projectPath": "invoice/CancelInvoice.php",
             "targetPath": "invoice/CancelInvoice",
             "pageTitle": "invoice/CancelInvoice",
@@ -594,7 +669,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "PHP"
             },
-            "sourcePath": "/home/travis/build/paypal/PayPal-PHP-SDK/sample/invoice/CreateInvoice.php",
+            "sourcePath": "/Users/scoffey/paypal/PayPal-PHP-SDK/sample/invoice/CreateInvoice.php",
             "projectPath": "invoice/CreateInvoice.php",
             "targetPath": "invoice/CreateInvoice",
             "pageTitle": "invoice/CreateInvoice",
@@ -717,7 +792,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "PHP"
             },
-            "sourcePath": "/home/travis/build/paypal/PayPal-PHP-SDK/sample/invoice/CreateThirdPartyInvoice.php",
+            "sourcePath": "/Users/scoffey/paypal/PayPal-PHP-SDK/sample/invoice/CreateThirdPartyInvoice.php",
             "projectPath": "invoice/CreateThirdPartyInvoice.php",
             "targetPath": "invoice/CreateThirdPartyInvoice",
             "pageTitle": "invoice/CreateThirdPartyInvoice",
@@ -813,7 +888,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "PHP"
             },
-            "sourcePath": "/home/travis/build/paypal/PayPal-PHP-SDK/sample/invoice/DeleteInvoice.php",
+            "sourcePath": "/Users/scoffey/paypal/PayPal-PHP-SDK/sample/invoice/DeleteInvoice.php",
             "projectPath": "invoice/DeleteInvoice.php",
             "targetPath": "invoice/DeleteInvoice",
             "pageTitle": "invoice/DeleteInvoice",
@@ -853,7 +928,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "PHP"
             },
-            "sourcePath": "/home/travis/build/paypal/PayPal-PHP-SDK/sample/invoice/GetInvoice.php",
+            "sourcePath": "/Users/scoffey/paypal/PayPal-PHP-SDK/sample/invoice/GetInvoice.php",
             "projectPath": "invoice/GetInvoice.php",
             "targetPath": "invoice/GetInvoice",
             "pageTitle": "invoice/GetInvoice",
@@ -893,7 +968,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "PHP"
             },
-            "sourcePath": "/home/travis/build/paypal/PayPal-PHP-SDK/sample/invoice/GetNextInvoiceNumber.php",
+            "sourcePath": "/Users/scoffey/paypal/PayPal-PHP-SDK/sample/invoice/GetNextInvoiceNumber.php",
             "projectPath": "invoice/GetNextInvoiceNumber.php",
             "targetPath": "invoice/GetNextInvoiceNumber",
             "pageTitle": "invoice/GetNextInvoiceNumber",
@@ -933,7 +1008,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "PHP"
             },
-            "sourcePath": "/home/travis/build/paypal/PayPal-PHP-SDK/sample/invoice/ListInvoice.php",
+            "sourcePath": "/Users/scoffey/paypal/PayPal-PHP-SDK/sample/invoice/ListInvoice.php",
             "projectPath": "invoice/ListInvoice.php",
             "targetPath": "invoice/ListInvoice",
             "pageTitle": "invoice/ListInvoice",
@@ -973,7 +1048,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "PHP"
             },
-            "sourcePath": "/home/travis/build/paypal/PayPal-PHP-SDK/sample/invoice/RecordPayment.php",
+            "sourcePath": "/Users/scoffey/paypal/PayPal-PHP-SDK/sample/invoice/RecordPayment.php",
             "projectPath": "invoice/RecordPayment.php",
             "targetPath": "invoice/RecordPayment",
             "pageTitle": "invoice/RecordPayment",
@@ -1029,7 +1104,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "PHP"
             },
-            "sourcePath": "/home/travis/build/paypal/PayPal-PHP-SDK/sample/invoice/RecordRefund.php",
+            "sourcePath": "/Users/scoffey/paypal/PayPal-PHP-SDK/sample/invoice/RecordRefund.php",
             "projectPath": "invoice/RecordRefund.php",
             "targetPath": "invoice/RecordRefund",
             "pageTitle": "invoice/RecordRefund",
@@ -1085,7 +1160,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "PHP"
             },
-            "sourcePath": "/home/travis/build/paypal/PayPal-PHP-SDK/sample/invoice/RemindInvoice.php",
+            "sourcePath": "/Users/scoffey/paypal/PayPal-PHP-SDK/sample/invoice/RemindInvoice.php",
             "projectPath": "invoice/RemindInvoice.php",
             "targetPath": "invoice/RemindInvoice",
             "pageTitle": "invoice/RemindInvoice",
@@ -1141,7 +1216,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "PHP"
             },
-            "sourcePath": "/home/travis/build/paypal/PayPal-PHP-SDK/sample/invoice/RetrieveQRCode.php",
+            "sourcePath": "/Users/scoffey/paypal/PayPal-PHP-SDK/sample/invoice/RetrieveQRCode.php",
             "projectPath": "invoice/RetrieveQRCode.php",
             "targetPath": "invoice/RetrieveQRCode",
             "pageTitle": "invoice/RetrieveQRCode",
@@ -1197,7 +1272,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "PHP"
             },
-            "sourcePath": "/home/travis/build/paypal/PayPal-PHP-SDK/sample/invoice/SearchInvoices.php",
+            "sourcePath": "/Users/scoffey/paypal/PayPal-PHP-SDK/sample/invoice/SearchInvoices.php",
             "projectPath": "invoice/SearchInvoices.php",
             "targetPath": "invoice/SearchInvoices",
             "pageTitle": "invoice/SearchInvoices",
@@ -1245,7 +1320,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "PHP"
             },
-            "sourcePath": "/home/travis/build/paypal/PayPal-PHP-SDK/sample/invoice/SendInvoice.php",
+            "sourcePath": "/Users/scoffey/paypal/PayPal-PHP-SDK/sample/invoice/SendInvoice.php",
             "projectPath": "invoice/SendInvoice.php",
             "targetPath": "invoice/SendInvoice",
             "pageTitle": "invoice/SendInvoice",
@@ -1293,7 +1368,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "PHP"
             },
-            "sourcePath": "/home/travis/build/paypal/PayPal-PHP-SDK/sample/invoice/UpdateInvoice.php",
+            "sourcePath": "/Users/scoffey/paypal/PayPal-PHP-SDK/sample/invoice/UpdateInvoice.php",
             "projectPath": "invoice/UpdateInvoice.php",
             "targetPath": "invoice/UpdateInvoice",
             "pageTitle": "invoice/UpdateInvoice",
@@ -1367,7 +1442,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "PHP"
             },
-            "sourcePath": "/home/travis/build/paypal/PayPal-PHP-SDK/sample/lipp/GenerateAccessTokenFromRefreshToken.php",
+            "sourcePath": "/Users/scoffey/paypal/PayPal-PHP-SDK/sample/lipp/GenerateAccessTokenFromRefreshToken.php",
             "projectPath": "lipp/GenerateAccessTokenFromRefreshToken.php",
             "targetPath": "lipp/GenerateAccessTokenFromRefreshToken",
             "pageTitle": "lipp/GenerateAccessTokenFromRefreshToken",
@@ -1396,7 +1471,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "PHP"
             },
-            "sourcePath": "/home/travis/build/paypal/PayPal-PHP-SDK/sample/lipp/GetUserInfo.php",
+            "sourcePath": "/Users/scoffey/paypal/PayPal-PHP-SDK/sample/lipp/GetUserInfo.php",
             "projectPath": "lipp/GetUserInfo.php",
             "targetPath": "lipp/GetUserInfo",
             "pageTitle": "lipp/GetUserInfo",
@@ -1425,7 +1500,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "PHP"
             },
-            "sourcePath": "/home/travis/build/paypal/PayPal-PHP-SDK/sample/lipp/ObtainUserConsent.php",
+            "sourcePath": "/Users/scoffey/paypal/PayPal-PHP-SDK/sample/lipp/ObtainUserConsent.php",
             "projectPath": "lipp/ObtainUserConsent.php",
             "targetPath": "lipp/ObtainUserConsent",
             "pageTitle": "lipp/ObtainUserConsent",
@@ -1454,7 +1529,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "PHP"
             },
-            "sourcePath": "/home/travis/build/paypal/PayPal-PHP-SDK/sample/lipp/UserConsentRedirect.php",
+            "sourcePath": "/Users/scoffey/paypal/PayPal-PHP-SDK/sample/lipp/UserConsentRedirect.php",
             "projectPath": "lipp/UserConsentRedirect.php",
             "targetPath": "lipp/UserConsentRedirect",
             "pageTitle": "lipp/UserConsentRedirect",
@@ -1493,7 +1568,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "PHP"
             },
-            "sourcePath": "/home/travis/build/paypal/PayPal-PHP-SDK/sample/notifications/CreateWebhook.php",
+            "sourcePath": "/Users/scoffey/paypal/PayPal-PHP-SDK/sample/notifications/CreateWebhook.php",
             "projectPath": "notifications/CreateWebhook.php",
             "targetPath": "notifications/CreateWebhook",
             "pageTitle": "notifications/CreateWebhook",
@@ -1560,7 +1635,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "PHP"
             },
-            "sourcePath": "/home/travis/build/paypal/PayPal-PHP-SDK/sample/notifications/DeleteAllWebhooks.php",
+            "sourcePath": "/Users/scoffey/paypal/PayPal-PHP-SDK/sample/notifications/DeleteAllWebhooks.php",
             "projectPath": "notifications/DeleteAllWebhooks.php",
             "targetPath": "notifications/DeleteAllWebhooks",
             "pageTitle": "notifications/DeleteAllWebhooks",
@@ -1611,7 +1686,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "PHP"
             },
-            "sourcePath": "/home/travis/build/paypal/PayPal-PHP-SDK/sample/notifications/DeleteWebhook.php",
+            "sourcePath": "/Users/scoffey/paypal/PayPal-PHP-SDK/sample/notifications/DeleteWebhook.php",
             "projectPath": "notifications/DeleteWebhook.php",
             "targetPath": "notifications/DeleteWebhook",
             "pageTitle": "notifications/DeleteWebhook",
@@ -1662,7 +1737,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "PHP"
             },
-            "sourcePath": "/home/travis/build/paypal/PayPal-PHP-SDK/sample/notifications/GetWebhook.php",
+            "sourcePath": "/Users/scoffey/paypal/PayPal-PHP-SDK/sample/notifications/GetWebhook.php",
             "projectPath": "notifications/GetWebhook.php",
             "targetPath": "notifications/GetWebhook",
             "pageTitle": "notifications/GetWebhook",
@@ -1713,7 +1788,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "PHP"
             },
-            "sourcePath": "/home/travis/build/paypal/PayPal-PHP-SDK/sample/notifications/ListSubscribedWebhookEventTypes.php",
+            "sourcePath": "/Users/scoffey/paypal/PayPal-PHP-SDK/sample/notifications/ListSubscribedWebhookEventTypes.php",
             "projectPath": "notifications/ListSubscribedWebhookEventTypes.php",
             "targetPath": "notifications/ListSubscribedWebhookEventTypes",
             "pageTitle": "notifications/ListSubscribedWebhookEventTypes",
@@ -1764,7 +1839,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "PHP"
             },
-            "sourcePath": "/home/travis/build/paypal/PayPal-PHP-SDK/sample/notifications/ListWebhooks.php",
+            "sourcePath": "/Users/scoffey/paypal/PayPal-PHP-SDK/sample/notifications/ListWebhooks.php",
             "projectPath": "notifications/ListWebhooks.php",
             "targetPath": "notifications/ListWebhooks",
             "pageTitle": "notifications/ListWebhooks",
@@ -1815,7 +1890,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "PHP"
             },
-            "sourcePath": "/home/travis/build/paypal/PayPal-PHP-SDK/sample/notifications/SearchWebhookEvents.php",
+            "sourcePath": "/Users/scoffey/paypal/PayPal-PHP-SDK/sample/notifications/SearchWebhookEvents.php",
             "projectPath": "notifications/SearchWebhookEvents.php",
             "targetPath": "notifications/SearchWebhookEvents",
             "pageTitle": "notifications/SearchWebhookEvents",
@@ -1874,7 +1949,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "PHP"
             },
-            "sourcePath": "/home/travis/build/paypal/PayPal-PHP-SDK/sample/notifications/UpdateWebhook.php",
+            "sourcePath": "/Users/scoffey/paypal/PayPal-PHP-SDK/sample/notifications/UpdateWebhook.php",
             "projectPath": "notifications/UpdateWebhook.php",
             "targetPath": "notifications/UpdateWebhook",
             "pageTitle": "notifications/UpdateWebhook",
@@ -1925,7 +2000,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "PHP"
             },
-            "sourcePath": "/home/travis/build/paypal/PayPal-PHP-SDK/sample/notifications/ValidateWebhookEvent.php",
+            "sourcePath": "/Users/scoffey/paypal/PayPal-PHP-SDK/sample/notifications/ValidateWebhookEvent.php",
             "projectPath": "notifications/ValidateWebhookEvent.php",
             "targetPath": "notifications/ValidateWebhookEvent",
             "pageTitle": "notifications/ValidateWebhookEvent",
@@ -1940,29 +2015,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 "title": "Validate Webhook",
                 "slug": "validate-webhook"
               },
-              "depth": 1,
-              "children": [
-                {
-                  "type": "heading",
-                  "data": {
-                    "level": 2,
-                    "title": "Received Body from Webhook",
-                    "slug": "received-body-from-webhook"
-                  },
-                  "depth": 2,
-                  "children": [
-                    {
-                      "type": "heading",
-                      "data": {
-                        "level": 3,
-                        "title": "Validate Received Event Method",
-                        "slug": "validate-received-event-method"
-                      },
-                      "depth": 3
-                    }
-                  ]
-                }
-              ]
+              "depth": 1
             }
           ]
         }, {
@@ -1976,7 +2029,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "PHP"
             },
-            "sourcePath": "/home/travis/build/paypal/PayPal-PHP-SDK/sample/notifications/WebhookEventTypesList.php",
+            "sourcePath": "/Users/scoffey/paypal/PayPal-PHP-SDK/sample/notifications/WebhookEventTypesList.php",
             "projectPath": "notifications/WebhookEventTypesList.php",
             "targetPath": "notifications/WebhookEventTypesList",
             "pageTitle": "notifications/WebhookEventTypesList",
@@ -2026,7 +2079,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "PHP"
             },
-            "sourcePath": "/home/travis/build/paypal/PayPal-PHP-SDK/sample/payment-experience/CreateWebProfile.php",
+            "sourcePath": "/Users/scoffey/paypal/PayPal-PHP-SDK/sample/payment-experience/CreateWebProfile.php",
             "projectPath": "payment-experience/CreateWebProfile.php",
             "targetPath": "payment-experience/CreateWebProfile",
             "pageTitle": "payment-experience/CreateWebProfile",
@@ -2066,7 +2119,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "PHP"
             },
-            "sourcePath": "/home/travis/build/paypal/PayPal-PHP-SDK/sample/payment-experience/DeleteWebProfile.php",
+            "sourcePath": "/Users/scoffey/paypal/PayPal-PHP-SDK/sample/payment-experience/DeleteWebProfile.php",
             "projectPath": "payment-experience/DeleteWebProfile.php",
             "targetPath": "payment-experience/DeleteWebProfile",
             "pageTitle": "payment-experience/DeleteWebProfile",
@@ -2095,7 +2148,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "PHP"
             },
-            "sourcePath": "/home/travis/build/paypal/PayPal-PHP-SDK/sample/payment-experience/GetWebProfile.php",
+            "sourcePath": "/Users/scoffey/paypal/PayPal-PHP-SDK/sample/payment-experience/GetWebProfile.php",
             "projectPath": "payment-experience/GetWebProfile.php",
             "targetPath": "payment-experience/GetWebProfile",
             "pageTitle": "payment-experience/GetWebProfile",
@@ -2124,7 +2177,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "PHP"
             },
-            "sourcePath": "/home/travis/build/paypal/PayPal-PHP-SDK/sample/payment-experience/ListWebProfiles.php",
+            "sourcePath": "/Users/scoffey/paypal/PayPal-PHP-SDK/sample/payment-experience/ListWebProfiles.php",
             "projectPath": "payment-experience/ListWebProfiles.php",
             "targetPath": "payment-experience/ListWebProfiles",
             "pageTitle": "payment-experience/ListWebProfiles",
@@ -2153,7 +2206,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "PHP"
             },
-            "sourcePath": "/home/travis/build/paypal/PayPal-PHP-SDK/sample/payment-experience/PartiallyUpdateWebProfile.php",
+            "sourcePath": "/Users/scoffey/paypal/PayPal-PHP-SDK/sample/payment-experience/PartiallyUpdateWebProfile.php",
             "projectPath": "payment-experience/PartiallyUpdateWebProfile.php",
             "targetPath": "payment-experience/PartiallyUpdateWebProfile",
             "pageTitle": "payment-experience/PartiallyUpdateWebProfile",
@@ -2190,7 +2243,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "PHP"
             },
-            "sourcePath": "/home/travis/build/paypal/PayPal-PHP-SDK/sample/payment-experience/UpdateWebProfile.php",
+            "sourcePath": "/Users/scoffey/paypal/PayPal-PHP-SDK/sample/payment-experience/UpdateWebProfile.php",
             "projectPath": "payment-experience/UpdateWebProfile.php",
             "targetPath": "payment-experience/UpdateWebProfile",
             "pageTitle": "payment-experience/UpdateWebProfile",
@@ -2229,7 +2282,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "PHP"
             },
-            "sourcePath": "/home/travis/build/paypal/PayPal-PHP-SDK/sample/payments/AuthorizationCapture.php",
+            "sourcePath": "/Users/scoffey/paypal/PayPal-PHP-SDK/sample/payments/AuthorizationCapture.php",
             "projectPath": "payments/AuthorizationCapture.php",
             "targetPath": "payments/AuthorizationCapture",
             "pageTitle": "payments/AuthorizationCapture",
@@ -2269,7 +2322,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "PHP"
             },
-            "sourcePath": "/home/travis/build/paypal/PayPal-PHP-SDK/sample/payments/AuthorizePayment.php",
+            "sourcePath": "/Users/scoffey/paypal/PayPal-PHP-SDK/sample/payments/AuthorizePayment.php",
             "projectPath": "payments/AuthorizePayment.php",
             "targetPath": "payments/AuthorizePayment",
             "pageTitle": "payments/AuthorizePayment",
@@ -2309,7 +2362,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "PHP"
             },
-            "sourcePath": "/home/travis/build/paypal/PayPal-PHP-SDK/sample/payments/AuthorizePaymentUsingPayPal.php",
+            "sourcePath": "/Users/scoffey/paypal/PayPal-PHP-SDK/sample/payments/AuthorizePaymentUsingPayPal.php",
             "projectPath": "payments/AuthorizePaymentUsingPayPal.php",
             "targetPath": "payments/AuthorizePaymentUsingPayPal",
             "pageTitle": "payments/AuthorizePaymentUsingPayPal",
@@ -2413,7 +2466,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "PHP"
             },
-            "sourcePath": "/home/travis/build/paypal/PayPal-PHP-SDK/sample/payments/CreateFuturePayment.php",
+            "sourcePath": "/Users/scoffey/paypal/PayPal-PHP-SDK/sample/payments/CreateFuturePayment.php",
             "projectPath": "payments/CreateFuturePayment.php",
             "targetPath": "payments/CreateFuturePayment",
             "pageTitle": "payments/CreateFuturePayment",
@@ -2501,7 +2554,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "PHP"
             },
-            "sourcePath": "/home/travis/build/paypal/PayPal-PHP-SDK/sample/payments/CreatePayment.php",
+            "sourcePath": "/Users/scoffey/paypal/PayPal-PHP-SDK/sample/payments/CreatePayment.php",
             "projectPath": "payments/CreatePayment.php",
             "targetPath": "payments/CreatePayment",
             "pageTitle": "payments/CreatePayment",
@@ -2605,7 +2658,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "PHP"
             },
-            "sourcePath": "/home/travis/build/paypal/PayPal-PHP-SDK/sample/payments/CreatePaymentUsingPayPal.php",
+            "sourcePath": "/Users/scoffey/paypal/PayPal-PHP-SDK/sample/payments/CreatePaymentUsingPayPal.php",
             "projectPath": "payments/CreatePaymentUsingPayPal.php",
             "targetPath": "payments/CreatePaymentUsingPayPal",
             "pageTitle": "payments/CreatePaymentUsingPayPal",
@@ -2709,7 +2762,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "PHP"
             },
-            "sourcePath": "/home/travis/build/paypal/PayPal-PHP-SDK/sample/payments/CreatePaymentUsingSavedCard.php",
+            "sourcePath": "/Users/scoffey/paypal/PayPal-PHP-SDK/sample/payments/CreatePaymentUsingSavedCard.php",
             "projectPath": "payments/CreatePaymentUsingSavedCard.php",
             "targetPath": "payments/CreatePaymentUsingSavedCard",
             "pageTitle": "payments/CreatePaymentUsingSavedCard",
@@ -2813,7 +2866,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "PHP"
             },
-            "sourcePath": "/home/travis/build/paypal/PayPal-PHP-SDK/sample/payments/ExecutePayment.php",
+            "sourcePath": "/Users/scoffey/paypal/PayPal-PHP-SDK/sample/payments/ExecutePayment.php",
             "projectPath": "payments/ExecutePayment.php",
             "targetPath": "payments/ExecutePayment",
             "pageTitle": "payments/ExecutePayment",
@@ -2869,7 +2922,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "PHP"
             },
-            "sourcePath": "/home/travis/build/paypal/PayPal-PHP-SDK/sample/payments/GetAuthorization.php",
+            "sourcePath": "/Users/scoffey/paypal/PayPal-PHP-SDK/sample/payments/GetAuthorization.php",
             "projectPath": "payments/GetAuthorization.php",
             "targetPath": "payments/GetAuthorization",
             "pageTitle": "payments/GetAuthorization",
@@ -2909,7 +2962,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "PHP"
             },
-            "sourcePath": "/home/travis/build/paypal/PayPal-PHP-SDK/sample/payments/GetCapture.php",
+            "sourcePath": "/Users/scoffey/paypal/PayPal-PHP-SDK/sample/payments/GetCapture.php",
             "projectPath": "payments/GetCapture.php",
             "targetPath": "payments/GetCapture",
             "pageTitle": "payments/GetCapture",
@@ -2949,7 +3002,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "PHP"
             },
-            "sourcePath": "/home/travis/build/paypal/PayPal-PHP-SDK/sample/payments/GetPayment.php",
+            "sourcePath": "/Users/scoffey/paypal/PayPal-PHP-SDK/sample/payments/GetPayment.php",
             "projectPath": "payments/GetPayment.php",
             "targetPath": "payments/GetPayment",
             "pageTitle": "payments/GetPayment",
@@ -2989,7 +3042,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "PHP"
             },
-            "sourcePath": "/home/travis/build/paypal/PayPal-PHP-SDK/sample/payments/ListPayments.php",
+            "sourcePath": "/Users/scoffey/paypal/PayPal-PHP-SDK/sample/payments/ListPayments.php",
             "projectPath": "payments/ListPayments.php",
             "targetPath": "payments/ListPayments",
             "pageTitle": "payments/ListPayments",
@@ -3029,7 +3082,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "PHP"
             },
-            "sourcePath": "/home/travis/build/paypal/PayPal-PHP-SDK/sample/payments/OrderAuthorize.php",
+            "sourcePath": "/Users/scoffey/paypal/PayPal-PHP-SDK/sample/payments/OrderAuthorize.php",
             "projectPath": "payments/OrderAuthorize.php",
             "targetPath": "payments/OrderAuthorize",
             "pageTitle": "payments/OrderAuthorize",
@@ -3093,7 +3146,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "PHP"
             },
-            "sourcePath": "/home/travis/build/paypal/PayPal-PHP-SDK/sample/payments/OrderCapture.php",
+            "sourcePath": "/Users/scoffey/paypal/PayPal-PHP-SDK/sample/payments/OrderCapture.php",
             "projectPath": "payments/OrderCapture.php",
             "targetPath": "payments/OrderCapture",
             "pageTitle": "payments/OrderCapture",
@@ -3157,7 +3210,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "PHP"
             },
-            "sourcePath": "/home/travis/build/paypal/PayPal-PHP-SDK/sample/payments/OrderCreateForAuthorization.php",
+            "sourcePath": "/Users/scoffey/paypal/PayPal-PHP-SDK/sample/payments/OrderCreateForAuthorization.php",
             "projectPath": "payments/OrderCreateForAuthorization.php",
             "targetPath": "payments/OrderCreateForAuthorization",
             "pageTitle": "payments/OrderCreateForAuthorization",
@@ -3261,7 +3314,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "PHP"
             },
-            "sourcePath": "/home/travis/build/paypal/PayPal-PHP-SDK/sample/payments/OrderCreateForCapture.php",
+            "sourcePath": "/Users/scoffey/paypal/PayPal-PHP-SDK/sample/payments/OrderCreateForCapture.php",
             "projectPath": "payments/OrderCreateForCapture.php",
             "targetPath": "payments/OrderCreateForCapture",
             "pageTitle": "payments/OrderCreateForCapture",
@@ -3365,7 +3418,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "PHP"
             },
-            "sourcePath": "/home/travis/build/paypal/PayPal-PHP-SDK/sample/payments/OrderCreateForVoid.php",
+            "sourcePath": "/Users/scoffey/paypal/PayPal-PHP-SDK/sample/payments/OrderCreateForVoid.php",
             "projectPath": "payments/OrderCreateForVoid.php",
             "targetPath": "payments/OrderCreateForVoid",
             "pageTitle": "payments/OrderCreateForVoid",
@@ -3469,7 +3522,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "PHP"
             },
-            "sourcePath": "/home/travis/build/paypal/PayPal-PHP-SDK/sample/payments/OrderCreateUsingPayPal.php",
+            "sourcePath": "/Users/scoffey/paypal/PayPal-PHP-SDK/sample/payments/OrderCreateUsingPayPal.php",
             "projectPath": "payments/OrderCreateUsingPayPal.php",
             "targetPath": "payments/OrderCreateUsingPayPal",
             "pageTitle": "payments/OrderCreateUsingPayPal",
@@ -3573,7 +3626,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "PHP"
             },
-            "sourcePath": "/home/travis/build/paypal/PayPal-PHP-SDK/sample/payments/OrderDoVoid.php",
+            "sourcePath": "/Users/scoffey/paypal/PayPal-PHP-SDK/sample/payments/OrderDoVoid.php",
             "projectPath": "payments/OrderDoVoid.php",
             "targetPath": "payments/OrderDoVoid",
             "pageTitle": "payments/OrderDoVoid",
@@ -3629,7 +3682,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "PHP"
             },
-            "sourcePath": "/home/travis/build/paypal/PayPal-PHP-SDK/sample/payments/OrderGet.php",
+            "sourcePath": "/Users/scoffey/paypal/PayPal-PHP-SDK/sample/payments/OrderGet.php",
             "projectPath": "payments/OrderGet.php",
             "targetPath": "payments/OrderGet",
             "pageTitle": "payments/OrderGet",
@@ -3669,7 +3722,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "PHP"
             },
-            "sourcePath": "/home/travis/build/paypal/PayPal-PHP-SDK/sample/payments/Reauthorization.php",
+            "sourcePath": "/Users/scoffey/paypal/PayPal-PHP-SDK/sample/payments/Reauthorization.php",
             "projectPath": "payments/Reauthorization.php",
             "targetPath": "payments/Reauthorization",
             "pageTitle": "payments/Reauthorization",
@@ -3717,7 +3770,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "PHP"
             },
-            "sourcePath": "/home/travis/build/paypal/PayPal-PHP-SDK/sample/payments/RefundCapture.php",
+            "sourcePath": "/Users/scoffey/paypal/PayPal-PHP-SDK/sample/payments/RefundCapture.php",
             "projectPath": "payments/RefundCapture.php",
             "targetPath": "payments/RefundCapture",
             "pageTitle": "payments/RefundCapture",
@@ -3757,7 +3810,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "PHP"
             },
-            "sourcePath": "/home/travis/build/paypal/PayPal-PHP-SDK/sample/payments/UpdatePayment.php",
+            "sourcePath": "/Users/scoffey/paypal/PayPal-PHP-SDK/sample/payments/UpdatePayment.php",
             "projectPath": "payments/UpdatePayment.php",
             "targetPath": "payments/UpdatePayment",
             "pageTitle": "payments/UpdatePayment",
@@ -3832,7 +3885,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "PHP"
             },
-            "sourcePath": "/home/travis/build/paypal/PayPal-PHP-SDK/sample/payments/VoidAuthorization.php",
+            "sourcePath": "/Users/scoffey/paypal/PayPal-PHP-SDK/sample/payments/VoidAuthorization.php",
             "projectPath": "payments/VoidAuthorization.php",
             "targetPath": "payments/VoidAuthorization",
             "pageTitle": "payments/VoidAuthorization",
@@ -3882,7 +3935,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "PHP"
             },
-            "sourcePath": "/home/travis/build/paypal/PayPal-PHP-SDK/sample/payouts/CancelPayoutItem.php",
+            "sourcePath": "/Users/scoffey/paypal/PayPal-PHP-SDK/sample/payouts/CancelPayoutItem.php",
             "projectPath": "payouts/CancelPayoutItem.php",
             "targetPath": "payouts/CancelPayoutItem",
             "pageTitle": "payouts/CancelPayoutItem",
@@ -3933,7 +3986,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "PHP"
             },
-            "sourcePath": "/home/travis/build/paypal/PayPal-PHP-SDK/sample/payouts/CreateBatchPayout.php",
+            "sourcePath": "/Users/scoffey/paypal/PayPal-PHP-SDK/sample/payouts/CreateBatchPayout.php",
             "projectPath": "payouts/CreateBatchPayout.php",
             "targetPath": "payouts/CreateBatchPayout",
             "pageTitle": "payouts/CreateBatchPayout",
@@ -4016,7 +4069,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "PHP"
             },
-            "sourcePath": "/home/travis/build/paypal/PayPal-PHP-SDK/sample/payouts/CreateSinglePayout.php",
+            "sourcePath": "/Users/scoffey/paypal/PayPal-PHP-SDK/sample/payouts/CreateSinglePayout.php",
             "projectPath": "payouts/CreateSinglePayout.php",
             "targetPath": "payouts/CreateSinglePayout",
             "pageTitle": "payouts/CreateSinglePayout",
@@ -4083,7 +4136,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "PHP"
             },
-            "sourcePath": "/home/travis/build/paypal/PayPal-PHP-SDK/sample/payouts/GetPayoutBatchStatus.php",
+            "sourcePath": "/Users/scoffey/paypal/PayPal-PHP-SDK/sample/payouts/GetPayoutBatchStatus.php",
             "projectPath": "payouts/GetPayoutBatchStatus.php",
             "targetPath": "payouts/GetPayoutBatchStatus",
             "pageTitle": "payouts/GetPayoutBatchStatus",
@@ -4134,7 +4187,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "PHP"
             },
-            "sourcePath": "/home/travis/build/paypal/PayPal-PHP-SDK/sample/payouts/GetPayoutItemStatus.php",
+            "sourcePath": "/Users/scoffey/paypal/PayPal-PHP-SDK/sample/payouts/GetPayoutItemStatus.php",
             "projectPath": "payouts/GetPayoutItemStatus.php",
             "targetPath": "payouts/GetPayoutItemStatus",
             "pageTitle": "payouts/GetPayoutItemStatus",
@@ -4195,7 +4248,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "PHP"
             },
-            "sourcePath": "/home/travis/build/paypal/PayPal-PHP-SDK/sample/sale/GetSale.php",
+            "sourcePath": "/Users/scoffey/paypal/PayPal-PHP-SDK/sample/sale/GetSale.php",
             "projectPath": "sale/GetSale.php",
             "targetPath": "sale/GetSale",
             "pageTitle": "sale/GetSale",
@@ -4243,7 +4296,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "PHP"
             },
-            "sourcePath": "/home/travis/build/paypal/PayPal-PHP-SDK/sample/sale/RefundSale.php",
+            "sourcePath": "/Users/scoffey/paypal/PayPal-PHP-SDK/sample/sale/RefundSale.php",
             "projectPath": "sale/RefundSale.php",
             "targetPath": "sale/RefundSale",
             "pageTitle": "sale/RefundSale",
@@ -4309,7 +4362,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "PHP"
             },
-            "sourcePath": "/home/travis/build/paypal/PayPal-PHP-SDK/sample/tls/TlsCheck.php",
+            "sourcePath": "/Users/scoffey/paypal/PayPal-PHP-SDK/sample/tls/TlsCheck.php",
             "projectPath": "tls/TlsCheck.php",
             "targetPath": "tls/TlsCheck",
             "pageTitle": "tls/TlsCheck",
@@ -4370,7 +4423,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "PHP"
             },
-            "sourcePath": "/home/travis/build/paypal/PayPal-PHP-SDK/sample/vault/CreateBankAccount.php",
+            "sourcePath": "/Users/scoffey/paypal/PayPal-PHP-SDK/sample/vault/CreateBankAccount.php",
             "projectPath": "vault/CreateBankAccount.php",
             "targetPath": "vault/CreateBankAccount",
             "pageTitle": "vault/CreateBankAccount",
@@ -4418,7 +4471,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "PHP"
             },
-            "sourcePath": "/home/travis/build/paypal/PayPal-PHP-SDK/sample/vault/CreateCreditCard.php",
+            "sourcePath": "/Users/scoffey/paypal/PayPal-PHP-SDK/sample/vault/CreateCreditCard.php",
             "projectPath": "vault/CreateCreditCard.php",
             "targetPath": "vault/CreateCreditCard",
             "pageTitle": "vault/CreateCreditCard",
@@ -4474,7 +4527,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "PHP"
             },
-            "sourcePath": "/home/travis/build/paypal/PayPal-PHP-SDK/sample/vault/DeleteBankAccount.php",
+            "sourcePath": "/Users/scoffey/paypal/PayPal-PHP-SDK/sample/vault/DeleteBankAccount.php",
             "projectPath": "vault/DeleteBankAccount.php",
             "targetPath": "vault/DeleteBankAccount",
             "pageTitle": "vault/DeleteBankAccount",
@@ -4514,7 +4567,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "PHP"
             },
-            "sourcePath": "/home/travis/build/paypal/PayPal-PHP-SDK/sample/vault/DeleteCreditCard.php",
+            "sourcePath": "/Users/scoffey/paypal/PayPal-PHP-SDK/sample/vault/DeleteCreditCard.php",
             "projectPath": "vault/DeleteCreditCard.php",
             "targetPath": "vault/DeleteCreditCard",
             "pageTitle": "vault/DeleteCreditCard",
@@ -4554,7 +4607,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "PHP"
             },
-            "sourcePath": "/home/travis/build/paypal/PayPal-PHP-SDK/sample/vault/GetBankAccount.php",
+            "sourcePath": "/Users/scoffey/paypal/PayPal-PHP-SDK/sample/vault/GetBankAccount.php",
             "projectPath": "vault/GetBankAccount.php",
             "targetPath": "vault/GetBankAccount",
             "pageTitle": "vault/GetBankAccount",
@@ -4583,7 +4636,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "PHP"
             },
-            "sourcePath": "/home/travis/build/paypal/PayPal-PHP-SDK/sample/vault/GetCreditCard.php",
+            "sourcePath": "/Users/scoffey/paypal/PayPal-PHP-SDK/sample/vault/GetCreditCard.php",
             "projectPath": "vault/GetCreditCard.php",
             "targetPath": "vault/GetCreditCard",
             "pageTitle": "vault/GetCreditCard",
@@ -4612,7 +4665,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "PHP"
             },
-            "sourcePath": "/home/travis/build/paypal/PayPal-PHP-SDK/sample/vault/ListCreditCards.php",
+            "sourcePath": "/Users/scoffey/paypal/PayPal-PHP-SDK/sample/vault/ListCreditCards.php",
             "projectPath": "vault/ListCreditCards.php",
             "targetPath": "vault/ListCreditCards",
             "pageTitle": "vault/ListCreditCards",
@@ -4652,7 +4705,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "foldPrefix": "^",
               "name": "PHP"
             },
-            "sourcePath": "/home/travis/build/paypal/PayPal-PHP-SDK/sample/vault/UpdateCreditCard.php",
+            "sourcePath": "/Users/scoffey/paypal/PayPal-PHP-SDK/sample/vault/UpdateCreditCard.php",
             "projectPath": "vault/UpdateCreditCard.php",
             "targetPath": "vault/UpdateCreditCard",
             "pageTitle": "vault/UpdateCreditCard",

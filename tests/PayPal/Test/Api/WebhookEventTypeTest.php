@@ -2,6 +2,10 @@
 
 namespace PayPal\Test\Api;
 
+use PayPal\Common\PayPalResourceModel;
+use PayPal\Validation\ArgumentValidator;
+use PayPal\Api\WebhookEventTypeList;
+use PayPal\Rest\ApiContext;
 use PayPal\Api\WebhookEventType;
 
 /**
@@ -17,7 +21,7 @@ class WebhookEventTypeTest extends \PHPUnit_Framework_TestCase
      */
     public static function getJson()
     {
-        return '{"name":"TestSample","description":"TestSample"}';
+        return '{"name":"TestSample","description":"TestSample","status":"TestSample"}';
     }
 
     /**
@@ -40,6 +44,7 @@ class WebhookEventTypeTest extends \PHPUnit_Framework_TestCase
         $this->assertNotNull($obj);
         $this->assertNotNull($obj->getName());
         $this->assertNotNull($obj->getDescription());
+        $this->assertNotNull($obj->getStatus());
         $this->assertEquals(self::getJson(), $obj->toJson());
         return $obj;
     }
@@ -52,6 +57,7 @@ class WebhookEventTypeTest extends \PHPUnit_Framework_TestCase
     {
         $this->assertEquals($obj->getName(), "TestSample");
         $this->assertEquals($obj->getDescription(), "TestSample");
+        $this->assertEquals($obj->getStatus(), "TestSample");
     }
 
     /**
@@ -60,17 +66,17 @@ class WebhookEventTypeTest extends \PHPUnit_Framework_TestCase
      */
     public function testSubscribedEventTypes($obj, $mockApiContext)
     {
-        $mockPayPalRestCall = $this->getMockBuilder('\PayPal\Transport\PayPalRestCall')
+        $mockPPRestCall = $this->getMockBuilder('\PayPal\Transport\PayPalRestCall')
             ->disableOriginalConstructor()
             ->getMock();
 
-        $mockPayPalRestCall->expects($this->any())
+        $mockPPRestCall->expects($this->any())
             ->method('execute')
             ->will($this->returnValue(
                     WebhookEventTypeListTest::getJson()
             ));
 
-        $result = $obj->subscribedEventTypes("webhookId", $mockApiContext, $mockPayPalRestCall);
+        $result = $obj->subscribedEventTypes("webhookId", $mockApiContext, $mockPPRestCall);
         $this->assertNotNull($result);
     }
     /**
@@ -79,17 +85,17 @@ class WebhookEventTypeTest extends \PHPUnit_Framework_TestCase
      */
     public function testAvailableEventTypes($obj, $mockApiContext)
     {
-        $mockPayPalRestCall = $this->getMockBuilder('\PayPal\Transport\PayPalRestCall')
+        $mockPPRestCall = $this->getMockBuilder('\PayPal\Transport\PayPalRestCall')
             ->disableOriginalConstructor()
             ->getMock();
 
-        $mockPayPalRestCall->expects($this->any())
+        $mockPPRestCall->expects($this->any())
             ->method('execute')
             ->will($this->returnValue(
-                WebhookEventTypeListTest::getJson()
+                    WebhookEventTypeListTest::getJson()
             ));
 
-        $result = $obj->availableEventTypes($mockApiContext, $mockPayPalRestCall);
+        $result = $obj->availableEventTypes($mockApiContext, $mockPPRestCall);
         $this->assertNotNull($result);
     }
 

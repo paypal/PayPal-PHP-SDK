@@ -7,7 +7,7 @@ use PayPal\Common\PayPalModel;
 /**
  * Class WebhookList
  *
- * List of Webhooks
+ * List of webhooks.
  *
  * @package PayPal\Api
  *
@@ -16,7 +16,7 @@ use PayPal\Common\PayPalModel;
 class WebhookList extends PayPalModel
 {
     /**
-     * A list of Webhooks
+     * A list of webhooks.
      *
      * @param \PayPal\Api\Webhook[] $webhooks
      * 
@@ -29,7 +29,7 @@ class WebhookList extends PayPalModel
     }
 
     /**
-     * A list of Webhooks
+     * A list of webhooks.
      *
      * @return \PayPal\Api\Webhook[]
      */
