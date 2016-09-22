@@ -17,11 +17,8 @@ $invoice->setInvoiceDate("2014-12-16 PST");
 
 // ### NOTE: These are the work-around added to the
 // sample, to get past the bug in PayPal APIs.
-// There is already an internal ticket #PPTIPS-1932 created for it.
 $invoice->setDiscount(null);
-$billingInfo = $invoice->getBillingInfo()[0];
-$billingInfo->setAddress(null);
-$invoice->getPaymentTerm()->setDueDate(null);
+$invoice->getItems()[1]->setDiscount(null);
 
 try {
     // ### Update Invoice
