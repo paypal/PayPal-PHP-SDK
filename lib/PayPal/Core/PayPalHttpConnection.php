@@ -157,7 +157,6 @@ class PayPalHttpConnection
             $responseHeaderSize = strlen($result) - curl_getinfo($ch, CURLINFO_SIZE_DOWNLOAD);
             $responseHeaders = substr($result, 0, $responseHeaderSize);
             $result = substr($result, $responseHeaderSize);
-
         }
 
         $this->logger->debug("Request Headers \t: " . str_replace("\r\n", ", ", $requestHeaders));
