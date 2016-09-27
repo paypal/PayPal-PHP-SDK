@@ -32,7 +32,7 @@ Note: The root directory for composer based download would be `vendor` and for d
 #### Configuration (Optional)
 
 The sample comes pre-configured with a test account but in case you need to try them against your account, you must
-   * Obtain your client id and client secret from the [developer portal](https://developer.paypal.com/webapps/developer/applications/myapps)
+   * Obtain your client id and client secret from the [developer portal](https://developer.paypal.com/developer/applications/)
    * Update the [bootstrap.php](https://github.com/paypal/PayPal-PHP-SDK/blob/master/sample/bootstrap.php#L29) file with your new client id and secret.
 
 ## Alternative Options
