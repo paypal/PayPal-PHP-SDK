@@ -1,6 +1,13 @@
 PayPal PHP SDK release notes
 ============================
 
+1.8.0
+-----
+* Updated Webhooks APIs [#653](https://github.com/paypal/PayPal-PHP-SDK/pull/653).
+* Updated Invoicing APIs [#657](https://github.com/paypal/PayPal-PHP-SDK/pull/657).
+* UTF-8 encoding bug fix [#655](https://github.com/paypal/PayPal-PHP-SDK/pull/655).
+* Updated PSR log [#654](https://github.com/paypal/PayPal-PHP-SDK/pull/654).
+
 1.7.4
 -----
 *  Fixed Duplicate conditional expression in PayPalCredentialManager.php [#594](https://github.com/paypal/PayPal-PHP-SDK/pull/594).
