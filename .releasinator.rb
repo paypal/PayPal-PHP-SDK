@@ -16,7 +16,6 @@ end
 
 def validate_tests()
    CommandProcessor.command("vendor/bin/phpunit", live_output=true)
-   CommandProcessor.command("vendor/bin/phpunit -c phpunit.integration.xml", live_output=true)
 end
 
 configatron.custom_validation_methods = [
