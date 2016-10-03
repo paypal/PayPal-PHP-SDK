@@ -152,7 +152,7 @@ class PayPalHttpConnection
         if (function_exists('mb_strlen')) {
             $responseHeaderSize = mb_strlen($result, '8bit') - curl_getinfo($ch, CURLINFO_SIZE_DOWNLOAD);
             $responseHeaders = mb_substr($result, 0, $responseHeaderSize, '8bit');
-            $result = mb_substr($result, $responseHeaderSize, null, '8bit');
+            $result = mb_substr($result, $responseHeaderSize, mb_strlen($result), '8bit');
         } else {
             $responseHeaderSize = strlen($result) - curl_getinfo($ch, CURLINFO_SIZE_DOWNLOAD);
             $responseHeaders = substr($result, 0, $responseHeaderSize);
