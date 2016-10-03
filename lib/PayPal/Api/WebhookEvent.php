@@ -3,9 +3,11 @@
 namespace PayPal\Api;
 
 use PayPal\Common\PayPalResourceModel;
-use PayPal\Validation\ArgumentValidator;
-use PayPal\Api\WebhookEventList;
+use PayPal\Exception\PayPalConnectionException;
 use PayPal\Rest\ApiContext;
+use PayPal\Transport\PayPalRestCall;
+use PayPal\Validation\ArgumentValidator;
+use PayPal\Validation\JsonValidator;
 
 /**
  * Class WebhookEvent
@@ -195,7 +197,7 @@ class WebhookEvent extends PayPalResourceModel
      *
      * NOTE: PLEASE DO NOT USE THE DATA PROVIDED IN WEBHOOK DIRECTLY, AS HACKER COULD PASS IN FAKE DATA. IT IS VERY IMPORTANT THAT YOU RETRIEVE THE ID AND MAKE A SEPARATE CALL TO PAYPAL API.
      *
-     * @deprecated todo: add refrence to correct method
+     * @deprecated Please use `VerifyWebhookSignature->post()` instead.
      *
      * @param string     $body
      * @param ApiContext $apiContext
