@@ -53,7 +53,7 @@ $signatureVerification = new VerifyWebhookSignature();
 $signatureVerification->setAuthAlgo($headers['PAYPAL-AUTH-ALGO']);
 $signatureVerification->setTransmissionId($headers['PAYPAL-TRANSMISSION-ID']);
 $signatureVerification->setCertUrl($headers['PAYPAL-CERT-URL']);
-$signatureVerification->setWebhookId("9XL90610J3647323C"); // get WebhookID from your system
+$signatureVerification->setWebhookId("9XL90610J3647323C"); // Note that the Webhook ID must be a currently valid Webhook that you created with your client ID/secret.
 $signatureVerification->setTransmissionSig($headers['PAYPAL-TRANSMISSION-SIG']);
 $signatureVerification->setTransmissionTime($headers['PAYPAL-TRANSMISSION-TIME']);
 
