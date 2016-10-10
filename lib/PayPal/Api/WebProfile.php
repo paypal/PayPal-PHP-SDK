@@ -10,12 +10,13 @@ use PayPal\Validation\ArgumentValidator;
 /**
  * Class WebProfile
  *
- * Payment Web experience profile resource
+ * Payment web experience profile resource
  *
  * @package PayPal\Api
  *
  * @property string id
  * @property string name
+ * @property bool temporary
  * @property \PayPal\Api\FlowConfig flow_config
  * @property \PayPal\Api\InputFields input_fields
  * @property \PayPal\Api\Presentation presentation
@@ -23,8 +24,7 @@ use PayPal\Validation\ArgumentValidator;
 class WebProfile extends PayPalResourceModel
 {
     /**
-     * ID of the web experience profile.
-     * 
+     * The unique ID of the web experience profile.
      *
      * @param string $id
      * 
@@ -37,7 +37,7 @@ class WebProfile extends PayPalResourceModel
     }
 
     /**
-     * ID of the web experience profile.
+     * The unique ID of the web experience profile.
      *
      * @return string
      */
@@ -47,8 +47,7 @@ class WebProfile extends PayPalResourceModel
     }
 
     /**
-     * Name of the web experience profile.
-     * 
+     * The web experience profile name. Unique for a specified merchant's profiles.
      *
      * @param string $name
      * 
@@ -61,7 +60,7 @@ class WebProfile extends PayPalResourceModel
     }
 
     /**
-     * Name of the web experience profile.
+     * The web experience profile name. Unique for a specified merchant's profiles.
      *
      * @return string
      */
@@ -71,8 +70,30 @@ class WebProfile extends PayPalResourceModel
     }
 
     /**
-     * Parameters for flow configuration.
+     * Indicates whether the profile persists for three hours or permanently. Set to `false` to persist the profile permanently. Set to `true` to persist the profile for three hours.
+     *
+     * @param bool $temporary
      * 
+     * @return $this
+     */
+    public function setTemporary($temporary)
+    {
+        $this->temporary = $temporary;
+        return $this;
+    }
+
+    /**
+     * Indicates whether the profile persists for three hours or permanently. Set to `false` to persist the profile permanently. Set to `true` to persist the profile for three hours.
+     *
+     * @return bool
+     */
+    public function getTemporary()
+    {
+        return $this->temporary;
+    }
+
+    /**
+     * Parameters for flow configuration.
      *
      * @param \PayPal\Api\FlowConfig $flow_config
      * 
@@ -96,7 +117,6 @@ class WebProfile extends PayPalResourceModel
 
     /**
      * Parameters for input fields customization.
-     * 
      *
      * @param \PayPal\Api\InputFields $input_fields
      * 
@@ -120,7 +140,6 @@ class WebProfile extends PayPalResourceModel
 
     /**
      * Parameters for style and presentation.
-     * 
      *
      * @param \PayPal\Api\Presentation $presentation
      * 
@@ -143,7 +162,7 @@ class WebProfile extends PayPalResourceModel
     }
 
     /**
-     * Create a web experience profile by passing the name of the profile and other profile details in the request JSON to the request URI.
+     * Creates a web experience profile. Pass the profile name and details in the JSON request body.
      *
      * @param ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
      * @param PayPalRestCall $restCall is the Rest Call Service that is used to make rest calls
@@ -166,7 +185,7 @@ class WebProfile extends PayPalResourceModel
     }
 
     /**
-     * Update a web experience profile by passing the ID of the profile to the request URI. In addition, pass the profile details in the request JSON. If your request does not include values for all profile detail fields, the previously set values for the omitted fields are removed by this operation.
+     * Updates a web experience profile. Pass the ID of the profile to the request URI and pass the profile details in the JSON request body. If your request omits any profile detail fields, the operation removes the previously set values for those fields.
      *
      * @param ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
      * @param PayPalRestCall $restCall is the Rest Call Service that is used to make rest calls
@@ -188,7 +207,7 @@ class WebProfile extends PayPalResourceModel
     }
 
     /**
-     * Partially update an existing web experience profile by passing the ID of the profile to the request URI. In addition, pass a patch object in the request JSON that specifies the operation to perform, path of the profile location to update, and a new value if needed to complete the operation.
+     * Partially-updates a web experience profile. Pass the profile ID to the request URI. Pass a patch object with the operation, path of the profile location to update, and, if needed, a new value to complete the operation in the JSON request body.
      *
      * @param Patch[] $patch
      * @param ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
@@ -216,7 +235,7 @@ class WebProfile extends PayPalResourceModel
     }
 
     /**
-     * Retrieve the details of a particular web experience profile by passing the ID of the profile to the request URI.
+     * Shows details for a web experience profile, by ID.
      *
      * @param string $profileId
      * @param ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
@@ -241,7 +260,7 @@ class WebProfile extends PayPalResourceModel
     }
 
     /**
-     * Lists all web experience profiles that exist for a merchant (or subject).
+     * Lists all web experience profiles for a merchant or subject.
      *
      * @param ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
      * @param PayPalRestCall $restCall is the Rest Call Service that is used to make rest calls
@@ -262,7 +281,7 @@ class WebProfile extends PayPalResourceModel
     }
 
     /**
-     * Delete an existing web experience profile by passing the profile ID to the request URI.
+     * Deletes a web experience profile, by ID.
      *
      * @param ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
      * @param PayPalRestCall $restCall is the Rest Call Service that is used to make rest calls
