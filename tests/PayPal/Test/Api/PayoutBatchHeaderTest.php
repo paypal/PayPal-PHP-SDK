@@ -29,7 +29,6 @@ class PayoutBatchHeaderTest extends \PHPUnit_Framework_TestCase
         return new PayoutBatchHeader(self::getJson());
     }
 
-
     /**
      * Tests for Serialization and Deserialization Issues
      * @return PayoutBatchHeader

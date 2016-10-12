@@ -2,9 +2,7 @@
 
 namespace PayPal\Test\Api;
 
-use PayPal\Api\ItemsArray;
 use PayPal\Api\PayoutItem;
-use PayPal\Transport\PPRestCall;
 
 /**
  * Class PayoutItem
