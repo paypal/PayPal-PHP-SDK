@@ -29,7 +29,6 @@ class PayoutItemDetailsTest extends \PHPUnit_Framework_TestCase
         return new PayoutItemDetails(self::getJson());
     }
 
-
     /**
      * Tests for Serialization and Deserialization Issues
      * @return PayoutItemDetails

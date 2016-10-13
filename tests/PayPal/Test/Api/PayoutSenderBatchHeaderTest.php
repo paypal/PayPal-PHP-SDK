@@ -2,6 +2,7 @@
 
 namespace PayPal\Test\Api;
 
+use PayPal\Common\PayPalModel;
 use PayPal\Api\PayoutSenderBatchHeader;
 
 /**
@@ -17,7 +18,7 @@ class PayoutSenderBatchHeaderTest extends \PHPUnit_Framework_TestCase
      */
     public static function getJson()
     {
-        return '{"sender_batch_id":"TestSample","email_subject":"TestSample","recipient_type":"TestSample"}';
+        return '{"sender_batch_id":"TestSample","email_subject":"TestSample","recipient_type":"TestSample","batch_status":"TestSample"}';
     }
 
     /**
@@ -28,7 +29,6 @@ class PayoutSenderBatchHeaderTest extends \PHPUnit_Framework_TestCase
     {
         return new PayoutSenderBatchHeader(self::getJson());
     }
-
 
     /**
      * Tests for Serialization and Deserialization Issues
@@ -41,6 +41,7 @@ class PayoutSenderBatchHeaderTest extends \PHPUnit_Framework_TestCase
         $this->assertNotNull($obj->getSenderBatchId());
         $this->assertNotNull($obj->getEmailSubject());
         $this->assertNotNull($obj->getRecipientType());
+        $this->assertNotNull($obj->getBatchStatus());
         $this->assertEquals(self::getJson(), $obj->toJson());
         return $obj;
     }
@@ -54,5 +55,6 @@ class PayoutSenderBatchHeaderTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($obj->getSenderBatchId(), "TestSample");
         $this->assertEquals($obj->getEmailSubject(), "TestSample");
         $this->assertEquals($obj->getRecipientType(), "TestSample");
+        $this->assertEquals($obj->getBatchStatus(), "TestSample");
     }
 }

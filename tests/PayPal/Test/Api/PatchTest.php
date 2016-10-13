@@ -2,6 +2,7 @@
 
 namespace PayPal\Test\Api;
 
+use PayPal\Common\PayPalModel;
 use PayPal\Api\Patch;
 
 /**
@@ -13,17 +14,15 @@ class PatchTest extends \PHPUnit_Framework_TestCase
 {
     /**
      * Gets Json String of Object Patch
-     *
      * @return string
      */
     public static function getJson()
     {
-        return '{"op":"TestSample","path":"TestSample","value":"TestSampleObject","from":"TestSample"}';
+        return '{"op":"TestSample","path":"TestSample","value":"TestSample","from":"TestSample"}';
     }
 
     /**
      * Gets Object Instance with Json data filled in
-     *
      * @return Patch
      */
     public static function getObject()
@@ -34,7 +33,6 @@ class PatchTest extends \PHPUnit_Framework_TestCase
 
     /**
      * Tests for Serialization and Deserialization Issues
-     *
      * @return Patch
      */
     public function testSerializationDeserialization()
@@ -57,7 +55,9 @@ class PatchTest extends \PHPUnit_Framework_TestCase
     {
         $this->assertEquals($obj->getOp(), "TestSample");
         $this->assertEquals($obj->getPath(), "TestSample");
-        $this->assertEquals($obj->getValue(), "TestSampleObject");
+        $this->assertEquals($obj->getValue(), "TestSample");
         $this->assertEquals($obj->getFrom(), "TestSample");
     }
+
+
 }
