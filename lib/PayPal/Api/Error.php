@@ -24,7 +24,7 @@ class Error extends PayPalModel
      * Human readable, unique name of the error.
      *
      * @param string $name
-     *
+     * 
      * @return $this
      */
     public function setName($name)
@@ -69,29 +69,6 @@ class Error extends PayPalModel
     }
 
     /**
-     * Message describing the error.
-     *
-     * @param string $message
-     *
-     * @return $this
-     */
-    public function setMessage($message)
-    {
-        $this->message = $message;
-        return $this;
-    }
-
-    /**
-     * Message describing the error.
-     *
-     * @return string
-     */
-    public function getMessage()
-    {
-        return $this->message;
-    }
-
-    /**
      * PayPal internal error code.
      *
      * @deprecated Not publicly available
@@ -117,10 +94,79 @@ class Error extends PayPalModel
     }
 
     /**
+     * PayPal internal identifier used for correlation purposes.
+     *
+     * @param string $debug_id
+     * 
+     * @return $this
+     */
+    public function setDebugId($debug_id)
+    {
+        $this->debug_id = $debug_id;
+        return $this;
+    }
+
+    /**
+     * PayPal internal identifier used for correlation purposes.
+     *
+     * @return string
+     */
+    public function getDebugId()
+    {
+        return $this->debug_id;
+    }
+
+    /**
+     * Message describing the error.
+     *
+     * @param string $message
+     * 
+     * @return $this
+     */
+    public function setMessage($message)
+    {
+        $this->message = $message;
+        return $this;
+    }
+
+    /**
+     * Message describing the error.
+     *
+     * @return string
+     */
+    public function getMessage()
+    {
+        return $this->message;
+    }
+
+    /**
+     * URI for detailed information related to this error for the developer.
+     *
+     * @param string $information_link
+     * 
+     * @return $this
+     */
+    public function setInformationLink($information_link)
+    {
+        $this->information_link = $information_link;
+        return $this;
+    }
+
+    /**
+     * URI for detailed information related to this error for the developer.
+     *
+     * @return string
+     */
+    public function getInformationLink()
+    {
+        return $this->information_link;
+    }
+
+    /**
      * Additional details of the error
      *
      * @param \PayPal\Api\ErrorDetails[] $details
-     *
+     * 
      * @return $this
      */
     public function setDetails($details)
@@ -220,52 +266,6 @@ class Error extends PayPalModel
     }
 
     /**
-     * URI for detailed information related to this error for the developer.
-     *
-     * @param string $information_link
-     *
-     * @return $this
-     */
-    public function setInformationLink($information_link)
-    {
-        $this->information_link = $information_link;
-        return $this;
-    }
-
-    /**
-     * URI for detailed information related to this error for the developer.
-     *
-     * @return string
-     */
-    public function getInformationLink()
-    {
-        return $this->information_link;
-    }
-
-    /**
-     * PayPal internal identifier used for correlation purposes.
-     *
-     * @param string $debug_id
-     *
-     * @return $this
-     */
-    public function setDebugId($debug_id)
-    {
-        $this->debug_id = $debug_id;
-        return $this;
-    }
-
-    /**
-     * PayPal internal identifier used for correlation purposes.
-     *
-     * @return string
-     */
-    public function getDebugId()
-    {
-        return $this->debug_id;
-    }
-
-    /**
      * Sets Links
      *
      * @param \PayPal\Api\Links[] $links
@@ -317,5 +317,4 @@ class Error extends PayPalModel
             array_diff($this->getLinks(), array($links))
         );
     }
-
 }
