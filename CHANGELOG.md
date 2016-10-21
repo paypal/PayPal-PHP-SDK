@@ -1,6 +1,13 @@
 PayPal PHP SDK release notes
 ============================
 
+1.9.0
+-----
+* Updated Payouts APIs [#692](https://github.com/paypal/PayPal-PHP-SDK/pull/692).
+* Updated Payment Experience APIs [#682](https://github.com/paypal/PayPal-PHP-SDK/pull/682).
+* Updated Payments API to use Payment Card instead of credit card [#696](https://github.com/paypal/PayPal-PHP-SDK/pull/696).
+* Fixed bug on failed Access token call. [#665](https://github.com/paypal/PayPal-PHP-SDK/pull/665).
+
 1.8.0
 -----
 * Updated Webhooks APIs [#653](https://github.com/paypal/PayPal-PHP-SDK/pull/653).
