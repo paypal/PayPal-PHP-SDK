@@ -38,14 +38,14 @@ end
 configatron.publish_to_package_manager_method = method(:publish_to_package_manager)
 
 def create_downloadable_zip(version)
-    sleep(30)
+    sleep(120)
     CommandProcessor.command("rm -rf temp; mkdir temp; cd temp; composer clear-cache; composer require 'paypal/rest-api-sdk-php:#{version}'", live_output=true)
     CommandProcessor.command("cd temp; mv vendor PayPal-PHP-SDK", live_output=true)
     CommandProcessor.command("cd temp; zip -r PayPal-PHP-SDK-#{version}.zip PayPal-PHP-SDK", live_output=true)
 end
 
 def add_to_release(version)
-    sleep(5)
+    sleep(30)
     Publisher.new(@releasinator_config).upload_asset(GitUtil.repo_url, @current_release, "temp/PayPal-PHP-SDK-#{version}.zip", "application/zip")
 end
 
