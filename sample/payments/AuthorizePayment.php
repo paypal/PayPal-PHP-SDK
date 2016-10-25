@@ -33,6 +33,7 @@ $paymentCard->setType("visa")
     ->setCvv2("012")
     ->setFirstName("Joe")
     ->setLastName("Shopper")
+    ->setBillingCountry("US")
     ->setBillingAddress($addr);
 
 $fi = new FundingInstrument();

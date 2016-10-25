@@ -21,7 +21,6 @@ class FundingInstrument extends PayPalModel
      * Credit Card instrument.
      *
      * @param \PayPal\Api\CreditCard $credit_card
-     * @deprecated Please use #setPaymentCard instead
      *
      * @return $this
      */
@@ -35,7 +34,6 @@ class FundingInstrument extends PayPalModel
      * Credit Card instrument.
      *
      * @return \PayPal\Api\CreditCard
-     * @deprecated Please use #setPaymentCard instead
      *
      */
     public function getCreditCard()

@@ -12,10 +12,10 @@
 $createdPlan = require 'UpdatePlan.php';
 
 use PayPal\Api\Agreement;
+use PayPal\Api\CreditCard;
 use PayPal\Api\FundingInstrument;
 use PayPal\Api\Payer;
 use PayPal\Api\PayerInfo;
-use PayPal\Api\PaymentCard;
 use PayPal\Api\Plan;
 use PayPal\Api\ShippingAddress;
 
@@ -70,15 +70,15 @@ $payer->setPaymentMethod('credit_card')
     ->setPayerInfo(new PayerInfo(array('email' => 'jaypatel512-facilitator@hotmail.com')));
 
 // Add Credit Card to Funding Instruments
-$paymentCard = new PaymentCard();
-$paymentCard->setType('visa')
+$card = new CreditCard();
+$card->setType('visa')
     ->setNumber('4491759698858890')
     ->setExpireMonth('12')
     ->setExpireYear('2017')
     ->setCvv2('128');
 
 $fundingInstrument = new FundingInstrument();
-$fundingInstrument->setPaymentCard($paymentCard);
+$fundingInstrument->setCreditCard($card);
 $payer->setFundingInstruments(array($fundingInstrument));
 //Add Payer to Agreement
 $agreement->setPayer($payer);

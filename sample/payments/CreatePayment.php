@@ -29,7 +29,8 @@ $card->setType("visa")
     ->setExpireYear("2019")
     ->setCvv2("012")
     ->setFirstName("Joe")
-    ->setLastName("Shopper");
+    ->setLastName("Shopper")
+    ->setBillingCountry("US");
 
 // ### FundingInstrument
 // A resource representing a Payer's funding instrument.
