@@ -7,7 +7,7 @@ use PayPal\Common\PayPalModel;
 /**
  * Class PatchRequest
  *
- * Request object used for a JSON Patch.
+ * A JSON patch request.
  *
  * @package PayPal\Api
  *

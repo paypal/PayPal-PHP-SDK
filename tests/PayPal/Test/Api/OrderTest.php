@@ -14,17 +14,15 @@ class OrderTest extends \PHPUnit_Framework_TestCase
 {
     /**
      * Gets Json String of Object Order
-     *
      * @return string
      */
     public static function getJson()
     {
-        return '{"id":"TestSample","purchase_unit_reference_id":"TestSample","amount":' . AmountTest::getJson() . ',"payment_mode":"TestSample","state":"TestSample","reason_code":"TestSample","pending_reason":"TestSample","protection_eligibility":"TestSample","protection_eligibility_type":"TestSample","parent_payment":"TestSample","fmf_details":' . FmfDetailsTest::getJson() . ',"create_time":"TestSample","update_time":"TestSample","links":' . LinksTest::getJson() . '}';
+        return '{"id":"TestSample","reference_id":"TestSample","amount":' .AmountTest::getJson() . ',"payment_mode":"TestSample","state":"TestSample","reason_code":"TestSample","pending_reason":"TestSample","protection_eligibility":"TestSample","protection_eligibility_type":"TestSample","parent_payment":"TestSample","fmf_details":' .FmfDetailsTest::getJson() . ',"create_time":"TestSample","update_time":"TestSample","links":' .LinksTest::getJson() . '}';
     }
 
     /**
      * Gets Object Instance with Json data filled in
-     *
      * @return Order
      */
     public static function getObject()
@@ -35,7 +33,6 @@ class OrderTest extends \PHPUnit_Framework_TestCase
 
     /**
      * Tests for Serialization and Deserialization Issues
-     *
      * @return Order
      */
     public function testSerializationDeserialization()
@@ -43,7 +40,7 @@ class OrderTest extends \PHPUnit_Framework_TestCase
         $obj = new Order(self::getJson());
         $this->assertNotNull($obj);
         $this->assertNotNull($obj->getId());
-        $this->assertNotNull($obj->getPurchaseUnitReferenceId());
+        $this->assertNotNull($obj->getReferenceId());
         $this->assertNotNull($obj->getAmount());
         $this->assertNotNull($obj->getPaymentMode());
         $this->assertNotNull($obj->getState());
@@ -67,7 +64,7 @@ class OrderTest extends \PHPUnit_Framework_TestCase
     public function testGetters($obj)
     {
         $this->assertEquals($obj->getId(), "TestSample");
-        $this->assertEquals($obj->getPurchaseUnitReferenceId(), "TestSample");
+        $this->assertEquals($obj->getReferenceId(), "TestSample");
         $this->assertEquals($obj->getAmount(), AmountTest::getObject());
         $this->assertEquals($obj->getPaymentMode(), "TestSample");
         $this->assertEquals($obj->getState(), "TestSample");
@@ -95,13 +92,12 @@ class OrderTest extends \PHPUnit_Framework_TestCase
         $mockPPRestCall->expects($this->any())
             ->method('execute')
             ->will($this->returnValue(
-                OrderTest::getJson()
+                    OrderTest::getJson()
             ));
 
         $result = $obj->get("orderId", $mockApiContext, $mockPPRestCall);
         $this->assertNotNull($result);
     }
-
     /**
      * @dataProvider mockProvider
      * @param Order $obj
@@ -115,14 +111,13 @@ class OrderTest extends \PHPUnit_Framework_TestCase
         $mockPPRestCall->expects($this->any())
             ->method('execute')
             ->will($this->returnValue(
-                CaptureTest::getJson()
+                    CaptureTest::getJson()
             ));
         $capture = CaptureTest::getObject();
 
         $result = $obj->capture($capture, $mockApiContext, $mockPPRestCall);
         $this->assertNotNull($result);
     }
-
     /**
      * @dataProvider mockProvider
      * @param Order $obj
@@ -136,13 +131,12 @@ class OrderTest extends \PHPUnit_Framework_TestCase
         $mockPPRestCall->expects($this->any())
             ->method('execute')
             ->will($this->returnValue(
-                self::getJson()
+                    self::getJson()
             ));
 
         $result = $obj->void($mockApiContext, $mockPPRestCall);
         $this->assertNotNull($result);
     }
-
     /**
      * @dataProvider mockProvider
      * @param Order $obj
@@ -156,7 +150,7 @@ class OrderTest extends \PHPUnit_Framework_TestCase
         $mockPPRestCall->expects($this->any())
             ->method('execute')
             ->will($this->returnValue(
-                AuthorizationTest::getJson()
+                    AuthorizationTest::getJson()
             ));
 
         $authorization = new Authorization();
@@ -168,8 +162,8 @@ class OrderTest extends \PHPUnit_Framework_TestCase
     {
         $obj = self::getObject();
         $mockApiContext = $this->getMockBuilder('ApiContext')
-            ->disableOriginalConstructor()
-            ->getMock();
+                    ->disableOriginalConstructor()
+                    ->getMock();
         return array(
             array($obj, $mockApiContext),
             array($obj, null)

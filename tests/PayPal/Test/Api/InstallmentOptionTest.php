@@ -13,7 +13,6 @@ class InstallmentOptionTest extends \PHPUnit_Framework_TestCase
 {
     /**
      * Gets Json String of Object InstallmentOption
-     *
      * @return string
      */
     public static function getJson()
@@ -23,7 +22,6 @@ class InstallmentOptionTest extends \PHPUnit_Framework_TestCase
 
     /**
      * Gets Object Instance with Json data filled in
-     *
      * @return InstallmentOption
      */
     public static function getObject()
@@ -34,7 +32,6 @@ class InstallmentOptionTest extends \PHPUnit_Framework_TestCase
 
     /**
      * Tests for Serialization and Deserialization Issues
-     *
      * @return InstallmentOption
      */
     public function testSerializationDeserialization()

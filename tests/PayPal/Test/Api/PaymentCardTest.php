@@ -13,17 +13,15 @@ class PaymentCardTest extends \PHPUnit_Framework_TestCase
 {
     /**
      * Gets Json String of Object PaymentCard
-     *
      * @return string
      */
     public static function getJson()
     {
-        return '{"id":"TestSample","number":"TestSample","type":"TestSample","expire_month":123,"expire_year":123,"start_month":"TestSample","start_year":"TestSample","cvv2":"TestSample","first_name":"TestSample","last_name":"TestSample","billing_country":"TestSample","billing_address":' . AddressTest::getJson() . ',"external_customer_id":"TestSample","status":"TestSample","valid_until":"TestSample","issue_number":"TestSample","links":' . LinksTest::getJson() . '}';
+        return '{"id":"TestSample","number":"TestSample","type":"TestSample","expire_month":"123","expire_year":"123","start_month":"TestSample","start_year":"TestSample","cvv2":"TestSample","first_name":"TestSample","last_name":"TestSample","billing_country":"TestSample","billing_address":' .AddressTest::getJson() . ',"external_customer_id":"TestSample","status":"TestSample","card_product_class":"TestSample","valid_until":"TestSample","issue_number":"TestSample","links":' .LinksTest::getJson() . '}';
     }
 
     /**
      * Gets Object Instance with Json data filled in
-     *
      * @return PaymentCard
      */
     public static function getObject()
@@ -34,7 +32,6 @@ class PaymentCardTest extends \PHPUnit_Framework_TestCase
 
     /**
      * Tests for Serialization and Deserialization Issues
-     *
      * @return PaymentCard
      */
     public function testSerializationDeserialization()
@@ -55,6 +52,7 @@ class PaymentCardTest extends \PHPUnit_Framework_TestCase
         $this->assertNotNull($obj->getBillingAddress());
         $this->assertNotNull($obj->getExternalCustomerId());
         $this->assertNotNull($obj->getStatus());
+        $this->assertNotNull($obj->getCardProductClass());
         $this->assertNotNull($obj->getValidUntil());
         $this->assertNotNull($obj->getIssueNumber());
         $this->assertNotNull($obj->getLinks());
@@ -71,8 +69,8 @@ class PaymentCardTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($obj->getId(), "TestSample");
         $this->assertEquals($obj->getNumber(), "TestSample");
         $this->assertEquals($obj->getType(), "TestSample");
-        $this->assertEquals($obj->getExpireMonth(), 123);
-        $this->assertEquals($obj->getExpireYear(), 123);
+        $this->assertEquals($obj->getExpireMonth(), "TestSample");
+        $this->assertEquals($obj->getExpireYear(), "TestSample");
         $this->assertEquals($obj->getStartMonth(), "TestSample");
         $this->assertEquals($obj->getStartYear(), "TestSample");
         $this->assertEquals($obj->getCvv2(), "TestSample");
@@ -82,6 +80,7 @@ class PaymentCardTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($obj->getBillingAddress(), AddressTest::getObject());
         $this->assertEquals($obj->getExternalCustomerId(), "TestSample");
         $this->assertEquals($obj->getStatus(), "TestSample");
+        $this->assertEquals($obj->getCardProductClass(), "TestSample");
         $this->assertEquals($obj->getValidUntil(), "TestSample");
         $this->assertEquals($obj->getIssueNumber(), "TestSample");
         $this->assertEquals($obj->getLinks(), LinksTest::getObject());

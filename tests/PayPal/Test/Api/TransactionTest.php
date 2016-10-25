@@ -23,7 +23,6 @@ class TransactionTest extends \PHPUnit_Framework_TestCase
 
     /**
      * Gets Object Instance with Json data filled in
-     *
      * @return Transaction
      */
     public static function getObject()
@@ -34,7 +33,6 @@ class TransactionTest extends \PHPUnit_Framework_TestCase
 
     /**
      * Tests for Serialization and Deserialization Issues
-     *
      * @return Transaction
      */
     public function testSerializationDeserialization()

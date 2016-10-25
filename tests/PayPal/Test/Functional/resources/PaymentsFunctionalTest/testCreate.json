@@ -23,8 +23,9 @@
         "payment_method": "credit_card", 
         "funding_instruments": [
           {
-            "credit_card": {
+            "payment_card": {
               "number": "4160285494148633",
+              "billing_country": "US",
               "type": "visa", 
               "expire_month": 11, 
               "expire_year": 2018, 

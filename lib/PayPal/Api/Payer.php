@@ -11,11 +11,11 @@ use PayPal\Common\PayPalModel;
  *
  * @package PayPal\Api
  *
- * @property string                          payment_method
- * @property string                          status
+ * @property string payment_method
+ * @property string status
  * @property \PayPal\Api\FundingInstrument[] funding_instruments
- * @property string                          funding_option_id
- * @property \PayPal\Api\PayerInfo           payer_info
+ * @property string external_selected_funding_instrument_type
+ * @property \PayPal\Api\PayerInfo payer_info
  */
 class Payer extends PayPalModel
 {
@@ -24,7 +24,7 @@ class Payer extends PayPalModel
      * Valid Values: ["credit_card", "bank", "paypal", "pay_upon_invoice", "carrier", "alternate_payment"]
      *
      * @param string $payment_method
-     *
+     * 
      * @return $this
      */
     public function setPaymentMethod($payment_method)
@@ -48,7 +48,7 @@ class Payer extends PayPalModel
      * Valid Values: ["VERIFIED", "UNVERIFIED"]
      *
      * @param string $status
-     *
+     * 
      * @return $this
      */
     public function setStatus($status)
@@ -70,10 +70,9 @@ class Payer extends PayPalModel
     /**
      * Type of account relationship payer has with PayPal.
      * Valid Values: ["BUSINESS", "PERSONAL", "PREMIER"]
-     *
      * @deprecated Not publicly available
      * @param string $account_type
-     *
+     * 
      * @return $this
      */
     public function setAccountType($account_type)
@@ -84,7 +83,6 @@ class Payer extends PayPalModel
 
     /**
      * Type of account relationship payer has with PayPal.
-     *
      * @deprecated Not publicly available
      * @return string
      */
@@ -95,10 +93,9 @@ class Payer extends PayPalModel
 
     /**
      * Duration since the payer established account relationship with PayPal in days.
-     *
      * @deprecated Not publicly available
      * @param string $account_age
-     *
+     * 
      * @return $this
      */
     public function setAccountAge($account_age)
@@ -109,7 +106,6 @@ class Payer extends PayPalModel
 
     /**
      * Duration since the payer established account relationship with PayPal in days.
-     *
      * @deprecated Not publicly available
      * @return string
      */
@@ -122,7 +118,7 @@ class Payer extends PayPalModel
      * List of funding instruments to fund the payment. 'OneOf' funding_instruments,funding_option_id to be used to identify the specifics of payment method passed.
      *
      * @param \PayPal\Api\FundingInstrument[] $funding_instruments
-     *
+     * 
      * @return $this
      */
     public function setFundingInstruments($funding_instruments)
@@ -173,9 +169,9 @@ class Payer extends PayPalModel
 
     /**
      * Id of user selected funding option for the payment.'OneOf' funding_instruments,funding_option_id to be used to identify the specifics of payment method passed.
-     *
+     * @deprecated Not publicly available
      * @param string $funding_option_id
-     *
+     * 
      * @return $this
      */
     public function setFundingOptionId($funding_option_id)
@@ -186,7 +182,7 @@ class Payer extends PayPalModel
 
     /**
      * Id of user selected funding option for the payment.'OneOf' funding_instruments,funding_option_id to be used to identify the specifics of payment method passed.
-     *
+     * @deprecated Not publicly available
      * @return string
      */
     public function getFundingOptionId()
@@ -195,11 +191,10 @@ class Payer extends PayPalModel
     }
 
     /**
-     * Default funding option available for the payment
-     *
+     * Default funding option available for the payment 
      * @deprecated Not publicly available
      * @param \PayPal\Api\FundingOption $funding_option
-     *
+     * 
      * @return $this
      */
     public function setFundingOption($funding_option)
@@ -209,8 +204,7 @@ class Payer extends PayPalModel
     }
 
     /**
-     * Default funding option available for the payment
-     *
+     * Default funding option available for the payment 
      * @deprecated Not publicly available
      * @return \PayPal\Api\FundingOption
      */
@@ -220,11 +214,34 @@ class Payer extends PayPalModel
     }
 
     /**
-     * Funding option related to default funding option.
+     * Instrument type pre-selected by the user outside of PayPal and passed along the payment creation. This param is used in cases such as PayPal Credit Second Button
+     * Valid Values: ["CREDIT", "PAY_UPON_INVOICE"]
      *
+     * @param string $external_selected_funding_instrument_type
+     * 
+     * @return $this
+     */
+    public function setExternalSelectedFundingInstrumentType($external_selected_funding_instrument_type)
+    {
+        $this->external_selected_funding_instrument_type = $external_selected_funding_instrument_type;
+        return $this;
+    }
+
+    /**
+     * Instrument type pre-selected by the user outside of PayPal and passed along the payment creation. This param is used in cases such as PayPal Credit Second Button
+     *
+     * @return string
+     */
+    public function getExternalSelectedFundingInstrumentType()
+    {
+        return $this->external_selected_funding_instrument_type;
+    }
+
+    /**
+     * Funding option related to default funding option.
      * @deprecated Not publicly available
      * @param \PayPal\Api\FundingOption $related_funding_option
-     *
+     * 
      * @return $this
      */
     public function setRelatedFundingOption($related_funding_option)
@@ -235,7 +252,6 @@ class Payer extends PayPalModel
 
     /**
      * Funding option related to default funding option.
-     *
      * @deprecated Not publicly available
      * @return \PayPal\Api\FundingOption
      */
@@ -245,10 +261,10 @@ class Payer extends PayPalModel
     }
 
     /**
-     * Information related to the Payer.
+     * Information related to the Payer. 
      *
      * @param \PayPal\Api\PayerInfo $payer_info
-     *
+     * 
      * @return $this
      */
     public function setPayerInfo($payer_info)
@@ -258,7 +274,7 @@ class Payer extends PayPalModel
     }
 
     /**
-     * Information related to the Payer.
+     * Information related to the Payer. 
      *
      * @return \PayPal\Api\PayerInfo
      */

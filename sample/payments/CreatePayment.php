@@ -3,8 +3,8 @@
 // # CreatePaymentSample
 //
 // This sample code demonstrate how you can process
-// a direct credit card payment. Please note that direct 
-// credit card payment and related features using the 
+// a direct credit card payment. Please note that direct
+// credit card payment and related features using the
 // REST API is restricted in some countries.
 // API used: /v1/payments/payment
 
@@ -29,8 +29,8 @@ $card->setType("visa")
     ->setExpireYear("2019")
     ->setCvv2("012")
     ->setFirstName("Joe")
-    ->setLastName("Shopper")
-    ->setBillingCountry("US");
+    ->setBillingCountry("US")
+    ->setLastName("Shopper");
 
 // ### FundingInstrument
 // A resource representing a Payer's funding instrument.
@@ -89,7 +89,7 @@ $amount->setCurrency("USD")
 // ### Transaction
 // A transaction defines the contract of a
 // payment - what is the payment for and who
-// is fulfilling it. 
+// is fulfilling it.
 $transaction = new Transaction();
 $transaction->setAmount($amount)
     ->setItemList($itemList)
