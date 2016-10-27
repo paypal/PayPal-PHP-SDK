@@ -8,25 +8,26 @@ $capture = require 'AuthorizationCapture.php';
 
 use PayPal\Api\Capture;
 use PayPal\Api\Refund;
+use PayPal\Api\RefundRequest;
 
 // ### Refund
 // Create a refund object indicating
 // refund amount and call the refund method
 
-$refund = new Refund();
-$refund->setAmount($amt);
+$refundRequest = new RefundRequest();
+$refundRequest->setAmount($amt);
 
 try {
     // Create a new apiContext object so we send a new
     // PayPal-Request-Id (idempotency) header for this resource
     $apiContext = getApiContext($clientId, $clientSecret);
 
-    $captureRefund = $capture->refund($refund, $apiContext);
+    $captureRefund = $capture->refundCapturedPayment($refundRequest, $apiContext);
 } catch (Exception $ex) {
     // NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
-    ResultPrinter::printError("Refund Capture", "Capture", null, $refund, $ex);
+    ResultPrinter::printError("Refund Capture", "Capture", null, $refundRequest, $ex);
     exit(1);
 }
 
 // NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
- ResultPrinter::printResult("Refund Capture", "Capture", $captureRefund->getId(), $refund, $captureRefund);
+ResultPrinter::printResult("Refund Capture", "Capture", $captureRefund->getId(), $refundRequest, $captureRefund);

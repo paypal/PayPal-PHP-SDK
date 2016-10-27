@@ -12,6 +12,7 @@ $saleId = $sale->getId();
 
 use PayPal\Api\Amount;
 use PayPal\Api\Refund;
+use PayPal\Api\RefundRequest;
 use PayPal\Api\Sale;
 
 // ### Refund amount
@@ -23,8 +24,8 @@ $amt->setCurrency('USD')
     ->setTotal(0.01);
 
 // ### Refund object
-$refund = new Refund();
-$refund->setAmount($amt);
+$refundRequest = new RefundRequest();
+$refundRequest->setAmount($amt);
 
 // ###Sale
 // A sale transaction.
@@ -39,14 +40,14 @@ try {
 
     // Refund the sale
     // (See bootstrap.php for more on `ApiContext`)
-    $refundedSale = $sale->refund($refund, $apiContext);
+    $refundedSale = $sale->refundSale($refundRequest, $apiContext);
 } catch (Exception $ex) {
     // NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
-    ResultPrinter::printError("Refund Sale", "Sale", $refundedSale->getId(), $refund, $ex);
+    ResultPrinter::printError("Refund Sale", "Sale", null, $refundRequest, $ex);
     exit(1);
 }
 
 // NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
- ResultPrinter::printResult("Refund Sale", "Sale", $refundedSale->getId(), $refund, $refundedSale);
+ResultPrinter::printResult("Refund Sale", "Sale", $refundedSale->getId(), $refundRequest, $refundedSale);
 
 return $refundedSale;

@@ -7,7 +7,7 @@ use PayPal\Common\PayPalModel;
 /**
  * Class CarrierAccount
  *
- * Payment Instrument that facilitates carrier billing
+ * Payment instrument that enables carrier billing.
  *
  * @package PayPal\Api
  *
@@ -20,7 +20,7 @@ use PayPal\Common\PayPalModel;
 class CarrierAccount extends PayPalModel
 {
     /**
-     * ID that identifies the payer�s carrier account. Can be used in subsequent REST API calls, e.g. for making payments.
+     * The ID of the carrier account of the payer. Use in subsequent REST API calls. For example, to make payments.
      *
      * @param string $id
      * 
@@ -33,7 +33,7 @@ class CarrierAccount extends PayPalModel
     }
 
     /**
-     * ID that identifies the payer�s carrier account. Can be used in subsequent REST API calls, e.g. for making payments.
+     * The ID of the carrier account of the payer. Use in subsequent REST API calls. For example, to make payments.
      *
      * @return string
      */
@@ -43,7 +43,7 @@ class CarrierAccount extends PayPalModel
     }
 
     /**
-     * The payer�s phone number in E.164 format.
+     * The phone number of the payer, in E.164 format.
      *
      * @param string $phone_number
      * 
@@ -56,7 +56,7 @@ class CarrierAccount extends PayPalModel
     }
 
     /**
-     * The payer�s phone number in E.164 format.
+     * The phone number of the payer, in E.164 format.
      *
      * @return string
      */
@@ -66,7 +66,7 @@ class CarrierAccount extends PayPalModel
     }
 
     /**
-     * User identifier as created by the merchant.
+     * The ID of the customer, as created by the merchant.
      *
      * @param string $external_customer_id
      * 
@@ -79,7 +79,7 @@ class CarrierAccount extends PayPalModel
     }
 
     /**
-     * User identifier as created by the merchant.
+     * The ID of the customer, as created by the merchant.
      *
      * @return string
      */
@@ -89,7 +89,7 @@ class CarrierAccount extends PayPalModel
     }
 
     /**
-     * The method of obtaining the phone number (USER_PROVIDED or READ_FROM_DEVICE).
+     * The method used to obtain the phone number. Value is `READ_FROM_DEVICE` or `USER_PROVIDED`.
      * Valid Values: ["READ_FROM_DEVICE", "USER_PROVIDED"]
      *
      * @param string $phone_source
@@ -103,7 +103,7 @@ class CarrierAccount extends PayPalModel
     }
 
     /**
-     * The method of obtaining the phone number (USER_PROVIDED or READ_FROM_DEVICE).
+     * The method used to obtain the phone number. Value is `READ_FROM_DEVICE` or `USER_PROVIDED`.
      *
      * @return string
      */
@@ -113,7 +113,7 @@ class CarrierAccount extends PayPalModel
     }
 
     /**
-     * The country where the phone number is registered. Specified in 2-character IS0-3166-1 format.
+     * The ISO 3166-1 alpha-2 country code where the phone number is registered.
      *
      * @param \PayPal\Api\CountryCode $country_code
      * 
@@ -126,7 +126,7 @@ class CarrierAccount extends PayPalModel
     }
 
     /**
-     * The country where the phone number is registered. Specified in 2-character IS0-3166-1 format.
+     * The ISO 3166-1 alpha-2 country code where the phone number is registered.
      *
      * @return \PayPal\Api\CountryCode
      */

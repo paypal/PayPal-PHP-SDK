@@ -3,8 +3,8 @@
 // # CreatePaymentSample
 //
 // This sample code demonstrate how you can process
-// a direct credit card payment. Please note that direct
-// credit card payment and related features using the
+// a direct credit card payment. Please note that direct 
+// credit card payment and related features using the 
 // REST API is restricted in some countries.
 // API used: /v1/payments/payment
 
@@ -14,6 +14,7 @@ use PayPal\Api\Details;
 use PayPal\Api\FundingInstrument;
 use PayPal\Api\Item;
 use PayPal\Api\ItemList;
+use PayPal\Api\Payee;
 use PayPal\Api\Payer;
 use PayPal\Api\Payment;
 use PayPal\Api\PaymentCard;
@@ -86,14 +87,21 @@ $amount->setCurrency("USD")
     ->setTotal(20)
     ->setDetails($details);
 
+// ### Payee
+// Specify a payee with that user's email or merchant id
+// Merchant Id can be found at https://www.paypal.com/businessprofile/settings/
+$payee = new Payee();
+$payee->setEmail("stevendcoffey-facilitator@gmail.com");
+
 // ### Transaction
 // A transaction defines the contract of a
 // payment - what is the payment for and who
-// is fulfilling it.
+// is fulfilling it. 
 $transaction = new Transaction();
 $transaction->setAmount($amount)
     ->setItemList($itemList)
     ->setDescription("Payment description")
+    ->setPayee($payee)
     ->setInvoiceNumber(uniqid());
 
 // ### Payment

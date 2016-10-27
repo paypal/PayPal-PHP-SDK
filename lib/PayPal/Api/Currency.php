@@ -19,7 +19,7 @@ use PayPal\Validation\NumericValidator;
 class Currency extends PayPalModel
 {
     /**
-     * 3 letter currency code
+     * 3 letter currency code as defined by ISO 4217.
      *
      * @param string $currency
      * 
@@ -32,7 +32,7 @@ class Currency extends PayPalModel
     }
 
     /**
-     * 3 letter currency code
+     * 3 letter currency code as defined by ISO 4217.
      *
      * @return string
      */
@@ -42,7 +42,7 @@ class Currency extends PayPalModel
     }
 
     /**
-     * amount upto 2 decimals represented as string
+     * amount up to N digit after the decimals separator as defined in ISO 4217 for the appropriate currency code.
      *
      * @param string|double $value
      * 
@@ -57,7 +57,7 @@ class Currency extends PayPalModel
     }
 
     /**
-     * amount upto 2 decimals represented as string
+     * amount up to N digit after the decimals separator as defined in ISO 4217 for the appropriate currency code.
      *
      * @return string
      */

@@ -64,10 +64,9 @@ class ErrorDetails extends PayPalModel
 
     /**
      * Reference ID of the purchase_unit associated with this error
-     *
      * @deprecated Not publicly available
      * @param string $purchase_unit_reference_id
-     *
+     * 
      * @return $this
      */
     public function setPurchaseUnitReferenceId($purchase_unit_reference_id)
@@ -78,7 +77,6 @@ class ErrorDetails extends PayPalModel
 
     /**
      * Reference ID of the purchase_unit associated with this error
-     *
      * @deprecated Not publicly available
      * @return string
      */
@@ -89,10 +87,9 @@ class ErrorDetails extends PayPalModel
 
     /**
      * PayPal internal error code.
-     *
      * @deprecated Not publicly available
      * @param string $code
-     *
+     * 
      * @return $this
      */
     public function setCode($code)
@@ -103,7 +100,6 @@ class ErrorDetails extends PayPalModel
 
     /**
      * PayPal internal error code.
-     *
      * @deprecated Not publicly available
      * @return string
      */

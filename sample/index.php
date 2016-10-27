@@ -305,6 +305,17 @@ if (PHP_SAPI == 'cli') {
                     </li>
                     <li class="list-group-item">
                         <div class="row">
+                            <div class="col-md-8"><h5>Payments to a 3rd-Party Payee</h5></div>
+                            <div class="col-md-4">
+                                <a href="payments/CreateThirdPartyPayment.php" class="btn btn-primary pull-left execute"> Try It <i
+                                        class="fa fa-play-circle-o"></i></a>
+                                <a href="doc/payments/CreateThirdPartyPayment.html" class="btn btn-default pull-right">Source <i
+                                        class="fa fa-file-code-o"></i></a>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        <div class="row">
                             <div class="col-md-8"><h5>Payments using saved credit card <small>(using Vault APIs)</small></h5></div>
                             <div class="col-md-4">
                                 <a href="payments/CreatePaymentUsingSavedCard.php"

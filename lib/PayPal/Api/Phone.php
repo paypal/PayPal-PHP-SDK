@@ -7,7 +7,7 @@ use PayPal\Common\PayPalModel;
 /**
  * Class Phone
  *
- * Representation of a phone number.
+ * Information related to the Payee.
  *
  * @package PayPal\Api
  *
@@ -18,7 +18,7 @@ use PayPal\Common\PayPalModel;
 class Phone extends PayPalModel
 {
     /**
-     * The country calling code (CC) as defined by E.164. The combined length of CC+national cannot be more than 15 digits. 
+     * Country code (from in E.164 format)
      *
      * @param string $country_code
      * 
@@ -31,7 +31,7 @@ class Phone extends PayPalModel
     }
 
     /**
-     * The country calling code (CC) as defined by E.164. The combined length of CC+national cannot be more than 15 digits. 
+     * Country code (from in E.164 format)
      *
      * @return string
      */
@@ -41,7 +41,7 @@ class Phone extends PayPalModel
     }
 
     /**
-     * The national number as defined by E.164. The combined length of CC+national cannot be more than 15 digits. A national number consists of National Destination Code (NDC) and Subscriber Number (SN).
+     * In-country phone number (from in E.164 format)
      *
      * @param string $national_number
      * 
@@ -54,7 +54,7 @@ class Phone extends PayPalModel
     }
 
     /**
-     * The national number as defined by E.164. The combined length of CC+national cannot be more than 15 digits. A national number consists of National Destination Code (NDC) and Subscriber Number (SN).
+     * In-country phone number (from in E.164 format)
      *
      * @return string
      */
@@ -67,7 +67,7 @@ class Phone extends PayPalModel
      * Phone extension
      *
      * @param string $extension
-     *
+     * 
      * @return $this
      */
     public function setExtension($extension)

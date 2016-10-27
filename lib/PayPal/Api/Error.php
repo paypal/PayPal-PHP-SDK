@@ -24,7 +24,7 @@ class Error extends PayPalModel
      * Human readable, unique name of the error.
      *
      * @param string $name
-     * 
+     *
      * @return $this
      */
     public function setName($name)
@@ -97,7 +97,7 @@ class Error extends PayPalModel
      * PayPal internal identifier used for correlation purposes.
      *
      * @param string $debug_id
-     * 
+     *
      * @return $this
      */
     public function setDebugId($debug_id)
@@ -120,7 +120,7 @@ class Error extends PayPalModel
      * Message describing the error.
      *
      * @param string $message
-     * 
+     *
      * @return $this
      */
     public function setMessage($message)
@@ -143,7 +143,7 @@ class Error extends PayPalModel
      * URI for detailed information related to this error for the developer.
      *
      * @param string $information_link
-     * 
+     *
      * @return $this
      */
     public function setInformationLink($information_link)
@@ -166,7 +166,7 @@ class Error extends PayPalModel
      * Additional details of the error
      *
      * @param \PayPal\Api\ErrorDetails[] $details
-     * 
+     *
      * @return $this
      */
     public function setDetails($details)

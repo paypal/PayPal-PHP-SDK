@@ -2,6 +2,7 @@
 
 namespace PayPal\Test\Api;
 
+use PayPal\Common\PayPalModel;
 use PayPal\Api\CartBase;
 
 /**
@@ -13,17 +14,15 @@ class CartBaseTest extends \PHPUnit_Framework_TestCase
 {
     /**
      * Gets Json String of Object CartBase
-     *
      * @return string
      */
     public static function getJson()
     {
-        return '{"reference_id":"TestSample","amount":' . AmountTest::getJson() . ',"payee":' . PayeeTest::getJson() . ',"description":"TestSample","note_to_payee":"TestSample","custom":"TestSample","invoice_number":"TestSample","soft_descriptor":"TestSample","soft_descriptor_city":"TestSample","payment_options":' . PaymentOptionsTest::getJson() . ',"item_list":' . ItemListTest::getJson() . ',"notify_url":"http://www.google.com","order_url":"http://www.google.com","external_funding":' . ExternalFundingTest::getJson() . '}';
+        return '{"reference_id":"TestSample","amount":' .AmountTest::getJson() . ',"payee":' .PayeeTest::getJson() . ',"description":"TestSample","note_to_payee":"TestSample","custom":"TestSample","invoice_number":"TestSample","soft_descriptor":"TestSample","soft_descriptor_city":"TestSample","payment_options":' .PaymentOptionsTest::getJson() . ',"item_list":' .ItemListTest::getJson() . ',"notify_url":"http://www.google.com","order_url":"http://www.google.com","external_funding":' .ExternalFundingTest::getJson() . ',"type":"TestSample"}';
     }
 
     /**
      * Gets Object Instance with Json data filled in
-     *
      * @return CartBase
      */
     public static function getObject()
@@ -34,7 +33,6 @@ class CartBaseTest extends \PHPUnit_Framework_TestCase
 
     /**
      * Tests for Serialization and Deserialization Issues
-     *
      * @return CartBase
      */
     public function testSerializationDeserialization()

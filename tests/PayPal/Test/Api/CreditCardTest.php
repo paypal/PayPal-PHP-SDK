@@ -23,7 +23,6 @@ class CreditCardTest extends \PHPUnit_Framework_TestCase
 
     /**
      * Gets Object Instance with Json data filled in
-     *
      * @return CreditCard
      */
     public static function getObject()

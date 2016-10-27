@@ -13,7 +13,6 @@ class SaleTest extends \PHPUnit_Framework_TestCase
 {
     /**
      * Gets Json String of Object Sale
-     *
      * @return string
      */
     public static function getJson()
@@ -23,7 +22,6 @@ class SaleTest extends \PHPUnit_Framework_TestCase
 
     /**
      * Gets Object Instance with Json data filled in
-     *
      * @return Sale
      */
     public static function getObject()
@@ -34,7 +32,6 @@ class SaleTest extends \PHPUnit_Framework_TestCase
 
     /**
      * Tests for Serialization and Deserialization Issues
-     *
      * @return Sale
      */
     public function testSerializationDeserialization()
@@ -110,13 +107,12 @@ class SaleTest extends \PHPUnit_Framework_TestCase
         $mockPPRestCall->expects($this->any())
             ->method('execute')
             ->will($this->returnValue(
-                SaleTest::getJson()
+                    SaleTest::getJson()
             ));
 
         $result = $obj->get("saleId", $mockApiContext, $mockPPRestCall);
         $this->assertNotNull($result);
     }
-
     /**
      * @dataProvider mockProvider
      * @param Sale $obj

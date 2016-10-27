@@ -13,7 +13,6 @@ class PaymentOptionsTest extends \PHPUnit_Framework_TestCase
 {
     /**
      * Gets Json String of Object PaymentOptions
-     *
      * @return string
      */
     public static function getJson()
@@ -23,7 +22,6 @@ class PaymentOptionsTest extends \PHPUnit_Framework_TestCase
 
     /**
      * Gets Object Instance with Json data filled in
-     *
      * @return PaymentOptions
      */
     public static function getObject()
@@ -34,7 +32,6 @@ class PaymentOptionsTest extends \PHPUnit_Framework_TestCase
 
     /**
      * Tests for Serialization and Deserialization Issues
-     *
      * @return PaymentOptions
      */
     public function testSerializationDeserialization()

@@ -331,7 +331,7 @@ class CreditCard extends PayPalResourceModel
     }
 
     /**
-     * State of the funding instrument.
+     * State of the credit card funding instrument.
      * Valid Values: ["expired", "ok"]
      *
      * @param string $state
