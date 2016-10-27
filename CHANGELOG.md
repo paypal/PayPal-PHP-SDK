@@ -1,6 +1,11 @@
 PayPal PHP SDK release notes
 ============================
 
+1.10.0
+-----
+* Updated Payments APIs [#700](https://github.com/paypal/PayPal-PHP-SDK/pull/700).
+* Minor bug fixes.
+
 1.9.0
 -----
 * Updated Payouts APIs [#692](https://github.com/paypal/PayPal-PHP-SDK/pull/692).
