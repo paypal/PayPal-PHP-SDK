@@ -10,7 +10,7 @@ __Welcome to PayPal PHP SDK__. This repository contains PayPal's PHP SDK and sam
 ## Please Note
 > **The Payment Card Industry (PCI) Council has [mandated](http://blog.pcisecuritystandards.org/migrating-from-ssl-and-early-tls) that early versions of TLS be retired from service.  All organizations that handle credit card information are required to comply with this standard. As part of this obligation, PayPal is updating its services to require TLS 1.2 for all HTTPS connections. At this time, PayPal will also require HTTP/1.1 for all connections. [Click here](https://github.com/paypal/tls-update) for more information**
 
-> **If you have the SDK v1.6.2 or higher installed, you can easily test this by running the [TLSCheck sample](sample/tls/TlsCheck.php).**
+> **Connections to the sandbox environment use only TLS 1.2.**
 
 ## SDK Documentation
 
