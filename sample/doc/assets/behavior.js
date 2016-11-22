@@ -1942,34 +1942,6 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
     }, {
       "type": "folder",
       "data": {
-        "path": "tls",
-        "title": "tls"
-      },
-      "depth": 1,
-      "children": [
-        {
-          "type": "file",
-          "data": {
-            "language": {
-              "nameMatchers": [{}, ".fbp"],
-              "pygmentsLexer": "php",
-              "singleLineComment": ["//"],
-              "ignorePrefix": "}",
-              "foldPrefix": "^",
-              "name": "PHP"
-            },
-            "sourcePath": "/Users/japatel/paypal/github/PayPal-PHP-SDK/sample/tls/TlsCheck.php",
-            "projectPath": "tls/TlsCheck.php",
-            "targetPath": "tls/TlsCheck",
-            "pageTitle": "tls/TlsCheck",
-            "title": "TlsCheck"
-          },
-          "depth": 2
-        }
-      ]
-    }, {
-      "type": "folder",
-      "data": {
         "path": "vault",
         "title": "vault"
       },
