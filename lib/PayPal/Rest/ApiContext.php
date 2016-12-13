@@ -85,11 +85,17 @@ class ApiContext
      */
     public function getRequestId()
     {
-        if ($this->requestId == null) {
-            $this->requestId = $this->generateRequestId();
-        }
-
         return $this->requestId;
+    }
+
+    /**
+     * Sets the request ID
+     *
+     * @param string $requestId the PayPal-Request-Id value to use
+     */
+    public function setRequestId($requestId)
+    {
+        $this->requestId = $requestId;
     }
 
     /**
