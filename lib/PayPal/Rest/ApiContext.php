@@ -102,6 +102,7 @@ class ApiContext
      * Resets the requestId that can be used to set the PayPal-request-id
      * header used for idempotency. In cases where you need to make multiple create calls
      * using the same ApiContext object, you need to reset request Id.
+     * @deprecated Call setRequestId with a unique value.
      *
      * @return string
      */
@@ -146,6 +147,7 @@ class ApiContext
      * Generates a unique per request id that
      * can be used to set the PayPal-Request-Id header
      * that is used for idempotency
+     * @deprecated
      *
      * @return string
      */
