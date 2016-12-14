@@ -19,13 +19,6 @@ class PayPalHttpConnection
     private $httpConfig;
 
     /**
-     * HTTP status codes for which a retry must be attempted
-     * retry is currently attempted for Request timeout, Bad Gateway,
-     * Service Unavailable and Gateway timeout errors.
-     */
-    private static $retryCodes = array('408', '502', '503', '504',);
-
-    /**
      * LoggingManager
      *
      * @var PayPalLoggingManager
@@ -124,17 +117,6 @@ class PayPalHttpConnection
             $httpStatus = curl_getinfo($ch, CURLINFO_HTTP_CODE);
         }
 
-        //Retry if Failing
-        $retries = 0;
-        if (in_array($httpStatus, self::$retryCodes) && $this->httpConfig->getHttpRetryCount() != null) {
-            $this->logger->info("Got $httpStatus response from server. Retrying");
-            do {
-                $result = curl_exec($ch);
-                //Retrieve Response Status
-                $httpStatus = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-            } while (in_array($httpStatus, self::$retryCodes) && (++$retries < $this->httpConfig->getHttpRetryCount()));
-        }
-
         //Throw Exception if Retries and Certificates doenst work
         if (curl_errno($ch)) {
             $ex = new PayPalConnectionException(
@@ -168,18 +150,7 @@ class PayPalHttpConnection
         curl_close($ch);
 
         //More Exceptions based on HttpStatus Code
-        if (in_array($httpStatus, self::$retryCodes)) {
-            $ex = new PayPalConnectionException(
-                $this->httpConfig->getUrl(),
-                "Got Http response code $httpStatus when accessing {$this->httpConfig->getUrl()}. " .
-                "Retried $retries times."
-            );
-            $ex->setData($result);
-            $this->logger->error("Got Http response code $httpStatus when accessing {$this->httpConfig->getUrl()}. " .
-                "Retried $retries times." . $result);
-            $this->logger->debug("\n\n" . str_repeat('=', 128) . "\n");
-            throw $ex;
-        } elseif ($httpStatus < 200 || $httpStatus >= 300) {
+        if ($httpStatus < 200 || $httpStatus >= 300) {
             $ex = new PayPalConnectionException(
                 $this->httpConfig->getUrl(),
                 "Got Http response code $httpStatus when accessing {$this->httpConfig->getUrl()}.",
