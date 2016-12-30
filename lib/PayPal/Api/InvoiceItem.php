@@ -3,7 +3,6 @@
 namespace PayPal\Api;
 
 use PayPal\Common\PayPalModel;
-use PayPal\Converter\FormatConverter;
 use PayPal\Validation\NumericValidator;
 use PayPal\Validation\UrlValidator;
 
@@ -81,7 +80,6 @@ class InvoiceItem extends PayPalModel
     public function setQuantity($quantity)
     {
         NumericValidator::validate($quantity, "Quantity");
-        $quantity = FormatConverter::formatToPrice($quantity);
         $this->quantity = $quantity;
         return $this;
     }

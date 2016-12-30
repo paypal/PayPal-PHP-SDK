@@ -3,7 +3,6 @@
 namespace PayPal\Api;
 
 use PayPal\Common\PayPalModel;
-use PayPal\Converter\FormatConverter;
 use PayPal\Validation\NumericValidator;
 
 /**
@@ -51,7 +50,6 @@ class Currency extends PayPalModel
     public function setValue($value)
     {
         NumericValidator::validate($value, "Value");
-        $value = FormatConverter::formatToPrice($value, $this->getCurrency());
         $this->value = $value;
         return $this;
     }
