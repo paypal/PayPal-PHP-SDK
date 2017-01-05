@@ -3,7 +3,7 @@
 // # Create Third Party Invoice Sample
 // This sample code demonstrate how you can create third party invoice on someone else's behalf.
 // This requires using `Obtain User's Consent` to fetch the refresh token of the third party merchant. Please look at http://paypal.github.io/PayPal-PHP-SDK/sample/doc/lipp/ObtainUserConsent.html for more info.
-// You need the email address of the third party. This can be retrieved using the refresh token obtained from previous call. Please refere to http://paypal.github.io/PayPal-PHP-SDK/sample/doc/lipp/GetUserInfo.html for more info.
+// You need the email address of the third party. This can be retrieved using the refresh token obtained from previous call. Please refer to http://paypal.github.io/PayPal-PHP-SDK/sample/doc/lipp/GetUserInfo.html for more info.
 // Please make sure to use `merchantInfo.email` as the email address of the third party.
 
 require __DIR__ . '/../bootstrap.php';
@@ -16,6 +16,15 @@ use PayPal\Api\MerchantInfo;
 use PayPal\Api\PaymentTerm;
 use PayPal\Api\ShippingInfo;
 
+// Step 1. This would be refresh token retrieved from http://paypal.github.io/PayPal-PHP-SDK/sample/doc/lipp/ObtainUserConsent.html
+$refreshToken = "SCNWVZfdg43XaOmoEicazpkXyda32CGnP208EkuQ_QBIrXCYMhlvORFHHyoXPT0VbEMIHYVJEm0gVf1Vf72YgJzPScBenKoVPq__y1QRT7wwJo3WYADwUW4Q5ic";
+
+// Step 2. Get the email address of third party merchant who you want to create this invoice for. 
+// This can be retrieved using the refresh token obtained from previous call. Please refer to http://paypal.github.io/PayPal-PHP-SDK/sample/doc/lipp/GetUserInfo.html for more info.
+$thirdPartyMerchant = "developer@sample.com";
+    
+// Step 3. Create an invoice object.
+// Make sure to set `$invoice->getMerchantInfo()->setEmail()` with the third party merchant email you retrieved from Step 2.
 $invoice = new Invoice();
 
 // ### Invoice Info
@@ -32,7 +41,7 @@ $invoice
 // used to identify merchant
 $invoice->getMerchantInfo()
     // This would be the email address of third party merchant.
-    ->setEmail("developer@sample.com")
+    ->setEmail($thirdPartyMerchant)
     ->setFirstName("Dennis")
     ->setLastName("Doctor")
     ->setbusinessName("Medical Professionals, LLC")
@@ -85,11 +94,9 @@ $invoice->getPaymentTerm()
 // For Sample Purposes Only.
 $request = clone $invoice;
 
-// This would be refresh token retrieved from http://paypal.github.io/PayPal-PHP-SDK/sample/doc/lipp/ObtainUserConsent.html
-$refreshToken = "SCNWVZfdg43XaOmoEicazpkXyda32CGnP208EkuQ_QBIrXCYMhlvORFHHyoXPT0VbEMIHYVJEm0gVf1Vf72YgJzPScBenKoVPq__y1QRT7wwJo3WYADwUW4Q5ic";
 
 try {
-    // ### Use Refresh Token. MAKE SURE TO update `MerchantInfo.Email` based on
+    // ### Use Refresh Token obtained from Step 1. 
     $invoice->updateAccessToken($refreshToken, $apiContext);
 
     // ### Create Invoice
