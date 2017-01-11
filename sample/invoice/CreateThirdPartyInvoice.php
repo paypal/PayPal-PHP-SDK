@@ -105,12 +105,12 @@ try {
     $invoice->create($apiContext);
 } catch (Exception $ex) {
     // NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
-    ResultPrinter::printError("Create Invoice", "Invoice", null, $request, $ex);
+    ResultPrinter::printError("Create Third Party Invoice", "Invoice", null, $request, $ex);
     exit(1);
 }
 
 // NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
- ResultPrinter::printResult("Create Invoice", "Invoice", $invoice->getId(), $request, $invoice);
+ ResultPrinter::printResult("Create Third Party Invoice", "Invoice", $invoice->getId(), $request, $invoice);
 
 
 // ### Send Invoice
@@ -121,12 +121,11 @@ try {
     $invoice = Invoice::get($invoice->getId(), $apiContext);
 } catch (Exception $ex) {
     // NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
-    ResultPrinter::printError("Send Invoice", "Invoice", null, $request, $ex);
+    ResultPrinter::printError("Send Third Party Invoice", "Invoice", null, $request, $ex);
     exit(1);
 }
 
 // NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
-ResultPrinter::printResult("Send Invoice", "Invoice", $invoice->getId(), $request, $invoice);
-
+ResultPrinter::printResult("Send Third Party Invoice", "Invoice", $invoice->getId(), $request, $invoice);
 
 return $invoice;
