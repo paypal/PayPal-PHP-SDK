@@ -44,11 +44,11 @@ $requestBody = '{"id":"WH-9UG43882HX7271132-6E0871324L7949614","event_version":"
 //$headers = getallheaders();
 
 /**
-* In Documentions https://developer.paypal.com/docs/api/webhooks/#verify-webhook-signature_post 
+* In Documentions https://developer.paypal.com/docs/api/webhooks/#verify-webhook-signature_post
 * All header keys as UPPERCASE, but I recive the header key as the example array, First letter as UPPERCASE
 */
 $headers = array_change_key_case($headers, CASE_UPPER);
-     
+
 $signatureVerification = new VerifyWebhookSignature();
 $signatureVerification->setAuthAlgo($headers['PAYPAL-AUTH-ALGO']);
 $signatureVerification->setTransmissionId($headers['PAYPAL-TRANSMISSION-ID']);
@@ -57,9 +57,7 @@ $signatureVerification->setWebhookId("9XL90610J3647323C"); // Note that the Webh
 $signatureVerification->setTransmissionSig($headers['PAYPAL-TRANSMISSION-SIG']);
 $signatureVerification->setTransmissionTime($headers['PAYPAL-TRANSMISSION-TIME']);
 
-$webhookEvent = new WebhookEvent();
-$webhookEvent->fromJson($requestBody);
-$signatureVerification->setWebhookEvent($webhookEvent);
+$signatureVerification->setRequestBody($requestBody);
 $request = clone $signatureVerification;
 
 try {

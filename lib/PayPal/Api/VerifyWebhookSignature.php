@@ -29,7 +29,7 @@ class VerifyWebhookSignature extends PayPalResourceModel
      * The algorithm that PayPal uses to generate the signature and that you can use to verify the signature. Extract this value from the `PAYPAL-AUTH-ALGO` response header, which is received with the webhook notification.
      *
      * @param string $auth_algo
-     * 
+     *
      * @return $this
      */
     public function setAuthAlgo($auth_algo)
@@ -76,7 +76,7 @@ class VerifyWebhookSignature extends PayPalResourceModel
      * The ID of the HTTP transmission. Contained in the `PAYPAL-TRANSMISSION-ID` header of the notification message.
      *
      * @param string $transmission_id
-     * 
+     *
      * @return $this
      */
     public function setTransmissionId($transmission_id)
@@ -99,7 +99,7 @@ class VerifyWebhookSignature extends PayPalResourceModel
      * The PayPal-generated asymmetric signature. Extract this value from the `PAYPAL-TRANSMISSION-SIG` response header, which is received with the webhook notification.
      *
      * @param string $transmission_sig
-     * 
+     *
      * @return $this
      */
     public function setTransmissionSig($transmission_sig)
@@ -122,7 +122,7 @@ class VerifyWebhookSignature extends PayPalResourceModel
      * The date and time of the HTTP transmission. Contained in the `PAYPAL-TRANSMISSION-TIME` header of the notification message.
      *
      * @param string $transmission_time
-     * 
+     *
      * @return $this
      */
     public function setTransmissionTime($transmission_time)
@@ -145,7 +145,7 @@ class VerifyWebhookSignature extends PayPalResourceModel
      * The ID of the webhook as configured in your Developer Portal account.
      *
      * @param string $webhook_id
-     * 
+     *
      * @return $this
      */
     public function setWebhookId($webhook_id)
@@ -166,9 +166,9 @@ class VerifyWebhookSignature extends PayPalResourceModel
 
     /**
      * The webhook notification, which is the content of the HTTP `POST` request body.
-     *
+     * @deprecated Please use setRequestBody($request_body) instead.
      * @param \PayPal\Api\WebhookEvent $webhook_event
-     * 
+     *
      * @return $this
      */
     public function setWebhookEvent($webhook_event)
@@ -188,6 +188,29 @@ class VerifyWebhookSignature extends PayPalResourceModel
     }
 
     /**
+     * The content of the HTTP `POST` request body of the webhook notification you received as a string.
+     *
+     * @param string $request_body
+     *
+     * @return $this
+     */
+    public function setRequestBody($request_body)
+    {
+        $this->request_body = $request_body;
+        return $this;
+    }
+
+    /**
+     * The content of the HTTP `POST` request body of the webhook notification you received as a string.
+     *
+     * @return string
+     */
+    public function getRequestBody()
+    {
+        return $this->request_body;
+    }
+
+    /**
      * Verifies a webhook signature.
      *
      * @param ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
@@ -197,6 +220,7 @@ class VerifyWebhookSignature extends PayPalResourceModel
     public function post($apiContext = null, $restCall = null)
     {
         $payLoad = $this->toJSON();
+
         $json = self::executeCall(
             "/v1/notifications/verify-webhook-signature",
             "POST",
@@ -210,4 +234,23 @@ class VerifyWebhookSignature extends PayPalResourceModel
         return $ret;
     }
 
+    public function toJSON($options = 0)
+    {
+        if (!is_null($this->request_body)) {
+            $valuesToEncode = $this->toArray();
+            unset($valuesToEncode['webhook_event']);
+            unset($valuesToEncode['request_body']);
+
+            $payLoad = "{";
+            foreach ($valuesToEncode as $field => $value) {
+                $payLoad .= "\"$field\": \"$value\",";
+            }
+            $payLoad .= "\"webhook_event\": $this->request_body";
+            $payLoad .= "}";
+            return $payLoad;
+        } else {
+            $payLoad = parent::toJSON($options);
+            return $payLoad;
+        }
+    }
 }
