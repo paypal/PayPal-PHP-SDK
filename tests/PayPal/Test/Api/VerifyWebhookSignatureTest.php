@@ -77,6 +77,15 @@ class VerifyWebhookSignatureTest extends \PHPUnit_Framework_TestCase
         $obj = new VerifyWebhookSignature();
         $obj->setCertUrl(null);
     }
+
+    public function testToJsonToIncludeRequestBodyAsWebhookEvent() {
+        $obj = new VerifyWebhookSignature();
+        $requestBody = '{"id":"123", "links": [], "something": {}}';
+        $obj->setRequestBody($requestBody);
+
+        $this->assertEquals($obj->toJSON(), '{"webhook_event": ' . $requestBody .'}');
+    }
+
     /**
      * @dataProvider mockProvider
      * @param VerifyWebhookSignature $obj
