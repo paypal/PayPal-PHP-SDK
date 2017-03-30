@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>Class PayPal\Common\PayPalModel</title>
+
+	<link rel="stylesheet" href="resources/bootstrap.min.css?973e37a8502921d56bc02bb55321f45b072b6f71">
+	<link rel="stylesheet" href="resources/style.css?49f43d3208c5d7e33fa16d36107a345bf11cc00d">
+
+</head>
+
+<body>
+	<nav id="navigation" class="navbar navbar-default navbar-fixed-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a href="index.html" class="navbar-brand">Overview</a>
+			</div>
+			<div class="collapse navbar-collapse">
+
+                <form id="search" class="navbar-form navbar-left" role="search">
+                    <input type="hidden" name="cx" value="">
+                    <input type="hidden" name="ie" value="UTF-8">
+                    <div class="form-group">
+                        <input type="text" name="q" class="search-query form-control" placeholder="Search">
+					</div>
+				</form>
+
+				<ul class="nav navbar-nav">
+					<li>
+						<a href="namespace-PayPal.Common.html" title="Summary of PayPal\Common"><span>Namespace</span></a>
+					</li>
+					<li class="active">
+<span>Class</span>					</li>
+
+
+
+
+
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<div id="left">
+	<div id="menu">
+
+		<div id="groups">
+				<h3>Namespaces</h3>
+			<ul>
+					<li class="active">
+						<a href="namespace-PayPal.html">
+							PayPal<span></span>
+						</a>
+							<ul>
+					<li>
+						<a href="namespace-PayPal.Api.html">
+							Api						</a>
+							</li>
+					<li>
+						<a href="namespace-PayPal.Auth.html">
+							Auth						</a>
+							</li>
+					<li>
+						<a href="namespace-PayPal.Cache.html">
+							Cache						</a>
+							</li>
+					<li class="active">
+						<a href="namespace-PayPal.Common.html">
+							Common						</a>
+							</li>
+					<li>
+						<a href="namespace-PayPal.Converter.html">
+							Converter						</a>
+							</li>
+					<li>
+						<a href="namespace-PayPal.Core.html">
+							Core						</a>
+							</li>
+					<li>
+						<a href="namespace-PayPal.Exception.html">
+							Exception						</a>
+							</li>
+					<li>
+						<a href="namespace-PayPal.Handler.html">
+							Handler						</a>
+							</li>
+					<li>
+						<a href="namespace-PayPal.Log.html">
+							Log						</a>
+							</li>
+					<li>
+						<a href="namespace-PayPal.Rest.html">
+							Rest						</a>
+							</li>
+					<li>
+						<a href="namespace-PayPal.Security.html">
+							Security						</a>
+							</li>
+					<li>
+						<a href="namespace-PayPal.Transport.html">
+							Transport						</a>
+							</li>
+					<li>
+						<a href="namespace-PayPal.Validation.html">
+							Validation						</a>
+							</li>
+								</ul></li>
+			</ul>
+		</div>
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li><a href="class-PayPal.Common.ArrayUtil.html">ArrayUtil</a></li>
+				<li class="active"><a href="class-PayPal.Common.PayPalModel.html">PayPalModel</a></li>
+				<li><a href="class-PayPal.Common.PayPalResourceModel.html">PayPalResourceModel</a></li>
+				<li><a href="class-PayPal.Common.PayPalUserAgent.html">PayPalUserAgent</a></li>
+				<li><a href="class-PayPal.Common.ReflectionUtil.html">ReflectionUtil</a></li>
+			</ul>
+
+
+
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+	<div id="rightInner">
+<div id="content" class="class">
+	<h1>Class PayPalModel</h1>
+
+
+	<div class="description">
+	<p>Generic Model class that all API domain classes extend
+Stores all member data in a Hashmap that enables easy
+JSON encoding/decoding</p>
+	</div>
+
+
+
+	<div>
+		<h3>Direct known subclasses</h3>
+		<p class="elementList">
+			<code><a href="class-PayPal.Api.AgreementDetails.html">PayPal\Api\AgreementDetails</a></code>, 
+			<code><a href="class-PayPal.Api.AgreementStateDescriptor.html">PayPal\Api\AgreementStateDescriptor</a></code>, 
+			<code><a href="class-PayPal.Api.Billing.html"><span class="deprecated">PayPal\Api\Billing</span></a></code>, 
+			<code><a href="class-PayPal.Api.WebhookList.html">PayPal\Api\WebhookList</a></code>, 
+			<code><a href="class-PayPal.Common.PayPalResourceModel.html">PayPal\Common\PayPalResourceModel</a></code>, 
+			<code><a href="class-PayPal.Api.BillingAgreementToken.html">PayPal\Api\BillingAgreementToken</a></code>, 
+			<code><a href="class-PayPal.Api.BillingInfo.html">PayPal\Api\BillingInfo</a></code>, 
+			<code><a href="class-PayPal.Api.CancelNotification.html">PayPal\Api\CancelNotification</a></code>, 
+			<code><a href="class-PayPal.Api.CarrierAccount.html">PayPal\Api\CarrierAccount</a></code>, 
+			<code><a href="class-PayPal.Api.CarrierAccountToken.html">PayPal\Api\CarrierAccountToken</a></code>, 
+			<code><a href="class-PayPal.Api.CartBase.html">PayPal\Api\CartBase</a></code>, 
+			<code><a href="class-PayPal.Api.ChargeModel.html">PayPal\Api\ChargeModel</a></code>, 
+			<code><a href="class-PayPal.Api.Cost.html">PayPal\Api\Cost</a></code>, 
+			<code><a href="class-PayPal.Api.CountryCode.html">PayPal\Api\CountryCode</a></code>, 
+			<code><a href="class-PayPal.Api.AgreementTransaction.html">PayPal\Api\AgreementTransaction</a></code>, 
+			<code><a href="class-PayPal.Api.Credit.html">PayPal\Api\Credit</a></code>, 
+			<code><a href="class-PayPal.Api.CreditCardHistory.html">PayPal\Api\CreditCardHistory</a></code>, 
+			<code><a href="class-PayPal.Api.CreditCardToken.html">PayPal\Api\CreditCardToken</a></code>, 
+			<code><a href="class-PayPal.Api.CreditFinancingOffered.html">PayPal\Api\CreditFinancingOffered</a></code>, 
+			<code><a href="class-PayPal.Api.Currency.html">PayPal\Api\Currency</a></code>, 
+			<code><a href="class-PayPal.Api.CurrencyConversion.html">PayPal\Api\CurrencyConversion</a></code>, 
+			<code><a href="class-PayPal.Api.CustomAmount.html">PayPal\Api\CustomAmount</a></code>, 
+			<code><a href="class-PayPal.Api.Details.html">PayPal\Api\Details</a></code>, 
+			<code><a href="class-PayPal.Api.Error.html">PayPal\Api\Error</a></code>, 
+			<code><a href="class-PayPal.Api.ErrorDetails.html">PayPal\Api\ErrorDetails</a></code>, 
+			<code><a href="class-PayPal.Api.AgreementTransactions.html">PayPal\Api\AgreementTransactions</a></code>, 
+			<code><a href="class-PayPal.Api.ExternalFunding.html">PayPal\Api\ExternalFunding</a></code>, 
+			<code><a href="class-PayPal.Api.FileAttachment.html">PayPal\Api\FileAttachment</a></code>, 
+			<code><a href="class-PayPal.Api.FlowConfig.html">PayPal\Api\FlowConfig</a></code>, 
+			<code><a href="class-PayPal.Api.FmfDetails.html">PayPal\Api\FmfDetails</a></code>, 
+			<code><a href="class-PayPal.Api.FundingDetail.html">PayPal\Api\FundingDetail</a></code>, 
+			<code><a href="class-PayPal.Api.FundingInstrument.html">PayPal\Api\FundingInstrument</a></code>, 
+			<code><a href="class-PayPal.Api.FundingOption.html">PayPal\Api\FundingOption</a></code>, 
+			<code><a href="class-PayPal.Api.HyperSchema.html">PayPal\Api\HyperSchema</a></code>, 
+			<code><a href="class-PayPal.Api.Image.html">PayPal\Api\Image</a></code>, 
+			<code><a href="class-PayPal.Api.Incentive.html">PayPal\Api\Incentive</a></code>, 
+			<code><a href="class-PayPal.Api.AlternatePayment.html"><span class="deprecated">PayPal\Api\AlternatePayment</span></a></code>, 
+			<code><a href="class-PayPal.Api.InputFields.html">PayPal\Api\InputFields</a></code>, 
+			<code><a href="class-PayPal.Api.InstallmentInfo.html">PayPal\Api\InstallmentInfo</a></code>, 
+			<code><a href="class-PayPal.Api.InstallmentOption.html">PayPal\Api\InstallmentOption</a></code>, 
+			<code><a href="class-PayPal.Api.InvoiceItem.html">PayPal\Api\InvoiceItem</a></code>, 
+			<code><a href="class-PayPal.Api.InvoiceNumber.html">PayPal\Api\InvoiceNumber</a></code>, 
+			<code><a href="class-PayPal.Api.InvoiceSearchResponse.html">PayPal\Api\InvoiceSearchResponse</a></code>, 
+			<code><a href="class-PayPal.Api.Item.html">PayPal\Api\Item</a></code>, 
+			<code><a href="class-PayPal.Api.ItemList.html">PayPal\Api\ItemList</a></code>, 
+			<code><a href="class-PayPal.Api.Links.html">PayPal\Api\Links</a></code>, 
+			<code><a href="class-PayPal.Api.Measurement.html">PayPal\Api\Measurement</a></code>, 
+			<code><a href="class-PayPal.Api.Amount.html">PayPal\Api\Amount</a></code>, 
+			<code><a href="class-PayPal.Api.MerchantInfo.html">PayPal\Api\MerchantInfo</a></code>, 
+			<code><a href="class-PayPal.Api.MerchantPreferences.html">PayPal\Api\MerchantPreferences</a></code>, 
+			<code><a href="class-PayPal.Api.Metadata.html">PayPal\Api\Metadata</a></code>, 
+			<code><a href="class-PayPal.Api.NameValuePair.html">PayPal\Api\NameValuePair</a></code>, 
+			<code><a href="class-PayPal.Api.Notification.html">PayPal\Api\Notification</a></code>, 
+			<code><a href="class-PayPal.Api.OpenIdAddress.html">PayPal\Api\OpenIdAddress</a></code>, 
+			<code><a href="class-PayPal.Api.OpenIdError.html">PayPal\Api\OpenIdError</a></code>, 
+			<code><a href="class-PayPal.Api.OverrideChargeModel.html">PayPal\Api\OverrideChargeModel</a></code>, 
+			<code><a href="class-PayPal.Api.Participant.html">PayPal\Api\Participant</a></code>, 
+			<code><a href="class-PayPal.Api.Patch.html">PayPal\Api\Patch</a></code>, 
+			<code><a href="class-PayPal.Api.BankAccount.html">PayPal\Api\BankAccount</a></code>, 
+			<code><a href="class-PayPal.Api.PatchRequest.html">PayPal\Api\PatchRequest</a></code>, 
+			<code><a href="class-PayPal.Api.Payee.html">PayPal\Api\Payee</a></code>, 
+			<code><a href="class-PayPal.Api.Payer.html">PayPal\Api\Payer</a></code>, 
+			<code><a href="class-PayPal.Api.PayerInfo.html">PayPal\Api\PayerInfo</a></code>, 
+			<code><a href="class-PayPal.Api.PaymentCard.html">PayPal\Api\PaymentCard</a></code>, 
+			<code><a href="class-PayPal.Api.PaymentCardToken.html">PayPal\Api\PaymentCardToken</a></code>, 
+			<code><a href="class-PayPal.Api.PaymentDefinition.html">PayPal\Api\PaymentDefinition</a></code>, 
+			<code><a href="class-PayPal.Api.PaymentDetail.html">PayPal\Api\PaymentDetail</a></code>, 
+			<code><a href="class-PayPal.Api.PaymentExecution.html">PayPal\Api\PaymentExecution</a></code>, 
+			<code><a href="class-PayPal.Api.PaymentHistory.html">PayPal\Api\PaymentHistory</a></code>, 
+			<code><a href="class-PayPal.Api.BankAccountsList.html">PayPal\Api\BankAccountsList</a></code>, 
+			<code><a href="class-PayPal.Api.PaymentOptions.html">PayPal\Api\PaymentOptions</a></code>, 
+			<code><a href="class-PayPal.Api.PaymentSummary.html">PayPal\Api\PaymentSummary</a></code>, 
+			<code><a href="class-PayPal.Api.PaymentTerm.html">PayPal\Api\PaymentTerm</a></code>, 
+			<code><a href="class-PayPal.Api.PayoutBatch.html">PayPal\Api\PayoutBatch</a></code>, 
+			<code><a href="class-PayPal.Api.PayoutBatchHeader.html">PayPal\Api\PayoutBatchHeader</a></code>, 
+			<code><a href="class-PayPal.Api.PayoutItemDetails.html">PayPal\Api\PayoutItemDetails</a></code>, 
+			<code><a href="class-PayPal.Api.PayoutSenderBatchHeader.html">PayPal\Api\PayoutSenderBatchHeader</a></code>, 
+			<code><a href="class-PayPal.Api.Phone.html">PayPal\Api\Phone</a></code>, 
+			<code><a href="class-PayPal.Api.PlanList.html">PayPal\Api\PlanList</a></code>, 
+			<code><a href="class-PayPal.Api.PotentialPayerInfo.html">PayPal\Api\PotentialPayerInfo</a></code>, 
+			<code><a href="class-PayPal.Api.BankToken.html">PayPal\Api\BankToken</a></code>, 
+			<code><a href="class-PayPal.Api.Presentation.html">PayPal\Api\Presentation</a></code>, 
+			<code><a href="class-PayPal.Api.PrivateLabelCard.html">PayPal\Api\PrivateLabelCard</a></code>, 
+			<code><a href="class-PayPal.Api.ProcessorResponse.html">PayPal\Api\ProcessorResponse</a></code>, 
+			<code><a href="class-PayPal.Api.RecipientBankingInstruction.html">PayPal\Api\RecipientBankingInstruction</a></code>, 
+			<code><a href="class-PayPal.Api.RedirectUrls.html">PayPal\Api\RedirectUrls</a></code>, 
+			<code><a href="class-PayPal.Api.RefundDetail.html">PayPal\Api\RefundDetail</a></code>, 
+			<code><a href="class-PayPal.Api.RefundRequest.html">PayPal\Api\RefundRequest</a></code>, 
+			<code><a href="class-PayPal.Api.RelatedResources.html">PayPal\Api\RelatedResources</a></code>, 
+			<code><a href="class-PayPal.Api.Search.html">PayPal\Api\Search</a></code>, 
+			<code><a href="class-PayPal.Api.ShippingCost.html">PayPal\Api\ShippingCost</a></code>, 
+			<code><a href="class-PayPal.Api.BaseAddress.html">PayPal\Api\BaseAddress</a></code>, 
+			<code><a href="class-PayPal.Api.ShippingInfo.html">PayPal\Api\ShippingInfo</a></code>, 
+			<code><a href="class-PayPal.Api.Tax.html">PayPal\Api\Tax</a></code>, 
+			<code><a href="class-PayPal.Api.TemplateData.html">PayPal\Api\TemplateData</a></code>, 
+			<code><a href="class-PayPal.Api.TemplateSettings.html">PayPal\Api\TemplateSettings</a></code>, 
+			<code><a href="class-PayPal.Api.TemplateSettingsMetadata.html">PayPal\Api\TemplateSettingsMetadata</a></code>, 
+			<code><a href="class-PayPal.Api.Terms.html">PayPal\Api\Terms</a></code>, 
+			<code><a href="class-PayPal.Api.Transactions.html">PayPal\Api\Transactions</a></code>, 
+			<code><a href="class-PayPal.Api.VerifyWebhookSignatureResponse.html">PayPal\Api\VerifyWebhookSignatureResponse</a></code>, 
+			<code><a href="class-PayPal.Api.WebhookEventList.html">PayPal\Api\WebhookEventList</a></code>, 
+			<code><a href="class-PayPal.Api.WebhookEventTypeList.html">PayPal\Api\WebhookEventTypeList</a></code>
+		</p>
+	</div>
+
+	<div>
+		<h3>Indirect known subclasses</h3>
+		<p class="elementList">
+			<code><a href="class-PayPal.Api.Address.html">PayPal\Api\Address</a></code>, 
+			<code><a href="class-PayPal.Api.Agreement.html">PayPal\Api\Agreement</a></code>, 
+			<code><a href="class-PayPal.Api.FuturePayment.html">PayPal\Api\FuturePayment</a></code>, 
+			<code><a href="class-PayPal.Api.Invoice.html">PayPal\Api\Invoice</a></code>, 
+			<code><a href="class-PayPal.Api.InvoiceAddress.html">PayPal\Api\InvoiceAddress</a></code>, 
+			<code><a href="class-PayPal.Api.OpenIdTokeninfo.html">PayPal\Api\OpenIdTokeninfo</a></code>, 
+			<code><a href="class-PayPal.Api.OpenIdUserinfo.html">PayPal\Api\OpenIdUserinfo</a></code>, 
+			<code><a href="class-PayPal.Api.Order.html">PayPal\Api\Order</a></code>, 
+			<code><a href="class-PayPal.Api.Payment.html">PayPal\Api\Payment</a></code>, 
+			<code><a href="class-PayPal.Api.PaymentInstruction.html">PayPal\Api\PaymentInstruction</a></code>, 
+			<code><a href="class-PayPal.Api.Payout.html">PayPal\Api\Payout</a></code>, 
+			<code><a href="class-PayPal.Api.PayoutItem.html">PayPal\Api\PayoutItem</a></code>, 
+			<code><a href="class-PayPal.Api.Authorization.html">PayPal\Api\Authorization</a></code>, 
+			<code><a href="class-PayPal.Api.Plan.html">PayPal\Api\Plan</a></code>, 
+			<code><a href="class-PayPal.Api.Refund.html">PayPal\Api\Refund</a></code>, 
+			<code><a href="class-PayPal.Api.Sale.html">PayPal\Api\Sale</a></code>, 
+			<code><a href="class-PayPal.Api.ShippingAddress.html">PayPal\Api\ShippingAddress</a></code>, 
+			<code><a href="class-PayPal.Api.Template.html">PayPal\Api\Template</a></code>, 
+			<code><a href="class-PayPal.Api.Templates.html">PayPal\Api\Templates</a></code>, 
+			<code><a href="class-PayPal.Api.Transaction.html">PayPal\Api\Transaction</a></code>, 
+			<code><a href="class-PayPal.Api.TransactionBase.html">PayPal\Api\TransactionBase</a></code>, 
+			<code><a href="class-PayPal.Api.VerifyWebhookSignature.html">PayPal\Api\VerifyWebhookSignature</a></code>, 
+			<code><a href="class-PayPal.Api.Webhook.html">PayPal\Api\Webhook</a></code>, 
+			<code><a href="class-PayPal.Api.Capture.html">PayPal\Api\Capture</a></code>, 
+			<code><a href="class-PayPal.Api.WebhookEvent.html">PayPal\Api\WebhookEvent</a></code>, 
+			<code><a href="class-PayPal.Api.WebhookEventType.html">PayPal\Api\WebhookEventType</a></code>, 
+			<code><a href="class-PayPal.Api.WebProfile.html">PayPal\Api\WebProfile</a></code>, 
+			<code><a href="class-PayPal.Auth.OAuthTokenCredential.html">PayPal\Auth\OAuthTokenCredential</a></code>, 
+			<code><a href="class-PayPal.Api.CreateProfileResponse.html">PayPal\Api\CreateProfileResponse</a></code>, 
+			<code><a href="class-PayPal.Api.CreditCard.html">PayPal\Api\CreditCard</a></code>, 
+			<code><a href="class-PayPal.Api.CreditCardList.html">PayPal\Api\CreditCardList</a></code>, 
+			<code><a href="class-PayPal.Api.DetailedRefund.html">PayPal\Api\DetailedRefund</a></code>, 
+			<code><a href="class-PayPal.Api.ExtendedBankAccount.html">PayPal\Api\ExtendedBankAccount</a></code>, 
+			<code><a href="class-PayPal.Api.FundingSource.html">PayPal\Api\FundingSource</a></code>
+		</p>
+	</div>
+
+
+
+
+
+	<div class="alert alert-info">
+		
+		
+		<b>Namespace:</b> <a href="namespace-PayPal.html">PayPal</a>\<a href="namespace-PayPal.Common.html">Common</a><br>
+		
+
+			<b>Located at</b> <a href="source-class-PayPal.Common.PayPalModel.html#8-310" title="Go to source code">PayPal/Common/PayPalModel.php</a>
+		<br>
+	</div>
+
+
+
+		<div class="panel panel-default">
+			<div class="panel-heading"><h2>Methods summary</h2></div>
+			<table class="summary table table-bordered table-striped methods" id="methods">
+		<tr data-order="setCredential" id="_setCredential" class="deprecated">
+
+			<td class="attributes"><code>
+				 public static
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_setCredential">#</a>
+			<code><a href="source-class-PayPal.Common.PayPalModel.html#25-34" title="Go to source code">setCredential</a>( <span><code><a href="class-PayPal.Auth.OAuthTokenCredential.html">PayPal\Auth\OAuthTokenCredential</a></code> <var>$credential</var></span> )</code>
+
+			<div class="description short">
+				<p>Sets Credential</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Sets Credential</p>
+
+					<h4>Deprecated</h4>
+					<div class="list">
+							Pass ApiContext to create/get methods instead<br>
+					</div>
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$credential</var></dt>
+						<dd></dd>
+					</dl></div>
+
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="__construct" id="___construct">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#___construct">#</a>
+			<code><a href="source-class-PayPal.Common.PayPalModel.html#36-59" title="Go to source code">__construct</a>( <span>null <var>$data</var> = <span class="php-keyword1">null</span></span> )</code>
+
+			<div class="description short">
+				<p>Default Constructor</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Default Constructor</p>
+
+<p>You can pass data as a json representation or array object. This argument eliminates the need
+to do $obj->fromJson($data) later after creating the object.</p>
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$data</var></dt>
+						<dd></dd>
+					</dl></div>
+
+
+					<h4>Throws</h4>
+					<div class="list">
+						InvalidArgumentException
+					</div>
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="getList" id="_getList">
+
+			<td class="attributes"><code>
+				 public static
+				array
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_getList">#</a>
+			<code><a href="source-class-PayPal.Common.PayPalModel.html#61-104" title="Go to source code">getList</a>( <span>mixed <var>$data</var></span> )</code>
+
+			<div class="description short">
+				<p>Returns a list of Object from Array or Json String. It is generally used when your json
+contains an array of this object</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Returns a list of Object from Array or Json String. It is generally used when your json
+contains an array of this object</p>
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$data</var></dt>
+						<dd>Array object or json string representation</dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						array
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="__get" id="___get">
+
+			<td class="attributes"><code>
+				 public 
+				mixed
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#___get">#</a>
+			<code><a href="source-class-PayPal.Common.PayPalModel.html#106-118" title="Go to source code">__get</a>( <span> <var>$key</var></span> )</code>
+
+			<div class="description short">
+				<p>Magic Get Method</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Magic Get Method</p>
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$key</var></dt>
+						<dd></dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						mixed
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="__set" id="___set">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#___set">#</a>
+			<code><a href="source-class-PayPal.Common.PayPalModel.html#120-133" title="Go to source code">__set</a>( <span> <var>$key</var></span>, <span> <var>$value</var></span> )</code>
+
+			<div class="description short">
+				<p>Magic Set Method</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Magic Set Method</p>
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$key</var></dt>
+						<dd></dd>
+						<dt><var>$value</var></dt>
+						<dd></dd>
+					</dl></div>
+
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="__isset" id="___isset">
+
+			<td class="attributes"><code>
+				 public 
+				boolean
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#___isset">#</a>
+			<code><a href="source-class-PayPal.Common.PayPalModel.html#146-155" title="Go to source code">__isset</a>( <span> <var>$key</var></span> )</code>
+
+			<div class="description short">
+				<p>Magic isSet Method</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Magic isSet Method</p>
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$key</var></dt>
+						<dd></dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						boolean
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="__unset" id="___unset">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#___unset">#</a>
+			<code><a href="source-class-PayPal.Common.PayPalModel.html#157-165" title="Go to source code">__unset</a>( <span> <var>$key</var></span> )</code>
+
+			<div class="description short">
+				<p>Magic Unset Method</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Magic Unset Method</p>
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$key</var></dt>
+						<dd></dd>
+					</dl></div>
+
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="fromArray" id="_fromArray">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_fromArray">#</a>
+			<code><a href="source-class-PayPal.Common.PayPalModel.html#196-250" title="Go to source code">fromArray</a>( <span> <var>$arr</var></span> )</code>
+
+			<div class="description short">
+				<p>Fills object value from Array list</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Fills object value from Array list</p>
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$arr</var></dt>
+						<dd></dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						<br>$this
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="fromJson" id="_fromJson">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_fromJson">#</a>
+			<code><a href="source-class-PayPal.Common.PayPalModel.html#263-272" title="Go to source code">fromJson</a>( <span> <var>$json</var></span> )</code>
+
+			<div class="description short">
+				<p>Fills object value from Json string</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Fills object value from Json string</p>
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$json</var></dt>
+						<dd></dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						<br>$this
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="toArray" id="_toArray">
+
+			<td class="attributes"><code>
+				 public 
+				array
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_toArray">#</a>
+			<code><a href="source-class-PayPal.Common.PayPalModel.html#274-282" title="Go to source code">toArray</a>( )</code>
+
+			<div class="description short">
+				<p>Returns array representation of object</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Returns array representation of object</p>
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+						array
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="toJSON" id="_toJSON">
+
+			<td class="attributes"><code>
+				 public 
+				string
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_toJSON">#</a>
+			<code><a href="source-class-PayPal.Common.PayPalModel.html#284-299" title="Go to source code">toJSON</a>( <span>integer <var>$options</var> = <span class="php-num">0</span></span> )</code>
+
+			<div class="description short">
+				<p>Returns object JSON representation</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Returns object JSON representation</p>
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$options</var></dt>
+						<dd>http://php.net/manual/en/json.constants.php</dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						string
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="__toString" id="___toString">
+
+			<td class="attributes"><code>
+				 public 
+				string
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#___toString">#</a>
+			<code><a href="source-class-PayPal.Common.PayPalModel.html#301-309" title="Go to source code">__toString</a>( )</code>
+
+			<div class="description short">
+				<p>Magic Method for toString</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Magic Method for toString</p>
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+						string
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+			</table>
+		</div>
+
+
+
+
+
+
+
+
+
+
+
+		<div class="panel panel-default">
+            <div class="panel-heading"><h2>Properties summary</h2></div>
+			<table class="summary table table-bordered table-striped properties" id="properties">
+		<tr data-order="credential" id="$credential">
+			<td class="attributes"><code>
+				protected static 
+				<code><a href="class-PayPal.Auth.OAuthTokenCredential.html">PayPal\Auth\OAuthTokenCredential</a></code>
+			</code></td>
+
+			<td class="name">
+					<a href="source-class-PayPal.Common.PayPalModel.html#18-23" title="Go to source code"><var>$credential</var></a>
+
+				<div class="description short">
+					<p>OAuth Credentials to use for this call</p>
+				</div>
+
+				<div class="description detailed hidden">
+					<p>OAuth Credentials to use for this call</p>
+
+				</div>
+			</td>
+			<td class="value">
+				<div>
+					<a href="#$credential" class="anchor">#</a>
+					<code></code>
+				</div>
+			</td>
+		</tr>
+			</table>
+		</div>
+
+
+
+
+
+
+</div>
+	</div>
+
+	<div id="footer">
+		 API documentation generated by <a href="http://apigen.org">ApiGen</a>
+	</div>
+</div>
+<script src="resources/combined.js"></script>
+<script src="elementlist.js"></script>
+</body>
+</html>

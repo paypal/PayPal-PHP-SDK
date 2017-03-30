@@ -1,0 +1,1572 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>Class PayPal\Api\Order</title>
+
+	<link rel="stylesheet" href="resources/bootstrap.min.css?973e37a8502921d56bc02bb55321f45b072b6f71">
+	<link rel="stylesheet" href="resources/style.css?49f43d3208c5d7e33fa16d36107a345bf11cc00d">
+
+</head>
+
+<body>
+	<nav id="navigation" class="navbar navbar-default navbar-fixed-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a href="index.html" class="navbar-brand">Overview</a>
+			</div>
+			<div class="collapse navbar-collapse">
+
+                <form id="search" class="navbar-form navbar-left" role="search">
+                    <input type="hidden" name="cx" value="">
+                    <input type="hidden" name="ie" value="UTF-8">
+                    <div class="form-group">
+                        <input type="text" name="q" class="search-query form-control" placeholder="Search">
+					</div>
+				</form>
+
+				<ul class="nav navbar-nav">
+					<li>
+						<a href="namespace-PayPal.Api.html" title="Summary of PayPal\Api"><span>Namespace</span></a>
+					</li>
+					<li class="active">
+<span>Class</span>					</li>
+
+
+
+
+
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<div id="left">
+	<div id="menu">
+
+		<div id="groups">
+				<h3>Namespaces</h3>
+			<ul>
+					<li class="active">
+						<a href="namespace-PayPal.html">
+							PayPal<span></span>
+						</a>
+							<ul>
+					<li class="active">
+						<a href="namespace-PayPal.Api.html">
+							Api						</a>
+							</li>
+					<li>
+						<a href="namespace-PayPal.Auth.html">
+							Auth						</a>
+							</li>
+					<li>
+						<a href="namespace-PayPal.Cache.html">
+							Cache						</a>
+							</li>
+					<li>
+						<a href="namespace-PayPal.Common.html">
+							Common						</a>
+							</li>
+					<li>
+						<a href="namespace-PayPal.Converter.html">
+							Converter						</a>
+							</li>
+					<li>
+						<a href="namespace-PayPal.Core.html">
+							Core						</a>
+							</li>
+					<li>
+						<a href="namespace-PayPal.Exception.html">
+							Exception						</a>
+							</li>
+					<li>
+						<a href="namespace-PayPal.Handler.html">
+							Handler						</a>
+							</li>
+					<li>
+						<a href="namespace-PayPal.Log.html">
+							Log						</a>
+							</li>
+					<li>
+						<a href="namespace-PayPal.Rest.html">
+							Rest						</a>
+							</li>
+					<li>
+						<a href="namespace-PayPal.Security.html">
+							Security						</a>
+							</li>
+					<li>
+						<a href="namespace-PayPal.Transport.html">
+							Transport						</a>
+							</li>
+					<li>
+						<a href="namespace-PayPal.Validation.html">
+							Validation						</a>
+							</li>
+								</ul></li>
+			</ul>
+		</div>
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li><a href="class-PayPal.Api.Address.html">Address</a></li>
+				<li><a href="class-PayPal.Api.Agreement.html">Agreement</a></li>
+				<li><a href="class-PayPal.Api.AgreementDetails.html">AgreementDetails</a></li>
+				<li><a href="class-PayPal.Api.AgreementStateDescriptor.html">AgreementStateDescriptor</a></li>
+				<li><a href="class-PayPal.Api.AgreementTransaction.html">AgreementTransaction</a></li>
+				<li><a href="class-PayPal.Api.AgreementTransactions.html">AgreementTransactions</a></li>
+				<li><a href="class-PayPal.Api.AlternatePayment.html" class="deprecated">AlternatePayment</a></li>
+				<li><a href="class-PayPal.Api.Amount.html">Amount</a></li>
+				<li><a href="class-PayPal.Api.Authorization.html">Authorization</a></li>
+				<li><a href="class-PayPal.Api.BankAccount.html">BankAccount</a></li>
+				<li><a href="class-PayPal.Api.BankAccountsList.html">BankAccountsList</a></li>
+				<li><a href="class-PayPal.Api.BankToken.html">BankToken</a></li>
+				<li><a href="class-PayPal.Api.BaseAddress.html">BaseAddress</a></li>
+				<li><a href="class-PayPal.Api.Billing.html" class="deprecated">Billing</a></li>
+				<li><a href="class-PayPal.Api.BillingAgreementToken.html">BillingAgreementToken</a></li>
+				<li><a href="class-PayPal.Api.BillingInfo.html">BillingInfo</a></li>
+				<li><a href="class-PayPal.Api.CancelNotification.html">CancelNotification</a></li>
+				<li><a href="class-PayPal.Api.Capture.html">Capture</a></li>
+				<li><a href="class-PayPal.Api.CarrierAccount.html">CarrierAccount</a></li>
+				<li><a href="class-PayPal.Api.CarrierAccountToken.html">CarrierAccountToken</a></li>
+				<li><a href="class-PayPal.Api.CartBase.html">CartBase</a></li>
+				<li><a href="class-PayPal.Api.ChargeModel.html">ChargeModel</a></li>
+				<li><a href="class-PayPal.Api.Cost.html">Cost</a></li>
+				<li><a href="class-PayPal.Api.CountryCode.html">CountryCode</a></li>
+				<li><a href="class-PayPal.Api.CreateProfileResponse.html">CreateProfileResponse</a></li>
+				<li><a href="class-PayPal.Api.Credit.html">Credit</a></li>
+				<li><a href="class-PayPal.Api.CreditCard.html">CreditCard</a></li>
+				<li><a href="class-PayPal.Api.CreditCardHistory.html">CreditCardHistory</a></li>
+				<li><a href="class-PayPal.Api.CreditCardList.html">CreditCardList</a></li>
+				<li><a href="class-PayPal.Api.CreditCardToken.html">CreditCardToken</a></li>
+				<li><a href="class-PayPal.Api.CreditFinancingOffered.html">CreditFinancingOffered</a></li>
+				<li><a href="class-PayPal.Api.Currency.html">Currency</a></li>
+				<li><a href="class-PayPal.Api.CurrencyConversion.html">CurrencyConversion</a></li>
+				<li><a href="class-PayPal.Api.CustomAmount.html">CustomAmount</a></li>
+				<li><a href="class-PayPal.Api.DetailedRefund.html">DetailedRefund</a></li>
+				<li><a href="class-PayPal.Api.Details.html">Details</a></li>
+				<li><a href="class-PayPal.Api.Error.html">Error</a></li>
+				<li><a href="class-PayPal.Api.ErrorDetails.html">ErrorDetails</a></li>
+				<li><a href="class-PayPal.Api.ExtendedBankAccount.html">ExtendedBankAccount</a></li>
+				<li><a href="class-PayPal.Api.ExternalFunding.html">ExternalFunding</a></li>
+				<li><a href="class-PayPal.Api.FileAttachment.html">FileAttachment</a></li>
+				<li><a href="class-PayPal.Api.FlowConfig.html">FlowConfig</a></li>
+				<li><a href="class-PayPal.Api.FmfDetails.html">FmfDetails</a></li>
+				<li><a href="class-PayPal.Api.FundingDetail.html">FundingDetail</a></li>
+				<li><a href="class-PayPal.Api.FundingInstrument.html">FundingInstrument</a></li>
+				<li><a href="class-PayPal.Api.FundingOption.html">FundingOption</a></li>
+				<li><a href="class-PayPal.Api.FundingSource.html">FundingSource</a></li>
+				<li><a href="class-PayPal.Api.FuturePayment.html">FuturePayment</a></li>
+				<li><a href="class-PayPal.Api.HyperSchema.html">HyperSchema</a></li>
+				<li><a href="class-PayPal.Api.Image.html">Image</a></li>
+				<li><a href="class-PayPal.Api.Incentive.html">Incentive</a></li>
+				<li><a href="class-PayPal.Api.InputFields.html">InputFields</a></li>
+				<li><a href="class-PayPal.Api.InstallmentInfo.html">InstallmentInfo</a></li>
+				<li><a href="class-PayPal.Api.InstallmentOption.html">InstallmentOption</a></li>
+				<li><a href="class-PayPal.Api.Invoice.html">Invoice</a></li>
+				<li><a href="class-PayPal.Api.InvoiceAddress.html">InvoiceAddress</a></li>
+				<li><a href="class-PayPal.Api.InvoiceItem.html">InvoiceItem</a></li>
+				<li><a href="class-PayPal.Api.InvoiceNumber.html">InvoiceNumber</a></li>
+				<li><a href="class-PayPal.Api.InvoiceSearchResponse.html">InvoiceSearchResponse</a></li>
+				<li><a href="class-PayPal.Api.Item.html">Item</a></li>
+				<li><a href="class-PayPal.Api.ItemList.html">ItemList</a></li>
+				<li><a href="class-PayPal.Api.Links.html">Links</a></li>
+				<li><a href="class-PayPal.Api.Measurement.html">Measurement</a></li>
+				<li><a href="class-PayPal.Api.MerchantInfo.html">MerchantInfo</a></li>
+				<li><a href="class-PayPal.Api.MerchantPreferences.html">MerchantPreferences</a></li>
+				<li><a href="class-PayPal.Api.Metadata.html">Metadata</a></li>
+				<li><a href="class-PayPal.Api.NameValuePair.html">NameValuePair</a></li>
+				<li><a href="class-PayPal.Api.Notification.html">Notification</a></li>
+				<li><a href="class-PayPal.Api.OpenIdAddress.html">OpenIdAddress</a></li>
+				<li><a href="class-PayPal.Api.OpenIdError.html">OpenIdError</a></li>
+				<li><a href="class-PayPal.Api.OpenIdSession.html">OpenIdSession</a></li>
+				<li><a href="class-PayPal.Api.OpenIdTokeninfo.html">OpenIdTokeninfo</a></li>
+				<li><a href="class-PayPal.Api.OpenIdUserinfo.html">OpenIdUserinfo</a></li>
+				<li class="active"><a href="class-PayPal.Api.Order.html">Order</a></li>
+				<li><a href="class-PayPal.Api.OverrideChargeModel.html">OverrideChargeModel</a></li>
+				<li><a href="class-PayPal.Api.Participant.html">Participant</a></li>
+				<li><a href="class-PayPal.Api.Patch.html">Patch</a></li>
+				<li><a href="class-PayPal.Api.PatchRequest.html">PatchRequest</a></li>
+				<li><a href="class-PayPal.Api.Payee.html">Payee</a></li>
+				<li><a href="class-PayPal.Api.Payer.html">Payer</a></li>
+				<li><a href="class-PayPal.Api.PayerInfo.html">PayerInfo</a></li>
+				<li><a href="class-PayPal.Api.Payment.html">Payment</a></li>
+				<li><a href="class-PayPal.Api.PaymentCard.html">PaymentCard</a></li>
+				<li><a href="class-PayPal.Api.PaymentCardToken.html">PaymentCardToken</a></li>
+				<li><a href="class-PayPal.Api.PaymentDefinition.html">PaymentDefinition</a></li>
+				<li><a href="class-PayPal.Api.PaymentDetail.html">PaymentDetail</a></li>
+				<li><a href="class-PayPal.Api.PaymentExecution.html">PaymentExecution</a></li>
+				<li><a href="class-PayPal.Api.PaymentHistory.html">PaymentHistory</a></li>
+				<li><a href="class-PayPal.Api.PaymentInstruction.html">PaymentInstruction</a></li>
+				<li><a href="class-PayPal.Api.PaymentOptions.html">PaymentOptions</a></li>
+				<li><a href="class-PayPal.Api.PaymentSummary.html">PaymentSummary</a></li>
+				<li><a href="class-PayPal.Api.PaymentTerm.html">PaymentTerm</a></li>
+				<li><a href="class-PayPal.Api.Payout.html">Payout</a></li>
+				<li><a href="class-PayPal.Api.PayoutBatch.html">PayoutBatch</a></li>
+				<li><a href="class-PayPal.Api.PayoutBatchHeader.html">PayoutBatchHeader</a></li>
+				<li><a href="class-PayPal.Api.PayoutItem.html">PayoutItem</a></li>
+				<li><a href="class-PayPal.Api.PayoutItemDetails.html">PayoutItemDetails</a></li>
+				<li><a href="class-PayPal.Api.PayoutSenderBatchHeader.html">PayoutSenderBatchHeader</a></li>
+				<li><a href="class-PayPal.Api.Phone.html">Phone</a></li>
+				<li><a href="class-PayPal.Api.Plan.html">Plan</a></li>
+				<li><a href="class-PayPal.Api.PlanList.html">PlanList</a></li>
+				<li><a href="class-PayPal.Api.PotentialPayerInfo.html">PotentialPayerInfo</a></li>
+				<li><a href="class-PayPal.Api.Presentation.html">Presentation</a></li>
+				<li><a href="class-PayPal.Api.PrivateLabelCard.html">PrivateLabelCard</a></li>
+				<li><a href="class-PayPal.Api.ProcessorResponse.html">ProcessorResponse</a></li>
+				<li><a href="class-PayPal.Api.RecipientBankingInstruction.html">RecipientBankingInstruction</a></li>
+				<li><a href="class-PayPal.Api.RedirectUrls.html">RedirectUrls</a></li>
+				<li><a href="class-PayPal.Api.Refund.html">Refund</a></li>
+				<li><a href="class-PayPal.Api.RefundDetail.html">RefundDetail</a></li>
+				<li><a href="class-PayPal.Api.RefundRequest.html">RefundRequest</a></li>
+				<li><a href="class-PayPal.Api.RelatedResources.html">RelatedResources</a></li>
+				<li><a href="class-PayPal.Api.Sale.html">Sale</a></li>
+				<li><a href="class-PayPal.Api.Search.html">Search</a></li>
+				<li><a href="class-PayPal.Api.ShippingAddress.html">ShippingAddress</a></li>
+				<li><a href="class-PayPal.Api.ShippingCost.html">ShippingCost</a></li>
+				<li><a href="class-PayPal.Api.ShippingInfo.html">ShippingInfo</a></li>
+				<li><a href="class-PayPal.Api.Tax.html">Tax</a></li>
+				<li><a href="class-PayPal.Api.Template.html">Template</a></li>
+				<li><a href="class-PayPal.Api.TemplateData.html">TemplateData</a></li>
+				<li><a href="class-PayPal.Api.Templates.html">Templates</a></li>
+				<li><a href="class-PayPal.Api.TemplateSettings.html">TemplateSettings</a></li>
+				<li><a href="class-PayPal.Api.TemplateSettingsMetadata.html">TemplateSettingsMetadata</a></li>
+				<li><a href="class-PayPal.Api.Terms.html">Terms</a></li>
+				<li><a href="class-PayPal.Api.Transaction.html">Transaction</a></li>
+				<li><a href="class-PayPal.Api.TransactionBase.html">TransactionBase</a></li>
+				<li><a href="class-PayPal.Api.Transactions.html">Transactions</a></li>
+				<li><a href="class-PayPal.Api.VerifyWebhookSignature.html">VerifyWebhookSignature</a></li>
+				<li><a href="class-PayPal.Api.VerifyWebhookSignatureResponse.html">VerifyWebhookSignatureResponse</a></li>
+				<li><a href="class-PayPal.Api.Webhook.html">Webhook</a></li>
+				<li><a href="class-PayPal.Api.WebhookEvent.html">WebhookEvent</a></li>
+				<li><a href="class-PayPal.Api.WebhookEventList.html">WebhookEventList</a></li>
+				<li><a href="class-PayPal.Api.WebhookEventType.html">WebhookEventType</a></li>
+				<li><a href="class-PayPal.Api.WebhookEventTypeList.html">WebhookEventTypeList</a></li>
+				<li><a href="class-PayPal.Api.WebhookList.html">WebhookList</a></li>
+				<li><a href="class-PayPal.Api.WebProfile.html">WebProfile</a></li>
+			</ul>
+
+
+
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+	<div id="rightInner">
+<div id="content" class="class">
+	<h1>Class Order</h1>
+
+
+	<div class="description">
+	<p>Class Order</p>
+
+<p>An order transaction.</p>
+	</div>
+
+	<dl class="tree well">
+		<dd style="padding-left:0px">
+			<a href="class-PayPal.Common.PayPalModel.html"><span>PayPal\Common\PayPalModel</span></a>
+			
+			
+			
+		</dd>
+		<dd style="padding-left:30px">
+			<img src="resources/inherit.png" alt="Extended by">
+			<a href="class-PayPal.Common.PayPalResourceModel.html"><span>PayPal\Common\PayPalResourceModel</span></a>
+			
+			 implements 
+				<a href="class-PayPal.Rest.IResource.html"><span>PayPal\Rest\IResource</span></a>
+			
+			
+		</dd>
+		<dd style="padding-left:60px">
+			<img src="resources/inherit.png" alt="Extended by">
+<b><span>PayPal\Api\Order</span></b>			
+			
+			
+		</dd>
+	</dl>
+
+
+
+
+
+
+
+
+	<div class="alert alert-info">
+		
+		
+		<b>Namespace:</b> <a href="namespace-PayPal.html">PayPal</a>\<a href="namespace-PayPal.Api.html">Api</a><br>
+		<b>Package:</b> PayPal\Api<br>
+
+			<b>Located at</b> <a href="source-class-PayPal.Api.Order.html#9-464" title="Go to source code">PayPal/Api/Order.php</a>
+		<br>
+	</div>
+
+
+
+		<div class="panel panel-default">
+			<div class="panel-heading"><h2>Methods summary</h2></div>
+			<table class="summary table table-bordered table-striped methods" id="methods">
+		<tr data-order="setId" id="_setId">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_setId">#</a>
+			<code><a href="source-class-PayPal.Api.Order.html#33-44" title="Go to source code">setId</a>( <span>string <var>$id</var></span> )</code>
+
+			<div class="description short">
+				<p>Identifier of the order transaction.</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Identifier of the order transaction.</p>
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$id</var></dt>
+						<dd></dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						<br>$this
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="getId" id="_getId">
+
+			<td class="attributes"><code>
+				 public 
+				string
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_getId">#</a>
+			<code><a href="source-class-PayPal.Api.Order.html#46-54" title="Go to source code">getId</a>( )</code>
+
+			<div class="description short">
+				<p>Identifier of the order transaction.</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Identifier of the order transaction.</p>
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+						string
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="setPurchaseUnitReferenceId" id="_setPurchaseUnitReferenceId" class="deprecated">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_setPurchaseUnitReferenceId">#</a>
+			<code><a href="source-class-PayPal.Api.Order.html#56-69" title="Go to source code">setPurchaseUnitReferenceId</a>( <span>string <var>$purchase_unit_reference_id</var></span> )</code>
+
+			<div class="description short">
+				<p>Identifier to the purchase unit associated with this object. Obsolete. Use one in cart_base.</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Identifier to the purchase unit associated with this object. Obsolete. Use one in cart_base.</p>
+
+					<h4>Deprecated</h4>
+					<div class="list">
+							Use #setReferenceId instead<br>
+					</div>
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$purchase_unit_reference_id</var></dt>
+						<dd></dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						<br>$this
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="getPurchaseUnitReferenceId" id="_getPurchaseUnitReferenceId" class="deprecated">
+
+			<td class="attributes"><code>
+				 public 
+				string
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_getPurchaseUnitReferenceId">#</a>
+			<code><a href="source-class-PayPal.Api.Order.html#71-80" title="Go to source code">getPurchaseUnitReferenceId</a>( )</code>
+
+			<div class="description short">
+				<p>Identifier to the purchase unit associated with this object. Obsolete. Use one in cart_base.</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Identifier to the purchase unit associated with this object. Obsolete. Use one in cart_base.</p>
+
+					<h4>Deprecated</h4>
+					<div class="list">
+							Use #getReferenceId instead<br>
+					</div>
+
+
+					<h4>Returns</h4>
+					<div class="list">
+						string
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="setReferenceId" id="_setReferenceId">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_setReferenceId">#</a>
+			<code><a href="source-class-PayPal.Api.Order.html#82-93" title="Go to source code">setReferenceId</a>( <span>string <var>$reference_id</var></span> )</code>
+
+			<div class="description short">
+				<p>Identifier to the purchase unit associated with this object. Obsolete. Use one in cart_base.</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Identifier to the purchase unit associated with this object. Obsolete. Use one in cart_base.</p>
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$reference_id</var></dt>
+						<dd></dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						<br>$this
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="getReferenceId" id="_getReferenceId">
+
+			<td class="attributes"><code>
+				 public 
+				string
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_getReferenceId">#</a>
+			<code><a href="source-class-PayPal.Api.Order.html#95-103" title="Go to source code">getReferenceId</a>( )</code>
+
+			<div class="description short">
+				<p>Identifier to the purchase unit associated with this object. Obsolete. Use one in cart_base.</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Identifier to the purchase unit associated with this object. Obsolete. Use one in cart_base.</p>
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+						string
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="setAmount" id="_setAmount">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_setAmount">#</a>
+			<code><a href="source-class-PayPal.Api.Order.html#105-116" title="Go to source code">setAmount</a>( <span><code><a href="class-PayPal.Api.Amount.html">PayPal\Api\Amount</a></code> <var>$amount</var></span> )</code>
+
+			<div class="description short">
+				<p>Amount being collected.</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Amount being collected.</p>
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$amount</var></dt>
+						<dd></dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						<br>$this
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="getAmount" id="_getAmount">
+
+			<td class="attributes"><code>
+				 public 
+				<code><a href="class-PayPal.Api.Amount.html">PayPal\Api\Amount</a></code>
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_getAmount">#</a>
+			<code><a href="source-class-PayPal.Api.Order.html#118-126" title="Go to source code">getAmount</a>( )</code>
+
+			<div class="description short">
+				<p>Amount being collected.</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Amount being collected.</p>
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code><a href="class-PayPal.Api.Amount.html">PayPal\Api\Amount</a></code>
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="setPaymentMode" id="_setPaymentMode">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_setPaymentMode">#</a>
+			<code><a href="source-class-PayPal.Api.Order.html#128-140" title="Go to source code">setPaymentMode</a>( <span>string <var>$payment_mode</var></span> )</code>
+
+			<div class="description short">
+				<p>specifies payment mode of the transaction
+Valid Values: ["INSTANT_TRANSFER", "MANUAL_BANK_TRANSFER", "DELAYED_TRANSFER", "ECHECK"]</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>specifies payment mode of the transaction
+Valid Values: ["INSTANT_TRANSFER", "MANUAL_BANK_TRANSFER", "DELAYED_TRANSFER", "ECHECK"]</p>
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$payment_mode</var></dt>
+						<dd></dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						<br>$this
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="getPaymentMode" id="_getPaymentMode">
+
+			<td class="attributes"><code>
+				 public 
+				string
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_getPaymentMode">#</a>
+			<code><a href="source-class-PayPal.Api.Order.html#142-150" title="Go to source code">getPaymentMode</a>( )</code>
+
+			<div class="description short">
+				<p>specifies payment mode of the transaction</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>specifies payment mode of the transaction</p>
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+						string
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="setState" id="_setState">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_setState">#</a>
+			<code><a href="source-class-PayPal.Api.Order.html#152-164" title="Go to source code">setState</a>( <span>string <var>$state</var></span> )</code>
+
+			<div class="description short">
+				<p>State of the order transaction.
+Valid Values: ["pending", "completed", "voided", "authorized", "captured"]</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>State of the order transaction.
+Valid Values: ["pending", "completed", "voided", "authorized", "captured"]</p>
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$state</var></dt>
+						<dd></dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						<br>$this
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="getState" id="_getState">
+
+			<td class="attributes"><code>
+				 public 
+				string
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_getState">#</a>
+			<code><a href="source-class-PayPal.Api.Order.html#166-174" title="Go to source code">getState</a>( )</code>
+
+			<div class="description short">
+				<p>State of the order transaction.</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>State of the order transaction.</p>
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+						string
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="setReasonCode" id="_setReasonCode">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_setReasonCode">#</a>
+			<code><a href="source-class-PayPal.Api.Order.html#176-188" title="Go to source code">setReasonCode</a>( <span>string <var>$reason_code</var></span> )</code>
+
+			<div class="description short">
+				<p>Reason code for the transaction state being Pending or Reversed. This field will replace pending_reason field eventually. Only supported when the <code>payment_method</code> is set to <code>paypal</code>.
+Valid Values: ["PAYER_SHIPPING_UNCONFIRMED", "MULTI_CURRENCY", "RISK_REVIEW", "REGULATORY_REVIEW", "VERIFICATION_REQUIRED", "ORDER", "OTHER"]</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Reason code for the transaction state being Pending or Reversed. This field will replace pending_reason field eventually. Only supported when the <code>payment_method</code> is set to <code>paypal</code>.
+Valid Values: ["PAYER_SHIPPING_UNCONFIRMED", "MULTI_CURRENCY", "RISK_REVIEW", "REGULATORY_REVIEW", "VERIFICATION_REQUIRED", "ORDER", "OTHER"]</p>
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$reason_code</var></dt>
+						<dd></dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						<br>$this
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="getReasonCode" id="_getReasonCode">
+
+			<td class="attributes"><code>
+				 public 
+				string
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_getReasonCode">#</a>
+			<code><a href="source-class-PayPal.Api.Order.html#190-198" title="Go to source code">getReasonCode</a>( )</code>
+
+			<div class="description short">
+				<p>Reason code for the transaction state being Pending or Reversed. This field will replace pending_reason field eventually. Only supported when the <code>payment_method</code> is set to <code>paypal</code>.</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Reason code for the transaction state being Pending or Reversed. This field will replace pending_reason field eventually. Only supported when the <code>payment_method</code> is set to <code>paypal</code>.</p>
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+						string
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="setPendingReason" id="_setPendingReason">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_setPendingReason">#</a>
+			<code><a href="source-class-PayPal.Api.Order.html#200-212" title="Go to source code">setPendingReason</a>( <span>string <var>$pending_reason</var></span> )</code>
+
+			<div class="description short">
+				<p>[DEPRECATED] Reason code for the transaction state being Pending. Obsolete. Retained for backward compatability. Use reason_code field above instead.
+Valid Values: ["payer_shipping_unconfirmed", "multi_currency", "risk_review", "regulatory_review", "verification_required", "order", "other"]</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>[DEPRECATED] Reason code for the transaction state being Pending. Obsolete. Retained for backward compatability. Use reason_code field above instead.
+Valid Values: ["payer_shipping_unconfirmed", "multi_currency", "risk_review", "regulatory_review", "verification_required", "order", "other"]</p>
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$pending_reason</var></dt>
+						<dd></dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						<br>$this
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="getPendingReason" id="_getPendingReason" class="deprecated">
+
+			<td class="attributes"><code>
+				 public 
+				string
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_getPendingReason">#</a>
+			<code><a href="source-class-PayPal.Api.Order.html#214-222" title="Go to source code">getPendingReason</a>( )</code>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+					<h4>Deprecated</h4>
+					<div class="list">
+							[DEPRECATED] Reason code for the transaction state being Pending. Obsolete. Retained for backward compatability. Use reason_code field above instead.<br>
+					</div>
+
+
+					<h4>Returns</h4>
+					<div class="list">
+						string
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="setProtectionEligibility" id="_setProtectionEligibility">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_setProtectionEligibility">#</a>
+			<code><a href="source-class-PayPal.Api.Order.html#224-236" title="Go to source code">setProtectionEligibility</a>( <span>string <var>$protection_eligibility</var></span> )</code>
+
+			<div class="description short">
+				<p>The level of seller protection in force for the transaction.
+Valid Values: ["ELIGIBLE", "PARTIALLY_ELIGIBLE", "INELIGIBLE"]</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>The level of seller protection in force for the transaction.
+Valid Values: ["ELIGIBLE", "PARTIALLY_ELIGIBLE", "INELIGIBLE"]</p>
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$protection_eligibility</var></dt>
+						<dd></dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						<br>$this
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="getProtectionEligibility" id="_getProtectionEligibility">
+
+			<td class="attributes"><code>
+				 public 
+				string
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_getProtectionEligibility">#</a>
+			<code><a href="source-class-PayPal.Api.Order.html#238-246" title="Go to source code">getProtectionEligibility</a>( )</code>
+
+			<div class="description short">
+				<p>The level of seller protection in force for the transaction.</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>The level of seller protection in force for the transaction.</p>
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+						string
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="setProtectionEligibilityType" id="_setProtectionEligibilityType">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_setProtectionEligibilityType">#</a>
+			<code><a href="source-class-PayPal.Api.Order.html#248-260" title="Go to source code">setProtectionEligibilityType</a>( <span>string <var>$protection_eligibility_type</var></span> )</code>
+
+			<div class="description short">
+				<p>The kind of seller protection in force for the transaction. This property is returned only when the <code>protection_eligibility</code> property is set to <code>ELIGIBLE</code>or <code>PARTIALLY_ELIGIBLE</code>. Only supported when the <code>payment_method</code> is set to <code>paypal</code>. Allowed values:<br> <code>ITEM_NOT_RECEIVED_ELIGIBLE</code>- Sellers are protected against claims for items not received.<br> <code>UNAUTHORIZED_PAYMENT_ELIGIBLE</code>- Sellers are protected against claims for unauthorized payments.<br> One or both of the allowed values can be returned.
+Valid Values: ["ITEM_NOT_RECEIVED_ELIGIBLE", "UNAUTHORIZED_PAYMENT_ELIGIBLE", "ITEM_NOT_RECEIVED_ELIGIBLE,UNAUTHORIZED_PAYMENT_ELIGIBLE"]</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>The kind of seller protection in force for the transaction. This property is returned only when the <code>protection_eligibility</code> property is set to <code>ELIGIBLE</code>or <code>PARTIALLY_ELIGIBLE</code>. Only supported when the <code>payment_method</code> is set to <code>paypal</code>. Allowed values:<br> <code>ITEM_NOT_RECEIVED_ELIGIBLE</code>- Sellers are protected against claims for items not received.<br> <code>UNAUTHORIZED_PAYMENT_ELIGIBLE</code>- Sellers are protected against claims for unauthorized payments.<br> One or both of the allowed values can be returned.
+Valid Values: ["ITEM_NOT_RECEIVED_ELIGIBLE", "UNAUTHORIZED_PAYMENT_ELIGIBLE", "ITEM_NOT_RECEIVED_ELIGIBLE,UNAUTHORIZED_PAYMENT_ELIGIBLE"]</p>
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$protection_eligibility_type</var></dt>
+						<dd></dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						<br>$this
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="getProtectionEligibilityType" id="_getProtectionEligibilityType">
+
+			<td class="attributes"><code>
+				 public 
+				string
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_getProtectionEligibilityType">#</a>
+			<code><a href="source-class-PayPal.Api.Order.html#262-270" title="Go to source code">getProtectionEligibilityType</a>( )</code>
+
+			<div class="description short">
+				<p>The kind of seller protection in force for the transaction. This property is returned only when the <code>protection_eligibility</code> property is set to <code>ELIGIBLE</code>or <code>PARTIALLY_ELIGIBLE</code>. Only supported when the <code>payment_method</code> is set to <code>paypal</code>. Allowed values:<br> <code>ITEM_NOT_RECEIVED_ELIGIBLE</code>- Sellers are protected against claims for items not received.<br> <code>UNAUTHORIZED_PAYMENT_ELIGIBLE</code>- Sellers are protected against claims for unauthorized payments.<br> One or both of the allowed values can be returned.</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>The kind of seller protection in force for the transaction. This property is returned only when the <code>protection_eligibility</code> property is set to <code>ELIGIBLE</code>or <code>PARTIALLY_ELIGIBLE</code>. Only supported when the <code>payment_method</code> is set to <code>paypal</code>. Allowed values:<br> <code>ITEM_NOT_RECEIVED_ELIGIBLE</code>- Sellers are protected against claims for items not received.<br> <code>UNAUTHORIZED_PAYMENT_ELIGIBLE</code>- Sellers are protected against claims for unauthorized payments.<br> One or both of the allowed values can be returned.</p>
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+						string
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="setParentPayment" id="_setParentPayment">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_setParentPayment">#</a>
+			<code><a href="source-class-PayPal.Api.Order.html#272-283" title="Go to source code">setParentPayment</a>( <span>string <var>$parent_payment</var></span> )</code>
+
+			<div class="description short">
+				<p>ID of the Payment resource that this transaction is based on.</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>ID of the Payment resource that this transaction is based on.</p>
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$parent_payment</var></dt>
+						<dd></dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						<br>$this
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="getParentPayment" id="_getParentPayment">
+
+			<td class="attributes"><code>
+				 public 
+				string
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_getParentPayment">#</a>
+			<code><a href="source-class-PayPal.Api.Order.html#285-293" title="Go to source code">getParentPayment</a>( )</code>
+
+			<div class="description short">
+				<p>ID of the Payment resource that this transaction is based on.</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>ID of the Payment resource that this transaction is based on.</p>
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+						string
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="setFmfDetails" id="_setFmfDetails">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_setFmfDetails">#</a>
+			<code><a href="source-class-PayPal.Api.Order.html#295-306" title="Go to source code">setFmfDetails</a>( <span><code><a href="class-PayPal.Api.FmfDetails.html">PayPal\Api\FmfDetails</a></code> <var>$fmf_details</var></span> )</code>
+
+			<div class="description short">
+				<p>Fraud Management Filter (FMF) details applied for the payment that could result in accept/deny/pending action.</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Fraud Management Filter (FMF) details applied for the payment that could result in accept/deny/pending action.</p>
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$fmf_details</var></dt>
+						<dd></dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						<br>$this
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="getFmfDetails" id="_getFmfDetails">
+
+			<td class="attributes"><code>
+				 public 
+				<code><a href="class-PayPal.Api.FmfDetails.html">PayPal\Api\FmfDetails</a></code>
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_getFmfDetails">#</a>
+			<code><a href="source-class-PayPal.Api.Order.html#308-316" title="Go to source code">getFmfDetails</a>( )</code>
+
+			<div class="description short">
+				<p>Fraud Management Filter (FMF) details applied for the payment that could result in accept/deny/pending action.</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Fraud Management Filter (FMF) details applied for the payment that could result in accept/deny/pending action.</p>
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code><a href="class-PayPal.Api.FmfDetails.html">PayPal\Api\FmfDetails</a></code>
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="setCreateTime" id="_setCreateTime">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_setCreateTime">#</a>
+			<code><a href="source-class-PayPal.Api.Order.html#318-329" title="Go to source code">setCreateTime</a>( <span>string <var>$create_time</var></span> )</code>
+
+			<div class="description short">
+				<p>Time the resource was created in UTC ISO8601 format.</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Time the resource was created in UTC ISO8601 format.</p>
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$create_time</var></dt>
+						<dd></dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						<br>$this
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="getCreateTime" id="_getCreateTime">
+
+			<td class="attributes"><code>
+				 public 
+				string
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_getCreateTime">#</a>
+			<code><a href="source-class-PayPal.Api.Order.html#331-339" title="Go to source code">getCreateTime</a>( )</code>
+
+			<div class="description short">
+				<p>Time the resource was created in UTC ISO8601 format.</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Time the resource was created in UTC ISO8601 format.</p>
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+						string
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="setUpdateTime" id="_setUpdateTime">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_setUpdateTime">#</a>
+			<code><a href="source-class-PayPal.Api.Order.html#341-352" title="Go to source code">setUpdateTime</a>( <span>string <var>$update_time</var></span> )</code>
+
+			<div class="description short">
+				<p>Time the resource was last updated in UTC ISO8601 format.</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Time the resource was last updated in UTC ISO8601 format.</p>
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$update_time</var></dt>
+						<dd></dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						<br>$this
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="getUpdateTime" id="_getUpdateTime">
+
+			<td class="attributes"><code>
+				 public 
+				string
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_getUpdateTime">#</a>
+			<code><a href="source-class-PayPal.Api.Order.html#354-362" title="Go to source code">getUpdateTime</a>( )</code>
+
+			<div class="description short">
+				<p>Time the resource was last updated in UTC ISO8601 format.</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Time the resource was last updated in UTC ISO8601 format.</p>
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+						string
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="get" id="_get">
+
+			<td class="attributes"><code>
+				 public static
+				<code><a href="class-PayPal.Api.Order.html">PayPal\Api\Order</a></code>
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_get">#</a>
+			<code><a href="source-class-PayPal.Api.Order.html#364-387" title="Go to source code">get</a>( <span>string <var>$orderId</var></span>, <span><code><a href="class-PayPal.Rest.ApiContext.html">PayPal\Rest\ApiContext</a></code> <var>$apiContext</var> = <span class="php-keyword1">null</span></span>, <span>PayPalRestCall <var>$restCall</var> = <span class="php-keyword1">null</span></span> )</code>
+
+			<div class="description short">
+				<p>Shows details for an order, by ID.</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Shows details for an order, by ID.</p>
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$orderId</var></dt>
+						<dd></dd>
+						<dt><var>$apiContext</var></dt>
+						<dd>is the APIContext for this call. It can be used to pass dynamic configuration and credentials.</dd>
+						<dt><var>$restCall</var></dt>
+						<dd>is the Rest Call Service that is used to make rest calls</dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code><a href="class-PayPal.Api.Order.html">PayPal\Api\Order</a></code>
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="capture" id="_capture">
+
+			<td class="attributes"><code>
+				 public 
+				<code><a href="class-PayPal.Api.Capture.html">PayPal\Api\Capture</a></code>
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_capture">#</a>
+			<code><a href="source-class-PayPal.Api.Order.html#389-413" title="Go to source code">capture</a>( <span><code><a href="class-PayPal.Api.Capture.html">PayPal\Api\Capture</a></code> <var>$capture</var></span>, <span><code><a href="class-PayPal.Rest.ApiContext.html">PayPal\Rest\ApiContext</a></code> <var>$apiContext</var> = <span class="php-keyword1">null</span></span>, <span>PayPalRestCall <var>$restCall</var> = <span class="php-keyword1">null</span></span> )</code>
+
+			<div class="description short">
+				<p>Captures a payment for an order, by ID. To use this call, the original payment call must specify an intent of <code>order</code>. In the JSON request body, include the payment amount and indicate whether this capture is the final capture for the authorization.</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Captures a payment for an order, by ID. To use this call, the original payment call must specify an intent of <code>order</code>. In the JSON request body, include the payment amount and indicate whether this capture is the final capture for the authorization.</p>
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$capture</var></dt>
+						<dd></dd>
+						<dt><var>$apiContext</var></dt>
+						<dd>is the APIContext for this call. It can be used to pass dynamic configuration and credentials.</dd>
+						<dt><var>$restCall</var></dt>
+						<dd>is the Rest Call Service that is used to make rest calls</dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code><a href="class-PayPal.Api.Capture.html">PayPal\Api\Capture</a></code>
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="void" id="_void">
+
+			<td class="attributes"><code>
+				 public 
+				<code><a href="class-PayPal.Api.Order.html">PayPal\Api\Order</a></code>
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_void">#</a>
+			<code><a href="source-class-PayPal.Api.Order.html#415-436" title="Go to source code">void</a>( <span><code><a href="class-PayPal.Rest.ApiContext.html">PayPal\Rest\ApiContext</a></code> <var>$apiContext</var> = <span class="php-keyword1">null</span></span>, <span>PayPalRestCall <var>$restCall</var> = <span class="php-keyword1">null</span></span> )</code>
+
+			<div class="description short">
+				<p>Voids, or cancels, an order, by ID. You cannot void an order if a payment has already been partially or fully captured.</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Voids, or cancels, an order, by ID. You cannot void an order if a payment has already been partially or fully captured.</p>
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$apiContext</var></dt>
+						<dd>is the APIContext for this call. It can be used to pass dynamic configuration and credentials.</dd>
+						<dt><var>$restCall</var></dt>
+						<dd>is the Rest Call Service that is used to make rest calls</dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code><a href="class-PayPal.Api.Order.html">PayPal\Api\Order</a></code>
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="authorize" id="_authorize">
+
+			<td class="attributes"><code>
+				 public 
+				<code><a href="class-PayPal.Api.Authorization.html">PayPal\Api\Authorization</a></code>
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_authorize">#</a>
+			<code><a href="source-class-PayPal.Api.Order.html#438-462" title="Go to source code">authorize</a>( <span><code><a href="class-PayPal.Api.Authorization.html">PayPal\Api\Authorization</a></code> <var>$authorization</var></span>, <span><code><a href="class-PayPal.Rest.ApiContext.html">PayPal\Rest\ApiContext</a></code> <var>$apiContext</var> = <span class="php-keyword1">null</span></span>, <span>PayPalRestCall <var>$restCall</var> = <span class="php-keyword1">null</span></span> )</code>
+
+			<div class="description short">
+				<p>Authorizes an order, by ID. Include an <code>amount</code> object in the JSON request body.</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Authorizes an order, by ID. Include an <code>amount</code> object in the JSON request body.</p>
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$authorization</var></dt>
+						<dd>Authorization Object with Amount value to be authorized</dd>
+						<dt><var>$apiContext</var></dt>
+						<dd>is the APIContext for this call. It can be used to pass dynamic configuration and credentials.</dd>
+						<dt><var>$restCall</var></dt>
+						<dd>is the Rest Call Service that is used to make rest calls</dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						<code><a href="class-PayPal.Api.Authorization.html">PayPal\Api\Authorization</a></code>
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+			</table>
+		</div>
+
+		<div class="panel panel-default">
+	        <div class="panel-heading"><h3>Methods inherited from <a href="class-PayPal.Common.PayPalResourceModel.html#methods">PayPal\Common\PayPalResourceModel</a></h3></div>
+			<p class="elementList">
+				<code><a href="class-PayPal.Common.PayPalResourceModel.html#_addLink">addLink()</a></code>, 
+				<code><a href="class-PayPal.Common.PayPalResourceModel.html#_executeCall">executeCall()</a></code>, 
+				<code><a href="class-PayPal.Common.PayPalResourceModel.html#_getLink">getLink()</a></code>, 
+				<code><a href="class-PayPal.Common.PayPalResourceModel.html#_getLinks">getLinks()</a></code>, 
+				<code><a href="class-PayPal.Common.PayPalResourceModel.html#_removeLink">removeLink()</a></code>, 
+				<code><a href="class-PayPal.Common.PayPalResourceModel.html#_setLinks">setLinks()</a></code>, 
+				<code><a href="class-PayPal.Common.PayPalResourceModel.html#_updateAccessToken">updateAccessToken()</a></code>
+			</p>
+		</div>
+		<div class="panel panel-default">
+	        <div class="panel-heading"><h3>Methods inherited from <a href="class-PayPal.Common.PayPalModel.html#methods">PayPal\Common\PayPalModel</a></h3></div>
+			<p class="elementList">
+				<code><a href="class-PayPal.Common.PayPalModel.html#___construct">__construct()</a></code>, 
+				<code><a href="class-PayPal.Common.PayPalModel.html#___get">__get()</a></code>, 
+				<code><a href="class-PayPal.Common.PayPalModel.html#___isset">__isset()</a></code>, 
+				<code><a href="class-PayPal.Common.PayPalModel.html#___set">__set()</a></code>, 
+				<code><a href="class-PayPal.Common.PayPalModel.html#___toString">__toString()</a></code>, 
+				<code><a href="class-PayPal.Common.PayPalModel.html#___unset">__unset()</a></code>, 
+				<code><a href="class-PayPal.Common.PayPalModel.html#_fromArray">fromArray()</a></code>, 
+				<code><a href="class-PayPal.Common.PayPalModel.html#_fromJson">fromJson()</a></code>, 
+				<code><a href="class-PayPal.Common.PayPalModel.html#_getList">getList()</a></code>, 
+				<code><a href="class-PayPal.Common.PayPalModel.html#_setCredential"><span class="deprecated">setCredential()</span></a></code>, 
+				<code><a href="class-PayPal.Common.PayPalModel.html#_toArray">toArray()</a></code>, 
+				<code><a href="class-PayPal.Common.PayPalModel.html#_toJSON">toJSON()</a></code>
+			</p>
+		</div>
+
+
+
+
+
+
+
+
+
+
+		<div class="panel panel-default">
+            <div class="panel-heading"><h2>Properties summary</h2></div>
+		</div>
+
+		<div class="panel panel-default">
+            <div class="panel-heading"><h3>Properties inherited from <a href="class-PayPal.Common.PayPalModel.html#properties">PayPal\Common\PayPalModel</a></h3></div>
+			<p class="elementList">
+				<code><a href="class-PayPal.Common.PayPalModel.html#$credential"><var>$credential</var></a></code>
+			</p>
+		</div>
+
+
+
+
+
+</div>
+	</div>
+
+	<div id="footer">
+		 API documentation generated by <a href="http://apigen.org">ApiGen</a>
+	</div>
+</div>
+<script src="resources/combined.js"></script>
+<script src="elementlist.js"></script>
+</body>
+</html>
