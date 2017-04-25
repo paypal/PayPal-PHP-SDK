@@ -99,10 +99,12 @@ class PayPalConfigManager
             return $this->configs[$searchKey];
         } else {
             $arr = array();
+            if ($searchKey !== '') {
             foreach ($this->configs as $k => $v) {
                 if (strstr($k, $searchKey)) {
                     $arr[$k] = $v;
                 }
+            }
             }
 
             return $arr;
