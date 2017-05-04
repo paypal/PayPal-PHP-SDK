@@ -219,9 +219,10 @@ class OpenIdTokeninfo extends PayPalResourceModel
      *                               (optional) grant_type is the Token grant type. Defaults to refresh_token
      *                               (optional) scope is an array that either the same or a subset of the scope passed to the authorization request
      * @param APIContext $apiContext Optional API Context
+     * @param PayPalRestCall $restCall
      * @return OpenIdTokeninfo
      */
-    public function createFromRefreshToken($params, $apiContext = null)
+    public function createFromRefreshToken($params, $apiContext = null, $restCall = null)
     {
         static $allowedParams = array('grant_type' => 1, 'refresh_token' => 1, 'scope' => 1);
         $apiContext = $apiContext ? $apiContext : new ApiContext(self::$credential);
@@ -244,7 +245,8 @@ class OpenIdTokeninfo extends PayPalResourceModel
                 'Content-Type' => 'application/x-www-form-urlencoded',
                 'Authorization' => 'Basic ' . base64_encode($clientId . ":" . $clientSecret)
             ),
-            $apiContext
+            $apiContext,
+            $restCall
         );
 
         $this->fromJson($json);

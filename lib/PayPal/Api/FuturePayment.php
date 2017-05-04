@@ -20,7 +20,7 @@ class FuturePayment extends Payment
      * @param string|null  $clientMetadataId
      * @return $this
      */
-    public function create($apiContext = null, $clientMetadataId = null)
+    public function create($apiContext = null, $clientMetadataId = null, $call = null)
     {
         if ($apiContext == null) {
             $apiContext = new ApiContext(self::$credential);
@@ -32,7 +32,7 @@ class FuturePayment extends Payment
             );
         }
         $payLoad = $this->toJSON();
-        $call = new PayPalRestCall($apiContext);
+        $call = $call ? $call : new PayPalRestCall($apiContext);
         $json = $call->execute(
             array('PayPal\Handler\RestHandler'),
             "/v1/payments/payment",
