@@ -544,7 +544,19 @@ class Payment extends PayPalResourceModel
     {
         return $this->getLink(PayPalConstants::APPROVAL_URL);
     }
-
+	
+	/**
+     * Get token from Approval Link
+     *
+     * @return null|string
+     */
+	public function getToken()
+	{
+		$parameter_name = "token";
+		parse_str(parse_url($this->getApprovalLink(), PHP_URL_QUERY), $query);
+		return !isset($query[$parameter_name]) ? null : $query[$parameter_name];
+	}
+	
     /**
      * Creates and processes a payment. In the JSON request body, include a `payment` object with the intent, payer, and transactions. For PayPal payments, include redirect URLs in the `payment` object.
      *

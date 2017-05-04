@@ -29,6 +29,27 @@ class PaymentTest extends \PHPUnit_Framework_TestCase
         return new Payment(self::getJson());
     }
 
+    public function testGetToken_returnsNullIfApprovalLinkNull()
+    {
+        $payment = new Payment();
+        $token = $payment->getToken();
+        $this->assertNull($token);
+    }
+
+    public function testGetToken_returnsNullIfApprovalLinkDoesNotHaveToken()
+    {
+        $payment = new Payment('{"links": [ { "href": "https://api.sandbox.paypal.com/v1/payments//cgi-bin/webscr?cmd=_express-checkout", "rel": "approval_url", "method": "REDIRECT" } ]}');
+        $token = $payment->getToken();
+        $this->assertNull($token);
+    }
+
+    public function testGetToken_returnsNullIfApprovalLinkHasAToken()
+    {
+        $payment = new Payment('{"links": [ { "href": "https://api.sandbox.paypal.com/v1/payments//cgi-bin/webscr?cmd=_express-checkout&token=EC-60385559L1062554J", "rel": "approval_url", "method": "REDIRECT" } ]}');
+        $token = $payment->getToken();
+        $this->assertNotNull($token);
+        $this->assertEquals($token, 'EC-60385559L1062554J');
+    }
 
     /**
      * Tests for Serialization and Deserialization Issues
