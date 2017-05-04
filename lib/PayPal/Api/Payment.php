@@ -554,7 +554,7 @@ class Payment extends PayPalResourceModel
 	{
 		$parameter_name = "token";
 		parse_str(parse_url($this->getApprovalLink(), PHP_URL_QUERY), $query);
-		return (!isset($query[$parameter_name]) || is_null($query[$parameter_name])) ? null : $query[$parameter_name];
+		return !isset($query[$parameter_name]) ? null : $query[$parameter_name];
 	}
 	
     /**
