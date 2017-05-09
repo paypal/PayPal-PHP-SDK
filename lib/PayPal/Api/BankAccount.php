@@ -5,9 +5,10 @@ namespace PayPal\Api;
 use PayPal\Common\PayPalModel;
 
 /**
- * Class BankAccount
- *
- * A resource representing a bank account that can be used to fund a payment.
+ * @Class BankAccount
+ * 
+ * @A resource representing a bank account that can be used to fund a payment.
+ * @ This class is deprecated. It is not publicly available
  *
  * @package PayPal\Api
  *
