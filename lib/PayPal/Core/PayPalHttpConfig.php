@@ -27,7 +27,7 @@ class PayPalHttpConfig
         CURLOPT_HTTPHEADER => array(),
         CURLOPT_SSL_VERIFYHOST => 2,
         CURLOPT_SSL_VERIFYPEER => 1,
-        CURLOPT_SSL_CIPHER_LIST => 'TLSv1'
+        CURLOPT_SSL_CIPHER_LIST => 'TLSv1:TLSv1.2'
         //Allowing TLSv1 cipher list.
         //Adding it like this for backward compatibility with older versions of curl
     );
