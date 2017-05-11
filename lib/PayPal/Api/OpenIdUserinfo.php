@@ -505,9 +505,10 @@ class OpenIdUserinfo extends PayPalResourceModel
      * @param array        $params     (allowed values are access_token)
      *                                 access_token - access token from the createFromAuthorizationCode / createFromRefreshToken calls
      * @param ApiContext $apiContext Optional API Context
+     * @param PayPalRestCall $restCall
      * @return OpenIdUserinfo
      */
-    public static function getUserinfo($params, $apiContext = null)
+    public static function getUserinfo($params, $apiContext = null, $restCall = null)
     {
         static $allowedParams = array('schema' => 1);
 
@@ -527,7 +528,8 @@ class OpenIdUserinfo extends PayPalResourceModel
                 'Authorization' => "Bearer " . $params['access_token'],
                 'Content-Type' => 'x-www-form-urlencoded'
             ),
-            $apiContext
+            $apiContext,
+            $restCall
         );
 
         $ret = new OpenIdUserinfo();
