@@ -3,7 +3,6 @@
 namespace PayPal\Api;
 
 use PayPal\Common\PayPalModel;
-use PayPal\Converter\FormatConverter;
 use PayPal\Validation\NumericValidator;
 
 /**
@@ -52,7 +51,6 @@ class Amount extends PayPalModel
     public function setTotal($total)
     {
         NumericValidator::validate($total, "Total");
-        $total = FormatConverter::formatToPrice($total, $this->getCurrency());
         $this->total = $total;
         return $this;
     }

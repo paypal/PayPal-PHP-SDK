@@ -3,7 +3,6 @@
 namespace PayPal\Api;
 
 use PayPal\Common\PayPalModel;
-use PayPal\Converter\FormatConverter;
 use PayPal\Validation\NumericValidator;
 
 /**
@@ -76,7 +75,6 @@ class Tax extends PayPalModel
     public function setPercent($percent)
     {
         NumericValidator::validate($percent, "Percent");
-        $percent = FormatConverter::formatToPrice($percent);
         $this->percent = $percent;
         return $this;
     }

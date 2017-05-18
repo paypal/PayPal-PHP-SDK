@@ -3,7 +3,6 @@
 namespace PayPal\Api;
 
 use PayPal\Common\PayPalModel;
-use PayPal\Converter\FormatConverter;
 use PayPal\Validation\NumericValidator;
 use PayPal\Validation\UrlValidator;
 
@@ -127,7 +126,6 @@ class Item extends PayPalModel
     public function setPrice($price)
     {
         NumericValidator::validate($price, "Price");
-        $price = FormatConverter::formatToPrice($price, $this->getCurrency());
         $this->price = $price;
         return $this;
     }
@@ -175,7 +173,6 @@ class Item extends PayPalModel
     public function setTax($tax)
     {
         NumericValidator::validate($tax, "Tax");
-        $tax = FormatConverter::formatToPrice($tax, $this->getCurrency());
         $this->tax = $tax;
         return $this;
     }
