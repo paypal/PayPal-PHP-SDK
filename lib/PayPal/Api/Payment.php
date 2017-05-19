@@ -176,6 +176,9 @@ class Payment extends PayPalResourceModel
      */
     public function setTransactions($transactions)
     {
+        if (!is_array($transactions)) {
+            $transactions = array($transactions);
+        }
         $this->transactions = $transactions;
         return $this;
     }

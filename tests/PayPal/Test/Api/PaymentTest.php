@@ -2,7 +2,9 @@
 
 namespace PayPal\Test\Api;
 
+use PayPal\Api\Amount;
 use PayPal\Api\Payment;
+use PayPal\Api\Transaction;
 
 /**
  * Class Payment
@@ -218,5 +220,20 @@ class PaymentTest extends \PHPUnit_Framework_TestCase
             array($obj, $mockApiContext),
             array($obj, null)
         );
+    }
+
+    /**
+     * Tests setting a payment transactions to a single object will automatically
+     * convert to an array.
+     */
+    public function testTransactionSingleObjectConvertedToArray()
+    {
+        $payment = new Payment();
+        $singleTransaction = new Transaction();
+        $amount = new Amount();
+        $amount->setCurrency("USD")->setTotal("1.00");
+        $singleTransaction->setAmount($amount);
+        $payment->setTransactions($singleTransaction);
+        $this->assertEquals(array($singleTransaction), $payment->getTransactions());
     }
 }
