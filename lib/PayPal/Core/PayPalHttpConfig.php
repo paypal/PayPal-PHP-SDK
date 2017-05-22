@@ -68,6 +68,11 @@ class PayPalHttpConfig
             //Remove the Cipher List for NSS
             $this->removeCurlOption(CURLOPT_SSL_CIPHER_LIST);
         }
+        if( array_key_exists('http.UseProxy',$configs) && $configs['http.UseProxy'] ){
+			if( !array_key_exists('http.Proxy',$configs) )
+				throw new PayPalConfigurationException("Invalid proxy configuration. http.Proxy does not exist");
+			$this->setHttpProxy($configs['http.Proxy']);
+		}
     }
 
     /**
@@ -229,9 +234,10 @@ class PayPalHttpConfig
      * Set HTTP proxy information
      *
      * @param string $proxy
+     * @param array $otherConfigs you can set other proxy configurations
      * @throws PayPalConfigurationException
      */
-    public function setHttpProxy($proxy)
+    public function setHttpProxy($proxy,$otherConfigs=[CURLOPT_PROXYAUTH=>CURLAUTH_NTLM,CURLOPT_HTTPPROXYTUNNEL=>1,CURLOPT_SSL_VERIFYPEER=>0])
     {
         $urlParts = parse_url($proxy);
         if ($urlParts == false || !array_key_exists("host", $urlParts)) {
@@ -244,6 +250,11 @@ class PayPalHttpConfig
         if (isset($urlParts["user"])) {
             $this->curlOptions[CURLOPT_PROXYUSERPWD] = $urlParts["user"] . ":" . $urlParts["pass"];
         }
+		if( $otherConfigs != null ){
+			foreach( $otherConfigs as $key => $cfg ){
+				$this->curlOptions[$key] = $cfg;
+			}
+		}
     }
 
     /**
