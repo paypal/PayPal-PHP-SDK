@@ -67,13 +67,13 @@ $request = clone $agreement;
 // ### Create Agreement
 try {
     // Please note that as the agreement has not yet activated, we wont be receiving the ID just yet.
-    $agreement = $agreement->create($apiContext);
+    $request = $request->create($apiContext);
 
     // ### Get redirect url
     // The API response provides the url that you must redirect
     // the buyer to. Retrieve the url from the $agreement->getApprovalLink()
     // method
-    $approvalUrl = $agreement->getApprovalLink();
+    $approvalUrl = $request->getApprovalLink();
 } catch (Exception $ex) {
     // NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
     ResultPrinter::printError("Created Billing Agreement.", "Agreement", null, $request, $ex);
