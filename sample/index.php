@@ -270,17 +270,6 @@ if (PHP_SAPI == 'cli') {
                     </li>
                     <li class="list-group-item">
                         <div class="row">
-                            <div class="col-md-8"><h5>Payments using credit card information</h5></div>
-                            <div class="col-md-4">
-                                <a href="payments/CreatePayment.php" class="btn btn-primary pull-left execute"> Try It <i
-                                        class="fa fa-play-circle-o"></i></a>
-                                <a href="doc/payments/CreatePayment.html" class="btn btn-default pull-right">Source <i
-                                        class="fa fa-file-code-o"></i></a>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="list-group-item">
-                        <div class="row">
                             <div class="col-md-8"><h5>Payments to a 3rd-Party Payee</h5></div>
                             <div class="col-md-4">
                                 <a href="payments/CreateThirdPartyPayment.php" class="btn btn-primary pull-left execute"> Try It <i
@@ -290,18 +279,7 @@ if (PHP_SAPI == 'cli') {
                             </div>
                         </div>
                     </li>
-                    <li class="list-group-item">
-                        <div class="row">
-                            <div class="col-md-8"><h5>Payments using saved credit card <small>(using Vault APIs)</small></h5></div>
-                            <div class="col-md-4">
-                                <a href="payments/CreatePaymentUsingSavedCard.php"
-                                   class="btn btn-primary pull-left execute">
-                                    Try It <i class="fa fa-play-circle-o"></i></a>
-                                <a href="doc/payments/CreatePaymentUsingSavedCard.html" class="btn btn-default pull-right">Source <i
-                                        class="fa fa-file-code-o"></i></a>
-                            </div>
-                        </div>
-                    </li>
+
                     <li class="list-group-item">
                         <div class="row">
                             <div class="col-md-8">
@@ -431,10 +409,10 @@ if (PHP_SAPI == 'cli') {
                         <div class="row">
                             <div class="col-md-8"><h5>Authorize Payment</h5></div>
                             <div class="col-md-4">
-                                <a href="payments/AuthorizePayment.php" class="btn btn-primary pull-left execute"> Try It
+                                <a href="payments/AuthorizePaymentUsingPayPal.php" class="btn btn-primary pull-left execute"> Try It
                                     <i
                                         class="fa fa-play-circle-o"></i></a>
-                                <a href="doc/payments/AuthorizePayment.html" class="btn btn-default pull-right">Source <i
+                                <a href="doc/payments/AuthorizePaymentUsingPayPal.html" class="btn btn-default pull-right">Source <i
                                         class="fa fa-file-code-o"></i></a>
                             </div>
                         </div>
@@ -755,19 +733,6 @@ if (PHP_SAPI == 'cli') {
                                         class="fa fa-play-circle-o"></i></a>
                                 <a href="doc/billing/ListPlans.html" class="btn btn-default pull-right">Source <i
                                         class="fa fa-file-code-o"></i></a>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="list-group-item">
-                        <div class="row">
-                            <div class="col-md-8"><h5>Create Billing Agreement With Credit Card</h5></div>
-                            <div class="col-md-4">
-                                <a href="billing/CreateBillingAgreementWithCreditCard.php"
-                                   class="btn btn-primary pull-left execute"> Try It <i
-                                        class="fa fa-play-circle-o"></i></a>
-                                <a href="doc/billing/CreateBillingAgreementWithCreditCard.html"
-                                   class="btn btn-default pull-right">Source
-                                    <i class="fa fa-file-code-o"></i></a>
                             </div>
                         </div>
                     </li>
