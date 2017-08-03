@@ -3,7 +3,6 @@
 namespace PayPal\Common;
 
 use PayPal\Validation\JsonValidator;
-use PayPal\Validation\ModelAccessorValidator;
 
 /**
  * Generic Model class that all API domain classes extend
