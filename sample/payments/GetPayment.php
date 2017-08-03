@@ -9,10 +9,11 @@
 // API used: GET /v1/payments/payments
 
 /** @var Payment $createdPayment */
-$createdPayment = require 'CreatePayment.php';
+
 use PayPal\Api\Payment;
 
-$paymentId = $createdPayment->getId();
+// Replace $paymentId with any static Id you might already have. 
+$paymentId = "<your paymentid here>";
 
 // ### Retrieve payment
 // Retrieve the payment object by calling the
