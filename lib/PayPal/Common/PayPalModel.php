@@ -38,7 +38,7 @@ class PayPalModel
      * You can pass data as a json representation or array object. This argument eliminates the need
      * to do $obj->fromJson($data) later after creating the object.
      *
-     * @param null $data
+     * @param array|string|null $data
      * @throws \InvalidArgumentException
      */
     public function __construct($data = null)
