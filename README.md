@@ -56,4 +56,3 @@ Read [here](CONTRIBUTING.md) for more information.
    * [Sample Source Code](http://paypal.github.io/PayPal-PHP-SDK/sample/)
    * [API Reference](https://developer.paypal.com/webapps/developer/docs/api/)
    * [Reporting Issues / Feature Requests](https://github.com/paypal/PayPal-PHP-SDK/issues)
-   * [Pizza App Using Paypal REST API](https://github.com/paypal/rest-api-sample-app-php)
