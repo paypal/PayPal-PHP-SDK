@@ -11,7 +11,7 @@ def validate_version_match()
     Printer.fail("lib/PayPal/Core/PayPalConstants.php version #{constant_version} does not match changelog version #{@current_release.version}.")
     abort()
   end
-  Printer.success("Plugin.xml version #{constant_version} matches latest changelog version.")
+  Printer.success("lib/PayPal/Core/PayPalConstants.php version #{constant_version} matches latest changelog version.")
 end
 
 def validate_tests()
