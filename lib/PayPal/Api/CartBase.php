@@ -19,6 +19,7 @@ use PayPal\Validation\UrlValidator;
  * @property string note_to_payee
  * @property string custom
  * @property string invoice_number
+ * @property string purchase_order
  * @property string soft_descriptor
  * @property \PayPal\Api\PaymentOptions payment_options
  * @property \PayPal\Api\ItemList item_list
@@ -186,6 +187,29 @@ class CartBase extends PayPalModel
     public function getInvoiceNumber()
     {
         return $this->invoice_number;
+    }
+
+    /**
+     * purchase order is number or id specific to this payment
+     *
+     * @param string $purchase_order
+     * 
+     * @return $this
+     */
+    public function setPurchaseOrder($purchase_order)
+    {
+        $this->purchase_order = $purchase_order;
+        return $this;
+    }
+
+    /**
+     * purchase order is number or id specific to this payment
+     *
+     * @return string
+     */
+    public function getPurchaseOrder()
+    {
+        return $this->purchase_order;
     }
 
     /**

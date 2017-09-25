@@ -18,7 +18,7 @@ class CartBaseTest extends \PHPUnit_Framework_TestCase
      */
     public static function getJson()
     {
-        return '{"reference_id":"TestSample","amount":' .AmountTest::getJson() . ',"payee":' .PayeeTest::getJson() . ',"description":"TestSample","note_to_payee":"TestSample","custom":"TestSample","invoice_number":"TestSample","soft_descriptor":"TestSample","soft_descriptor_city":"TestSample","payment_options":' .PaymentOptionsTest::getJson() . ',"item_list":' .ItemListTest::getJson() . ',"notify_url":"http://www.google.com","order_url":"http://www.google.com","external_funding":' .ExternalFundingTest::getJson() . ',"type":"TestSample"}';
+        return '{"reference_id":"TestSample","amount":' .AmountTest::getJson() . ',"payee":' .PayeeTest::getJson() . ',"description":"TestSample","note_to_payee":"TestSample","custom":"TestSample","invoice_number":"TestSample","purchase_order":"TestSample","soft_descriptor":"TestSample","soft_descriptor_city":"TestSample","payment_options":' .PaymentOptionsTest::getJson() . ',"item_list":' .ItemListTest::getJson() . ',"notify_url":"http://www.google.com","order_url":"http://www.google.com","external_funding":' .ExternalFundingTest::getJson() . ',"type":"TestSample"}';
     }
 
     /**
@@ -46,6 +46,7 @@ class CartBaseTest extends \PHPUnit_Framework_TestCase
         $this->assertNotNull($obj->getNoteToPayee());
         $this->assertNotNull($obj->getCustom());
         $this->assertNotNull($obj->getInvoiceNumber());
+        $this->assertNotNull($obj->getPurchaseOrder());
         $this->assertNotNull($obj->getSoftDescriptor());
         $this->assertNotNull($obj->getSoftDescriptorCity());
         $this->assertNotNull($obj->getPaymentOptions());
@@ -70,6 +71,7 @@ class CartBaseTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($obj->getNoteToPayee(), "TestSample");
         $this->assertEquals($obj->getCustom(), "TestSample");
         $this->assertEquals($obj->getInvoiceNumber(), "TestSample");
+        $this->assertEquals($obj->getPurchaseOrder(), "TestSample");
         $this->assertEquals($obj->getSoftDescriptor(), "TestSample");
         $this->assertEquals($obj->getSoftDescriptorCity(), "TestSample");
         $this->assertEquals($obj->getPaymentOptions(), PaymentOptionsTest::getObject());
