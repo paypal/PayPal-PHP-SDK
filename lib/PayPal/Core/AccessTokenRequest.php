@@ -9,14 +9,14 @@ class AccessTokenRequest extends HttpRequest
     public function __construct(PayPalEnvironment $environment, $refreshToken = NULL)
     {
         parent::__construct("/v1/oauth2/token", "POST");
-        $this->headers["Authorization"] = $environment->authorizationString();
+        $this->headers["Authorization"] = "Basic " . $environment->authorizationString();
         $body = [
             "grant_type" => "client_credentials"
         ];
 
-        if (!is_null($this->refreshToken))
+        if (!is_null($refreshToken))
         {
-            $body["refresh_token"] = $this->refreshToken;
+            $body["refresh_token"] = $refreshToken;
         }
 
         $this->body = $body;

@@ -5,6 +5,7 @@ namespace Test\Unit;
 use BraintreeHttp\Curl;
 use BraintreeHttp\HttpRequest;
 use PayPal\Core\AccessToken;
+use PayPal\Core\Version;
 use PayPal\Core\PayPalHttpClient;
 use PayPal\Core\PayPalEnvironment;
 use PHPUnit\Framework\TestCase;
@@ -59,6 +60,17 @@ class PayPalHttpClientTest extends TestCase
 
         $mock->shouldHaveReceived('setOpt')
             ->withArgs([CURLOPT_URL, "http://localhost/v1/oauth2/token"]);
+
+        $mock->shouldHaveReceived('setOpt')
+            ->withArgs([CURLOPT_POSTFIELDS, "grant_type=client_credentials"]);
+
+        $mock
+            ->shouldHaveReceived('setOpt')
+            ->with(CURLOPT_HTTPHEADER, \Mockery::on(function ($argument) use ($client) {
+                $authHeader = self::env()->authorizationString();
+                return ("Basic " . $authHeader) === $this->deserializeHeaders($argument)['Authorization'] &&
+                "application/x-www-form-urlencoded" === $this->deserializeHeaders($argument)['Content-Type'];
+            }));
     }
 
     public function testExecute_fetchesAccessTokenIfExpired()
@@ -76,14 +88,80 @@ class PayPalHttpClientTest extends TestCase
 
         $mock->shouldHaveReceived('setOpt')
             ->withArgs([CURLOPT_URL, "http://localhost/v1/oauth2/token"]);
+
+        $mock->shouldHaveReceived('setOpt')
+            ->withArgs([CURLOPT_POSTFIELDS, "grant_type=client_credentials"]);
+
+        $mock
+            ->shouldHaveReceived('setOpt')
+            ->with(CURLOPT_HTTPHEADER, \Mockery::on(function ($argument) use ($client) {
+                $authHeader = self::env()->authorizationString();
+                return ("Basic " . $authHeader) === $this->deserializeHeaders($argument)['Authorization'] &&
+                "application/x-www-form-urlencoded" === $this->deserializeHeaders($argument)['Content-Type'];
+            }));
     }
 
     public function testExecute_WithRefreshToken_FetchesAccessTokenWithRefreshToken()
     {
+        $req = new HttpRequest("/some-path", "GET");
+
+        $mock = \Mockery::mock(new MockCurl(200))->makePartial();
+        $client = new MockPayPalHttpClient(self::env(), $mock, "some-refresh-token");
+
+        $accessToken = new AccessToken("sample", "Bearer", 0);
+
+        $this->setAccessToken($client, $accessToken);
+
+        $client->execute($req, $mock);
+
+        $mock->shouldHaveReceived('setOpt')
+            ->withArgs([CURLOPT_URL, "http://localhost/v1/oauth2/token"]);
+
+        $mock->shouldHaveReceived('setOpt')
+            ->withArgs([CURLOPT_POSTFIELDS, "grant_type=client_credentials&refresh_token=some-refresh-token"]);
+
+        $mock
+            ->shouldHaveReceived('setOpt')
+            ->with(CURLOPT_HTTPHEADER, \Mockery::on(function ($argument) use ($client) {
+                $authHeader = self::env()->authorizationString();
+                return ("Basic " . $authHeader) === $this->deserializeHeaders($argument)['Authorization'] &&
+                "application/x-www-form-urlencoded" === $this->deserializeHeaders($argument)['Content-Type'];
+            }));
     }
 
     public function testExecute_CorrectUserAgentHeader()
     {
+        $req = new HttpRequest("/some-path", "GET");
+
+        $mock = \Mockery::mock(new MockCurl(200))->makePartial();
+        $client = new MockPayPalHttpClient(self::env(), $mock, "some-refresh-token");
+
+        $accessToken = new AccessToken("sample", "Bearer", 4000);
+
+        $this->setAccessToken($client, $accessToken);
+
+        $client->execute($req);
+
+        $mock
+            ->shouldHaveReceived('setOpt')
+            ->with(CURLOPT_HTTPHEADER, \Mockery::on(function ($argument) use ($client) {
+                $ua = $this->deserializeHeaders($argument)['User-Agent'];
+
+                list($id, $version, $features) = sscanf($ua, "PayPalSDK/%s %s (%[^[]])");
+                // Check that we pass the useragent in the expected format
+
+                $this->assertNotNull($id);
+                $this->assertNotNull($version);
+                $this->assertNotNull($features);
+                $this->assertEquals("PayPal-PHP-SDK", $id);
+                $this->assertEquals(Version::VERSION, $version);
+                $this->assertThat($features, $this->stringContains("os="));
+                $this->assertThat($features, $this->stringContains("bit="));
+                $this->assertThat($features, $this->stringContains("platform-ver="));
+                $this->assertGreaterThan(5, count(explode(';', $features)));
+
+                return !is_null($ua);
+            }));
     }
 
     private function setAccessToken($client, $token)
@@ -117,9 +195,9 @@ class MockPayPalHttpClient extends PayPalHttpClient
 {
     private $mockCurl;
 
-    function __construct($environment, MockCurl $curl = NULL)
+    function __construct($environment, MockCurl $curl = NULL, $refreshToken = NULL)
     {
-        parent::__construct($environment);
+        parent::__construct($environment, $refreshToken);
         $this->mockCurl = $curl;
     }
 
@@ -156,7 +234,9 @@ class MockCurl extends Curl
         return $this;
     }
 
-    public function close() {}
+    public function close()
+    {
+    }
 
     public function getInfo($option = null)
     {

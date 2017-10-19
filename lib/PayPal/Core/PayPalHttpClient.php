@@ -20,8 +20,7 @@ class PayPalHttpClient extends HttpClient
 
     public function userAgent()
     {
-        // TODO: Change me
-        return "PaypalNetSdkHttpClient HttpClient";
+        return UserAgent::getValue();
     }
 }
 
