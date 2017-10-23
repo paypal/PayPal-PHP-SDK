@@ -269,7 +269,8 @@ class Agreement extends PayPalResourceModel
     }
 
     /**
-     * Plan details for this agreement.
+     * A new plan object, with just an `Id` value, would be set to Agreement Object.
+     * Please see https://github.com/paypal/PayPal-PHP-SDK/issues/891 for more information
      *
      * @param \PayPal\Api\Plan $plan
      * 
@@ -277,7 +278,13 @@ class Agreement extends PayPalResourceModel
      */
     public function setPlan($plan)
     {
-        $this->plan = $plan;
+        if ($plan instanceof Plan) {
+            $planWithId = new Plan();
+            $planWithId->setId($plan->getId());
+            $this->plan = $planWithId;
+        } else {
+            $this->plan = $plan;
+        }
         return $this;
     }
 
