@@ -122,7 +122,7 @@
 				<li><a href="class-PayPal.Api.AlternatePayment.html" class="deprecated">PayPal\Api\AlternatePayment</a></li>
 				<li><a href="class-PayPal.Api.Amount.html">PayPal\Api\Amount</a></li>
 				<li><a href="class-PayPal.Api.Authorization.html">PayPal\Api\Authorization</a></li>
-				<li><a href="class-PayPal.Api.BankAccount.html">PayPal\Api\BankAccount</a></li>
+				<li><a href="class-PayPal.Api.BankAccount.html" class="deprecated">PayPal\Api\BankAccount</a></li>
 				<li><a href="class-PayPal.Api.BankAccountsList.html">PayPal\Api\BankAccountsList</a></li>
 				<li><a href="class-PayPal.Api.BankToken.html">PayPal\Api\BankToken</a></li>
 				<li><a href="class-PayPal.Api.BaseAddress.html">PayPal\Api\BaseAddress</a></li>
@@ -807,45 +807,47 @@
 </span></span><span id="505" class="l"><a href="#505">505 </a><span class="php-comment">     * @param array        $params     (allowed values are access_token)
 </span></span><span id="506" class="l"><a href="#506">506 </a><span class="php-comment">     *                                 access_token - access token from the createFromAuthorizationCode / createFromRefreshToken calls
 </span></span><span id="507" class="l"><a href="#507">507 </a><span class="php-comment">     * @param ApiContext $apiContext Optional API Context
-</span></span><span id="508" class="l"><a href="#508">508 </a><span class="php-comment">     * @return OpenIdUserinfo
-</span></span><span id="509" class="l"><a href="#509">509 </a><span class="php-comment">     */</span>
-</span><span id="510" class="l"><a href="#510">510 </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">static</span> <span class="php-keyword1">function</span> getUserinfo(<span class="php-var">$params</span>, <span class="php-var">$apiContext</span> = <span class="php-keyword1">null</span>)
-</span><span id="511" class="l"><a href="#511">511 </a>    {
-</span><span id="512" class="l"><a href="#512">512 </a>        <span class="php-keyword1">static</span> <span class="php-var">$allowedParams</span> = <span class="php-keyword1">array</span>(<span class="php-quote">'schema'</span> =&gt; <span class="php-num">1</span>);
-</span><span id="513" class="l"><a href="#513">513 </a>
-</span><span id="514" class="l"><a href="#514">514 </a>        <span class="php-var">$params</span> = <span class="php-keyword2">is_array</span>(<span class="php-var">$params</span>)  ? <span class="php-var">$params</span> : <span class="php-keyword1">array</span>();
-</span><span id="515" class="l"><a href="#515">515 </a>
-</span><span id="516" class="l"><a href="#516">516 </a>        <span class="php-keyword1">if</span> (!<span class="php-keyword2">array_key_exists</span>(<span class="php-quote">'schema'</span>, <span class="php-var">$params</span>)) {
-</span><span id="517" class="l"><a href="#517">517 </a>            <span class="php-var">$params</span>[<span class="php-quote">'schema'</span>] = <span class="php-quote">'openid'</span>;
-</span><span id="518" class="l"><a href="#518">518 </a>        }
-</span><span id="519" class="l"><a href="#519">519 </a>        <span class="php-var">$requestUrl</span> = <span class="php-quote">&quot;/v1/identity/openidconnect/userinfo?&quot;</span>
-</span><span id="520" class="l"><a href="#520">520 </a>            . <span class="php-keyword2">http_build_query</span>(<span class="php-keyword2">array_intersect_key</span>(<span class="php-var">$params</span>, <span class="php-var">$allowedParams</span>));
-</span><span id="521" class="l"><a href="#521">521 </a>
-</span><span id="522" class="l"><a href="#522">522 </a>        <span class="php-var">$json</span> = self::executeCall(
-</span><span id="523" class="l"><a href="#523">523 </a>            <span class="php-var">$requestUrl</span>,
-</span><span id="524" class="l"><a href="#524">524 </a>            <span class="php-quote">&quot;GET&quot;</span>,
-</span><span id="525" class="l"><a href="#525">525 </a>            <span class="php-quote">&quot;&quot;</span>,
-</span><span id="526" class="l"><a href="#526">526 </a>            <span class="php-keyword1">array</span>(
-</span><span id="527" class="l"><a href="#527">527 </a>                <span class="php-quote">'Authorization'</span> =&gt; <span class="php-quote">&quot;Bearer &quot;</span> . <span class="php-var">$params</span>[<span class="php-quote">'access_token'</span>],
-</span><span id="528" class="l"><a href="#528">528 </a>                <span class="php-quote">'Content-Type'</span> =&gt; <span class="php-quote">'x-www-form-urlencoded'</span>
-</span><span id="529" class="l"><a href="#529">529 </a>            ),
-</span><span id="530" class="l"><a href="#530">530 </a>            <span class="php-var">$apiContext</span>
-</span><span id="531" class="l"><a href="#531">531 </a>        );
-</span><span id="532" class="l"><a href="#532">532 </a>
-</span><span id="533" class="l"><a href="#533">533 </a>        <span class="php-var">$ret</span> = <span class="php-keyword1">new</span> OpenIdUserinfo();
-</span><span id="534" class="l"><a href="#534">534 </a>        <span class="php-var">$ret</span>-&gt;fromJson(<span class="php-var">$json</span>);
-</span><span id="535" class="l"><a href="#535">535 </a>
-</span><span id="536" class="l"><a href="#536">536 </a>        <span class="php-keyword1">return</span> <span class="php-var">$ret</span>;
-</span><span id="537" class="l"><a href="#537">537 </a>    }
-</span><span id="538" class="l"><a href="#538">538 </a>}
-</span><span id="539" class="l"><a href="#539">539 </a></span></code></pre>
+</span></span><span id="508" class="l"><a href="#508">508 </a><span class="php-comment">     * @param PayPalRestCall $restCall
+</span></span><span id="509" class="l"><a href="#509">509 </a><span class="php-comment">     * @return OpenIdUserinfo
+</span></span><span id="510" class="l"><a href="#510">510 </a><span class="php-comment">     */</span>
+</span><span id="511" class="l"><a href="#511">511 </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">static</span> <span class="php-keyword1">function</span> getUserinfo(<span class="php-var">$params</span>, <span class="php-var">$apiContext</span> = <span class="php-keyword1">null</span>, <span class="php-var">$restCall</span> = <span class="php-keyword1">null</span>)
+</span><span id="512" class="l"><a href="#512">512 </a>    {
+</span><span id="513" class="l"><a href="#513">513 </a>        <span class="php-keyword1">static</span> <span class="php-var">$allowedParams</span> = <span class="php-keyword1">array</span>(<span class="php-quote">'schema'</span> =&gt; <span class="php-num">1</span>);
+</span><span id="514" class="l"><a href="#514">514 </a>
+</span><span id="515" class="l"><a href="#515">515 </a>        <span class="php-var">$params</span> = <span class="php-keyword2">is_array</span>(<span class="php-var">$params</span>)  ? <span class="php-var">$params</span> : <span class="php-keyword1">array</span>();
+</span><span id="516" class="l"><a href="#516">516 </a>
+</span><span id="517" class="l"><a href="#517">517 </a>        <span class="php-keyword1">if</span> (!<span class="php-keyword2">array_key_exists</span>(<span class="php-quote">'schema'</span>, <span class="php-var">$params</span>)) {
+</span><span id="518" class="l"><a href="#518">518 </a>            <span class="php-var">$params</span>[<span class="php-quote">'schema'</span>] = <span class="php-quote">'openid'</span>;
+</span><span id="519" class="l"><a href="#519">519 </a>        }
+</span><span id="520" class="l"><a href="#520">520 </a>        <span class="php-var">$requestUrl</span> = <span class="php-quote">&quot;/v1/identity/openidconnect/userinfo?&quot;</span>
+</span><span id="521" class="l"><a href="#521">521 </a>            . <span class="php-keyword2">http_build_query</span>(<span class="php-keyword2">array_intersect_key</span>(<span class="php-var">$params</span>, <span class="php-var">$allowedParams</span>));
+</span><span id="522" class="l"><a href="#522">522 </a>
+</span><span id="523" class="l"><a href="#523">523 </a>        <span class="php-var">$json</span> = self::executeCall(
+</span><span id="524" class="l"><a href="#524">524 </a>            <span class="php-var">$requestUrl</span>,
+</span><span id="525" class="l"><a href="#525">525 </a>            <span class="php-quote">&quot;GET&quot;</span>,
+</span><span id="526" class="l"><a href="#526">526 </a>            <span class="php-quote">&quot;&quot;</span>,
+</span><span id="527" class="l"><a href="#527">527 </a>            <span class="php-keyword1">array</span>(
+</span><span id="528" class="l"><a href="#528">528 </a>                <span class="php-quote">'Authorization'</span> =&gt; <span class="php-quote">&quot;Bearer &quot;</span> . <span class="php-var">$params</span>[<span class="php-quote">'access_token'</span>],
+</span><span id="529" class="l"><a href="#529">529 </a>                <span class="php-quote">'Content-Type'</span> =&gt; <span class="php-quote">'x-www-form-urlencoded'</span>
+</span><span id="530" class="l"><a href="#530">530 </a>            ),
+</span><span id="531" class="l"><a href="#531">531 </a>            <span class="php-var">$apiContext</span>,
+</span><span id="532" class="l"><a href="#532">532 </a>            <span class="php-var">$restCall</span>
+</span><span id="533" class="l"><a href="#533">533 </a>        );
+</span><span id="534" class="l"><a href="#534">534 </a>
+</span><span id="535" class="l"><a href="#535">535 </a>        <span class="php-var">$ret</span> = <span class="php-keyword1">new</span> OpenIdUserinfo();
+</span><span id="536" class="l"><a href="#536">536 </a>        <span class="php-var">$ret</span>-&gt;fromJson(<span class="php-var">$json</span>);
+</span><span id="537" class="l"><a href="#537">537 </a>
+</span><span id="538" class="l"><a href="#538">538 </a>        <span class="php-keyword1">return</span> <span class="php-var">$ret</span>;
+</span><span id="539" class="l"><a href="#539">539 </a>    }
+</span><span id="540" class="l"><a href="#540">540 </a>}
+</span><span id="541" class="l"><a href="#541">541 </a></span></code></pre>
 	</div>
 
 	<div id="footer">
 		 API documentation generated by <a href="http://apigen.org">ApiGen</a>
 	</div>
 </div>
-<script src="resources/combined.js?919f75aaaa73bd55478aa4cb61e316bf9cc35137"></script>
+<script src="resources/combined.js?cc7cebfb58879a60cf43a8a62801ffd608f15e9c"></script>
 <script src="elementlist.js?d7581654bd3bf4c12c13ea2810a41d0e0360ead1"></script>
 </body>
 </html>

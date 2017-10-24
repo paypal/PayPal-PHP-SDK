@@ -8,11 +8,11 @@
 // payments list.
 // API used: GET /v1/payments/payments
 
-/** @var Payment $createdPayment */
-$createdPayment = require 'CreatePayment.php';
-use PayPal\Api\Payment;
 
-$paymentId = $createdPayment->getId();
+$createdPayment = require __DIR__ . '/CreatePaymentUsingPayPal.php';
+/** @var Payment $createdPayment */
+
+use PayPal\Api\Payment;
 
 // ### Retrieve payment
 // Retrieve the payment object by calling the
@@ -21,7 +21,7 @@ $paymentId = $createdPayment->getId();
 // Payment ID
 // (See bootstrap.php for more on `ApiContext`)
 try {
-    $payment = Payment::get($paymentId, $apiContext);
+    $payment = Payment::get($createdPayment->getId(), $apiContext);
 } catch (Exception $ex) {
     // NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
     ResultPrinter::printError("Get Payment", "Payment", null, null, $ex);

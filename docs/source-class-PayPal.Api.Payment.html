@@ -122,7 +122,7 @@
 				<li><a href="class-PayPal.Api.AlternatePayment.html" class="deprecated">PayPal\Api\AlternatePayment</a></li>
 				<li><a href="class-PayPal.Api.Amount.html">PayPal\Api\Amount</a></li>
 				<li><a href="class-PayPal.Api.Authorization.html">PayPal\Api\Authorization</a></li>
-				<li><a href="class-PayPal.Api.BankAccount.html">PayPal\Api\BankAccount</a></li>
+				<li><a href="class-PayPal.Api.BankAccount.html" class="deprecated">PayPal\Api\BankAccount</a></li>
 				<li><a href="class-PayPal.Api.BankAccountsList.html">PayPal\Api\BankAccountsList</a></li>
 				<li><a href="class-PayPal.Api.BankToken.html">PayPal\Api\BankToken</a></li>
 				<li><a href="class-PayPal.Api.BaseAddress.html">PayPal\Api\BaseAddress</a></li>
@@ -846,147 +846,159 @@
 </span><span id="544" class="l"><a href="#544">544 </a>    {
 </span><span id="545" class="l"><a href="#545">545 </a>        <span class="php-keyword1">return</span> <span class="php-var">$this</span>-&gt;getLink(PayPalConstants::APPROVAL_URL);
 </span><span id="546" class="l"><a href="#546">546 </a>    }
-</span><span id="547" class="l"><a href="#547">547 </a>
+</span><span id="547" class="l"><a href="#547">547 </a>    
 </span><span id="548" class="l"><a href="#548">548 </a>    <span class="php-comment">/**
-</span></span><span id="549" class="l"><a href="#549">549 </a><span class="php-comment">     * Creates and processes a payment. In the JSON request body, include a `payment` object with the intent, payer, and transactions. For PayPal payments, include redirect URLs in the `payment` object.
+</span></span><span id="549" class="l"><a href="#549">549 </a><span class="php-comment">     * Get token from Approval Link
 </span></span><span id="550" class="l"><a href="#550">550 </a><span class="php-comment">     *
-</span></span><span id="551" class="l"><a href="#551">551 </a><span class="php-comment">     * @param ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
-</span></span><span id="552" class="l"><a href="#552">552 </a><span class="php-comment">     * @param PayPalRestCall $restCall is the Rest Call Service that is used to make rest calls
-</span></span><span id="553" class="l"><a href="#553">553 </a><span class="php-comment">     * @return Payment
-</span></span><span id="554" class="l"><a href="#554">554 </a><span class="php-comment">     */</span>
-</span><span id="555" class="l"><a href="#555">555 </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> create(<span class="php-var">$apiContext</span> = <span class="php-keyword1">null</span>, <span class="php-var">$restCall</span> = <span class="php-keyword1">null</span>)
-</span><span id="556" class="l"><a href="#556">556 </a>    {
-</span><span id="557" class="l"><a href="#557">557 </a>        <span class="php-var">$payLoad</span> = <span class="php-var">$this</span>-&gt;toJSON();
-</span><span id="558" class="l"><a href="#558">558 </a>        <span class="php-var">$json</span> = self::executeCall(
-</span><span id="559" class="l"><a href="#559">559 </a>            <span class="php-quote">&quot;/v1/payments/payment&quot;</span>,
-</span><span id="560" class="l"><a href="#560">560 </a>            <span class="php-quote">&quot;POST&quot;</span>,
-</span><span id="561" class="l"><a href="#561">561 </a>            <span class="php-var">$payLoad</span>,
-</span><span id="562" class="l"><a href="#562">562 </a>            <span class="php-keyword1">null</span>,
-</span><span id="563" class="l"><a href="#563">563 </a>            <span class="php-var">$apiContext</span>,
-</span><span id="564" class="l"><a href="#564">564 </a>            <span class="php-var">$restCall</span>
-</span><span id="565" class="l"><a href="#565">565 </a>        );
-</span><span id="566" class="l"><a href="#566">566 </a>        <span class="php-var">$this</span>-&gt;fromJson(<span class="php-var">$json</span>);
-</span><span id="567" class="l"><a href="#567">567 </a>        <span class="php-keyword1">return</span> <span class="php-var">$this</span>;
-</span><span id="568" class="l"><a href="#568">568 </a>    }
-</span><span id="569" class="l"><a href="#569">569 </a>
-</span><span id="570" class="l"><a href="#570">570 </a>    <span class="php-comment">/**
-</span></span><span id="571" class="l"><a href="#571">571 </a><span class="php-comment">     * Shows details for a payment, by ID.
-</span></span><span id="572" class="l"><a href="#572">572 </a><span class="php-comment">     *
-</span></span><span id="573" class="l"><a href="#573">573 </a><span class="php-comment">     * @param string $paymentId
-</span></span><span id="574" class="l"><a href="#574">574 </a><span class="php-comment">     * @param ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
-</span></span><span id="575" class="l"><a href="#575">575 </a><span class="php-comment">     * @param PayPalRestCall $restCall is the Rest Call Service that is used to make rest calls
-</span></span><span id="576" class="l"><a href="#576">576 </a><span class="php-comment">     * @return Payment
-</span></span><span id="577" class="l"><a href="#577">577 </a><span class="php-comment">     */</span>
-</span><span id="578" class="l"><a href="#578">578 </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">static</span> <span class="php-keyword1">function</span> get(<span class="php-var">$paymentId</span>, <span class="php-var">$apiContext</span> = <span class="php-keyword1">null</span>, <span class="php-var">$restCall</span> = <span class="php-keyword1">null</span>)
-</span><span id="579" class="l"><a href="#579">579 </a>    {
-</span><span id="580" class="l"><a href="#580">580 </a>        ArgumentValidator::validate(<span class="php-var">$paymentId</span>, <span class="php-quote">'paymentId'</span>);
-</span><span id="581" class="l"><a href="#581">581 </a>        <span class="php-var">$payLoad</span> = <span class="php-quote">&quot;&quot;</span>;
-</span><span id="582" class="l"><a href="#582">582 </a>        <span class="php-var">$json</span> = self::executeCall(
-</span><span id="583" class="l"><a href="#583">583 </a>            <span class="php-quote">&quot;/v1/payments/payment/</span><span class="php-var">$paymentId</span><span class="php-quote">&quot;</span>,
-</span><span id="584" class="l"><a href="#584">584 </a>            <span class="php-quote">&quot;GET&quot;</span>,
-</span><span id="585" class="l"><a href="#585">585 </a>            <span class="php-var">$payLoad</span>,
-</span><span id="586" class="l"><a href="#586">586 </a>            <span class="php-keyword1">null</span>,
-</span><span id="587" class="l"><a href="#587">587 </a>            <span class="php-var">$apiContext</span>,
-</span><span id="588" class="l"><a href="#588">588 </a>            <span class="php-var">$restCall</span>
-</span><span id="589" class="l"><a href="#589">589 </a>        );
-</span><span id="590" class="l"><a href="#590">590 </a>        <span class="php-var">$ret</span> = <span class="php-keyword1">new</span> Payment();
-</span><span id="591" class="l"><a href="#591">591 </a>        <span class="php-var">$ret</span>-&gt;fromJson(<span class="php-var">$json</span>);
-</span><span id="592" class="l"><a href="#592">592 </a>        <span class="php-keyword1">return</span> <span class="php-var">$ret</span>;
-</span><span id="593" class="l"><a href="#593">593 </a>    }
-</span><span id="594" class="l"><a href="#594">594 </a>
-</span><span id="595" class="l"><a href="#595">595 </a>    <span class="php-comment">/**
-</span></span><span id="596" class="l"><a href="#596">596 </a><span class="php-comment">     * Partially updates a payment, by ID. You can update the amount, shipping address, invoice ID, and custom data. You cannot use patch after execute has been called.
-</span></span><span id="597" class="l"><a href="#597">597 </a><span class="php-comment">     *
-</span></span><span id="598" class="l"><a href="#598">598 </a><span class="php-comment">     * @param PatchRequest $patchRequest
-</span></span><span id="599" class="l"><a href="#599">599 </a><span class="php-comment">     * @param ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
-</span></span><span id="600" class="l"><a href="#600">600 </a><span class="php-comment">     * @param PayPalRestCall $restCall is the Rest Call Service that is used to make rest calls
-</span></span><span id="601" class="l"><a href="#601">601 </a><span class="php-comment">     * @return boolean
-</span></span><span id="602" class="l"><a href="#602">602 </a><span class="php-comment">     */</span>
-</span><span id="603" class="l"><a href="#603">603 </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> update(<span class="php-var">$patchRequest</span>, <span class="php-var">$apiContext</span> = <span class="php-keyword1">null</span>, <span class="php-var">$restCall</span> = <span class="php-keyword1">null</span>)
-</span><span id="604" class="l"><a href="#604">604 </a>    {
-</span><span id="605" class="l"><a href="#605">605 </a>        ArgumentValidator::validate(<span class="php-var">$this</span>-&gt;getId(), <span class="php-quote">&quot;Id&quot;</span>);
-</span><span id="606" class="l"><a href="#606">606 </a>        ArgumentValidator::validate(<span class="php-var">$patchRequest</span>, <span class="php-quote">'patchRequest'</span>);
-</span><span id="607" class="l"><a href="#607">607 </a>        <span class="php-var">$payLoad</span> = <span class="php-var">$patchRequest</span>-&gt;toJSON();
-</span><span id="608" class="l"><a href="#608">608 </a>        self::executeCall(
-</span><span id="609" class="l"><a href="#609">609 </a>            <span class="php-quote">&quot;/v1/payments/payment/</span><span class="php-var">{$this-&gt;getId()}</span><span class="php-quote">&quot;</span>,
-</span><span id="610" class="l"><a href="#610">610 </a>            <span class="php-quote">&quot;PATCH&quot;</span>,
-</span><span id="611" class="l"><a href="#611">611 </a>            <span class="php-var">$payLoad</span>,
-</span><span id="612" class="l"><a href="#612">612 </a>            <span class="php-keyword1">null</span>,
-</span><span id="613" class="l"><a href="#613">613 </a>            <span class="php-var">$apiContext</span>,
-</span><span id="614" class="l"><a href="#614">614 </a>            <span class="php-var">$restCall</span>
-</span><span id="615" class="l"><a href="#615">615 </a>        );
-</span><span id="616" class="l"><a href="#616">616 </a>        <span class="php-keyword1">return</span> <span class="php-keyword1">true</span>;
-</span><span id="617" class="l"><a href="#617">617 </a>    }
-</span><span id="618" class="l"><a href="#618">618 </a>
-</span><span id="619" class="l"><a href="#619">619 </a>    <span class="php-comment">/**
-</span></span><span id="620" class="l"><a href="#620">620 </a><span class="php-comment">     * Executes, or completes, a PayPal payment that the payer has approved. You can optionally update selective payment information when you execute a payment.
-</span></span><span id="621" class="l"><a href="#621">621 </a><span class="php-comment">     *
-</span></span><span id="622" class="l"><a href="#622">622 </a><span class="php-comment">     * @param PaymentExecution $paymentExecution
-</span></span><span id="623" class="l"><a href="#623">623 </a><span class="php-comment">     * @param ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
-</span></span><span id="624" class="l"><a href="#624">624 </a><span class="php-comment">     * @param PayPalRestCall $restCall is the Rest Call Service that is used to make rest calls
-</span></span><span id="625" class="l"><a href="#625">625 </a><span class="php-comment">     * @return Payment
-</span></span><span id="626" class="l"><a href="#626">626 </a><span class="php-comment">     */</span>
-</span><span id="627" class="l"><a href="#627">627 </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> execute(<span class="php-var">$paymentExecution</span>, <span class="php-var">$apiContext</span> = <span class="php-keyword1">null</span>, <span class="php-var">$restCall</span> = <span class="php-keyword1">null</span>)
-</span><span id="628" class="l"><a href="#628">628 </a>    {
-</span><span id="629" class="l"><a href="#629">629 </a>        ArgumentValidator::validate(<span class="php-var">$this</span>-&gt;getId(), <span class="php-quote">&quot;Id&quot;</span>);
-</span><span id="630" class="l"><a href="#630">630 </a>        ArgumentValidator::validate(<span class="php-var">$paymentExecution</span>, <span class="php-quote">'paymentExecution'</span>);
-</span><span id="631" class="l"><a href="#631">631 </a>        <span class="php-var">$payLoad</span> = <span class="php-var">$paymentExecution</span>-&gt;toJSON();
-</span><span id="632" class="l"><a href="#632">632 </a>        <span class="php-var">$json</span> = self::executeCall(
-</span><span id="633" class="l"><a href="#633">633 </a>            <span class="php-quote">&quot;/v1/payments/payment/</span><span class="php-var">{$this-&gt;getId()}</span><span class="php-quote">/execute&quot;</span>,
-</span><span id="634" class="l"><a href="#634">634 </a>            <span class="php-quote">&quot;POST&quot;</span>,
-</span><span id="635" class="l"><a href="#635">635 </a>            <span class="php-var">$payLoad</span>,
-</span><span id="636" class="l"><a href="#636">636 </a>            <span class="php-keyword1">null</span>,
-</span><span id="637" class="l"><a href="#637">637 </a>            <span class="php-var">$apiContext</span>,
-</span><span id="638" class="l"><a href="#638">638 </a>            <span class="php-var">$restCall</span>
-</span><span id="639" class="l"><a href="#639">639 </a>        );
-</span><span id="640" class="l"><a href="#640">640 </a>        <span class="php-var">$this</span>-&gt;fromJson(<span class="php-var">$json</span>);
-</span><span id="641" class="l"><a href="#641">641 </a>        <span class="php-keyword1">return</span> <span class="php-var">$this</span>;
-</span><span id="642" class="l"><a href="#642">642 </a>    }
-</span><span id="643" class="l"><a href="#643">643 </a>
-</span><span id="644" class="l"><a href="#644">644 </a>    <span class="php-comment">/**
-</span></span><span id="645" class="l"><a href="#645">645 </a><span class="php-comment">     * List payments that were made to the merchant who issues the request. Payments can be in any state.
-</span></span><span id="646" class="l"><a href="#646">646 </a><span class="php-comment">     *
-</span></span><span id="647" class="l"><a href="#647">647 </a><span class="php-comment">     * @param array $params
-</span></span><span id="648" class="l"><a href="#648">648 </a><span class="php-comment">     * @param ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
-</span></span><span id="649" class="l"><a href="#649">649 </a><span class="php-comment">     * @param PayPalRestCall $restCall is the Rest Call Service that is used to make rest calls
-</span></span><span id="650" class="l"><a href="#650">650 </a><span class="php-comment">     * @return PaymentHistory
-</span></span><span id="651" class="l"><a href="#651">651 </a><span class="php-comment">     */</span>
-</span><span id="652" class="l"><a href="#652">652 </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">static</span> <span class="php-keyword1">function</span> all(<span class="php-var">$params</span>, <span class="php-var">$apiContext</span> = <span class="php-keyword1">null</span>, <span class="php-var">$restCall</span> = <span class="php-keyword1">null</span>)
-</span><span id="653" class="l"><a href="#653">653 </a>    {
-</span><span id="654" class="l"><a href="#654">654 </a>        ArgumentValidator::validate(<span class="php-var">$params</span>, <span class="php-quote">'params'</span>);
-</span><span id="655" class="l"><a href="#655">655 </a>        <span class="php-var">$payLoad</span> = <span class="php-quote">&quot;&quot;</span>;
-</span><span id="656" class="l"><a href="#656">656 </a>        <span class="php-var">$allowedParams</span> = <span class="php-keyword1">array</span>(
-</span><span id="657" class="l"><a href="#657">657 </a>                    <span class="php-quote">'count'</span> =&gt; <span class="php-num">1</span>,
-</span><span id="658" class="l"><a href="#658">658 </a>                    <span class="php-quote">'start_id'</span> =&gt; <span class="php-num">1</span>,
-</span><span id="659" class="l"><a href="#659">659 </a>                    <span class="php-quote">'start_index'</span> =&gt; <span class="php-num">1</span>,
-</span><span id="660" class="l"><a href="#660">660 </a>                    <span class="php-quote">'start_time'</span> =&gt; <span class="php-num">1</span>,
-</span><span id="661" class="l"><a href="#661">661 </a>                    <span class="php-quote">'end_time'</span> =&gt; <span class="php-num">1</span>,
-</span><span id="662" class="l"><a href="#662">662 </a>                    <span class="php-quote">'payee_id'</span> =&gt; <span class="php-num">1</span>,
-</span><span id="663" class="l"><a href="#663">663 </a>                    <span class="php-quote">'sort_by'</span> =&gt; <span class="php-num">1</span>,
-</span><span id="664" class="l"><a href="#664">664 </a>                    <span class="php-quote">'sort_order'</span> =&gt; <span class="php-num">1</span>,
-</span><span id="665" class="l"><a href="#665">665 </a>        );
-</span><span id="666" class="l"><a href="#666">666 </a>        <span class="php-var">$json</span> = self::executeCall(
-</span><span id="667" class="l"><a href="#667">667 </a>            <span class="php-quote">&quot;/v1/payments/payment?&quot;</span> . <span class="php-keyword2">http_build_query</span>(<span class="php-keyword2">array_intersect_key</span>(<span class="php-var">$params</span>, <span class="php-var">$allowedParams</span>)),
-</span><span id="668" class="l"><a href="#668">668 </a>            <span class="php-quote">&quot;GET&quot;</span>,
-</span><span id="669" class="l"><a href="#669">669 </a>            <span class="php-var">$payLoad</span>,
-</span><span id="670" class="l"><a href="#670">670 </a>            <span class="php-keyword1">null</span>,
-</span><span id="671" class="l"><a href="#671">671 </a>            <span class="php-var">$apiContext</span>,
-</span><span id="672" class="l"><a href="#672">672 </a>            <span class="php-var">$restCall</span>
-</span><span id="673" class="l"><a href="#673">673 </a>        );
-</span><span id="674" class="l"><a href="#674">674 </a>        <span class="php-var">$ret</span> = <span class="php-keyword1">new</span> PaymentHistory();
-</span><span id="675" class="l"><a href="#675">675 </a>        <span class="php-var">$ret</span>-&gt;fromJson(<span class="php-var">$json</span>);
-</span><span id="676" class="l"><a href="#676">676 </a>        <span class="php-keyword1">return</span> <span class="php-var">$ret</span>;
-</span><span id="677" class="l"><a href="#677">677 </a>    }
-</span><span id="678" class="l"><a href="#678">678 </a>
-</span><span id="679" class="l"><a href="#679">679 </a>}
-</span><span id="680" class="l"><a href="#680">680 </a></span></code></pre>
+</span></span><span id="551" class="l"><a href="#551">551 </a><span class="php-comment">     * @return null|string
+</span></span><span id="552" class="l"><a href="#552">552 </a><span class="php-comment">     */</span>
+</span><span id="553" class="l"><a href="#553">553 </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> getToken()
+</span><span id="554" class="l"><a href="#554">554 </a>    {
+</span><span id="555" class="l"><a href="#555">555 </a>        <span class="php-var">$parameter_name</span> = <span class="php-quote">&quot;token&quot;</span>;
+</span><span id="556" class="l"><a href="#556">556 </a>        <span class="php-keyword2">parse_str</span>(<span class="php-keyword2">parse_url</span>(<span class="php-var">$this</span>-&gt;getApprovalLink(), PHP_URL_QUERY), <span class="php-var">$query</span>);
+</span><span id="557" class="l"><a href="#557">557 </a>        <span class="php-keyword1">return</span> !<span class="php-keyword1">isset</span>(<span class="php-var">$query</span>[<span class="php-var">$parameter_name</span>]) ? <span class="php-keyword1">null</span> : <span class="php-var">$query</span>[<span class="php-var">$parameter_name</span>];
+</span><span id="558" class="l"><a href="#558">558 </a>    }
+</span><span id="559" class="l"><a href="#559">559 </a>    
+</span><span id="560" class="l"><a href="#560">560 </a>    <span class="php-comment">/**
+</span></span><span id="561" class="l"><a href="#561">561 </a><span class="php-comment">     * Creates and processes a payment. In the JSON request body, include a `payment` object with the intent, payer, and transactions. For PayPal payments, include redirect URLs in the `payment` object.
+</span></span><span id="562" class="l"><a href="#562">562 </a><span class="php-comment">     *
+</span></span><span id="563" class="l"><a href="#563">563 </a><span class="php-comment">     * @param ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
+</span></span><span id="564" class="l"><a href="#564">564 </a><span class="php-comment">     * @param PayPalRestCall $restCall is the Rest Call Service that is used to make rest calls
+</span></span><span id="565" class="l"><a href="#565">565 </a><span class="php-comment">     * @return Payment
+</span></span><span id="566" class="l"><a href="#566">566 </a><span class="php-comment">     */</span>
+</span><span id="567" class="l"><a href="#567">567 </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> create(<span class="php-var">$apiContext</span> = <span class="php-keyword1">null</span>, <span class="php-var">$restCall</span> = <span class="php-keyword1">null</span>)
+</span><span id="568" class="l"><a href="#568">568 </a>    {
+</span><span id="569" class="l"><a href="#569">569 </a>        <span class="php-var">$payLoad</span> = <span class="php-var">$this</span>-&gt;toJSON();
+</span><span id="570" class="l"><a href="#570">570 </a>        <span class="php-var">$json</span> = self::executeCall(
+</span><span id="571" class="l"><a href="#571">571 </a>            <span class="php-quote">&quot;/v1/payments/payment&quot;</span>,
+</span><span id="572" class="l"><a href="#572">572 </a>            <span class="php-quote">&quot;POST&quot;</span>,
+</span><span id="573" class="l"><a href="#573">573 </a>            <span class="php-var">$payLoad</span>,
+</span><span id="574" class="l"><a href="#574">574 </a>            <span class="php-keyword1">null</span>,
+</span><span id="575" class="l"><a href="#575">575 </a>            <span class="php-var">$apiContext</span>,
+</span><span id="576" class="l"><a href="#576">576 </a>            <span class="php-var">$restCall</span>
+</span><span id="577" class="l"><a href="#577">577 </a>        );
+</span><span id="578" class="l"><a href="#578">578 </a>        <span class="php-var">$this</span>-&gt;fromJson(<span class="php-var">$json</span>);
+</span><span id="579" class="l"><a href="#579">579 </a>        <span class="php-keyword1">return</span> <span class="php-var">$this</span>;
+</span><span id="580" class="l"><a href="#580">580 </a>    }
+</span><span id="581" class="l"><a href="#581">581 </a>
+</span><span id="582" class="l"><a href="#582">582 </a>    <span class="php-comment">/**
+</span></span><span id="583" class="l"><a href="#583">583 </a><span class="php-comment">     * Shows details for a payment, by ID.
+</span></span><span id="584" class="l"><a href="#584">584 </a><span class="php-comment">     *
+</span></span><span id="585" class="l"><a href="#585">585 </a><span class="php-comment">     * @param string $paymentId
+</span></span><span id="586" class="l"><a href="#586">586 </a><span class="php-comment">     * @param ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
+</span></span><span id="587" class="l"><a href="#587">587 </a><span class="php-comment">     * @param PayPalRestCall $restCall is the Rest Call Service that is used to make rest calls
+</span></span><span id="588" class="l"><a href="#588">588 </a><span class="php-comment">     * @return Payment
+</span></span><span id="589" class="l"><a href="#589">589 </a><span class="php-comment">     */</span>
+</span><span id="590" class="l"><a href="#590">590 </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">static</span> <span class="php-keyword1">function</span> get(<span class="php-var">$paymentId</span>, <span class="php-var">$apiContext</span> = <span class="php-keyword1">null</span>, <span class="php-var">$restCall</span> = <span class="php-keyword1">null</span>)
+</span><span id="591" class="l"><a href="#591">591 </a>    {
+</span><span id="592" class="l"><a href="#592">592 </a>        ArgumentValidator::validate(<span class="php-var">$paymentId</span>, <span class="php-quote">'paymentId'</span>);
+</span><span id="593" class="l"><a href="#593">593 </a>        <span class="php-var">$payLoad</span> = <span class="php-quote">&quot;&quot;</span>;
+</span><span id="594" class="l"><a href="#594">594 </a>        <span class="php-var">$json</span> = self::executeCall(
+</span><span id="595" class="l"><a href="#595">595 </a>            <span class="php-quote">&quot;/v1/payments/payment/</span><span class="php-var">$paymentId</span><span class="php-quote">&quot;</span>,
+</span><span id="596" class="l"><a href="#596">596 </a>            <span class="php-quote">&quot;GET&quot;</span>,
+</span><span id="597" class="l"><a href="#597">597 </a>            <span class="php-var">$payLoad</span>,
+</span><span id="598" class="l"><a href="#598">598 </a>            <span class="php-keyword1">null</span>,
+</span><span id="599" class="l"><a href="#599">599 </a>            <span class="php-var">$apiContext</span>,
+</span><span id="600" class="l"><a href="#600">600 </a>            <span class="php-var">$restCall</span>
+</span><span id="601" class="l"><a href="#601">601 </a>        );
+</span><span id="602" class="l"><a href="#602">602 </a>        <span class="php-var">$ret</span> = <span class="php-keyword1">new</span> Payment();
+</span><span id="603" class="l"><a href="#603">603 </a>        <span class="php-var">$ret</span>-&gt;fromJson(<span class="php-var">$json</span>);
+</span><span id="604" class="l"><a href="#604">604 </a>        <span class="php-keyword1">return</span> <span class="php-var">$ret</span>;
+</span><span id="605" class="l"><a href="#605">605 </a>    }
+</span><span id="606" class="l"><a href="#606">606 </a>
+</span><span id="607" class="l"><a href="#607">607 </a>    <span class="php-comment">/**
+</span></span><span id="608" class="l"><a href="#608">608 </a><span class="php-comment">     * Partially updates a payment, by ID. You can update the amount, shipping address, invoice ID, and custom data. You cannot use patch after execute has been called.
+</span></span><span id="609" class="l"><a href="#609">609 </a><span class="php-comment">     *
+</span></span><span id="610" class="l"><a href="#610">610 </a><span class="php-comment">     * @param PatchRequest $patchRequest
+</span></span><span id="611" class="l"><a href="#611">611 </a><span class="php-comment">     * @param ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
+</span></span><span id="612" class="l"><a href="#612">612 </a><span class="php-comment">     * @param PayPalRestCall $restCall is the Rest Call Service that is used to make rest calls
+</span></span><span id="613" class="l"><a href="#613">613 </a><span class="php-comment">     * @return boolean
+</span></span><span id="614" class="l"><a href="#614">614 </a><span class="php-comment">     */</span>
+</span><span id="615" class="l"><a href="#615">615 </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> update(<span class="php-var">$patchRequest</span>, <span class="php-var">$apiContext</span> = <span class="php-keyword1">null</span>, <span class="php-var">$restCall</span> = <span class="php-keyword1">null</span>)
+</span><span id="616" class="l"><a href="#616">616 </a>    {
+</span><span id="617" class="l"><a href="#617">617 </a>        ArgumentValidator::validate(<span class="php-var">$this</span>-&gt;getId(), <span class="php-quote">&quot;Id&quot;</span>);
+</span><span id="618" class="l"><a href="#618">618 </a>        ArgumentValidator::validate(<span class="php-var">$patchRequest</span>, <span class="php-quote">'patchRequest'</span>);
+</span><span id="619" class="l"><a href="#619">619 </a>        <span class="php-var">$payLoad</span> = <span class="php-var">$patchRequest</span>-&gt;toJSON();
+</span><span id="620" class="l"><a href="#620">620 </a>        self::executeCall(
+</span><span id="621" class="l"><a href="#621">621 </a>            <span class="php-quote">&quot;/v1/payments/payment/</span><span class="php-var">{$this-&gt;getId()}</span><span class="php-quote">&quot;</span>,
+</span><span id="622" class="l"><a href="#622">622 </a>            <span class="php-quote">&quot;PATCH&quot;</span>,
+</span><span id="623" class="l"><a href="#623">623 </a>            <span class="php-var">$payLoad</span>,
+</span><span id="624" class="l"><a href="#624">624 </a>            <span class="php-keyword1">null</span>,
+</span><span id="625" class="l"><a href="#625">625 </a>            <span class="php-var">$apiContext</span>,
+</span><span id="626" class="l"><a href="#626">626 </a>            <span class="php-var">$restCall</span>
+</span><span id="627" class="l"><a href="#627">627 </a>        );
+</span><span id="628" class="l"><a href="#628">628 </a>        <span class="php-keyword1">return</span> <span class="php-keyword1">true</span>;
+</span><span id="629" class="l"><a href="#629">629 </a>    }
+</span><span id="630" class="l"><a href="#630">630 </a>
+</span><span id="631" class="l"><a href="#631">631 </a>    <span class="php-comment">/**
+</span></span><span id="632" class="l"><a href="#632">632 </a><span class="php-comment">     * Executes, or completes, a PayPal payment that the payer has approved. You can optionally update selective payment information when you execute a payment.
+</span></span><span id="633" class="l"><a href="#633">633 </a><span class="php-comment">     *
+</span></span><span id="634" class="l"><a href="#634">634 </a><span class="php-comment">     * @param PaymentExecution $paymentExecution
+</span></span><span id="635" class="l"><a href="#635">635 </a><span class="php-comment">     * @param ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
+</span></span><span id="636" class="l"><a href="#636">636 </a><span class="php-comment">     * @param PayPalRestCall $restCall is the Rest Call Service that is used to make rest calls
+</span></span><span id="637" class="l"><a href="#637">637 </a><span class="php-comment">     * @return Payment
+</span></span><span id="638" class="l"><a href="#638">638 </a><span class="php-comment">     */</span>
+</span><span id="639" class="l"><a href="#639">639 </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> execute(<span class="php-var">$paymentExecution</span>, <span class="php-var">$apiContext</span> = <span class="php-keyword1">null</span>, <span class="php-var">$restCall</span> = <span class="php-keyword1">null</span>)
+</span><span id="640" class="l"><a href="#640">640 </a>    {
+</span><span id="641" class="l"><a href="#641">641 </a>        ArgumentValidator::validate(<span class="php-var">$this</span>-&gt;getId(), <span class="php-quote">&quot;Id&quot;</span>);
+</span><span id="642" class="l"><a href="#642">642 </a>        ArgumentValidator::validate(<span class="php-var">$paymentExecution</span>, <span class="php-quote">'paymentExecution'</span>);
+</span><span id="643" class="l"><a href="#643">643 </a>        <span class="php-var">$payLoad</span> = <span class="php-var">$paymentExecution</span>-&gt;toJSON();
+</span><span id="644" class="l"><a href="#644">644 </a>        <span class="php-var">$json</span> = self::executeCall(
+</span><span id="645" class="l"><a href="#645">645 </a>            <span class="php-quote">&quot;/v1/payments/payment/</span><span class="php-var">{$this-&gt;getId()}</span><span class="php-quote">/execute&quot;</span>,
+</span><span id="646" class="l"><a href="#646">646 </a>            <span class="php-quote">&quot;POST&quot;</span>,
+</span><span id="647" class="l"><a href="#647">647 </a>            <span class="php-var">$payLoad</span>,
+</span><span id="648" class="l"><a href="#648">648 </a>            <span class="php-keyword1">null</span>,
+</span><span id="649" class="l"><a href="#649">649 </a>            <span class="php-var">$apiContext</span>,
+</span><span id="650" class="l"><a href="#650">650 </a>            <span class="php-var">$restCall</span>
+</span><span id="651" class="l"><a href="#651">651 </a>        );
+</span><span id="652" class="l"><a href="#652">652 </a>        <span class="php-var">$this</span>-&gt;fromJson(<span class="php-var">$json</span>);
+</span><span id="653" class="l"><a href="#653">653 </a>        <span class="php-keyword1">return</span> <span class="php-var">$this</span>;
+</span><span id="654" class="l"><a href="#654">654 </a>    }
+</span><span id="655" class="l"><a href="#655">655 </a>
+</span><span id="656" class="l"><a href="#656">656 </a>    <span class="php-comment">/**
+</span></span><span id="657" class="l"><a href="#657">657 </a><span class="php-comment">     * List payments that were made to the merchant who issues the request. Payments can be in any state.
+</span></span><span id="658" class="l"><a href="#658">658 </a><span class="php-comment">     *
+</span></span><span id="659" class="l"><a href="#659">659 </a><span class="php-comment">     * @param array $params
+</span></span><span id="660" class="l"><a href="#660">660 </a><span class="php-comment">     * @param ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
+</span></span><span id="661" class="l"><a href="#661">661 </a><span class="php-comment">     * @param PayPalRestCall $restCall is the Rest Call Service that is used to make rest calls
+</span></span><span id="662" class="l"><a href="#662">662 </a><span class="php-comment">     * @return PaymentHistory
+</span></span><span id="663" class="l"><a href="#663">663 </a><span class="php-comment">     */</span>
+</span><span id="664" class="l"><a href="#664">664 </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">static</span> <span class="php-keyword1">function</span> all(<span class="php-var">$params</span>, <span class="php-var">$apiContext</span> = <span class="php-keyword1">null</span>, <span class="php-var">$restCall</span> = <span class="php-keyword1">null</span>)
+</span><span id="665" class="l"><a href="#665">665 </a>    {
+</span><span id="666" class="l"><a href="#666">666 </a>        ArgumentValidator::validate(<span class="php-var">$params</span>, <span class="php-quote">'params'</span>);
+</span><span id="667" class="l"><a href="#667">667 </a>        <span class="php-var">$payLoad</span> = <span class="php-quote">&quot;&quot;</span>;
+</span><span id="668" class="l"><a href="#668">668 </a>        <span class="php-var">$allowedParams</span> = <span class="php-keyword1">array</span>(
+</span><span id="669" class="l"><a href="#669">669 </a>                    <span class="php-quote">'count'</span> =&gt; <span class="php-num">1</span>,
+</span><span id="670" class="l"><a href="#670">670 </a>                    <span class="php-quote">'start_id'</span> =&gt; <span class="php-num">1</span>,
+</span><span id="671" class="l"><a href="#671">671 </a>                    <span class="php-quote">'start_index'</span> =&gt; <span class="php-num">1</span>,
+</span><span id="672" class="l"><a href="#672">672 </a>                    <span class="php-quote">'start_time'</span> =&gt; <span class="php-num">1</span>,
+</span><span id="673" class="l"><a href="#673">673 </a>                    <span class="php-quote">'end_time'</span> =&gt; <span class="php-num">1</span>,
+</span><span id="674" class="l"><a href="#674">674 </a>                    <span class="php-quote">'payee_id'</span> =&gt; <span class="php-num">1</span>,
+</span><span id="675" class="l"><a href="#675">675 </a>                    <span class="php-quote">'sort_by'</span> =&gt; <span class="php-num">1</span>,
+</span><span id="676" class="l"><a href="#676">676 </a>                    <span class="php-quote">'sort_order'</span> =&gt; <span class="php-num">1</span>,
+</span><span id="677" class="l"><a href="#677">677 </a>        );
+</span><span id="678" class="l"><a href="#678">678 </a>        <span class="php-var">$json</span> = self::executeCall(
+</span><span id="679" class="l"><a href="#679">679 </a>            <span class="php-quote">&quot;/v1/payments/payment?&quot;</span> . <span class="php-keyword2">http_build_query</span>(<span class="php-keyword2">array_intersect_key</span>(<span class="php-var">$params</span>, <span class="php-var">$allowedParams</span>)),
+</span><span id="680" class="l"><a href="#680">680 </a>            <span class="php-quote">&quot;GET&quot;</span>,
+</span><span id="681" class="l"><a href="#681">681 </a>            <span class="php-var">$payLoad</span>,
+</span><span id="682" class="l"><a href="#682">682 </a>            <span class="php-keyword1">null</span>,
+</span><span id="683" class="l"><a href="#683">683 </a>            <span class="php-var">$apiContext</span>,
+</span><span id="684" class="l"><a href="#684">684 </a>            <span class="php-var">$restCall</span>
+</span><span id="685" class="l"><a href="#685">685 </a>        );
+</span><span id="686" class="l"><a href="#686">686 </a>        <span class="php-var">$ret</span> = <span class="php-keyword1">new</span> PaymentHistory();
+</span><span id="687" class="l"><a href="#687">687 </a>        <span class="php-var">$ret</span>-&gt;fromJson(<span class="php-var">$json</span>);
+</span><span id="688" class="l"><a href="#688">688 </a>        <span class="php-keyword1">return</span> <span class="php-var">$ret</span>;
+</span><span id="689" class="l"><a href="#689">689 </a>    }
+</span><span id="690" class="l"><a href="#690">690 </a>
+</span><span id="691" class="l"><a href="#691">691 </a>}
+</span><span id="692" class="l"><a href="#692">692 </a></span></code></pre>
 	</div>
 
 	<div id="footer">
 		 API documentation generated by <a href="http://apigen.org">ApiGen</a>
 	</div>
 </div>
-<script src="resources/combined.js?919f75aaaa73bd55478aa4cb61e316bf9cc35137"></script>
+<script src="resources/combined.js?cc7cebfb58879a60cf43a8a62801ffd608f15e9c"></script>
 <script src="elementlist.js?d7581654bd3bf4c12c13ea2810a41d0e0360ead1"></script>
 </body>
 </html>

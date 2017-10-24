@@ -122,7 +122,7 @@
 				<li><a href="class-PayPal.Api.AlternatePayment.html" class="deprecated">AlternatePayment</a></li>
 				<li><a href="class-PayPal.Api.Amount.html">Amount</a></li>
 				<li><a href="class-PayPal.Api.Authorization.html">Authorization</a></li>
-				<li><a href="class-PayPal.Api.BankAccount.html">BankAccount</a></li>
+				<li><a href="class-PayPal.Api.BankAccount.html" class="deprecated">BankAccount</a></li>
 				<li><a href="class-PayPal.Api.BankAccountsList.html">BankAccountsList</a></li>
 				<li><a href="class-PayPal.Api.BankToken.html">BankToken</a></li>
 				<li><a href="class-PayPal.Api.BaseAddress.html">BaseAddress</a></li>
@@ -314,7 +314,7 @@
 		<b>Namespace:</b> <a href="namespace-PayPal.html">PayPal</a>\<a href="namespace-PayPal.Api.html">Api</a><br>
 		<b>Package:</b> PayPal\Api<br>
 
-			<b>Located at</b> <a href="source-class-PayPal.Api.FuturePayment.html#8-63" title="Go to source code">PayPal/Api/FuturePayment.php</a>
+			<b>Located at</b> <a href="source-class-PayPal.Api.FuturePayment.html#8-59" title="Go to source code">PayPal/Api/FuturePayment.php</a>
 		<br>
 	</div>
 
@@ -334,7 +334,7 @@
 
 			<td class="name"><div>
 			<a class="anchor" href="#_create">#</a>
-			<code><a href="source-class-PayPal.Api.FuturePayment.html#16-47" title="Go to source code">create</a>( <span>null <var>$apiContext</var> = <span class="php-keyword1">null</span></span>, <span>string|null <var>$clientMetadataId</var> = <span class="php-keyword1">null</span></span> )</code>
+			<code><a href="source-class-PayPal.Api.FuturePayment.html#16-43" title="Go to source code">create</a>( <span>null <var>$apiContext</var> = <span class="php-keyword1">null</span></span>, <span>string|null <var>$clientMetadataId</var> = <span class="php-keyword1">null</span></span>, <span><code><a href="class-PayPal.Transport.PayPalRestCall.html">PayPal\Transport\PayPalRestCall</a></code>|null <var>$restCall</var> = <span class="php-keyword1">null</span></span> )</code>
 
 			<div class="description short">
 				<p>Extends the Payment object to create future payments</p>
@@ -350,6 +350,8 @@
 						<dd></dd>
 						<dt><var>$clientMetadataId</var></dt>
 						<dd></dd>
+						<dt><var>$restCall</var></dt>
+						<dd>is the Rest Call Service that is used to make rest calls</dd>
 					</dl></div>
 
 					<h4>Returns</h4>
@@ -376,7 +378,7 @@
 
 			<td class="name"><div>
 			<a class="anchor" href="#_getRefreshToken">#</a>
-			<code><a href="source-class-PayPal.Api.FuturePayment.html#49-61" title="Go to source code">getRefreshToken</a>( <span> <var>$authorizationCode</var></span>, <span><code><a href="class-PayPal.Rest.ApiContext.html">PayPal\Rest\ApiContext</a></code> <var>$apiContext</var> = <span class="php-keyword1">null</span></span> )</code>
+			<code><a href="source-class-PayPal.Api.FuturePayment.html#45-57" title="Go to source code">getRefreshToken</a>( <span> <var>$authorizationCode</var></span>, <span><code><a href="class-PayPal.Rest.ApiContext.html">PayPal\Rest\ApiContext</a></code> <var>$apiContext</var> = <span class="php-keyword1">null</span></span> )</code>
 
 			<div class="description short">
 				<p>Get a Refresh Token from Authorization Code</p>
@@ -434,6 +436,7 @@
 				<code><a href="class-PayPal.Api.Payment.html#_getPotentialPayerInfo"><span class="deprecated">getPotentialPayerInfo()</span></a></code>, 
 				<code><a href="class-PayPal.Api.Payment.html#_getRedirectUrls">getRedirectUrls()</a></code>, 
 				<code><a href="class-PayPal.Api.Payment.html#_getState">getState()</a></code>, 
+				<code><a href="class-PayPal.Api.Payment.html#_getToken">getToken()</a></code>, 
 				<code><a href="class-PayPal.Api.Payment.html#_getTransactions">getTransactions()</a></code>, 
 				<code><a href="class-PayPal.Api.Payment.html#_getUpdateTime">getUpdateTime()</a></code>, 
 				<code><a href="class-PayPal.Api.Payment.html#_removeBillingAgreementToken"><span class="deprecated">removeBillingAgreementToken()</span></a></code>, 

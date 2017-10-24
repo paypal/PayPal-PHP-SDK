@@ -38,7 +38,7 @@ $clientSecret = 'EGnHDxD_qRPdaLdZz8iCr8N7_MzF-YHPTkjs6NKYQvQSBngp4PTTVWkPZRbL';
  * for your specific environments, feel free to add them using the code shown below
  * Uncomment below line to override any default curl options.
  */
-//PayPalHttpConfig::$defaultCurlOptions[CURLOPT_SSLVERSION] = CURL_SSLVERSION_TLSv1_2;
+// \PayPal\Core\PayPalHttpConfig::$defaultCurlOptions[CURLOPT_SSLVERSION] = CURL_SSLVERSION_TLSv1_2;
 
 
 /** @var \Paypal\Rest\ApiContext $apiContext */

@@ -3,11 +3,12 @@
 // This sample code demonstrates how you can get details 
 // of an authorized payment.
 // API used: /v1/payments/authorization/<$authorizationId>
-
-/** @var Authorization $authorization */
-$authorization = require 'AuthorizePayment.php';
-$authorizationId = $authorization->getId();
 use PayPal\Api\Authorization;
+
+
+// Replace $authorizationId with any static Id you might already have. 
+$authorizationId = "<your authorization id here>";
+
 
 // ### GetAuthorization
 // You can retrieve info about an Authorization

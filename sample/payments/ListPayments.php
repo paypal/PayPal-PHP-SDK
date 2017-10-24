@@ -9,7 +9,7 @@
 // payments list.
 // API used: GET /v1/payments/payments
 
-require 'CreatePayment.php';
+require __DIR__ . '/CreatePaymentUsingPayPal.php';
 use PayPal\Api\Payment;
 
 // ### Retrieve payment

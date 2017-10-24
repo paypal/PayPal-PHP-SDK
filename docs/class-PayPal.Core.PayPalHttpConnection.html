@@ -157,7 +157,7 @@ See for full requirements the PHP manual: http://php.net/curl</p>
 		<b>Namespace:</b> <a href="namespace-PayPal.html">PayPal</a>\<a href="namespace-PayPal.Core.html">Core</a><br>
 		
 
-			<b>Located at</b> <a href="source-class-PayPal.Core.PayPalHttpConnection.html#8-170" title="Go to source code">PayPal/Core/PayPalHttpConnection.php</a>
+			<b>Located at</b> <a href="source-class-PayPal.Core.PayPalHttpConnection.html#8-218" title="Go to source code">PayPal/Core/PayPalHttpConnection.php</a>
 		<br>
 	</div>
 
@@ -177,7 +177,7 @@ See for full requirements the PHP manual: http://php.net/curl</p>
 
 			<td class="name"><div>
 			<a class="anchor" href="#___construct">#</a>
-			<code><a href="source-class-PayPal.Core.PayPalHttpConnection.html#28-42" title="Go to source code">__construct</a>( <span><code><a href="class-PayPal.Core.PayPalHttpConfig.html">PayPal\Core\PayPalHttpConfig</a></code> <var>$httpConfig</var></span>, <span>array <var>$config</var></span> )</code>
+			<code><a href="source-class-PayPal.Core.PayPalHttpConnection.html#38-52" title="Go to source code">__construct</a>( <span><code><a href="class-PayPal.Core.PayPalHttpConfig.html">PayPal\Core\PayPalHttpConfig</a></code> <var>$httpConfig</var></span>, <span>array <var>$config</var></span> )</code>
 
 			<div class="description short">
 				<p>Default Constructor</p>
@@ -206,6 +206,84 @@ See for full requirements the PHP manual: http://php.net/curl</p>
 			</div>
 			</div></td>
 		</tr>
+		<tr data-order="parseResponseHeaders" id="_parseResponseHeaders">
+
+			<td class="attributes"><code>
+				 protected 
+				integer
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_parseResponseHeaders">#</a>
+			<code><a href="source-class-PayPal.Core.PayPalHttpConnection.html#68-101" title="Go to source code">parseResponseHeaders</a>( <span>resource <var>$ch</var></span>, <span>string <var>$data</var></span> )</code>
+
+			<div class="description short">
+				<p>Parses the response headers for debugging.</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Parses the response headers for debugging.</p>
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$ch</var></dt>
+						<dd></dd>
+						<dt><var>$data</var></dt>
+						<dd></dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						integer
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="implodeArray" id="_implodeArray">
+
+			<td class="attributes"><code>
+				 protected 
+				string
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_implodeArray">#</a>
+			<code><a href="source-class-PayPal.Core.PayPalHttpConnection.html#104-117" title="Go to source code">implodeArray</a>( <span>array <var>$arr</var></span> )</code>
+
+			<div class="description short">
+				<p>Implodes a key/value array for printing.</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Implodes a key/value array for printing.</p>
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$arr</var></dt>
+						<dd></dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						string
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
 		<tr data-order="execute" id="_execute">
 
 			<td class="attributes"><code>
@@ -217,7 +295,7 @@ See for full requirements the PHP manual: http://php.net/curl</p>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_execute">#</a>
-			<code><a href="source-class-PayPal.Core.PayPalHttpConnection.html#58-169" title="Go to source code">execute</a>( <span>string <var>$data</var></span> )</code>
+			<code><a href="source-class-PayPal.Core.PayPalHttpConnection.html#119-217" title="Go to source code">execute</a>( <span>string <var>$data</var></span> )</code>
 
 			<div class="description short">
 				<p>Executes an HTTP request</p>

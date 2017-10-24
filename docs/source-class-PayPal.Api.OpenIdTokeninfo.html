@@ -122,7 +122,7 @@
 				<li><a href="class-PayPal.Api.AlternatePayment.html" class="deprecated">PayPal\Api\AlternatePayment</a></li>
 				<li><a href="class-PayPal.Api.Amount.html">PayPal\Api\Amount</a></li>
 				<li><a href="class-PayPal.Api.Authorization.html">PayPal\Api\Authorization</a></li>
-				<li><a href="class-PayPal.Api.BankAccount.html">PayPal\Api\BankAccount</a></li>
+				<li><a href="class-PayPal.Api.BankAccount.html" class="deprecated">PayPal\Api\BankAccount</a></li>
 				<li><a href="class-PayPal.Api.BankAccountsList.html">PayPal\Api\BankAccountsList</a></li>
 				<li><a href="class-PayPal.Api.BankToken.html">PayPal\Api\BankToken</a></li>
 				<li><a href="class-PayPal.Api.BaseAddress.html">PayPal\Api\BaseAddress</a></li>
@@ -521,46 +521,48 @@
 </span></span><span id="219" class="l"><a href="#219">219 </a><span class="php-comment">     *                               (optional) grant_type is the Token grant type. Defaults to refresh_token
 </span></span><span id="220" class="l"><a href="#220">220 </a><span class="php-comment">     *                               (optional) scope is an array that either the same or a subset of the scope passed to the authorization request
 </span></span><span id="221" class="l"><a href="#221">221 </a><span class="php-comment">     * @param APIContext $apiContext Optional API Context
-</span></span><span id="222" class="l"><a href="#222">222 </a><span class="php-comment">     * @return OpenIdTokeninfo
-</span></span><span id="223" class="l"><a href="#223">223 </a><span class="php-comment">     */</span>
-</span><span id="224" class="l"><a href="#224">224 </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> createFromRefreshToken(<span class="php-var">$params</span>, <span class="php-var">$apiContext</span> = <span class="php-keyword1">null</span>)
-</span><span id="225" class="l"><a href="#225">225 </a>    {
-</span><span id="226" class="l"><a href="#226">226 </a>        <span class="php-keyword1">static</span> <span class="php-var">$allowedParams</span> = <span class="php-keyword1">array</span>(<span class="php-quote">'grant_type'</span> =&gt; <span class="php-num">1</span>, <span class="php-quote">'refresh_token'</span> =&gt; <span class="php-num">1</span>, <span class="php-quote">'scope'</span> =&gt; <span class="php-num">1</span>);
-</span><span id="227" class="l"><a href="#227">227 </a>        <span class="php-var">$apiContext</span> = <span class="php-var">$apiContext</span> ? <span class="php-var">$apiContext</span> : <span class="php-keyword1">new</span> ApiContext(self::<span class="php-var">$credential</span>);
-</span><span id="228" class="l"><a href="#228">228 </a>
-</span><span id="229" class="l"><a href="#229">229 </a>        <span class="php-keyword1">if</span> (!<span class="php-keyword2">array_key_exists</span>(<span class="php-quote">'grant_type'</span>, <span class="php-var">$params</span>)) {
-</span><span id="230" class="l"><a href="#230">230 </a>            <span class="php-var">$params</span>[<span class="php-quote">'grant_type'</span>] = <span class="php-quote">'refresh_token'</span>;
-</span><span id="231" class="l"><a href="#231">231 </a>        }
-</span><span id="232" class="l"><a href="#232">232 </a>        <span class="php-keyword1">if</span> (!<span class="php-keyword2">array_key_exists</span>(<span class="php-quote">'refresh_token'</span>, <span class="php-var">$params</span>)) {
-</span><span id="233" class="l"><a href="#233">233 </a>            <span class="php-var">$params</span>[<span class="php-quote">'refresh_token'</span>] = <span class="php-var">$this</span>-&gt;getRefreshToken();
-</span><span id="234" class="l"><a href="#234">234 </a>        }
-</span><span id="235" class="l"><a href="#235">235 </a>
-</span><span id="236" class="l"><a href="#236">236 </a>        <span class="php-var">$clientId</span> = <span class="php-keyword1">isset</span>(<span class="php-var">$params</span>[<span class="php-quote">'client_id'</span>]) ? <span class="php-var">$params</span>[<span class="php-quote">'client_id'</span>] : <span class="php-var">$apiContext</span>-&gt;getCredential()-&gt;getClientId();
-</span><span id="237" class="l"><a href="#237">237 </a>        <span class="php-var">$clientSecret</span> = <span class="php-keyword1">isset</span>(<span class="php-var">$params</span>[<span class="php-quote">'client_secret'</span>]) ? <span class="php-var">$params</span>[<span class="php-quote">'client_secret'</span>] : <span class="php-var">$apiContext</span>-&gt;getCredential()-&gt;getClientSecret();
-</span><span id="238" class="l"><a href="#238">238 </a>
-</span><span id="239" class="l"><a href="#239">239 </a>        <span class="php-var">$json</span> = self::executeCall(
-</span><span id="240" class="l"><a href="#240">240 </a>            <span class="php-quote">&quot;/v1/identity/openidconnect/tokenservice&quot;</span>,
-</span><span id="241" class="l"><a href="#241">241 </a>            <span class="php-quote">&quot;POST&quot;</span>,
-</span><span id="242" class="l"><a href="#242">242 </a>            <span class="php-keyword2">http_build_query</span>(<span class="php-keyword2">array_intersect_key</span>(<span class="php-var">$params</span>, <span class="php-var">$allowedParams</span>)),
-</span><span id="243" class="l"><a href="#243">243 </a>            <span class="php-keyword1">array</span>(
-</span><span id="244" class="l"><a href="#244">244 </a>                <span class="php-quote">'Content-Type'</span> =&gt; <span class="php-quote">'application/x-www-form-urlencoded'</span>,
-</span><span id="245" class="l"><a href="#245">245 </a>                <span class="php-quote">'Authorization'</span> =&gt; <span class="php-quote">'Basic '</span> . <span class="php-keyword2">base64_encode</span>(<span class="php-var">$clientId</span> . <span class="php-quote">&quot;:&quot;</span> . <span class="php-var">$clientSecret</span>)
-</span><span id="246" class="l"><a href="#246">246 </a>            ),
-</span><span id="247" class="l"><a href="#247">247 </a>            <span class="php-var">$apiContext</span>
-</span><span id="248" class="l"><a href="#248">248 </a>        );
-</span><span id="249" class="l"><a href="#249">249 </a>
-</span><span id="250" class="l"><a href="#250">250 </a>        <span class="php-var">$this</span>-&gt;fromJson(<span class="php-var">$json</span>);
-</span><span id="251" class="l"><a href="#251">251 </a>        <span class="php-keyword1">return</span> <span class="php-var">$this</span>;
-</span><span id="252" class="l"><a href="#252">252 </a>    }
-</span><span id="253" class="l"><a href="#253">253 </a>}
-</span><span id="254" class="l"><a href="#254">254 </a></span></code></pre>
+</span></span><span id="222" class="l"><a href="#222">222 </a><span class="php-comment">     * @param PayPalRestCall $restCall
+</span></span><span id="223" class="l"><a href="#223">223 </a><span class="php-comment">     * @return OpenIdTokeninfo
+</span></span><span id="224" class="l"><a href="#224">224 </a><span class="php-comment">     */</span>
+</span><span id="225" class="l"><a href="#225">225 </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> createFromRefreshToken(<span class="php-var">$params</span>, <span class="php-var">$apiContext</span> = <span class="php-keyword1">null</span>, <span class="php-var">$restCall</span> = <span class="php-keyword1">null</span>)
+</span><span id="226" class="l"><a href="#226">226 </a>    {
+</span><span id="227" class="l"><a href="#227">227 </a>        <span class="php-keyword1">static</span> <span class="php-var">$allowedParams</span> = <span class="php-keyword1">array</span>(<span class="php-quote">'grant_type'</span> =&gt; <span class="php-num">1</span>, <span class="php-quote">'refresh_token'</span> =&gt; <span class="php-num">1</span>, <span class="php-quote">'scope'</span> =&gt; <span class="php-num">1</span>);
+</span><span id="228" class="l"><a href="#228">228 </a>        <span class="php-var">$apiContext</span> = <span class="php-var">$apiContext</span> ? <span class="php-var">$apiContext</span> : <span class="php-keyword1">new</span> ApiContext(self::<span class="php-var">$credential</span>);
+</span><span id="229" class="l"><a href="#229">229 </a>
+</span><span id="230" class="l"><a href="#230">230 </a>        <span class="php-keyword1">if</span> (!<span class="php-keyword2">array_key_exists</span>(<span class="php-quote">'grant_type'</span>, <span class="php-var">$params</span>)) {
+</span><span id="231" class="l"><a href="#231">231 </a>            <span class="php-var">$params</span>[<span class="php-quote">'grant_type'</span>] = <span class="php-quote">'refresh_token'</span>;
+</span><span id="232" class="l"><a href="#232">232 </a>        }
+</span><span id="233" class="l"><a href="#233">233 </a>        <span class="php-keyword1">if</span> (!<span class="php-keyword2">array_key_exists</span>(<span class="php-quote">'refresh_token'</span>, <span class="php-var">$params</span>)) {
+</span><span id="234" class="l"><a href="#234">234 </a>            <span class="php-var">$params</span>[<span class="php-quote">'refresh_token'</span>] = <span class="php-var">$this</span>-&gt;getRefreshToken();
+</span><span id="235" class="l"><a href="#235">235 </a>        }
+</span><span id="236" class="l"><a href="#236">236 </a>
+</span><span id="237" class="l"><a href="#237">237 </a>        <span class="php-var">$clientId</span> = <span class="php-keyword1">isset</span>(<span class="php-var">$params</span>[<span class="php-quote">'client_id'</span>]) ? <span class="php-var">$params</span>[<span class="php-quote">'client_id'</span>] : <span class="php-var">$apiContext</span>-&gt;getCredential()-&gt;getClientId();
+</span><span id="238" class="l"><a href="#238">238 </a>        <span class="php-var">$clientSecret</span> = <span class="php-keyword1">isset</span>(<span class="php-var">$params</span>[<span class="php-quote">'client_secret'</span>]) ? <span class="php-var">$params</span>[<span class="php-quote">'client_secret'</span>] : <span class="php-var">$apiContext</span>-&gt;getCredential()-&gt;getClientSecret();
+</span><span id="239" class="l"><a href="#239">239 </a>
+</span><span id="240" class="l"><a href="#240">240 </a>        <span class="php-var">$json</span> = self::executeCall(
+</span><span id="241" class="l"><a href="#241">241 </a>            <span class="php-quote">&quot;/v1/identity/openidconnect/tokenservice&quot;</span>,
+</span><span id="242" class="l"><a href="#242">242 </a>            <span class="php-quote">&quot;POST&quot;</span>,
+</span><span id="243" class="l"><a href="#243">243 </a>            <span class="php-keyword2">http_build_query</span>(<span class="php-keyword2">array_intersect_key</span>(<span class="php-var">$params</span>, <span class="php-var">$allowedParams</span>)),
+</span><span id="244" class="l"><a href="#244">244 </a>            <span class="php-keyword1">array</span>(
+</span><span id="245" class="l"><a href="#245">245 </a>                <span class="php-quote">'Content-Type'</span> =&gt; <span class="php-quote">'application/x-www-form-urlencoded'</span>,
+</span><span id="246" class="l"><a href="#246">246 </a>                <span class="php-quote">'Authorization'</span> =&gt; <span class="php-quote">'Basic '</span> . <span class="php-keyword2">base64_encode</span>(<span class="php-var">$clientId</span> . <span class="php-quote">&quot;:&quot;</span> . <span class="php-var">$clientSecret</span>)
+</span><span id="247" class="l"><a href="#247">247 </a>            ),
+</span><span id="248" class="l"><a href="#248">248 </a>            <span class="php-var">$apiContext</span>,
+</span><span id="249" class="l"><a href="#249">249 </a>            <span class="php-var">$restCall</span>
+</span><span id="250" class="l"><a href="#250">250 </a>        );
+</span><span id="251" class="l"><a href="#251">251 </a>
+</span><span id="252" class="l"><a href="#252">252 </a>        <span class="php-var">$this</span>-&gt;fromJson(<span class="php-var">$json</span>);
+</span><span id="253" class="l"><a href="#253">253 </a>        <span class="php-keyword1">return</span> <span class="php-var">$this</span>;
+</span><span id="254" class="l"><a href="#254">254 </a>    }
+</span><span id="255" class="l"><a href="#255">255 </a>}
+</span><span id="256" class="l"><a href="#256">256 </a></span></code></pre>
 	</div>
 
 	<div id="footer">
 		 API documentation generated by <a href="http://apigen.org">ApiGen</a>
 	</div>
 </div>
-<script src="resources/combined.js?919f75aaaa73bd55478aa4cb61e316bf9cc35137"></script>
+<script src="resources/combined.js?cc7cebfb58879a60cf43a8a62801ffd608f15e9c"></script>
 <script src="elementlist.js?d7581654bd3bf4c12c13ea2810a41d0e0360ead1"></script>
 </body>
 </html>

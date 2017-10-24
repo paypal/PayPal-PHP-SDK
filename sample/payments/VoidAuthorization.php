@@ -4,10 +4,10 @@
 // void an authorized payment.
 // API used: /v1/payments/authorization/<{authorizationid}>/void"
 
-/** @var Authorization $authorization */
-$authorization = require 'AuthorizePayment.php';
-// Replace $authorizationid with any static Id you might already have. It will do a void on it
-$authorizationId = '1BF65516U6866543H'; // $authorization->getId();
+
+// Replace $authorizationId with any static Id you might already have. 
+$authorizationId = "<your authorization id here>";
+
 use PayPal\Api\Authorization;
 
 // ### VoidAuthorization

@@ -39,11 +39,11 @@ To resolve that, we need to use alternative, which makes a call to PayPal&#39;s 
 <span class="hljs-comment">//$headers = getallheaders();</span>
 
 <span class="hljs-comment">/**
-* In Documentions https://developer.paypal.com/docs/api/webhooks/#verify-webhook-signature_post 
+* In Documentions https://developer.paypal.com/docs/api/webhooks/#verify-webhook-signature_post
 * All header keys as UPPERCASE, but I recive the header key as the example array, First letter as UPPERCASE
 */</span>
 <span class="hljs-variable">$headers</span> = array_change_key_case(<span class="hljs-variable">$headers</span>, CASE_UPPER);
-     
+
 <span class="hljs-variable">$signatureVerification</span> = <span class="hljs-keyword">new</span> VerifyWebhookSignature();
 <span class="hljs-variable">$signatureVerification</span>-&gt;setAuthAlgo(<span class="hljs-variable">$headers</span>[<span class="hljs-string">'PAYPAL-AUTH-ALGO'</span>]);
 <span class="hljs-variable">$signatureVerification</span>-&gt;setTransmissionId(<span class="hljs-variable">$headers</span>[<span class="hljs-string">'PAYPAL-TRANSMISSION-ID'</span>]);
@@ -52,9 +52,7 @@ To resolve that, we need to use alternative, which makes a call to PayPal&#39;s 
 <span class="hljs-variable">$signatureVerification</span>-&gt;setTransmissionSig(<span class="hljs-variable">$headers</span>[<span class="hljs-string">'PAYPAL-TRANSMISSION-SIG'</span>]);
 <span class="hljs-variable">$signatureVerification</span>-&gt;setTransmissionTime(<span class="hljs-variable">$headers</span>[<span class="hljs-string">'PAYPAL-TRANSMISSION-TIME'</span>]);
 
-<span class="hljs-variable">$webhookEvent</span> = <span class="hljs-keyword">new</span> WebhookEvent();
-<span class="hljs-variable">$webhookEvent</span>-&gt;fromJson(<span class="hljs-variable">$requestBody</span>);
-<span class="hljs-variable">$signatureVerification</span>-&gt;setWebhookEvent(<span class="hljs-variable">$webhookEvent</span>);
+<span class="hljs-variable">$signatureVerification</span>-&gt;setRequestBody(<span class="hljs-variable">$requestBody</span>);
 <span class="hljs-variable">$request</span> = <span class="hljs-keyword">clone</span> <span class="hljs-variable">$signatureVerification</span>;
 
 <span class="hljs-keyword">try</span> {

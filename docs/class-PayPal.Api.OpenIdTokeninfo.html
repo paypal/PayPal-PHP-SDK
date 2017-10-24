@@ -122,7 +122,7 @@
 				<li><a href="class-PayPal.Api.AlternatePayment.html" class="deprecated">AlternatePayment</a></li>
 				<li><a href="class-PayPal.Api.Amount.html">Amount</a></li>
 				<li><a href="class-PayPal.Api.Authorization.html">Authorization</a></li>
-				<li><a href="class-PayPal.Api.BankAccount.html">BankAccount</a></li>
+				<li><a href="class-PayPal.Api.BankAccount.html" class="deprecated">BankAccount</a></li>
 				<li><a href="class-PayPal.Api.BankAccountsList.html">BankAccountsList</a></li>
 				<li><a href="class-PayPal.Api.BankToken.html">BankToken</a></li>
 				<li><a href="class-PayPal.Api.BaseAddress.html">BaseAddress</a></li>
@@ -309,7 +309,7 @@
 		<b>Namespace:</b> <a href="namespace-PayPal.html">PayPal</a>\<a href="namespace-PayPal.Api.html">Api</a><br>
 		
 
-			<b>Located at</b> <a href="source-class-PayPal.Api.OpenIdTokeninfo.html#8-253" title="Go to source code">PayPal/Api/OpenIdTokeninfo.php</a>
+			<b>Located at</b> <a href="source-class-PayPal.Api.OpenIdTokeninfo.html#8-255" title="Go to source code">PayPal/Api/OpenIdTokeninfo.php</a>
 		<br>
 	</div>
 
@@ -811,7 +811,7 @@
 
 			<td class="name"><div>
 			<a class="anchor" href="#_createFromRefreshToken">#</a>
-			<code><a href="source-class-PayPal.Api.OpenIdTokeninfo.html#210-252" title="Go to source code">createFromRefreshToken</a>( <span>array <var>$params</var></span>, <span>APIContext <var>$apiContext</var> = <span class="php-keyword1">null</span></span> )</code>
+			<code><a href="source-class-PayPal.Api.OpenIdTokeninfo.html#210-254" title="Go to source code">createFromRefreshToken</a>( <span>array <var>$params</var></span>, <span>APIContext <var>$apiContext</var> = <span class="php-keyword1">null</span></span>, <span><code><a href="class-PayPal.Transport.PayPalRestCall.html">PayPal\Transport\PayPalRestCall</a></code> <var>$restCall</var> = <span class="php-keyword1">null</span></span> )</code>
 
 			<div class="description short">
 				<p>Creates an Access Token from an Refresh Token.</p>
@@ -832,6 +832,8 @@
                               (optional) scope is an array that either the same or a subset of the scope passed to the authorization request</p></dd>
 						<dt><var>$apiContext</var></dt>
 						<dd>Optional API Context</dd>
+						<dt><var>$restCall</var></dt>
+						<dd></dd>
 					</dl></div>
 
 					<h4>Returns</h4>

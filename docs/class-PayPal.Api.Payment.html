@@ -122,7 +122,7 @@
 				<li><a href="class-PayPal.Api.AlternatePayment.html" class="deprecated">AlternatePayment</a></li>
 				<li><a href="class-PayPal.Api.Amount.html">Amount</a></li>
 				<li><a href="class-PayPal.Api.Authorization.html">Authorization</a></li>
-				<li><a href="class-PayPal.Api.BankAccount.html">BankAccount</a></li>
+				<li><a href="class-PayPal.Api.BankAccount.html" class="deprecated">BankAccount</a></li>
 				<li><a href="class-PayPal.Api.BankAccountsList.html">BankAccountsList</a></li>
 				<li><a href="class-PayPal.Api.BankToken.html">BankToken</a></li>
 				<li><a href="class-PayPal.Api.BaseAddress.html">BaseAddress</a></li>
@@ -315,7 +315,7 @@
 		<b>Namespace:</b> <a href="namespace-PayPal.html">PayPal</a>\<a href="namespace-PayPal.Api.html">Api</a><br>
 		<b>Package:</b> PayPal\Api<br>
 
-			<b>Located at</b> <a href="source-class-PayPal.Api.Payment.html#10-679" title="Go to source code">PayPal/Api/Payment.php</a>
+			<b>Located at</b> <a href="source-class-PayPal.Api.Payment.html#10-691" title="Go to source code">PayPal/Api/Payment.php</a>
 		<br>
 	</div>
 
@@ -1943,6 +1943,39 @@ Valid Values: ["UNABLE_TO_COMPLETE_TRANSACTION", "INVALID_PAYMENT_METHOD", "PAYE
 			</div>
 			</div></td>
 		</tr>
+		<tr data-order="getToken" id="_getToken">
+
+			<td class="attributes"><code>
+				 public 
+				null|string
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_getToken">#</a>
+			<code><a href="source-class-PayPal.Api.Payment.html#548-558" title="Go to source code">getToken</a>( )</code>
+
+			<div class="description short">
+				<p>Get token from Approval Link</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Get token from Approval Link</p>
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+						null|string
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
 		<tr data-order="create" id="_create">
 
 			<td class="attributes"><code>
@@ -1954,7 +1987,7 @@ Valid Values: ["UNABLE_TO_COMPLETE_TRANSACTION", "INVALID_PAYMENT_METHOD", "PAYE
 
 			<td class="name"><div>
 			<a class="anchor" href="#_create">#</a>
-			<code><a href="source-class-PayPal.Api.Payment.html#548-568" title="Go to source code">create</a>( <span><code><a href="class-PayPal.Rest.ApiContext.html">PayPal\Rest\ApiContext</a></code> <var>$apiContext</var> = <span class="php-keyword1">null</span></span>, <span>PayPalRestCall <var>$restCall</var> = <span class="php-keyword1">null</span></span> )</code>
+			<code><a href="source-class-PayPal.Api.Payment.html#560-580" title="Go to source code">create</a>( <span><code><a href="class-PayPal.Rest.ApiContext.html">PayPal\Rest\ApiContext</a></code> <var>$apiContext</var> = <span class="php-keyword1">null</span></span>, <span>PayPalRestCall <var>$restCall</var> = <span class="php-keyword1">null</span></span> )</code>
 
 			<div class="description short">
 				<p>Creates and processes a payment. In the JSON request body, include a <code>payment</code> object with the intent, payer, and transactions. For PayPal payments, include redirect URLs in the <code>payment</code> object.</p>
@@ -1994,7 +2027,7 @@ Valid Values: ["UNABLE_TO_COMPLETE_TRANSACTION", "INVALID_PAYMENT_METHOD", "PAYE
 
 			<td class="name"><div>
 			<a class="anchor" href="#_get">#</a>
-			<code><a href="source-class-PayPal.Api.Payment.html#570-593" title="Go to source code">get</a>( <span>string <var>$paymentId</var></span>, <span><code><a href="class-PayPal.Rest.ApiContext.html">PayPal\Rest\ApiContext</a></code> <var>$apiContext</var> = <span class="php-keyword1">null</span></span>, <span>PayPalRestCall <var>$restCall</var> = <span class="php-keyword1">null</span></span> )</code>
+			<code><a href="source-class-PayPal.Api.Payment.html#582-605" title="Go to source code">get</a>( <span>string <var>$paymentId</var></span>, <span><code><a href="class-PayPal.Rest.ApiContext.html">PayPal\Rest\ApiContext</a></code> <var>$apiContext</var> = <span class="php-keyword1">null</span></span>, <span>PayPalRestCall <var>$restCall</var> = <span class="php-keyword1">null</span></span> )</code>
 
 			<div class="description short">
 				<p>Shows details for a payment, by ID.</p>
@@ -2036,7 +2069,7 @@ Valid Values: ["UNABLE_TO_COMPLETE_TRANSACTION", "INVALID_PAYMENT_METHOD", "PAYE
 
 			<td class="name"><div>
 			<a class="anchor" href="#_update">#</a>
-			<code><a href="source-class-PayPal.Api.Payment.html#595-617" title="Go to source code">update</a>( <span><code><a href="class-PayPal.Api.PatchRequest.html">PayPal\Api\PatchRequest</a></code> <var>$patchRequest</var></span>, <span><code><a href="class-PayPal.Rest.ApiContext.html">PayPal\Rest\ApiContext</a></code> <var>$apiContext</var> = <span class="php-keyword1">null</span></span>, <span>PayPalRestCall <var>$restCall</var> = <span class="php-keyword1">null</span></span> )</code>
+			<code><a href="source-class-PayPal.Api.Payment.html#607-629" title="Go to source code">update</a>( <span><code><a href="class-PayPal.Api.PatchRequest.html">PayPal\Api\PatchRequest</a></code> <var>$patchRequest</var></span>, <span><code><a href="class-PayPal.Rest.ApiContext.html">PayPal\Rest\ApiContext</a></code> <var>$apiContext</var> = <span class="php-keyword1">null</span></span>, <span>PayPalRestCall <var>$restCall</var> = <span class="php-keyword1">null</span></span> )</code>
 
 			<div class="description short">
 				<p>Partially updates a payment, by ID. You can update the amount, shipping address, invoice ID, and custom data. You cannot use patch after execute has been called.</p>
@@ -2078,7 +2111,7 @@ Valid Values: ["UNABLE_TO_COMPLETE_TRANSACTION", "INVALID_PAYMENT_METHOD", "PAYE
 
 			<td class="name"><div>
 			<a class="anchor" href="#_execute">#</a>
-			<code><a href="source-class-PayPal.Api.Payment.html#619-642" title="Go to source code">execute</a>( <span><code><a href="class-PayPal.Api.PaymentExecution.html">PayPal\Api\PaymentExecution</a></code> <var>$paymentExecution</var></span>, <span><code><a href="class-PayPal.Rest.ApiContext.html">PayPal\Rest\ApiContext</a></code> <var>$apiContext</var> = <span class="php-keyword1">null</span></span>, <span>PayPalRestCall <var>$restCall</var> = <span class="php-keyword1">null</span></span> )</code>
+			<code><a href="source-class-PayPal.Api.Payment.html#631-654" title="Go to source code">execute</a>( <span><code><a href="class-PayPal.Api.PaymentExecution.html">PayPal\Api\PaymentExecution</a></code> <var>$paymentExecution</var></span>, <span><code><a href="class-PayPal.Rest.ApiContext.html">PayPal\Rest\ApiContext</a></code> <var>$apiContext</var> = <span class="php-keyword1">null</span></span>, <span>PayPalRestCall <var>$restCall</var> = <span class="php-keyword1">null</span></span> )</code>
 
 			<div class="description short">
 				<p>Executes, or completes, a PayPal payment that the payer has approved. You can optionally update selective payment information when you execute a payment.</p>
@@ -2120,7 +2153,7 @@ Valid Values: ["UNABLE_TO_COMPLETE_TRANSACTION", "INVALID_PAYMENT_METHOD", "PAYE
 
 			<td class="name"><div>
 			<a class="anchor" href="#_all">#</a>
-			<code><a href="source-class-PayPal.Api.Payment.html#644-677" title="Go to source code">all</a>( <span>array <var>$params</var></span>, <span><code><a href="class-PayPal.Rest.ApiContext.html">PayPal\Rest\ApiContext</a></code> <var>$apiContext</var> = <span class="php-keyword1">null</span></span>, <span>PayPalRestCall <var>$restCall</var> = <span class="php-keyword1">null</span></span> )</code>
+			<code><a href="source-class-PayPal.Api.Payment.html#656-689" title="Go to source code">all</a>( <span>array <var>$params</var></span>, <span><code><a href="class-PayPal.Rest.ApiContext.html">PayPal\Rest\ApiContext</a></code> <var>$apiContext</var> = <span class="php-keyword1">null</span></span>, <span>PayPalRestCall <var>$restCall</var> = <span class="php-keyword1">null</span></span> )</code>
 
 			<div class="description short">
 				<p>List payments that were made to the merchant who issues the request. Payments can be in any state.</p>
