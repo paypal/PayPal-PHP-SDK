@@ -5,10 +5,11 @@
 // This sample code demonstrate how you can get a billing agreement, as documented here at:
 // https://developer.paypal.com/webapps/developer/docs/api/#retrieve-an-agreement
 // API used: /v1/payments/billing-agreements/<Agreement-Id>
+require __DIR__ . '/../bootstrap.php';
 
 // Retrieving the Agreement object from Create Agreement From Credit Card Sample
 /** @var Agreement $createdAgreement */
-$createdAgreement = require 'CreateBillingAgreementWithCreditCard.php';
+$createdAgreement = "your billing agreement id";
 
 use PayPal\Api\Agreement;
 

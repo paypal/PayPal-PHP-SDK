@@ -221,7 +221,6 @@ if (PHP_SAPI == 'cli') {
                     <li><a href="#sale">Sale</a></li>
                     <li><a href="#order">Order</a></li>
                     <li><a href="#billing">Billing Plan & Agreements</a></li>
-                    <li><a href="#vault">Vault</a></li>
                     <li><a href="#experience">Payment Experience</a></li>
                     <li><a href="#notifications">Notifications</a></li>
                     <li><a href="#invoice">Invoice</a></li>
@@ -827,72 +826,6 @@ if (PHP_SAPI == 'cli') {
                     </li>
                 </ul>
             </div>
-
-            <div class="panel panel-primary">
-                <div class="panel-heading">
-                    <h3 id="vault" class="panel-title"><a href="https://developer.paypal.com/webapps/developer/docs/api/#vault"
-                                                          target="_blank">Vault</a></h3>
-                </div>
-                <!-- List group -->
-                <ul class="list-group">
-                    <li class="list-group-item">
-                        <div class="row">
-                            <div class="col-md-8"><h5>Credit Card - Save</h5></div>
-                            <div class="col-md-4">
-                                <a href="vault/CreateCreditCard.php" class="btn btn-primary pull-left execute"> Try It <i
-                                        class="fa fa-play-circle-o"></i></a>
-                                <a href="doc/vault/CreateCreditCard.html" class="btn btn-default pull-right">Source <i
-                                        class="fa fa-file-code-o"></i></a>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="list-group-item">
-                        <div class="row">
-                            <div class="col-md-8"><h5>Credit Card - Retrieve</h5></div>
-                            <div class="col-md-4">
-                                <a href="vault/GetCreditCard.php" class="btn btn-primary pull-left execute"> Try It <i
-                                        class="fa fa-play-circle-o"></i></a>
-                                <a href="doc/vault/GetCreditCard.html" class="btn btn-default pull-right">Source <i
-                                        class="fa fa-file-code-o"></i></a>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="list-group-item">
-                        <div class="row">
-                            <div class="col-md-8"><h5>Credit Card - List All</h5></div>
-                            <div class="col-md-4">
-                                <a href="vault/ListCreditCards.php" class="btn btn-primary pull-left execute"> Try It <i
-                                        class="fa fa-play-circle-o"></i></a>
-                                <a href="doc/vault/ListCreditCards.html" class="btn btn-default pull-right">Source <i
-                                        class="fa fa-file-code-o"></i></a>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="list-group-item">
-                        <div class="row">
-                            <div class="col-md-8"><h5>Credit Card - Update</h5></div>
-                            <div class="col-md-4">
-                                <a href="vault/UpdateCreditCard.php" class="btn btn-primary pull-left execute"> Try It <i
-                                        class="fa fa-play-circle-o"></i></a>
-                                <a href="doc/vault/UpdateCreditCard.html" class="btn btn-default pull-right">Source <i
-                                        class="fa fa-file-code-o"></i></a>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="list-group-item">
-                        <div class="row">
-                            <div class="col-md-8"><h5>Credit Card - Delete</h5></div>
-                            <div class="col-md-4">
-                                <a href="vault/DeleteCreditCard.php" class="btn btn-primary pull-left execute"> Try It <i
-                                        class="fa fa-play-circle-o"></i></a>
-                                <a href="doc/vault/DeleteCreditCard.html" class="btn btn-default pull-right">Source <i
-                                        class="fa fa-file-code-o"></i></a>
-                            </div>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-
             <div class="panel panel-primary">
                 <div class="panel-heading">
                     <h3 id="experience" class="panel-title"><a

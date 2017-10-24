@@ -6,9 +6,11 @@
 // https://developer.paypal.com/webapps/developer/docs/api/#update-an-agreement
 // API used: /v1/payments/billing-agreements/<Agreement-Id>
 
+require __DIR__ . '/../bootstrap.php';
+
 // Retrieving the Agreement object from Create Agreement Sample to demonstrate the List
 /** @var Agreement $createdAgreement */
-$createdAgreement = require 'CreateBillingAgreementWithCreditCard.php';
+$createdAgreement = 'your agreement id';
 
 use PayPal\Api\Agreement;
 use PayPal\Api\Patch;
