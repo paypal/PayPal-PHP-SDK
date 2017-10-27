@@ -111,7 +111,42 @@ try {
 // method
 $approvalUrl = $payment->getApprovalLink();
 
+
+// Checkout JS https://developer.paypal.com/demo/checkout/#/pattern/server
+// NOTE: The checkout.js script should be added to your head element not directly to the body as shown in the sample here.
+echo '<script src="https://www.paypalobjects.com/api/checkout.js"></script>';
+
+// NOTE: As an Alternative you can make a request with paypal.request.post to a page that returns the Payment ID value
+echo "<script>
+paypal.Button.render({
+
+    env: 'sandbox', // sandbox | production
+
+    // Show the buyer a 'Pay Now' button in the checkout flow
+    commit: true,
+
+    // payment() is called when the button is clicked
+    payment: function() {
+        // Return the Payment ID
+        return '$payment->id';
+    },
+
+    // onAuthorize() is called when the buyer approves the payment
+    onAuthorize: function(data, actions) {
+        // Redirect to existing Execute Payment
+        return actions.redirect();
+    },
+    
+    onCancel: function(data, actions) {
+        return actions.redirect();
+    }
+
+
+}, '#paypal-button-container');
+</script>";
+
+
 // NOTE: PLEASE DO NOT USE RESULTPRINTER CLASS IN YOUR ORIGINAL CODE. FOR SAMPLE ONLY
-ResultPrinter::printResult("Created Payment Using PayPal. Please visit the URL to Approve.", "Payment", $payment->id . "<br>Please visit the URL to Approve: <a href='$approvalUrl' >$approvalUrl</a>", $request, $payment);
+ ResultPrinter::printResult("Created Payment Using PayPal. Please click the PayPal Checkout button to Approve.", "Payment", $payment->id . "<br>Click here to Approve the Payment:<br> <div id=\"paypal-button-container\"></div>", $request, $payment);
 
 return $payment;
