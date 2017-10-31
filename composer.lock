@@ -4,21 +4,21 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "6bbeb40ee3b4e1947b06b3b6dede8f75",
-    "content-hash": "766d2065fdc1620b3f54db2e5aba23c7",
+    "hash": "66701b56a5ec64930f6046d0ec6d9e29",
+    "content-hash": "4ca2c838fb7f1ea58535c04a2de4aa57",
     "packages": [
         {
             "name": "braintree/braintreehttp",
-            "version": "0.2.0",
+            "version": "0.2.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/braintree/braintreehttp_php.git",
-                "reference": "3d3beb0a5cc747ab76e9c5d4497dcff0e974c574"
+                "reference": "6ac46272700df9900eb636c2d2bd3020a5ff7955"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/braintree/braintreehttp_php/zipball/3d3beb0a5cc747ab76e9c5d4497dcff0e974c574",
-                "reference": "3d3beb0a5cc747ab76e9c5d4497dcff0e974c574",
+                "url": "https://api.github.com/repos/braintree/braintreehttp_php/zipball/6ac46272700df9900eb636c2d2bd3020a5ff7955",
+                "reference": "6ac46272700df9900eb636c2d2bd3020a5ff7955",
                 "shasum": ""
             },
             "require": {
@@ -44,7 +44,7 @@
                     "email": "code@getbraintree.com"
                 }
             ],
-            "time": "2017-10-17 22:39:22"
+            "time": "2017-10-31 20:48:50"
         }
     ],
     "packages-dev": [
@@ -214,37 +214,40 @@
         },
         {
             "name": "myclabs/deep-copy",
-            "version": "1.6.1",
+            "version": "1.7.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/myclabs/DeepCopy.git",
-                "reference": "8e6e04167378abf1ddb4d3522d8755c5fd90d102"
+                "reference": "3b8a3a99ba1f6a3952ac2747d989303cbd6b7a3e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/myclabs/DeepCopy/zipball/8e6e04167378abf1ddb4d3522d8755c5fd90d102",
-                "reference": "8e6e04167378abf1ddb4d3522d8755c5fd90d102",
+                "url": "https://api.github.com/repos/myclabs/DeepCopy/zipball/3b8a3a99ba1f6a3952ac2747d989303cbd6b7a3e",
+                "reference": "3b8a3a99ba1f6a3952ac2747d989303cbd6b7a3e",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.4.0"
+                "php": "^5.6 || ^7.0"
             },
             "require-dev": {
-                "doctrine/collections": "1.*",
-                "phpunit/phpunit": "~4.1"
+                "doctrine/collections": "^1.0",
+                "doctrine/common": "^2.6",
+                "phpunit/phpunit": "^4.1"
             },
             "type": "library",
             "autoload": {
                 "psr-4": {
                     "DeepCopy\\": "src/DeepCopy/"
-                }
+                },
+                "files": [
+                    "src/DeepCopy/deep_copy.php"
+                ]
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
             "description": "Create deep copies (clones) of your objects",
-            "homepage": "https://github.com/myclabs/DeepCopy",
             "keywords": [
                 "clone",
                 "copy",
@@ -252,7 +255,7 @@
                 "object",
                 "object graph"
             ],
-            "time": "2017-04-12 18:52:22"
+            "time": "2017-10-19 19:58:43"
         },
         {
             "name": "phpdocumentor/reflection-common",
@@ -1470,6 +1473,46 @@
                 "validate"
             ],
             "time": "2016-11-23 20:04:58"
+        },
+        {
+            "name": "wiremock-php/wiremock-php",
+            "version": "1.43.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/rowanhill/wiremock-php.git",
+                "reference": "f5a447963658c111a5840c27843f086502535758"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/rowanhill/wiremock-php/zipball/f5a447963658c111a5840c27843f086502535758",
+                "reference": "f5a447963658c111a5840c27843f086502535758",
+                "shasum": ""
+            },
+            "require-dev": {
+                "hafriedlander/phockito": "^1.0",
+                "phpunit/phpunit": "^4.0 | ^5.0"
+            },
+            "suggest": {
+                "phpunit/phpunit": "Thrown VerificationExceptions automatically fail tests"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "WireMock\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Rowan Hill"
+                }
+            ],
+            "description": "PHP API for WireMock JSON interface",
+            "homepage": "http://github.com/rowanhill/wiremock-php",
+            "time": "2017-02-27 11:45:37"
         }
     ],
     "aliases": [],

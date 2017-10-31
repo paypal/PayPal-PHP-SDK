@@ -26,8 +26,7 @@ class AuthorizationInjector implements Injector
         {
             if (is_null($this->accessToken) || $this->accessToken->isExpired())
             {
-                $accessTokenResponse = $this->fetchAccessToken();
-                $this->accessToken = $accessTokenResponse->result;
+                $this->accessToken = $this->fetchAccessToken();
             }
         }
     }
