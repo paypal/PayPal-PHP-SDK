@@ -110,11 +110,12 @@ class PayPalResourceModel extends PayPalModel implements IResource
      *
      * @param string|null $refreshToken
      * @param ApiContext $apiContext
+     * @param null|string $subject      subject used to create Third Party Token
      * @return void
      */
-    public function updateAccessToken($refreshToken, $apiContext)
+    public function updateAccessToken($refreshToken, $apiContext, $subject = null)
     {
         $apiContext = $apiContext ? $apiContext : new ApiContext(self::$credential);
-        $apiContext->getCredential()->updateAccessToken($apiContext->getConfig(), $refreshToken);
+        $apiContext->getCredential()->updateAccessToken($apiContext->getConfig(), $refreshToken, $subject);
     }
 }

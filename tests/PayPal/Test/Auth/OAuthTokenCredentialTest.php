@@ -60,27 +60,6 @@ class OAuthTokenCredentialTest extends \PHPUnit_Framework_TestCase
         $this->assertNotNull($result);
     }
 
-    public function testGetAccessTokenWithSubjectUnit()
-    {
-        $config = array(
-            'mode' => 'sandbox',
-            'cache.enabled' => true,
-            'cache.FileName' => AuthorizationCacheTest::CACHE_FILE
-        );
-        $cred = new OAuthTokenCredential('clientId', 'clientSecret', 'subject');
-
-        //{"clientId":{"clientId":"clientId","accessToken":"accessToken","tokenCreateTime":1421204091,"tokenExpiresIn":288000000}}
-        AuthorizationCache::push($config, 'clientId', $cred->encrypt('accessTokenWithSubject'), 1421204091, 288000000);
-
-        $apiContext = new ApiContext($cred);
-        $apiContext->setConfig($config);
-        $this->assertEquals('clientId', $cred->getClientId());
-        $this->assertEquals('clientSecret', $cred->getClientSecret());
-        $this->assertEquals('subject', $cred->getSubject());
-        $result = $cred->getAccessToken($config);
-        $this->assertNotNull($result);
-    }
-
     public function testGetAccessTokenUnitMock()
     {
         $config = array(
@@ -154,6 +133,101 @@ class OAuthTokenCredentialTest extends \PHPUnit_Framework_TestCase
             ));
 
         $response = $auth->updateAccessToken($config);
+        $this->assertNotNull($response);
+        $this->assertEquals('accessToken', $response);
+    }
+
+    /**
+     */
+    public function testUpdateAccessTokenWithRefreshTokenAndSubjectValue()
+    {
+        $config = array(
+            'mode' => 'sandbox'
+        );
+        /** @var OAuthTokenCredential $auth */
+        $auth = $this->getMockBuilder('\PayPal\Auth\OAuthTokenCredential')
+            ->setConstructorArgs(array('clientId', 'clientSecret'))
+            ->setMethods(array('getToken'))
+            ->getMock();
+
+        $auth->expects($this->any())
+            ->method('getToken')
+            ->with(
+                $config,
+                'clientId',
+                'clientSecret',
+                'grant_type=refresh_token&refresh_token=refreshTokenValue&target_subject=targetSubjectValue'
+            )
+            ->will($this->returnValue(
+                array(
+                    'access_token' => 'accessToken',
+                    'expires_in' => 280
+                )
+            ));
+
+        $response = $auth->updateAccessToken($config, 'refreshTokenValue', 'targetSubjectValue');
+        $this->assertNotNull($response);
+        $this->assertEquals('accessToken', $response);
+    }
+
+    public function testUpdateAccessTokenWithRefreshTokenAndNoSubjectValue()
+    {
+        $config = array(
+            'mode' => 'sandbox'
+        );
+        /** @var OAuthTokenCredential $auth */
+        $auth = $this->getMockBuilder('\PayPal\Auth\OAuthTokenCredential')
+            ->setConstructorArgs(array('clientId', 'clientSecret'))
+            ->setMethods(array('getToken'))
+            ->getMock();
+
+        $auth->expects($this->any())
+            ->method('getToken')
+            ->with(
+                $config,
+                'clientId',
+                'clientSecret',
+                'grant_type=refresh_token&refresh_token=refreshTokenValue'
+            )
+            ->will($this->returnValue(
+                array(
+                    'access_token' => 'accessToken',
+                    'expires_in' => 280
+                )
+            ));
+
+        $response = $auth->updateAccessToken($config, 'refreshTokenValue');
+        $this->assertNotNull($response);
+        $this->assertEquals('accessToken', $response);
+    }
+
+    public function testUpdateAccessTokenWithNoRefreshTokenAndSubjectValue()
+    {
+        $config = array(
+            'mode' => 'sandbox'
+        );
+        /** @var OAuthTokenCredential $auth */
+        $auth = $this->getMockBuilder('\PayPal\Auth\OAuthTokenCredential')
+            ->setConstructorArgs(array('clientId', 'clientSecret'))
+            ->setMethods(array('getToken'))
+            ->getMock();
+
+        $auth->expects($this->any())
+            ->method('getToken')
+            ->with(
+                $config,
+                'clientId',
+                'clientSecret',
+                'grant_type=client_credentials'
+            )
+            ->will($this->returnValue(
+                array(
+                    'access_token' => 'accessToken',
+                    'expires_in' => 280
+                )
+            ));
+
+        $response = $auth->updateAccessToken($config, null, 'ignoredTargetSubjectValue');
         $this->assertNotNull($response);
         $this->assertEquals('accessToken', $response);
     }

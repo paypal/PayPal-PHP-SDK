@@ -76,25 +76,16 @@ class OAuthTokenCredential extends PayPalResourceModel
     private $cipher;
 
     /**
-     * The encryted account number of the merchant on whose behalf the transaction is being done
-     *
-     * @var Subject
-     */
-    private $subject;
-
-    /**
      * Construct
      *
      * @param string $clientId     client id obtained from the developer portal
      * @param string $clientSecret client secret obtained from the developer portal
-     * @param null|string $subject      subject used to create Third Party Token
      */
-    public function __construct($clientId, $clientSecret, $subject = null)
+    public function __construct($clientId, $clientSecret)
     {
         $this->clientId = $clientId;
         $this->clientSecret = $clientSecret;
         $this->cipher = new Cipher($this->clientSecret);
-        $this->subject = $subject;
     }
 
     /**
@@ -115,16 +106,6 @@ class OAuthTokenCredential extends PayPalResourceModel
     public function getClientSecret()
     {
         return $this->clientSecret;
-    }
-
-    /**
-     * Get the subject used to create Third Party Access Token
-     *
-     * @return string
-     */
-    public function getSubject()
-    {
-        return $this->subject;
     }
 
     /**
@@ -222,11 +203,12 @@ class OAuthTokenCredential extends PayPalResourceModel
      *
      * @param array $config
      * @param string|null $refreshToken
+     * @param null|string $subject subject used to create Third Party Token
      * @return string
      */
-    public function updateAccessToken($config, $refreshToken = null)
+    public function updateAccessToken($config, $refreshToken = null, $subject = null)
     {
-        $this->generateAccessToken($config, $refreshToken);
+        $this->generateAccessToken($config, $refreshToken, $subject);
         return $this->accessToken;
     }
 
@@ -274,10 +256,11 @@ class OAuthTokenCredential extends PayPalResourceModel
      *
      * @param array $config
      * @param null|string $refreshToken
+     * @param null|string $subject subject used to create Third Party Token
      * @return null
      * @throws PayPalConnectionException
      */
-    private function generateAccessToken($config, $refreshToken = null)
+    private function generateAccessToken($config, $refreshToken = null, $subject = null)
     {
         $params = array('grant_type' => 'client_credentials');
         if ($refreshToken != null) {
@@ -285,10 +268,10 @@ class OAuthTokenCredential extends PayPalResourceModel
             // Used for Future Payments
             $params['grant_type'] = 'refresh_token';
             $params['refresh_token'] = $refreshToken;
-        }
 
-        if ($this->subject != null && $refreshToken != null) {
-            $params['target_subject'] = $this->subject;
+            if ($subject != null) {
+                $params['target_subject'] = $subject;
+            }
         }
 
         $payload = http_build_query($params);
