@@ -38,7 +38,8 @@ class FormatConverterTest extends \PHPUnit_Framework_TestCase
     {
         return array(
             array('JPY'),
-            array('TWD')
+            array('TWD'),
+            array('HUF')
         );
     }
 
