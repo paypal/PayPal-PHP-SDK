@@ -46,10 +46,10 @@ class FormatConverter
     public static function formatToPrice($value, $currency = null)
     {
         $decimals = 2;
-        $currencyDecimals = array('JPY' => 0, 'TWD' => 0);
+        $currencyDecimals = array('JPY' => 0, 'TWD' => 0, 'HUF' => 0);
         if ($currency && array_key_exists($currency, $currencyDecimals)) {
             if (strpos($value, ".") !== false && (floor($value) != $value)) {
-                //throw exception if it has decimal values for JPY and TWD which does not ends with .00
+                //throw exception if it has decimal values for JPY, TWD and HUF which does not ends with .00
                 throw new \InvalidArgumentException("value cannot have decimals for $currency currency");
             }
             $decimals = $currencyDecimals[$currency];
