@@ -20,6 +20,11 @@ class PlanTest extends \PHPUnit_Framework_TestCase
         return '{"id":"TestSample","name":"TestSample","description":"TestSample","type":"TestSample","state":"TestSample","create_time":"TestSample","update_time":"TestSample","payment_definitions":' .PaymentDefinitionTest::getJson() . ',"terms":' .TermsTest::getJson() . ',"merchant_preferences":' .MerchantPreferencesTest::getJson() . ',"links":' .LinksTest::getJson() . '}';
     }
 
+    public static function getJsonWithIdOnly()
+    {
+        return '{"id":"TestSample"}';
+    }
+
     /**
      * Gets Object Instance with Json data filled in
      * @return Plan

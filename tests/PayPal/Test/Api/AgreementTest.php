@@ -3,6 +3,8 @@
 namespace PayPal\Test\Api;
 
 use PayPal\Api\Agreement;
+use PayPal\Api\Plan;
+use PayPal\Common\PayPalModel;
 
 /**
  * Class Agreement
@@ -17,7 +19,7 @@ class AgreementTest extends \PHPUnit_Framework_TestCase
      */
     public static function getJson()
     {
-        return '{"id":"TestSample","state":"TestSample","name":"TestSample","description":"TestSample","start_date":"TestSample","payer":' .PayerTest::getJson() . ',"shipping_address":' .AddressTest::getJson() . ',"override_merchant_preferences":' .MerchantPreferencesTest::getJson() . ',"override_charge_models":' .OverrideChargeModelTest::getJson() . ',"plan":' .PlanTest::getJson() . ',"create_time":"TestSample","agreement_details":{"outstanding_balance":{"currency":"USD","value":"0.00"},"cycles_remaining":"12","cycles_completed":"0","next_billing_date":"2015-06-17T10:00:00Z","last_payment_date":"2015-03-18T20:20:17Z","last_payment_amount":{"currency":"USD","value":"1.00"},"final_payment_date":"2017-04-17T10:00:00Z","failed_payment_count":"0"},"update_time":"TestSample","links":' .LinksTest::getJson() . '}';
+        return '{"id":"TestSample","state":"TestSample","name":"TestSample","description":"TestSample","start_date":"TestSample","payer":' .PayerTest::getJson() . ',"shipping_address":' .AddressTest::getJson() . ',"override_merchant_preferences":' .MerchantPreferencesTest::getJson() . ',"override_charge_models":' .OverrideChargeModelTest::getJson() . ',"plan":' .PlanTest::getJsonWithIdOnly() . ',"create_time":"TestSample","agreement_details":{"outstanding_balance":{"currency":"USD","value":"0.00"},"cycles_remaining":"12","cycles_completed":"0","next_billing_date":"2015-06-17T10:00:00Z","last_payment_date":"2015-03-18T20:20:17Z","last_payment_amount":{"currency":"USD","value":"1.00"},"final_payment_date":"2017-04-17T10:00:00Z","failed_payment_count":"0"},"update_time":"TestSample","links":' .LinksTest::getJson() . '}';
     }
 
     /**
@@ -70,10 +72,39 @@ class AgreementTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($obj->getShippingAddress(), AddressTest::getObject());
         $this->assertEquals($obj->getOverrideMerchantPreferences(), MerchantPreferencesTest::getObject());
         $this->assertEquals($obj->getOverrideChargeModels(), OverrideChargeModelTest::getObject());
-        $this->assertEquals($obj->getPlan(), PlanTest::getObject());
+        $this->assertEquals($obj->getPlan()->getId(), PlanTest::getObject()->getId());
         $this->assertEquals($obj->getCreateTime(), "TestSample");
         $this->assertEquals($obj->getUpdateTime(), "TestSample");
         $this->assertEquals($obj->getLinks(), LinksTest::getObject());
+    }
+
+    /**
+     * Test to make sure we only set Plan with `id` field, even though more objects are present0
+     */
+    public function testSetPlan_setPlanWithIdOnly()
+    {
+        $plan = new Plan();
+        $plan->setId("planId");
+        $plan->setDescription("Some Description");
+
+        $agreement = new Agreement();
+        $agreement->setPlan($plan);
+
+        $this->assertEquals("{\"plan\":{\"id\":\"planId\"}}", $agreement->toJSON());
+    }
+
+    /**
+     * Test to make sure we only set Plan with Id if given argument is of type Plan.
+     */
+    public function testSetPlan_setsPlanAsGivenIfNotPlanInstance()
+    {
+        $randomObject = new PayPalModel();
+        $randomObject->abc = "def";
+
+        $agreement = new Agreement();
+        $agreement->setPlan($randomObject);
+
+        $this->assertEquals('{"plan":{"abc":"def"}}', $agreement->toJSON());
     }
 
     /**
