@@ -6,8 +6,9 @@ use PayPal\Auth\OAuthTokenCredential;
 use PayPal\Core\PayPalHttpConfig;
 use PayPal\Handler\OauthHandler;
 use PayPal\Rest\ApiContext;
+use PHPUnit\Framework\TestCase;
 
-class OauthHandlerTest extends \PHPUnit_Framework_TestCase
+class OauthHandlerTest extends TestCase
 {
 
     /**

@@ -3,13 +3,14 @@
 namespace PayPal\Test\Api;
 
 use PayPal\Api\ExtendedBankAccount;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Class ExtendedBankAccount
  *
  * @package PayPal\Test\Api
  */
-class ExtendedBankAccountTest extends \PHPUnit_Framework_TestCase
+class ExtendedBankAccountTest extends TestCase
 {
     /**
      * Gets Json String of Object ExtendedBankAccount

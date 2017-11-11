@@ -3,13 +3,14 @@
 namespace PayPal\Test\Api;
 
 use PayPal\Api\Image;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Class Image
  *
  * @package PayPal\Test\Api
  */
-class ImageTest extends \PHPUnit_Framework_TestCase
+class ImageTest extends TestCase
 {
     /**
      * Gets Json String of Object Patch

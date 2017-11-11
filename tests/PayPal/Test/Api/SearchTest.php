@@ -3,13 +3,14 @@
 namespace PayPal\Test\Api;
 
 use PayPal\Api\Search;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Class Search
  *
  * @package PayPal\Test\Api
  */
-class SearchTest extends \PHPUnit_Framework_TestCase
+class SearchTest extends TestCase
 {
     /**
      * Gets Json String of Object Search

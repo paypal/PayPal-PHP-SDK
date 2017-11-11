@@ -11,13 +11,14 @@ use PayPal\Api\WebhookEventTypeList;
 use PayPal\Api\WebhookList;
 use PayPal\Exception\PayPalConnectionException;
 use PayPal\Test\Functional\Setup;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Class WebhookFunctionalTest
  *
  * @package PayPal\Test\Api
  */
-class WebhookFunctionalTest extends \PHPUnit_Framework_TestCase
+class WebhookFunctionalTest extends TestCase
 {
 
     public $operation;

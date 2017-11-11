@@ -2,8 +2,9 @@
 namespace PayPal\Test\Validation;
 
 use PayPal\Validation\NumericValidator;
+use PHPUnit\Framework\TestCase;
 
-class NumericValidatorTest extends \PHPUnit_Framework_TestCase
+class NumericValidatorTest extends TestCase
 {
 
     public static function positiveProvider()

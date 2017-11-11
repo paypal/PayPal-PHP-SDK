@@ -3,13 +3,14 @@
 namespace PayPal\Test\Api;
 
 use PayPal\Api\RefundDetail;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Class RefundDetail
  *
  * @package PayPal\Test\Api
  */
-class RefundDetailTest extends \PHPUnit_Framework_TestCase
+class RefundDetailTest extends TestCase
 {
     /**
      * Gets Json String of Object RefundDetail

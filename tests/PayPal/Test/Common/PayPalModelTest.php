@@ -1,6 +1,7 @@
 <?php
 
 use PayPal\Common\PayPalModel;
+use PHPUnit\Framework\TestCase;
 
 class SimpleModelTestClass extends PayPalModel
 {
@@ -145,7 +146,7 @@ class ListModelTestClass extends PayPalModel
  * Test class for PayPalModel.
  *
  */
-class PayPalModelTest extends PHPUnit_Framework_TestCase
+class PayPalModelTest extends TestCase
 {
     /**
      * Sets up the fixture, for example, opens a network connection.

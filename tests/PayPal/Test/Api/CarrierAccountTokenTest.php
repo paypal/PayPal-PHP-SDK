@@ -3,13 +3,14 @@
 namespace PayPal\Test\Api;
 
 use PayPal\Api\CarrierAccountToken;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Class CarrierAccountToken
  *
  * @package PayPal\Test\Api
  */
-class CarrierAccountTokenTest extends \PHPUnit_Framework_TestCase
+class CarrierAccountTokenTest extends TestCase
 {
     /**
      * Gets Json String of Object CarrierAccountToken

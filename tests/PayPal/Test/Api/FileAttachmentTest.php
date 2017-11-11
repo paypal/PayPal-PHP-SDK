@@ -4,13 +4,14 @@ namespace PayPal\Test\Api;
 
 use PayPal\Common\PayPalModel;
 use PayPal\Api\FileAttachment;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Class FileAttachment
  *
  * @package PayPal\Test\Api
  */
-class FileAttachmentTest extends \PHPUnit_Framework_TestCase
+class FileAttachmentTest extends TestCase
 {
     /**
      * Gets Json String of Object FileAttachment

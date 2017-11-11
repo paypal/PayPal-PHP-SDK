@@ -3,12 +3,13 @@
 namespace PayPal\Test\Cache;
 
 use PayPal\Cache\AuthorizationCache;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Test class for AuthorizationCacheTest.
  *
  */
-class AuthorizationCacheTest extends \PHPUnit_Framework_TestCase
+class AuthorizationCacheTest extends TestCase
 {
     const CACHE_FILE = 'tests/var/test.cache';
 

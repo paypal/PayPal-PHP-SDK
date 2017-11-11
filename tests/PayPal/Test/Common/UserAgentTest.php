@@ -1,8 +1,9 @@
 <?php
 
 use PayPal\Common\PayPalUserAgent;
+use PHPUnit\Framework\TestCase;
 
-class UserAgentTest extends PHPUnit_Framework_TestCase
+class UserAgentTest extends TestCase
 {
 
     public function testGetValue()

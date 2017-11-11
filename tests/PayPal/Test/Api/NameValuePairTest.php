@@ -3,13 +3,14 @@
 namespace PayPal\Test\Api;
 
 use PayPal\Api\NameValuePair;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Class NameValuePair
  *
  * @package PayPal\Test\Api
  */
-class NameValuePairTest extends \PHPUnit_Framework_TestCase
+class NameValuePairTest extends TestCase
 {
     /**
      * Gets Json String of Object NameValuePair

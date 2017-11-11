@@ -3,12 +3,13 @@
 namespace PayPal\Test\Api;
 
 use PayPal\Api\OpenIdUserinfo;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Test class for OpenIdUserinfo.
  *
  */
-class OpenIdUserinfoTest extends \PHPUnit_Framework_TestCase
+class OpenIdUserinfoTest extends TestCase
 {
 
 

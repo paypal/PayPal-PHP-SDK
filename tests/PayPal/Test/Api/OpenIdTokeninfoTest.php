@@ -2,12 +2,13 @@
 namespace PayPal\Test\Api;
 
 use PayPal\Api\OpenIdTokeninfo;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Test class for OpenIdTokeninfo.
  *
  */
-class OpenIdTokeninfoTest extends \PHPUnit_Framework_TestCase
+class OpenIdTokeninfoTest extends TestCase
 {
 
     /** @var  OpenIdTokeninfo */

@@ -7,13 +7,14 @@ use PayPal\Validation\ArgumentValidator;
 use PayPal\Api\Template;
 use PayPal\Rest\ApiContext;
 use PayPal\Api\Templates;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Class Templates
  *
  * @package PayPal\Test\Api
  */
-class TemplatesTest extends \PHPUnit_Framework_TestCase
+class TemplatesTest extends TestCase
 {
     /**
      * Gets Json String of Object Templates

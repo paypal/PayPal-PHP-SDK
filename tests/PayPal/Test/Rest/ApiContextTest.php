@@ -1,12 +1,13 @@
 <?php
 
 use PayPal\Rest\ApiContext;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Test class for ApiContextTest.
  *
  */
-class ApiContextTest extends PHPUnit_Framework_TestCase
+class ApiContextTest extends TestCase
 {
 
     /**

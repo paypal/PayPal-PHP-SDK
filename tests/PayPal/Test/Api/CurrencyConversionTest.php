@@ -3,13 +3,14 @@
 namespace PayPal\Test\Api;
 
 use PayPal\Api\CurrencyConversion;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Class CurrencyConversion
  *
  * @package PayPal\Test\Api
  */
-class CurrencyConversionTest extends \PHPUnit_Framework_TestCase
+class CurrencyConversionTest extends TestCase
 {
     /**
      * Gets Json String of Object CurrencyConversion

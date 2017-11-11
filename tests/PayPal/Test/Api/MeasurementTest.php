@@ -3,13 +3,14 @@
 namespace PayPal\Test\Api;
 
 use PayPal\Api\Measurement;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Class Measurement
  *
  * @package PayPal\Test\Api
  */
-class MeasurementTest extends \PHPUnit_Framework_TestCase
+class MeasurementTest extends TestCase
 {
     /**
      * Gets Json String of Object Measurement

@@ -4,13 +4,14 @@ namespace PayPal\Test\Api;
 
 use PayPal\Common\PayPalModel;
 use PayPal\Api\VerifyWebhookSignatureResponse;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Class VerifyWebhookSignatureResponse
  *
  * @package PayPal\Test\Api
  */
-class VerifyWebhookSignatureResponseTest extends \PHPUnit_Framework_TestCase
+class VerifyWebhookSignatureResponseTest extends TestCase
 {
     /**
      * Gets Json String of Object VerifyWebhookSignatureResponse

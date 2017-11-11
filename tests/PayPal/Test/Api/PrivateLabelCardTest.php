@@ -3,13 +3,14 @@
 namespace PayPal\Test\Api;
 
 use PayPal\Api\PrivateLabelCard;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Class PrivateLabelCard
  *
  * @package PayPal\Test\Api
  */
-class PrivateLabelCardTest extends \PHPUnit_Framework_TestCase
+class PrivateLabelCardTest extends TestCase
 {
     /**
      * Gets Json String of Object PrivateLabelCard

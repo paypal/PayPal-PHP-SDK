@@ -3,13 +3,14 @@
 namespace PayPal\Test\Api;
 
 use PayPal\Api\Incentive;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Class Incentive
  *
  * @package PayPal\Test\Api
  */
-class IncentiveTest extends \PHPUnit_Framework_TestCase
+class IncentiveTest extends TestCase
 {
     /**
      * Gets Json String of Object Incentive

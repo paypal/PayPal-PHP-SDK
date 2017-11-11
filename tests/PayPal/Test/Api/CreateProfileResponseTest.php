@@ -3,13 +3,14 @@
 namespace PayPal\Test\Api;
 
 use PayPal\Api\CreateProfileResponse;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Class CreateProfileResponse
  *
  * @package PayPal\Test\Api
  */
-class CreateProfileResponseTest extends \PHPUnit_Framework_TestCase
+class CreateProfileResponseTest extends TestCase
 {
     /**
      * Gets Json String of Object CreateProfileResponse

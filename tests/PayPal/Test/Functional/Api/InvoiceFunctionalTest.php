@@ -9,13 +9,14 @@ use PayPal\Api\PaymentDetail;
 use PayPal\Api\RefundDetail;
 use PayPal\Api\Search;
 use PayPal\Test\Functional\Setup;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Class Invoice
  *
  * @package PayPal\Test\Api
  */
-class InvoiceFunctionalTest extends \PHPUnit_Framework_TestCase
+class InvoiceFunctionalTest extends TestCase
 {
 
     public static $obj;

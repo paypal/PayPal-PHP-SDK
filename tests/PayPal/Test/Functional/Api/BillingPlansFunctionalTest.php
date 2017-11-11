@@ -6,13 +6,14 @@ use PayPal\Api\Patch;
 use PayPal\Api\PatchRequest;
 use PayPal\Api\Plan;
 use PayPal\Test\Functional\Setup;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Class Billing Plans
  *
  * @package PayPal\Test\Api
  */
-class BillingPlansFunctionalTest extends \PHPUnit_Framework_TestCase
+class BillingPlansFunctionalTest extends TestCase
 {
 
     public static $obj;

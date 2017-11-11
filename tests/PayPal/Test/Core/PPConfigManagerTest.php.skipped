@@ -1,7 +1,8 @@
 <?php
 use PayPal\Core\PayPalConfigManager;
+use PHPUnit\Framework\TestCase;
 
-class PPConfigManagerTest extends \PHPUnit_Framework_TestCase
+class PPConfigManagerTest extends TestCase
 {
     /**
      * @var PayPalConfigManager

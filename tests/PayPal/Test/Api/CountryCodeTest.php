@@ -3,13 +3,14 @@
 namespace PayPal\Test\Api;
 
 use PayPal\Api\CountryCode;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Class CountryCode
  *
  * @package PayPal\Test\Api
  */
-class CountryCodeTest extends \PHPUnit_Framework_TestCase
+class CountryCodeTest extends TestCase
 {
     /**
      * Gets Json String of Object CountryCode

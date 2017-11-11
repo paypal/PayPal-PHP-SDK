@@ -2,8 +2,9 @@
 namespace PayPal\Test\Validation;
 
 use PayPal\Validation\JsonValidator;
+use PHPUnit\Framework\TestCase;
 
-class JsonValidatorTest extends \PHPUnit_Framework_TestCase
+class JsonValidatorTest extends TestCase
 {
 
     public static function positiveProvider()

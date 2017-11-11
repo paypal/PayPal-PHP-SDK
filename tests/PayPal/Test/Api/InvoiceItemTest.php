@@ -3,13 +3,14 @@
 namespace PayPal\Test\Api;
 
 use PayPal\Api\InvoiceItem;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Class InvoiceItem
  *
  * @package PayPal\Test\Api
  */
-class InvoiceItemTest extends \PHPUnit_Framework_TestCase
+class InvoiceItemTest extends TestCase
 {
     /**
      * Gets Json String of Object InvoiceItem
