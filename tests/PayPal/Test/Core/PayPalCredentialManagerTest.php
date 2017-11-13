@@ -1,12 +1,13 @@
 <?php
 use PayPal\Core\PayPalCredentialManager;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Test class for PayPalCredentialManager.
  *
  * @runTestsInSeparateProcesses
  */
-class PayPalCredentialManagerTest extends \PHPUnit_Framework_TestCase
+class PayPalCredentialManagerTest extends TestCase
 {
     /**
      * @var PayPalCredentialManager

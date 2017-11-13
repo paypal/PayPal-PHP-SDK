@@ -4,13 +4,14 @@ namespace PayPal\Test\Api;
 
 use PayPal\Api\Authorization;
 use PayPal\Api\Order;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Class Order
  *
  * @package PayPal\Test\Api
  */
-class OrderTest extends \PHPUnit_Framework_TestCase
+class OrderTest extends TestCase
 {
     /**
      * Gets Json String of Object Order

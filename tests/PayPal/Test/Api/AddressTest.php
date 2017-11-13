@@ -1,15 +1,15 @@
 <?php
-
 namespace PayPal\Test\Api;
 
 use PayPal\Api\Address;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Class Address
  *
  * @package PayPal\Test\Api
  */
-class AddressTest extends \PHPUnit_Framework_TestCase
+class AddressTest extends TestCase
 {
     /**
      * Gets Json String of Object Address
@@ -28,7 +28,6 @@ class AddressTest extends \PHPUnit_Framework_TestCase
     {
         return new Address(self::getJson());
     }
-
 
     /**
      * Tests for Serialization and Deserialization Issues

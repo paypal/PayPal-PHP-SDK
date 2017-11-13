@@ -3,13 +3,14 @@
 namespace PayPal\Test\Api;
 
 use PayPal\Api\Metadata;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Class Metadata
  *
  * @package PayPal\Test\Api
  */
-class MetadataTest extends \PHPUnit_Framework_TestCase
+class MetadataTest extends TestCase
 {
     /**
      * Gets Json String of Object Metadata

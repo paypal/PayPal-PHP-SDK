@@ -6,13 +6,14 @@ use PayPal\Api\Payment;
 use PayPal\Api\Refund;
 use PayPal\Api\Sale;
 use PayPal\Test\Functional\Setup;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Class WebProfile
  *
  * @package PayPal\Test\Api
  */
-class PaymentsFunctionalTest extends \PHPUnit_Framework_TestCase
+class PaymentsFunctionalTest extends TestCase
 {
 
     public $operation;

@@ -4,13 +4,14 @@ namespace PayPal\Test\Api;
 
 use PayPal\Common\PayPalModel;
 use PayPal\Api\CartBase;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Class CartBase
  *
  * @package PayPal\Test\Api
  */
-class CartBaseTest extends \PHPUnit_Framework_TestCase
+class CartBaseTest extends TestCase
 {
     /**
      * Gets Json String of Object CartBase

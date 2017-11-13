@@ -3,13 +3,14 @@
 namespace PayPal\Test\Api;
 
 use PayPal\Api\RedirectUrls;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Class RedirectUrls
  *
  * @package PayPal\Test\Api
  */
-class RedirectUrlsTest extends \PHPUnit_Framework_TestCase
+class RedirectUrlsTest extends TestCase
 {
     /**
      * Gets Json String of Object RedirectUrls

@@ -3,13 +3,14 @@
 namespace PayPal\Test\Api;
 
 use PayPal\Api\ShippingAddress;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Class ShippingAddress
  *
  * @package PayPal\Test\Api
  */
-class ShippingAddressTest extends \PHPUnit_Framework_TestCase
+class ShippingAddressTest extends TestCase
 {
     /**
      * Gets Json String of Object ShippingAddress

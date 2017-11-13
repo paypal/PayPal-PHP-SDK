@@ -4,13 +4,14 @@ namespace PayPal\Test\Api;
 
 use PayPal\Common\PayPalModel;
 use PayPal\Api\TemplateSettingsMetadata;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Class TemplateSettingsMetadata
  *
  * @package PayPal\Test\Api
  */
-class TemplateSettingsMetadataTest extends \PHPUnit_Framework_TestCase
+class TemplateSettingsMetadataTest extends TestCase
 {
     /**
      * Gets Json String of Object TemplateSettingsMetadata

@@ -3,13 +3,14 @@
 namespace PayPal\Test\Api;
 
 use PayPal\Api\MerchantPreferences;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Class MerchantPreferences
  *
  * @package PayPal\Test\Api
  */
-class MerchantPreferencesTest extends \PHPUnit_Framework_TestCase
+class MerchantPreferencesTest extends TestCase
 {
     /**
      * Gets Json String of Object MerchantPreferences

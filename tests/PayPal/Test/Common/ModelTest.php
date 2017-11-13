@@ -4,8 +4,9 @@ namespace PayPal\Test\Common;
 use PayPal\Api\Payment;
 use PayPal\Common\PayPalModel;
 use PayPal\Core\PayPalConfigManager;
+use PHPUnit\Framework\TestCase;
 
-class ModelTest extends \PHPUnit_Framework_TestCase
+class ModelTest extends TestCase
 {
 
     public function testSimpleClassConversion()

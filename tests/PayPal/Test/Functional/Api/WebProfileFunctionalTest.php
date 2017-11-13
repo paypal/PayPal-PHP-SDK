@@ -6,13 +6,14 @@ use PayPal\Api\CreateProfileResponse;
 use PayPal\Api\Patch;
 use PayPal\Api\WebProfile;
 use PayPal\Test\Functional\Setup;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Class WebProfile
  *
  * @package PayPal\Test\Api
  */
-class WebProfileFunctionalTest extends \PHPUnit_Framework_TestCase
+class WebProfileFunctionalTest extends TestCase
 {
 
     public $operation;

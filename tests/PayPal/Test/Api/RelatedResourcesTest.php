@@ -3,13 +3,14 @@
 namespace PayPal\Test\Api;
 
 use PayPal\Api\RelatedResources;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Class RelatedResources
  *
  * @package PayPal\Test\Api
  */
-class RelatedResourcesTest extends \PHPUnit_Framework_TestCase
+class RelatedResourcesTest extends TestCase
 {
     /**
      * Gets Json String of Object RelatedResources

@@ -4,13 +4,14 @@ namespace PayPal\Test\Api;
 
 use PayPal\Common\PayPalModel;
 use PayPal\Api\FlowConfig;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Class FlowConfig
  *
  * @package PayPal\Test\Api
  */
-class FlowConfigTest extends \PHPUnit_Framework_TestCase
+class FlowConfigTest extends TestCase
 {
     /**
      * Gets Json String of Object FlowConfig

@@ -3,12 +3,13 @@
 namespace PayPal\Test\Core;
 
 use PayPal\Core\PayPalHttpConfig;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Test class for PayPalHttpConfigTest.
  *
  */
-class PayPalHttpConfigTest extends \PHPUnit_Framework_TestCase
+class PayPalHttpConfigTest extends TestCase
 {
 
     protected $object;

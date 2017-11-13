@@ -4,12 +4,13 @@ namespace PayPal\Test\Api;
 
 use PayPal\Api\OpenIdSession;
 use PayPal\Rest\ApiContext;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Test class for OpenIdSession.
  *
  */
-class OpenIdSessionTest extends \PHPUnit_Framework_TestCase
+class OpenIdSessionTest extends TestCase
 {
 
     private $context;

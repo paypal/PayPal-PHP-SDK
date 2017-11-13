@@ -5,13 +5,14 @@ namespace PayPal\Test\Functional;
 use PayPal\Auth\OAuthTokenCredential;
 use PayPal\Core\PayPalCredentialManager;
 use PayPal\Rest\ApiContext;
+use PHPUnit\Framework\TestCase;
 
 class Setup
 {
 
     public static $mode = 'mock';
 
-    public static function SetUpForFunctionalTests(\PHPUnit_Framework_TestCase &$test)
+    public static function SetUpForFunctionalTests(TestCase &$test)
     {
         $configs = array(
             'mode' => 'sandbox',

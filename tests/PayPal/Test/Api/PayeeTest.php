@@ -3,13 +3,14 @@
 namespace PayPal\Test\Api;
 
 use PayPal\Api\Payee;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Class Payee
  *
  * @package PayPal\Test\Api
  */
-class PayeeTest extends \PHPUnit_Framework_TestCase
+class PayeeTest extends TestCase
 {
     /**
      * Gets Json String of Object Payee

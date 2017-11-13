@@ -3,8 +3,9 @@ namespace PayPal\Test\Api;
 
 use PayPal\Api\CreditCard;
 use PayPal\Api\CreditCardHistory;
+use PHPUnit\Framework\TestCase;
 
-class CreditCardHistoryTest extends \PHPUnit_Framework_TestCase
+class CreditCardHistoryTest extends TestCase
 {
 
     private $cards;

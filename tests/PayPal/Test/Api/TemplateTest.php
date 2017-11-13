@@ -4,13 +4,14 @@ namespace PayPal\Test\Api;
 
 use PayPal\Common\PayPalModel;
 use PayPal\Api\Template;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Class Template
  *
  * @package PayPal\Test\Api
  */
-class TemplateTest extends \PHPUnit_Framework_TestCase
+class TemplateTest extends TestCase
 {
     /**
      * Gets Json String of Object Template

@@ -4,13 +4,14 @@ namespace PayPal\Test\Api;
 
 use PayPal\Api\Capture;
 use PayPal\Transport\PPRestCall;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Class Capture
  *
  * @package PayPal\Test\Api
  */
-class CaptureTest extends \PHPUnit_Framework_TestCase
+class CaptureTest extends TestCase
 {
     /**
      * Gets Json String of Object Capture

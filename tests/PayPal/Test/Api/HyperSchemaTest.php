@@ -3,13 +3,14 @@
 namespace PayPal\Test\Api;
 
 use PayPal\Api\HyperSchema;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Class HyperSchema
  *
  * @package PayPal\Test\Api
  */
-class HyperSchemaTest extends \PHPUnit_Framework_TestCase
+class HyperSchemaTest extends TestCase
 {
     /**
      * Gets Json String of Object HyperSchema

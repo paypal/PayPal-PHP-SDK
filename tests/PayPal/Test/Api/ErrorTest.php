@@ -3,13 +3,14 @@
 namespace PayPal\Test\Api;
 
 use PayPal\Api\Error;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Class Error
  *
  * @package PayPal\Test\Api
  */
-class ErrorTest extends \PHPUnit_Framework_TestCase
+class ErrorTest extends TestCase
 {
     /**
      * Gets Json String of Object Error

@@ -4,13 +4,14 @@ namespace PayPal\Test\Api;
 
 use PayPal\Api\Authorization;
 use PayPal\Transport\PPRestCall;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Class Authorization
  *
  * @package PayPal\Test\Api
  */
-class AuthorizationTest extends \PHPUnit_Framework_TestCase
+class AuthorizationTest extends TestCase
 {
     /**
      * Gets Json String of Object Authorization

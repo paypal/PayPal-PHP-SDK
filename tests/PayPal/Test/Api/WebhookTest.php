@@ -7,13 +7,14 @@ use PayPal\Validation\ArgumentValidator;
 use PayPal\Api\WebhookList;
 use PayPal\Rest\ApiContext;
 use PayPal\Api\Webhook;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Class Webhook
  *
  * @package PayPal\Test\Api
  */
-class WebhookTest extends \PHPUnit_Framework_TestCase
+class WebhookTest extends TestCase
 {
     /**
      * Gets Json String of Object Webhook

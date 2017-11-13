@@ -10,8 +10,9 @@ use PayPal\Api\Tax;
 use PayPal\Common\PayPalModel;
 use PayPal\Converter\FormatConverter;
 use PayPal\Test\Validation\NumericValidatorTest;
+use PHPUnit\Framework\TestCase;
 
-class FormatConverterTest extends \PHPUnit_Framework_TestCase
+class FormatConverterTest extends TestCase
 {
 
     public static function classMethodListProvider()

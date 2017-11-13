@@ -3,13 +3,14 @@
 namespace PayPal\Test\Api;
 
 use PayPal\Api\MerchantInfo;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Class MerchantInfo
  *
  * @package PayPal\Test\Api
  */
-class MerchantInfoTest extends \PHPUnit_Framework_TestCase
+class MerchantInfoTest extends TestCase
 {
     /**
      * Gets Json String of Object MerchantInfo

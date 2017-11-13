@@ -3,12 +3,13 @@
 namespace PayPal\Test\Api;
 
 use PayPal\Api\OpenIdError;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Test class for OpenIdError.
  *
  */
-class OpenIdErrorTest extends \PHPUnit_Framework_TestCase
+class OpenIdErrorTest extends TestCase
 {
 
     /** @var  OpenIdError */

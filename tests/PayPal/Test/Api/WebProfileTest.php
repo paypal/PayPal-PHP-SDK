@@ -3,13 +3,14 @@
 namespace PayPal\Test\Api;
 
 use PayPal\Api\WebProfile;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Class WebProfile
  *
  * @package PayPal\Test\Api
  */
-class WebProfileTest extends \PHPUnit_Framework_TestCase
+class WebProfileTest extends TestCase
 {
     /**
      * Gets Json String of Object WebProfile

@@ -3,13 +3,14 @@
 namespace PayPal\Test\Api;
 
 use PayPal\Api\CancelNotification;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Class CancelNotification
  *
  * @package PayPal\Test\Api
  */
-class CancelNotificationTest extends \PHPUnit_Framework_TestCase
+class CancelNotificationTest extends TestCase
 {
     /**
      * Gets Json String of Object CancelNotification

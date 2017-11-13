@@ -4,13 +4,14 @@ namespace PayPal\Test\Api;
 
 use PayPal\Common\PayPalModel;
 use PayPal\Api\PayoutSenderBatchHeader;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Class PayoutSenderBatchHeader
  *
  * @package PayPal\Test\Api
  */
-class PayoutSenderBatchHeaderTest extends \PHPUnit_Framework_TestCase
+class PayoutSenderBatchHeaderTest extends TestCase
 {
     /**
      * Gets Json String of Object PayoutSenderBatchHeader

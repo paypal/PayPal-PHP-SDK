@@ -3,13 +3,14 @@
 namespace PayPal\Test\Api;
 
 use PayPal\Api\AgreementTransaction;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Class AgreementTransaction
  *
  * @package PayPal\Test\Api
  */
-class AgreementTransactionTest extends \PHPUnit_Framework_TestCase
+class AgreementTransactionTest extends TestCase
 {
     /**
      * Gets Json String of Object AgreementTransaction

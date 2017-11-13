@@ -3,13 +3,14 @@
 namespace PayPal\Test\Api;
 
 use PayPal\Api\InputFields;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Class InputFields
  *
  * @package PayPal\Test\Api
  */
-class InputFieldsTest extends \PHPUnit_Framework_TestCase
+class InputFieldsTest extends TestCase
 {
     /**
      * Gets Json String of Object InputFields

@@ -4,13 +4,14 @@ namespace PayPal\Test\Api;
 
 use PayPal\Common\PayPalModel;
 use PayPal\Api\WebhookEventList;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Class WebhookEventList
  *
  * @package PayPal\Test\Api
  */
-class WebhookEventListTest extends \PHPUnit_Framework_TestCase
+class WebhookEventListTest extends TestCase
 {
     /**
      * Gets Json String of Object WebhookEventList

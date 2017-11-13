@@ -9,13 +9,14 @@ use PayPal\Api\Patch;
 use PayPal\Api\PatchRequest;
 use PayPal\Api\Plan;
 use PayPal\Test\Functional\Setup;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Class Billing Agreements
  *
  * @package PayPal\Test\Api
  */
-class BillingAgreementsFunctionalTest extends \PHPUnit_Framework_TestCase
+class BillingAgreementsFunctionalTest extends TestCase
 {
 
     public $operation;

@@ -8,8 +8,9 @@ use PayPal\Core\PayPalConfigManager;
 use PayPal\Rest\ApiContext;
 use PayPal\Test\Cache\AuthorizationCacheTest;
 use PayPal\Test\Constants;
+use PHPUnit\Framework\TestCase;
 
-class OAuthTokenCredentialTest extends \PHPUnit_Framework_TestCase
+class OAuthTokenCredentialTest extends TestCase
 {
 
     /**

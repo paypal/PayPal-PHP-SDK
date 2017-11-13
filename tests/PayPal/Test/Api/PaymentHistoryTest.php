@@ -3,13 +3,14 @@
 namespace PayPal\Test\Api;
 
 use PayPal\Api\PaymentHistory;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Class PaymentHistory
  *
  * @package PayPal\Test\Api
  */
-class PaymentHistoryTest extends \PHPUnit_Framework_TestCase
+class PaymentHistoryTest extends TestCase
 {
     /**
      * Gets Json String of Object PaymentHistory

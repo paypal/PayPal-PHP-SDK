@@ -4,13 +4,14 @@ namespace PayPal\Test\Api;
 
 use PayPal\Common\PayPalModel;
 use PayPal\Api\Patch;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Class Patch
  *
  * @package PayPal\Test\Api
  */
-class PatchTest extends \PHPUnit_Framework_TestCase
+class PatchTest extends TestCase
 {
     /**
      * Gets Json String of Object Patch

@@ -5,13 +5,14 @@ namespace PayPal\Test\Api;
 use PayPal\Api\ItemsArray;
 use PayPal\Api\PayoutItem;
 use PayPal\Transport\PPRestCall;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Class PayoutItem
  *
  * @package PayPal\Test\Api
  */
-class PayoutItemTest extends \PHPUnit_Framework_TestCase
+class PayoutItemTest extends TestCase
 {
     /**
      * Gets Json String of Object PayoutItem

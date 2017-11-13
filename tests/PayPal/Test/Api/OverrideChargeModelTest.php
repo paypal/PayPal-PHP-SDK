@@ -3,13 +3,14 @@
 namespace PayPal\Test\Api;
 
 use PayPal\Api\OverrideChargeModel;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Class OverrideChargeModel
  *
  * @package PayPal\Test\Api
  */
-class OverrideChargeModelTest extends \PHPUnit_Framework_TestCase
+class OverrideChargeModelTest extends TestCase
 {
     /**
      * Gets Json String of Object OverrideChargeModel
