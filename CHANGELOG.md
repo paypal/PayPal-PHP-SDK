@@ -1,6 +1,13 @@
 PayPal PHP SDK release notes
 ============================
 
+1.13.0
+-----
+* Add HUF as a non-decimal currency [#974](https://github.com/paypal/PayPal-PHP-SDK/pull/974).
+* Add `purchaseOrder` in `CartBase` [#939](https://github.com/paypal/PayPal-PHP-SDK/pull/939).
+* Fixed annotation bug [#872](https://github.com/paypal/PayPal-PHP-SDK/pull/872).
+* Update PHPUnit [#979](https://github.com/paypal/PayPal-PHP-SDK/pull/979).
+
 1.12.0
 -----
 * Add `getToken` method to `Payment` class to retrieve EC token from approval URL.
