@@ -70,15 +70,25 @@ class OAuthTokenCredentialTest extends \PHPUnit_Framework_TestCase
         $cred = new OAuthTokenCredential('clientId', 'clientSecret', 'subject');
 
         //{"clientId":{"clientId":"clientId","accessToken":"accessToken","tokenCreateTime":1421204091,"tokenExpiresIn":288000000}}
-        AuthorizationCache::push($config, 'clientId', $cred->encrypt('accessTokenWithSubject'), 1421204091, 288000000);
+        AuthorizationCache::push($config, 'clientId', $cred->encrypt('accessTokenWithSubject'), 1421204091, 288000000, 'subject');
+        AuthorizationCache::push($config, 'clientId', $cred->encrypt('accessToken1'), 1421204091, 288000000);
 
         $apiContext = new ApiContext($cred);
         $apiContext->setConfig($config);
         $this->assertEquals('clientId', $cred->getClientId());
         $this->assertEquals('clientSecret', $cred->getClientSecret());
         $this->assertEquals('subject', $cred->getSubject());
-        $result = $cred->getAccessToken($config);
-        $this->assertNotNull($result);
+        $result = $cred->getAccessToken($config);        
+        $this->assertEquals('accessTokenWithSubject', $result);
+
+        $cred = new OAuthTokenCredential('clientId', 'clientSecret');
+        $apiContext = new ApiContext($cred);
+        $apiContext->setConfig($config);
+        $this->assertEquals('clientId', $cred->getClientId());
+        $this->assertEquals('clientSecret', $cred->getClientSecret());
+        $this->assertNull($cred->getSubject());
+        $result = $cred->getAccessToken($config);        
+        $this->assertEquals('accessToken1', $result);
     }
 
     public function testGetAccessTokenUnitMock()

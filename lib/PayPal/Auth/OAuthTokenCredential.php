@@ -38,7 +38,7 @@ class OAuthTokenCredential extends PayPalResourceModel
      *
      * @var string $clientId
      */
-    private $clientId;
+    private $clientId; 
 
     /**
      * Client secret as obtained from the developer portal
@@ -76,7 +76,7 @@ class OAuthTokenCredential extends PayPalResourceModel
     private $cipher;
 
     /**
-     * The encryted account number of the merchant on whose behalf the transaction is being done
+     * The encrypted account number of the merchant on whose behalf the transaction is being done
      *
      * @var Subject
      */
@@ -140,8 +140,9 @@ class OAuthTokenCredential extends PayPalResourceModel
         if ($this->accessToken && (time() - $this->tokenCreateTime) < ($this->tokenExpiresIn - self::$expiryBufferTime)) {
             return $this->accessToken;
         }
+
         // Check for persisted data first
-        $token = AuthorizationCache::pull($config, $this->clientId);
+        $token = AuthorizationCache::pull($config, $this->clientId, $this->subject);
         if ($token) {
             // We found it
             // This code block is for backward compatibility only.
@@ -154,7 +155,7 @@ class OAuthTokenCredential extends PayPalResourceModel
 
             // Case where we have an old unencrypted cache file
             if (!array_key_exists('accessTokenEncrypted', $token)) {
-                AuthorizationCache::push($config, $this->clientId, $this->encrypt($this->accessToken), $this->tokenCreateTime, $this->tokenExpiresIn);
+                AuthorizationCache::push($config, $this->clientId, $this->encrypt($this->accessToken), $this->tokenCreateTime, $this->tokenExpiresIn, $this->subject);
             } else {
                 $this->accessToken = $this->decrypt($token['accessTokenEncrypted']);
             }
@@ -177,7 +178,7 @@ class OAuthTokenCredential extends PayPalResourceModel
         if ($this->accessToken == null) {
             // Get a new one by making calls to API
             $this->updateAccessToken($config);
-            AuthorizationCache::push($config, $this->clientId, $this->encrypt($this->accessToken), $this->tokenCreateTime, $this->tokenExpiresIn);
+            AuthorizationCache::push($config, $this->clientId, $this->encrypt($this->accessToken), $this->tokenCreateTime, $this->tokenExpiresIn, $this->subject);
         }
 
         return $this->accessToken;
@@ -287,7 +288,7 @@ class OAuthTokenCredential extends PayPalResourceModel
             $params['refresh_token'] = $refreshToken;
         }
 
-        if ($this->subject != null && $refreshToken != null) {
+        if ($this->subject != null && $refreshToken == null) {
             $params['target_subject'] = $this->subject;
         }
 
