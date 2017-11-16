@@ -162,6 +162,9 @@ class PayPalHttpConnection
         $this->skippedHttpStatusLine = false;
         curl_setopt($ch, CURLOPT_HEADERFUNCTION, array($this, 'parseResponseHeaders'));
 
+        // return the contents of the transfer
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
         //Execute Curl Request
         $result = curl_exec($ch);
         //Retrieve Response Status
