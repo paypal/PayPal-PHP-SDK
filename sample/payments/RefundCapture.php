@@ -13,6 +13,8 @@ use PayPal\Api\RefundRequest;
 // ### Refund
 // Create a refund object indicating
 // refund amount and call the refund method
+$refundRequest = new RefundRequest();
+$refundRequest->setAmount($amt);
 
 // Replace $captureId with any static Id you might already have. 
 $captureId = "<your authorization id here>";
