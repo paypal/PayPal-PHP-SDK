@@ -55,7 +55,7 @@ class CreditCardHistoryTest extends TestCase
         $cardHistory->setCreditCards(array($this->cards['partial'], $this->cards['full']));
         $cardHistory->setCount(2);
 
-        $this->assertEquals(2, count($cardHistory->getCreditCards()));
+        $this->assertCount(2, $cardHistory->getCreditCards());
     }
 
 

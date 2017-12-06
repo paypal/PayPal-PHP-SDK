@@ -156,10 +156,10 @@ class ModelTest extends TestCase
         $obj->obj = '{}';
         $obj->objs = array('{}');
         $this->assertEquals("other", $obj->something);
-        $this->assertTrue(is_array($obj->else));
+        $this->assertInternalType('array', $obj->else);
         $this->assertNull($obj->there);
         $this->assertEquals('{}', $obj->obj);
-        $this->assertTrue(is_array($obj->objs));
+        $this->assertInternalType('array', $obj->objs);
         $this->assertEquals('{}', $obj->objs[0]);
     }
 

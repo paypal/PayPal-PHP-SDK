@@ -95,7 +95,7 @@ class AuthorizationCacheTest extends TestCase
     {
         $result = AuthorizationCache::pull(array('cache.enabled' => true, 'cache.FileName' => AuthorizationCacheTest::CACHE_FILE), 'clientId');
         $this->assertNotNull($result);
-        $this->assertTrue(is_array($result));
+        $this->assertInternalType('array', $result);
         $this->assertEquals('clientId', $result['clientId']);
         $this->assertEquals('accessToken', $result['accessTokenEncrypted']);
         $this->assertEquals('tokenCreateTime', $result['tokenCreateTime']);

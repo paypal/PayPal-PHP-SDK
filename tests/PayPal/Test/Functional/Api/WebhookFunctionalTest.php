@@ -103,7 +103,7 @@ class WebhookFunctionalTest extends TestCase
     {
         $result = WebhookEventType::subscribedEventTypes($webhook->getId(), $this->apiContext, $this->mockPayPalRestCall);
         $this->assertNotNull($result);
-        $this->assertEquals(2, sizeof($result->getEventTypes()));
+        $this->assertCount(2, $result->getEventTypes());
         return $result;
     }
 

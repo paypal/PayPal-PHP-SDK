@@ -63,7 +63,7 @@ class PayoutsFunctionalTest extends TestCase
         $this->assertEquals(PayoutsFunctionalTest::$batchId, $result->getBatchHeader()->getSenderBatchHeader()->getSenderBatchId());
         $this->assertEquals('SUCCESS', $result->getBatchHeader()->getBatchStatus());
         $items = $result->getItems();
-        $this->assertTrue(sizeof($items) > 0);
+        $this->assertGreaterThan(0, sizeof($items));
         $item = $items[0];
         $this->assertEquals('UNCLAIMED', $item->getTransactionStatus());
         return $result;
