@@ -290,7 +290,7 @@ class CartBase extends PayPalModel
      */
     public function setItemList($item_list)
     {
-        $this->item_list = $item_list;
+        $this->item_list = array_values($item_list);
         return $this;
     }
 
