@@ -142,7 +142,7 @@ class PayPalHttpClientTest extends TestCase
         $authHeader = self::env()->authorizationString();
         $this->wireMock->verify(WireMock::postRequestedFor(WireMock::urlEqualTo('/v1/oauth2/token'))
             ->withHeader('Authorization', WireMock::equalTo('Basic ' . $authHeader))
-            ->withRequestBody(WireMock::equalTo("grant_type=client_credentials&refresh_token=some-refresh-token")));
+            ->withRequestBody(WireMock::equalTo("grant_type=refresh_token&refresh_token=some-refresh-token")));
     }
 
     public function testExecute_CorrectUserAgentHeader()
