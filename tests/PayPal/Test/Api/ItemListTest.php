@@ -18,7 +18,7 @@ class ItemListTest extends TestCase
      */
     public static function getJson()
     {
-        return '{"items":' . ItemTest::getJson() . ',"shipping_address":' . ShippingAddressTest::getJson() . ',"shipping_method":"TestSample","shipping_phone_number":"TestSample"}';
+        return '{"items":[' . ItemTest::getJson() . '],"shipping_address":' . ShippingAddressTest::getJson() . ',"shipping_method":"TestSample","shipping_phone_number":"TestSample"}';
     }
 
     /**
