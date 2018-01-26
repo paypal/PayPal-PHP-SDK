@@ -1,9 +1,10 @@
 <?php
 
-namespace PaypalNetSdk\Test;
+namespace Paypal\Test;
 
-use PayPalNetSdk\Test\TestEnvironment;
-use PaypalNetSdk\PaypalHttpClient;
+
+use PayPal\Core\PayPalHttpClient;
+use PayPal\Core\SandboxEnvironment;
 
 ini_set('error_reporting', E_ALL); // or error_reporting(E_ALL);
 ini_set('display_errors', '1');
@@ -13,7 +14,13 @@ class TestHarness
 {
     public static function client()
     {
-        $environment = new TestEnvironment(getenv("BASE_URL"));
-        return new PaypalHttpClient($environment);
+        return new PayPalHttpClient(self::environment());
+    }
+
+    public static function environment()
+    {
+        $clientId = getenv("CLIENT_ID") ?: "AdV4d6nLHabWLyemrw4BKdO9LjcnioNIOgoz7vD611ObbDUL0kJQfzrdhXEBwnH8QmV-7XZjvjRWn0kg";
+        $clientSecret = getenv("CLIENT_SECRET") ?: "EPKoPC_haZMTq5uM9WXuzoxUVdgzVqHyD5avCyVC1NCIUJeVaNNUZMnzduYIqrdw-carG9LBAizFGMyK";
+        return new SandboxEnvironment($clientId, $clientSecret);
     }
 }
