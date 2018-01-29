@@ -28,6 +28,7 @@ class AuthorizationInjector implements Injector
             {
                 $this->accessToken = $this->fetchAccessToken();
             }
+            $request->headers['Authorization'] = 'Bearer ' . $this->accessToken->token;
         }
     }
 
