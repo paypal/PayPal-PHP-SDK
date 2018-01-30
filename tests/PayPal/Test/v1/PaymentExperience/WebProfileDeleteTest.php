@@ -1,11 +1,10 @@
 <?php
 
-namespace Test\PayPal\PaymentExperience;
+namespace PayPal\Test\v1\PaymentExperience;
 
-use PayPal\Test\PaymentExperience\WebProfileCreateTest;
 use PayPal\Test\TestHarness;
+use PayPal\v1\PaymentExperience\WebProfileDeleteRequest;
 use PHPUnit\Framework\TestCase;
-use PayPal\PaymentExperience\WebProfileDeleteRequest;
 
 
 class WebProfileDeleteTest extends TestCase

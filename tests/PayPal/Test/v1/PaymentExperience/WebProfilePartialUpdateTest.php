@@ -1,19 +1,20 @@
 <?php
 
-namespace Test\PayPal\PaymentExperience;
+namespace PayPal\Test\v1\PaymentExperience;
 
-use PayPal\PaymentExperience\WebProfileGetRequest;
-use PayPal\Test\PaymentExperience\WebProfileCreateTest;
 use PayPal\Test\TestHarness;
+use PayPal\v1\PaymentExperience\WebProfileGetRequest;
+use PayPal\v1\PaymentExperience\WebProfilePartialUpdateRequest;
 use PHPUnit\Framework\TestCase;
-use PayPal\PaymentExperience\WebProfilePartialUpdateRequest;
-
 
 class WebProfilePartialUpdateTest extends TestCase
 {
     private function buildRequestBody()
     {
-        return json_decode('[ { "op": "add", "path": "/presentation/brand_name", "value": "new_brand_name" }, { "op": "remove", "path": "/flow_config/landing_page_type" } ]', true);
+        return [
+            [ "op" => "add", "path" => "/presentation/brand_name", "value" => "new_brand_name" ],
+            [ "op" => "remove", "path" => "/flow_config/landing_page_type" ]
+        ];
     }
 
     public function testWebProfilePartialUpdateRequest()

@@ -1,13 +1,11 @@
 <?php
 
-namespace Test\PayPal\PaymentExperience;
+namespace PayPal\Test\v1\PaymentExperience;
 
-use PayPal\PaymentExperience\WebProfileGetRequest;
-use PayPal\Test\PaymentExperience\WebProfileCreateTest;
 use PayPal\Test\TestHarness;
+use PayPal\v1\PaymentExperience\WebProfileGetRequest;
+use PayPal\v1\PaymentExperience\WebProfileUpdateRequest;
 use PHPUnit\Framework\TestCase;
-use PayPal\PaymentExperience\WebProfileUpdateRequest;
-
 
 class WebProfileUpdateTest extends TestCase
 {

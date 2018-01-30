@@ -2,4 +2,5 @@
 projectName: PayPal
 language: php
 sourcePath: lib/PayPal
-testPath: tests
+testPath: tests/PayPal/Test
+apiVersioning: true

@@ -1,10 +1,10 @@
 <?php
 
-namespace Test\PayPal\PaymentExperience;
+namespace PayPal\Test\v1\PaymentExperience;
 
 use PayPal\Test\TestHarness;
+use PayPal\v1\PaymentExperience\WebProfileListRequest;
 use PHPUnit\Framework\TestCase;
-use PayPal\PaymentExperience\WebProfileListRequest;
 
 
 class WebProfileListTest extends TestCase

@@ -41,6 +41,6 @@ class AuthorizationInjector implements Injector
 
     private function isAuthRequest($request)
     {
-        return $request instanceof AccessTokenRequest /*|| $request instanceof RefreshTokenRequest*/;
+        return $request instanceof AccessTokenRequest || $request instanceof RefreshTokenRequest;
     }
 }

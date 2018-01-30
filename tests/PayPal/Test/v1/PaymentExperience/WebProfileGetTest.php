@@ -1,11 +1,10 @@
 <?php
 
-namespace Test\PayPal\PaymentExperience;
+namespace PayPal\Test\v1\PaymentExperience;
 
-use PayPal\Test\PaymentExperience\WebProfileCreateTest;
 use PayPal\Test\TestHarness;
+use PayPal\v1\PaymentExperience\WebProfileGetRequest;
 use PHPUnit\Framework\TestCase;
-use PayPal\PaymentExperience\WebProfileGetRequest;
 
 class WebProfileGetTest extends TestCase
 {
@@ -27,7 +26,5 @@ class WebProfileGetTest extends TestCase
         $getResponse = self::get();
         $this->assertEquals(200, $getResponse->statusCode);
         $this->assertNotNull($getResponse->result);
-
-        // Add your own checks here
     }
 }
