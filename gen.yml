@@ -1,5 +1,5 @@
 ---
 projectName: PayPal
 language: php
-sourcePath: lib/PaypalNetSdk
+sourcePath: lib/PayPal
 testPath: tests
