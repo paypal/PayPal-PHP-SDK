@@ -9,13 +9,19 @@ use PHPUnit\Framework\TestCase;
 class WebhookDeleteTest extends TestCase
 {
 
-    public function testWebhookDeleteRequest()
+    public static function delete($id)
     {
-        $response = WebhookCreateTest::create();
-        $request = new WebhookDeleteRequest($response->result->id);
+        $request = new WebhookDeleteRequest($id);
 
         $client = TestHarness::client();
-        $response = $client->execute($request);
+        return $client->execute($request);
+    }
+
+    public function testWebhookDeleteRequest()
+    {
+        $createResponse = WebhookCreateTest::create();
+
+        $response = self::delete($createResponse->result->id);
         $this->assertEquals(204, $response->statusCode);
     }
 }

@@ -9,12 +9,17 @@ use PHPUnit\Framework\TestCase;
 class WebhookListTest extends TestCase
 {
 
-    public function testWebhookListRequest()
+    public static function all()
     {
         $request = new WebhookListRequest();
 
         $client = TestHarness::client();
-        $response = $client->execute($request);
+        return $client->execute($request);
+    }
+
+    public function testWebhookListRequest()
+    {
+        $response = self::all();
         $this->assertEquals(200, $response->statusCode);
         $this->assertNotNull($response->result);
     }
