@@ -15,6 +15,15 @@
       "PayPal": "lib/"
     }
   },
+  "autoload-dev": {
+    "psr-0": {
+    	"PayPal": "tests/"
+    },
+    "files": [
+      "tests/bootstrap.php",
+      "tests/Test/TestHarness.php"
+    ]
+  },
   "scripts": {
     "unit": "phpunit --testsuite unit",
     "integration": "phpunit --testsuite integration"
