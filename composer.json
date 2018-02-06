@@ -14,5 +14,9 @@
     "psr-0": {
       "PayPal": "lib/"
     }
+  },
+  "scripts": {
+    "unit": "phpunit --testsuite unit",
+    "integration": "phpunit --testsuite integration"
   }
 }
