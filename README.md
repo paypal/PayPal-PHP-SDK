@@ -5,6 +5,8 @@ This is a preview of how PayPal SDKs will look in the next major version. We've 
 ### Creating a Payment
 
 ```php
+require 'vendor/autoload.php';
+
 use PayPal\v1\Payments\PaymentCreateRequest;
 use PayPal\Core\PayPalHttpClient;
 use PayPal\Core\SandboxEnvironment;
@@ -35,7 +37,8 @@ $request = new PaymentCreateRequest();
 $request->body = $body;
 
 try {
-    return $client->execute($request);
+    $response = $client->execute($request);
+    print_r($response);
 } catch (HttpException $ex) {
     echo $ex->statusCode;
     print_r($ex->getMessage());
@@ -46,7 +49,7 @@ If you're migrating from v1, check out our [Migration Guide](./docs/Migrating.md
 
 ## Building
 
-To try this out, update the version of `paypal/rest-api-sdk-php` in your `composer.json` to `^2.0.0-beta`.
+To try this out, update the version of `paypal/rest-api-sdk-php` in your `composer.json` to `dev-2.0-beta`, and run `composer update`.
 
 Please feel free to create an issue in this repo with any feedback, questions, or concerns you have.
 
