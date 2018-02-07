@@ -2,7 +2,7 @@
 
 namespace PayPal\Core;
 
-
+use BraintreeHttp\HttpRequest;
 use BraintreeHttp\Injector;
 use BraintreeHttp\HttpClient;
 
@@ -22,7 +22,7 @@ class AuthorizationInjector implements Injector
 
     public function inject($request)
     {
-        if (!$this->isAuthRequest($request))
+        if (!$this->hasAuthHeader($request) && !$this->isAuthRequest($request))
         {
             if (is_null($this->accessToken) || $this->accessToken->isExpired())
             {
@@ -42,5 +42,10 @@ class AuthorizationInjector implements Injector
     private function isAuthRequest($request)
     {
         return $request instanceof AccessTokenRequest || $request instanceof RefreshTokenRequest;
+    }
+
+    private function hasAuthHeader(HttpRequest $request)
+    {
+        return array_key_exists("Authorization", $request->headers);
     }
 }
