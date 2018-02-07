@@ -95,6 +95,22 @@ class PayPalHttpClientTest extends TestCase
             ->withRequestBody(WireMock::equalTo("grant_type=client_credentials")));
     }
 
+    public function testExecute_skipsFetchingAccessTokenIfAuthorizationHeaderAlreadyPresent()
+    {
+        $this->wireMock->stubFor(WireMock::get(WireMock::urlEqualTo('/some-path'))
+            ->willReturn(WireMock::aResponse()
+                ->withHeader('Content-Type', 'application/json')));
+
+        $req = new HttpRequest("/some-path", "GET");
+        $req->headers['Authorization'] = 'custom-header-value';
+        $client = new PayPalHttpClient(self::env());
+
+        $client->execute($req);
+
+        $this->wireMock->verify(WireMock::getRequestedFor(WireMock::urlEqualTo('/some-path'))
+            ->withHeader('Authorization', WireMock::equalTo('custom-header-value')));
+    }
+
     public function testExecute_fetchesAccessTokenIfExpired()
     {
         $this->wireMock->stubFor(WireMock::post(WireMock::urlEqualTo('/v1/oauth2/token'))
