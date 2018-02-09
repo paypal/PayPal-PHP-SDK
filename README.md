@@ -34,6 +34,8 @@ __Welcome to PayPal PHP SDK__. This repository contains PayPal's PHP SDK and sam
 - Checkout the latest 1.0.0 release. Here are all the [breaking Changes in v1.0.0](https://github.com/paypal/PayPal-PHP-SDK/wiki/Breaking-Changes---1.0.0) if you are migrating from older versions.
 - Now we have a [Github Page](https://paypal.github.io/PayPal-PHP-SDK/), that helps you find all helpful resources building applications using PayPal-PHP-SDK.
 
+## 2.0 Release Candidate!
+We're releasing a [brand new version of our SDK!](https://github.com/paypal/PayPal-php-SDK/tree/2.0-beta) 2.0 is currently at release candidate status, and represents a full refactor, with the goal of making all of our APIs extremely easy to use. 2.0 includes all of the existing APIs (except payouts), and includes the new Orders API (Disputes and Marketplace coming soon). Check out the [FAQ and migration guide](https://github.com/paypal/PayPal-php-SDK/tree/2.0-beta/docs), and let us know if you have any suggestions or issues!
 
 ## Prerequisites
 
