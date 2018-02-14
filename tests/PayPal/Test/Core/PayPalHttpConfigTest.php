@@ -45,7 +45,7 @@ class PayPalHttpConfigTest extends TestCase
         $o->addHeader('key2', 'value');
         $o->addHeader('key2', 'overwritten');
 
-        $this->assertEquals(2, count($o->getHeaders()));
+        $this->assertCount(2, $o->getHeaders());
         $this->assertEquals('overwritten', $o->getHeader('key2'));
         $this->assertNull($o->getHeader('key3'));
 
@@ -54,11 +54,11 @@ class PayPalHttpConfigTest extends TestCase
         $o->addHeader('key2', 'value');
         $o->addHeader('key2', 'and more', false);
 
-        $this->assertEquals(2, count($o->getHeaders()));
+        $this->assertCount(2, $o->getHeaders());
         $this->assertEquals('value;and more', $o->getHeader('key2'));
 
         $o->removeHeader('key2');
-        $this->assertEquals(1, count($o->getHeaders()));
+        $this->assertCount(1, $o->getHeaders());
         $this->assertNull($o->getHeader('key2'));
     }
 
@@ -71,7 +71,7 @@ class PayPalHttpConfigTest extends TestCase
         $o->setCurlOptions(array('k' => 'v'));
 
         $curlOpts = $o->getCurlOptions();
-        $this->assertEquals(1, count($curlOpts));
+        $this->assertCount(1, $curlOpts);
         $this->assertEquals('v', $curlOpts['k']);
     }
 
@@ -80,12 +80,12 @@ class PayPalHttpConfigTest extends TestCase
         $o = new PayPalHttpConfig();
         $o->setCurlOptions(array('k' => 'v'));
         $curlOpts = $o->getCurlOptions();
-        $this->assertEquals(1, count($curlOpts));
+        $this->assertCount(1, $curlOpts);
         $this->assertEquals('v', $curlOpts['k']);
 
         $o->removeCurlOption('k');
         $curlOpts = $o->getCurlOptions();
-        $this->assertEquals(0, count($curlOpts));
+        $this->assertCount(0, $curlOpts);
     }
 
     /**

@@ -280,7 +280,7 @@ class PayPalModelTest extends TestCase
     {
         $c1 = new SimpleModelTestClass();
         $c1->setField1("a")->setField2($field2);
-        $this->assertTrue(strpos($c1->toJSON(), "field2") !== !$matches);
+        $this->assertNotSame(strpos($c1->toJSON(), "field2"), !$matches);
     }
 
     public function getProvider()
@@ -332,8 +332,8 @@ class PayPalModelTest extends TestCase
         $this->assertEquals($expected, $result);
         if ($input) {
             $this->assertNotNull($result);
-            $this->assertTrue(is_array($result));
-            $this->assertEquals($count, sizeof($result));
+            $this->assertInternalType('array', $result);
+            $this->assertCount($count, $result);
         }
     }
 

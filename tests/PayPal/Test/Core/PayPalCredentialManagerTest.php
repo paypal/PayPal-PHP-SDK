@@ -52,7 +52,7 @@ class PayPalCredentialManagerTest extends TestCase
     public function testGetInstance()
     {
         $instance = $this->object->getInstance($this->config);
-        $this->assertTrue($instance instanceof PayPalCredentialManager);
+        $this->assertInstanceOf('PayPal\Core\PayPalCredentialManager', $instance);
     }
 
     /**
