@@ -21,7 +21,7 @@ $apiContext->setConfig(
 use PayPal\Core\PayPalHttpClient;
 use PayPal\Core\SandboxEnvironment;
 
-$environment = new SandboxEnvironment('client-id', 'client-secret'); // Use `LiveEnvironment` for production
+$environment = new SandboxEnvironment('client-id', 'client-secret'); // Use `ProductionEnvironment` for production
 $client = new PayPalHttpClient($environment);
 ```
 
