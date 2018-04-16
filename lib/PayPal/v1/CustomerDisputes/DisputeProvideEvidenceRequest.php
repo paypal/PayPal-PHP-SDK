@@ -18,13 +18,6 @@ class DisputeProvideEvidenceRequest extends HttpRequest
         parent::__construct("/v1/customer/disputes/{dispute_id}/provide-evidence?", "POST");
         
         $this->path = str_replace("{dispute_id}", urlencode($disputeId), $this->path);
-        $this->headers["Content-Type"] = "multipart/related";
-    }
-
-    
-    public function evidence($evidence)
-    {
-        $this->body = (is_null($this->body) ? [] : $this->body);
-        $this->body["evidence"] = $evidence;
+        $this->headers["Content-Type"] = "multipart/form-data";
     }
 }

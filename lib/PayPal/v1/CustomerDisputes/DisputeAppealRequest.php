@@ -18,7 +18,7 @@ class DisputeAppealRequest extends HttpRequest
         parent::__construct("/v1/customer/disputes/{dispute_id}/appeal?", "POST");
         
         $this->path = str_replace("{dispute_id}", urlencode($disputeId), $this->path);
-        $this->headers["Content-Type"] = "multipart/related";
+        $this->headers["Content-Type"] = "multipart/form-data";
     }
 
     
