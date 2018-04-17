@@ -15,7 +15,7 @@ class AgreementCreateTest extends TestCase
         return [
             "name" => "Override Agreement",
             "description" => "PayPal payment agreement that overrides merchant preferences and shipping fee and tax information.",
-            "start_date" => "2018-02-19T00:37:04Z",
+            "start_date" => date("Y-m-d\T00:00:00\Z", strtotime('+1 day')),
             "payer" => [
                 "payment_method" => "paypal",
                 "payer_info" => [
