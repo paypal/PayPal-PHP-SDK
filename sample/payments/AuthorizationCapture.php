@@ -1,16 +1,16 @@
 <?php
 // # AuthorizationCapture
-// This sample code demonstrates how you can capture 
+// This sample code demonstrates how you can capture
 // a previously authorized payment.
 // API used: /v1/payments/payment
-// https://developer.paypal.com/webapps/developer/docs/api/#capture-an-authorization
+// https://developer.paypal.com/docs/api/#capture-an-authorization
 
 use PayPal\Api\Amount;
 use PayPal\Api\Authorization;
 use PayPal\Api\Capture;
 
 
-// Replace $authorizationId with any static Id you might already have. 
+// Replace $authorizationId with any static Id you might already have.
 $authorizationId = "<your authorization id here>";
 
 // ### Capture Payment

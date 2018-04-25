@@ -17,7 +17,7 @@ Note: The root directory for composer based download would be `vendor` and for d
 
 1. Run `php -f PayPal-PHP-SDK/paypal/rest-api-sdk-php/sample/index.php` from your project root directory.
 2. This would host a PHP server at `localhost:5000`. The output should look something like this:
-    
+
     ```
     <!-- Welcome to PayPal REST SDK -- >
     PHP 5.5.14 Development Server started at Sat Jan 10 14:04:35 2015
@@ -66,6 +66,6 @@ If you are looking for a full fledged application that uses the new RESTful APIs
    * [PayPal-PHP-SDK Home Page](http://paypal.github.io/PayPal-PHP-SDK/)
    * [SDK Documentation](https://github.com/paypal/PayPal-PHP-SDK/wiki)
    * [Sample Source Code](http://paypal.github.io/PayPal-PHP-SDK/sample/)
-   * [API Reference](https://developer.paypal.com/webapps/developer/docs/api/)
+   * [API Reference](https://developer.paypal.com/docs/api/)
    * [Reporting Issues / Feature Requests] (https://github.com/paypal/PayPal-PHP-SDK/issues)
    * [Pizza App Using Paypal REST API] (https://github.com/paypal/rest-api-sample-app-php)

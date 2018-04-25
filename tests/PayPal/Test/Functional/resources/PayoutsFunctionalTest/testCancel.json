@@ -57,7 +57,7 @@
       "errors":{
         "name":"RECEIVER_UNREGISTERED",
         "message":"Receiver is unregistered",
-        "information_link": "https://developer.paypal.com/webapps/developer/docs/api/#RECEIVER_UNREGISTERED"
+        "information_link": "https://developer.paypal.com/docs/api/#RECEIVER_UNREGISTERED"
       },
       "links":[
         {

@@ -195,7 +195,7 @@ if (PHP_SAPI == 'cli') {
                                     class="fa fa-github"></i>
                                 PayPal PHP SDK</a></li>
                         <li>
-                            <a href="https://developer.paypal.com/webapps/developer/docs/api/"
+                            <a href="https://developer.paypal.com/docs/api/"
                                target="_blank"><i
                                     class="fa fa-book"></i> REST API Reference</a>
                         </li>
@@ -234,7 +234,7 @@ if (PHP_SAPI == 'cli') {
             <div class="panel panel-primary">
                 <div class="panel-heading">
                     <h3 id="payments" class="panel-title"><a
-                            href="https://developer.paypal.com/webapps/developer/docs/api/#payments"
+                            href="https://developer.paypal.com/docs/api/#payments"
                             target="_blank">Payments</a></h3>
                 </div>
                 <!-- List group -->
@@ -399,7 +399,7 @@ if (PHP_SAPI == 'cli') {
             <div class="panel panel-primary">
                 <div class="panel-heading">
                     <h3 id="authorization" class="panel-title"><a
-                            href="https://developer.paypal.com/webapps/developer/docs/api/#authorizations"
+                            href="https://developer.paypal.com/docs/api/#authorizations"
                             target="_blank">Authorization and capture</a></h3>
                 </div>
                 <!-- List group -->
@@ -505,7 +505,7 @@ if (PHP_SAPI == 'cli') {
             <div class="panel panel-primary">
                 <div class="panel-heading">
                     <h3 id="sale" class="panel-title"><a
-                            href="https://developer.paypal.com/webapps/developer/docs/api/#sale-transactions"
+                            href="https://developer.paypal.com/docs/api/#sale-transactions"
                             target="_blank">Sale</a></h3>
                 </div>
                 <!-- List group -->
@@ -538,7 +538,7 @@ if (PHP_SAPI == 'cli') {
             <div class="panel panel-primary">
                 <div class="panel-heading">
                     <h3 id="order" class="panel-title"><a
-                            href="https://developer.paypal.com/webapps/developer/docs/api/#orders"
+                            href="https://developer.paypal.com/docs/api/#orders"
                             target="_blank">Order</a></h3>
                 </div>
                 <!-- List group -->
@@ -662,7 +662,7 @@ if (PHP_SAPI == 'cli') {
             <div class="panel panel-primary">
                 <div class="panel-heading">
                     <h3 id="billing" class="panel-title"><a
-                            href="https://developer.paypal.com/webapps/developer/docs/api/#billing-plans-and-agreements"
+                            href="https://developer.paypal.com/docs/api/#billing-plans-and-agreements"
                             target="_blank">Billing Plan & Agreements</a></h3>
                 </div>
                 <!-- List group -->
@@ -829,7 +829,7 @@ if (PHP_SAPI == 'cli') {
             <div class="panel panel-primary">
                 <div class="panel-heading">
                     <h3 id="experience" class="panel-title"><a
-                            href="https://developer.paypal.com/webapps/developer/docs/api/#payment-experience"
+                            href="https://developer.paypal.com/docs/api/#payment-experience"
                             target="_blank">Payment Experience</a></h3>
                 </div>
                 <!-- List group -->
@@ -918,7 +918,7 @@ if (PHP_SAPI == 'cli') {
             <div class="panel panel-primary">
                 <div class="panel-heading">
                     <h3 id="notifications" class="panel-title"><a
-                            href="https://developer.paypal.com/webapps/developer/docs/api/#notifications"
+                            href="https://developer.paypal.com/docs/api/#notifications"
                             target="_blank">Notifications</a></h3>
                 </div>
                 <!-- List group -->
@@ -1045,7 +1045,7 @@ if (PHP_SAPI == 'cli') {
             <div class="panel panel-primary">
                 <div class="panel-heading">
                     <h3 id="invoice" class="panel-title"><a
-                            href="https://developer.paypal.com/webapps/developer/docs/api/#invoicing"
+                            href="https://developer.paypal.com/docs/api/#invoicing"
                             target="_blank">Invoice</a></h3>
                 </div>
                 <!-- List group -->
@@ -1288,7 +1288,7 @@ if (PHP_SAPI == 'cli') {
             <div class="panel panel-primary">
                 <div class="panel-heading">
                     <h3 id="identity" class="panel-title"><a
-                            href="https://developer.paypal.com/webapps/developer/docs/api/#identity"
+                            href="https://developer.paypal.com/docs/api/#identity"
                             target="_blank">Identity (LIPP)</a></h3>
                 </div>
                 <!-- List group -->
@@ -1353,7 +1353,7 @@ if (PHP_SAPI == 'cli') {
                             class="fa fa-github"></i>
                         PayPal PHP SDK</a></li>
                 <li>
-                    <a href="https://developer.paypal.com/webapps/developer/docs/api/" target="_blank"><i
+                    <a href="https://developer.paypal.com/docs/api/" target="_blank"><i
                             class="fa fa-book"></i> REST API Reference</a>
                 </li>
                 <li>
