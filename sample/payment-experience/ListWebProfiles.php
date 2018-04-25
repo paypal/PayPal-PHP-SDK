@@ -3,7 +3,7 @@
 $apiContext = require __DIR__ . '/../bootstrap.php';
 
 // ### Retrieve List of All Web Profiles
-// Documentation available at https://developer.paypal.com/webapps/developer/docs/api/#list-web-experience-profiles
+// Documentation available at https://developer.paypal.com/docs/api/#list-web-experience-profiles
 
 // Retrieve the list of all web profiles by calling the
 // static `get_list` method on the WebProfile class.

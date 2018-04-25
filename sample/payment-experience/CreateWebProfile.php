@@ -4,7 +4,7 @@ require __DIR__ . '/../bootstrap.php';
 
 // ### Create Web Profile
 // Use the /web-profiles resource to create seamless payment experience profiles. See the payment experience overview for further information about using the /payment resource to create the PayPal payment and pass the experience_profile_id.
-// Documentation available at https://developer.paypal.com/webapps/developer/docs/api/#create-a-web-experience-profile
+// Documentation available at https://developer.paypal.com/docs/api/#create-a-web-experience-profile
 
 // Lets create an instance of FlowConfig and add
 // landing page type information

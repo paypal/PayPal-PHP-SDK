@@ -6,7 +6,7 @@
 // ## NOTE
 // Note that it can only be updated before the execute is done. Once, the payment is executed it is not
 // possible to udpate that.
-// Docs: https://developer.paypal.com/webapps/developer/docs/api/#update-a-payment-resource
+// Docs: https://developer.paypal.com/docs/api/#update-a-payment-resource
 // API used: PATCH /v1/payments/payment/<Payment-Id>
 
 /** @var Payment $createdPayment */

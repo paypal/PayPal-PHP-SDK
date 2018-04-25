@@ -56,5 +56,5 @@ Read [here](CONTRIBUTING.md) for more information.
    * [PayPal-PHP-SDK Home Page](http://paypal.github.io/PayPal-PHP-SDK/)
    * [SDK Documentation](https://github.com/paypal/PayPal-PHP-SDK/wiki)
    * [Sample Source Code](http://paypal.github.io/PayPal-PHP-SDK/sample/)
-   * [API Reference](https://developer.paypal.com/webapps/developer/docs/api/)
+   * [API Reference](https://developer.paypal.com/docs/api/)
    * [Reporting Issues / Feature Requests](https://github.com/paypal/PayPal-PHP-SDK/issues)

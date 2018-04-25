@@ -3,7 +3,7 @@
 // # Delete Plan Sample
 //
 // This sample code demonstrate how you can delete a billing plan, as documented here at:
-// https://developer.paypal.com/webapps/developer/docs/api/#retrieve-a-plan
+// https://developer.paypal.com/docs/api/#retrieve-a-plan
 // API used: /v1/payments/billing-plans
 
 // Retrieving the Plan object from Create Plan Sample

@@ -3,7 +3,7 @@
 // # Create Billing Agreement with PayPal as Payment Source
 //
 // This sample code demonstrate how you can create a billing agreement, as documented here at:
-// https://developer.paypal.com/webapps/developer/docs/api/#create-an-agreement
+// https://developer.paypal.com/docs/api/#create-an-agreement
 // API used: /v1/payments/billing-agreements
 
 // Retrieving the Plan from the Create Update Sample. This would be used to

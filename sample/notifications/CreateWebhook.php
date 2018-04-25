@@ -3,7 +3,7 @@
 // # Create Webhook Sample
 //
 // This sample code demonstrate how you can create a webhook, as documented here at:
-// https://developer.paypal.com/webapps/developer/docs/api/#create-a-webhook
+// https://developer.paypal.com/docs/api/#create-a-webhook
 // API used: POST /v1/notifications/webhooks
 
 require __DIR__ . '/../bootstrap.php';

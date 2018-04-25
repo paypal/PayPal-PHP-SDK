@@ -2,7 +2,7 @@
 
 // #### Partially Update Web Profile
 // Use this call to partially update a web experience profile.
-// Documentation available at https://developer.paypal.com/webapps/developer/docs/api/#partially-update-a-web-experience-profile
+// Documentation available at https://developer.paypal.com/docs/api/#partially-update-a-web-experience-profile
 
 // We will be re-using the sample code to get a web profile. GetWebProfile.php will
 // create a new web profileId for sample, and return the web profile object.

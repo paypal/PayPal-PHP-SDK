@@ -3,7 +3,7 @@
 // # Reactivate an agreement
 //
 // This sample code demonstrate how you can reactivate a billing agreement, as documented here at:
-// https://developer.paypal.com/webapps/developer/docs/api/#suspend-an-agreement
+// https://developer.paypal.com/docs/api/#suspend-an-agreement
 // API used: /v1/payments/billing-agreements/<Agreement-Id>/suspend
 
 // Retrieving the Agreement object from Suspend Agreement Sample to demonstrate the List

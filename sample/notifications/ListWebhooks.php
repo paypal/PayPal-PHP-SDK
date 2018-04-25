@@ -3,7 +3,7 @@
 // # Get All Webhooks Sample
 //
 // Use this call to list all the webhooks, as documented here at:
-// https://developer.paypal.com/webapps/developer/docs/api/#list-all-webhooks
+// https://developer.paypal.com/docs/api/#list-all-webhooks
 // API used: GET /v1/notifications/webhooks
 
 // ## List Webhooks

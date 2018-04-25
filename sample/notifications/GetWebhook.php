@@ -3,7 +3,7 @@
 // # Get Webhook Sample
 //
 // This sample code demonstrate how you can get a webhook, as documented here at:
-// https://developer.paypal.com/webapps/developer/docs/api/#get-a-webhook
+// https://developer.paypal.com/docs/api/#get-a-webhook
 // API used: GET /v1/notifications/webhooks/<Webhook-Id>
 
 // ## Get Webhook ID.

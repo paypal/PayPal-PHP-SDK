@@ -3,7 +3,7 @@
 // # Create Plan Sample
 //
 // This sample code demonstrate how you can create a billing plan, as documented here at:
-// https://developer.paypal.com/webapps/developer/docs/api/#create-a-plan
+// https://developer.paypal.com/docs/api/#create-a-plan
 // API used: /v1/payments/billing-plans
 
 require __DIR__ . '/../bootstrap.php';

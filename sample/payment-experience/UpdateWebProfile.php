@@ -2,7 +2,7 @@
 
 // #### Update Web Profile
 // Use this call to update an experience profile.
-// Documentation available at https://developer.paypal.com/webapps/developer/docs/api/#update-a-web-experience-profile
+// Documentation available at https://developer.paypal.com/docs/api/#update-a-web-experience-profile
 
 // We will be re-using the sample code to get a web profile. GetWebProfile.php will
 // create a new web profileId for sample, and return the web profile object.

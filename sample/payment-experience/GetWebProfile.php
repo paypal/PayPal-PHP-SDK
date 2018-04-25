@@ -2,7 +2,7 @@
 
 // ### Get Web Profile
 // If your request is successful, the API returns a web_profile object response that contains the profile details.
-// Documentation available at https://developer.paypal.com/webapps/developer/docs/api/#retrieve-a-web-experience-profile
+// Documentation available at https://developer.paypal.com/docs/api/#retrieve-a-web-experience-profile
 
 // We are going to re-use the sample code from CreateWebProfile.php.
 // If you have not visited the sample yet, please visit it before trying GetWebProfile.php
