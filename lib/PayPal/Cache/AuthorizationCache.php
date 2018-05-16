@@ -17,7 +17,7 @@ abstract class AuthorizationCache
      * @param string $clientId
      * @return mixed|null
      */
-    public static function pull($config = null, $clientId = null)
+    public static function pull($config = null, $clientId = null, $subject = null)
     {
         // Return if not enabled
         if (!self::isEnabled($config)) {
@@ -26,14 +26,15 @@ abstract class AuthorizationCache
 
         $tokens = null;
         $cachePath = self::cachePath($config);
+        $cacheKey = $subject == null ? $clientId : $clientId . "." . $subject;
         if (file_exists($cachePath)) {
             // Read from the file
             $cachedToken = file_get_contents($cachePath);
             if ($cachedToken && JsonValidator::validate($cachedToken, true)) {
                 $tokens = json_decode($cachedToken, true);
-                if ($clientId && is_array($tokens) && array_key_exists($clientId, $tokens)) {
+                if ($cacheKey && is_array($tokens) && array_key_exists($cacheKey, $tokens)) {
                     // If client Id is found, just send in that data only
-                    return $tokens[$clientId];
+                    return $tokens[$cacheKey];
                 } elseif ($clientId) {
                     // If client Id is provided, but no key in persisted data found matching it.
                     return null;
@@ -53,7 +54,7 @@ abstract class AuthorizationCache
      * @param      $tokenExpiresIn
      * @throws \Exception
      */
-    public static function push($config = null, $clientId, $accessToken, $tokenCreateTime, $tokenExpiresIn)
+    public static function push($config = null, $clientId, $accessToken, $tokenCreateTime, $tokenExpiresIn, $subject=null)
     {
         // Return if not enabled
         if (!self::isEnabled($config)) {
@@ -70,8 +71,9 @@ abstract class AuthorizationCache
         // Reads all the existing persisted data
         $tokens = self::pull();
         $tokens = $tokens ? $tokens : array();
+        $cacheKey = $subject == null ? $clientId : $clientId . "." . $subject;
         if (is_array($tokens)) {
-            $tokens[$clientId] = array(
+            $tokens[$cacheKey] = array(
                 'clientId' => $clientId,
                 'accessTokenEncrypted' => $accessToken,
                 'tokenCreateTime' => $tokenCreateTime,
