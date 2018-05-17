@@ -73,6 +73,10 @@ $ composer integration
 
 If you have any suggestions/remarks/feedback related to SDK 2.0.0, feel free to create an issue.
 
+## PHP Minimum Version
+
+You must be using PHP version 5.4 or higher to use this SDK.
+
 ## License
 PayPal-PHP-SDK is open source. See the [LICENSE](./LICENSE) file for more info.
 
