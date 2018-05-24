@@ -146,7 +146,7 @@ class PayPalHttpConnection
         curl_setopt($ch, CURLOPT_HTTPHEADER, $this->getHttpHeaders());
 
         // Some environments may be capable of TLS 1.2 but it is not in their list of defaults so need the SSL version option to be set.
-        curl_setopt($ch, CURLOPT_SSLVERSION, CURL_SSLVERSION_TLSv1_2);
+        curl_setopt($ch, CURLOPT_SSLVERSION, defined(CURL_SSLVERSION_TLSv1_2) ? CURL_SSLVERSION_TLSv1_2 : 6);
 
         //Determine Curl Options based on Method
         switch ($this->httpConfig->getMethod()) {
