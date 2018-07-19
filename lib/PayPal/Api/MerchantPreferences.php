@@ -104,7 +104,9 @@ class MerchantPreferences extends PayPalModel
      */
     public function setReturnUrl($return_url)
     {
-        UrlValidator::validate($return_url, "ReturnUrl");
+        if ($this->return_url !== null) {
+            UrlValidator::validate($return_url, "ReturnUrl");
+        }
         $this->return_url = $return_url;
         return $this;
     }
@@ -129,8 +131,8 @@ class MerchantPreferences extends PayPalModel
     public function setNotifyUrl($notify_url)
     {
         if ($this->notify_url !== null) {
-    	    UrlValidator::validate($notify_url, "NotifyUrl");
-    	}
+            UrlValidator::validate($notify_url, "NotifyUrl");
+        }
         $this->notify_url = $notify_url;
         return $this;
     }
