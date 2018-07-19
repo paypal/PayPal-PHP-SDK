@@ -128,7 +128,9 @@ class MerchantPreferences extends PayPalModel
      */
     public function setNotifyUrl($notify_url)
     {
-        UrlValidator::validate($notify_url, "NotifyUrl");
+        if ($this->notify_url !== null) {
+    	    UrlValidator::validate($notify_url, "NotifyUrl");
+    	}
         $this->notify_url = $notify_url;
         return $this;
     }
