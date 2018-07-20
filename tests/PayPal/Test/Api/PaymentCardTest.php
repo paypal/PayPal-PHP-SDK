@@ -70,8 +70,8 @@ class PaymentCardTest extends TestCase
         $this->assertEquals($obj->getId(), "TestSample");
         $this->assertEquals($obj->getNumber(), "TestSample");
         $this->assertEquals($obj->getType(), "TestSample");
-        $this->assertEquals($obj->getExpireMonth(), "TestSample");
-        $this->assertEquals($obj->getExpireYear(), "TestSample");
+        $this->assertEquals($obj->getExpireMonth(), "123");
+        $this->assertEquals($obj->getExpireYear(), "123");
         $this->assertEquals($obj->getStartMonth(), "TestSample");
         $this->assertEquals($obj->getStartYear(), "TestSample");
         $this->assertEquals($obj->getCvv2(), "TestSample");

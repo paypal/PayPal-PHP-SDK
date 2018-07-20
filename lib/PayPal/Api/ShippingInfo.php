@@ -135,7 +135,7 @@ class ShippingInfo extends PayPalModel
     /**
      * Address of the invoice recipient.
      *
-     * @param \PayPal\Api\InvoiceAddress $address
+     * @param \PayPal\Api\ShippingAddress $address
      * 
      * @return $this
      */
@@ -148,7 +148,7 @@ class ShippingInfo extends PayPalModel
     /**
      * The invoice recipient address.
      *
-     * @return \PayPal\Api\InvoiceAddress
+     * @return \PayPal\Api\ShippingAddress
      */
     public function getAddress()
     {
