@@ -68,6 +68,31 @@ class Amount extends PayPalModel
     }
 
     /**
+     * Set amount value. Format it using currency converter.
+     *
+     * @param string|double $value
+     *
+     * @return $this
+     */
+    public function setValue($value)
+    {
+        NumericValidator::validate($value, "Total");
+        $value = FormatConverter::formatToPrice($value, $this->getCurrency());
+        $this->value = $value;
+        return $this;
+    }
+
+    /**
+     * Get amount value.
+     *
+     * @return string
+     */
+    public function getValue()
+    {
+        return $this->value;
+    }
+
+    /**
      * Additional details of the payment amount.
      *
      * @param \PayPal\Api\Details $details
