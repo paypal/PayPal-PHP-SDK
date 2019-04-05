@@ -37,11 +37,20 @@ class ReportingTransactionsTest extends TestCase
         $transaction_info = $transaction_details[0]->getTransactionInfo();
         $this->assertInstanceOf('\PayPal\Api\ReportingTransactionInfo', $transaction_info);
         $this->assertEquals($transaction_info->getTransactionAmount()->getValue(), '50.00');
+        $this->assertEquals($transaction_info->getTransactionAmount()->getCurrencyCode(), 'EUR');
         $this->assertEquals($transaction_info->getEndingBalance()->getValue(), '50.00');
+        $this->assertEquals($transaction_info->getEndingBalance()->getCurrencyCode(), 'EUR');
+        $this->assertEquals($transaction_info->getAvailableBalance()->getValue(), '50.00');
+        $this->assertEquals($transaction_info->getAvailableBalance()->getCurrencyCode(), 'EUR');
+        $this->assertEquals($transaction_info->getFeeAmount()->getValue(), '-42.31');
+        $this->assertEquals($transaction_info->getFeeAmount()->getCurrencyCode(), 'EUR');
         $this->assertEquals($transaction_info->getInvoiceId(), '22892-1554291060');
         $this->assertEquals($transaction_info->getTransactionId(), '61041S');
         $this->assertEquals($transaction_info->getTransactionEventCode(), 'T0007');
-        // @TODO: finish transaction details assertions!
+        $this->assertEquals($transaction_info->getTransactionInitiationDate(), '2019-04-03T11:33:04+0000');
+        $this->assertEquals($transaction_info->getTransactionUpdatedDate(), '2019-04-03T11:33:04+0000');
+        $this->assertEquals($transaction_info->getProtectionEligibility(), '01');
+        $this->assertEquals($transaction_info->getPaypalAccountId(), '1234');
     }
 
     public static function getJson()
