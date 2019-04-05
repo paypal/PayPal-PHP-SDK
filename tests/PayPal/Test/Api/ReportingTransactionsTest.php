@@ -54,6 +54,12 @@ class ReportingTransactionsTest extends TestCase
         $this->assertEquals($transaction_info->getPaypalAccountId(), '1234');
     }
 
+    /**
+     * Get the mock json for paypal sync api response.
+     *
+     * @return string
+     *   Json encoded.
+     */
     public static function getJson()
     {
         return '{"transaction_details":[{"transaction_info":{"paypal_account_id":"1234","transaction_id":"61041S","transaction_event_code":"T0007","transaction_initiation_date":"2019-04-03T11:33:04+0000","transaction_updated_date":"2019-04-03T11:33:04+0000","transaction_amount":{"currency_code":"EUR","value":"50.00"},"fee_amount":{"currency_code":"EUR","value":"-42.31"},"transaction_status":"S","ending_balance":{"currency_code":"EUR","value":"50.00"},"available_balance":{"currency_code":"EUR","value":"50.00"},"invoice_id":"22892-1554291060","protection_eligibility":"01"},"payer_info":{"account_id":"1234","email_address":"debug@example.com","address_status":"N","payer_status":"Y","payer_name":{"given_name":"test","surname":"buyer","alternate_full_name":"test buyer"},"country_code":"ES"},"shipping_info":{"name":"test, buyer"},"cart_info":{"item_details":[{"item_name":"Example","item_quantity":"1","item_unit_price":{"currency_code":"EUR","value":"50.00"},"item_amount":{"currency_code":"EUR","value":"50.00"},"total_item_amount":{"currency_code":"EUR","value":"50.00"},"invoice_number":"22892-1554291060","checkout_options":[{"checkout_option_name":"Product quantity","checkout_option_value":"1"}]}]},"store_info":{},"auction_info":{},"incentive_info":{}}],"account_number":"12345Y","start_date":"2019-03-20T07:00:00+0000","end_date":"2019-04-04T08:59:59+0000","last_refreshed_datetime":"2019-04-04T08:59:59+0000","page":1,"total_items":2,"total_pages":1,"links":[{"href":"https://api.sandbox.paypal.com/v1/reporting/transactions?start_date=2019-03-20T00%3A00%3A00-0700&end_date=2019-04-10T23%3A59%3A59-0700&fields=all&page_size=100&page=1","rel":"self","method":"GET"}]}';
@@ -68,6 +74,12 @@ class ReportingTransactionsTest extends TestCase
         return new ReportingTransactions(self::getJson());
     }
 
+    /**
+     * Data provider to get the mocked http client.
+     *
+     * @return array
+     *   Data provider parameters.
+     */
     public function mockProvider()
     {
         $obj = self::getObject();
