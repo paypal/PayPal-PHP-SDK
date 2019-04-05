@@ -65,5 +65,4 @@ class ReportingTransactionAmount extends PayPalModel
     {
         return $this->value;
     }
-
 }

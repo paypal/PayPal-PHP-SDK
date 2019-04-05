@@ -3,7 +3,6 @@
 
 namespace PayPal\Api;
 
-
 use PayPal\Common\PayPalModel;
 
 /**
@@ -35,5 +34,4 @@ class ReportingTransactionDetails extends PayPalModel
     {
         $this->transactionInfo = $transactionInfo;
     }
-
 }

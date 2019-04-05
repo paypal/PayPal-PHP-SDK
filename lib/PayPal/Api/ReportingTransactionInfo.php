@@ -3,7 +3,6 @@
 
 namespace PayPal\Api;
 
-
 use PayPal\Common\PayPalModel;
 
 /**
@@ -267,5 +266,4 @@ class ReportingTransactionInfo extends PayPalModel
     {
         $this->protectionEligibility = $protectionElegibility;
     }
-
 }
