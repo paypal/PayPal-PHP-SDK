@@ -39,14 +39,23 @@ class ReportingTransactions extends PayPalResourceModel
         $this->totalItems = $totalItems;
     }
 
+    /**
+     * An array of transaction detail objects.
+     *
      * @return \PayPal\Api\ReportingTransactionDetails[]
      */
-    public function getTransactionDetails() {
+    public function getTransactionDetails()
         return $this->transactionDetails;
     }
 
-    public function setTransactionDetails($transactionDetails) {
-        $this->transactionDetails = $transactionDetails;
+    /**
+     * An array of transaction detail objects.
+     *
+     * @param \PayPal\Api\ReportingTransactionDetails[] $transactionDetails
+     */
+    public function setTransactionDetails($transactionDetails)
+    {
+        $this->transactionDetails = array_merge($this->transactionDetails, $transactionDetails);
     }
 
     public static function get($params, $apiContext, $restCall = null) {
