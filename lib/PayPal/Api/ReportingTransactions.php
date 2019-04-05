@@ -7,6 +7,7 @@ use PayPal\Core\PayPalConstants;
 use PayPal\Validation\ArgumentValidator;
 use PayPal\Rest\ApiContext;
 
+
 /**
  * Class ReportingTransactions
  *
@@ -17,8 +18,6 @@ use PayPal\Rest\ApiContext;
  */
 class ReportingTransactions extends PayPalResourceModel
 {
-    protected $startDate;
-    protected $endDate;
 
     protected $transactionDetails = array();
     protected $totalItems;
@@ -45,6 +44,7 @@ class ReportingTransactions extends PayPalResourceModel
      * @return \PayPal\Api\ReportingTransactionDetails[]
      */
     public function getTransactionDetails()
+    {
         return $this->transactionDetails;
     }
 
@@ -58,7 +58,21 @@ class ReportingTransactions extends PayPalResourceModel
         $this->transactionDetails = array_merge($this->transactionDetails, $transactionDetails);
     }
 
-    public static function get($params, $apiContext, $restCall = null) {
+    /**
+     * Lists transactions. Specify one or more query parameters to filter the transaction that appear in the response.
+     *
+     * @param array $params
+     *   Query parameters.
+     * @param \PayPal\Rest\ApiContext $apiContext
+     *   Api context.
+     * @param \PayPal\Transport\PayPalRestCall $restCall
+     *    Rest call.
+     *
+     * @return \PayPal\Api\ReportingTransactions
+     *   Reporting transactions response.
+     */
+    public static function get($params, $apiContext, $restCall = null)
+    {
         ArgumentValidator::validate($params, 'params');
         $payLoad = "";
         $allowedParams = array(
@@ -87,8 +101,8 @@ class ReportingTransactions extends PayPalResourceModel
         return $reporting_transactions;
     }
 
-    public static function all($params, $apiContext) {
-
+    public static function all($params, $apiContext)
+    {
     }
 
 }
