@@ -11,7 +11,7 @@ use PayPal\Api\ReportingTransactions;
 // Refer the method doc for valid values for keys
 // (See bootstrap.php for more on `ApiContext`)
 try {
-    $params = array('count' => 100, 'start_date' => '2019-03-20T00:00:00-0700', 'end_date' => '2019-04-10T23:59:59-0700', 'fields' => 'all', 'page' => 1);
+    $params = array('page_size' => 100, 'start_date' => '2019-03-20T00:00:00-0700', 'end_date' => '2019-04-10T23:59:59-0700', 'fields' => 'all', 'page' => 1);
 
     $response = ReportingTransactions::get($params, $apiContext);
 } catch (Exception $ex) {
