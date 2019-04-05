@@ -7,7 +7,6 @@ use PayPal\Core\PayPalConstants;
 use PayPal\Validation\ArgumentValidator;
 use PayPal\Rest\ApiContext;
 
-
 /**
  * Class ReportingTransactions
  *
@@ -18,7 +17,6 @@ use PayPal\Rest\ApiContext;
  */
 class ReportingTransactions extends PayPalResourceModel
 {
-
     protected $transactionDetails = array();
     protected $totalItems;
 
@@ -59,7 +57,9 @@ class ReportingTransactions extends PayPalResourceModel
     }
 
     /**
-     * Lists transactions. Specify one or more query parameters to filter the transaction that appear in the response.
+     * Main request to get the transactions.
+     *
+     * Api endpoint: /v1/reporting/transactions.
      *
      * @param array $params
      *   Query parameters.
@@ -68,10 +68,10 @@ class ReportingTransactions extends PayPalResourceModel
      * @param \PayPal\Transport\PayPalRestCall $restCall
      *    Rest call.
      *
-     * @return \PayPal\Api\ReportingTransactions
-     *   Reporting transactions response.
+     * @return string
+     *   API response.
      */
-    public static function get($params, $apiContext, $restCall = null)
+    protected static function requestTransactions($params, $apiContext, $restCall = null)
     {
         ArgumentValidator::validate($params, 'params');
         $payLoad = "";
@@ -88,7 +88,7 @@ class ReportingTransactions extends PayPalResourceModel
             'page_size' => 1,
             'page' => 1,
         );
-        $json = self::executeCall(
+        return self::executeCall(
             "/v1/reporting/transactions?" . http_build_query(array_intersect_key($params, $allowedParams)),
             "GET",
             $payLoad,
@@ -96,13 +96,64 @@ class ReportingTransactions extends PayPalResourceModel
             $apiContext,
             $restCall
         );
+    }
+
+    /**
+     * Lists transactions. Specify one or more query parameters to filter the transaction that appear in the response.
+     *
+     * @param array $params
+     *   Query parameters.
+     * @param \PayPal\Rest\ApiContext $apiContext
+     *   Api context.
+     * @param \PayPal\Transport\PayPalRestCall $restCall
+     *    Rest call.
+     *
+     * @return \PayPal\Api\ReportingTransactions
+     *   Reporting transactions response.
+     */
+    public static function get($params, $apiContext, $restCall = null)
+    {
+        $json = self::requestTransactions($params, $apiContext, $restCall);
         $reporting_transactions = new ReportingTransactions();
         $reporting_transactions->fromJson($json);
         return $reporting_transactions;
     }
 
-    public static function all($params, $apiContext)
+    /**
+     * Lists all transactions, making iterating each page.
+     *
+     * @param array $params
+     *   Query parameters.
+     * @param \PayPal\Rest\ApiContext $apiContext
+     *   Api context.
+     * @param \PayPal\Transport\PayPalRestCall $restCall
+     *    Rest call.
+     *
+     * @return \PayPal\Api\ReportingTransactions
+     *   Reporting transactions response.
+     */
+    public static function all($params, $apiContext, $restCall = null)
     {
+        $completed = false;
+        $params['page'] = 1;
+        $reporting_transactions = null;
+        while (!$completed) {
+            $json = self::requestTransactions($params, $apiContext, $restCall);
+            if (empty($reporting_transactions)) {
+                $reporting_transactions = new ReportingTransactions();
+                $reporting_transactions->fromJson($json);
+            } else {
+                $json_decode = json_decode($json);
+                $transaction_details = array_map(function ($transaction_detail) {
+                    $reporting_transaction_detail = new ReportingTransactionDetails();
+                    $reporting_transaction_detail->fromJson(json_encode($transaction_detail));
+                    return $reporting_transaction_detail;
+                }, $json_decode->transaction_details);
+                $reporting_transactions->setTransactionDetails($transaction_details);
+            }
+            $completed = $reporting_transactions->getTotalItems() == count($reporting_transactions->getTransactionDetails());
+            $params['page']++;
+        }
+        return $reporting_transactions;
     }
-
 }
