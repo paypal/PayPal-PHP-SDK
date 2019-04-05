@@ -251,21 +251,21 @@ class ReportingTransactionInfo extends PayPalModel
     /**
      * Indicates whether the transaction is eligible for protection.
      *
-     * @return mixed
+     * @return string
      */
-    public function getProtectionElegibility()
+    public function getProtectionEligibility()
     {
-        return $this->protectionElegibility;
+        return $this->protectionEligibility;
     }
 
     /**
      * Indicates whether the transaction is eligible for protection.
      *
-     * @param mixed $protectionElegibility
+     * @param string $protectionElegibility
      */
-    public function setProtectionElegibility($protectionElegibility)
+    public function setProtectionEligibility($protectionElegibility)
     {
-        $this->protectionElegibility = $protectionElegibility;
+        $this->protectionEligibility = $protectionElegibility;
     }
 
 }
