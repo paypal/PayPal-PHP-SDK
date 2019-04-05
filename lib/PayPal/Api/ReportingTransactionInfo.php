@@ -241,7 +241,7 @@ class ReportingTransactionInfo extends PayPalModel
     /**
      * The invoice ID that is sent by the merchant with the transaction.
      *
-     * @param mixed $invoiceId
+     * @param string $invoiceId
      */
     public function setInvoiceId($invoiceId)
     {
