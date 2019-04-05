@@ -18,12 +18,12 @@ use PayPal\Common\PayPalModel;
  * @property string transaction_event_code
  * @property string transaction_initiation_date
  * @property string transaction_updated_date
- * @property \PayPal\Api\Amount transaction_amount
- * @property \PayPal\Api\Amount fee_amount
- * @property \PayPal\Api\Amount ending_balance
- * @property \PayPal\Api\Amount available_balance
- * @property \PayPal\Api\Amount invoice_id
- * @property \PayPal\Api\Amount protection_elegibility
+ * @property \PayPal\Api\ReportingTransactionAmount transaction_amount
+ * @property \PayPal\Api\ReportingTransactionAmount fee_amount
+ * @property \PayPal\Api\ReportingTransactionAmount ending_balance
+ * @property \PayPal\Api\ReportingTransactionAmount available_balance
+ * @property string invoice_id
+ * @property string protection_elegibility
  */
 class ReportingTransactionInfo extends PayPalModel
 {
@@ -131,7 +131,7 @@ class ReportingTransactionInfo extends PayPalModel
     /**
      * The all-inclusive gross transaction amount that was transferred between the sender and receiver through PayPal.
      *
-     * @return \PayPal\Api\Amount
+     * @return \PayPal\Api\ReportingTransactionAmount
      */
     public function getTransactionAmount()
     {
@@ -141,7 +141,7 @@ class ReportingTransactionInfo extends PayPalModel
     /**
      * The all-inclusive gross transaction amount that was transferred between the sender and receiver through PayPal.
      *
-     * @param \PayPal\Api\Amount $transactionAmount
+     * @param \PayPal\Api\ReportingTransactionAmount $transactionAmount
      */
     public function setTransactionAmount($transactionAmount)
     {
@@ -151,7 +151,7 @@ class ReportingTransactionInfo extends PayPalModel
     /**
      * The PayPal fee amount. All transaction fees are included in this amount, which is the record of fee associated with the transaction.
      *
-     * @return \PayPal\Api\Amount
+     * @return \PayPal\Api\ReportingTransactionAmount
      */
     public function getFeeAmount()
     {
@@ -161,7 +161,7 @@ class ReportingTransactionInfo extends PayPalModel
     /**
      * The PayPal fee amount. All transaction fees are included in this amount, which is the record of fee associated with the transaction.
      *
-     * @param \PayPal\Api\Amount $feeAmount
+     * @param \PayPal\Api\ReportingTransactionAmount $feeAmount
      */
     public function setFeeAmount($feeAmount)
     {
@@ -191,7 +191,7 @@ class ReportingTransactionInfo extends PayPalModel
     /**
      * The ending balance.
      *
-     * @return \PayPal\Api\Amount
+     * @return \PayPal\Api\ReportingTransactionAmount
      */
     public function getEndingBalance()
     {
@@ -201,7 +201,7 @@ class ReportingTransactionInfo extends PayPalModel
     /**
      * The ending balance.
      *
-     * @param \PayPal\Api\Amount $endingBalance
+     * @param \PayPal\Api\ReportingTransactionAmount $endingBalance
      */
     public function setEndingBalance($endingBalance)
     {
@@ -211,7 +211,7 @@ class ReportingTransactionInfo extends PayPalModel
     /**
      * The available amount of transaction currency during the completion of this transaction.
      *
-     * @return \PayPal\Api\Amount
+     * @return \PayPal\Api\ReportingTransactionAmount
      */
     public function getAvailableBalance()
     {
@@ -221,7 +221,7 @@ class ReportingTransactionInfo extends PayPalModel
     /**
      * The available amount of transaction currency during the completion of this transaction.
      *
-     * @param \PayPal\Api\Amount $availableBalance
+     * @param \PayPal\Api\ReportingTransactionAmount $availableBalance
      */
     public function setAvailableBalance($availableBalance)
     {
