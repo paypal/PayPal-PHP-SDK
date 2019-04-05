@@ -30,6 +30,7 @@ class ReportingTransactionsTest extends TestCase
         /** @var \PayPal\Api\ReportingTransactions $transactions */
         $transactions = $obj->get($params, $mockApiContext, $mockPPRestCall);
         $this->assertInstanceOf('\PayPal\Api\ReportingTransactions', $transactions);
+        $this->assertEquals(2, $transactions->getTotalItems());
         $transaction_details = $transactions->getTransactionDetails();
         $this->assertTrue(is_array($transaction_details));
         $this->assertInstanceOf('\PayPal\Api\ReportingTransactionDetails', reset($transaction_details));
@@ -78,5 +79,4 @@ class ReportingTransactionsTest extends TestCase
             array($obj, null)
         );
     }
-
 }

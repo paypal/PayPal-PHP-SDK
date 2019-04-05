@@ -19,9 +19,26 @@ class ReportingTransactions extends PayPalResourceModel
 {
     protected $startDate;
     protected $endDate;
+
     protected $transactionDetails = array();
+    protected $totalItems;
 
     /**
+     * @return int
+     */
+    public function getTotalItems()
+    {
+        return $this->totalItems;
+    }
+
+    /**
+     * @param int $totalItems
+     */
+    public function setTotalItems($totalItems)
+    {
+        $this->totalItems = $totalItems;
+    }
+
      * @return \PayPal\Api\ReportingTransactionDetails[]
      */
     public function getTransactionDetails() {
