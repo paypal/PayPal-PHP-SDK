@@ -9,6 +9,7 @@ use PayPal\Api\ReportingTransactions;
 
 class ReportingTransactionsTest extends TestCase
 {
+
     /**
      * @dataProvider mockProvider
      * @param Payment $obj
@@ -29,6 +30,42 @@ class ReportingTransactionsTest extends TestCase
 
         /** @var \PayPal\Api\ReportingTransactions $transactions */
         $transactions = $obj->get($params, $mockApiContext, $mockPPRestCall);
+        $this->assertTransactionValuesAreCorrect($transactions);
+    }
+
+    /**
+     * @dataProvider mockProvider
+     * @param Payment $obj
+     */
+    public function testAll($obj, $mockApiContext)
+    {
+        $mockPPRestCall = $this->getMockBuilder('\PayPal\Transport\PayPalRestCall')
+            ->disableOriginalConstructor()
+            ->getMock();
+
+        $mockPPRestCall->expects($this->any())
+            ->method('execute')
+            ->will($this->returnValue(
+                ReportingTransactionsTest::getJson()
+            ));
+
+        $params = array('count' => 100, 'start_date' => '2019-03-20T00:00:00-0700', 'end_date' => '2019-04-10T23:59:59-0700', 'fields' => 'all', 'page' => 1);
+
+        /** @var \PayPal\Api\ReportingTransactions $transactions */
+        $transactions = $obj->get($params, $mockApiContext, $mockPPRestCall);
+        $this->assertTransactionValuesAreCorrect($transactions);
+    }
+
+    /**
+     * Make all assertions for the reporting transactions response.
+     *
+     * Used for ::get and ::all.
+     *
+     * @param \PayPal\Api\ReportingTransactions $transactions
+     *   Transactions.
+     */
+    public function assertTransactionValuesAreCorrect($transactions)
+    {
         $this->assertInstanceOf('\PayPal\Api\ReportingTransactions', $transactions);
         $this->assertEquals(2, $transactions->getTotalItems());
         $transaction_details = $transactions->getTransactionDetails();
