@@ -22,6 +22,7 @@ use PayPal\Rest\ApiContext;
  * @property string parent_payment
  * @property string invoice_number
  * @property \PayPal\Api\Currency transaction_fee
+ * @property string note_to_payer
  * @property string create_time
  * @property string update_time
  * @property \PayPal\Api\Links[] links
