@@ -3,8 +3,8 @@
 // # Get Billing Agreement Sample
 //
 // This sample code demonstrate how you can get a billing agreement, as documented here at:
-// https://developer.paypal.com/docs/api/#retrieve-an-agreement
-// API used: /v1/payments/billing-agreements/<Agreement-Id>
+// https://developer.paypal.com/docs/api/payments.billing-agreements/v1/#billing-agreements_get
+// API used: GET /v1/payments/billing-agreements/{agreement_id}
 require __DIR__ . '/../bootstrap.php';
 
 // Retrieving the Agreement object from Create Agreement From Credit Card Sample

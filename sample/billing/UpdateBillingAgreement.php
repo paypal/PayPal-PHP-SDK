@@ -3,8 +3,8 @@
 // # Update an agreement
 //
 // This sample code demonstrate how you can update a billing agreement, as documented here at:
-// https://developer.paypal.com/docs/api/#update-an-agreement
-// API used: /v1/payments/billing-agreements/<Agreement-Id>
+// https://developer.paypal.com/docs/api/payments.billing-agreements/v1/#billing-agreements_patch
+// API used: PATCH /v1/payments/billing-agreements/{agreement_id}
 
 require __DIR__ . '/../bootstrap.php';
 

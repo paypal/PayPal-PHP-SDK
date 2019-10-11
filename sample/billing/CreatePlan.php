@@ -3,8 +3,8 @@
 // # Create Plan Sample
 //
 // This sample code demonstrate how you can create a billing plan, as documented here at:
-// https://developer.paypal.com/docs/api/#create-a-plan
-// API used: /v1/payments/billing-plans
+// https://developer.paypal.com/docs/api/payments.billing-plans/v1/#billing-plans_post
+// API used: POST /v1/payments/billing-plans
 
 require __DIR__ . '/../bootstrap.php';
 use PayPal\Api\ChargeModel;

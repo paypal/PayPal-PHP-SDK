@@ -3,8 +3,8 @@
 // # Search Billing Transactions Sample
 //
 // This sample code demonstrate how you can search all billing transactions, as documented here at:
-// https://developer.paypal.com/docs/api/#search-for-transactions
-// API used: GET /v1/payments/billing-agreements/<Agreement-Id>/transactions? start-date=yyyy-mm-dd&end-date=yyyy-mm-dd
+// https://developer.paypal.com/docs/api/payments.billing-agreements/v1/#billing-agreements_transactions
+// API used: GET /v1/payments/billing-agreements/{agreement_id}/transactions? start-date=yyyy-mm-dd&end-date=yyyy-mm-dd
 
 // Retrieving the Agreement object from Get Billing Agreement. This may not be necessary if you are trying to search for transactions of already created Agreement.
 /** @var Agreement $agreement */

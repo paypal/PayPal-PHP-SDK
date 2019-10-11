@@ -3,8 +3,8 @@
 // # Suspend an agreement
 //
 // This sample code demonstrate how you can suspend a billing agreement, as documented here at:
-// https://developer.paypal.com/docs/api/#suspend-an-agreement
-// API used: /v1/payments/billing-agreements/<Agreement-Id>/suspend
+// https://developer.paypal.com/docs/api/payments.billing-agreements/v1/#billing-agreements_suspend
+// API used: POST /v1/payments/billing-agreements/{agreement_id}/suspend
 
 // Retrieving the Agreement object from Create Agreement Sample to demonstrate the List
 require __DIR__ . '/../bootstrap.php';
