@@ -3,8 +3,8 @@
 // # Update a plan
 //
 // This sample code demonstrate how you can update a billing plan, as documented here at:
-// https://developer.paypal.com/docs/api/#update-a-plan
-// API used:  /v1/payments/billing-plans/<Plan-Id>
+// https://developer.paypal.com/docs/api/payments.billing-plans/v1/#billing-plans_patch
+// API used: PATCH /v1/payments/billing-plans/{plan_id}
 
 // ### Making Plan Active
 // This example demonstrate how you could activate the Plan.

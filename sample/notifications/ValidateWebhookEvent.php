@@ -44,8 +44,8 @@ $requestBody = '{"id":"WH-7MU294299R542214K-4N1831857K851783H","event_version":"
 //$headers = getallheaders();
 
 /**
-* In Documentions https://developer.paypal.com/docs/api/webhooks/#verify-webhook-signature_post
-* All header keys as UPPERCASE, but I recive the header key as the example array, First letter as UPPERCASE
+* In documentations https://developer.paypal.com/docs/api/webhooks/v1/#verify-webhook-signature
+* All header keys as UPPERCASE, but I receive the header key as the example array, First letter as UPPERCASE
 */
 $headers = array_change_key_case($headers, CASE_UPPER);
 

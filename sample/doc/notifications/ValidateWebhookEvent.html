@@ -39,8 +39,8 @@ To resolve that, we need to use alternative, which makes a call to PayPal&#39;s 
 <span class="hljs-comment">//$headers = getallheaders();</span>
 
 <span class="hljs-comment">/**
-* In Documentions https://developer.paypal.com/docs/api/webhooks/#verify-webhook-signature_post
-* All header keys as UPPERCASE, but I recive the header key as the example array, First letter as UPPERCASE
+* In documentations https://developer.paypal.com/docs/api/webhooks/v1/#verify-webhook-signature
+* All header keys as UPPERCASE, but I receive the header key as the example array, First letter as UPPERCASE
 */</span>
 <span class="hljs-variable">$headers</span> = array_change_key_case(<span class="hljs-variable">$headers</span>, CASE_UPPER);
 

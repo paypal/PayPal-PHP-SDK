@@ -3,7 +3,7 @@
 // # Search Webhook Events Sample
 //
 // This sample code demonstrate how to use this call to search for all webhook events., as documented here at:
-// https://developer.paypal.com/docs/api/#search-webhook-events
+// https://developer.paypal.com/docs/api/webhooks/v1/#webhooks-events_list
 // API used: GET /v1/notifications/webhooks-events
 
 // ## Get Webhook Instance
