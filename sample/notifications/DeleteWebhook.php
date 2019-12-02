@@ -3,8 +3,8 @@
 // # Delete Webhook Sample
 //
 // This sample code demonstrate how to use this call to search for all webhook events., as documented here at:
-// https://developer.paypal.com/docs/api/#delete-a-webhook
-// API used: DELETE v1/notifications/webhooks/<Webhook-Id>
+// https://developer.paypal.com/docs/api/webhooks/v1/#webhooks_delete
+// API used: DELETE v1/notifications/webhooks/{webhook_id}
 
 // ## Get Webhook Instance
 

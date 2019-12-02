@@ -3,8 +3,8 @@
 // # Update Webhook Sample
 //
 // This sample code demonstrate how to use this call to update a webhook; supports the replace operation only, as documented here at:
-// https://developer.paypal.com/docs/api/#update-a-webhook
-// API used: PATCH v1/notifications/webhooks/<Webhook-Id>
+// https://developer.paypal.com/docs/api/webhooks/v1/#webhooks_update
+// API used: PATCH v1/notifications/webhooks/{webhook_id}
 
 // ## Get Webhook ID.
 // In samples we are using CreateWebhook.php sample to get the created instance of webhook.

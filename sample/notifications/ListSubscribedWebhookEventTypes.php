@@ -3,8 +3,8 @@
 // # Get Webhook Sample
 //
 // This sample code demonstrate how you can get a webhook, as documented here at:
-// https://developer.paypal.com/docs/api/#get-a-webhook
-// API used: GET /v1/notifications/webhooks/<Webhook-Id>
+// https://developer.paypal.com/docs/api/webhooks/v1/#webhooks_get
+// API used: GET /v1/notifications/webhooks/{webhook_id}
 
 // ## List Subscribed Event Types
 // Use this call to retrieve the list of events types that are subscribed to a webhook.

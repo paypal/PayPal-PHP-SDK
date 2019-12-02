@@ -3,8 +3,8 @@
 // # Get List of Plan Sample
 //
 // This sample code demonstrate how you can get a list of billing plan, as documented here at:
-// https://developer.paypal.com/docs/api/#list-plans
-// API used: /v1/payments/billing-plans
+// https://developer.paypal.com/docs/api/payments.billing-plans/v1/#billing-plans_list
+// API used: GET /v1/payments/billing-plans
 
 // Retrieving the Plan object from Create Plan Sample to demonstrate the List
 /** @var Plan $createdPlan */

@@ -3,7 +3,7 @@
 // # Get Reference List of all Webhook Event Types
 //
 // This sample code demonstrate how you can get reference list of all webhook event types, as documented here at:
-// https://developer.paypal.com/docs/api/#get-a-reference-list-of-webhook-event-types
+// https://developer.paypal.com/docs/api/webhooks/v1/#webhooks-event-types_list
 // API used: GET /v1/notifications/webhooks-event-types
 
 $apiContext = require __DIR__ . '/../bootstrap.php';
