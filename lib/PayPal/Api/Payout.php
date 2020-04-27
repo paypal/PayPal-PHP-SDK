@@ -97,7 +97,7 @@ class Payout extends PayPalResourceModel
     }
 
     /**
-     * Create a payout batch resource by passing a sender_batch_header and an items array to the request URI. The sender_batch_header contains payout parameters that describe the handling of a batch resource while the items array conatins payout items.
+     * Create a payout batch resource by passing a sender_batch_header and an items array to the request URI. The sender_batch_header contains payout parameters that describe the handling of a batch resource while the items array contains payout items.
      *
      * @param array $params
      * @param ApiContext $apiContext is the APIContext for this call. It can be used to pass dynamic configuration and credentials.
