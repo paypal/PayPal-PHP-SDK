@@ -198,7 +198,7 @@ class Order extends PayPalResourceModel
     }
 
     /**
-     * [DEPRECATED] Reason code for the transaction state being Pending. Obsolete. Retained for backward compatability. Use reason_code field above instead. 
+     * [DEPRECATED] Reason code for the transaction state being Pending. Obsolete. Retained for backward compatibility. Use reason_code field above instead. 
      * Valid Values: ["payer_shipping_unconfirmed", "multi_currency", "risk_review", "regulatory_review", "verification_required", "order", "other"]
      *
      * @param string $pending_reason
@@ -212,7 +212,7 @@ class Order extends PayPalResourceModel
     }
 
     /**
-     * @deprecated  [DEPRECATED] Reason code for the transaction state being Pending. Obsolete. Retained for backward compatability. Use reason_code field above instead. 
+     * @deprecated  [DEPRECATED] Reason code for the transaction state being Pending. Obsolete. Retained for backward compatibility. Use reason_code field above instead. 
      *
      * @return string
      */

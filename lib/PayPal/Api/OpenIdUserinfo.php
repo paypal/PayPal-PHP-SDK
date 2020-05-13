@@ -255,7 +255,7 @@ class OpenIdUserinfo extends PayPalResourceModel
     }
 
     /**
-     * End-User's birthday, represented as an YYYY-MM-DD format. They year MAY be 0000, indicating it is omited. To represent only the year, YYYY format would be used.
+     * End-User's birthday, represented as an YYYY-MM-DD format. They year MAY be 0000, indicating it is omitted. To represent only the year, YYYY format would be used.
      *
      * @param string $birthday
      * @return self
@@ -267,7 +267,7 @@ class OpenIdUserinfo extends PayPalResourceModel
     }
 
     /**
-     * End-User's birthday, represented as an YYYY-MM-DD format. They year MAY be 0000, indicating it is omited. To represent only the year, YYYY format would be used.
+     * End-User's birthday, represented as an YYYY-MM-DD format. They year MAY be 0000, indicating it is omitted. To represent only the year, YYYY format would be used.
      *
      * @return string
      */
