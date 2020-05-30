@@ -19,7 +19,7 @@ class CaptureTest extends TestCase
      */
     public static function getJson()
     {
-        return '{"id":"TestSample","amount":' .AmountTest::getJson() . ',"is_final_capture":true,"state":"TestSample","reason_code":"TestSample","parent_payment":"TestSample","invoice_number":"TestSample","transaction_fee":' .CurrencyTest::getJson() . ',"create_time":"TestSample","update_time":"TestSample","links":' .LinksTest::getJson() . '}';
+        return '{"id":"TestSample","amount":' .AmountTest::getJson() . ',"is_final_capture":true,"state":"TestSample","reason_code":"TestSample","parent_payment":"TestSample","invoice_number":"TestSample","transaction_fee":' .CurrencyTest::getJson() . ',"note_to_payer":"Contact us for any questions on your order.","create_time":"TestSample","update_time":"TestSample","links":' .LinksTest::getJson() . '}';
     }
 
     /**
@@ -48,6 +48,7 @@ class CaptureTest extends TestCase
         $this->assertNotNull($obj->getParentPayment());
         $this->assertNotNull($obj->getInvoiceNumber());
         $this->assertNotNull($obj->getTransactionFee());
+        $this->assertNotNull($obj->getNoteToPayer());
         $this->assertNotNull($obj->getCreateTime());
         $this->assertNotNull($obj->getUpdateTime());
         $this->assertNotNull($obj->getLinks());
@@ -69,6 +70,7 @@ class CaptureTest extends TestCase
         $this->assertEquals($obj->getParentPayment(), "TestSample");
         $this->assertEquals($obj->getInvoiceNumber(), "TestSample");
         $this->assertEquals($obj->getTransactionFee(), CurrencyTest::getObject());
+        $this->assertEquals($obj->getNoteToPayer(), "Contact us for any questions on your order.");
         $this->assertEquals($obj->getCreateTime(), "TestSample");
         $this->assertEquals($obj->getUpdateTime(), "TestSample");
         $this->assertEquals($obj->getLinks(), LinksTest::getObject());

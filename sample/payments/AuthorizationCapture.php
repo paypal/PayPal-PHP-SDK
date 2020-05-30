@@ -5,6 +5,7 @@
 // API used: /v1/payments/payment
 // https://developer.paypal.com/docs/api/#capture-an-authorization
 
+require __DIR__ . '/../bootstrap.php';
 use PayPal\Api\Amount;
 use PayPal\Api\Authorization;
 use PayPal\Api\Capture;
@@ -29,6 +30,7 @@ try {
     ### Capture
     $capture = new Capture();
     $capture->setAmount($amt);
+    $capture->setNoteToPayer("Contact us for any questions on your order.");
 
     // Perform a capture
     $getCapture = $authorization->capture($capture, $apiContext);
