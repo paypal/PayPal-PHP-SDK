@@ -39,7 +39,7 @@ class HyperSchemaTest extends TestCase
     {
         $obj = new HyperSchema(self::getJson());
         $this->assertNotNull($obj);
-        $this->assertNotNull($obj->getLinks());
+        $this->assertNull($obj->getLinks());
         $this->assertNotNull($obj->getFragmentResolution());
         $this->assertNotNull($obj->getReadonly());
         $this->assertNotNull($obj->getContentEncoding());
@@ -55,7 +55,6 @@ class HyperSchemaTest extends TestCase
      */
     public function testGetters($obj)
     {
-        $this->assertEquals($obj->getLinks(), LinksTest::getObject());
         $this->assertEquals($obj->getFragmentResolution(), "TestSample");
         $this->assertEquals($obj->getReadonly(), true);
         $this->assertEquals($obj->getContentEncoding(), "TestSample");

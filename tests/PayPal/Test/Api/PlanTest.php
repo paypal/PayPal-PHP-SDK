@@ -146,9 +146,8 @@ class PlanTest extends TestCase
             ->will($this->returnValue(
                     PlanListTest::getJson()
             ));
-        $params = ParamsTest::getObject();
 
-        $result = $obj->all($params, $mockApiContext, $mockPayPalRestCall);
+        $result = $obj->all(array(), $mockApiContext, $mockPayPalRestCall);
         $this->assertNotNull($result);
     }
 
