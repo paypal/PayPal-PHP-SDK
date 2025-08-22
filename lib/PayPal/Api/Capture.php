@@ -52,7 +52,7 @@ class Capture extends PayPalResourceModel
     }
 
     /**
-     * The amount to capture. If the amount matches the orginally authorized amount, the state of the authorization changes to `captured`. If not, the state of the authorization changes to `partially_captured`.
+     * The amount to capture. If the amount matches the originally authorized amount, the state of the authorization changes to `captured`. If not, the state of the authorization changes to `partially_captured`.
      *
      * @param \PayPal\Api\Amount $amount
      * 
@@ -65,7 +65,7 @@ class Capture extends PayPalResourceModel
     }
 
     /**
-     * The amount to capture. If the amount matches the orginally authorized amount, the state of the authorization changes to `captured`. If not, the state of the authorization changes to `partially_captured`.
+     * The amount to capture. If the amount matches the originally authorized amount, the state of the authorization changes to `captured`. If not, the state of the authorization changes to `partially_captured`.
      *
      * @return \PayPal\Api\Amount
      */

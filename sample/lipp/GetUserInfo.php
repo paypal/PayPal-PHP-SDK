@@ -14,7 +14,7 @@ use PayPal\Api\OpenIdUserinfo;
 // This refresh token should be stored in a permanent storage for later use.
 
 // Lastly, when you need to retrieve the user information, you need to generate the short lived access token
-// to retreive the information. The short lived access token can be retrieved using the example shown in
+// to retrieve the information. The short lived access token can be retrieved using the example shown in
 // "GenerateAccessTokenFromRefreshToken.php", or as shown below
 
 // You can retrieve the refresh token by executing ObtainUserConsent.php and store the refresh token

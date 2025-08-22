@@ -21,7 +21,7 @@ $flowConfig->setReturnUriHttpMethod("GET");
 // Parameters for style and presentation.
 $presentation = new \PayPal\Api\Presentation();
 
-// A URL to logo image. Allowed vaues: .gif, .jpg, or .png.
+// A URL to logo image. Allowed values: .gif, .jpg, or .png.
 $presentation->setLogoImage("http://www.yeowza.com/favico.ico")
 //	A label that overrides the business name in the PayPal account on the PayPal pages.
     ->setBrandName("YeowZa! Paypal")

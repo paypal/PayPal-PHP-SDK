@@ -10,7 +10,7 @@ namespace PayPal\Exception;
 class PayPalConnectionException extends \Exception
 {
     /**
-     * The url that was being connected to when the exception occured
+     * The url that was being connected to when the exception occurred
      *
      * @var string
      */

@@ -16,7 +16,7 @@ $webProfile->getPresentation()->setLogoImage("http://www.google.com/favico.ico")
 try {
     // Update the web profile to change the logo image.
     if ($webProfile->update($apiContext)) {
-        // If the update is successfull, we can now get the object, and verify the web profile
+        // If the update is successful, we can now get the object, and verify the web profile
         // object
         $updatedWebProfile = \PayPal\Api\WebProfile::get($webProfile->getId(), $apiContext);
     }
