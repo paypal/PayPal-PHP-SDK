@@ -53,7 +53,7 @@ class OpenIdSession
         if ($state) {
             $params['state'] = $state;
         }
-        return sprintf("%s/signin/authorize?%s", self::getBaseUrl($config), http_build_query($params));
+        return sprintf("%s/connect?%s", self::getBaseUrl($config), http_build_query($params));
     }
 
 
