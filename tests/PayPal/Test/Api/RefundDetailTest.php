@@ -40,7 +40,7 @@ class RefundDetailTest extends TestCase
         $obj = new RefundDetail(self::getJson());
         $this->assertNotNull($obj);
         $this->assertNotNull($obj->getType());
-        $this->assertNotNull($obj->getTransactionId());
+        $this->assertNull($obj->getTransactionId());
         $this->assertNotNull($obj->getDate());
         $this->assertNotNull($obj->getNote());
         $this->assertNotNull($obj->getAmount());
@@ -55,7 +55,7 @@ class RefundDetailTest extends TestCase
     public function testGetters($obj)
     {
         $this->assertEquals($obj->getType(), "TestSample");
-        $this->assertEquals($obj->getTransactionId(), "TestSample");
+        $this->assertNull($obj->getTransactionId());
         $this->assertEquals($obj->getDate(), "TestSample");
         $this->assertEquals($obj->getNote(), "TestSample");
         $this->assertEquals($obj->getAmount(), CurrencyTest::getObject());

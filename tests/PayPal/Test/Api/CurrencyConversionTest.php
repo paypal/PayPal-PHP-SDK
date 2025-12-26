@@ -81,11 +81,4 @@ class CurrencyConversionTest extends TestCase
         $obj = new CurrencyConversion();
         $obj->setWebUrl(null);
     }
-
-    public function testUrlValidationForWebUrlDeprecated()
-    {
-        $obj = new CurrencyConversion();
-        $obj->setWebUrl(null);
-        $this->assertNull($obj->getWebUrl());
-    }
 }

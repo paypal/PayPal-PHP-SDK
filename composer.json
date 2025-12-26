@@ -4,7 +4,7 @@
     "keywords": ["paypal", "payments", "rest", "sdk"],
     "type": "library",
     "license": "Apache-2.0",
-    "homepage": "http://paypal.github.io/PayPal-PHP-SDK/",
+    "homepage": "https://paypal.github.io/PayPal-PHP-SDK/",
     "authors": [
         {
             "name": "PayPal",
@@ -18,11 +18,16 @@
         "psr/log": "^1.0.0"
     },
     "require-dev": {
-        "phpunit/phpunit": "^4.8.35"
+        "phpunit/phpunit": "^4.8.35 || ^5.7"
     },
     "autoload": {
         "psr-0": {
-            "PayPal": "lib/"
+            "PayPal\\": "lib/"
+        }
+    },
+    "autoload-dev": {
+        "psr-0": {
+            "PayPal\\Test\\": "tests/"
         }
     }
 }

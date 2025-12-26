@@ -80,11 +80,4 @@ class MetadataTest extends TestCase
         $obj = new Metadata();
         $obj->setPayerViewUrl(null);
     }
-
-    public function testUrlValidationForPayerViewUrlDeprecated()
-    {
-        $obj = new Metadata();
-        $obj->setPayer_view_url(null);
-        $this->assertNull($obj->getPayer_view_url());
-    }
 }

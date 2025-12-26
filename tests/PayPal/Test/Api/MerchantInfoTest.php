@@ -18,7 +18,7 @@ class MerchantInfoTest extends TestCase
      */
     public static function getJson()
     {
-        return '{"email":"TestSample","first_name":"TestSample","last_name":"TestSample","address":' .AddressTest::getJson() . ',"business_name":"TestSample","phone":' .PhoneTest::getJson() . ',"fax":' .PhoneTest::getJson() . ',"website":"TestSample","tax_id":"TestSample","additional_info_label":"TestSample","additional_info":"TestSample"}';
+        return '{"email":"TestSample","first_name":"TestSample","last_name":"TestSample","address":' .InvoiceAddressTest::getJson() . ',"business_name":"TestSample","phone":' .PhoneTest::getJson() . ',"fax":' .PhoneTest::getJson() . ',"website":"TestSample","tax_id":"TestSample","additional_info_label":"TestSample","additional_info":"TestSample"}';
     }
 
     /**
@@ -63,7 +63,7 @@ class MerchantInfoTest extends TestCase
         $this->assertEquals($obj->getEmail(), "TestSample");
         $this->assertEquals($obj->getFirstName(), "TestSample");
         $this->assertEquals($obj->getLastName(), "TestSample");
-        $this->assertEquals($obj->getAddress(), AddressTest::getObject());
+        $this->assertEquals($obj->getAddress(), InvoiceAddressTest::getObject());
         $this->assertEquals($obj->getBusinessName(), "TestSample");
         $this->assertEquals($obj->getPhone(), PhoneTest::getObject());
         $this->assertEquals($obj->getFax(), PhoneTest::getObject());

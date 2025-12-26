@@ -18,7 +18,7 @@ class ShippingInfoTest extends TestCase
      */
     public static function getJson()
     {
-        return '{"first_name":"TestSample","last_name":"TestSample","business_name":"TestSample","address":' .AddressTest::getJson() . '}';
+        return '{"first_name":"TestSample","last_name":"TestSample","business_name":"TestSample","address":' .ShippingAddressTest::getJson() . '}';
     }
 
     /**
@@ -56,6 +56,6 @@ class ShippingInfoTest extends TestCase
         $this->assertEquals($obj->getFirstName(), "TestSample");
         $this->assertEquals($obj->getLastName(), "TestSample");
         $this->assertEquals($obj->getBusinessName(), "TestSample");
-        $this->assertEquals($obj->getAddress(), AddressTest::getObject());
+        $this->assertEquals($obj->getAddress(), ShippingAddressTest::getObject());
     }
 }
