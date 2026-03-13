@@ -215,6 +215,29 @@ class Capture extends PayPalResourceModel
     }
 
     /**
+     * A free-form field that clients can use to send a note to the payer.
+     *
+     * @param string $note_to_payer
+     *
+     * @return $this
+     */
+    public function setNoteToPayer($note_to_payer)
+    {
+        $this->note_to_payer = $note_to_payer;
+        return $this;
+    }
+
+    /**
+     * A free-form field that clients can use to send a note to the payer.
+     *
+     * @return string
+     */
+    public function getNoteToPayer()
+    {
+        return $this->note_to_payer;
+    }
+
+    /**
      * The date and time of capture, as defined in [RFC 3339 Section 5.6](http://tools.ietf.org/html/rfc3339#section-5.6).
      *
      * @param string $create_time
